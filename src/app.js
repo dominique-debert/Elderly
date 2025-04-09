@@ -1,7 +1,7 @@
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import userRouter from './routes/users.js';
-import { specs } from './config/swagger.js';
+import swaggerSpecs from './config/swagger.js';
 import db from './models/index.js';
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Swagger setup
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Routes
 app.use('/api/users', userRouter);
