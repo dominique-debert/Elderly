@@ -4,6 +4,8 @@ import userRoutes from './routes/user.routes.js';
 import skillRoutes from './routes/skill.routes.js';
 import badgeRoutes from './routes/badge.routes.js';
 import cognitiveExerciseRoutes from './routes/cognitiveExercise.routes.js';
+import exerciseProgramRoutes from './routes/exerciseProgram.routes.js';
+
 import { specs } from './config/swagger.js';
 import db from  './models/index.js';
 
@@ -20,6 +22,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // Routes
 app.use('/api/badges', badgeRoutes);
 app.use('/api/cognitive-exercises', cognitiveExerciseRoutes);
+app.use('/api/exercise-programs', exerciseProgramRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/skills', skillRoutes);
 
