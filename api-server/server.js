@@ -9,6 +9,7 @@ import badgeRoutes from './routes/badge.routes.js';
 import cognitiveExerciseRoutes from './routes/cognitiveExercise.routes.js';
 import exerciseProgramRoutes from './routes/exerciseProgram.routes.js';
 import nutritionAdviceRoutes from './routes/nutritionAdvice.routes.js';
+import wellnessBadgeRoutes from './routes/wellnessBadge.routes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,6 +28,7 @@ app.use('/api/exercise-programs', exerciseProgramRoutes);
 app.use('/api//nutrition-advices', nutritionAdviceRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/skills', skillRoutes);
+app.use('/api/wellness-badges', wellnessBadgeRoutes);
 
 // Root route
 app.get('/', (req, res) => {

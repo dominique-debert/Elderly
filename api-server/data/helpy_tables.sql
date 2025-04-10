@@ -2,6 +2,7 @@
 BEGIN;
 
 -- TABLES PRINCIPALES
+-- API STATUS: DONE
 DROP TABLE IF EXISTS "user";
 CREATE TABLE IF NOT EXISTS "user" (
     id SERIAL PRIMARY KEY,
@@ -28,6 +29,7 @@ CREATE TABLE IF NOT EXISTS "user" (
     updated_at TIMESTAMP
 );
 
+-- API STATUS: DONE
 DROP TABLE IF EXISTS "skill";
 CREATE TABLE IF NOT EXISTS "skill" (
     id SERIAL PRIMARY KEY,
@@ -66,7 +68,6 @@ CREATE TABLE IF NOT EXISTS "notification_preferences" (
     "updated_at" TIMESTAMP
 );
 
--- Création de la table NOTIFICATION
 DROP TABLE IF EXISTS "notification";
 CREATE TABLE IF NOT EXISTS "notification" (  
   id SERIAL PRIMARY KEY,  -- Identifiant unique, clé primaire

@@ -4,6 +4,7 @@ import { Sequelize } from 'sequelize';
 import process from 'process';
 import { fileURLToPath } from 'url';
 import dbConfig from '../config/database.js';
+
 import User from './User.model.js';
 import Skill from './Skill.model.js';
 import Activity from './Activity.model.js';
@@ -13,7 +14,7 @@ import Badge from './Badge.model.js';
 import CognitiveExercise from './CognitiveExercise.model.js';
 import ExerciseProgram from './ExerciseProgram.model.js';
 import NutritionAdvice from './NutritionAdvice.model.js';
-
+import WellnessBadge from './WellnessBadge.model.js';
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
 // const basename = path.basename(__filename);
@@ -44,6 +45,7 @@ db.ExerciseProgram = ExerciseProgram(sequelize, Sequelize.DataTypes);
 db.NutritionAdvice = NutritionAdvice(sequelize, Sequelize.DataTypes);
 db.User = User(sequelize, Sequelize.DataTypes);
 db.Skill = Skill(sequelize, Sequelize.DataTypes);
+db.WellnessBadge = WellnessBadge(sequelize, Sequelize.DataTypes);
 
 // Associate models if associations exist
 // Object.keys(db).forEach(modelName => {
