@@ -8,6 +8,7 @@ import skillRoutes from './routes/skill.routes.js';
 import badgeRoutes from './routes/badge.routes.js';
 import cognitiveExerciseRoutes from './routes/cognitiveExercise.routes.js';
 import exerciseProgramRoutes from './routes/exerciseProgram.routes.js';
+import localServiceRoutes from './routes/localService.routes.js';
 import nutritionAdviceRoutes from './routes/nutritionAdvice.routes.js';
 import wellnessBadgeRoutes from './routes/wellnessBadge.routes.js';
 
@@ -25,6 +26,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/api/badges', badgeRoutes);
 app.use('/api/cognitive-exercises', cognitiveExerciseRoutes);
 app.use('/api/exercise-programs', exerciseProgramRoutes);
+app.use('/api/local-services', localServiceRoutes);
 app.use('/api//nutrition-advices', nutritionAdviceRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/skills', skillRoutes);
