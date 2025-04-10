@@ -6,6 +6,10 @@ import { fileURLToPath } from 'url';
 import dbConfig from '../config/database.js';
 import User from './User.model.js';
 import Skill from './Skill.model.js';
+import Activity from './Activity.model.js';
+import ActivityLog from './ActivityLog.model.js';
+import ActivityRegistration from './ActivityRegistration.model.js';
+import Badge from './Badge.model.js';
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
@@ -28,6 +32,10 @@ if (config.use_env_variable) {
 }
 
 // Load models
+db.Activity = Activity(sequelize, Sequelize.DataTypes);
+db.ActivityLog = ActivityLog(sequelize, Sequelize.DataTypes);
+db.ActivityRegistration = ActivityRegistration(sequelize, Sequelize.DataTypes);
+db.Badge = Badge(sequelize, Sequelize.DataTypes);
 db.User = User(sequelize, Sequelize.DataTypes);
 db.Skill = Skill(sequelize, Sequelize.DataTypes);
 
