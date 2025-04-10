@@ -1,4 +1,3 @@
-// swagger/schemas/user.js
 /**
  * @swagger
  * components:

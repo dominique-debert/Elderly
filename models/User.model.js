@@ -1,7 +1,7 @@
-// models/user.js
+// This file defines the User model for a Sequelize ORM setup.
 const User = (sequelize, DataTypes) => {
   const model = sequelize.define('User', {
-id: {
+    id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
@@ -81,24 +81,19 @@ id: {
       type: DataTypes.STRING(50),
       defaultValue: 'active'
     },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
-    },
-    updated_at: {
-      type: DataTypes.DATE
-    },
   }, {
     tableName: 'user',
     timestamps: true,
+    underscored: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   });
-
+  
   // Add any associations here if needed
   model.associate = function(models) {
     // For example: User.hasMany(models.Post);
   };
-
+  
   return model;
 };
 

@@ -4,19 +4,6 @@ import db from '../models/index.js';
 
 const User = db.User;
 
-// Créer un nouveau utilisateur
-export const createUser = async (req, res) => {
-  try {
-    const user = await User.create(req.body);
-    return res.status(201).json(user);
-  } catch (error) {
-    return res.status(400).json({
-      message: 'Erreur lors de la création de l\'utilisateur',
-      error: error.message
-    });
-  }
-};
-
 // Récupérer tous les utilisateurs avec pagination et filtres optionnels
 export const getAllUsers = async (req, res) => {
   try {
@@ -33,7 +20,7 @@ export const getAllUsers = async (req, res) => {
       where,
       limit: parseInt(limit),
       offset: parseInt(offset),
-      order: [['created_at', 'DESC']]
+      order: [['email', 'ASC']]
     });
     
     return res.status(200).json({
@@ -61,6 +48,19 @@ export const getUserById = async (req, res) => {
   } catch (error) {
     return res.status(500).json({
       message: 'Erreur lors de la récupération de l\'utilisateur',
+      error: error.message
+    });
+  }
+};
+
+// Créer un nouvel utilisateur
+export const createUser = async (req, res) => {
+  try {
+    const user = await User.create(req.body);
+    return res.status(201).json(user);
+  } catch (error) {
+    return res.status(400).json({
+      message: 'Erreur lors de la création de l\'utilisateur',
       error: error.message
     });
   }

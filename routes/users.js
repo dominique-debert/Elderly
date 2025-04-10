@@ -1,4 +1,3 @@
-// routes/userRoutes.js
 import express from 'express';
 import {
   createUser,
@@ -9,7 +8,7 @@ import {
   changeUserStatus
 } from '../controllers/userController.js';
 
-const router = express.Router();
+const userRoutes = express.Router();
 
 /**
  * @swagger
@@ -33,7 +32,7 @@ const router = express.Router();
  *       400:
  *         description: Données invalides
  */
-router.post('/', createUser);
+userRoutes.post('/', createUser);
 
 /**
  * @swagger
@@ -90,7 +89,7 @@ router.post('/', createUser);
  *                   items:
  *                     $ref: '#/components/schemas/User'
  */
-router.get('/', getAllUsers);
+userRoutes.get('/', getAllUsers);
 
 /**
  * @swagger
@@ -115,7 +114,7 @@ router.get('/', getAllUsers);
  *       404:
  *         description: Utilisateur non trouvé
  */
-router.get('/:id', getUserById);
+userRoutes.get('/:id', getUserById);
 
 /**
  * @swagger
@@ -146,7 +145,7 @@ router.get('/:id', getUserById);
  *       404:
  *         description: Utilisateur non trouvé
  */
-router.put('/:id', updateUser);
+userRoutes.put('/:id', updateUser);
 
 /**
  * @swagger
@@ -167,7 +166,7 @@ router.put('/:id', updateUser);
  *       404:
  *         description: Utilisateur non trouvé
  */
-router.delete('/:id', deleteUser);
+userRoutes.delete('/:id', deleteUser);
 
 /**
  * @swagger
@@ -203,6 +202,6 @@ router.delete('/:id', deleteUser);
  *       404:
  *         description: Utilisateur non trouvé
  */
-router.patch('/:id/status', changeUserStatus);
+userRoutes.patch('/:id/status', changeUserStatus);
 
-export default router;
+export default userRoutes;

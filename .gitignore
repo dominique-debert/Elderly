@@ -45,6 +45,6 @@ dist
 .pnp.*
 node_modules
 node_modules/
-node_modules/.bin
+node_modules/.bin/
 package-lock.json
 .env
