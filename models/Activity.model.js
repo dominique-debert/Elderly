@@ -64,14 +64,6 @@ const Activity = (sequelize, DataTypes) => {
     },
     transport_options: {
       type: DataTypes.STRING(255)
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
-    },
-    updated_at: {
-      type: DataTypes.DATE
     }
   }, {
     tableName: 'activity',

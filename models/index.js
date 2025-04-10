@@ -10,6 +10,7 @@ import Activity from './Activity.model.js';
 import ActivityLog from './ActivityLog.model.js';
 import ActivityRegistration from './ActivityRegistration.model.js';
 import Badge from './Badge.model.js';
+import CognitiveExercise from './CognitiveExercise.model.js';
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
@@ -36,6 +37,7 @@ db.Activity = Activity(sequelize, Sequelize.DataTypes);
 db.ActivityLog = ActivityLog(sequelize, Sequelize.DataTypes);
 db.ActivityRegistration = ActivityRegistration(sequelize, Sequelize.DataTypes);
 db.Badge = Badge(sequelize, Sequelize.DataTypes);
+db.CognitiveExercise = CognitiveExercise(sequelize, Sequelize.DataTypes);
 db.User = User(sequelize, Sequelize.DataTypes);
 db.Skill = Skill(sequelize, Sequelize.DataTypes);
 

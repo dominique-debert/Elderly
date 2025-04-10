@@ -24,15 +24,6 @@ const Badge = (sequelize, DataTypes) => {
     level: {
       type: DataTypes.INTEGER,
       allowNull: true
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
-    },
-    updated_at: {
-      type: DataTypes.DATE,
-      allowNull: true
     }
   }, {
     tableName: 'badge',
