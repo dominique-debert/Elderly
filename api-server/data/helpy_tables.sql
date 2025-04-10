@@ -299,7 +299,7 @@ CREATE TABLE IF NOT EXISTS "nutritional_advice" (
     title VARCHAR(255) NOT NULL,      -- titre de l'avis nutritionnel
     description TEXT,                 -- description de l'avis
     category VARCHAR(50),             -- catégorie de l'avis
-    season VARCHAR(50),               -- saison à laquelle l'avis s'applique
+    season VARCHAR(50) CHECK (season IN ('printemps', 'été', 'automne', 'hiver')) NOT NULL,               -- saison à laquelle l'avis s'applique
     image VARCHAR(255),             -- URL ou chemin de l'image associée
     "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP
