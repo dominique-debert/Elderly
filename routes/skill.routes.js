@@ -1,11 +1,5 @@
 import express from 'express';
-import {
-  createSkill,
-  getAllSkills,
-  getSkillById,
-  updateSkill,
-  deleteSkill,
-} from '../controllers/skillController.js';
+import * as skillController from '../controllers/skill.controller.js';
 
 const skillRoutes = express.Router();
 /**
@@ -30,7 +24,7 @@ const skillRoutes = express.Router();
  *       400:
  *         description: Données invalides
  */
-skillRoutes.post('/', createSkill);
+skillRoutes.post('/', skillController.createSkill);
 
 /**
  * @swagger
@@ -39,7 +33,7 @@ skillRoutes.post('/', createSkill);
  *     summary: Récupérer la liste des compétences
  *     tags: [Skills]       
  */ 
-skillRoutes.get('/', getAllSkills);
+skillRoutes.get('/', skillController.getAllSkills);
 
 /**
  * @swagger
@@ -64,7 +58,7 @@ skillRoutes.get('/', getAllSkills);
  *       404:
  *         description: Compétence non trouvée
  */
-skillRoutes.get('/:id', getSkillById);
+skillRoutes.get('/:id', skillController.getSkillById);
 
 /**
  * @swagger
@@ -95,7 +89,7 @@ skillRoutes.get('/:id', getSkillById);
  *       400:
  *         description: Données invalides
  */
-skillRoutes.put('/:id', updateSkill);
+skillRoutes.put('/:id', skillController.updateSkill);
 
 /**
  * @swagger
@@ -116,6 +110,6 @@ skillRoutes.put('/:id', updateSkill);
  *       404:
  *         description: Compétence non trouvée
  */
-skillRoutes.delete('/:id', deleteSkill);
+skillRoutes.delete('/:id', skillController.deleteSkill);
 
 export default skillRoutes;

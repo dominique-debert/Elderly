@@ -23,8 +23,8 @@ const options = {
       }
     ],
   },
-  apis: ['/routes/*.js',
-    '/swagger/schemas/*.js',
+  apis: ['./routes/*.js',
+    './swagger/schemas/*.js',
   ], // Path to the API routes with JSDoc comments
 };
 

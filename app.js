@@ -1,7 +1,7 @@
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
-import userRoutes from './routes/users.js';
-import skillRoutes from './routes/skills.js';
+import userRoutes from './routes/user.routes.js';
+import skillRoutes from './routes/skill.routes.js';
 import { specs } from './config/swagger.js';
 import db from './models/index.js';
 
