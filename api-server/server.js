@@ -12,6 +12,7 @@ import localServiceRoutes from './routes/localService.routes.js';
 import nutritionAdviceRoutes from './routes/nutritionAdvice.routes.js';
 import wellnessBadgeRoutes from './routes/wellnessBadge.routes.js';
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 

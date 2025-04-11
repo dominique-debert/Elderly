@@ -19,15 +19,6 @@ const router = express.Router();
  *             schema:
  *               type: object
  *               properties:
- *                 total:
- *                   type: integer
- *                   description: Nombre total de badges
- *                 totalPages:
- *                   type: integer
- *                   description: Nombre total de pages
- *                 currentPage:
- *                   type: integer
- *                   description: Page actuelle
  *                 badges:
  *                   type: array
  *                   items:
@@ -49,7 +40,8 @@ router.get('/', badgeController.getAllBadges);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: uuid
  *         description: ID du badge à récupérer
  *     responses:
  *       200:
@@ -121,6 +113,7 @@ router.post('/', badgeController.createBadge);
  *         required: true
  *         schema:
  *           type: string
+ *           format: uuid
  *         description: ID du badge à mettre à jour
  *     requestBody:
  *       required: true
@@ -171,6 +164,7 @@ router.put('/:id', badgeController.updateBadge);
  *         required: true
  *         schema:
  *           type: string
+ *           format: uuid
  *         description: ID du badge à supprimer
  *     responses:
  *       200:

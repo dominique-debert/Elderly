@@ -39,6 +39,8 @@ router.get('/', getAllExercises);
  *         required: true
  *         schema:
  *           type: string
+ *           format: uuid
+ *         description: ID de l'exercice à récupérer
  *     responses:
  *       200:
  *         description: Exercice trouvé
@@ -81,6 +83,8 @@ router.post('/', createExercise);
  *         required: true
  *         schema:
  *           type: string
+ *           format: uuid
+ *         description: ID de l'exercice à mettre à jour
  *     requestBody:
  *       content:
  *         application/json:
@@ -106,6 +110,8 @@ router.put('/:id', updateExercise);
  *         required: true
  *         schema:
  *           type: string
+ *           format: uuid
+ *         description: ID de l'exercice à supprimer
  *     responses:
  *       204:
  *         description: Supprimé avec succès

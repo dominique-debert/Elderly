@@ -14,11 +14,11 @@ const exerciseProgramRoutes = Router();
  * @swagger
  * /api/exercise-programs:
  *   get:
- *     summary: Get all exercise programs
+ *     summary: Récupérer tous les programmes d'exercice
  *     tags: [Exercise program]
  *     responses:
  *       200:
- *         description: List of exercise programs
+ *         description: Liste des programmes d'exercice
  */
 exerciseProgramRoutes.get('/', getAllExercisePrograms);
 
@@ -26,19 +26,20 @@ exerciseProgramRoutes.get('/', getAllExercisePrograms);
  * @swagger
  * /api/exercise-programs/{id}:
  *   get:
- *     summary: Get a single exercise program by ID
+ *     summary: Récupérer un programme d'exercice par son ID
  *     tags: [Exercise program]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: uuid
  *     responses:
  *       200:
- *         description: Exercise program found
+ *         description: Programme d'exercice trouvé
  *       404:
- *         description: Exercise program not found
+ *         description: Programme d'exercice non trouvé
  */
 exerciseProgramRoutes.get('/:id', getExerciseProgramById);
 
@@ -46,7 +47,7 @@ exerciseProgramRoutes.get('/:id', getExerciseProgramById);
  * @swagger
  * /api/exercise-programs:
  *   post:
- *     summary: Create a new exercise program
+ *     summary: Créer un nouveau programme d'exercice
  *     tags: [Exercise program]
  *     requestBody:
  *       required: true
@@ -56,7 +57,7 @@ exerciseProgramRoutes.get('/:id', getExerciseProgramById);
  *             $ref: '#/components/schemas/ExerciseProgram'
  *     responses:
  *       201:
- *         description: Exercise program created
+ *         description: Programme d'exercice créé
  */
 exerciseProgramRoutes.post('/', createExerciseProgram);
 
@@ -64,14 +65,15 @@ exerciseProgramRoutes.post('/', createExerciseProgram);
  * @swagger
  * /api/exercise-programs/{id}:
  *   put:
- *     summary: Update an exercise program
+ *     summary: Mettre à jour un programme d'exercice
  *     tags: [Exercise program]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: uuid
  *     requestBody:
  *       required: true
  *       content:
@@ -80,9 +82,9 @@ exerciseProgramRoutes.post('/', createExerciseProgram);
  *             $ref: '#/components/schemas/ExerciseProgram'
  *     responses:
  *       200:
- *         description: Exercise program updated
+ *         description: Programme d'exercice mis à jour
  *       404:
- *         description: Exercise program not found
+ *         description: Programme d'exercice non trouvé
  */
 exerciseProgramRoutes.put('/:id', updateExerciseProgram);
 
@@ -97,12 +99,13 @@ exerciseProgramRoutes.put('/:id', updateExerciseProgram);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: uuid
  *     responses:
  *       204:
- *         description: Successfully deleted
+ *         description: Programme d'exercice supprimé
  *       404:
- *         description: Exercise program not found
+ *         description: Programme d'exercice non trouvé
  */
 exerciseProgramRoutes.delete('/:id', deleteExerciseProgram);
 

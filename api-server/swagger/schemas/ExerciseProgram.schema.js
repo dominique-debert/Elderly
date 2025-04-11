@@ -12,7 +12,8 @@
  *         - duration_minutes
  *       properties:
  *         id:
- *           type: integer
+ *           type: string
+ *           format: uuid
  *           readOnly: true
  *         name:
  *           type: string
