@@ -12,6 +12,10 @@ import localServiceRoutes from './routes/localService.routes.js';
 import nutritionAdviceRoutes from './routes/nutritionAdvice.routes.js';
 import wellnessBadgeRoutes from './routes/wellnessBadge.routes.js';
 
+import { PrismaClient } from './prisma/client.js'
+
+const prisma = new PrismaClient()
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
