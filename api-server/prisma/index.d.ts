@@ -180,7 +180,7 @@ export type survey_response = $Result.DefaultSelection<Prisma.$survey_responsePa
 export type trust_circle = $Result.DefaultSelection<Prisma.$trust_circlePayload>
 /**
  * Model trusted_contact
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * This table contains check constraStrings and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
  */
 export type trusted_contact = $Result.DefaultSelection<Prisma.$trusted_contactPayload>
 /**
@@ -5516,22 +5516,18 @@ export namespace Prisma {
   }
 
   export type ActivityAvgAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
     max_spots: number | null
     cost: number | null
   }
 
   export type ActivitySumAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
     max_spots: number | null
     cost: number | null
   }
 
   export type ActivityMinAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
+    id: string | null
+    creator_id: string | null
     title: string | null
     description: string | null
     start_date: Date | null
@@ -5553,8 +5549,8 @@ export namespace Prisma {
   }
 
   export type ActivityMaxAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
+    id: string | null
+    creator_id: string | null
     title: string | null
     description: string | null
     start_date: Date | null
@@ -5601,15 +5597,11 @@ export namespace Prisma {
 
 
   export type ActivityAvgAggregateInputType = {
-    id?: true
-    creator_id?: true
     max_spots?: true
     cost?: true
   }
 
   export type ActivitySumAggregateInputType = {
-    id?: true
-    creator_id?: true
     max_spots?: true
     cost?: true
   }
@@ -5771,8 +5763,8 @@ export namespace Prisma {
   }
 
   export type ActivityGroupByOutputType = {
-    id: number
-    creator_id: number
+    id: string
+    creator_id: string
     title: string
     description: string | null
     start_date: Date
@@ -5929,8 +5921,8 @@ export namespace Prisma {
       activity_registration: Prisma.$activity_registrationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      creator_id: number
+      id: string
+      creator_id: string
       title: string
       description: string | null
       start_date: Date
@@ -6374,8 +6366,8 @@ export namespace Prisma {
    * Fields of the activity model
    */
   interface activityFieldRefs {
-    readonly id: FieldRef<"activity", 'Int'>
-    readonly creator_id: FieldRef<"activity", 'Int'>
+    readonly id: FieldRef<"activity", 'String'>
+    readonly creator_id: FieldRef<"activity", 'String'>
     readonly title: FieldRef<"activity", 'String'>
     readonly description: FieldRef<"activity", 'String'>
     readonly start_date: FieldRef<"activity", 'DateTime'>
@@ -6838,25 +6830,13 @@ export namespace Prisma {
 
   export type AggregateActivity_log = {
     _count: Activity_logCountAggregateOutputType | null
-    _avg: Activity_logAvgAggregateOutputType | null
-    _sum: Activity_logSumAggregateOutputType | null
     _min: Activity_logMinAggregateOutputType | null
     _max: Activity_logMaxAggregateOutputType | null
   }
 
-  export type Activity_logAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
-  export type Activity_logSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
   export type Activity_logMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     action_type: string | null
     description: string | null
     action_date: Date | null
@@ -6867,8 +6847,8 @@ export namespace Prisma {
   }
 
   export type Activity_logMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     action_type: string | null
     description: string | null
     action_date: Date | null
@@ -6891,16 +6871,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Activity_logAvgAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
-
-  export type Activity_logSumAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
 
   export type Activity_logMinAggregateInputType = {
     id?: true
@@ -6977,18 +6947,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Activity_logAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Activity_logSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Activity_logMinAggregateInputType
@@ -7019,15 +6977,13 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Activity_logCountAggregateInputType | true
-    _avg?: Activity_logAvgAggregateInputType
-    _sum?: Activity_logSumAggregateInputType
     _min?: Activity_logMinAggregateInputType
     _max?: Activity_logMaxAggregateInputType
   }
 
   export type Activity_logGroupByOutputType = {
-    id: number
-    user_id: number | null
+    id: string
+    user_id: string | null
     action_type: string | null
     description: string | null
     action_date: Date | null
@@ -7036,8 +6992,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: Activity_logCountAggregateOutputType | null
-    _avg: Activity_logAvgAggregateOutputType | null
-    _sum: Activity_logSumAggregateOutputType | null
     _min: Activity_logMinAggregateOutputType | null
     _max: Activity_logMaxAggregateOutputType | null
   }
@@ -7124,8 +7078,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number | null
+      id: string
+      user_id: string | null
       action_type: string | null
       description: string | null
       action_date: Date | null
@@ -7557,8 +7511,8 @@ export namespace Prisma {
    * Fields of the activity_log model
    */
   interface activity_logFieldRefs {
-    readonly id: FieldRef<"activity_log", 'Int'>
-    readonly user_id: FieldRef<"activity_log", 'Int'>
+    readonly id: FieldRef<"activity_log", 'String'>
+    readonly user_id: FieldRef<"activity_log", 'String'>
     readonly action_type: FieldRef<"activity_log", 'String'>
     readonly description: FieldRef<"activity_log", 'String'>
     readonly action_date: FieldRef<"activity_log", 'DateTime'>
@@ -7784,7 +7738,7 @@ export namespace Prisma {
     /**
      * The data needed to create a activity_log.
      */
-    data: XOR<activity_logCreateInput, activity_logUncheckedCreateInput>
+    data?: XOR<activity_logCreateInput, activity_logUncheckedCreateInput>
   }
 
   /**
@@ -8005,25 +7959,13 @@ export namespace Prisma {
 
   export type AggregateActivity_registration = {
     _count: Activity_registrationCountAggregateOutputType | null
-    _avg: Activity_registrationAvgAggregateOutputType | null
-    _sum: Activity_registrationSumAggregateOutputType | null
     _min: Activity_registrationMinAggregateOutputType | null
     _max: Activity_registrationMaxAggregateOutputType | null
   }
 
-  export type Activity_registrationAvgAggregateOutputType = {
-    activity_id: number | null
-    user_id: number | null
-  }
-
-  export type Activity_registrationSumAggregateOutputType = {
-    activity_id: number | null
-    user_id: number | null
-  }
-
   export type Activity_registrationMinAggregateOutputType = {
-    activity_id: number | null
-    user_id: number | null
+    activity_id: string | null
+    user_id: string | null
     registration_date: Date | null
     status: string | null
     attendance_confirmed: boolean | null
@@ -8032,8 +7974,8 @@ export namespace Prisma {
   }
 
   export type Activity_registrationMaxAggregateOutputType = {
-    activity_id: number | null
-    user_id: number | null
+    activity_id: string | null
+    user_id: string | null
     registration_date: Date | null
     status: string | null
     attendance_confirmed: boolean | null
@@ -8052,16 +7994,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Activity_registrationAvgAggregateInputType = {
-    activity_id?: true
-    user_id?: true
-  }
-
-  export type Activity_registrationSumAggregateInputType = {
-    activity_id?: true
-    user_id?: true
-  }
 
   export type Activity_registrationMinAggregateInputType = {
     activity_id?: true
@@ -8132,18 +8064,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Activity_registrationAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Activity_registrationSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Activity_registrationMinAggregateInputType
@@ -8174,23 +8094,19 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Activity_registrationCountAggregateInputType | true
-    _avg?: Activity_registrationAvgAggregateInputType
-    _sum?: Activity_registrationSumAggregateInputType
     _min?: Activity_registrationMinAggregateInputType
     _max?: Activity_registrationMaxAggregateInputType
   }
 
   export type Activity_registrationGroupByOutputType = {
-    activity_id: number
-    user_id: number
+    activity_id: string
+    user_id: string
     registration_date: Date
     status: string | null
     attendance_confirmed: boolean | null
     created_at: Date
     updated_at: Date | null
     _count: Activity_registrationCountAggregateOutputType | null
-    _avg: Activity_registrationAvgAggregateOutputType | null
-    _sum: Activity_registrationSumAggregateOutputType | null
     _min: Activity_registrationMinAggregateOutputType | null
     _max: Activity_registrationMaxAggregateOutputType | null
   }
@@ -8276,8 +8192,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      activity_id: number
-      user_id: number
+      activity_id: string
+      user_id: string
       registration_date: Date
       status: string | null
       attendance_confirmed: boolean | null
@@ -8708,8 +8624,8 @@ export namespace Prisma {
    * Fields of the activity_registration model
    */
   interface activity_registrationFieldRefs {
-    readonly activity_id: FieldRef<"activity_registration", 'Int'>
-    readonly user_id: FieldRef<"activity_registration", 'Int'>
+    readonly activity_id: FieldRef<"activity_registration", 'String'>
+    readonly user_id: FieldRef<"activity_registration", 'String'>
     readonly registration_date: FieldRef<"activity_registration", 'DateTime'>
     readonly status: FieldRef<"activity_registration", 'String'>
     readonly attendance_confirmed: FieldRef<"activity_registration", 'Boolean'>
@@ -9142,17 +9058,15 @@ export namespace Prisma {
   }
 
   export type BadgeAvgAggregateOutputType = {
-    id: number | null
     level: number | null
   }
 
   export type BadgeSumAggregateOutputType = {
-    id: number | null
     level: number | null
   }
 
   export type BadgeMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     description: string | null
     icon: string | null
@@ -9163,7 +9077,7 @@ export namespace Prisma {
   }
 
   export type BadgeMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     description: string | null
     icon: string | null
@@ -9187,12 +9101,10 @@ export namespace Prisma {
 
 
   export type BadgeAvgAggregateInputType = {
-    id?: true
     level?: true
   }
 
   export type BadgeSumAggregateInputType = {
-    id?: true
     level?: true
   }
 
@@ -9317,7 +9229,7 @@ export namespace Prisma {
   }
 
   export type BadgeGroupByOutputType = {
-    id: number
+    id: string
     name: string | null
     description: string | null
     icon: string | null
@@ -9406,7 +9318,7 @@ export namespace Prisma {
       user_badge: Prisma.$user_badgePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       name: string | null
       description: string | null
       icon: string | null
@@ -9838,7 +9750,7 @@ export namespace Prisma {
    * Fields of the badge model
    */
   interface badgeFieldRefs {
-    readonly id: FieldRef<"badge", 'Int'>
+    readonly id: FieldRef<"badge", 'String'>
     readonly name: FieldRef<"badge", 'String'>
     readonly description: FieldRef<"badge", 'String'>
     readonly icon: FieldRef<"badge", 'String'>
@@ -10064,7 +9976,7 @@ export namespace Prisma {
     /**
      * The data needed to create a badge.
      */
-    data: XOR<badgeCreateInput, badgeUncheckedCreateInput>
+    data?: XOR<badgeCreateInput, badgeUncheckedCreateInput>
   }
 
   /**
@@ -10289,17 +10201,15 @@ export namespace Prisma {
   }
 
   export type Cognitive_exerciseAvgAggregateOutputType = {
-    id: number | null
     duration_minutes: number | null
   }
 
   export type Cognitive_exerciseSumAggregateOutputType = {
-    id: number | null
     duration_minutes: number | null
   }
 
   export type Cognitive_exerciseMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     category: string | null
     difficulty_level: string | null
@@ -10311,7 +10221,7 @@ export namespace Prisma {
   }
 
   export type Cognitive_exerciseMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     category: string | null
     difficulty_level: string | null
@@ -10337,12 +10247,10 @@ export namespace Prisma {
 
 
   export type Cognitive_exerciseAvgAggregateInputType = {
-    id?: true
     duration_minutes?: true
   }
 
   export type Cognitive_exerciseSumAggregateInputType = {
-    id?: true
     duration_minutes?: true
   }
 
@@ -10470,7 +10378,7 @@ export namespace Prisma {
   }
 
   export type Cognitive_exerciseGroupByOutputType = {
-    id: number
+    id: string
     name: string
     category: string
     difficulty_level: string
@@ -10564,7 +10472,7 @@ export namespace Prisma {
       user_activity: Prisma.$user_activityPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       name: string
       category: string
       difficulty_level: string
@@ -10997,7 +10905,7 @@ export namespace Prisma {
    * Fields of the cognitive_exercise model
    */
   interface cognitive_exerciseFieldRefs {
-    readonly id: FieldRef<"cognitive_exercise", 'Int'>
+    readonly id: FieldRef<"cognitive_exercise", 'String'>
     readonly name: FieldRef<"cognitive_exercise", 'String'>
     readonly category: FieldRef<"cognitive_exercise", 'String'>
     readonly difficulty_level: FieldRef<"cognitive_exercise", 'String'>
@@ -11442,27 +11350,15 @@ export namespace Prisma {
 
   export type AggregateCollaborative_project = {
     _count: Collaborative_projectCountAggregateOutputType | null
-    _avg: Collaborative_projectAvgAggregateOutputType | null
-    _sum: Collaborative_projectSumAggregateOutputType | null
     _min: Collaborative_projectMinAggregateOutputType | null
     _max: Collaborative_projectMaxAggregateOutputType | null
   }
 
-  export type Collaborative_projectAvgAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
-  }
-
-  export type Collaborative_projectSumAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
-  }
-
   export type Collaborative_projectMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
-    creator_id: number | null
+    creator_id: string | null
     creation_date: Date | null
     status: string | null
     category: string | null
@@ -11471,10 +11367,10 @@ export namespace Prisma {
   }
 
   export type Collaborative_projectMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
-    creator_id: number | null
+    creator_id: string | null
     creation_date: Date | null
     status: string | null
     category: string | null
@@ -11495,16 +11391,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Collaborative_projectAvgAggregateInputType = {
-    id?: true
-    creator_id?: true
-  }
-
-  export type Collaborative_projectSumAggregateInputType = {
-    id?: true
-    creator_id?: true
-  }
 
   export type Collaborative_projectMinAggregateInputType = {
     id?: true
@@ -11581,18 +11467,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Collaborative_projectAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Collaborative_projectSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Collaborative_projectMinAggregateInputType
@@ -11623,25 +11497,21 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Collaborative_projectCountAggregateInputType | true
-    _avg?: Collaborative_projectAvgAggregateInputType
-    _sum?: Collaborative_projectSumAggregateInputType
     _min?: Collaborative_projectMinAggregateInputType
     _max?: Collaborative_projectMaxAggregateInputType
   }
 
   export type Collaborative_projectGroupByOutputType = {
-    id: number
+    id: string
     title: string | null
     description: string | null
-    creator_id: number | null
+    creator_id: string | null
     creation_date: Date | null
     status: string | null
     category: string | null
     created_at: Date
     updated_at: Date | null
     _count: Collaborative_projectCountAggregateOutputType | null
-    _avg: Collaborative_projectAvgAggregateOutputType | null
-    _sum: Collaborative_projectSumAggregateOutputType | null
     _min: Collaborative_projectMinAggregateOutputType | null
     _max: Collaborative_projectMaxAggregateOutputType | null
   }
@@ -11736,10 +11606,10 @@ export namespace Prisma {
       project_task: Prisma.$project_taskPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       title: string | null
       description: string | null
-      creator_id: number | null
+      creator_id: string | null
       creation_date: Date | null
       status: string | null
       category: string | null
@@ -12171,10 +12041,10 @@ export namespace Prisma {
    * Fields of the collaborative_project model
    */
   interface collaborative_projectFieldRefs {
-    readonly id: FieldRef<"collaborative_project", 'Int'>
+    readonly id: FieldRef<"collaborative_project", 'String'>
     readonly title: FieldRef<"collaborative_project", 'String'>
     readonly description: FieldRef<"collaborative_project", 'String'>
-    readonly creator_id: FieldRef<"collaborative_project", 'Int'>
+    readonly creator_id: FieldRef<"collaborative_project", 'String'>
     readonly creation_date: FieldRef<"collaborative_project", 'DateTime'>
     readonly status: FieldRef<"collaborative_project", 'String'>
     readonly category: FieldRef<"collaborative_project", 'String'>
@@ -12667,22 +12537,12 @@ export namespace Prisma {
 
   export type AggregateConversation = {
     _count: ConversationCountAggregateOutputType | null
-    _avg: ConversationAvgAggregateOutputType | null
-    _sum: ConversationSumAggregateOutputType | null
     _min: ConversationMinAggregateOutputType | null
     _max: ConversationMaxAggregateOutputType | null
   }
 
-  export type ConversationAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type ConversationSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type ConversationMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     type: string | null
     creation_date: Date | null
     title: string | null
@@ -12691,7 +12551,7 @@ export namespace Prisma {
   }
 
   export type ConversationMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     type: string | null
     creation_date: Date | null
     title: string | null
@@ -12709,14 +12569,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type ConversationAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type ConversationSumAggregateInputType = {
-    id?: true
-  }
 
   export type ConversationMinAggregateInputType = {
     id?: true
@@ -12784,18 +12636,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: ConversationAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ConversationSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: ConversationMinAggregateInputType
@@ -12826,22 +12666,18 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: ConversationCountAggregateInputType | true
-    _avg?: ConversationAvgAggregateInputType
-    _sum?: ConversationSumAggregateInputType
     _min?: ConversationMinAggregateInputType
     _max?: ConversationMaxAggregateInputType
   }
 
   export type ConversationGroupByOutputType = {
-    id: number
+    id: string
     type: string | null
     creation_date: Date | null
     title: string | null
     created_at: Date
     updated_at: Date | null
     _count: ConversationCountAggregateOutputType | null
-    _avg: ConversationAvgAggregateOutputType | null
-    _sum: ConversationSumAggregateOutputType | null
     _min: ConversationMinAggregateOutputType | null
     _max: ConversationMaxAggregateOutputType | null
   }
@@ -12918,7 +12754,7 @@ export namespace Prisma {
       video_call: Prisma.$video_callPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       type: string | null
       creation_date: Date | null
       title: string | null
@@ -13350,7 +13186,7 @@ export namespace Prisma {
    * Fields of the conversation model
    */
   interface conversationFieldRefs {
-    readonly id: FieldRef<"conversation", 'Int'>
+    readonly id: FieldRef<"conversation", 'String'>
     readonly type: FieldRef<"conversation", 'String'>
     readonly creation_date: FieldRef<"conversation", 'DateTime'>
     readonly title: FieldRef<"conversation", 'String'>
@@ -13840,25 +13676,13 @@ export namespace Prisma {
 
   export type AggregateConversation_participant = {
     _count: Conversation_participantCountAggregateOutputType | null
-    _avg: Conversation_participantAvgAggregateOutputType | null
-    _sum: Conversation_participantSumAggregateOutputType | null
     _min: Conversation_participantMinAggregateOutputType | null
     _max: Conversation_participantMaxAggregateOutputType | null
   }
 
-  export type Conversation_participantAvgAggregateOutputType = {
-    conversation_id: number | null
-    user_id: number | null
-  }
-
-  export type Conversation_participantSumAggregateOutputType = {
-    conversation_id: number | null
-    user_id: number | null
-  }
-
   export type Conversation_participantMinAggregateOutputType = {
-    conversation_id: number | null
-    user_id: number | null
+    conversation_id: string | null
+    user_id: string | null
     date_added: Date | null
     administrator: boolean | null
     last_access: Date | null
@@ -13867,8 +13691,8 @@ export namespace Prisma {
   }
 
   export type Conversation_participantMaxAggregateOutputType = {
-    conversation_id: number | null
-    user_id: number | null
+    conversation_id: string | null
+    user_id: string | null
     date_added: Date | null
     administrator: boolean | null
     last_access: Date | null
@@ -13887,16 +13711,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Conversation_participantAvgAggregateInputType = {
-    conversation_id?: true
-    user_id?: true
-  }
-
-  export type Conversation_participantSumAggregateInputType = {
-    conversation_id?: true
-    user_id?: true
-  }
 
   export type Conversation_participantMinAggregateInputType = {
     conversation_id?: true
@@ -13967,18 +13781,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Conversation_participantAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Conversation_participantSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Conversation_participantMinAggregateInputType
@@ -14009,23 +13811,19 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Conversation_participantCountAggregateInputType | true
-    _avg?: Conversation_participantAvgAggregateInputType
-    _sum?: Conversation_participantSumAggregateInputType
     _min?: Conversation_participantMinAggregateInputType
     _max?: Conversation_participantMaxAggregateInputType
   }
 
   export type Conversation_participantGroupByOutputType = {
-    conversation_id: number
-    user_id: number
+    conversation_id: string
+    user_id: string
     date_added: Date | null
     administrator: boolean | null
     last_access: Date
     created_at: Date
     updated_at: Date | null
     _count: Conversation_participantCountAggregateOutputType | null
-    _avg: Conversation_participantAvgAggregateOutputType | null
-    _sum: Conversation_participantSumAggregateOutputType | null
     _min: Conversation_participantMinAggregateOutputType | null
     _max: Conversation_participantMaxAggregateOutputType | null
   }
@@ -14111,8 +13909,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      conversation_id: number
-      user_id: number
+      conversation_id: string
+      user_id: string
       date_added: Date | null
       administrator: boolean | null
       last_access: Date
@@ -14543,8 +14341,8 @@ export namespace Prisma {
    * Fields of the conversation_participant model
    */
   interface conversation_participantFieldRefs {
-    readonly conversation_id: FieldRef<"conversation_participant", 'Int'>
-    readonly user_id: FieldRef<"conversation_participant", 'Int'>
+    readonly conversation_id: FieldRef<"conversation_participant", 'String'>
+    readonly user_id: FieldRef<"conversation_participant", 'String'>
     readonly date_added: FieldRef<"conversation_participant", 'DateTime'>
     readonly administrator: FieldRef<"conversation_participant", 'Boolean'>
     readonly last_access: FieldRef<"conversation_participant", 'DateTime'>
@@ -14977,17 +14775,15 @@ export namespace Prisma {
   }
 
   export type Exercise_programAvgAggregateOutputType = {
-    id: number | null
     duration_minutes: number | null
   }
 
   export type Exercise_programSumAggregateOutputType = {
-    id: number | null
     duration_minutes: number | null
   }
 
   export type Exercise_programMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     category: string | null
     difficulty_level: string | null
@@ -15001,7 +14797,7 @@ export namespace Prisma {
   }
 
   export type Exercise_programMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     category: string | null
     difficulty_level: string | null
@@ -15031,12 +14827,10 @@ export namespace Prisma {
 
 
   export type Exercise_programAvgAggregateInputType = {
-    id?: true
     duration_minutes?: true
   }
 
   export type Exercise_programSumAggregateInputType = {
-    id?: true
     duration_minutes?: true
   }
 
@@ -15170,7 +14964,7 @@ export namespace Prisma {
   }
 
   export type Exercise_programGroupByOutputType = {
-    id: number
+    id: string
     name: string
     category: string
     difficulty_level: string
@@ -15274,7 +15068,7 @@ export namespace Prisma {
       user_activity: Prisma.$user_activityPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       name: string
       category: string
       difficulty_level: string
@@ -15709,7 +15503,7 @@ export namespace Prisma {
    * Fields of the exercise_program model
    */
   interface exercise_programFieldRefs {
-    readonly id: FieldRef<"exercise_program", 'Int'>
+    readonly id: FieldRef<"exercise_program", 'String'>
     readonly name: FieldRef<"exercise_program", 'String'>
     readonly category: FieldRef<"exercise_program", 'String'>
     readonly difficulty_level: FieldRef<"exercise_program", 'String'>
@@ -16163,17 +15957,15 @@ export namespace Prisma {
   }
 
   export type Forum_categoryAvgAggregateOutputType = {
-    id: number | null
     parent_category_id: number | null
   }
 
   export type Forum_categorySumAggregateOutputType = {
-    id: number | null
     parent_category_id: number | null
   }
 
   export type Forum_categoryMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     description: string | null
     parent_category_id: number | null
@@ -16182,7 +15974,7 @@ export namespace Prisma {
   }
 
   export type Forum_categoryMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     description: string | null
     parent_category_id: number | null
@@ -16202,12 +15994,10 @@ export namespace Prisma {
 
 
   export type Forum_categoryAvgAggregateInputType = {
-    id?: true
     parent_category_id?: true
   }
 
   export type Forum_categorySumAggregateInputType = {
-    id?: true
     parent_category_id?: true
   }
 
@@ -16326,7 +16116,7 @@ export namespace Prisma {
   }
 
   export type Forum_categoryGroupByOutputType = {
-    id: number
+    id: string
     name: string
     description: string | null
     parent_category_id: number | null
@@ -16405,7 +16195,7 @@ export namespace Prisma {
       forum_topic: Prisma.$forum_topicPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       name: string
       description: string | null
       parent_category_id: number | null
@@ -16835,7 +16625,7 @@ export namespace Prisma {
    * Fields of the forum_category model
    */
   interface forum_categoryFieldRefs {
-    readonly id: FieldRef<"forum_category", 'Int'>
+    readonly id: FieldRef<"forum_category", 'String'>
     readonly name: FieldRef<"forum_category", 'String'>
     readonly description: FieldRef<"forum_category", 'String'>
     readonly parent_category_id: FieldRef<"forum_category", 'Int'>
@@ -17277,28 +17067,14 @@ export namespace Prisma {
 
   export type AggregateForum_message = {
     _count: Forum_messageCountAggregateOutputType | null
-    _avg: Forum_messageAvgAggregateOutputType | null
-    _sum: Forum_messageSumAggregateOutputType | null
     _min: Forum_messageMinAggregateOutputType | null
     _max: Forum_messageMaxAggregateOutputType | null
   }
 
-  export type Forum_messageAvgAggregateOutputType = {
-    id: number | null
-    topic_id: number | null
-    author_id: number | null
-  }
-
-  export type Forum_messageSumAggregateOutputType = {
-    id: number | null
-    topic_id: number | null
-    author_id: number | null
-  }
-
   export type Forum_messageMinAggregateOutputType = {
-    id: number | null
-    topic_id: number | null
-    author_id: number | null
+    id: string | null
+    topic_id: string | null
+    author_id: string | null
     content: string | null
     creation_date: Date | null
     modification_date: Date | null
@@ -17308,9 +17084,9 @@ export namespace Prisma {
   }
 
   export type Forum_messageMaxAggregateOutputType = {
-    id: number | null
-    topic_id: number | null
-    author_id: number | null
+    id: string | null
+    topic_id: string | null
+    author_id: string | null
     content: string | null
     creation_date: Date | null
     modification_date: Date | null
@@ -17332,18 +17108,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Forum_messageAvgAggregateInputType = {
-    id?: true
-    topic_id?: true
-    author_id?: true
-  }
-
-  export type Forum_messageSumAggregateInputType = {
-    id?: true
-    topic_id?: true
-    author_id?: true
-  }
 
   export type Forum_messageMinAggregateInputType = {
     id?: true
@@ -17420,18 +17184,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Forum_messageAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Forum_messageSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Forum_messageMinAggregateInputType
@@ -17462,16 +17214,14 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Forum_messageCountAggregateInputType | true
-    _avg?: Forum_messageAvgAggregateInputType
-    _sum?: Forum_messageSumAggregateInputType
     _min?: Forum_messageMinAggregateInputType
     _max?: Forum_messageMaxAggregateInputType
   }
 
   export type Forum_messageGroupByOutputType = {
-    id: number
-    topic_id: number | null
-    author_id: number | null
+    id: string
+    topic_id: string | null
+    author_id: string | null
     content: string | null
     creation_date: Date | null
     modification_date: Date | null
@@ -17479,8 +17229,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: Forum_messageCountAggregateOutputType | null
-    _avg: Forum_messageAvgAggregateOutputType | null
-    _sum: Forum_messageSumAggregateOutputType | null
     _min: Forum_messageMinAggregateOutputType | null
     _max: Forum_messageMaxAggregateOutputType | null
   }
@@ -17574,9 +17322,9 @@ export namespace Prisma {
       forum_topic: Prisma.$forum_topicPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      topic_id: number | null
-      author_id: number | null
+      id: string
+      topic_id: string | null
+      author_id: string | null
       content: string | null
       creation_date: Date | null
       modification_date: Date | null
@@ -18008,9 +17756,9 @@ export namespace Prisma {
    * Fields of the forum_message model
    */
   interface forum_messageFieldRefs {
-    readonly id: FieldRef<"forum_message", 'Int'>
-    readonly topic_id: FieldRef<"forum_message", 'Int'>
-    readonly author_id: FieldRef<"forum_message", 'Int'>
+    readonly id: FieldRef<"forum_message", 'String'>
+    readonly topic_id: FieldRef<"forum_message", 'String'>
+    readonly author_id: FieldRef<"forum_message", 'String'>
     readonly content: FieldRef<"forum_message", 'String'>
     readonly creation_date: FieldRef<"forum_message", 'DateTime'>
     readonly modification_date: FieldRef<"forum_message", 'DateTime'>
@@ -18482,23 +18230,17 @@ export namespace Prisma {
   }
 
   export type Forum_topicAvgAggregateOutputType = {
-    id: number | null
-    category_id: number | null
-    author_id: number | null
     views: number | null
   }
 
   export type Forum_topicSumAggregateOutputType = {
-    id: number | null
-    category_id: number | null
-    author_id: number | null
     views: number | null
   }
 
   export type Forum_topicMinAggregateOutputType = {
-    id: number | null
-    category_id: number | null
-    author_id: number | null
+    id: string | null
+    category_id: string | null
+    author_id: string | null
     title: string | null
     creation_date: Date | null
     pinned: boolean | null
@@ -18509,9 +18251,9 @@ export namespace Prisma {
   }
 
   export type Forum_topicMaxAggregateOutputType = {
-    id: number | null
-    category_id: number | null
-    author_id: number | null
+    id: string | null
+    category_id: string | null
+    author_id: string | null
     title: string | null
     creation_date: Date | null
     pinned: boolean | null
@@ -18537,16 +18279,10 @@ export namespace Prisma {
 
 
   export type Forum_topicAvgAggregateInputType = {
-    id?: true
-    category_id?: true
-    author_id?: true
     views?: true
   }
 
   export type Forum_topicSumAggregateInputType = {
-    id?: true
-    category_id?: true
-    author_id?: true
     views?: true
   }
 
@@ -18677,9 +18413,9 @@ export namespace Prisma {
   }
 
   export type Forum_topicGroupByOutputType = {
-    id: number
-    category_id: number
-    author_id: number
+    id: string
+    category_id: string
+    author_id: string
     title: string
     creation_date: Date | null
     pinned: boolean | null
@@ -18792,9 +18528,9 @@ export namespace Prisma {
       forum_category: Prisma.$forum_categoryPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      category_id: number
-      author_id: number
+      id: string
+      category_id: string
+      author_id: string
       title: string
       creation_date: Date | null
       pinned: boolean | null
@@ -19228,9 +18964,9 @@ export namespace Prisma {
    * Fields of the forum_topic model
    */
   interface forum_topicFieldRefs {
-    readonly id: FieldRef<"forum_topic", 'Int'>
-    readonly category_id: FieldRef<"forum_topic", 'Int'>
-    readonly author_id: FieldRef<"forum_topic", 'Int'>
+    readonly id: FieldRef<"forum_topic", 'String'>
+    readonly category_id: FieldRef<"forum_topic", 'String'>
+    readonly author_id: FieldRef<"forum_topic", 'String'>
     readonly title: FieldRef<"forum_topic", 'String'>
     readonly creation_date: FieldRef<"forum_topic", 'DateTime'>
     readonly pinned: FieldRef<"forum_topic", 'Boolean'>
@@ -19689,20 +19425,16 @@ export namespace Prisma {
   }
 
   export type Goal_progressAvgAggregateOutputType = {
-    id: number | null
-    goal_id: number | null
     achieved_value: number | null
   }
 
   export type Goal_progressSumAggregateOutputType = {
-    id: number | null
-    goal_id: number | null
     achieved_value: number | null
   }
 
   export type Goal_progressMinAggregateOutputType = {
-    id: number | null
-    goal_id: number | null
+    id: string | null
+    goal_id: string | null
     recording_date: Date | null
     achieved_value: number | null
     goal_achieved: boolean | null
@@ -19711,8 +19443,8 @@ export namespace Prisma {
   }
 
   export type Goal_progressMaxAggregateOutputType = {
-    id: number | null
-    goal_id: number | null
+    id: string | null
+    goal_id: string | null
     recording_date: Date | null
     achieved_value: number | null
     goal_achieved: boolean | null
@@ -19733,14 +19465,10 @@ export namespace Prisma {
 
 
   export type Goal_progressAvgAggregateInputType = {
-    id?: true
-    goal_id?: true
     achieved_value?: true
   }
 
   export type Goal_progressSumAggregateInputType = {
-    id?: true
-    goal_id?: true
     achieved_value?: true
   }
 
@@ -19862,8 +19590,8 @@ export namespace Prisma {
   }
 
   export type Goal_progressGroupByOutputType = {
-    id: number
-    goal_id: number
+    id: string
+    goal_id: string
     recording_date: Date
     achieved_value: number
     goal_achieved: boolean
@@ -19950,8 +19678,8 @@ export namespace Prisma {
       wellness_goal: Prisma.$wellness_goalPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      goal_id: number
+      id: string
+      goal_id: string
       recording_date: Date
       achieved_value: number
       goal_achieved: boolean
@@ -20381,8 +20109,8 @@ export namespace Prisma {
    * Fields of the goal_progress model
    */
   interface goal_progressFieldRefs {
-    readonly id: FieldRef<"goal_progress", 'Int'>
-    readonly goal_id: FieldRef<"goal_progress", 'Int'>
+    readonly id: FieldRef<"goal_progress", 'String'>
+    readonly goal_id: FieldRef<"goal_progress", 'String'>
     readonly recording_date: FieldRef<"goal_progress", 'DateTime'>
     readonly achieved_value: FieldRef<"goal_progress", 'Int'>
     readonly goal_achieved: FieldRef<"goal_progress", 'Boolean'>
@@ -20815,8 +20543,6 @@ export namespace Prisma {
   }
 
   export type Health_indicatorAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
     step_count: number | null
     sleep_duration_minutes: number | null
     sleep_quality: number | null
@@ -20824,8 +20550,6 @@ export namespace Prisma {
   }
 
   export type Health_indicatorSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
     step_count: number | null
     sleep_duration_minutes: number | null
     sleep_quality: number | null
@@ -20833,8 +20557,8 @@ export namespace Prisma {
   }
 
   export type Health_indicatorMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     recording_date: Date | null
     step_count: number | null
     sleep_duration_minutes: number | null
@@ -20847,8 +20571,8 @@ export namespace Prisma {
   }
 
   export type Health_indicatorMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     recording_date: Date | null
     step_count: number | null
     sleep_duration_minutes: number | null
@@ -20877,8 +20601,6 @@ export namespace Prisma {
 
 
   export type Health_indicatorAvgAggregateInputType = {
-    id?: true
-    user_id?: true
     step_count?: true
     sleep_duration_minutes?: true
     sleep_quality?: true
@@ -20886,8 +20608,6 @@ export namespace Prisma {
   }
 
   export type Health_indicatorSumAggregateInputType = {
-    id?: true
-    user_id?: true
     step_count?: true
     sleep_duration_minutes?: true
     sleep_quality?: true
@@ -21024,8 +20744,8 @@ export namespace Prisma {
   }
 
   export type Health_indicatorGroupByOutputType = {
-    id: number
-    user_id: number | null
+    id: string
+    user_id: string | null
     recording_date: Date
     step_count: number | null
     sleep_duration_minutes: number | null
@@ -21132,8 +20852,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number | null
+      id: string
+      user_id: string | null
       recording_date: Date
       step_count: number | null
       sleep_duration_minutes: number | null
@@ -21567,8 +21287,8 @@ export namespace Prisma {
    * Fields of the health_indicator model
    */
   interface health_indicatorFieldRefs {
-    readonly id: FieldRef<"health_indicator", 'Int'>
-    readonly user_id: FieldRef<"health_indicator", 'Int'>
+    readonly id: FieldRef<"health_indicator", 'String'>
+    readonly user_id: FieldRef<"health_indicator", 'String'>
     readonly recording_date: FieldRef<"health_indicator", 'DateTime'>
     readonly step_count: FieldRef<"health_indicator", 'Int'>
     readonly sleep_duration_minutes: FieldRef<"health_indicator", 'Int'>
@@ -22017,28 +21737,14 @@ export namespace Prisma {
 
   export type AggregateHelp_offer = {
     _count: Help_offerCountAggregateOutputType | null
-    _avg: Help_offerAvgAggregateOutputType | null
-    _sum: Help_offerSumAggregateOutputType | null
     _min: Help_offerMinAggregateOutputType | null
     _max: Help_offerMaxAggregateOutputType | null
   }
 
-  export type Help_offerAvgAggregateOutputType = {
-    id: number | null
-    request_id: number | null
-    helper_id: number | null
-  }
-
-  export type Help_offerSumAggregateOutputType = {
-    id: number | null
-    request_id: number | null
-    helper_id: number | null
-  }
-
   export type Help_offerMinAggregateOutputType = {
-    id: number | null
-    request_id: number | null
-    helper_id: number | null
+    id: string | null
+    request_id: string | null
+    helper_id: string | null
     offer_date: Date | null
     message: string | null
     status: string | null
@@ -22047,9 +21753,9 @@ export namespace Prisma {
   }
 
   export type Help_offerMaxAggregateOutputType = {
-    id: number | null
-    request_id: number | null
-    helper_id: number | null
+    id: string | null
+    request_id: string | null
+    helper_id: string | null
     offer_date: Date | null
     message: string | null
     status: string | null
@@ -22069,18 +21775,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Help_offerAvgAggregateInputType = {
-    id?: true
-    request_id?: true
-    helper_id?: true
-  }
-
-  export type Help_offerSumAggregateInputType = {
-    id?: true
-    request_id?: true
-    helper_id?: true
-  }
 
   export type Help_offerMinAggregateInputType = {
     id?: true
@@ -22154,18 +21848,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Help_offerAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Help_offerSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Help_offerMinAggregateInputType
@@ -22196,24 +21878,20 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Help_offerCountAggregateInputType | true
-    _avg?: Help_offerAvgAggregateInputType
-    _sum?: Help_offerSumAggregateInputType
     _min?: Help_offerMinAggregateInputType
     _max?: Help_offerMaxAggregateInputType
   }
 
   export type Help_offerGroupByOutputType = {
-    id: number
-    request_id: number
-    helper_id: number
+    id: string
+    request_id: string
+    helper_id: string
     offer_date: Date
     message: string | null
     status: string | null
     created_at: Date
     updated_at: Date | null
     _count: Help_offerCountAggregateOutputType | null
-    _avg: Help_offerAvgAggregateOutputType | null
-    _sum: Help_offerSumAggregateOutputType | null
     _min: Help_offerMinAggregateOutputType | null
     _max: Help_offerMaxAggregateOutputType | null
   }
@@ -22303,9 +21981,9 @@ export namespace Prisma {
       help_request: Prisma.$help_requestPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      request_id: number
-      helper_id: number
+      id: string
+      request_id: string
+      helper_id: string
       offer_date: Date
       message: string | null
       status: string | null
@@ -22736,9 +22414,9 @@ export namespace Prisma {
    * Fields of the help_offer model
    */
   interface help_offerFieldRefs {
-    readonly id: FieldRef<"help_offer", 'Int'>
-    readonly request_id: FieldRef<"help_offer", 'Int'>
-    readonly helper_id: FieldRef<"help_offer", 'Int'>
+    readonly id: FieldRef<"help_offer", 'String'>
+    readonly request_id: FieldRef<"help_offer", 'String'>
+    readonly helper_id: FieldRef<"help_offer", 'String'>
     readonly offer_date: FieldRef<"help_offer", 'DateTime'>
     readonly message: FieldRef<"help_offer", 'String'>
     readonly status: FieldRef<"help_offer", 'String'>
@@ -23171,22 +22849,18 @@ export namespace Prisma {
   }
 
   export type Help_requestAvgAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
     estimated_duration: number | null
     points_offered: number | null
   }
 
   export type Help_requestSumAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
     estimated_duration: number | null
     points_offered: number | null
   }
 
   export type Help_requestMinAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
+    id: string | null
+    creator_id: string | null
     title: string | null
     description: string | null
     creation_date: Date | null
@@ -23204,8 +22878,8 @@ export namespace Prisma {
   }
 
   export type Help_requestMaxAggregateOutputType = {
-    id: number | null
-    creator_id: number | null
+    id: string | null
+    creator_id: string | null
     title: string | null
     description: string | null
     creation_date: Date | null
@@ -23244,15 +22918,11 @@ export namespace Prisma {
 
 
   export type Help_requestAvgAggregateInputType = {
-    id?: true
-    creator_id?: true
     estimated_duration?: true
     points_offered?: true
   }
 
   export type Help_requestSumAggregateInputType = {
-    id?: true
-    creator_id?: true
     estimated_duration?: true
     points_offered?: true
   }
@@ -23402,8 +23072,8 @@ export namespace Prisma {
   }
 
   export type Help_requestGroupByOutputType = {
-    id: number
-    creator_id: number
+    id: string
+    creator_id: string
     title: string
     description: string | null
     creation_date: Date
@@ -23543,8 +23213,8 @@ export namespace Prisma {
       service_completed: Prisma.$service_completedPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      creator_id: number
+      id: string
+      creator_id: string
       title: string
       description: string | null
       creation_date: Date
@@ -23985,8 +23655,8 @@ export namespace Prisma {
    * Fields of the help_request model
    */
   interface help_requestFieldRefs {
-    readonly id: FieldRef<"help_request", 'Int'>
-    readonly creator_id: FieldRef<"help_request", 'Int'>
+    readonly id: FieldRef<"help_request", 'String'>
+    readonly creator_id: FieldRef<"help_request", 'String'>
     readonly title: FieldRef<"help_request", 'String'>
     readonly description: FieldRef<"help_request", 'String'>
     readonly creation_date: FieldRef<"help_request", 'DateTime'>
@@ -24469,22 +24139,12 @@ export namespace Prisma {
 
   export type AggregateLocal_service = {
     _count: Local_serviceCountAggregateOutputType | null
-    _avg: Local_serviceAvgAggregateOutputType | null
-    _sum: Local_serviceSumAggregateOutputType | null
     _min: Local_serviceMinAggregateOutputType | null
     _max: Local_serviceMaxAggregateOutputType | null
   }
 
-  export type Local_serviceAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Local_serviceSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type Local_serviceMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     category: string | null
     address: string | null
@@ -24499,7 +24159,7 @@ export namespace Prisma {
   }
 
   export type Local_serviceMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     category: string | null
     address: string | null
@@ -24529,14 +24189,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Local_serviceAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type Local_serviceSumAggregateInputType = {
-    id?: true
-  }
 
   export type Local_serviceMinAggregateInputType = {
     id?: true
@@ -24622,18 +24274,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Local_serviceAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Local_serviceSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Local_serviceMinAggregateInputType
@@ -24664,14 +24304,12 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Local_serviceCountAggregateInputType | true
-    _avg?: Local_serviceAvgAggregateInputType
-    _sum?: Local_serviceSumAggregateInputType
     _min?: Local_serviceMinAggregateInputType
     _max?: Local_serviceMaxAggregateInputType
   }
 
   export type Local_serviceGroupByOutputType = {
-    id: number
+    id: string
     name: string | null
     category: string | null
     address: string | null
@@ -24684,8 +24322,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: Local_serviceCountAggregateOutputType | null
-    _avg: Local_serviceAvgAggregateOutputType | null
-    _sum: Local_serviceSumAggregateOutputType | null
     _min: Local_serviceMinAggregateOutputType | null
     _max: Local_serviceMaxAggregateOutputType | null
   }
@@ -24780,7 +24416,7 @@ export namespace Prisma {
       service_rating: Prisma.$service_ratingPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       name: string | null
       category: string | null
       address: string | null
@@ -25216,7 +24852,7 @@ export namespace Prisma {
    * Fields of the local_service model
    */
   interface local_serviceFieldRefs {
-    readonly id: FieldRef<"local_service", 'Int'>
+    readonly id: FieldRef<"local_service", 'String'>
     readonly name: FieldRef<"local_service", 'String'>
     readonly category: FieldRef<"local_service", 'String'>
     readonly address: FieldRef<"local_service", 'String'>
@@ -25664,25 +25300,13 @@ export namespace Prisma {
 
   export type AggregateMedication_reminder = {
     _count: Medication_reminderCountAggregateOutputType | null
-    _avg: Medication_reminderAvgAggregateOutputType | null
-    _sum: Medication_reminderSumAggregateOutputType | null
     _min: Medication_reminderMinAggregateOutputType | null
     _max: Medication_reminderMaxAggregateOutputType | null
   }
 
-  export type Medication_reminderAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
-  export type Medication_reminderSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
   export type Medication_reminderMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     medication_name: string | null
     dosage: string | null
     morning_reminder_time: Date | null
@@ -25699,8 +25323,8 @@ export namespace Prisma {
   }
 
   export type Medication_reminderMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     medication_name: string | null
     dosage: string | null
     morning_reminder_time: Date | null
@@ -25735,16 +25359,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Medication_reminderAvgAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
-
-  export type Medication_reminderSumAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
 
   export type Medication_reminderMinAggregateInputType = {
     id?: true
@@ -25839,18 +25453,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Medication_reminderAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Medication_reminderSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Medication_reminderMinAggregateInputType
@@ -25881,15 +25483,13 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Medication_reminderCountAggregateInputType | true
-    _avg?: Medication_reminderAvgAggregateInputType
-    _sum?: Medication_reminderSumAggregateInputType
     _min?: Medication_reminderMinAggregateInputType
     _max?: Medication_reminderMaxAggregateInputType
   }
 
   export type Medication_reminderGroupByOutputType = {
-    id: number
-    user_id: number
+    id: string
+    user_id: string
     medication_name: string
     dosage: string | null
     morning_reminder_time: Date | null
@@ -25904,8 +25504,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: Medication_reminderCountAggregateOutputType | null
-    _avg: Medication_reminderAvgAggregateOutputType | null
-    _sum: Medication_reminderSumAggregateOutputType | null
     _min: Medication_reminderMinAggregateOutputType | null
     _max: Medication_reminderMaxAggregateOutputType | null
   }
@@ -26016,8 +25614,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number
+      id: string
+      user_id: string
       medication_name: string
       dosage: string | null
       morning_reminder_time: Date | null
@@ -26455,8 +26053,8 @@ export namespace Prisma {
    * Fields of the medication_reminder model
    */
   interface medication_reminderFieldRefs {
-    readonly id: FieldRef<"medication_reminder", 'Int'>
-    readonly user_id: FieldRef<"medication_reminder", 'Int'>
+    readonly id: FieldRef<"medication_reminder", 'String'>
+    readonly user_id: FieldRef<"medication_reminder", 'String'>
     readonly medication_name: FieldRef<"medication_reminder", 'String'>
     readonly dosage: FieldRef<"medication_reminder", 'String'>
     readonly morning_reminder_time: FieldRef<"medication_reminder", 'DateTime'>
@@ -26890,28 +26488,14 @@ export namespace Prisma {
 
   export type AggregateMessage = {
     _count: MessageCountAggregateOutputType | null
-    _avg: MessageAvgAggregateOutputType | null
-    _sum: MessageSumAggregateOutputType | null
     _min: MessageMinAggregateOutputType | null
     _max: MessageMaxAggregateOutputType | null
   }
 
-  export type MessageAvgAggregateOutputType = {
-    id: number | null
-    conversation_id: number | null
-    sender_id: number | null
-  }
-
-  export type MessageSumAggregateOutputType = {
-    id: number | null
-    conversation_id: number | null
-    sender_id: number | null
-  }
-
   export type MessageMinAggregateOutputType = {
-    id: number | null
-    conversation_id: number | null
-    sender_id: number | null
+    id: string | null
+    conversation_id: string | null
+    sender_id: string | null
     content: string | null
     send_date: Date | null
     type: string | null
@@ -26921,9 +26505,9 @@ export namespace Prisma {
   }
 
   export type MessageMaxAggregateOutputType = {
-    id: number | null
-    conversation_id: number | null
-    sender_id: number | null
+    id: string | null
+    conversation_id: string | null
+    sender_id: string | null
     content: string | null
     send_date: Date | null
     type: string | null
@@ -26945,18 +26529,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type MessageAvgAggregateInputType = {
-    id?: true
-    conversation_id?: true
-    sender_id?: true
-  }
-
-  export type MessageSumAggregateInputType = {
-    id?: true
-    conversation_id?: true
-    sender_id?: true
-  }
 
   export type MessageMinAggregateInputType = {
     id?: true
@@ -27033,18 +26605,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: MessageAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: MessageSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: MessageMinAggregateInputType
@@ -27075,16 +26635,14 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: MessageCountAggregateInputType | true
-    _avg?: MessageAvgAggregateInputType
-    _sum?: MessageSumAggregateInputType
     _min?: MessageMinAggregateInputType
     _max?: MessageMaxAggregateInputType
   }
 
   export type MessageGroupByOutputType = {
-    id: number
-    conversation_id: number | null
-    sender_id: number | null
+    id: string
+    conversation_id: string | null
+    sender_id: string | null
     content: string | null
     send_date: Date | null
     type: string | null
@@ -27092,8 +26650,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: MessageCountAggregateOutputType | null
-    _avg: MessageAvgAggregateOutputType | null
-    _sum: MessageSumAggregateOutputType | null
     _min: MessageMinAggregateOutputType | null
     _max: MessageMaxAggregateOutputType | null
   }
@@ -27187,9 +26743,9 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      conversation_id: number | null
-      sender_id: number | null
+      id: string
+      conversation_id: string | null
+      sender_id: string | null
       content: string | null
       send_date: Date | null
       type: string | null
@@ -27621,9 +27177,9 @@ export namespace Prisma {
    * Fields of the message model
    */
   interface messageFieldRefs {
-    readonly id: FieldRef<"message", 'Int'>
-    readonly conversation_id: FieldRef<"message", 'Int'>
-    readonly sender_id: FieldRef<"message", 'Int'>
+    readonly id: FieldRef<"message", 'String'>
+    readonly conversation_id: FieldRef<"message", 'String'>
+    readonly sender_id: FieldRef<"message", 'String'>
     readonly content: FieldRef<"message", 'String'>
     readonly send_date: FieldRef<"message", 'DateTime'>
     readonly type: FieldRef<"message", 'String'>
@@ -28088,27 +27644,18 @@ export namespace Prisma {
 
   export type AggregateMunicipal_event = {
     _count: Municipal_eventCountAggregateOutputType | null
-    _avg: Municipal_eventAvgAggregateOutputType | null
-    _sum: Municipal_eventSumAggregateOutputType | null
     _min: Municipal_eventMinAggregateOutputType | null
     _max: Municipal_eventMaxAggregateOutputType | null
   }
 
-  export type Municipal_eventAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Municipal_eventSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type Municipal_eventMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
     start_date: Date | null
     end_date: Date | null
     location: string | null
+    gps_coordinates: string | null
     organizer: string | null
     contact: string | null
     official_link: string | null
@@ -28117,12 +27664,13 @@ export namespace Prisma {
   }
 
   export type Municipal_eventMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
     start_date: Date | null
     end_date: Date | null
     location: string | null
+    gps_coordinates: string | null
     organizer: string | null
     contact: string | null
     official_link: string | null
@@ -28137,6 +27685,7 @@ export namespace Prisma {
     start_date: number
     end_date: number
     location: number
+    gps_coordinates: number
     organizer: number
     contact: number
     official_link: number
@@ -28146,14 +27695,6 @@ export namespace Prisma {
   }
 
 
-  export type Municipal_eventAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type Municipal_eventSumAggregateInputType = {
-    id?: true
-  }
-
   export type Municipal_eventMinAggregateInputType = {
     id?: true
     title?: true
@@ -28161,6 +27702,7 @@ export namespace Prisma {
     start_date?: true
     end_date?: true
     location?: true
+    gps_coordinates?: true
     organizer?: true
     contact?: true
     official_link?: true
@@ -28175,6 +27717,7 @@ export namespace Prisma {
     start_date?: true
     end_date?: true
     location?: true
+    gps_coordinates?: true
     organizer?: true
     contact?: true
     official_link?: true
@@ -28189,6 +27732,7 @@ export namespace Prisma {
     start_date?: true
     end_date?: true
     location?: true
+    gps_coordinates?: true
     organizer?: true
     contact?: true
     official_link?: true
@@ -28235,18 +27779,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Municipal_eventAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Municipal_eventSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Municipal_eventMinAggregateInputType
@@ -28277,27 +27809,24 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Municipal_eventCountAggregateInputType | true
-    _avg?: Municipal_eventAvgAggregateInputType
-    _sum?: Municipal_eventSumAggregateInputType
     _min?: Municipal_eventMinAggregateInputType
     _max?: Municipal_eventMaxAggregateInputType
   }
 
   export type Municipal_eventGroupByOutputType = {
-    id: number
+    id: string
     title: string
     description: string | null
     start_date: Date
     end_date: Date
     location: string | null
+    gps_coordinates: string | null
     organizer: string | null
     contact: string | null
     official_link: string | null
     created_at: Date
     updated_at: Date | null
     _count: Municipal_eventCountAggregateOutputType | null
-    _avg: Municipal_eventAvgAggregateOutputType | null
-    _sum: Municipal_eventSumAggregateOutputType | null
     _min: Municipal_eventMinAggregateOutputType | null
     _max: Municipal_eventMaxAggregateOutputType | null
   }
@@ -28323,6 +27852,7 @@ export namespace Prisma {
     start_date?: boolean
     end_date?: boolean
     location?: boolean
+    gps_coordinates?: boolean
     organizer?: boolean
     contact?: boolean
     official_link?: boolean
@@ -28337,6 +27867,7 @@ export namespace Prisma {
     start_date?: boolean
     end_date?: boolean
     location?: boolean
+    gps_coordinates?: boolean
     organizer?: boolean
     contact?: boolean
     official_link?: boolean
@@ -28351,6 +27882,7 @@ export namespace Prisma {
     start_date?: boolean
     end_date?: boolean
     location?: boolean
+    gps_coordinates?: boolean
     organizer?: boolean
     contact?: boolean
     official_link?: boolean
@@ -28365,6 +27897,7 @@ export namespace Prisma {
     start_date?: boolean
     end_date?: boolean
     location?: boolean
+    gps_coordinates?: boolean
     organizer?: boolean
     contact?: boolean
     official_link?: boolean
@@ -28372,18 +27905,19 @@ export namespace Prisma {
     updated_at?: boolean
   }
 
-  export type municipal_eventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "start_date" | "end_date" | "location" | "organizer" | "contact" | "official_link" | "created_at" | "updated_at", ExtArgs["result"]["municipal_event"]>
+  export type municipal_eventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "start_date" | "end_date" | "location" | "gps_coordinates" | "organizer" | "contact" | "official_link" | "created_at" | "updated_at", ExtArgs["result"]["municipal_event"]>
 
   export type $municipal_eventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "municipal_event"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       title: string
       description: string | null
       start_date: Date
       end_date: Date
       location: string | null
+      gps_coordinates: string | null
       organizer: string | null
       contact: string | null
       official_link: string | null
@@ -28812,12 +28346,13 @@ export namespace Prisma {
    * Fields of the municipal_event model
    */
   interface municipal_eventFieldRefs {
-    readonly id: FieldRef<"municipal_event", 'Int'>
+    readonly id: FieldRef<"municipal_event", 'String'>
     readonly title: FieldRef<"municipal_event", 'String'>
     readonly description: FieldRef<"municipal_event", 'String'>
     readonly start_date: FieldRef<"municipal_event", 'DateTime'>
     readonly end_date: FieldRef<"municipal_event", 'DateTime'>
     readonly location: FieldRef<"municipal_event", 'String'>
+    readonly gps_coordinates: FieldRef<"municipal_event", 'String'>
     readonly organizer: FieldRef<"municipal_event", 'String'>
     readonly contact: FieldRef<"municipal_event", 'String'>
     readonly official_link: FieldRef<"municipal_event", 'String'>
@@ -29195,25 +28730,13 @@ export namespace Prisma {
 
   export type AggregateNotification = {
     _count: NotificationCountAggregateOutputType | null
-    _avg: NotificationAvgAggregateOutputType | null
-    _sum: NotificationSumAggregateOutputType | null
     _min: NotificationMinAggregateOutputType | null
     _max: NotificationMaxAggregateOutputType | null
   }
 
-  export type NotificationAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
-  export type NotificationSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
   export type NotificationMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     type: string | null
     content: string | null
     read: boolean | null
@@ -29223,8 +28746,8 @@ export namespace Prisma {
   }
 
   export type NotificationMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     type: string | null
     content: string | null
     read: boolean | null
@@ -29245,16 +28768,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type NotificationAvgAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
-
-  export type NotificationSumAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
 
   export type NotificationMinAggregateInputType = {
     id?: true
@@ -29328,18 +28841,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: NotificationAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: NotificationSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: NotificationMinAggregateInputType
@@ -29370,15 +28871,13 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: NotificationCountAggregateInputType | true
-    _avg?: NotificationAvgAggregateInputType
-    _sum?: NotificationSumAggregateInputType
     _min?: NotificationMinAggregateInputType
     _max?: NotificationMaxAggregateInputType
   }
 
   export type NotificationGroupByOutputType = {
-    id: number
-    user_id: number | null
+    id: string
+    user_id: string | null
     type: string | null
     content: string | null
     read: boolean | null
@@ -29386,8 +28885,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: NotificationCountAggregateOutputType | null
-    _avg: NotificationAvgAggregateOutputType | null
-    _sum: NotificationSumAggregateOutputType | null
     _min: NotificationMinAggregateOutputType | null
     _max: NotificationMaxAggregateOutputType | null
   }
@@ -29470,8 +28967,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number | null
+      id: string
+      user_id: string | null
       type: string | null
       content: string | null
       read: boolean | null
@@ -29902,8 +29399,8 @@ export namespace Prisma {
    * Fields of the notification model
    */
   interface notificationFieldRefs {
-    readonly id: FieldRef<"notification", 'Int'>
-    readonly user_id: FieldRef<"notification", 'Int'>
+    readonly id: FieldRef<"notification", 'String'>
+    readonly user_id: FieldRef<"notification", 'String'>
     readonly type: FieldRef<"notification", 'String'>
     readonly content: FieldRef<"notification", 'String'>
     readonly read: FieldRef<"notification", 'Boolean'>
@@ -30349,22 +29846,12 @@ export namespace Prisma {
 
   export type AggregateNotification_preferences = {
     _count: Notification_preferencesCountAggregateOutputType | null
-    _avg: Notification_preferencesAvgAggregateOutputType | null
-    _sum: Notification_preferencesSumAggregateOutputType | null
     _min: Notification_preferencesMinAggregateOutputType | null
     _max: Notification_preferencesMaxAggregateOutputType | null
   }
 
-  export type Notification_preferencesAvgAggregateOutputType = {
-    user_id: number | null
-  }
-
-  export type Notification_preferencesSumAggregateOutputType = {
-    user_id: number | null
-  }
-
   export type Notification_preferencesMinAggregateOutputType = {
-    user_id: number | null
+    user_id: string | null
     message_notif: boolean | null
     activity_notif: boolean | null
     help_notif: boolean | null
@@ -30379,7 +29866,7 @@ export namespace Prisma {
   }
 
   export type Notification_preferencesMaxAggregateOutputType = {
-    user_id: number | null
+    user_id: string | null
     message_notif: boolean | null
     activity_notif: boolean | null
     help_notif: boolean | null
@@ -30409,14 +29896,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Notification_preferencesAvgAggregateInputType = {
-    user_id?: true
-  }
-
-  export type Notification_preferencesSumAggregateInputType = {
-    user_id?: true
-  }
 
   export type Notification_preferencesMinAggregateInputType = {
     user_id?: true
@@ -30502,18 +29981,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Notification_preferencesAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Notification_preferencesSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Notification_preferencesMinAggregateInputType
@@ -30544,14 +30011,12 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Notification_preferencesCountAggregateInputType | true
-    _avg?: Notification_preferencesAvgAggregateInputType
-    _sum?: Notification_preferencesSumAggregateInputType
     _min?: Notification_preferencesMinAggregateInputType
     _max?: Notification_preferencesMaxAggregateInputType
   }
 
   export type Notification_preferencesGroupByOutputType = {
-    user_id: number
+    user_id: string
     message_notif: boolean | null
     activity_notif: boolean | null
     help_notif: boolean | null
@@ -30564,8 +30029,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: Notification_preferencesCountAggregateOutputType | null
-    _avg: Notification_preferencesAvgAggregateOutputType | null
-    _sum: Notification_preferencesSumAggregateOutputType | null
     _min: Notification_preferencesMinAggregateOutputType | null
     _max: Notification_preferencesMaxAggregateOutputType | null
   }
@@ -30664,7 +30127,7 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      user_id: number
+      user_id: string
       message_notif: boolean | null
       activity_notif: boolean | null
       help_notif: boolean | null
@@ -31100,7 +30563,7 @@ export namespace Prisma {
    * Fields of the notification_preferences model
    */
   interface notification_preferencesFieldRefs {
-    readonly user_id: FieldRef<"notification_preferences", 'Int'>
+    readonly user_id: FieldRef<"notification_preferences", 'String'>
     readonly message_notif: FieldRef<"notification_preferences", 'Boolean'>
     readonly activity_notif: FieldRef<"notification_preferences", 'Boolean'>
     readonly help_notif: FieldRef<"notification_preferences", 'Boolean'>
@@ -31532,22 +30995,12 @@ export namespace Prisma {
 
   export type AggregateNutritional_advice = {
     _count: Nutritional_adviceCountAggregateOutputType | null
-    _avg: Nutritional_adviceAvgAggregateOutputType | null
-    _sum: Nutritional_adviceSumAggregateOutputType | null
     _min: Nutritional_adviceMinAggregateOutputType | null
     _max: Nutritional_adviceMaxAggregateOutputType | null
   }
 
-  export type Nutritional_adviceAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Nutritional_adviceSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type Nutritional_adviceMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
     category: string | null
@@ -31558,7 +31011,7 @@ export namespace Prisma {
   }
 
   export type Nutritional_adviceMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
     category: string | null
@@ -31580,14 +31033,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Nutritional_adviceAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type Nutritional_adviceSumAggregateInputType = {
-    id?: true
-  }
 
   export type Nutritional_adviceMinAggregateInputType = {
     id?: true
@@ -31661,18 +31106,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Nutritional_adviceAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Nutritional_adviceSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Nutritional_adviceMinAggregateInputType
@@ -31703,14 +31136,12 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Nutritional_adviceCountAggregateInputType | true
-    _avg?: Nutritional_adviceAvgAggregateInputType
-    _sum?: Nutritional_adviceSumAggregateInputType
     _min?: Nutritional_adviceMinAggregateInputType
     _max?: Nutritional_adviceMaxAggregateInputType
   }
 
   export type Nutritional_adviceGroupByOutputType = {
-    id: number
+    id: string
     title: string
     description: string | null
     category: string | null
@@ -31719,8 +31150,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: Nutritional_adviceCountAggregateOutputType | null
-    _avg: Nutritional_adviceAvgAggregateOutputType | null
-    _sum: Nutritional_adviceSumAggregateOutputType | null
     _min: Nutritional_adviceMinAggregateOutputType | null
     _max: Nutritional_adviceMaxAggregateOutputType | null
   }
@@ -31789,7 +31218,7 @@ export namespace Prisma {
     name: "nutritional_advice"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       title: string
       description: string | null
       category: string | null
@@ -32220,7 +31649,7 @@ export namespace Prisma {
    * Fields of the nutritional_advice model
    */
   interface nutritional_adviceFieldRefs {
-    readonly id: FieldRef<"nutritional_advice", 'Int'>
+    readonly id: FieldRef<"nutritional_advice", 'String'>
     readonly title: FieldRef<"nutritional_advice", 'String'>
     readonly description: FieldRef<"nutritional_advice", 'String'>
     readonly category: FieldRef<"nutritional_advice", 'String'>
@@ -32600,29 +32029,19 @@ export namespace Prisma {
 
   export type AggregateOffline_user = {
     _count: Offline_userCountAggregateOutputType | null
-    _avg: Offline_userAvgAggregateOutputType | null
-    _sum: Offline_userSumAggregateOutputType | null
     _min: Offline_userMinAggregateOutputType | null
     _max: Offline_userMaxAggregateOutputType | null
   }
 
-  export type Offline_userAvgAggregateOutputType = {
-    user_id: number | null
-  }
-
-  export type Offline_userSumAggregateOutputType = {
-    user_id: number | null
-  }
-
   export type Offline_userMinAggregateOutputType = {
-    user_id: number | null
+    user_id: string | null
     last_sync: Date | null
     created_at: Date | null
     updated_at: Date | null
   }
 
   export type Offline_userMaxAggregateOutputType = {
-    user_id: number | null
+    user_id: string | null
     last_sync: Date | null
     created_at: Date | null
     updated_at: Date | null
@@ -32637,14 +32056,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Offline_userAvgAggregateInputType = {
-    user_id?: true
-  }
-
-  export type Offline_userSumAggregateInputType = {
-    user_id?: true
-  }
 
   export type Offline_userMinAggregateInputType = {
     user_id?: true
@@ -32707,18 +32118,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Offline_userAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Offline_userSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Offline_userMinAggregateInputType
@@ -32749,21 +32148,17 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Offline_userCountAggregateInputType | true
-    _avg?: Offline_userAvgAggregateInputType
-    _sum?: Offline_userSumAggregateInputType
     _min?: Offline_userMinAggregateInputType
     _max?: Offline_userMaxAggregateInputType
   }
 
   export type Offline_userGroupByOutputType = {
-    user_id: number
+    user_id: string
     cached_data: JsonValue | null
     last_sync: Date | null
     created_at: Date
     updated_at: Date | null
     _count: Offline_userCountAggregateOutputType | null
-    _avg: Offline_userAvgAggregateOutputType | null
-    _sum: Offline_userSumAggregateOutputType | null
     _min: Offline_userMinAggregateOutputType | null
     _max: Offline_userMaxAggregateOutputType | null
   }
@@ -32820,7 +32215,7 @@ export namespace Prisma {
     name: "offline_user"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      user_id: number
+      user_id: string
       cached_data: Prisma.JsonValue | null
       last_sync: Date | null
       created_at: Date
@@ -33248,7 +32643,7 @@ export namespace Prisma {
    * Fields of the offline_user model
    */
   interface offline_userFieldRefs {
-    readonly user_id: FieldRef<"offline_user", 'Int'>
+    readonly user_id: FieldRef<"offline_user", 'String'>
     readonly cached_data: FieldRef<"offline_user", 'Json'>
     readonly last_sync: FieldRef<"offline_user", 'DateTime'>
     readonly created_at: FieldRef<"offline_user", 'DateTime'>
@@ -33625,25 +33020,13 @@ export namespace Prisma {
 
   export type AggregateProject_member = {
     _count: Project_memberCountAggregateOutputType | null
-    _avg: Project_memberAvgAggregateOutputType | null
-    _sum: Project_memberSumAggregateOutputType | null
     _min: Project_memberMinAggregateOutputType | null
     _max: Project_memberMaxAggregateOutputType | null
   }
 
-  export type Project_memberAvgAggregateOutputType = {
-    project_id: number | null
-    user_id: number | null
-  }
-
-  export type Project_memberSumAggregateOutputType = {
-    project_id: number | null
-    user_id: number | null
-  }
-
   export type Project_memberMinAggregateOutputType = {
-    project_id: number | null
-    user_id: number | null
+    project_id: string | null
+    user_id: string | null
     role: string | null
     join_date: Date | null
     created_at: Date | null
@@ -33651,8 +33034,8 @@ export namespace Prisma {
   }
 
   export type Project_memberMaxAggregateOutputType = {
-    project_id: number | null
-    user_id: number | null
+    project_id: string | null
+    user_id: string | null
     role: string | null
     join_date: Date | null
     created_at: Date | null
@@ -33669,16 +33052,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Project_memberAvgAggregateInputType = {
-    project_id?: true
-    user_id?: true
-  }
-
-  export type Project_memberSumAggregateInputType = {
-    project_id?: true
-    user_id?: true
-  }
 
   export type Project_memberMinAggregateInputType = {
     project_id?: true
@@ -33746,18 +33119,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Project_memberAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Project_memberSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Project_memberMinAggregateInputType
@@ -33788,22 +33149,18 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Project_memberCountAggregateInputType | true
-    _avg?: Project_memberAvgAggregateInputType
-    _sum?: Project_memberSumAggregateInputType
     _min?: Project_memberMinAggregateInputType
     _max?: Project_memberMaxAggregateInputType
   }
 
   export type Project_memberGroupByOutputType = {
-    project_id: number
-    user_id: number
+    project_id: string
+    user_id: string
     role: string | null
     join_date: Date | null
     created_at: Date
     updated_at: Date | null
     _count: Project_memberCountAggregateOutputType | null
-    _avg: Project_memberAvgAggregateOutputType | null
-    _sum: Project_memberSumAggregateOutputType | null
     _min: Project_memberMinAggregateOutputType | null
     _max: Project_memberMaxAggregateOutputType | null
   }
@@ -33885,8 +33242,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      project_id: number
-      user_id: number
+      project_id: string
+      user_id: string
       role: string | null
       join_date: Date | null
       created_at: Date
@@ -34316,8 +33673,8 @@ export namespace Prisma {
    * Fields of the project_member model
    */
   interface project_memberFieldRefs {
-    readonly project_id: FieldRef<"project_member", 'Int'>
-    readonly user_id: FieldRef<"project_member", 'Int'>
+    readonly project_id: FieldRef<"project_member", 'String'>
+    readonly user_id: FieldRef<"project_member", 'String'>
     readonly role: FieldRef<"project_member", 'String'>
     readonly join_date: FieldRef<"project_member", 'DateTime'>
     readonly created_at: FieldRef<"project_member", 'DateTime'>
@@ -34742,46 +34099,32 @@ export namespace Prisma {
 
   export type AggregateProject_task = {
     _count: Project_taskCountAggregateOutputType | null
-    _avg: Project_taskAvgAggregateOutputType | null
-    _sum: Project_taskSumAggregateOutputType | null
     _min: Project_taskMinAggregateOutputType | null
     _max: Project_taskMaxAggregateOutputType | null
   }
 
-  export type Project_taskAvgAggregateOutputType = {
-    id: number | null
-    project_id: number | null
-    assignee_id: number | null
-  }
-
-  export type Project_taskSumAggregateOutputType = {
-    id: number | null
-    project_id: number | null
-    assignee_id: number | null
-  }
-
   export type Project_taskMinAggregateOutputType = {
-    id: number | null
-    project_id: number | null
+    id: string | null
+    project_id: string | null
     title: string | null
     description: string | null
     creation_date: Date | null
     due_date: Date | null
     status: string | null
-    assignee_id: number | null
+    assignee_id: string | null
     created_at: Date | null
     updated_at: Date | null
   }
 
   export type Project_taskMaxAggregateOutputType = {
-    id: number | null
-    project_id: number | null
+    id: string | null
+    project_id: string | null
     title: string | null
     description: string | null
     creation_date: Date | null
     due_date: Date | null
     status: string | null
-    assignee_id: number | null
+    assignee_id: string | null
     created_at: Date | null
     updated_at: Date | null
   }
@@ -34800,18 +34143,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Project_taskAvgAggregateInputType = {
-    id?: true
-    project_id?: true
-    assignee_id?: true
-  }
-
-  export type Project_taskSumAggregateInputType = {
-    id?: true
-    project_id?: true
-    assignee_id?: true
-  }
 
   export type Project_taskMinAggregateInputType = {
     id?: true
@@ -34891,18 +34222,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Project_taskAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Project_taskSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Project_taskMinAggregateInputType
@@ -34933,26 +34252,22 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Project_taskCountAggregateInputType | true
-    _avg?: Project_taskAvgAggregateInputType
-    _sum?: Project_taskSumAggregateInputType
     _min?: Project_taskMinAggregateInputType
     _max?: Project_taskMaxAggregateInputType
   }
 
   export type Project_taskGroupByOutputType = {
-    id: number
-    project_id: number | null
+    id: string
+    project_id: string | null
     title: string | null
     description: string | null
     creation_date: Date | null
     due_date: Date | null
     status: string | null
-    assignee_id: number | null
+    assignee_id: string | null
     created_at: Date
     updated_at: Date | null
     _count: Project_taskCountAggregateOutputType | null
-    _avg: Project_taskAvgAggregateOutputType | null
-    _sum: Project_taskSumAggregateOutputType | null
     _min: Project_taskMinAggregateOutputType | null
     _max: Project_taskMaxAggregateOutputType | null
   }
@@ -35050,14 +34365,14 @@ export namespace Prisma {
       collaborative_project: Prisma.$collaborative_projectPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      project_id: number | null
+      id: string
+      project_id: string | null
       title: string | null
       description: string | null
       creation_date: Date | null
       due_date: Date | null
       status: string | null
-      assignee_id: number | null
+      assignee_id: string | null
       created_at: Date
       updated_at: Date | null
     }, ExtArgs["result"]["project_task"]>
@@ -35485,14 +34800,14 @@ export namespace Prisma {
    * Fields of the project_task model
    */
   interface project_taskFieldRefs {
-    readonly id: FieldRef<"project_task", 'Int'>
-    readonly project_id: FieldRef<"project_task", 'Int'>
+    readonly id: FieldRef<"project_task", 'String'>
+    readonly project_id: FieldRef<"project_task", 'String'>
     readonly title: FieldRef<"project_task", 'String'>
     readonly description: FieldRef<"project_task", 'String'>
     readonly creation_date: FieldRef<"project_task", 'DateTime'>
     readonly due_date: FieldRef<"project_task", 'DateTime'>
     readonly status: FieldRef<"project_task", 'String'>
-    readonly assignee_id: FieldRef<"project_task", 'Int'>
+    readonly assignee_id: FieldRef<"project_task", 'String'>
     readonly created_at: FieldRef<"project_task", 'DateTime'>
     readonly updated_at: FieldRef<"project_task", 'DateTime'>
   }
@@ -35953,41 +35268,29 @@ export namespace Prisma {
 
   export type AggregateResource = {
     _count: ResourceCountAggregateOutputType | null
-    _avg: ResourceAvgAggregateOutputType | null
-    _sum: ResourceSumAggregateOutputType | null
     _min: ResourceMinAggregateOutputType | null
     _max: ResourceMaxAggregateOutputType | null
   }
 
-  export type ResourceAvgAggregateOutputType = {
-    id: number | null
-    author_id: number | null
-  }
-
-  export type ResourceSumAggregateOutputType = {
-    id: number | null
-    author_id: number | null
-  }
-
   export type ResourceMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     content: string | null
     type: string | null
     category: string | null
-    author_id: number | null
+    author_id: string | null
     admin_validated: boolean | null
     created_at: Date | null
     updated_at: Date | null
   }
 
   export type ResourceMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     content: string | null
     type: string | null
     category: string | null
-    author_id: number | null
+    author_id: string | null
     admin_validated: boolean | null
     created_at: Date | null
     updated_at: Date | null
@@ -36006,16 +35309,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type ResourceAvgAggregateInputType = {
-    id?: true
-    author_id?: true
-  }
-
-  export type ResourceSumAggregateInputType = {
-    id?: true
-    author_id?: true
-  }
 
   export type ResourceMinAggregateInputType = {
     id?: true
@@ -36092,18 +35385,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: ResourceAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ResourceSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: ResourceMinAggregateInputType
@@ -36134,25 +35415,21 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: ResourceCountAggregateInputType | true
-    _avg?: ResourceAvgAggregateInputType
-    _sum?: ResourceSumAggregateInputType
     _min?: ResourceMinAggregateInputType
     _max?: ResourceMaxAggregateInputType
   }
 
   export type ResourceGroupByOutputType = {
-    id: number
+    id: string
     title: string
     content: string | null
     type: string | null
     category: string | null
-    author_id: number | null
+    author_id: string | null
     admin_validated: boolean | null
     created_at: Date
     updated_at: Date | null
     _count: ResourceCountAggregateOutputType | null
-    _avg: ResourceAvgAggregateOutputType | null
-    _sum: ResourceSumAggregateOutputType | null
     _min: ResourceMinAggregateOutputType | null
     _max: ResourceMaxAggregateOutputType | null
   }
@@ -36239,12 +35516,12 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       title: string
       content: string | null
       type: string | null
       category: string | null
-      author_id: number | null
+      author_id: string | null
       admin_validated: boolean | null
       created_at: Date
       updated_at: Date | null
@@ -36672,12 +35949,12 @@ export namespace Prisma {
    * Fields of the resource model
    */
   interface resourceFieldRefs {
-    readonly id: FieldRef<"resource", 'Int'>
+    readonly id: FieldRef<"resource", 'String'>
     readonly title: FieldRef<"resource", 'String'>
     readonly content: FieldRef<"resource", 'String'>
     readonly type: FieldRef<"resource", 'String'>
     readonly category: FieldRef<"resource", 'String'>
-    readonly author_id: FieldRef<"resource", 'Int'>
+    readonly author_id: FieldRef<"resource", 'String'>
     readonly admin_validated: FieldRef<"resource", 'Boolean'>
     readonly created_at: FieldRef<"resource", 'DateTime'>
     readonly updated_at: FieldRef<"resource", 'DateTime'>
@@ -37120,22 +36397,12 @@ export namespace Prisma {
 
   export type AggregateSatisfaction_survey = {
     _count: Satisfaction_surveyCountAggregateOutputType | null
-    _avg: Satisfaction_surveyAvgAggregateOutputType | null
-    _sum: Satisfaction_surveySumAggregateOutputType | null
     _min: Satisfaction_surveyMinAggregateOutputType | null
     _max: Satisfaction_surveyMaxAggregateOutputType | null
   }
 
-  export type Satisfaction_surveyAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Satisfaction_surveySumAggregateOutputType = {
-    id: number | null
-  }
-
   export type Satisfaction_surveyMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
     start_date: Date | null
@@ -37146,7 +36413,7 @@ export namespace Prisma {
   }
 
   export type Satisfaction_surveyMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
     start_date: Date | null
@@ -37168,14 +36435,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Satisfaction_surveyAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type Satisfaction_surveySumAggregateInputType = {
-    id?: true
-  }
 
   export type Satisfaction_surveyMinAggregateInputType = {
     id?: true
@@ -37249,18 +36508,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Satisfaction_surveyAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Satisfaction_surveySumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Satisfaction_surveyMinAggregateInputType
@@ -37291,14 +36538,12 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Satisfaction_surveyCountAggregateInputType | true
-    _avg?: Satisfaction_surveyAvgAggregateInputType
-    _sum?: Satisfaction_surveySumAggregateInputType
     _min?: Satisfaction_surveyMinAggregateInputType
     _max?: Satisfaction_surveyMaxAggregateInputType
   }
 
   export type Satisfaction_surveyGroupByOutputType = {
-    id: number
+    id: string
     title: string
     description: string | null
     start_date: Date | null
@@ -37307,8 +36552,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: Satisfaction_surveyCountAggregateOutputType | null
-    _avg: Satisfaction_surveyAvgAggregateOutputType | null
-    _sum: Satisfaction_surveySumAggregateOutputType | null
     _min: Satisfaction_surveyMinAggregateOutputType | null
     _max: Satisfaction_surveyMaxAggregateOutputType | null
   }
@@ -37387,7 +36630,7 @@ export namespace Prisma {
       survey_response: Prisma.$survey_responsePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       title: string
       description: string | null
       start_date: Date | null
@@ -37819,7 +37062,7 @@ export namespace Prisma {
    * Fields of the satisfaction_survey model
    */
   interface satisfaction_surveyFieldRefs {
-    readonly id: FieldRef<"satisfaction_survey", 'Int'>
+    readonly id: FieldRef<"satisfaction_survey", 'String'>
     readonly title: FieldRef<"satisfaction_survey", 'String'>
     readonly description: FieldRef<"satisfaction_survey", 'String'>
     readonly start_date: FieldRef<"satisfaction_survey", 'DateTime'>
@@ -38270,9 +37513,6 @@ export namespace Prisma {
   }
 
   export type Service_completedAvgAggregateOutputType = {
-    id: number | null
-    request_id: number | null
-    helper_id: number | null
     actual_duration: number | null
     creator_rating: number | null
     helper_rating: number | null
@@ -38280,9 +37520,6 @@ export namespace Prisma {
   }
 
   export type Service_completedSumAggregateOutputType = {
-    id: number | null
-    request_id: number | null
-    helper_id: number | null
     actual_duration: number | null
     creator_rating: number | null
     helper_rating: number | null
@@ -38290,9 +37527,9 @@ export namespace Prisma {
   }
 
   export type Service_completedMinAggregateOutputType = {
-    id: number | null
-    request_id: number | null
-    helper_id: number | null
+    id: string | null
+    request_id: string | null
+    helper_id: string | null
     completion_date: Date | null
     actual_duration: number | null
     creator_comment: string | null
@@ -38305,9 +37542,9 @@ export namespace Prisma {
   }
 
   export type Service_completedMaxAggregateOutputType = {
-    id: number | null
-    request_id: number | null
-    helper_id: number | null
+    id: string | null
+    request_id: string | null
+    helper_id: string | null
     completion_date: Date | null
     actual_duration: number | null
     creator_comment: string | null
@@ -38337,9 +37574,6 @@ export namespace Prisma {
 
 
   export type Service_completedAvgAggregateInputType = {
-    id?: true
-    request_id?: true
-    helper_id?: true
     actual_duration?: true
     creator_rating?: true
     helper_rating?: true
@@ -38347,9 +37581,6 @@ export namespace Prisma {
   }
 
   export type Service_completedSumAggregateInputType = {
-    id?: true
-    request_id?: true
-    helper_id?: true
     actual_duration?: true
     creator_rating?: true
     helper_rating?: true
@@ -38489,9 +37720,9 @@ export namespace Prisma {
   }
 
   export type Service_completedGroupByOutputType = {
-    id: number
-    request_id: number
-    helper_id: number
+    id: string
+    request_id: string
+    helper_id: string
     completion_date: Date
     actual_duration: number | null
     creator_comment: string | null
@@ -38609,9 +37840,9 @@ export namespace Prisma {
       help_request: Prisma.$help_requestPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      request_id: number
-      helper_id: number
+      id: string
+      request_id: string
+      helper_id: string
       completion_date: Date
       actual_duration: number | null
       creator_comment: string | null
@@ -39046,9 +38277,9 @@ export namespace Prisma {
    * Fields of the service_completed model
    */
   interface service_completedFieldRefs {
-    readonly id: FieldRef<"service_completed", 'Int'>
-    readonly request_id: FieldRef<"service_completed", 'Int'>
-    readonly helper_id: FieldRef<"service_completed", 'Int'>
+    readonly id: FieldRef<"service_completed", 'String'>
+    readonly request_id: FieldRef<"service_completed", 'String'>
+    readonly helper_id: FieldRef<"service_completed", 'String'>
     readonly completion_date: FieldRef<"service_completed", 'DateTime'>
     readonly actual_duration: FieldRef<"service_completed", 'Int'>
     readonly creator_comment: FieldRef<"service_completed", 'String'>
@@ -39485,20 +38716,16 @@ export namespace Prisma {
   }
 
   export type Service_ratingAvgAggregateOutputType = {
-    service_id: number | null
-    user_id: number | null
     rating: number | null
   }
 
   export type Service_ratingSumAggregateOutputType = {
-    service_id: number | null
-    user_id: number | null
     rating: number | null
   }
 
   export type Service_ratingMinAggregateOutputType = {
-    service_id: number | null
-    user_id: number | null
+    service_id: string | null
+    user_id: string | null
     rating: number | null
     comment: string | null
     rating_date: Date | null
@@ -39507,8 +38734,8 @@ export namespace Prisma {
   }
 
   export type Service_ratingMaxAggregateOutputType = {
-    service_id: number | null
-    user_id: number | null
+    service_id: string | null
+    user_id: string | null
     rating: number | null
     comment: string | null
     rating_date: Date | null
@@ -39529,14 +38756,10 @@ export namespace Prisma {
 
 
   export type Service_ratingAvgAggregateInputType = {
-    service_id?: true
-    user_id?: true
     rating?: true
   }
 
   export type Service_ratingSumAggregateInputType = {
-    service_id?: true
-    user_id?: true
     rating?: true
   }
 
@@ -39658,8 +38881,8 @@ export namespace Prisma {
   }
 
   export type Service_ratingGroupByOutputType = {
-    service_id: number
-    user_id: number
+    service_id: string
+    user_id: string
     rating: number | null
     comment: string | null
     rating_date: Date | null
@@ -39753,8 +38976,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      service_id: number
-      user_id: number
+      service_id: string
+      user_id: string
       rating: number | null
       comment: string | null
       rating_date: Date | null
@@ -40185,8 +39408,8 @@ export namespace Prisma {
    * Fields of the service_rating model
    */
   interface service_ratingFieldRefs {
-    readonly service_id: FieldRef<"service_rating", 'Int'>
-    readonly user_id: FieldRef<"service_rating", 'Int'>
+    readonly service_id: FieldRef<"service_rating", 'String'>
+    readonly user_id: FieldRef<"service_rating", 'String'>
     readonly rating: FieldRef<"service_rating", 'Int'>
     readonly comment: FieldRef<"service_rating", 'String'>
     readonly rating_date: FieldRef<"service_rating", 'DateTime'>
@@ -40612,22 +39835,12 @@ export namespace Prisma {
 
   export type AggregateSkill = {
     _count: SkillCountAggregateOutputType | null
-    _avg: SkillAvgAggregateOutputType | null
-    _sum: SkillSumAggregateOutputType | null
     _min: SkillMinAggregateOutputType | null
     _max: SkillMaxAggregateOutputType | null
   }
 
-  export type SkillAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type SkillSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type SkillMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     description: string | null
     category: string | null
@@ -40636,7 +39849,7 @@ export namespace Prisma {
   }
 
   export type SkillMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     description: string | null
     category: string | null
@@ -40654,14 +39867,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type SkillAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type SkillSumAggregateInputType = {
-    id?: true
-  }
 
   export type SkillMinAggregateInputType = {
     id?: true
@@ -40729,18 +39934,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: SkillAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: SkillSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: SkillMinAggregateInputType
@@ -40771,22 +39964,18 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: SkillCountAggregateInputType | true
-    _avg?: SkillAvgAggregateInputType
-    _sum?: SkillSumAggregateInputType
     _min?: SkillMinAggregateInputType
     _max?: SkillMaxAggregateInputType
   }
 
   export type SkillGroupByOutputType = {
-    id: number
+    id: string
     name: string
     description: string | null
     category: string | null
     created_at: Date
     updated_at: Date | null
     _count: SkillCountAggregateOutputType | null
-    _avg: SkillAvgAggregateOutputType | null
-    _sum: SkillSumAggregateOutputType | null
     _min: SkillMinAggregateOutputType | null
     _max: SkillMaxAggregateOutputType | null
   }
@@ -40857,7 +40046,7 @@ export namespace Prisma {
       user_skill: Prisma.$user_skillPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       name: string
       description: string | null
       category: string | null
@@ -41287,7 +40476,7 @@ export namespace Prisma {
    * Fields of the skill model
    */
   interface skillFieldRefs {
-    readonly id: FieldRef<"skill", 'Int'>
+    readonly id: FieldRef<"skill", 'String'>
     readonly name: FieldRef<"skill", 'String'>
     readonly description: FieldRef<"skill", 'String'>
     readonly category: FieldRef<"skill", 'String'>
@@ -41729,33 +40918,21 @@ export namespace Prisma {
 
   export type AggregateSurvey_response = {
     _count: Survey_responseCountAggregateOutputType | null
-    _avg: Survey_responseAvgAggregateOutputType | null
-    _sum: Survey_responseSumAggregateOutputType | null
     _min: Survey_responseMinAggregateOutputType | null
     _max: Survey_responseMaxAggregateOutputType | null
   }
 
-  export type Survey_responseAvgAggregateOutputType = {
-    survey_id: number | null
-    user_id: number | null
-  }
-
-  export type Survey_responseSumAggregateOutputType = {
-    survey_id: number | null
-    user_id: number | null
-  }
-
   export type Survey_responseMinAggregateOutputType = {
-    survey_id: number | null
-    user_id: number | null
+    survey_id: string | null
+    user_id: string | null
     response_date: Date | null
     created_at: Date | null
     updated_at: Date | null
   }
 
   export type Survey_responseMaxAggregateOutputType = {
-    survey_id: number | null
-    user_id: number | null
+    survey_id: string | null
+    user_id: string | null
     response_date: Date | null
     created_at: Date | null
     updated_at: Date | null
@@ -41771,16 +40948,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Survey_responseAvgAggregateInputType = {
-    survey_id?: true
-    user_id?: true
-  }
-
-  export type Survey_responseSumAggregateInputType = {
-    survey_id?: true
-    user_id?: true
-  }
 
   export type Survey_responseMinAggregateInputType = {
     survey_id?: true
@@ -41846,18 +41013,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Survey_responseAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Survey_responseSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Survey_responseMinAggregateInputType
@@ -41888,22 +41043,18 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Survey_responseCountAggregateInputType | true
-    _avg?: Survey_responseAvgAggregateInputType
-    _sum?: Survey_responseSumAggregateInputType
     _min?: Survey_responseMinAggregateInputType
     _max?: Survey_responseMaxAggregateInputType
   }
 
   export type Survey_responseGroupByOutputType = {
-    survey_id: number
-    user_id: number
+    survey_id: string
+    user_id: string
     responses: JsonValue | null
     response_date: Date | null
     created_at: Date
     updated_at: Date | null
     _count: Survey_responseCountAggregateOutputType | null
-    _avg: Survey_responseAvgAggregateOutputType | null
-    _sum: Survey_responseSumAggregateOutputType | null
     _min: Survey_responseMinAggregateOutputType | null
     _max: Survey_responseMaxAggregateOutputType | null
   }
@@ -41985,8 +41136,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      survey_id: number
-      user_id: number
+      survey_id: string
+      user_id: string
       responses: Prisma.JsonValue | null
       response_date: Date | null
       created_at: Date
@@ -42416,8 +41567,8 @@ export namespace Prisma {
    * Fields of the survey_response model
    */
   interface survey_responseFieldRefs {
-    readonly survey_id: FieldRef<"survey_response", 'Int'>
-    readonly user_id: FieldRef<"survey_response", 'Int'>
+    readonly survey_id: FieldRef<"survey_response", 'String'>
+    readonly user_id: FieldRef<"survey_response", 'String'>
     readonly responses: FieldRef<"survey_response", 'Json'>
     readonly response_date: FieldRef<"survey_response", 'DateTime'>
     readonly created_at: FieldRef<"survey_response", 'DateTime'>
@@ -42842,25 +41993,13 @@ export namespace Prisma {
 
   export type AggregateTrust_circle = {
     _count: Trust_circleCountAggregateOutputType | null
-    _avg: Trust_circleAvgAggregateOutputType | null
-    _sum: Trust_circleSumAggregateOutputType | null
     _min: Trust_circleMinAggregateOutputType | null
     _max: Trust_circleMaxAggregateOutputType | null
   }
 
-  export type Trust_circleAvgAggregateOutputType = {
-    user_id: number | null
-    contact_id: number | null
-  }
-
-  export type Trust_circleSumAggregateOutputType = {
-    user_id: number | null
-    contact_id: number | null
-  }
-
   export type Trust_circleMinAggregateOutputType = {
-    user_id: number | null
-    contact_id: number | null
+    user_id: string | null
+    contact_id: string | null
     date_added: Date | null
     access_level: string | null
     created_at: Date | null
@@ -42868,8 +42007,8 @@ export namespace Prisma {
   }
 
   export type Trust_circleMaxAggregateOutputType = {
-    user_id: number | null
-    contact_id: number | null
+    user_id: string | null
+    contact_id: string | null
     date_added: Date | null
     access_level: string | null
     created_at: Date | null
@@ -42886,16 +42025,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Trust_circleAvgAggregateInputType = {
-    user_id?: true
-    contact_id?: true
-  }
-
-  export type Trust_circleSumAggregateInputType = {
-    user_id?: true
-    contact_id?: true
-  }
 
   export type Trust_circleMinAggregateInputType = {
     user_id?: true
@@ -42963,18 +42092,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Trust_circleAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Trust_circleSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Trust_circleMinAggregateInputType
@@ -43005,22 +42122,18 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Trust_circleCountAggregateInputType | true
-    _avg?: Trust_circleAvgAggregateInputType
-    _sum?: Trust_circleSumAggregateInputType
     _min?: Trust_circleMinAggregateInputType
     _max?: Trust_circleMaxAggregateInputType
   }
 
   export type Trust_circleGroupByOutputType = {
-    user_id: number
-    contact_id: number
+    user_id: string
+    contact_id: string
     date_added: Date | null
     access_level: string | null
     created_at: Date
     updated_at: Date | null
     _count: Trust_circleCountAggregateOutputType | null
-    _avg: Trust_circleAvgAggregateOutputType | null
-    _sum: Trust_circleSumAggregateOutputType | null
     _min: Trust_circleMinAggregateOutputType | null
     _max: Trust_circleMaxAggregateOutputType | null
   }
@@ -43102,8 +42215,8 @@ export namespace Prisma {
       user_trust_circle_user_idTouser: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      user_id: number
-      contact_id: number
+      user_id: string
+      contact_id: string
       date_added: Date | null
       access_level: string | null
       created_at: Date
@@ -43533,8 +42646,8 @@ export namespace Prisma {
    * Fields of the trust_circle model
    */
   interface trust_circleFieldRefs {
-    readonly user_id: FieldRef<"trust_circle", 'Int'>
-    readonly contact_id: FieldRef<"trust_circle", 'Int'>
+    readonly user_id: FieldRef<"trust_circle", 'String'>
+    readonly contact_id: FieldRef<"trust_circle", 'String'>
     readonly date_added: FieldRef<"trust_circle", 'DateTime'>
     readonly access_level: FieldRef<"trust_circle", 'String'>
     readonly created_at: FieldRef<"trust_circle", 'DateTime'>
@@ -43959,25 +43072,13 @@ export namespace Prisma {
 
   export type AggregateTrusted_contact = {
     _count: Trusted_contactCountAggregateOutputType | null
-    _avg: Trusted_contactAvgAggregateOutputType | null
-    _sum: Trusted_contactSumAggregateOutputType | null
     _min: Trusted_contactMinAggregateOutputType | null
     _max: Trusted_contactMaxAggregateOutputType | null
   }
 
-  export type Trusted_contactAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
-  export type Trusted_contactSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
   export type Trusted_contactMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     last_name: string | null
     first_name: string | null
     email: string | null
@@ -43992,8 +43093,8 @@ export namespace Prisma {
   }
 
   export type Trusted_contactMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     last_name: string | null
     first_name: string | null
     email: string | null
@@ -44024,16 +43125,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Trusted_contactAvgAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
-
-  export type Trusted_contactSumAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
 
   export type Trusted_contactMinAggregateInputType = {
     id?: true
@@ -44122,18 +43213,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Trusted_contactAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Trusted_contactSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Trusted_contactMinAggregateInputType
@@ -44164,15 +43243,13 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Trusted_contactCountAggregateInputType | true
-    _avg?: Trusted_contactAvgAggregateInputType
-    _sum?: Trusted_contactSumAggregateInputType
     _min?: Trusted_contactMinAggregateInputType
     _max?: Trusted_contactMaxAggregateInputType
   }
 
   export type Trusted_contactGroupByOutputType = {
-    id: number
-    user_id: number
+    id: string
+    user_id: string
     last_name: string
     first_name: string
     email: string
@@ -44185,8 +43262,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: Trusted_contactCountAggregateOutputType | null
-    _avg: Trusted_contactAvgAggregateOutputType | null
-    _sum: Trusted_contactSumAggregateOutputType | null
     _min: Trusted_contactMinAggregateOutputType | null
     _max: Trusted_contactMaxAggregateOutputType | null
   }
@@ -44289,8 +43364,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number
+      id: string
+      user_id: string
       last_name: string
       first_name: string
       email: string
@@ -44726,8 +43801,8 @@ export namespace Prisma {
    * Fields of the trusted_contact model
    */
   interface trusted_contactFieldRefs {
-    readonly id: FieldRef<"trusted_contact", 'Int'>
-    readonly user_id: FieldRef<"trusted_contact", 'Int'>
+    readonly id: FieldRef<"trusted_contact", 'String'>
+    readonly user_id: FieldRef<"trusted_contact", 'String'>
     readonly last_name: FieldRef<"trusted_contact", 'String'>
     readonly first_name: FieldRef<"trusted_contact", 'String'>
     readonly email: FieldRef<"trusted_contact", 'String'>
@@ -45159,28 +44234,17 @@ export namespace Prisma {
 
   export type AggregateUrban_issue_report = {
     _count: Urban_issue_reportCountAggregateOutputType | null
-    _avg: Urban_issue_reportAvgAggregateOutputType | null
-    _sum: Urban_issue_reportSumAggregateOutputType | null
     _min: Urban_issue_reportMinAggregateOutputType | null
     _max: Urban_issue_reportMaxAggregateOutputType | null
   }
 
-  export type Urban_issue_reportAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
-  export type Urban_issue_reportSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
   export type Urban_issue_reportMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     category: string | null
     description: string | null
     address: string | null
+    gps_coordinates: string | null
     report_date: Date | null
     status: string | null
     city_reference: string | null
@@ -45189,11 +44253,12 @@ export namespace Prisma {
   }
 
   export type Urban_issue_reportMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     category: string | null
     description: string | null
     address: string | null
+    gps_coordinates: string | null
     report_date: Date | null
     status: string | null
     city_reference: string | null
@@ -45207,6 +44272,7 @@ export namespace Prisma {
     category: number
     description: number
     address: number
+    gps_coordinates: number
     report_date: number
     status: number
     city_reference: number
@@ -45216,22 +44282,13 @@ export namespace Prisma {
   }
 
 
-  export type Urban_issue_reportAvgAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
-
-  export type Urban_issue_reportSumAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
-
   export type Urban_issue_reportMinAggregateInputType = {
     id?: true
     user_id?: true
     category?: true
     description?: true
     address?: true
+    gps_coordinates?: true
     report_date?: true
     status?: true
     city_reference?: true
@@ -45245,6 +44302,7 @@ export namespace Prisma {
     category?: true
     description?: true
     address?: true
+    gps_coordinates?: true
     report_date?: true
     status?: true
     city_reference?: true
@@ -45258,6 +44316,7 @@ export namespace Prisma {
     category?: true
     description?: true
     address?: true
+    gps_coordinates?: true
     report_date?: true
     status?: true
     city_reference?: true
@@ -45304,18 +44363,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Urban_issue_reportAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Urban_issue_reportSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Urban_issue_reportMinAggregateInputType
@@ -45346,26 +44393,23 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Urban_issue_reportCountAggregateInputType | true
-    _avg?: Urban_issue_reportAvgAggregateInputType
-    _sum?: Urban_issue_reportSumAggregateInputType
     _min?: Urban_issue_reportMinAggregateInputType
     _max?: Urban_issue_reportMaxAggregateInputType
   }
 
   export type Urban_issue_reportGroupByOutputType = {
-    id: number
-    user_id: number | null
+    id: string
+    user_id: string | null
     category: string
     description: string | null
     address: string | null
+    gps_coordinates: string | null
     report_date: Date
     status: string | null
     city_reference: string | null
     created_at: Date
     updated_at: Date | null
     _count: Urban_issue_reportCountAggregateOutputType | null
-    _avg: Urban_issue_reportAvgAggregateOutputType | null
-    _sum: Urban_issue_reportSumAggregateOutputType | null
     _min: Urban_issue_reportMinAggregateOutputType | null
     _max: Urban_issue_reportMaxAggregateOutputType | null
   }
@@ -45390,6 +44434,7 @@ export namespace Prisma {
     category?: boolean
     description?: boolean
     address?: boolean
+    gps_coordinates?: boolean
     report_date?: boolean
     status?: boolean
     city_reference?: boolean
@@ -45404,6 +44449,7 @@ export namespace Prisma {
     category?: boolean
     description?: boolean
     address?: boolean
+    gps_coordinates?: boolean
     report_date?: boolean
     status?: boolean
     city_reference?: boolean
@@ -45418,6 +44464,7 @@ export namespace Prisma {
     category?: boolean
     description?: boolean
     address?: boolean
+    gps_coordinates?: boolean
     report_date?: boolean
     status?: boolean
     city_reference?: boolean
@@ -45432,6 +44479,7 @@ export namespace Prisma {
     category?: boolean
     description?: boolean
     address?: boolean
+    gps_coordinates?: boolean
     report_date?: boolean
     status?: boolean
     city_reference?: boolean
@@ -45439,7 +44487,7 @@ export namespace Prisma {
     updated_at?: boolean
   }
 
-  export type urban_issue_reportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "category" | "description" | "address" | "report_date" | "status" | "city_reference" | "created_at" | "updated_at", ExtArgs["result"]["urban_issue_report"]>
+  export type urban_issue_reportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "category" | "description" | "address" | "gps_coordinates" | "report_date" | "status" | "city_reference" | "created_at" | "updated_at", ExtArgs["result"]["urban_issue_report"]>
   export type urban_issue_reportInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | urban_issue_report$userArgs<ExtArgs>
   }
@@ -45456,11 +44504,12 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number | null
+      id: string
+      user_id: string | null
       category: string
       description: string | null
       address: string | null
+      gps_coordinates: string | null
       report_date: Date
       status: string | null
       city_reference: string | null
@@ -45890,11 +44939,12 @@ export namespace Prisma {
    * Fields of the urban_issue_report model
    */
   interface urban_issue_reportFieldRefs {
-    readonly id: FieldRef<"urban_issue_report", 'Int'>
-    readonly user_id: FieldRef<"urban_issue_report", 'Int'>
+    readonly id: FieldRef<"urban_issue_report", 'String'>
+    readonly user_id: FieldRef<"urban_issue_report", 'String'>
     readonly category: FieldRef<"urban_issue_report", 'String'>
     readonly description: FieldRef<"urban_issue_report", 'String'>
     readonly address: FieldRef<"urban_issue_report", 'String'>
+    readonly gps_coordinates: FieldRef<"urban_issue_report", 'String'>
     readonly report_date: FieldRef<"urban_issue_report", 'DateTime'>
     readonly status: FieldRef<"urban_issue_report", 'String'>
     readonly city_reference: FieldRef<"urban_issue_report", 'String'>
@@ -46346,17 +45396,15 @@ export namespace Prisma {
   }
 
   export type UserAvgAggregateOutputType = {
-    id: number | null
     help_points: number | null
   }
 
   export type UserSumAggregateOutputType = {
-    id: number | null
     help_points: number | null
   }
 
   export type UserMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     email: string | null
     password_hash: string | null
     first_name: string | null
@@ -46381,7 +45429,7 @@ export namespace Prisma {
   }
 
   export type UserMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     email: string | null
     password_hash: string | null
     first_name: string | null
@@ -46433,12 +45481,10 @@ export namespace Prisma {
 
 
   export type UserAvgAggregateInputType = {
-    id?: true
     help_points?: true
   }
 
   export type UserSumAggregateInputType = {
-    id?: true
     help_points?: true
   }
 
@@ -46605,7 +45651,7 @@ export namespace Prisma {
   }
 
   export type UserGroupByOutputType = {
-    id: number
+    id: string
     email: string
     password_hash: string
     first_name: string | null
@@ -46854,7 +45900,7 @@ export namespace Prisma {
       wellness_goal: Prisma.$wellness_goalPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       email: string
       password_hash: string
       first_name: string | null
@@ -47330,7 +46376,7 @@ export namespace Prisma {
    * Fields of the user model
    */
   interface userFieldRefs {
-    readonly id: FieldRef<"user", 'Int'>
+    readonly id: FieldRef<"user", 'String'>
     readonly email: FieldRef<"user", 'String'>
     readonly password_hash: FieldRef<"user", 'String'>
     readonly first_name: FieldRef<"user", 'String'>
@@ -48505,31 +47551,23 @@ export namespace Prisma {
   }
 
   export type User_activityAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-    exercise_program_id: number | null
-    cognitive_exercise_id: number | null
     duration_minutes: number | null
     perceived_difficulty_level: number | null
     enjoyment_level: number | null
   }
 
   export type User_activitySumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-    exercise_program_id: number | null
-    cognitive_exercise_id: number | null
     duration_minutes: number | null
     perceived_difficulty_level: number | null
     enjoyment_level: number | null
   }
 
   export type User_activityMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     completion_date: Date | null
-    exercise_program_id: number | null
-    cognitive_exercise_id: number | null
+    exercise_program_id: string | null
+    cognitive_exercise_id: string | null
     duration_minutes: number | null
     perceived_difficulty_level: number | null
     enjoyment_level: number | null
@@ -48539,11 +47577,11 @@ export namespace Prisma {
   }
 
   export type User_activityMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     completion_date: Date | null
-    exercise_program_id: number | null
-    cognitive_exercise_id: number | null
+    exercise_program_id: string | null
+    cognitive_exercise_id: string | null
     duration_minutes: number | null
     perceived_difficulty_level: number | null
     enjoyment_level: number | null
@@ -48569,20 +47607,12 @@ export namespace Prisma {
 
 
   export type User_activityAvgAggregateInputType = {
-    id?: true
-    user_id?: true
-    exercise_program_id?: true
-    cognitive_exercise_id?: true
     duration_minutes?: true
     perceived_difficulty_level?: true
     enjoyment_level?: true
   }
 
   export type User_activitySumAggregateInputType = {
-    id?: true
-    user_id?: true
-    exercise_program_id?: true
-    cognitive_exercise_id?: true
     duration_minutes?: true
     perceived_difficulty_level?: true
     enjoyment_level?: true
@@ -48718,11 +47748,11 @@ export namespace Prisma {
   }
 
   export type User_activityGroupByOutputType = {
-    id: number
-    user_id: number
+    id: string
+    user_id: string
     completion_date: Date
-    exercise_program_id: number | null
-    cognitive_exercise_id: number | null
+    exercise_program_id: string | null
+    cognitive_exercise_id: string | null
     duration_minutes: number
     perceived_difficulty_level: number | null
     enjoyment_level: number | null
@@ -48840,11 +47870,11 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number
+      id: string
+      user_id: string
       completion_date: Date
-      exercise_program_id: number | null
-      cognitive_exercise_id: number | null
+      exercise_program_id: string | null
+      cognitive_exercise_id: string | null
       duration_minutes: number
       perceived_difficulty_level: number | null
       enjoyment_level: number | null
@@ -49277,11 +48307,11 @@ export namespace Prisma {
    * Fields of the user_activity model
    */
   interface user_activityFieldRefs {
-    readonly id: FieldRef<"user_activity", 'Int'>
-    readonly user_id: FieldRef<"user_activity", 'Int'>
+    readonly id: FieldRef<"user_activity", 'String'>
+    readonly user_id: FieldRef<"user_activity", 'String'>
     readonly completion_date: FieldRef<"user_activity", 'DateTime'>
-    readonly exercise_program_id: FieldRef<"user_activity", 'Int'>
-    readonly cognitive_exercise_id: FieldRef<"user_activity", 'Int'>
+    readonly exercise_program_id: FieldRef<"user_activity", 'String'>
+    readonly cognitive_exercise_id: FieldRef<"user_activity", 'String'>
     readonly duration_minutes: FieldRef<"user_activity", 'Int'>
     readonly perceived_difficulty_level: FieldRef<"user_activity", 'Int'>
     readonly enjoyment_level: FieldRef<"user_activity", 'Int'>
@@ -49746,33 +48776,21 @@ export namespace Prisma {
 
   export type AggregateUser_badge = {
     _count: User_badgeCountAggregateOutputType | null
-    _avg: User_badgeAvgAggregateOutputType | null
-    _sum: User_badgeSumAggregateOutputType | null
     _min: User_badgeMinAggregateOutputType | null
     _max: User_badgeMaxAggregateOutputType | null
   }
 
-  export type User_badgeAvgAggregateOutputType = {
-    user_id: number | null
-    badge_id: number | null
-  }
-
-  export type User_badgeSumAggregateOutputType = {
-    user_id: number | null
-    badge_id: number | null
-  }
-
   export type User_badgeMinAggregateOutputType = {
-    user_id: number | null
-    badge_id: number | null
+    user_id: string | null
+    badge_id: string | null
     achievement_date: Date | null
     created_at: Date | null
     updated_at: Date | null
   }
 
   export type User_badgeMaxAggregateOutputType = {
-    user_id: number | null
-    badge_id: number | null
+    user_id: string | null
+    badge_id: string | null
     achievement_date: Date | null
     created_at: Date | null
     updated_at: Date | null
@@ -49787,16 +48805,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type User_badgeAvgAggregateInputType = {
-    user_id?: true
-    badge_id?: true
-  }
-
-  export type User_badgeSumAggregateInputType = {
-    user_id?: true
-    badge_id?: true
-  }
 
   export type User_badgeMinAggregateInputType = {
     user_id?: true
@@ -49861,18 +48869,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: User_badgeAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: User_badgeSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: User_badgeMinAggregateInputType
@@ -49903,21 +48899,17 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: User_badgeCountAggregateInputType | true
-    _avg?: User_badgeAvgAggregateInputType
-    _sum?: User_badgeSumAggregateInputType
     _min?: User_badgeMinAggregateInputType
     _max?: User_badgeMaxAggregateInputType
   }
 
   export type User_badgeGroupByOutputType = {
-    user_id: number
-    badge_id: number
+    user_id: string
+    badge_id: string
     achievement_date: Date | null
     created_at: Date
     updated_at: Date | null
     _count: User_badgeCountAggregateOutputType | null
-    _avg: User_badgeAvgAggregateOutputType | null
-    _sum: User_badgeSumAggregateOutputType | null
     _min: User_badgeMinAggregateOutputType | null
     _max: User_badgeMaxAggregateOutputType | null
   }
@@ -49995,8 +48987,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      user_id: number
-      badge_id: number
+      user_id: string
+      badge_id: string
       achievement_date: Date | null
       created_at: Date
       updated_at: Date | null
@@ -50425,8 +49417,8 @@ export namespace Prisma {
    * Fields of the user_badge model
    */
   interface user_badgeFieldRefs {
-    readonly user_id: FieldRef<"user_badge", 'Int'>
-    readonly badge_id: FieldRef<"user_badge", 'Int'>
+    readonly user_id: FieldRef<"user_badge", 'String'>
+    readonly badge_id: FieldRef<"user_badge", 'String'>
     readonly achievement_date: FieldRef<"user_badge", 'DateTime'>
     readonly created_at: FieldRef<"user_badge", 'DateTime'>
     readonly updated_at: FieldRef<"user_badge", 'DateTime'>
@@ -50850,25 +49842,13 @@ export namespace Prisma {
 
   export type AggregateUser_device = {
     _count: User_deviceCountAggregateOutputType | null
-    _avg: User_deviceAvgAggregateOutputType | null
-    _sum: User_deviceSumAggregateOutputType | null
     _min: User_deviceMinAggregateOutputType | null
     _max: User_deviceMaxAggregateOutputType | null
   }
 
-  export type User_deviceAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
-  export type User_deviceSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-  }
-
   export type User_deviceMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     device_type: string | null
     device_name: string | null
     operating_system: string | null
@@ -50879,8 +49859,8 @@ export namespace Prisma {
   }
 
   export type User_deviceMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     device_type: string | null
     device_name: string | null
     operating_system: string | null
@@ -50903,16 +49883,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type User_deviceAvgAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
-
-  export type User_deviceSumAggregateInputType = {
-    id?: true
-    user_id?: true
-  }
 
   export type User_deviceMinAggregateInputType = {
     id?: true
@@ -50989,18 +49959,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: User_deviceAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: User_deviceSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: User_deviceMinAggregateInputType
@@ -51031,15 +49989,13 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: User_deviceCountAggregateInputType | true
-    _avg?: User_deviceAvgAggregateInputType
-    _sum?: User_deviceSumAggregateInputType
     _min?: User_deviceMinAggregateInputType
     _max?: User_deviceMaxAggregateInputType
   }
 
   export type User_deviceGroupByOutputType = {
-    id: number
-    user_id: number | null
+    id: string
+    user_id: string | null
     device_type: string | null
     device_name: string | null
     operating_system: string | null
@@ -51048,8 +50004,6 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date | null
     _count: User_deviceCountAggregateOutputType | null
-    _avg: User_deviceAvgAggregateOutputType | null
-    _sum: User_deviceSumAggregateOutputType | null
     _min: User_deviceMinAggregateOutputType | null
     _max: User_deviceMaxAggregateOutputType | null
   }
@@ -51136,8 +50090,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number | null
+      id: string
+      user_id: string | null
       device_type: string | null
       device_name: string | null
       operating_system: string | null
@@ -51569,8 +50523,8 @@ export namespace Prisma {
    * Fields of the user_device model
    */
   interface user_deviceFieldRefs {
-    readonly id: FieldRef<"user_device", 'Int'>
-    readonly user_id: FieldRef<"user_device", 'Int'>
+    readonly id: FieldRef<"user_device", 'String'>
+    readonly user_id: FieldRef<"user_device", 'String'>
     readonly device_type: FieldRef<"user_device", 'String'>
     readonly device_name: FieldRef<"user_device", 'String'>
     readonly operating_system: FieldRef<"user_device", 'String'>
@@ -51796,7 +50750,7 @@ export namespace Prisma {
     /**
      * The data needed to create a user_device.
      */
-    data: XOR<user_deviceCreateInput, user_deviceUncheckedCreateInput>
+    data?: XOR<user_deviceCreateInput, user_deviceUncheckedCreateInput>
   }
 
   /**
@@ -52024,28 +50978,24 @@ export namespace Prisma {
   }
 
   export type User_skillAvgAggregateOutputType = {
-    user_id: number | null
-    skill_id: number | null
     level: number | null
   }
 
   export type User_skillSumAggregateOutputType = {
-    user_id: number | null
-    skill_id: number | null
     level: number | null
   }
 
   export type User_skillMinAggregateOutputType = {
-    user_id: number | null
-    skill_id: number | null
+    user_id: string | null
+    skill_id: string | null
     level: number | null
     created_at: Date | null
     updated_at: Date | null
   }
 
   export type User_skillMaxAggregateOutputType = {
-    user_id: number | null
-    skill_id: number | null
+    user_id: string | null
+    skill_id: string | null
     level: number | null
     created_at: Date | null
     updated_at: Date | null
@@ -52062,14 +51012,10 @@ export namespace Prisma {
 
 
   export type User_skillAvgAggregateInputType = {
-    user_id?: true
-    skill_id?: true
     level?: true
   }
 
   export type User_skillSumAggregateInputType = {
-    user_id?: true
-    skill_id?: true
     level?: true
   }
 
@@ -52185,8 +51131,8 @@ export namespace Prisma {
   }
 
   export type User_skillGroupByOutputType = {
-    user_id: number
-    skill_id: number
+    user_id: string
+    skill_id: string
     level: number | null
     created_at: Date
     updated_at: Date | null
@@ -52270,8 +51216,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      user_id: number
-      skill_id: number
+      user_id: string
+      skill_id: string
       level: number | null
       created_at: Date
       updated_at: Date | null
@@ -52700,8 +51646,8 @@ export namespace Prisma {
    * Fields of the user_skill model
    */
   interface user_skillFieldRefs {
-    readonly user_id: FieldRef<"user_skill", 'Int'>
-    readonly skill_id: FieldRef<"user_skill", 'Int'>
+    readonly user_id: FieldRef<"user_skill", 'String'>
+    readonly skill_id: FieldRef<"user_skill", 'String'>
     readonly level: FieldRef<"user_skill", 'Int'>
     readonly created_at: FieldRef<"user_skill", 'DateTime'>
     readonly updated_at: FieldRef<"user_skill", 'DateTime'>
@@ -53132,7 +52078,6 @@ export namespace Prisma {
   }
 
   export type User_statisticsAvgAggregateOutputType = {
-    user_id: number | null
     services_provided: number | null
     services_received: number | null
     activities_participated: number | null
@@ -53143,7 +52088,6 @@ export namespace Prisma {
   }
 
   export type User_statisticsSumAggregateOutputType = {
-    user_id: number | null
     services_provided: number | null
     services_received: number | null
     activities_participated: number | null
@@ -53154,7 +52098,7 @@ export namespace Prisma {
   }
 
   export type User_statisticsMinAggregateOutputType = {
-    user_id: number | null
+    user_id: string | null
     services_provided: number | null
     services_received: number | null
     activities_participated: number | null
@@ -53167,7 +52111,7 @@ export namespace Prisma {
   }
 
   export type User_statisticsMaxAggregateOutputType = {
-    user_id: number | null
+    user_id: string | null
     services_provided: number | null
     services_received: number | null
     activities_participated: number | null
@@ -53195,7 +52139,6 @@ export namespace Prisma {
 
 
   export type User_statisticsAvgAggregateInputType = {
-    user_id?: true
     services_provided?: true
     services_received?: true
     activities_participated?: true
@@ -53206,7 +52149,6 @@ export namespace Prisma {
   }
 
   export type User_statisticsSumAggregateInputType = {
-    user_id?: true
     services_provided?: true
     services_received?: true
     activities_participated?: true
@@ -53343,7 +52285,7 @@ export namespace Prisma {
   }
 
   export type User_statisticsGroupByOutputType = {
-    user_id: number
+    user_id: string
     services_provided: number | null
     services_received: number | null
     activities_participated: number | null
@@ -53446,7 +52388,7 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      user_id: number
+      user_id: string
       services_provided: number | null
       services_received: number | null
       activities_participated: number | null
@@ -53880,7 +52822,7 @@ export namespace Prisma {
    * Fields of the user_statistics model
    */
   interface user_statisticsFieldRefs {
-    readonly user_id: FieldRef<"user_statistics", 'Int'>
+    readonly user_id: FieldRef<"user_statistics", 'String'>
     readonly services_provided: FieldRef<"user_statistics", 'Int'>
     readonly services_received: FieldRef<"user_statistics", 'Int'>
     readonly activities_participated: FieldRef<"user_statistics", 'Int'>
@@ -54310,28 +53252,14 @@ export namespace Prisma {
 
   export type AggregateVideo_call = {
     _count: Video_callCountAggregateOutputType | null
-    _avg: Video_callAvgAggregateOutputType | null
-    _sum: Video_callSumAggregateOutputType | null
     _min: Video_callMinAggregateOutputType | null
     _max: Video_callMaxAggregateOutputType | null
   }
 
-  export type Video_callAvgAggregateOutputType = {
-    id: number | null
-    conversation_id: number | null
-    initiator_id: number | null
-  }
-
-  export type Video_callSumAggregateOutputType = {
-    id: number | null
-    conversation_id: number | null
-    initiator_id: number | null
-  }
-
   export type Video_callMinAggregateOutputType = {
-    id: number | null
-    conversation_id: number | null
-    initiator_id: number | null
+    id: string | null
+    conversation_id: string | null
+    initiator_id: string | null
     start_date: Date | null
     end_date: Date | null
     status: string | null
@@ -54340,9 +53268,9 @@ export namespace Prisma {
   }
 
   export type Video_callMaxAggregateOutputType = {
-    id: number | null
-    conversation_id: number | null
-    initiator_id: number | null
+    id: string | null
+    conversation_id: string | null
+    initiator_id: string | null
     start_date: Date | null
     end_date: Date | null
     status: string | null
@@ -54362,18 +53290,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Video_callAvgAggregateInputType = {
-    id?: true
-    conversation_id?: true
-    initiator_id?: true
-  }
-
-  export type Video_callSumAggregateInputType = {
-    id?: true
-    conversation_id?: true
-    initiator_id?: true
-  }
 
   export type Video_callMinAggregateInputType = {
     id?: true
@@ -54447,18 +53363,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Video_callAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Video_callSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Video_callMinAggregateInputType
@@ -54489,24 +53393,20 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Video_callCountAggregateInputType | true
-    _avg?: Video_callAvgAggregateInputType
-    _sum?: Video_callSumAggregateInputType
     _min?: Video_callMinAggregateInputType
     _max?: Video_callMaxAggregateInputType
   }
 
   export type Video_callGroupByOutputType = {
-    id: number
-    conversation_id: number | null
-    initiator_id: number | null
+    id: string
+    conversation_id: string | null
+    initiator_id: string | null
     start_date: Date | null
     end_date: Date | null
     status: string | null
     created_at: Date
     updated_at: Date | null
     _count: Video_callCountAggregateOutputType | null
-    _avg: Video_callAvgAggregateOutputType | null
-    _sum: Video_callSumAggregateOutputType | null
     _min: Video_callMinAggregateOutputType | null
     _max: Video_callMaxAggregateOutputType | null
   }
@@ -54596,9 +53496,9 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      conversation_id: number | null
-      initiator_id: number | null
+      id: string
+      conversation_id: string | null
+      initiator_id: string | null
       start_date: Date | null
       end_date: Date | null
       status: string | null
@@ -55029,9 +53929,9 @@ export namespace Prisma {
    * Fields of the video_call model
    */
   interface video_callFieldRefs {
-    readonly id: FieldRef<"video_call", 'Int'>
-    readonly conversation_id: FieldRef<"video_call", 'Int'>
-    readonly initiator_id: FieldRef<"video_call", 'Int'>
+    readonly id: FieldRef<"video_call", 'String'>
+    readonly conversation_id: FieldRef<"video_call", 'String'>
+    readonly initiator_id: FieldRef<"video_call", 'String'>
     readonly start_date: FieldRef<"video_call", 'DateTime'>
     readonly end_date: FieldRef<"video_call", 'DateTime'>
     readonly status: FieldRef<"video_call", 'String'>
@@ -55502,17 +54402,15 @@ export namespace Prisma {
   }
 
   export type Wellness_badgeAvgAggregateOutputType = {
-    id: number | null
     level: number | null
   }
 
   export type Wellness_badgeSumAggregateOutputType = {
-    id: number | null
     level: number | null
   }
 
   export type Wellness_badgeMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     description: string | null
     category: string | null
@@ -55523,7 +54421,7 @@ export namespace Prisma {
   }
 
   export type Wellness_badgeMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     name: string | null
     description: string | null
     category: string | null
@@ -55547,12 +54445,10 @@ export namespace Prisma {
 
 
   export type Wellness_badgeAvgAggregateInputType = {
-    id?: true
     level?: true
   }
 
   export type Wellness_badgeSumAggregateInputType = {
-    id?: true
     level?: true
   }
 
@@ -55677,7 +54573,7 @@ export namespace Prisma {
   }
 
   export type Wellness_badgeGroupByOutputType = {
-    id: number
+    id: string
     name: string
     description: string | null
     category: string
@@ -55756,7 +54652,7 @@ export namespace Prisma {
     name: "wellness_badge"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       name: string
       description: string | null
       category: string
@@ -56187,7 +55083,7 @@ export namespace Prisma {
    * Fields of the wellness_badge model
    */
   interface wellness_badgeFieldRefs {
-    readonly id: FieldRef<"wellness_badge", 'Int'>
+    readonly id: FieldRef<"wellness_badge", 'String'>
     readonly name: FieldRef<"wellness_badge", 'String'>
     readonly description: FieldRef<"wellness_badge", 'String'>
     readonly category: FieldRef<"wellness_badge", 'String'>
@@ -56574,20 +55470,16 @@ export namespace Prisma {
   }
 
   export type Wellness_goalAvgAggregateOutputType = {
-    id: number | null
-    user_id: number | null
     target_value: number | null
   }
 
   export type Wellness_goalSumAggregateOutputType = {
-    id: number | null
-    user_id: number | null
     target_value: number | null
   }
 
   export type Wellness_goalMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     title: string | null
     category: string | null
     target_value: number | null
@@ -56601,8 +55493,8 @@ export namespace Prisma {
   }
 
   export type Wellness_goalMaxAggregateOutputType = {
-    id: number | null
-    user_id: number | null
+    id: string | null
+    user_id: string | null
     title: string | null
     category: string | null
     target_value: number | null
@@ -56633,14 +55525,10 @@ export namespace Prisma {
 
 
   export type Wellness_goalAvgAggregateInputType = {
-    id?: true
-    user_id?: true
     target_value?: true
   }
 
   export type Wellness_goalSumAggregateInputType = {
-    id?: true
-    user_id?: true
     target_value?: true
   }
 
@@ -56777,8 +55665,8 @@ export namespace Prisma {
   }
 
   export type Wellness_goalGroupByOutputType = {
-    id: number
-    user_id: number | null
+    id: string
+    user_id: string | null
     title: string
     category: string
     target_value: number
@@ -56895,8 +55783,8 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      user_id: number | null
+      id: string
+      user_id: string | null
       title: string
       category: string
       target_value: number
@@ -57332,8 +56220,8 @@ export namespace Prisma {
    * Fields of the wellness_goal model
    */
   interface wellness_goalFieldRefs {
-    readonly id: FieldRef<"wellness_goal", 'Int'>
-    readonly user_id: FieldRef<"wellness_goal", 'Int'>
+    readonly id: FieldRef<"wellness_goal", 'String'>
+    readonly user_id: FieldRef<"wellness_goal", 'String'>
     readonly title: FieldRef<"wellness_goal", 'String'>
     readonly category: FieldRef<"wellness_goal", 'String'>
     readonly target_value: FieldRef<"wellness_goal", 'Int'>
@@ -58125,6 +57013,7 @@ export namespace Prisma {
     start_date: 'start_date',
     end_date: 'end_date',
     location: 'location',
+    gps_coordinates: 'gps_coordinates',
     organizer: 'organizer',
     contact: 'contact',
     official_link: 'official_link',
@@ -58341,6 +57230,7 @@ export namespace Prisma {
     category: 'category',
     description: 'description',
     address: 'address',
+    gps_coordinates: 'gps_coordinates',
     report_date: 'report_date',
     status: 'status',
     city_reference: 'city_reference',
@@ -58542,20 +57432,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -58580,6 +57456,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -58625,8 +57515,8 @@ export namespace Prisma {
     AND?: activityWhereInput | activityWhereInput[]
     OR?: activityWhereInput[]
     NOT?: activityWhereInput | activityWhereInput[]
-    id?: IntFilter<"activity"> | number
-    creator_id?: IntFilter<"activity"> | number
+    id?: StringFilter<"activity"> | string
+    creator_id?: StringFilter<"activity"> | string
     title?: StringFilter<"activity"> | string
     description?: StringNullableFilter<"activity"> | string | null
     start_date?: DateTimeFilter<"activity"> | Date | string
@@ -58675,11 +57565,11 @@ export namespace Prisma {
   }
 
   export type activityWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: activityWhereInput | activityWhereInput[]
     OR?: activityWhereInput[]
     NOT?: activityWhereInput | activityWhereInput[]
-    creator_id?: IntFilter<"activity"> | number
+    creator_id?: StringFilter<"activity"> | string
     title?: StringFilter<"activity"> | string
     description?: StringNullableFilter<"activity"> | string | null
     start_date?: DateTimeFilter<"activity"> | Date | string
@@ -58734,8 +57624,8 @@ export namespace Prisma {
     AND?: activityScalarWhereWithAggregatesInput | activityScalarWhereWithAggregatesInput[]
     OR?: activityScalarWhereWithAggregatesInput[]
     NOT?: activityScalarWhereWithAggregatesInput | activityScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"activity"> | number
-    creator_id?: IntWithAggregatesFilter<"activity"> | number
+    id?: StringWithAggregatesFilter<"activity"> | string
+    creator_id?: StringWithAggregatesFilter<"activity"> | string
     title?: StringWithAggregatesFilter<"activity"> | string
     description?: StringNullableWithAggregatesFilter<"activity"> | string | null
     start_date?: DateTimeWithAggregatesFilter<"activity"> | Date | string
@@ -58760,8 +57650,8 @@ export namespace Prisma {
     AND?: activity_logWhereInput | activity_logWhereInput[]
     OR?: activity_logWhereInput[]
     NOT?: activity_logWhereInput | activity_logWhereInput[]
-    id?: IntFilter<"activity_log"> | number
-    user_id?: IntNullableFilter<"activity_log"> | number | null
+    id?: StringFilter<"activity_log"> | string
+    user_id?: StringNullableFilter<"activity_log"> | string | null
     action_type?: StringNullableFilter<"activity_log"> | string | null
     description?: StringNullableFilter<"activity_log"> | string | null
     action_date?: DateTimeNullableFilter<"activity_log"> | Date | string | null
@@ -58786,11 +57676,11 @@ export namespace Prisma {
   }
 
   export type activity_logWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: activity_logWhereInput | activity_logWhereInput[]
     OR?: activity_logWhereInput[]
     NOT?: activity_logWhereInput | activity_logWhereInput[]
-    user_id?: IntNullableFilter<"activity_log"> | number | null
+    user_id?: StringNullableFilter<"activity_log"> | string | null
     action_type?: StringNullableFilter<"activity_log"> | string | null
     description?: StringNullableFilter<"activity_log"> | string | null
     action_date?: DateTimeNullableFilter<"activity_log"> | Date | string | null
@@ -58812,18 +57702,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: activity_logCountOrderByAggregateInput
-    _avg?: activity_logAvgOrderByAggregateInput
     _max?: activity_logMaxOrderByAggregateInput
     _min?: activity_logMinOrderByAggregateInput
-    _sum?: activity_logSumOrderByAggregateInput
   }
 
   export type activity_logScalarWhereWithAggregatesInput = {
     AND?: activity_logScalarWhereWithAggregatesInput | activity_logScalarWhereWithAggregatesInput[]
     OR?: activity_logScalarWhereWithAggregatesInput[]
     NOT?: activity_logScalarWhereWithAggregatesInput | activity_logScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"activity_log"> | number
-    user_id?: IntNullableWithAggregatesFilter<"activity_log"> | number | null
+    id?: StringWithAggregatesFilter<"activity_log"> | string
+    user_id?: StringNullableWithAggregatesFilter<"activity_log"> | string | null
     action_type?: StringNullableWithAggregatesFilter<"activity_log"> | string | null
     description?: StringNullableWithAggregatesFilter<"activity_log"> | string | null
     action_date?: DateTimeNullableWithAggregatesFilter<"activity_log"> | Date | string | null
@@ -58837,8 +57725,8 @@ export namespace Prisma {
     AND?: activity_registrationWhereInput | activity_registrationWhereInput[]
     OR?: activity_registrationWhereInput[]
     NOT?: activity_registrationWhereInput | activity_registrationWhereInput[]
-    activity_id?: IntFilter<"activity_registration"> | number
-    user_id?: IntFilter<"activity_registration"> | number
+    activity_id?: StringFilter<"activity_registration"> | string
+    user_id?: StringFilter<"activity_registration"> | string
     registration_date?: DateTimeFilter<"activity_registration"> | Date | string
     status?: StringNullableFilter<"activity_registration"> | string | null
     attendance_confirmed?: BoolNullableFilter<"activity_registration"> | boolean | null
@@ -58865,8 +57753,8 @@ export namespace Prisma {
     AND?: activity_registrationWhereInput | activity_registrationWhereInput[]
     OR?: activity_registrationWhereInput[]
     NOT?: activity_registrationWhereInput | activity_registrationWhereInput[]
-    activity_id?: IntFilter<"activity_registration"> | number
-    user_id?: IntFilter<"activity_registration"> | number
+    activity_id?: StringFilter<"activity_registration"> | string
+    user_id?: StringFilter<"activity_registration"> | string
     registration_date?: DateTimeFilter<"activity_registration"> | Date | string
     status?: StringNullableFilter<"activity_registration"> | string | null
     attendance_confirmed?: BoolNullableFilter<"activity_registration"> | boolean | null
@@ -58885,18 +57773,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: activity_registrationCountOrderByAggregateInput
-    _avg?: activity_registrationAvgOrderByAggregateInput
     _max?: activity_registrationMaxOrderByAggregateInput
     _min?: activity_registrationMinOrderByAggregateInput
-    _sum?: activity_registrationSumOrderByAggregateInput
   }
 
   export type activity_registrationScalarWhereWithAggregatesInput = {
     AND?: activity_registrationScalarWhereWithAggregatesInput | activity_registrationScalarWhereWithAggregatesInput[]
     OR?: activity_registrationScalarWhereWithAggregatesInput[]
     NOT?: activity_registrationScalarWhereWithAggregatesInput | activity_registrationScalarWhereWithAggregatesInput[]
-    activity_id?: IntWithAggregatesFilter<"activity_registration"> | number
-    user_id?: IntWithAggregatesFilter<"activity_registration"> | number
+    activity_id?: StringWithAggregatesFilter<"activity_registration"> | string
+    user_id?: StringWithAggregatesFilter<"activity_registration"> | string
     registration_date?: DateTimeWithAggregatesFilter<"activity_registration"> | Date | string
     status?: StringNullableWithAggregatesFilter<"activity_registration"> | string | null
     attendance_confirmed?: BoolNullableWithAggregatesFilter<"activity_registration"> | boolean | null
@@ -58908,7 +57794,7 @@ export namespace Prisma {
     AND?: badgeWhereInput | badgeWhereInput[]
     OR?: badgeWhereInput[]
     NOT?: badgeWhereInput | badgeWhereInput[]
-    id?: IntFilter<"badge"> | number
+    id?: StringFilter<"badge"> | string
     name?: StringNullableFilter<"badge"> | string | null
     description?: StringNullableFilter<"badge"> | string | null
     icon?: StringNullableFilter<"badge"> | string | null
@@ -58932,7 +57818,7 @@ export namespace Prisma {
   }
 
   export type badgeWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: badgeWhereInput | badgeWhereInput[]
     OR?: badgeWhereInput[]
     NOT?: badgeWhereInput | badgeWhereInput[]
@@ -58966,7 +57852,7 @@ export namespace Prisma {
     AND?: badgeScalarWhereWithAggregatesInput | badgeScalarWhereWithAggregatesInput[]
     OR?: badgeScalarWhereWithAggregatesInput[]
     NOT?: badgeScalarWhereWithAggregatesInput | badgeScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"badge"> | number
+    id?: StringWithAggregatesFilter<"badge"> | string
     name?: StringNullableWithAggregatesFilter<"badge"> | string | null
     description?: StringNullableWithAggregatesFilter<"badge"> | string | null
     icon?: StringNullableWithAggregatesFilter<"badge"> | string | null
@@ -58980,7 +57866,7 @@ export namespace Prisma {
     AND?: cognitive_exerciseWhereInput | cognitive_exerciseWhereInput[]
     OR?: cognitive_exerciseWhereInput[]
     NOT?: cognitive_exerciseWhereInput | cognitive_exerciseWhereInput[]
-    id?: IntFilter<"cognitive_exercise"> | number
+    id?: StringFilter<"cognitive_exercise"> | string
     name?: StringFilter<"cognitive_exercise"> | string
     category?: StringFilter<"cognitive_exercise"> | string
     difficulty_level?: StringFilter<"cognitive_exercise"> | string
@@ -59006,7 +57892,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: cognitive_exerciseWhereInput | cognitive_exerciseWhereInput[]
     OR?: cognitive_exerciseWhereInput[]
     NOT?: cognitive_exerciseWhereInput | cognitive_exerciseWhereInput[]
@@ -59042,7 +57928,7 @@ export namespace Prisma {
     AND?: cognitive_exerciseScalarWhereWithAggregatesInput | cognitive_exerciseScalarWhereWithAggregatesInput[]
     OR?: cognitive_exerciseScalarWhereWithAggregatesInput[]
     NOT?: cognitive_exerciseScalarWhereWithAggregatesInput | cognitive_exerciseScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"cognitive_exercise"> | number
+    id?: StringWithAggregatesFilter<"cognitive_exercise"> | string
     name?: StringWithAggregatesFilter<"cognitive_exercise"> | string
     category?: StringWithAggregatesFilter<"cognitive_exercise"> | string
     difficulty_level?: StringWithAggregatesFilter<"cognitive_exercise"> | string
@@ -59057,10 +57943,10 @@ export namespace Prisma {
     AND?: collaborative_projectWhereInput | collaborative_projectWhereInput[]
     OR?: collaborative_projectWhereInput[]
     NOT?: collaborative_projectWhereInput | collaborative_projectWhereInput[]
-    id?: IntFilter<"collaborative_project"> | number
+    id?: StringFilter<"collaborative_project"> | string
     title?: StringNullableFilter<"collaborative_project"> | string | null
     description?: StringNullableFilter<"collaborative_project"> | string | null
-    creator_id?: IntNullableFilter<"collaborative_project"> | number | null
+    creator_id?: StringNullableFilter<"collaborative_project"> | string | null
     creation_date?: DateTimeNullableFilter<"collaborative_project"> | Date | string | null
     status?: StringNullableFilter<"collaborative_project"> | string | null
     category?: StringNullableFilter<"collaborative_project"> | string | null
@@ -59087,13 +57973,13 @@ export namespace Prisma {
   }
 
   export type collaborative_projectWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: collaborative_projectWhereInput | collaborative_projectWhereInput[]
     OR?: collaborative_projectWhereInput[]
     NOT?: collaborative_projectWhereInput | collaborative_projectWhereInput[]
     title?: StringNullableFilter<"collaborative_project"> | string | null
     description?: StringNullableFilter<"collaborative_project"> | string | null
-    creator_id?: IntNullableFilter<"collaborative_project"> | number | null
+    creator_id?: StringNullableFilter<"collaborative_project"> | string | null
     creation_date?: DateTimeNullableFilter<"collaborative_project"> | Date | string | null
     status?: StringNullableFilter<"collaborative_project"> | string | null
     category?: StringNullableFilter<"collaborative_project"> | string | null
@@ -59115,20 +58001,18 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: collaborative_projectCountOrderByAggregateInput
-    _avg?: collaborative_projectAvgOrderByAggregateInput
     _max?: collaborative_projectMaxOrderByAggregateInput
     _min?: collaborative_projectMinOrderByAggregateInput
-    _sum?: collaborative_projectSumOrderByAggregateInput
   }
 
   export type collaborative_projectScalarWhereWithAggregatesInput = {
     AND?: collaborative_projectScalarWhereWithAggregatesInput | collaborative_projectScalarWhereWithAggregatesInput[]
     OR?: collaborative_projectScalarWhereWithAggregatesInput[]
     NOT?: collaborative_projectScalarWhereWithAggregatesInput | collaborative_projectScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"collaborative_project"> | number
+    id?: StringWithAggregatesFilter<"collaborative_project"> | string
     title?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
     description?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
-    creator_id?: IntNullableWithAggregatesFilter<"collaborative_project"> | number | null
+    creator_id?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
     creation_date?: DateTimeNullableWithAggregatesFilter<"collaborative_project"> | Date | string | null
     status?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
     category?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
@@ -59140,7 +58024,7 @@ export namespace Prisma {
     AND?: conversationWhereInput | conversationWhereInput[]
     OR?: conversationWhereInput[]
     NOT?: conversationWhereInput | conversationWhereInput[]
-    id?: IntFilter<"conversation"> | number
+    id?: StringFilter<"conversation"> | string
     type?: StringNullableFilter<"conversation"> | string | null
     creation_date?: DateTimeNullableFilter<"conversation"> | Date | string | null
     title?: StringNullableFilter<"conversation"> | string | null
@@ -59164,7 +58048,7 @@ export namespace Prisma {
   }
 
   export type conversationWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: conversationWhereInput | conversationWhereInput[]
     OR?: conversationWhereInput[]
     NOT?: conversationWhereInput | conversationWhereInput[]
@@ -59186,17 +58070,15 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: conversationCountOrderByAggregateInput
-    _avg?: conversationAvgOrderByAggregateInput
     _max?: conversationMaxOrderByAggregateInput
     _min?: conversationMinOrderByAggregateInput
-    _sum?: conversationSumOrderByAggregateInput
   }
 
   export type conversationScalarWhereWithAggregatesInput = {
     AND?: conversationScalarWhereWithAggregatesInput | conversationScalarWhereWithAggregatesInput[]
     OR?: conversationScalarWhereWithAggregatesInput[]
     NOT?: conversationScalarWhereWithAggregatesInput | conversationScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"conversation"> | number
+    id?: StringWithAggregatesFilter<"conversation"> | string
     type?: StringNullableWithAggregatesFilter<"conversation"> | string | null
     creation_date?: DateTimeNullableWithAggregatesFilter<"conversation"> | Date | string | null
     title?: StringNullableWithAggregatesFilter<"conversation"> | string | null
@@ -59208,8 +58090,8 @@ export namespace Prisma {
     AND?: conversation_participantWhereInput | conversation_participantWhereInput[]
     OR?: conversation_participantWhereInput[]
     NOT?: conversation_participantWhereInput | conversation_participantWhereInput[]
-    conversation_id?: IntFilter<"conversation_participant"> | number
-    user_id?: IntFilter<"conversation_participant"> | number
+    conversation_id?: StringFilter<"conversation_participant"> | string
+    user_id?: StringFilter<"conversation_participant"> | string
     date_added?: DateTimeNullableFilter<"conversation_participant"> | Date | string | null
     administrator?: BoolNullableFilter<"conversation_participant"> | boolean | null
     last_access?: DateTimeFilter<"conversation_participant"> | Date | string
@@ -59236,8 +58118,8 @@ export namespace Prisma {
     AND?: conversation_participantWhereInput | conversation_participantWhereInput[]
     OR?: conversation_participantWhereInput[]
     NOT?: conversation_participantWhereInput | conversation_participantWhereInput[]
-    conversation_id?: IntFilter<"conversation_participant"> | number
-    user_id?: IntFilter<"conversation_participant"> | number
+    conversation_id?: StringFilter<"conversation_participant"> | string
+    user_id?: StringFilter<"conversation_participant"> | string
     date_added?: DateTimeNullableFilter<"conversation_participant"> | Date | string | null
     administrator?: BoolNullableFilter<"conversation_participant"> | boolean | null
     last_access?: DateTimeFilter<"conversation_participant"> | Date | string
@@ -59256,18 +58138,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: conversation_participantCountOrderByAggregateInput
-    _avg?: conversation_participantAvgOrderByAggregateInput
     _max?: conversation_participantMaxOrderByAggregateInput
     _min?: conversation_participantMinOrderByAggregateInput
-    _sum?: conversation_participantSumOrderByAggregateInput
   }
 
   export type conversation_participantScalarWhereWithAggregatesInput = {
     AND?: conversation_participantScalarWhereWithAggregatesInput | conversation_participantScalarWhereWithAggregatesInput[]
     OR?: conversation_participantScalarWhereWithAggregatesInput[]
     NOT?: conversation_participantScalarWhereWithAggregatesInput | conversation_participantScalarWhereWithAggregatesInput[]
-    conversation_id?: IntWithAggregatesFilter<"conversation_participant"> | number
-    user_id?: IntWithAggregatesFilter<"conversation_participant"> | number
+    conversation_id?: StringWithAggregatesFilter<"conversation_participant"> | string
+    user_id?: StringWithAggregatesFilter<"conversation_participant"> | string
     date_added?: DateTimeNullableWithAggregatesFilter<"conversation_participant"> | Date | string | null
     administrator?: BoolNullableWithAggregatesFilter<"conversation_participant"> | boolean | null
     last_access?: DateTimeWithAggregatesFilter<"conversation_participant"> | Date | string
@@ -59279,7 +58159,7 @@ export namespace Prisma {
     AND?: exercise_programWhereInput | exercise_programWhereInput[]
     OR?: exercise_programWhereInput[]
     NOT?: exercise_programWhereInput | exercise_programWhereInput[]
-    id?: IntFilter<"exercise_program"> | number
+    id?: StringFilter<"exercise_program"> | string
     name?: StringFilter<"exercise_program"> | string
     category?: StringFilter<"exercise_program"> | string
     difficulty_level?: StringFilter<"exercise_program"> | string
@@ -59309,7 +58189,7 @@ export namespace Prisma {
   }
 
   export type exercise_programWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: exercise_programWhereInput | exercise_programWhereInput[]
     OR?: exercise_programWhereInput[]
     NOT?: exercise_programWhereInput | exercise_programWhereInput[]
@@ -59349,7 +58229,7 @@ export namespace Prisma {
     AND?: exercise_programScalarWhereWithAggregatesInput | exercise_programScalarWhereWithAggregatesInput[]
     OR?: exercise_programScalarWhereWithAggregatesInput[]
     NOT?: exercise_programScalarWhereWithAggregatesInput | exercise_programScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"exercise_program"> | number
+    id?: StringWithAggregatesFilter<"exercise_program"> | string
     name?: StringWithAggregatesFilter<"exercise_program"> | string
     category?: StringWithAggregatesFilter<"exercise_program"> | string
     difficulty_level?: StringWithAggregatesFilter<"exercise_program"> | string
@@ -59366,7 +58246,7 @@ export namespace Prisma {
     AND?: forum_categoryWhereInput | forum_categoryWhereInput[]
     OR?: forum_categoryWhereInput[]
     NOT?: forum_categoryWhereInput | forum_categoryWhereInput[]
-    id?: IntFilter<"forum_category"> | number
+    id?: StringFilter<"forum_category"> | string
     name?: StringFilter<"forum_category"> | string
     description?: StringNullableFilter<"forum_category"> | string | null
     parent_category_id?: IntNullableFilter<"forum_category"> | number | null
@@ -59386,7 +58266,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: forum_categoryWhereInput | forum_categoryWhereInput[]
     OR?: forum_categoryWhereInput[]
     NOT?: forum_categoryWhereInput | forum_categoryWhereInput[]
@@ -59416,7 +58296,7 @@ export namespace Prisma {
     AND?: forum_categoryScalarWhereWithAggregatesInput | forum_categoryScalarWhereWithAggregatesInput[]
     OR?: forum_categoryScalarWhereWithAggregatesInput[]
     NOT?: forum_categoryScalarWhereWithAggregatesInput | forum_categoryScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"forum_category"> | number
+    id?: StringWithAggregatesFilter<"forum_category"> | string
     name?: StringWithAggregatesFilter<"forum_category"> | string
     description?: StringNullableWithAggregatesFilter<"forum_category"> | string | null
     parent_category_id?: IntNullableWithAggregatesFilter<"forum_category"> | number | null
@@ -59428,9 +58308,9 @@ export namespace Prisma {
     AND?: forum_messageWhereInput | forum_messageWhereInput[]
     OR?: forum_messageWhereInput[]
     NOT?: forum_messageWhereInput | forum_messageWhereInput[]
-    id?: IntFilter<"forum_message"> | number
-    topic_id?: IntNullableFilter<"forum_message"> | number | null
-    author_id?: IntNullableFilter<"forum_message"> | number | null
+    id?: StringFilter<"forum_message"> | string
+    topic_id?: StringNullableFilter<"forum_message"> | string | null
+    author_id?: StringNullableFilter<"forum_message"> | string | null
     content?: StringNullableFilter<"forum_message"> | string | null
     creation_date?: DateTimeNullableFilter<"forum_message"> | Date | string | null
     modification_date?: DateTimeNullableFilter<"forum_message"> | Date | string | null
@@ -59456,12 +58336,12 @@ export namespace Prisma {
   }
 
   export type forum_messageWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: forum_messageWhereInput | forum_messageWhereInput[]
     OR?: forum_messageWhereInput[]
     NOT?: forum_messageWhereInput | forum_messageWhereInput[]
-    topic_id?: IntNullableFilter<"forum_message"> | number | null
-    author_id?: IntNullableFilter<"forum_message"> | number | null
+    topic_id?: StringNullableFilter<"forum_message"> | string | null
+    author_id?: StringNullableFilter<"forum_message"> | string | null
     content?: StringNullableFilter<"forum_message"> | string | null
     creation_date?: DateTimeNullableFilter<"forum_message"> | Date | string | null
     modification_date?: DateTimeNullableFilter<"forum_message"> | Date | string | null
@@ -59483,19 +58363,17 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: forum_messageCountOrderByAggregateInput
-    _avg?: forum_messageAvgOrderByAggregateInput
     _max?: forum_messageMaxOrderByAggregateInput
     _min?: forum_messageMinOrderByAggregateInput
-    _sum?: forum_messageSumOrderByAggregateInput
   }
 
   export type forum_messageScalarWhereWithAggregatesInput = {
     AND?: forum_messageScalarWhereWithAggregatesInput | forum_messageScalarWhereWithAggregatesInput[]
     OR?: forum_messageScalarWhereWithAggregatesInput[]
     NOT?: forum_messageScalarWhereWithAggregatesInput | forum_messageScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"forum_message"> | number
-    topic_id?: IntNullableWithAggregatesFilter<"forum_message"> | number | null
-    author_id?: IntNullableWithAggregatesFilter<"forum_message"> | number | null
+    id?: StringWithAggregatesFilter<"forum_message"> | string
+    topic_id?: StringNullableWithAggregatesFilter<"forum_message"> | string | null
+    author_id?: StringNullableWithAggregatesFilter<"forum_message"> | string | null
     content?: StringNullableWithAggregatesFilter<"forum_message"> | string | null
     creation_date?: DateTimeNullableWithAggregatesFilter<"forum_message"> | Date | string | null
     modification_date?: DateTimeNullableWithAggregatesFilter<"forum_message"> | Date | string | null
@@ -59508,9 +58386,9 @@ export namespace Prisma {
     AND?: forum_topicWhereInput | forum_topicWhereInput[]
     OR?: forum_topicWhereInput[]
     NOT?: forum_topicWhereInput | forum_topicWhereInput[]
-    id?: IntFilter<"forum_topic"> | number
-    category_id?: IntFilter<"forum_topic"> | number
-    author_id?: IntFilter<"forum_topic"> | number
+    id?: StringFilter<"forum_topic"> | string
+    category_id?: StringFilter<"forum_topic"> | string
+    author_id?: StringFilter<"forum_topic"> | string
     title?: StringFilter<"forum_topic"> | string
     creation_date?: DateTimeNullableFilter<"forum_topic"> | Date | string | null
     pinned?: BoolNullableFilter<"forum_topic"> | boolean | null
@@ -59540,12 +58418,12 @@ export namespace Prisma {
   }
 
   export type forum_topicWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: forum_topicWhereInput | forum_topicWhereInput[]
     OR?: forum_topicWhereInput[]
     NOT?: forum_topicWhereInput | forum_topicWhereInput[]
-    category_id?: IntFilter<"forum_topic"> | number
-    author_id?: IntFilter<"forum_topic"> | number
+    category_id?: StringFilter<"forum_topic"> | string
+    author_id?: StringFilter<"forum_topic"> | string
     title?: StringFilter<"forum_topic"> | string
     creation_date?: DateTimeNullableFilter<"forum_topic"> | Date | string | null
     pinned?: BoolNullableFilter<"forum_topic"> | boolean | null
@@ -59580,9 +58458,9 @@ export namespace Prisma {
     AND?: forum_topicScalarWhereWithAggregatesInput | forum_topicScalarWhereWithAggregatesInput[]
     OR?: forum_topicScalarWhereWithAggregatesInput[]
     NOT?: forum_topicScalarWhereWithAggregatesInput | forum_topicScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"forum_topic"> | number
-    category_id?: IntWithAggregatesFilter<"forum_topic"> | number
-    author_id?: IntWithAggregatesFilter<"forum_topic"> | number
+    id?: StringWithAggregatesFilter<"forum_topic"> | string
+    category_id?: StringWithAggregatesFilter<"forum_topic"> | string
+    author_id?: StringWithAggregatesFilter<"forum_topic"> | string
     title?: StringWithAggregatesFilter<"forum_topic"> | string
     creation_date?: DateTimeNullableWithAggregatesFilter<"forum_topic"> | Date | string | null
     pinned?: BoolNullableWithAggregatesFilter<"forum_topic"> | boolean | null
@@ -59596,8 +58474,8 @@ export namespace Prisma {
     AND?: goal_progressWhereInput | goal_progressWhereInput[]
     OR?: goal_progressWhereInput[]
     NOT?: goal_progressWhereInput | goal_progressWhereInput[]
-    id?: IntFilter<"goal_progress"> | number
-    goal_id?: IntFilter<"goal_progress"> | number
+    id?: StringFilter<"goal_progress"> | string
+    goal_id?: StringFilter<"goal_progress"> | string
     recording_date?: DateTimeFilter<"goal_progress"> | Date | string
     achieved_value?: IntFilter<"goal_progress"> | number
     goal_achieved?: BoolFilter<"goal_progress"> | boolean
@@ -59618,11 +58496,11 @@ export namespace Prisma {
   }
 
   export type goal_progressWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: goal_progressWhereInput | goal_progressWhereInput[]
     OR?: goal_progressWhereInput[]
     NOT?: goal_progressWhereInput | goal_progressWhereInput[]
-    goal_id?: IntFilter<"goal_progress"> | number
+    goal_id?: StringFilter<"goal_progress"> | string
     recording_date?: DateTimeFilter<"goal_progress"> | Date | string
     achieved_value?: IntFilter<"goal_progress"> | number
     goal_achieved?: BoolFilter<"goal_progress"> | boolean
@@ -59650,8 +58528,8 @@ export namespace Prisma {
     AND?: goal_progressScalarWhereWithAggregatesInput | goal_progressScalarWhereWithAggregatesInput[]
     OR?: goal_progressScalarWhereWithAggregatesInput[]
     NOT?: goal_progressScalarWhereWithAggregatesInput | goal_progressScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"goal_progress"> | number
-    goal_id?: IntWithAggregatesFilter<"goal_progress"> | number
+    id?: StringWithAggregatesFilter<"goal_progress"> | string
+    goal_id?: StringWithAggregatesFilter<"goal_progress"> | string
     recording_date?: DateTimeWithAggregatesFilter<"goal_progress"> | Date | string
     achieved_value?: IntWithAggregatesFilter<"goal_progress"> | number
     goal_achieved?: BoolWithAggregatesFilter<"goal_progress"> | boolean
@@ -59663,8 +58541,8 @@ export namespace Prisma {
     AND?: health_indicatorWhereInput | health_indicatorWhereInput[]
     OR?: health_indicatorWhereInput[]
     NOT?: health_indicatorWhereInput | health_indicatorWhereInput[]
-    id?: IntFilter<"health_indicator"> | number
-    user_id?: IntNullableFilter<"health_indicator"> | number | null
+    id?: StringFilter<"health_indicator"> | string
+    user_id?: StringNullableFilter<"health_indicator"> | string | null
     recording_date?: DateTimeFilter<"health_indicator"> | Date | string
     step_count?: IntNullableFilter<"health_indicator"> | number | null
     sleep_duration_minutes?: IntNullableFilter<"health_indicator"> | number | null
@@ -59693,11 +58571,11 @@ export namespace Prisma {
   }
 
   export type health_indicatorWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: health_indicatorWhereInput | health_indicatorWhereInput[]
     OR?: health_indicatorWhereInput[]
     NOT?: health_indicatorWhereInput | health_indicatorWhereInput[]
-    user_id?: IntNullableFilter<"health_indicator"> | number | null
+    user_id?: StringNullableFilter<"health_indicator"> | string | null
     recording_date?: DateTimeFilter<"health_indicator"> | Date | string
     step_count?: IntNullableFilter<"health_indicator"> | number | null
     sleep_duration_minutes?: IntNullableFilter<"health_indicator"> | number | null
@@ -59733,8 +58611,8 @@ export namespace Prisma {
     AND?: health_indicatorScalarWhereWithAggregatesInput | health_indicatorScalarWhereWithAggregatesInput[]
     OR?: health_indicatorScalarWhereWithAggregatesInput[]
     NOT?: health_indicatorScalarWhereWithAggregatesInput | health_indicatorScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"health_indicator"> | number
-    user_id?: IntNullableWithAggregatesFilter<"health_indicator"> | number | null
+    id?: StringWithAggregatesFilter<"health_indicator"> | string
+    user_id?: StringNullableWithAggregatesFilter<"health_indicator"> | string | null
     recording_date?: DateTimeWithAggregatesFilter<"health_indicator"> | Date | string
     step_count?: IntNullableWithAggregatesFilter<"health_indicator"> | number | null
     sleep_duration_minutes?: IntNullableWithAggregatesFilter<"health_indicator"> | number | null
@@ -59750,9 +58628,9 @@ export namespace Prisma {
     AND?: help_offerWhereInput | help_offerWhereInput[]
     OR?: help_offerWhereInput[]
     NOT?: help_offerWhereInput | help_offerWhereInput[]
-    id?: IntFilter<"help_offer"> | number
-    request_id?: IntFilter<"help_offer"> | number
-    helper_id?: IntFilter<"help_offer"> | number
+    id?: StringFilter<"help_offer"> | string
+    request_id?: StringFilter<"help_offer"> | string
+    helper_id?: StringFilter<"help_offer"> | string
     offer_date?: DateTimeFilter<"help_offer"> | Date | string
     message?: StringNullableFilter<"help_offer"> | string | null
     status?: StringNullableFilter<"help_offer"> | string | null
@@ -59776,12 +58654,12 @@ export namespace Prisma {
   }
 
   export type help_offerWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: help_offerWhereInput | help_offerWhereInput[]
     OR?: help_offerWhereInput[]
     NOT?: help_offerWhereInput | help_offerWhereInput[]
-    request_id?: IntFilter<"help_offer"> | number
-    helper_id?: IntFilter<"help_offer"> | number
+    request_id?: StringFilter<"help_offer"> | string
+    helper_id?: StringFilter<"help_offer"> | string
     offer_date?: DateTimeFilter<"help_offer"> | Date | string
     message?: StringNullableFilter<"help_offer"> | string | null
     status?: StringNullableFilter<"help_offer"> | string | null
@@ -59801,19 +58679,17 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: help_offerCountOrderByAggregateInput
-    _avg?: help_offerAvgOrderByAggregateInput
     _max?: help_offerMaxOrderByAggregateInput
     _min?: help_offerMinOrderByAggregateInput
-    _sum?: help_offerSumOrderByAggregateInput
   }
 
   export type help_offerScalarWhereWithAggregatesInput = {
     AND?: help_offerScalarWhereWithAggregatesInput | help_offerScalarWhereWithAggregatesInput[]
     OR?: help_offerScalarWhereWithAggregatesInput[]
     NOT?: help_offerScalarWhereWithAggregatesInput | help_offerScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"help_offer"> | number
-    request_id?: IntWithAggregatesFilter<"help_offer"> | number
-    helper_id?: IntWithAggregatesFilter<"help_offer"> | number
+    id?: StringWithAggregatesFilter<"help_offer"> | string
+    request_id?: StringWithAggregatesFilter<"help_offer"> | string
+    helper_id?: StringWithAggregatesFilter<"help_offer"> | string
     offer_date?: DateTimeWithAggregatesFilter<"help_offer"> | Date | string
     message?: StringNullableWithAggregatesFilter<"help_offer"> | string | null
     status?: StringNullableWithAggregatesFilter<"help_offer"> | string | null
@@ -59825,8 +58701,8 @@ export namespace Prisma {
     AND?: help_requestWhereInput | help_requestWhereInput[]
     OR?: help_requestWhereInput[]
     NOT?: help_requestWhereInput | help_requestWhereInput[]
-    id?: IntFilter<"help_request"> | number
-    creator_id?: IntFilter<"help_request"> | number
+    id?: StringFilter<"help_request"> | string
+    creator_id?: StringFilter<"help_request"> | string
     title?: StringFilter<"help_request"> | string
     description?: StringNullableFilter<"help_request"> | string | null
     creation_date?: DateTimeFilter<"help_request"> | Date | string
@@ -59869,11 +58745,11 @@ export namespace Prisma {
   }
 
   export type help_requestWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: help_requestWhereInput | help_requestWhereInput[]
     OR?: help_requestWhereInput[]
     NOT?: help_requestWhereInput | help_requestWhereInput[]
-    creator_id?: IntFilter<"help_request"> | number
+    creator_id?: StringFilter<"help_request"> | string
     title?: StringFilter<"help_request"> | string
     description?: StringNullableFilter<"help_request"> | string | null
     creation_date?: DateTimeFilter<"help_request"> | Date | string
@@ -59921,8 +58797,8 @@ export namespace Prisma {
     AND?: help_requestScalarWhereWithAggregatesInput | help_requestScalarWhereWithAggregatesInput[]
     OR?: help_requestScalarWhereWithAggregatesInput[]
     NOT?: help_requestScalarWhereWithAggregatesInput | help_requestScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"help_request"> | number
-    creator_id?: IntWithAggregatesFilter<"help_request"> | number
+    id?: StringWithAggregatesFilter<"help_request"> | string
+    creator_id?: StringWithAggregatesFilter<"help_request"> | string
     title?: StringWithAggregatesFilter<"help_request"> | string
     description?: StringNullableWithAggregatesFilter<"help_request"> | string | null
     creation_date?: DateTimeWithAggregatesFilter<"help_request"> | Date | string
@@ -59943,7 +58819,7 @@ export namespace Prisma {
     AND?: local_serviceWhereInput | local_serviceWhereInput[]
     OR?: local_serviceWhereInput[]
     NOT?: local_serviceWhereInput | local_serviceWhereInput[]
-    id?: IntFilter<"local_service"> | number
+    id?: StringFilter<"local_service"> | string
     name?: StringNullableFilter<"local_service"> | string | null
     category?: StringNullableFilter<"local_service"> | string | null
     address?: StringNullableFilter<"local_service"> | string | null
@@ -59975,7 +58851,7 @@ export namespace Prisma {
   }
 
   export type local_serviceWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: local_serviceWhereInput | local_serviceWhereInput[]
     OR?: local_serviceWhereInput[]
     NOT?: local_serviceWhereInput | local_serviceWhereInput[]
@@ -60007,17 +58883,15 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: local_serviceCountOrderByAggregateInput
-    _avg?: local_serviceAvgOrderByAggregateInput
     _max?: local_serviceMaxOrderByAggregateInput
     _min?: local_serviceMinOrderByAggregateInput
-    _sum?: local_serviceSumOrderByAggregateInput
   }
 
   export type local_serviceScalarWhereWithAggregatesInput = {
     AND?: local_serviceScalarWhereWithAggregatesInput | local_serviceScalarWhereWithAggregatesInput[]
     OR?: local_serviceScalarWhereWithAggregatesInput[]
     NOT?: local_serviceScalarWhereWithAggregatesInput | local_serviceScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"local_service"> | number
+    id?: StringWithAggregatesFilter<"local_service"> | string
     name?: StringNullableWithAggregatesFilter<"local_service"> | string | null
     category?: StringNullableWithAggregatesFilter<"local_service"> | string | null
     address?: StringNullableWithAggregatesFilter<"local_service"> | string | null
@@ -60035,8 +58909,8 @@ export namespace Prisma {
     AND?: medication_reminderWhereInput | medication_reminderWhereInput[]
     OR?: medication_reminderWhereInput[]
     NOT?: medication_reminderWhereInput | medication_reminderWhereInput[]
-    id?: IntFilter<"medication_reminder"> | number
-    user_id?: IntFilter<"medication_reminder"> | number
+    id?: StringFilter<"medication_reminder"> | string
+    user_id?: StringFilter<"medication_reminder"> | string
     medication_name?: StringFilter<"medication_reminder"> | string
     dosage?: StringNullableFilter<"medication_reminder"> | string | null
     morning_reminder_time?: DateTimeNullableFilter<"medication_reminder"> | Date | string | null
@@ -60073,11 +58947,11 @@ export namespace Prisma {
   }
 
   export type medication_reminderWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: medication_reminderWhereInput | medication_reminderWhereInput[]
     OR?: medication_reminderWhereInput[]
     NOT?: medication_reminderWhereInput | medication_reminderWhereInput[]
-    user_id?: IntFilter<"medication_reminder"> | number
+    user_id?: StringFilter<"medication_reminder"> | string
     medication_name?: StringFilter<"medication_reminder"> | string
     dosage?: StringNullableFilter<"medication_reminder"> | string | null
     morning_reminder_time?: DateTimeNullableFilter<"medication_reminder"> | Date | string | null
@@ -60111,18 +58985,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: medication_reminderCountOrderByAggregateInput
-    _avg?: medication_reminderAvgOrderByAggregateInput
     _max?: medication_reminderMaxOrderByAggregateInput
     _min?: medication_reminderMinOrderByAggregateInput
-    _sum?: medication_reminderSumOrderByAggregateInput
   }
 
   export type medication_reminderScalarWhereWithAggregatesInput = {
     AND?: medication_reminderScalarWhereWithAggregatesInput | medication_reminderScalarWhereWithAggregatesInput[]
     OR?: medication_reminderScalarWhereWithAggregatesInput[]
     NOT?: medication_reminderScalarWhereWithAggregatesInput | medication_reminderScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"medication_reminder"> | number
-    user_id?: IntWithAggregatesFilter<"medication_reminder"> | number
+    id?: StringWithAggregatesFilter<"medication_reminder"> | string
+    user_id?: StringWithAggregatesFilter<"medication_reminder"> | string
     medication_name?: StringWithAggregatesFilter<"medication_reminder"> | string
     dosage?: StringNullableWithAggregatesFilter<"medication_reminder"> | string | null
     morning_reminder_time?: DateTimeNullableWithAggregatesFilter<"medication_reminder"> | Date | string | null
@@ -60142,9 +59014,9 @@ export namespace Prisma {
     AND?: messageWhereInput | messageWhereInput[]
     OR?: messageWhereInput[]
     NOT?: messageWhereInput | messageWhereInput[]
-    id?: IntFilter<"message"> | number
-    conversation_id?: IntNullableFilter<"message"> | number | null
-    sender_id?: IntNullableFilter<"message"> | number | null
+    id?: StringFilter<"message"> | string
+    conversation_id?: StringNullableFilter<"message"> | string | null
+    sender_id?: StringNullableFilter<"message"> | string | null
     content?: StringNullableFilter<"message"> | string | null
     send_date?: DateTimeNullableFilter<"message"> | Date | string | null
     type?: StringNullableFilter<"message"> | string | null
@@ -60170,12 +59042,12 @@ export namespace Prisma {
   }
 
   export type messageWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: messageWhereInput | messageWhereInput[]
     OR?: messageWhereInput[]
     NOT?: messageWhereInput | messageWhereInput[]
-    conversation_id?: IntNullableFilter<"message"> | number | null
-    sender_id?: IntNullableFilter<"message"> | number | null
+    conversation_id?: StringNullableFilter<"message"> | string | null
+    sender_id?: StringNullableFilter<"message"> | string | null
     content?: StringNullableFilter<"message"> | string | null
     send_date?: DateTimeNullableFilter<"message"> | Date | string | null
     type?: StringNullableFilter<"message"> | string | null
@@ -60197,19 +59069,17 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: messageCountOrderByAggregateInput
-    _avg?: messageAvgOrderByAggregateInput
     _max?: messageMaxOrderByAggregateInput
     _min?: messageMinOrderByAggregateInput
-    _sum?: messageSumOrderByAggregateInput
   }
 
   export type messageScalarWhereWithAggregatesInput = {
     AND?: messageScalarWhereWithAggregatesInput | messageScalarWhereWithAggregatesInput[]
     OR?: messageScalarWhereWithAggregatesInput[]
     NOT?: messageScalarWhereWithAggregatesInput | messageScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"message"> | number
-    conversation_id?: IntNullableWithAggregatesFilter<"message"> | number | null
-    sender_id?: IntNullableWithAggregatesFilter<"message"> | number | null
+    id?: StringWithAggregatesFilter<"message"> | string
+    conversation_id?: StringNullableWithAggregatesFilter<"message"> | string | null
+    sender_id?: StringNullableWithAggregatesFilter<"message"> | string | null
     content?: StringNullableWithAggregatesFilter<"message"> | string | null
     send_date?: DateTimeNullableWithAggregatesFilter<"message"> | Date | string | null
     type?: StringNullableWithAggregatesFilter<"message"> | string | null
@@ -60222,12 +59092,13 @@ export namespace Prisma {
     AND?: municipal_eventWhereInput | municipal_eventWhereInput[]
     OR?: municipal_eventWhereInput[]
     NOT?: municipal_eventWhereInput | municipal_eventWhereInput[]
-    id?: IntFilter<"municipal_event"> | number
+    id?: StringFilter<"municipal_event"> | string
     title?: StringFilter<"municipal_event"> | string
     description?: StringNullableFilter<"municipal_event"> | string | null
     start_date?: DateTimeFilter<"municipal_event"> | Date | string
     end_date?: DateTimeFilter<"municipal_event"> | Date | string
     location?: StringNullableFilter<"municipal_event"> | string | null
+    gps_coordinates?: StringNullableFilter<"municipal_event"> | string | null
     organizer?: StringNullableFilter<"municipal_event"> | string | null
     contact?: StringNullableFilter<"municipal_event"> | string | null
     official_link?: StringNullableFilter<"municipal_event"> | string | null
@@ -60242,6 +59113,7 @@ export namespace Prisma {
     start_date?: SortOrder
     end_date?: SortOrder
     location?: SortOrderInput | SortOrder
+    gps_coordinates?: SortOrderInput | SortOrder
     organizer?: SortOrderInput | SortOrder
     contact?: SortOrderInput | SortOrder
     official_link?: SortOrderInput | SortOrder
@@ -60250,7 +59122,7 @@ export namespace Prisma {
   }
 
   export type municipal_eventWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: municipal_eventWhereInput | municipal_eventWhereInput[]
     OR?: municipal_eventWhereInput[]
     NOT?: municipal_eventWhereInput | municipal_eventWhereInput[]
@@ -60259,6 +59131,7 @@ export namespace Prisma {
     start_date?: DateTimeFilter<"municipal_event"> | Date | string
     end_date?: DateTimeFilter<"municipal_event"> | Date | string
     location?: StringNullableFilter<"municipal_event"> | string | null
+    gps_coordinates?: StringNullableFilter<"municipal_event"> | string | null
     organizer?: StringNullableFilter<"municipal_event"> | string | null
     contact?: StringNullableFilter<"municipal_event"> | string | null
     official_link?: StringNullableFilter<"municipal_event"> | string | null
@@ -60273,28 +59146,28 @@ export namespace Prisma {
     start_date?: SortOrder
     end_date?: SortOrder
     location?: SortOrderInput | SortOrder
+    gps_coordinates?: SortOrderInput | SortOrder
     organizer?: SortOrderInput | SortOrder
     contact?: SortOrderInput | SortOrder
     official_link?: SortOrderInput | SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: municipal_eventCountOrderByAggregateInput
-    _avg?: municipal_eventAvgOrderByAggregateInput
     _max?: municipal_eventMaxOrderByAggregateInput
     _min?: municipal_eventMinOrderByAggregateInput
-    _sum?: municipal_eventSumOrderByAggregateInput
   }
 
   export type municipal_eventScalarWhereWithAggregatesInput = {
     AND?: municipal_eventScalarWhereWithAggregatesInput | municipal_eventScalarWhereWithAggregatesInput[]
     OR?: municipal_eventScalarWhereWithAggregatesInput[]
     NOT?: municipal_eventScalarWhereWithAggregatesInput | municipal_eventScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"municipal_event"> | number
+    id?: StringWithAggregatesFilter<"municipal_event"> | string
     title?: StringWithAggregatesFilter<"municipal_event"> | string
     description?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
     start_date?: DateTimeWithAggregatesFilter<"municipal_event"> | Date | string
     end_date?: DateTimeWithAggregatesFilter<"municipal_event"> | Date | string
     location?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
+    gps_coordinates?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
     organizer?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
     contact?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
     official_link?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
@@ -60306,8 +59179,8 @@ export namespace Prisma {
     AND?: notificationWhereInput | notificationWhereInput[]
     OR?: notificationWhereInput[]
     NOT?: notificationWhereInput | notificationWhereInput[]
-    id?: IntFilter<"notification"> | number
-    user_id?: IntNullableFilter<"notification"> | number | null
+    id?: StringFilter<"notification"> | string
+    user_id?: StringNullableFilter<"notification"> | string | null
     type?: StringNullableFilter<"notification"> | string | null
     content?: StringNullableFilter<"notification"> | string | null
     read?: BoolNullableFilter<"notification"> | boolean | null
@@ -60330,11 +59203,11 @@ export namespace Prisma {
   }
 
   export type notificationWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: notificationWhereInput | notificationWhereInput[]
     OR?: notificationWhereInput[]
     NOT?: notificationWhereInput | notificationWhereInput[]
-    user_id?: IntNullableFilter<"notification"> | number | null
+    user_id?: StringNullableFilter<"notification"> | string | null
     type?: StringNullableFilter<"notification"> | string | null
     content?: StringNullableFilter<"notification"> | string | null
     read?: BoolNullableFilter<"notification"> | boolean | null
@@ -60354,18 +59227,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: notificationCountOrderByAggregateInput
-    _avg?: notificationAvgOrderByAggregateInput
     _max?: notificationMaxOrderByAggregateInput
     _min?: notificationMinOrderByAggregateInput
-    _sum?: notificationSumOrderByAggregateInput
   }
 
   export type notificationScalarWhereWithAggregatesInput = {
     AND?: notificationScalarWhereWithAggregatesInput | notificationScalarWhereWithAggregatesInput[]
     OR?: notificationScalarWhereWithAggregatesInput[]
     NOT?: notificationScalarWhereWithAggregatesInput | notificationScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"notification"> | number
-    user_id?: IntNullableWithAggregatesFilter<"notification"> | number | null
+    id?: StringWithAggregatesFilter<"notification"> | string
+    user_id?: StringNullableWithAggregatesFilter<"notification"> | string | null
     type?: StringNullableWithAggregatesFilter<"notification"> | string | null
     content?: StringNullableWithAggregatesFilter<"notification"> | string | null
     read?: BoolNullableWithAggregatesFilter<"notification"> | boolean | null
@@ -60378,7 +59249,7 @@ export namespace Prisma {
     AND?: notification_preferencesWhereInput | notification_preferencesWhereInput[]
     OR?: notification_preferencesWhereInput[]
     NOT?: notification_preferencesWhereInput | notification_preferencesWhereInput[]
-    user_id?: IntFilter<"notification_preferences"> | number
+    user_id?: StringFilter<"notification_preferences"> | string
     message_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
     activity_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
     help_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
@@ -60410,7 +59281,7 @@ export namespace Prisma {
   }
 
   export type notification_preferencesWhereUniqueInput = Prisma.AtLeast<{
-    user_id?: number
+    user_id?: string
     AND?: notification_preferencesWhereInput | notification_preferencesWhereInput[]
     OR?: notification_preferencesWhereInput[]
     NOT?: notification_preferencesWhereInput | notification_preferencesWhereInput[]
@@ -60442,17 +59313,15 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: notification_preferencesCountOrderByAggregateInput
-    _avg?: notification_preferencesAvgOrderByAggregateInput
     _max?: notification_preferencesMaxOrderByAggregateInput
     _min?: notification_preferencesMinOrderByAggregateInput
-    _sum?: notification_preferencesSumOrderByAggregateInput
   }
 
   export type notification_preferencesScalarWhereWithAggregatesInput = {
     AND?: notification_preferencesScalarWhereWithAggregatesInput | notification_preferencesScalarWhereWithAggregatesInput[]
     OR?: notification_preferencesScalarWhereWithAggregatesInput[]
     NOT?: notification_preferencesScalarWhereWithAggregatesInput | notification_preferencesScalarWhereWithAggregatesInput[]
-    user_id?: IntWithAggregatesFilter<"notification_preferences"> | number
+    user_id?: StringWithAggregatesFilter<"notification_preferences"> | string
     message_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
     activity_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
     help_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
@@ -60470,7 +59339,7 @@ export namespace Prisma {
     AND?: nutritional_adviceWhereInput | nutritional_adviceWhereInput[]
     OR?: nutritional_adviceWhereInput[]
     NOT?: nutritional_adviceWhereInput | nutritional_adviceWhereInput[]
-    id?: IntFilter<"nutritional_advice"> | number
+    id?: StringFilter<"nutritional_advice"> | string
     title?: StringFilter<"nutritional_advice"> | string
     description?: StringNullableFilter<"nutritional_advice"> | string | null
     category?: StringNullableFilter<"nutritional_advice"> | string | null
@@ -60492,7 +59361,7 @@ export namespace Prisma {
   }
 
   export type nutritional_adviceWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: nutritional_adviceWhereInput | nutritional_adviceWhereInput[]
     OR?: nutritional_adviceWhereInput[]
     NOT?: nutritional_adviceWhereInput | nutritional_adviceWhereInput[]
@@ -60515,17 +59384,15 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: nutritional_adviceCountOrderByAggregateInput
-    _avg?: nutritional_adviceAvgOrderByAggregateInput
     _max?: nutritional_adviceMaxOrderByAggregateInput
     _min?: nutritional_adviceMinOrderByAggregateInput
-    _sum?: nutritional_adviceSumOrderByAggregateInput
   }
 
   export type nutritional_adviceScalarWhereWithAggregatesInput = {
     AND?: nutritional_adviceScalarWhereWithAggregatesInput | nutritional_adviceScalarWhereWithAggregatesInput[]
     OR?: nutritional_adviceScalarWhereWithAggregatesInput[]
     NOT?: nutritional_adviceScalarWhereWithAggregatesInput | nutritional_adviceScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"nutritional_advice"> | number
+    id?: StringWithAggregatesFilter<"nutritional_advice"> | string
     title?: StringWithAggregatesFilter<"nutritional_advice"> | string
     description?: StringNullableWithAggregatesFilter<"nutritional_advice"> | string | null
     category?: StringNullableWithAggregatesFilter<"nutritional_advice"> | string | null
@@ -60539,7 +59406,7 @@ export namespace Prisma {
     AND?: offline_userWhereInput | offline_userWhereInput[]
     OR?: offline_userWhereInput[]
     NOT?: offline_userWhereInput | offline_userWhereInput[]
-    user_id?: IntFilter<"offline_user"> | number
+    user_id?: StringFilter<"offline_user"> | string
     cached_data?: JsonNullableFilter<"offline_user">
     last_sync?: DateTimeNullableFilter<"offline_user"> | Date | string | null
     created_at?: DateTimeFilter<"offline_user"> | Date | string
@@ -60555,7 +59422,7 @@ export namespace Prisma {
   }
 
   export type offline_userWhereUniqueInput = Prisma.AtLeast<{
-    user_id?: number
+    user_id?: string
     AND?: offline_userWhereInput | offline_userWhereInput[]
     OR?: offline_userWhereInput[]
     NOT?: offline_userWhereInput | offline_userWhereInput[]
@@ -60572,17 +59439,15 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: offline_userCountOrderByAggregateInput
-    _avg?: offline_userAvgOrderByAggregateInput
     _max?: offline_userMaxOrderByAggregateInput
     _min?: offline_userMinOrderByAggregateInput
-    _sum?: offline_userSumOrderByAggregateInput
   }
 
   export type offline_userScalarWhereWithAggregatesInput = {
     AND?: offline_userScalarWhereWithAggregatesInput | offline_userScalarWhereWithAggregatesInput[]
     OR?: offline_userScalarWhereWithAggregatesInput[]
     NOT?: offline_userScalarWhereWithAggregatesInput | offline_userScalarWhereWithAggregatesInput[]
-    user_id?: IntWithAggregatesFilter<"offline_user"> | number
+    user_id?: StringWithAggregatesFilter<"offline_user"> | string
     cached_data?: JsonNullableWithAggregatesFilter<"offline_user">
     last_sync?: DateTimeNullableWithAggregatesFilter<"offline_user"> | Date | string | null
     created_at?: DateTimeWithAggregatesFilter<"offline_user"> | Date | string
@@ -60593,8 +59458,8 @@ export namespace Prisma {
     AND?: project_memberWhereInput | project_memberWhereInput[]
     OR?: project_memberWhereInput[]
     NOT?: project_memberWhereInput | project_memberWhereInput[]
-    project_id?: IntFilter<"project_member"> | number
-    user_id?: IntFilter<"project_member"> | number
+    project_id?: StringFilter<"project_member"> | string
+    user_id?: StringFilter<"project_member"> | string
     role?: StringNullableFilter<"project_member"> | string | null
     join_date?: DateTimeNullableFilter<"project_member"> | Date | string | null
     created_at?: DateTimeFilter<"project_member"> | Date | string
@@ -60619,8 +59484,8 @@ export namespace Prisma {
     AND?: project_memberWhereInput | project_memberWhereInput[]
     OR?: project_memberWhereInput[]
     NOT?: project_memberWhereInput | project_memberWhereInput[]
-    project_id?: IntFilter<"project_member"> | number
-    user_id?: IntFilter<"project_member"> | number
+    project_id?: StringFilter<"project_member"> | string
+    user_id?: StringFilter<"project_member"> | string
     role?: StringNullableFilter<"project_member"> | string | null
     join_date?: DateTimeNullableFilter<"project_member"> | Date | string | null
     created_at?: DateTimeFilter<"project_member"> | Date | string
@@ -60637,18 +59502,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: project_memberCountOrderByAggregateInput
-    _avg?: project_memberAvgOrderByAggregateInput
     _max?: project_memberMaxOrderByAggregateInput
     _min?: project_memberMinOrderByAggregateInput
-    _sum?: project_memberSumOrderByAggregateInput
   }
 
   export type project_memberScalarWhereWithAggregatesInput = {
     AND?: project_memberScalarWhereWithAggregatesInput | project_memberScalarWhereWithAggregatesInput[]
     OR?: project_memberScalarWhereWithAggregatesInput[]
     NOT?: project_memberScalarWhereWithAggregatesInput | project_memberScalarWhereWithAggregatesInput[]
-    project_id?: IntWithAggregatesFilter<"project_member"> | number
-    user_id?: IntWithAggregatesFilter<"project_member"> | number
+    project_id?: StringWithAggregatesFilter<"project_member"> | string
+    user_id?: StringWithAggregatesFilter<"project_member"> | string
     role?: StringNullableWithAggregatesFilter<"project_member"> | string | null
     join_date?: DateTimeNullableWithAggregatesFilter<"project_member"> | Date | string | null
     created_at?: DateTimeWithAggregatesFilter<"project_member"> | Date | string
@@ -60659,14 +59522,14 @@ export namespace Prisma {
     AND?: project_taskWhereInput | project_taskWhereInput[]
     OR?: project_taskWhereInput[]
     NOT?: project_taskWhereInput | project_taskWhereInput[]
-    id?: IntFilter<"project_task"> | number
-    project_id?: IntNullableFilter<"project_task"> | number | null
+    id?: StringFilter<"project_task"> | string
+    project_id?: StringNullableFilter<"project_task"> | string | null
     title?: StringNullableFilter<"project_task"> | string | null
     description?: StringNullableFilter<"project_task"> | string | null
     creation_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
     due_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
     status?: StringNullableFilter<"project_task"> | string | null
-    assignee_id?: IntNullableFilter<"project_task"> | number | null
+    assignee_id?: StringNullableFilter<"project_task"> | string | null
     created_at?: DateTimeFilter<"project_task"> | Date | string
     updated_at?: DateTimeNullableFilter<"project_task"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
@@ -60689,17 +59552,17 @@ export namespace Prisma {
   }
 
   export type project_taskWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: project_taskWhereInput | project_taskWhereInput[]
     OR?: project_taskWhereInput[]
     NOT?: project_taskWhereInput | project_taskWhereInput[]
-    project_id?: IntNullableFilter<"project_task"> | number | null
+    project_id?: StringNullableFilter<"project_task"> | string | null
     title?: StringNullableFilter<"project_task"> | string | null
     description?: StringNullableFilter<"project_task"> | string | null
     creation_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
     due_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
     status?: StringNullableFilter<"project_task"> | string | null
-    assignee_id?: IntNullableFilter<"project_task"> | number | null
+    assignee_id?: StringNullableFilter<"project_task"> | string | null
     created_at?: DateTimeFilter<"project_task"> | Date | string
     updated_at?: DateTimeNullableFilter<"project_task"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
@@ -60718,24 +59581,22 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: project_taskCountOrderByAggregateInput
-    _avg?: project_taskAvgOrderByAggregateInput
     _max?: project_taskMaxOrderByAggregateInput
     _min?: project_taskMinOrderByAggregateInput
-    _sum?: project_taskSumOrderByAggregateInput
   }
 
   export type project_taskScalarWhereWithAggregatesInput = {
     AND?: project_taskScalarWhereWithAggregatesInput | project_taskScalarWhereWithAggregatesInput[]
     OR?: project_taskScalarWhereWithAggregatesInput[]
     NOT?: project_taskScalarWhereWithAggregatesInput | project_taskScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"project_task"> | number
-    project_id?: IntNullableWithAggregatesFilter<"project_task"> | number | null
+    id?: StringWithAggregatesFilter<"project_task"> | string
+    project_id?: StringNullableWithAggregatesFilter<"project_task"> | string | null
     title?: StringNullableWithAggregatesFilter<"project_task"> | string | null
     description?: StringNullableWithAggregatesFilter<"project_task"> | string | null
     creation_date?: DateTimeNullableWithAggregatesFilter<"project_task"> | Date | string | null
     due_date?: DateTimeNullableWithAggregatesFilter<"project_task"> | Date | string | null
     status?: StringNullableWithAggregatesFilter<"project_task"> | string | null
-    assignee_id?: IntNullableWithAggregatesFilter<"project_task"> | number | null
+    assignee_id?: StringNullableWithAggregatesFilter<"project_task"> | string | null
     created_at?: DateTimeWithAggregatesFilter<"project_task"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"project_task"> | Date | string | null
   }
@@ -60744,12 +59605,12 @@ export namespace Prisma {
     AND?: resourceWhereInput | resourceWhereInput[]
     OR?: resourceWhereInput[]
     NOT?: resourceWhereInput | resourceWhereInput[]
-    id?: IntFilter<"resource"> | number
+    id?: StringFilter<"resource"> | string
     title?: StringFilter<"resource"> | string
     content?: StringNullableFilter<"resource"> | string | null
     type?: StringNullableFilter<"resource"> | string | null
     category?: StringNullableFilter<"resource"> | string | null
-    author_id?: IntNullableFilter<"resource"> | number | null
+    author_id?: StringNullableFilter<"resource"> | string | null
     admin_validated?: BoolNullableFilter<"resource"> | boolean | null
     created_at?: DateTimeFilter<"resource"> | Date | string
     updated_at?: DateTimeNullableFilter<"resource"> | Date | string | null
@@ -60770,7 +59631,7 @@ export namespace Prisma {
   }
 
   export type resourceWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: resourceWhereInput | resourceWhereInput[]
     OR?: resourceWhereInput[]
     NOT?: resourceWhereInput | resourceWhereInput[]
@@ -60778,7 +59639,7 @@ export namespace Prisma {
     content?: StringNullableFilter<"resource"> | string | null
     type?: StringNullableFilter<"resource"> | string | null
     category?: StringNullableFilter<"resource"> | string | null
-    author_id?: IntNullableFilter<"resource"> | number | null
+    author_id?: StringNullableFilter<"resource"> | string | null
     admin_validated?: BoolNullableFilter<"resource"> | boolean | null
     created_at?: DateTimeFilter<"resource"> | Date | string
     updated_at?: DateTimeNullableFilter<"resource"> | Date | string | null
@@ -60796,22 +59657,20 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: resourceCountOrderByAggregateInput
-    _avg?: resourceAvgOrderByAggregateInput
     _max?: resourceMaxOrderByAggregateInput
     _min?: resourceMinOrderByAggregateInput
-    _sum?: resourceSumOrderByAggregateInput
   }
 
   export type resourceScalarWhereWithAggregatesInput = {
     AND?: resourceScalarWhereWithAggregatesInput | resourceScalarWhereWithAggregatesInput[]
     OR?: resourceScalarWhereWithAggregatesInput[]
     NOT?: resourceScalarWhereWithAggregatesInput | resourceScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"resource"> | number
+    id?: StringWithAggregatesFilter<"resource"> | string
     title?: StringWithAggregatesFilter<"resource"> | string
     content?: StringNullableWithAggregatesFilter<"resource"> | string | null
     type?: StringNullableWithAggregatesFilter<"resource"> | string | null
     category?: StringNullableWithAggregatesFilter<"resource"> | string | null
-    author_id?: IntNullableWithAggregatesFilter<"resource"> | number | null
+    author_id?: StringNullableWithAggregatesFilter<"resource"> | string | null
     admin_validated?: BoolNullableWithAggregatesFilter<"resource"> | boolean | null
     created_at?: DateTimeWithAggregatesFilter<"resource"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"resource"> | Date | string | null
@@ -60821,7 +59680,7 @@ export namespace Prisma {
     AND?: satisfaction_surveyWhereInput | satisfaction_surveyWhereInput[]
     OR?: satisfaction_surveyWhereInput[]
     NOT?: satisfaction_surveyWhereInput | satisfaction_surveyWhereInput[]
-    id?: IntFilter<"satisfaction_survey"> | number
+    id?: StringFilter<"satisfaction_survey"> | string
     title?: StringFilter<"satisfaction_survey"> | string
     description?: StringNullableFilter<"satisfaction_survey"> | string | null
     start_date?: DateTimeNullableFilter<"satisfaction_survey"> | Date | string | null
@@ -60845,7 +59704,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: satisfaction_surveyWhereInput | satisfaction_surveyWhereInput[]
     OR?: satisfaction_surveyWhereInput[]
     NOT?: satisfaction_surveyWhereInput | satisfaction_surveyWhereInput[]
@@ -60869,17 +59728,15 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: satisfaction_surveyCountOrderByAggregateInput
-    _avg?: satisfaction_surveyAvgOrderByAggregateInput
     _max?: satisfaction_surveyMaxOrderByAggregateInput
     _min?: satisfaction_surveyMinOrderByAggregateInput
-    _sum?: satisfaction_surveySumOrderByAggregateInput
   }
 
   export type satisfaction_surveyScalarWhereWithAggregatesInput = {
     AND?: satisfaction_surveyScalarWhereWithAggregatesInput | satisfaction_surveyScalarWhereWithAggregatesInput[]
     OR?: satisfaction_surveyScalarWhereWithAggregatesInput[]
     NOT?: satisfaction_surveyScalarWhereWithAggregatesInput | satisfaction_surveyScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"satisfaction_survey"> | number
+    id?: StringWithAggregatesFilter<"satisfaction_survey"> | string
     title?: StringWithAggregatesFilter<"satisfaction_survey"> | string
     description?: StringNullableWithAggregatesFilter<"satisfaction_survey"> | string | null
     start_date?: DateTimeNullableWithAggregatesFilter<"satisfaction_survey"> | Date | string | null
@@ -60893,9 +59750,9 @@ export namespace Prisma {
     AND?: service_completedWhereInput | service_completedWhereInput[]
     OR?: service_completedWhereInput[]
     NOT?: service_completedWhereInput | service_completedWhereInput[]
-    id?: IntFilter<"service_completed"> | number
-    request_id?: IntFilter<"service_completed"> | number
-    helper_id?: IntFilter<"service_completed"> | number
+    id?: StringFilter<"service_completed"> | string
+    request_id?: StringFilter<"service_completed"> | string
+    helper_id?: StringFilter<"service_completed"> | string
     completion_date?: DateTimeFilter<"service_completed"> | Date | string
     actual_duration?: IntNullableFilter<"service_completed"> | number | null
     creator_comment?: StringNullableFilter<"service_completed"> | string | null
@@ -60927,12 +59784,12 @@ export namespace Prisma {
   }
 
   export type service_completedWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: service_completedWhereInput | service_completedWhereInput[]
     OR?: service_completedWhereInput[]
     NOT?: service_completedWhereInput | service_completedWhereInput[]
-    request_id?: IntFilter<"service_completed"> | number
-    helper_id?: IntFilter<"service_completed"> | number
+    request_id?: StringFilter<"service_completed"> | string
+    helper_id?: StringFilter<"service_completed"> | string
     completion_date?: DateTimeFilter<"service_completed"> | Date | string
     actual_duration?: IntNullableFilter<"service_completed"> | number | null
     creator_comment?: StringNullableFilter<"service_completed"> | string | null
@@ -60970,9 +59827,9 @@ export namespace Prisma {
     AND?: service_completedScalarWhereWithAggregatesInput | service_completedScalarWhereWithAggregatesInput[]
     OR?: service_completedScalarWhereWithAggregatesInput[]
     NOT?: service_completedScalarWhereWithAggregatesInput | service_completedScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"service_completed"> | number
-    request_id?: IntWithAggregatesFilter<"service_completed"> | number
-    helper_id?: IntWithAggregatesFilter<"service_completed"> | number
+    id?: StringWithAggregatesFilter<"service_completed"> | string
+    request_id?: StringWithAggregatesFilter<"service_completed"> | string
+    helper_id?: StringWithAggregatesFilter<"service_completed"> | string
     completion_date?: DateTimeWithAggregatesFilter<"service_completed"> | Date | string
     actual_duration?: IntNullableWithAggregatesFilter<"service_completed"> | number | null
     creator_comment?: StringNullableWithAggregatesFilter<"service_completed"> | string | null
@@ -60988,8 +59845,8 @@ export namespace Prisma {
     AND?: service_ratingWhereInput | service_ratingWhereInput[]
     OR?: service_ratingWhereInput[]
     NOT?: service_ratingWhereInput | service_ratingWhereInput[]
-    service_id?: IntFilter<"service_rating"> | number
-    user_id?: IntFilter<"service_rating"> | number
+    service_id?: StringFilter<"service_rating"> | string
+    user_id?: StringFilter<"service_rating"> | string
     rating?: IntNullableFilter<"service_rating"> | number | null
     comment?: StringNullableFilter<"service_rating"> | string | null
     rating_date?: DateTimeNullableFilter<"service_rating"> | Date | string | null
@@ -61016,8 +59873,8 @@ export namespace Prisma {
     AND?: service_ratingWhereInput | service_ratingWhereInput[]
     OR?: service_ratingWhereInput[]
     NOT?: service_ratingWhereInput | service_ratingWhereInput[]
-    service_id?: IntFilter<"service_rating"> | number
-    user_id?: IntFilter<"service_rating"> | number
+    service_id?: StringFilter<"service_rating"> | string
+    user_id?: StringFilter<"service_rating"> | string
     rating?: IntNullableFilter<"service_rating"> | number | null
     comment?: StringNullableFilter<"service_rating"> | string | null
     rating_date?: DateTimeNullableFilter<"service_rating"> | Date | string | null
@@ -61046,8 +59903,8 @@ export namespace Prisma {
     AND?: service_ratingScalarWhereWithAggregatesInput | service_ratingScalarWhereWithAggregatesInput[]
     OR?: service_ratingScalarWhereWithAggregatesInput[]
     NOT?: service_ratingScalarWhereWithAggregatesInput | service_ratingScalarWhereWithAggregatesInput[]
-    service_id?: IntWithAggregatesFilter<"service_rating"> | number
-    user_id?: IntWithAggregatesFilter<"service_rating"> | number
+    service_id?: StringWithAggregatesFilter<"service_rating"> | string
+    user_id?: StringWithAggregatesFilter<"service_rating"> | string
     rating?: IntNullableWithAggregatesFilter<"service_rating"> | number | null
     comment?: StringNullableWithAggregatesFilter<"service_rating"> | string | null
     rating_date?: DateTimeNullableWithAggregatesFilter<"service_rating"> | Date | string | null
@@ -61059,7 +59916,7 @@ export namespace Prisma {
     AND?: skillWhereInput | skillWhereInput[]
     OR?: skillWhereInput[]
     NOT?: skillWhereInput | skillWhereInput[]
-    id?: IntFilter<"skill"> | number
+    id?: StringFilter<"skill"> | string
     name?: StringFilter<"skill"> | string
     description?: StringNullableFilter<"skill"> | string | null
     category?: StringNullableFilter<"skill"> | string | null
@@ -61079,7 +59936,7 @@ export namespace Prisma {
   }
 
   export type skillWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: skillWhereInput | skillWhereInput[]
     OR?: skillWhereInput[]
     NOT?: skillWhereInput | skillWhereInput[]
@@ -61099,17 +59956,15 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: skillCountOrderByAggregateInput
-    _avg?: skillAvgOrderByAggregateInput
     _max?: skillMaxOrderByAggregateInput
     _min?: skillMinOrderByAggregateInput
-    _sum?: skillSumOrderByAggregateInput
   }
 
   export type skillScalarWhereWithAggregatesInput = {
     AND?: skillScalarWhereWithAggregatesInput | skillScalarWhereWithAggregatesInput[]
     OR?: skillScalarWhereWithAggregatesInput[]
     NOT?: skillScalarWhereWithAggregatesInput | skillScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"skill"> | number
+    id?: StringWithAggregatesFilter<"skill"> | string
     name?: StringWithAggregatesFilter<"skill"> | string
     description?: StringNullableWithAggregatesFilter<"skill"> | string | null
     category?: StringNullableWithAggregatesFilter<"skill"> | string | null
@@ -61121,8 +59976,8 @@ export namespace Prisma {
     AND?: survey_responseWhereInput | survey_responseWhereInput[]
     OR?: survey_responseWhereInput[]
     NOT?: survey_responseWhereInput | survey_responseWhereInput[]
-    survey_id?: IntFilter<"survey_response"> | number
-    user_id?: IntFilter<"survey_response"> | number
+    survey_id?: StringFilter<"survey_response"> | string
+    user_id?: StringFilter<"survey_response"> | string
     responses?: JsonNullableFilter<"survey_response">
     response_date?: DateTimeNullableFilter<"survey_response"> | Date | string | null
     created_at?: DateTimeFilter<"survey_response"> | Date | string
@@ -61147,8 +60002,8 @@ export namespace Prisma {
     AND?: survey_responseWhereInput | survey_responseWhereInput[]
     OR?: survey_responseWhereInput[]
     NOT?: survey_responseWhereInput | survey_responseWhereInput[]
-    survey_id?: IntFilter<"survey_response"> | number
-    user_id?: IntFilter<"survey_response"> | number
+    survey_id?: StringFilter<"survey_response"> | string
+    user_id?: StringFilter<"survey_response"> | string
     responses?: JsonNullableFilter<"survey_response">
     response_date?: DateTimeNullableFilter<"survey_response"> | Date | string | null
     created_at?: DateTimeFilter<"survey_response"> | Date | string
@@ -61165,18 +60020,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: survey_responseCountOrderByAggregateInput
-    _avg?: survey_responseAvgOrderByAggregateInput
     _max?: survey_responseMaxOrderByAggregateInput
     _min?: survey_responseMinOrderByAggregateInput
-    _sum?: survey_responseSumOrderByAggregateInput
   }
 
   export type survey_responseScalarWhereWithAggregatesInput = {
     AND?: survey_responseScalarWhereWithAggregatesInput | survey_responseScalarWhereWithAggregatesInput[]
     OR?: survey_responseScalarWhereWithAggregatesInput[]
     NOT?: survey_responseScalarWhereWithAggregatesInput | survey_responseScalarWhereWithAggregatesInput[]
-    survey_id?: IntWithAggregatesFilter<"survey_response"> | number
-    user_id?: IntWithAggregatesFilter<"survey_response"> | number
+    survey_id?: StringWithAggregatesFilter<"survey_response"> | string
+    user_id?: StringWithAggregatesFilter<"survey_response"> | string
     responses?: JsonNullableWithAggregatesFilter<"survey_response">
     response_date?: DateTimeNullableWithAggregatesFilter<"survey_response"> | Date | string | null
     created_at?: DateTimeWithAggregatesFilter<"survey_response"> | Date | string
@@ -61187,8 +60040,8 @@ export namespace Prisma {
     AND?: trust_circleWhereInput | trust_circleWhereInput[]
     OR?: trust_circleWhereInput[]
     NOT?: trust_circleWhereInput | trust_circleWhereInput[]
-    user_id?: IntFilter<"trust_circle"> | number
-    contact_id?: IntFilter<"trust_circle"> | number
+    user_id?: StringFilter<"trust_circle"> | string
+    contact_id?: StringFilter<"trust_circle"> | string
     date_added?: DateTimeNullableFilter<"trust_circle"> | Date | string | null
     access_level?: StringNullableFilter<"trust_circle"> | string | null
     created_at?: DateTimeFilter<"trust_circle"> | Date | string
@@ -61213,8 +60066,8 @@ export namespace Prisma {
     AND?: trust_circleWhereInput | trust_circleWhereInput[]
     OR?: trust_circleWhereInput[]
     NOT?: trust_circleWhereInput | trust_circleWhereInput[]
-    user_id?: IntFilter<"trust_circle"> | number
-    contact_id?: IntFilter<"trust_circle"> | number
+    user_id?: StringFilter<"trust_circle"> | string
+    contact_id?: StringFilter<"trust_circle"> | string
     date_added?: DateTimeNullableFilter<"trust_circle"> | Date | string | null
     access_level?: StringNullableFilter<"trust_circle"> | string | null
     created_at?: DateTimeFilter<"trust_circle"> | Date | string
@@ -61231,18 +60084,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: trust_circleCountOrderByAggregateInput
-    _avg?: trust_circleAvgOrderByAggregateInput
     _max?: trust_circleMaxOrderByAggregateInput
     _min?: trust_circleMinOrderByAggregateInput
-    _sum?: trust_circleSumOrderByAggregateInput
   }
 
   export type trust_circleScalarWhereWithAggregatesInput = {
     AND?: trust_circleScalarWhereWithAggregatesInput | trust_circleScalarWhereWithAggregatesInput[]
     OR?: trust_circleScalarWhereWithAggregatesInput[]
     NOT?: trust_circleScalarWhereWithAggregatesInput | trust_circleScalarWhereWithAggregatesInput[]
-    user_id?: IntWithAggregatesFilter<"trust_circle"> | number
-    contact_id?: IntWithAggregatesFilter<"trust_circle"> | number
+    user_id?: StringWithAggregatesFilter<"trust_circle"> | string
+    contact_id?: StringWithAggregatesFilter<"trust_circle"> | string
     date_added?: DateTimeNullableWithAggregatesFilter<"trust_circle"> | Date | string | null
     access_level?: StringNullableWithAggregatesFilter<"trust_circle"> | string | null
     created_at?: DateTimeWithAggregatesFilter<"trust_circle"> | Date | string
@@ -61253,8 +60104,8 @@ export namespace Prisma {
     AND?: trusted_contactWhereInput | trusted_contactWhereInput[]
     OR?: trusted_contactWhereInput[]
     NOT?: trusted_contactWhereInput | trusted_contactWhereInput[]
-    id?: IntFilter<"trusted_contact"> | number
-    user_id?: IntFilter<"trusted_contact"> | number
+    id?: StringFilter<"trusted_contact"> | string
+    user_id?: StringFilter<"trusted_contact"> | string
     last_name?: StringFilter<"trusted_contact"> | string
     first_name?: StringFilter<"trusted_contact"> | string
     email?: StringFilter<"trusted_contact"> | string
@@ -61287,12 +60138,12 @@ export namespace Prisma {
   }
 
   export type trusted_contactWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     email?: string
     AND?: trusted_contactWhereInput | trusted_contactWhereInput[]
     OR?: trusted_contactWhereInput[]
     NOT?: trusted_contactWhereInput | trusted_contactWhereInput[]
-    user_id?: IntFilter<"trusted_contact"> | number
+    user_id?: StringFilter<"trusted_contact"> | string
     last_name?: StringFilter<"trusted_contact"> | string
     first_name?: StringFilter<"trusted_contact"> | string
     phone?: StringNullableFilter<"trusted_contact"> | string | null
@@ -61321,18 +60172,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: trusted_contactCountOrderByAggregateInput
-    _avg?: trusted_contactAvgOrderByAggregateInput
     _max?: trusted_contactMaxOrderByAggregateInput
     _min?: trusted_contactMinOrderByAggregateInput
-    _sum?: trusted_contactSumOrderByAggregateInput
   }
 
   export type trusted_contactScalarWhereWithAggregatesInput = {
     AND?: trusted_contactScalarWhereWithAggregatesInput | trusted_contactScalarWhereWithAggregatesInput[]
     OR?: trusted_contactScalarWhereWithAggregatesInput[]
     NOT?: trusted_contactScalarWhereWithAggregatesInput | trusted_contactScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"trusted_contact"> | number
-    user_id?: IntWithAggregatesFilter<"trusted_contact"> | number
+    id?: StringWithAggregatesFilter<"trusted_contact"> | string
+    user_id?: StringWithAggregatesFilter<"trusted_contact"> | string
     last_name?: StringWithAggregatesFilter<"trusted_contact"> | string
     first_name?: StringWithAggregatesFilter<"trusted_contact"> | string
     email?: StringWithAggregatesFilter<"trusted_contact"> | string
@@ -61350,11 +60199,12 @@ export namespace Prisma {
     AND?: urban_issue_reportWhereInput | urban_issue_reportWhereInput[]
     OR?: urban_issue_reportWhereInput[]
     NOT?: urban_issue_reportWhereInput | urban_issue_reportWhereInput[]
-    id?: IntFilter<"urban_issue_report"> | number
-    user_id?: IntNullableFilter<"urban_issue_report"> | number | null
+    id?: StringFilter<"urban_issue_report"> | string
+    user_id?: StringNullableFilter<"urban_issue_report"> | string | null
     category?: StringFilter<"urban_issue_report"> | string
     description?: StringNullableFilter<"urban_issue_report"> | string | null
     address?: StringNullableFilter<"urban_issue_report"> | string | null
+    gps_coordinates?: StringNullableFilter<"urban_issue_report"> | string | null
     report_date?: DateTimeFilter<"urban_issue_report"> | Date | string
     status?: StringNullableFilter<"urban_issue_report"> | string | null
     city_reference?: StringNullableFilter<"urban_issue_report"> | string | null
@@ -61369,6 +60219,7 @@ export namespace Prisma {
     category?: SortOrder
     description?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
+    gps_coordinates?: SortOrderInput | SortOrder
     report_date?: SortOrder
     status?: SortOrderInput | SortOrder
     city_reference?: SortOrderInput | SortOrder
@@ -61378,14 +60229,15 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: urban_issue_reportWhereInput | urban_issue_reportWhereInput[]
     OR?: urban_issue_reportWhereInput[]
     NOT?: urban_issue_reportWhereInput | urban_issue_reportWhereInput[]
-    user_id?: IntNullableFilter<"urban_issue_report"> | number | null
+    user_id?: StringNullableFilter<"urban_issue_report"> | string | null
     category?: StringFilter<"urban_issue_report"> | string
     description?: StringNullableFilter<"urban_issue_report"> | string | null
     address?: StringNullableFilter<"urban_issue_report"> | string | null
+    gps_coordinates?: StringNullableFilter<"urban_issue_report"> | string | null
     report_date?: DateTimeFilter<"urban_issue_report"> | Date | string
     status?: StringNullableFilter<"urban_issue_report"> | string | null
     city_reference?: StringNullableFilter<"urban_issue_report"> | string | null
@@ -61400,27 +60252,27 @@ export namespace Prisma {
     category?: SortOrder
     description?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
+    gps_coordinates?: SortOrderInput | SortOrder
     report_date?: SortOrder
     status?: SortOrderInput | SortOrder
     city_reference?: SortOrderInput | SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: urban_issue_reportCountOrderByAggregateInput
-    _avg?: urban_issue_reportAvgOrderByAggregateInput
     _max?: urban_issue_reportMaxOrderByAggregateInput
     _min?: urban_issue_reportMinOrderByAggregateInput
-    _sum?: urban_issue_reportSumOrderByAggregateInput
   }
 
   export type urban_issue_reportScalarWhereWithAggregatesInput = {
     AND?: urban_issue_reportScalarWhereWithAggregatesInput | urban_issue_reportScalarWhereWithAggregatesInput[]
     OR?: urban_issue_reportScalarWhereWithAggregatesInput[]
     NOT?: urban_issue_reportScalarWhereWithAggregatesInput | urban_issue_reportScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"urban_issue_report"> | number
-    user_id?: IntNullableWithAggregatesFilter<"urban_issue_report"> | number | null
+    id?: StringWithAggregatesFilter<"urban_issue_report"> | string
+    user_id?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
     category?: StringWithAggregatesFilter<"urban_issue_report"> | string
     description?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
     address?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
+    gps_coordinates?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
     report_date?: DateTimeWithAggregatesFilter<"urban_issue_report"> | Date | string
     status?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
     city_reference?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
@@ -61432,7 +60284,7 @@ export namespace Prisma {
     AND?: userWhereInput | userWhereInput[]
     OR?: userWhereInput[]
     NOT?: userWhereInput | userWhereInput[]
-    id?: IntFilter<"user"> | number
+    id?: StringFilter<"user"> | string
     email?: StringFilter<"user"> | string
     password_hash?: StringFilter<"user"> | string
     first_name?: StringNullableFilter<"user"> | string | null
@@ -61544,7 +60396,7 @@ export namespace Prisma {
   }
 
   export type userWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     email?: string
     AND?: userWhereInput | userWhereInput[]
     OR?: userWhereInput[]
@@ -61636,7 +60488,7 @@ export namespace Prisma {
     AND?: userScalarWhereWithAggregatesInput | userScalarWhereWithAggregatesInput[]
     OR?: userScalarWhereWithAggregatesInput[]
     NOT?: userScalarWhereWithAggregatesInput | userScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"user"> | number
+    id?: StringWithAggregatesFilter<"user"> | string
     email?: StringWithAggregatesFilter<"user"> | string
     password_hash?: StringWithAggregatesFilter<"user"> | string
     first_name?: StringNullableWithAggregatesFilter<"user"> | string | null
@@ -61664,11 +60516,11 @@ export namespace Prisma {
     AND?: user_activityWhereInput | user_activityWhereInput[]
     OR?: user_activityWhereInput[]
     NOT?: user_activityWhereInput | user_activityWhereInput[]
-    id?: IntFilter<"user_activity"> | number
-    user_id?: IntFilter<"user_activity"> | number
+    id?: StringFilter<"user_activity"> | string
+    user_id?: StringFilter<"user_activity"> | string
     completion_date?: DateTimeFilter<"user_activity"> | Date | string
-    exercise_program_id?: IntNullableFilter<"user_activity"> | number | null
-    cognitive_exercise_id?: IntNullableFilter<"user_activity"> | number | null
+    exercise_program_id?: StringNullableFilter<"user_activity"> | string | null
+    cognitive_exercise_id?: StringNullableFilter<"user_activity"> | string | null
     duration_minutes?: IntFilter<"user_activity"> | number
     perceived_difficulty_level?: IntNullableFilter<"user_activity"> | number | null
     enjoyment_level?: IntNullableFilter<"user_activity"> | number | null
@@ -61698,14 +60550,14 @@ export namespace Prisma {
   }
 
   export type user_activityWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: user_activityWhereInput | user_activityWhereInput[]
     OR?: user_activityWhereInput[]
     NOT?: user_activityWhereInput | user_activityWhereInput[]
-    user_id?: IntFilter<"user_activity"> | number
+    user_id?: StringFilter<"user_activity"> | string
     completion_date?: DateTimeFilter<"user_activity"> | Date | string
-    exercise_program_id?: IntNullableFilter<"user_activity"> | number | null
-    cognitive_exercise_id?: IntNullableFilter<"user_activity"> | number | null
+    exercise_program_id?: StringNullableFilter<"user_activity"> | string | null
+    cognitive_exercise_id?: StringNullableFilter<"user_activity"> | string | null
     duration_minutes?: IntFilter<"user_activity"> | number
     perceived_difficulty_level?: IntNullableFilter<"user_activity"> | number | null
     enjoyment_level?: IntNullableFilter<"user_activity"> | number | null
@@ -61740,11 +60592,11 @@ export namespace Prisma {
     AND?: user_activityScalarWhereWithAggregatesInput | user_activityScalarWhereWithAggregatesInput[]
     OR?: user_activityScalarWhereWithAggregatesInput[]
     NOT?: user_activityScalarWhereWithAggregatesInput | user_activityScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"user_activity"> | number
-    user_id?: IntWithAggregatesFilter<"user_activity"> | number
+    id?: StringWithAggregatesFilter<"user_activity"> | string
+    user_id?: StringWithAggregatesFilter<"user_activity"> | string
     completion_date?: DateTimeWithAggregatesFilter<"user_activity"> | Date | string
-    exercise_program_id?: IntNullableWithAggregatesFilter<"user_activity"> | number | null
-    cognitive_exercise_id?: IntNullableWithAggregatesFilter<"user_activity"> | number | null
+    exercise_program_id?: StringNullableWithAggregatesFilter<"user_activity"> | string | null
+    cognitive_exercise_id?: StringNullableWithAggregatesFilter<"user_activity"> | string | null
     duration_minutes?: IntWithAggregatesFilter<"user_activity"> | number
     perceived_difficulty_level?: IntNullableWithAggregatesFilter<"user_activity"> | number | null
     enjoyment_level?: IntNullableWithAggregatesFilter<"user_activity"> | number | null
@@ -61757,8 +60609,8 @@ export namespace Prisma {
     AND?: user_badgeWhereInput | user_badgeWhereInput[]
     OR?: user_badgeWhereInput[]
     NOT?: user_badgeWhereInput | user_badgeWhereInput[]
-    user_id?: IntFilter<"user_badge"> | number
-    badge_id?: IntFilter<"user_badge"> | number
+    user_id?: StringFilter<"user_badge"> | string
+    badge_id?: StringFilter<"user_badge"> | string
     achievement_date?: DateTimeNullableFilter<"user_badge"> | Date | string | null
     created_at?: DateTimeFilter<"user_badge"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_badge"> | Date | string | null
@@ -61781,8 +60633,8 @@ export namespace Prisma {
     AND?: user_badgeWhereInput | user_badgeWhereInput[]
     OR?: user_badgeWhereInput[]
     NOT?: user_badgeWhereInput | user_badgeWhereInput[]
-    user_id?: IntFilter<"user_badge"> | number
-    badge_id?: IntFilter<"user_badge"> | number
+    user_id?: StringFilter<"user_badge"> | string
+    badge_id?: StringFilter<"user_badge"> | string
     achievement_date?: DateTimeNullableFilter<"user_badge"> | Date | string | null
     created_at?: DateTimeFilter<"user_badge"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_badge"> | Date | string | null
@@ -61797,18 +60649,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: user_badgeCountOrderByAggregateInput
-    _avg?: user_badgeAvgOrderByAggregateInput
     _max?: user_badgeMaxOrderByAggregateInput
     _min?: user_badgeMinOrderByAggregateInput
-    _sum?: user_badgeSumOrderByAggregateInput
   }
 
   export type user_badgeScalarWhereWithAggregatesInput = {
     AND?: user_badgeScalarWhereWithAggregatesInput | user_badgeScalarWhereWithAggregatesInput[]
     OR?: user_badgeScalarWhereWithAggregatesInput[]
     NOT?: user_badgeScalarWhereWithAggregatesInput | user_badgeScalarWhereWithAggregatesInput[]
-    user_id?: IntWithAggregatesFilter<"user_badge"> | number
-    badge_id?: IntWithAggregatesFilter<"user_badge"> | number
+    user_id?: StringWithAggregatesFilter<"user_badge"> | string
+    badge_id?: StringWithAggregatesFilter<"user_badge"> | string
     achievement_date?: DateTimeNullableWithAggregatesFilter<"user_badge"> | Date | string | null
     created_at?: DateTimeWithAggregatesFilter<"user_badge"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"user_badge"> | Date | string | null
@@ -61818,8 +60668,8 @@ export namespace Prisma {
     AND?: user_deviceWhereInput | user_deviceWhereInput[]
     OR?: user_deviceWhereInput[]
     NOT?: user_deviceWhereInput | user_deviceWhereInput[]
-    id?: IntFilter<"user_device"> | number
-    user_id?: IntNullableFilter<"user_device"> | number | null
+    id?: StringFilter<"user_device"> | string
+    user_id?: StringNullableFilter<"user_device"> | string | null
     device_type?: StringNullableFilter<"user_device"> | string | null
     device_name?: StringNullableFilter<"user_device"> | string | null
     operating_system?: StringNullableFilter<"user_device"> | string | null
@@ -61844,11 +60694,11 @@ export namespace Prisma {
   }
 
   export type user_deviceWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: user_deviceWhereInput | user_deviceWhereInput[]
     OR?: user_deviceWhereInput[]
     NOT?: user_deviceWhereInput | user_deviceWhereInput[]
-    user_id?: IntNullableFilter<"user_device"> | number | null
+    user_id?: StringNullableFilter<"user_device"> | string | null
     device_type?: StringNullableFilter<"user_device"> | string | null
     device_name?: StringNullableFilter<"user_device"> | string | null
     operating_system?: StringNullableFilter<"user_device"> | string | null
@@ -61870,18 +60720,16 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: user_deviceCountOrderByAggregateInput
-    _avg?: user_deviceAvgOrderByAggregateInput
     _max?: user_deviceMaxOrderByAggregateInput
     _min?: user_deviceMinOrderByAggregateInput
-    _sum?: user_deviceSumOrderByAggregateInput
   }
 
   export type user_deviceScalarWhereWithAggregatesInput = {
     AND?: user_deviceScalarWhereWithAggregatesInput | user_deviceScalarWhereWithAggregatesInput[]
     OR?: user_deviceScalarWhereWithAggregatesInput[]
     NOT?: user_deviceScalarWhereWithAggregatesInput | user_deviceScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"user_device"> | number
-    user_id?: IntNullableWithAggregatesFilter<"user_device"> | number | null
+    id?: StringWithAggregatesFilter<"user_device"> | string
+    user_id?: StringNullableWithAggregatesFilter<"user_device"> | string | null
     device_type?: StringNullableWithAggregatesFilter<"user_device"> | string | null
     device_name?: StringNullableWithAggregatesFilter<"user_device"> | string | null
     operating_system?: StringNullableWithAggregatesFilter<"user_device"> | string | null
@@ -61895,8 +60743,8 @@ export namespace Prisma {
     AND?: user_skillWhereInput | user_skillWhereInput[]
     OR?: user_skillWhereInput[]
     NOT?: user_skillWhereInput | user_skillWhereInput[]
-    user_id?: IntFilter<"user_skill"> | number
-    skill_id?: IntFilter<"user_skill"> | number
+    user_id?: StringFilter<"user_skill"> | string
+    skill_id?: StringFilter<"user_skill"> | string
     level?: IntNullableFilter<"user_skill"> | number | null
     created_at?: DateTimeFilter<"user_skill"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_skill"> | Date | string | null
@@ -61919,8 +60767,8 @@ export namespace Prisma {
     AND?: user_skillWhereInput | user_skillWhereInput[]
     OR?: user_skillWhereInput[]
     NOT?: user_skillWhereInput | user_skillWhereInput[]
-    user_id?: IntFilter<"user_skill"> | number
-    skill_id?: IntFilter<"user_skill"> | number
+    user_id?: StringFilter<"user_skill"> | string
+    skill_id?: StringFilter<"user_skill"> | string
     level?: IntNullableFilter<"user_skill"> | number | null
     created_at?: DateTimeFilter<"user_skill"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_skill"> | Date | string | null
@@ -61945,8 +60793,8 @@ export namespace Prisma {
     AND?: user_skillScalarWhereWithAggregatesInput | user_skillScalarWhereWithAggregatesInput[]
     OR?: user_skillScalarWhereWithAggregatesInput[]
     NOT?: user_skillScalarWhereWithAggregatesInput | user_skillScalarWhereWithAggregatesInput[]
-    user_id?: IntWithAggregatesFilter<"user_skill"> | number
-    skill_id?: IntWithAggregatesFilter<"user_skill"> | number
+    user_id?: StringWithAggregatesFilter<"user_skill"> | string
+    skill_id?: StringWithAggregatesFilter<"user_skill"> | string
     level?: IntNullableWithAggregatesFilter<"user_skill"> | number | null
     created_at?: DateTimeWithAggregatesFilter<"user_skill"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"user_skill"> | Date | string | null
@@ -61956,7 +60804,7 @@ export namespace Prisma {
     AND?: user_statisticsWhereInput | user_statisticsWhereInput[]
     OR?: user_statisticsWhereInput[]
     NOT?: user_statisticsWhereInput | user_statisticsWhereInput[]
-    user_id?: IntFilter<"user_statistics"> | number
+    user_id?: StringFilter<"user_statistics"> | string
     services_provided?: IntNullableFilter<"user_statistics"> | number | null
     services_received?: IntNullableFilter<"user_statistics"> | number | null
     activities_participated?: IntNullableFilter<"user_statistics"> | number | null
@@ -61984,7 +60832,7 @@ export namespace Prisma {
   }
 
   export type user_statisticsWhereUniqueInput = Prisma.AtLeast<{
-    user_id?: number
+    user_id?: string
     AND?: user_statisticsWhereInput | user_statisticsWhereInput[]
     OR?: user_statisticsWhereInput[]
     NOT?: user_statisticsWhereInput | user_statisticsWhereInput[]
@@ -62022,7 +60870,7 @@ export namespace Prisma {
     AND?: user_statisticsScalarWhereWithAggregatesInput | user_statisticsScalarWhereWithAggregatesInput[]
     OR?: user_statisticsScalarWhereWithAggregatesInput[]
     NOT?: user_statisticsScalarWhereWithAggregatesInput | user_statisticsScalarWhereWithAggregatesInput[]
-    user_id?: IntWithAggregatesFilter<"user_statistics"> | number
+    user_id?: StringWithAggregatesFilter<"user_statistics"> | string
     services_provided?: IntNullableWithAggregatesFilter<"user_statistics"> | number | null
     services_received?: IntNullableWithAggregatesFilter<"user_statistics"> | number | null
     activities_participated?: IntNullableWithAggregatesFilter<"user_statistics"> | number | null
@@ -62038,9 +60886,9 @@ export namespace Prisma {
     AND?: video_callWhereInput | video_callWhereInput[]
     OR?: video_callWhereInput[]
     NOT?: video_callWhereInput | video_callWhereInput[]
-    id?: IntFilter<"video_call"> | number
-    conversation_id?: IntNullableFilter<"video_call"> | number | null
-    initiator_id?: IntNullableFilter<"video_call"> | number | null
+    id?: StringFilter<"video_call"> | string
+    conversation_id?: StringNullableFilter<"video_call"> | string | null
+    initiator_id?: StringNullableFilter<"video_call"> | string | null
     start_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
     end_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
     status?: StringNullableFilter<"video_call"> | string | null
@@ -62064,12 +60912,12 @@ export namespace Prisma {
   }
 
   export type video_callWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: video_callWhereInput | video_callWhereInput[]
     OR?: video_callWhereInput[]
     NOT?: video_callWhereInput | video_callWhereInput[]
-    conversation_id?: IntNullableFilter<"video_call"> | number | null
-    initiator_id?: IntNullableFilter<"video_call"> | number | null
+    conversation_id?: StringNullableFilter<"video_call"> | string | null
+    initiator_id?: StringNullableFilter<"video_call"> | string | null
     start_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
     end_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
     status?: StringNullableFilter<"video_call"> | string | null
@@ -62089,19 +60937,17 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: video_callCountOrderByAggregateInput
-    _avg?: video_callAvgOrderByAggregateInput
     _max?: video_callMaxOrderByAggregateInput
     _min?: video_callMinOrderByAggregateInput
-    _sum?: video_callSumOrderByAggregateInput
   }
 
   export type video_callScalarWhereWithAggregatesInput = {
     AND?: video_callScalarWhereWithAggregatesInput | video_callScalarWhereWithAggregatesInput[]
     OR?: video_callScalarWhereWithAggregatesInput[]
     NOT?: video_callScalarWhereWithAggregatesInput | video_callScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"video_call"> | number
-    conversation_id?: IntNullableWithAggregatesFilter<"video_call"> | number | null
-    initiator_id?: IntNullableWithAggregatesFilter<"video_call"> | number | null
+    id?: StringWithAggregatesFilter<"video_call"> | string
+    conversation_id?: StringNullableWithAggregatesFilter<"video_call"> | string | null
+    initiator_id?: StringNullableWithAggregatesFilter<"video_call"> | string | null
     start_date?: DateTimeNullableWithAggregatesFilter<"video_call"> | Date | string | null
     end_date?: DateTimeNullableWithAggregatesFilter<"video_call"> | Date | string | null
     status?: StringNullableWithAggregatesFilter<"video_call"> | string | null
@@ -62113,7 +60959,7 @@ export namespace Prisma {
     AND?: wellness_badgeWhereInput | wellness_badgeWhereInput[]
     OR?: wellness_badgeWhereInput[]
     NOT?: wellness_badgeWhereInput | wellness_badgeWhereInput[]
-    id?: IntFilter<"wellness_badge"> | number
+    id?: StringFilter<"wellness_badge"> | string
     name?: StringFilter<"wellness_badge"> | string
     description?: StringNullableFilter<"wellness_badge"> | string | null
     category?: StringFilter<"wellness_badge"> | string
@@ -62135,7 +60981,7 @@ export namespace Prisma {
   }
 
   export type wellness_badgeWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: wellness_badgeWhereInput | wellness_badgeWhereInput[]
     OR?: wellness_badgeWhereInput[]
     NOT?: wellness_badgeWhereInput | wellness_badgeWhereInput[]
@@ -62168,7 +61014,7 @@ export namespace Prisma {
     AND?: wellness_badgeScalarWhereWithAggregatesInput | wellness_badgeScalarWhereWithAggregatesInput[]
     OR?: wellness_badgeScalarWhereWithAggregatesInput[]
     NOT?: wellness_badgeScalarWhereWithAggregatesInput | wellness_badgeScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"wellness_badge"> | number
+    id?: StringWithAggregatesFilter<"wellness_badge"> | string
     name?: StringWithAggregatesFilter<"wellness_badge"> | string
     description?: StringNullableWithAggregatesFilter<"wellness_badge"> | string | null
     category?: StringWithAggregatesFilter<"wellness_badge"> | string
@@ -62182,8 +61028,8 @@ export namespace Prisma {
     AND?: wellness_goalWhereInput | wellness_goalWhereInput[]
     OR?: wellness_goalWhereInput[]
     NOT?: wellness_goalWhereInput | wellness_goalWhereInput[]
-    id?: IntFilter<"wellness_goal"> | number
-    user_id?: IntNullableFilter<"wellness_goal"> | number | null
+    id?: StringFilter<"wellness_goal"> | string
+    user_id?: StringNullableFilter<"wellness_goal"> | string | null
     title?: StringFilter<"wellness_goal"> | string
     category?: StringFilter<"wellness_goal"> | string
     target_value?: IntFilter<"wellness_goal"> | number
@@ -62216,11 +61062,11 @@ export namespace Prisma {
   }
 
   export type wellness_goalWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: wellness_goalWhereInput | wellness_goalWhereInput[]
     OR?: wellness_goalWhereInput[]
     NOT?: wellness_goalWhereInput | wellness_goalWhereInput[]
-    user_id?: IntNullableFilter<"wellness_goal"> | number | null
+    user_id?: StringNullableFilter<"wellness_goal"> | string | null
     title?: StringFilter<"wellness_goal"> | string
     category?: StringFilter<"wellness_goal"> | string
     target_value?: IntFilter<"wellness_goal"> | number
@@ -62259,8 +61105,8 @@ export namespace Prisma {
     AND?: wellness_goalScalarWhereWithAggregatesInput | wellness_goalScalarWhereWithAggregatesInput[]
     OR?: wellness_goalScalarWhereWithAggregatesInput[]
     NOT?: wellness_goalScalarWhereWithAggregatesInput | wellness_goalScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"wellness_goal"> | number
-    user_id?: IntNullableWithAggregatesFilter<"wellness_goal"> | number | null
+    id?: StringWithAggregatesFilter<"wellness_goal"> | string
+    user_id?: StringNullableWithAggregatesFilter<"wellness_goal"> | string | null
     title?: StringWithAggregatesFilter<"wellness_goal"> | string
     category?: StringWithAggregatesFilter<"wellness_goal"> | string
     target_value?: IntWithAggregatesFilter<"wellness_goal"> | number
@@ -62274,6 +61120,7 @@ export namespace Prisma {
   }
 
   export type activityCreateInput = {
+    id?: string
     title: string
     description?: string | null
     start_date: Date | string
@@ -62297,8 +61144,8 @@ export namespace Prisma {
   }
 
   export type activityUncheckedCreateInput = {
-    id?: number
-    creator_id: number
+    id?: string
+    creator_id: string
     title: string
     description?: string | null
     start_date: Date | string
@@ -62321,6 +61168,7 @@ export namespace Prisma {
   }
 
   export type activityUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62344,8 +61192,8 @@ export namespace Prisma {
   }
 
   export type activityUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    creator_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    creator_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62368,8 +61216,8 @@ export namespace Prisma {
   }
 
   export type activityCreateManyInput = {
-    id?: number
-    creator_id: number
+    id?: string
+    creator_id: string
     title: string
     description?: string | null
     start_date: Date | string
@@ -62391,6 +61239,7 @@ export namespace Prisma {
   }
 
   export type activityUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62412,8 +61261,8 @@ export namespace Prisma {
   }
 
   export type activityUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    creator_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    creator_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62435,7 +61284,7 @@ export namespace Prisma {
   }
 
   export type activity_logCreateInput = {
-    id: number
+    id?: string
     action_type?: string | null
     description?: string | null
     action_date?: Date | string | null
@@ -62447,8 +61296,8 @@ export namespace Prisma {
   }
 
   export type activity_logUncheckedCreateInput = {
-    id: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     action_type?: string | null
     description?: string | null
     action_date?: Date | string | null
@@ -62459,7 +61308,7 @@ export namespace Prisma {
   }
 
   export type activity_logUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     action_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     action_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -62471,8 +61320,8 @@ export namespace Prisma {
   }
 
   export type activity_logUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     action_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     action_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -62483,8 +61332,8 @@ export namespace Prisma {
   }
 
   export type activity_logCreateManyInput = {
-    id: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     action_type?: string | null
     description?: string | null
     action_date?: Date | string | null
@@ -62495,7 +61344,7 @@ export namespace Prisma {
   }
 
   export type activity_logUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     action_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     action_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -62506,8 +61355,8 @@ export namespace Prisma {
   }
 
   export type activity_logUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     action_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     action_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -62528,8 +61377,8 @@ export namespace Prisma {
   }
 
   export type activity_registrationUncheckedCreateInput = {
-    activity_id: number
-    user_id: number
+    activity_id: string
+    user_id: string
     registration_date: Date | string
     status?: string | null
     attendance_confirmed?: boolean | null
@@ -62548,8 +61397,8 @@ export namespace Prisma {
   }
 
   export type activity_registrationUncheckedUpdateInput = {
-    activity_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    activity_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     registration_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendance_confirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -62558,8 +61407,8 @@ export namespace Prisma {
   }
 
   export type activity_registrationCreateManyInput = {
-    activity_id: number
-    user_id: number
+    activity_id: string
+    user_id: string
     registration_date: Date | string
     status?: string | null
     attendance_confirmed?: boolean | null
@@ -62576,8 +61425,8 @@ export namespace Prisma {
   }
 
   export type activity_registrationUncheckedUpdateManyInput = {
-    activity_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    activity_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     registration_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendance_confirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -62586,7 +61435,7 @@ export namespace Prisma {
   }
 
   export type badgeCreateInput = {
-    id: number
+    id?: string
     name?: string | null
     description?: string | null
     icon?: string | null
@@ -62598,7 +61447,7 @@ export namespace Prisma {
   }
 
   export type badgeUncheckedCreateInput = {
-    id: number
+    id?: string
     name?: string | null
     description?: string | null
     icon?: string | null
@@ -62610,7 +61459,7 @@ export namespace Prisma {
   }
 
   export type badgeUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62622,7 +61471,7 @@ export namespace Prisma {
   }
 
   export type badgeUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62634,7 +61483,7 @@ export namespace Prisma {
   }
 
   export type badgeCreateManyInput = {
-    id: number
+    id?: string
     name?: string | null
     description?: string | null
     icon?: string | null
@@ -62645,7 +61494,7 @@ export namespace Prisma {
   }
 
   export type badgeUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62656,7 +61505,7 @@ export namespace Prisma {
   }
 
   export type badgeUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62667,6 +61516,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseCreateInput = {
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -62679,7 +61529,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseUncheckedCreateInput = {
-    id?: number
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -62692,6 +61542,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -62704,7 +61555,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -62717,7 +61568,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseCreateManyInput = {
-    id?: number
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -62729,6 +61580,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -62740,7 +61592,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -62752,6 +61604,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectCreateInput = {
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -62765,10 +61618,10 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedCreateInput = {
-    id?: number
+    id?: string
     title?: string | null
     description?: string | null
-    creator_id?: number | null
+    creator_id?: string | null
     creation_date?: Date | string | null
     status?: string | null
     category?: string | null
@@ -62779,6 +61632,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -62792,10 +61646,10 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    creator_id?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62806,10 +61660,10 @@ export namespace Prisma {
   }
 
   export type collaborative_projectCreateManyInput = {
-    id?: number
+    id?: string
     title?: string | null
     description?: string | null
-    creator_id?: number | null
+    creator_id?: string | null
     creation_date?: Date | string | null
     status?: string | null
     category?: string | null
@@ -62818,6 +61672,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -62828,10 +61683,10 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    creator_id?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62840,6 +61695,7 @@ export namespace Prisma {
   }
 
   export type conversationCreateInput = {
+    id?: string
     type?: string | null
     creation_date?: Date | string | null
     title?: string | null
@@ -62851,7 +61707,7 @@ export namespace Prisma {
   }
 
   export type conversationUncheckedCreateInput = {
-    id?: number
+    id?: string
     type?: string | null
     creation_date?: Date | string | null
     title?: string | null
@@ -62863,6 +61719,7 @@ export namespace Prisma {
   }
 
   export type conversationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62874,7 +61731,7 @@ export namespace Prisma {
   }
 
   export type conversationUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62886,7 +61743,7 @@ export namespace Prisma {
   }
 
   export type conversationCreateManyInput = {
-    id?: number
+    id?: string
     type?: string | null
     creation_date?: Date | string | null
     title?: string | null
@@ -62895,6 +61752,7 @@ export namespace Prisma {
   }
 
   export type conversationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62903,7 +61761,7 @@ export namespace Prisma {
   }
 
   export type conversationUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62922,8 +61780,8 @@ export namespace Prisma {
   }
 
   export type conversation_participantUncheckedCreateInput = {
-    conversation_id: number
-    user_id: number
+    conversation_id: string
+    user_id: string
     date_added?: Date | string | null
     administrator?: boolean | null
     last_access?: Date | string
@@ -62942,8 +61800,8 @@ export namespace Prisma {
   }
 
   export type conversation_participantUncheckedUpdateInput = {
-    conversation_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     last_access?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62952,8 +61810,8 @@ export namespace Prisma {
   }
 
   export type conversation_participantCreateManyInput = {
-    conversation_id: number
-    user_id: number
+    conversation_id: string
+    user_id: string
     date_added?: Date | string | null
     administrator?: boolean | null
     last_access?: Date | string
@@ -62970,8 +61828,8 @@ export namespace Prisma {
   }
 
   export type conversation_participantUncheckedUpdateManyInput = {
-    conversation_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     last_access?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62980,6 +61838,7 @@ export namespace Prisma {
   }
 
   export type exercise_programCreateInput = {
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -62994,7 +61853,7 @@ export namespace Prisma {
   }
 
   export type exercise_programUncheckedCreateInput = {
-    id?: number
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -63009,6 +61868,7 @@ export namespace Prisma {
   }
 
   export type exercise_programUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -63023,7 +61883,7 @@ export namespace Prisma {
   }
 
   export type exercise_programUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -63038,7 +61898,7 @@ export namespace Prisma {
   }
 
   export type exercise_programCreateManyInput = {
-    id?: number
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -63052,6 +61912,7 @@ export namespace Prisma {
   }
 
   export type exercise_programUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -63065,7 +61926,7 @@ export namespace Prisma {
   }
 
   export type exercise_programUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -63079,6 +61940,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryCreateInput = {
+    id?: string
     name: string
     description?: string | null
     parent_category_id?: number | null
@@ -63088,7 +61950,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryUncheckedCreateInput = {
-    id?: number
+    id?: string
     name: string
     description?: string | null
     parent_category_id?: number | null
@@ -63098,6 +61960,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -63107,7 +61970,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -63117,7 +61980,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryCreateManyInput = {
-    id?: number
+    id?: string
     name: string
     description?: string | null
     parent_category_id?: number | null
@@ -63126,6 +61989,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -63134,7 +61998,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -63143,6 +62007,7 @@ export namespace Prisma {
   }
 
   export type forum_messageCreateInput = {
+    id?: string
     content?: string | null
     creation_date?: Date | string | null
     modification_date?: Date | string | null
@@ -63154,9 +62019,9 @@ export namespace Prisma {
   }
 
   export type forum_messageUncheckedCreateInput = {
-    id?: number
-    topic_id?: number | null
-    author_id?: number | null
+    id?: string
+    topic_id?: string | null
+    author_id?: string | null
     content?: string | null
     creation_date?: Date | string | null
     modification_date?: Date | string | null
@@ -63166,6 +62031,7 @@ export namespace Prisma {
   }
 
   export type forum_messageUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63177,9 +62043,9 @@ export namespace Prisma {
   }
 
   export type forum_messageUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    topic_id?: NullableIntFieldUpdateOperationsInput | number | null
-    author_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    topic_id?: NullableStringFieldUpdateOperationsInput | string | null
+    author_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63189,9 +62055,9 @@ export namespace Prisma {
   }
 
   export type forum_messageCreateManyInput = {
-    id?: number
-    topic_id?: number | null
-    author_id?: number | null
+    id?: string
+    topic_id?: string | null
+    author_id?: string | null
     content?: string | null
     creation_date?: Date | string | null
     modification_date?: Date | string | null
@@ -63201,6 +62067,7 @@ export namespace Prisma {
   }
 
   export type forum_messageUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63210,9 +62077,9 @@ export namespace Prisma {
   }
 
   export type forum_messageUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    topic_id?: NullableIntFieldUpdateOperationsInput | number | null
-    author_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    topic_id?: NullableStringFieldUpdateOperationsInput | string | null
+    author_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63222,6 +62089,7 @@ export namespace Prisma {
   }
 
   export type forum_topicCreateInput = {
+    id?: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -63235,9 +62103,9 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedCreateInput = {
-    id?: number
-    category_id: number
-    author_id: number
+    id?: string
+    category_id: string
+    author_id: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -63249,6 +62117,7 @@ export namespace Prisma {
   }
 
   export type forum_topicUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -63262,9 +62131,9 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    category_id?: IntFieldUpdateOperationsInput | number
-    author_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    category_id?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -63276,9 +62145,9 @@ export namespace Prisma {
   }
 
   export type forum_topicCreateManyInput = {
-    id?: number
-    category_id: number
-    author_id: number
+    id?: string
+    category_id: string
+    author_id: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -63289,6 +62158,7 @@ export namespace Prisma {
   }
 
   export type forum_topicUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -63299,9 +62169,9 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    category_id?: IntFieldUpdateOperationsInput | number
-    author_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    category_id?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -63312,6 +62182,7 @@ export namespace Prisma {
   }
 
   export type goal_progressCreateInput = {
+    id?: string
     recording_date: Date | string
     achieved_value: number
     goal_achieved: boolean
@@ -63321,8 +62192,8 @@ export namespace Prisma {
   }
 
   export type goal_progressUncheckedCreateInput = {
-    id?: number
-    goal_id: number
+    id?: string
+    goal_id: string
     recording_date: Date | string
     achieved_value: number
     goal_achieved: boolean
@@ -63331,6 +62202,7 @@ export namespace Prisma {
   }
 
   export type goal_progressUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     achieved_value?: IntFieldUpdateOperationsInput | number
     goal_achieved?: BoolFieldUpdateOperationsInput | boolean
@@ -63340,8 +62212,8 @@ export namespace Prisma {
   }
 
   export type goal_progressUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    goal_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    goal_id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     achieved_value?: IntFieldUpdateOperationsInput | number
     goal_achieved?: BoolFieldUpdateOperationsInput | boolean
@@ -63350,8 +62222,8 @@ export namespace Prisma {
   }
 
   export type goal_progressCreateManyInput = {
-    id?: number
-    goal_id: number
+    id?: string
+    goal_id: string
     recording_date: Date | string
     achieved_value: number
     goal_achieved: boolean
@@ -63360,6 +62232,7 @@ export namespace Prisma {
   }
 
   export type goal_progressUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     achieved_value?: IntFieldUpdateOperationsInput | number
     goal_achieved?: BoolFieldUpdateOperationsInput | boolean
@@ -63368,8 +62241,8 @@ export namespace Prisma {
   }
 
   export type goal_progressUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    goal_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    goal_id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     achieved_value?: IntFieldUpdateOperationsInput | number
     goal_achieved?: BoolFieldUpdateOperationsInput | boolean
@@ -63378,6 +62251,7 @@ export namespace Prisma {
   }
 
   export type health_indicatorCreateInput = {
+    id?: string
     recording_date: Date | string
     step_count?: number | null
     sleep_duration_minutes?: number | null
@@ -63391,8 +62265,8 @@ export namespace Prisma {
   }
 
   export type health_indicatorUncheckedCreateInput = {
-    id?: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     recording_date: Date | string
     step_count?: number | null
     sleep_duration_minutes?: number | null
@@ -63405,6 +62279,7 @@ export namespace Prisma {
   }
 
   export type health_indicatorUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     step_count?: NullableIntFieldUpdateOperationsInput | number | null
     sleep_duration_minutes?: NullableIntFieldUpdateOperationsInput | number | null
@@ -63418,8 +62293,8 @@ export namespace Prisma {
   }
 
   export type health_indicatorUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     step_count?: NullableIntFieldUpdateOperationsInput | number | null
     sleep_duration_minutes?: NullableIntFieldUpdateOperationsInput | number | null
@@ -63432,8 +62307,8 @@ export namespace Prisma {
   }
 
   export type health_indicatorCreateManyInput = {
-    id?: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     recording_date: Date | string
     step_count?: number | null
     sleep_duration_minutes?: number | null
@@ -63446,6 +62321,7 @@ export namespace Prisma {
   }
 
   export type health_indicatorUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     step_count?: NullableIntFieldUpdateOperationsInput | number | null
     sleep_duration_minutes?: NullableIntFieldUpdateOperationsInput | number | null
@@ -63458,8 +62334,8 @@ export namespace Prisma {
   }
 
   export type health_indicatorUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     step_count?: NullableIntFieldUpdateOperationsInput | number | null
     sleep_duration_minutes?: NullableIntFieldUpdateOperationsInput | number | null
@@ -63472,6 +62348,7 @@ export namespace Prisma {
   }
 
   export type help_offerCreateInput = {
+    id?: string
     offer_date: Date | string
     message?: string | null
     status?: string | null
@@ -63482,9 +62359,9 @@ export namespace Prisma {
   }
 
   export type help_offerUncheckedCreateInput = {
-    id?: number
-    request_id: number
-    helper_id: number
+    id?: string
+    request_id: string
+    helper_id: string
     offer_date: Date | string
     message?: string | null
     status?: string | null
@@ -63493,6 +62370,7 @@ export namespace Prisma {
   }
 
   export type help_offerUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63503,9 +62381,9 @@ export namespace Prisma {
   }
 
   export type help_offerUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    request_id?: IntFieldUpdateOperationsInput | number
-    helper_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    request_id?: StringFieldUpdateOperationsInput | string
+    helper_id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63514,9 +62392,9 @@ export namespace Prisma {
   }
 
   export type help_offerCreateManyInput = {
-    id?: number
-    request_id: number
-    helper_id: number
+    id?: string
+    request_id: string
+    helper_id: string
     offer_date: Date | string
     message?: string | null
     status?: string | null
@@ -63525,6 +62403,7 @@ export namespace Prisma {
   }
 
   export type help_offerUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63533,9 +62412,9 @@ export namespace Prisma {
   }
 
   export type help_offerUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    request_id?: IntFieldUpdateOperationsInput | number
-    helper_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    request_id?: StringFieldUpdateOperationsInput | string
+    helper_id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63544,6 +62423,7 @@ export namespace Prisma {
   }
 
   export type help_requestCreateInput = {
+    id?: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -63564,8 +62444,8 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedCreateInput = {
-    id?: number
-    creator_id: number
+    id?: string
+    creator_id: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -63585,6 +62465,7 @@ export namespace Prisma {
   }
 
   export type help_requestUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63605,8 +62486,8 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    creator_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    creator_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63626,8 +62507,8 @@ export namespace Prisma {
   }
 
   export type help_requestCreateManyInput = {
-    id?: number
-    creator_id: number
+    id?: string
+    creator_id: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -63645,6 +62526,7 @@ export namespace Prisma {
   }
 
   export type help_requestUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63662,8 +62544,8 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    creator_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    creator_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63681,6 +62563,7 @@ export namespace Prisma {
   }
 
   export type local_serviceCreateInput = {
+    id?: string
     name?: string | null
     category?: string | null
     address?: string | null
@@ -63696,7 +62579,7 @@ export namespace Prisma {
   }
 
   export type local_serviceUncheckedCreateInput = {
-    id?: number
+    id?: string
     name?: string | null
     category?: string | null
     address?: string | null
@@ -63712,6 +62595,7 @@ export namespace Prisma {
   }
 
   export type local_serviceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63727,7 +62611,7 @@ export namespace Prisma {
   }
 
   export type local_serviceUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63743,7 +62627,7 @@ export namespace Prisma {
   }
 
   export type local_serviceCreateManyInput = {
-    id?: number
+    id?: string
     name?: string | null
     category?: string | null
     address?: string | null
@@ -63758,6 +62642,7 @@ export namespace Prisma {
   }
 
   export type local_serviceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63772,7 +62657,7 @@ export namespace Prisma {
   }
 
   export type local_serviceUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63787,6 +62672,7 @@ export namespace Prisma {
   }
 
   export type medication_reminderCreateInput = {
+    id?: string
     medication_name: string
     dosage?: string | null
     morning_reminder_time?: Date | string | null
@@ -63804,8 +62690,8 @@ export namespace Prisma {
   }
 
   export type medication_reminderUncheckedCreateInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     medication_name: string
     dosage?: string | null
     morning_reminder_time?: Date | string | null
@@ -63822,6 +62708,7 @@ export namespace Prisma {
   }
 
   export type medication_reminderUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     medication_name?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morning_reminder_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63839,8 +62726,8 @@ export namespace Prisma {
   }
 
   export type medication_reminderUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     medication_name?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morning_reminder_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63857,8 +62744,8 @@ export namespace Prisma {
   }
 
   export type medication_reminderCreateManyInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     medication_name: string
     dosage?: string | null
     morning_reminder_time?: Date | string | null
@@ -63875,6 +62762,7 @@ export namespace Prisma {
   }
 
   export type medication_reminderUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     medication_name?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morning_reminder_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63891,8 +62779,8 @@ export namespace Prisma {
   }
 
   export type medication_reminderUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     medication_name?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morning_reminder_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63909,6 +62797,7 @@ export namespace Prisma {
   }
 
   export type messageCreateInput = {
+    id?: string
     content?: string | null
     send_date?: Date | string | null
     type?: string | null
@@ -63920,9 +62809,9 @@ export namespace Prisma {
   }
 
   export type messageUncheckedCreateInput = {
-    id?: number
-    conversation_id?: number | null
-    sender_id?: number | null
+    id?: string
+    conversation_id?: string | null
+    sender_id?: string | null
     content?: string | null
     send_date?: Date | string | null
     type?: string | null
@@ -63932,6 +62821,7 @@ export namespace Prisma {
   }
 
   export type messageUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63943,9 +62833,9 @@ export namespace Prisma {
   }
 
   export type messageUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    conversation_id?: NullableIntFieldUpdateOperationsInput | number | null
-    sender_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63955,9 +62845,9 @@ export namespace Prisma {
   }
 
   export type messageCreateManyInput = {
-    id?: number
-    conversation_id?: number | null
-    sender_id?: number | null
+    id?: string
+    conversation_id?: string | null
+    sender_id?: string | null
     content?: string | null
     send_date?: Date | string | null
     type?: string | null
@@ -63967,6 +62857,7 @@ export namespace Prisma {
   }
 
   export type messageUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63976,9 +62867,9 @@ export namespace Prisma {
   }
 
   export type messageUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    conversation_id?: NullableIntFieldUpdateOperationsInput | number | null
-    sender_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63988,11 +62879,13 @@ export namespace Prisma {
   }
 
   export type municipal_eventCreateInput = {
+    id?: string
     title: string
     description?: string | null
     start_date: Date | string
     end_date: Date | string
     location?: string | null
+    gps_coordinates?: string | null
     organizer?: string | null
     contact?: string | null
     official_link?: string | null
@@ -64001,12 +62894,13 @@ export namespace Prisma {
   }
 
   export type municipal_eventUncheckedCreateInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     start_date: Date | string
     end_date: Date | string
     location?: string | null
+    gps_coordinates?: string | null
     organizer?: string | null
     contact?: string | null
     official_link?: string | null
@@ -64015,11 +62909,13 @@ export namespace Prisma {
   }
 
   export type municipal_eventUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
     official_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64028,12 +62924,13 @@ export namespace Prisma {
   }
 
   export type municipal_eventUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
     official_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64042,12 +62939,13 @@ export namespace Prisma {
   }
 
   export type municipal_eventCreateManyInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     start_date: Date | string
     end_date: Date | string
     location?: string | null
+    gps_coordinates?: string | null
     organizer?: string | null
     contact?: string | null
     official_link?: string | null
@@ -64056,11 +62954,13 @@ export namespace Prisma {
   }
 
   export type municipal_eventUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
     official_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64069,12 +62969,13 @@ export namespace Prisma {
   }
 
   export type municipal_eventUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
     official_link?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64083,6 +62984,7 @@ export namespace Prisma {
   }
 
   export type notificationCreateInput = {
+    id?: string
     type?: string | null
     content?: string | null
     read?: boolean | null
@@ -64093,8 +62995,8 @@ export namespace Prisma {
   }
 
   export type notificationUncheckedCreateInput = {
-    id?: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     type?: string | null
     content?: string | null
     read?: boolean | null
@@ -64104,6 +63006,7 @@ export namespace Prisma {
   }
 
   export type notificationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -64114,8 +63017,8 @@ export namespace Prisma {
   }
 
   export type notificationUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -64125,8 +63028,8 @@ export namespace Prisma {
   }
 
   export type notificationCreateManyInput = {
-    id?: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     type?: string | null
     content?: string | null
     read?: boolean | null
@@ -64136,6 +63039,7 @@ export namespace Prisma {
   }
 
   export type notificationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -64145,8 +63049,8 @@ export namespace Prisma {
   }
 
   export type notificationUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -64171,7 +63075,7 @@ export namespace Prisma {
   }
 
   export type notification_preferencesUncheckedCreateInput = {
-    user_id: number
+    user_id: string
     message_notif?: boolean | null
     activity_notif?: boolean | null
     help_notif?: boolean | null
@@ -64201,7 +63105,7 @@ export namespace Prisma {
   }
 
   export type notification_preferencesUncheckedUpdateInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     message_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
     activity_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
     help_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -64216,7 +63120,7 @@ export namespace Prisma {
   }
 
   export type notification_preferencesCreateManyInput = {
-    user_id: number
+    user_id: string
     message_notif?: boolean | null
     activity_notif?: boolean | null
     help_notif?: boolean | null
@@ -64245,7 +63149,7 @@ export namespace Prisma {
   }
 
   export type notification_preferencesUncheckedUpdateManyInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     message_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
     activity_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
     help_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -64260,6 +63164,7 @@ export namespace Prisma {
   }
 
   export type nutritional_adviceCreateInput = {
+    id?: string
     title: string
     description?: string | null
     category?: string | null
@@ -64270,7 +63175,7 @@ export namespace Prisma {
   }
 
   export type nutritional_adviceUncheckedCreateInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     category?: string | null
@@ -64281,6 +63186,7 @@ export namespace Prisma {
   }
 
   export type nutritional_adviceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64291,7 +63197,7 @@ export namespace Prisma {
   }
 
   export type nutritional_adviceUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64302,7 +63208,7 @@ export namespace Prisma {
   }
 
   export type nutritional_adviceCreateManyInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     category?: string | null
@@ -64313,6 +63219,7 @@ export namespace Prisma {
   }
 
   export type nutritional_adviceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64323,7 +63230,7 @@ export namespace Prisma {
   }
 
   export type nutritional_adviceUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64334,7 +63241,7 @@ export namespace Prisma {
   }
 
   export type offline_userCreateInput = {
-    user_id: number
+    user_id: string
     cached_data?: NullableJsonNullValueInput | InputJsonValue
     last_sync?: Date | string | null
     created_at?: Date | string
@@ -64342,7 +63249,7 @@ export namespace Prisma {
   }
 
   export type offline_userUncheckedCreateInput = {
-    user_id: number
+    user_id: string
     cached_data?: NullableJsonNullValueInput | InputJsonValue
     last_sync?: Date | string | null
     created_at?: Date | string
@@ -64350,7 +63257,7 @@ export namespace Prisma {
   }
 
   export type offline_userUpdateInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     cached_data?: NullableJsonNullValueInput | InputJsonValue
     last_sync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64358,7 +63265,7 @@ export namespace Prisma {
   }
 
   export type offline_userUncheckedUpdateInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     cached_data?: NullableJsonNullValueInput | InputJsonValue
     last_sync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64366,7 +63273,7 @@ export namespace Prisma {
   }
 
   export type offline_userCreateManyInput = {
-    user_id: number
+    user_id: string
     cached_data?: NullableJsonNullValueInput | InputJsonValue
     last_sync?: Date | string | null
     created_at?: Date | string
@@ -64374,7 +63281,7 @@ export namespace Prisma {
   }
 
   export type offline_userUpdateManyMutationInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     cached_data?: NullableJsonNullValueInput | InputJsonValue
     last_sync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64382,7 +63289,7 @@ export namespace Prisma {
   }
 
   export type offline_userUncheckedUpdateManyInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     cached_data?: NullableJsonNullValueInput | InputJsonValue
     last_sync?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64399,8 +63306,8 @@ export namespace Prisma {
   }
 
   export type project_memberUncheckedCreateInput = {
-    project_id: number
-    user_id: number
+    project_id: string
+    user_id: string
     role?: string | null
     join_date?: Date | string | null
     created_at?: Date | string
@@ -64417,8 +63324,8 @@ export namespace Prisma {
   }
 
   export type project_memberUncheckedUpdateInput = {
-    project_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    project_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     role?: NullableStringFieldUpdateOperationsInput | string | null
     join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64426,8 +63333,8 @@ export namespace Prisma {
   }
 
   export type project_memberCreateManyInput = {
-    project_id: number
-    user_id: number
+    project_id: string
+    user_id: string
     role?: string | null
     join_date?: Date | string | null
     created_at?: Date | string
@@ -64442,8 +63349,8 @@ export namespace Prisma {
   }
 
   export type project_memberUncheckedUpdateManyInput = {
-    project_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    project_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     role?: NullableStringFieldUpdateOperationsInput | string | null
     join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64451,6 +63358,7 @@ export namespace Prisma {
   }
 
   export type project_taskCreateInput = {
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -64463,19 +63371,20 @@ export namespace Prisma {
   }
 
   export type project_taskUncheckedCreateInput = {
-    id?: number
-    project_id?: number | null
+    id?: string
+    project_id?: string | null
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
     due_date?: Date | string | null
     status?: string | null
-    assignee_id?: number | null
+    assignee_id?: string | null
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type project_taskUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -64488,32 +63397,33 @@ export namespace Prisma {
   }
 
   export type project_taskUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    project_id?: NullableStringFieldUpdateOperationsInput | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type project_taskCreateManyInput = {
-    id?: number
-    project_id?: number | null
+    id?: string
+    project_id?: string | null
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
     due_date?: Date | string | null
     status?: string | null
-    assignee_id?: number | null
+    assignee_id?: string | null
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type project_taskUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -64524,19 +63434,20 @@ export namespace Prisma {
   }
 
   export type project_taskUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    project_id?: NullableStringFieldUpdateOperationsInput | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type resourceCreateInput = {
+    id?: string
     title: string
     content?: string | null
     type?: string | null
@@ -64548,18 +63459,19 @@ export namespace Prisma {
   }
 
   export type resourceUncheckedCreateInput = {
-    id?: number
+    id?: string
     title: string
     content?: string | null
     type?: string | null
     category?: string | null
-    author_id?: number | null
+    author_id?: string | null
     admin_validated?: boolean | null
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type resourceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64571,30 +63483,31 @@ export namespace Prisma {
   }
 
   export type resourceUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
-    author_id?: NullableIntFieldUpdateOperationsInput | number | null
+    author_id?: NullableStringFieldUpdateOperationsInput | string | null
     admin_validated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type resourceCreateManyInput = {
-    id?: number
+    id?: string
     title: string
     content?: string | null
     type?: string | null
     category?: string | null
-    author_id?: number | null
+    author_id?: string | null
     admin_validated?: boolean | null
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type resourceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64605,18 +63518,19 @@ export namespace Prisma {
   }
 
   export type resourceUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
-    author_id?: NullableIntFieldUpdateOperationsInput | number | null
+    author_id?: NullableStringFieldUpdateOperationsInput | string | null
     admin_validated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type satisfaction_surveyCreateInput = {
+    id?: string
     title: string
     description?: string | null
     start_date?: Date | string | null
@@ -64628,7 +63542,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyUncheckedCreateInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     start_date?: Date | string | null
@@ -64640,6 +63554,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -64651,7 +63566,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -64663,7 +63578,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyCreateManyInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     start_date?: Date | string | null
@@ -64674,6 +63589,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -64684,7 +63600,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -64695,6 +63611,7 @@ export namespace Prisma {
   }
 
   export type service_completedCreateInput = {
+    id?: string
     completion_date: Date | string
     actual_duration?: number | null
     creator_comment?: string | null
@@ -64709,9 +63626,9 @@ export namespace Prisma {
   }
 
   export type service_completedUncheckedCreateInput = {
-    id?: number
-    request_id: number
-    helper_id: number
+    id?: string
+    request_id: string
+    helper_id: string
     completion_date: Date | string
     actual_duration?: number | null
     creator_comment?: string | null
@@ -64724,6 +63641,7 @@ export namespace Prisma {
   }
 
   export type service_completedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64738,9 +63656,9 @@ export namespace Prisma {
   }
 
   export type service_completedUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    request_id?: IntFieldUpdateOperationsInput | number
-    helper_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    request_id?: StringFieldUpdateOperationsInput | string
+    helper_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64753,9 +63671,9 @@ export namespace Prisma {
   }
 
   export type service_completedCreateManyInput = {
-    id?: number
-    request_id: number
-    helper_id: number
+    id?: string
+    request_id: string
+    helper_id: string
     completion_date: Date | string
     actual_duration?: number | null
     creator_comment?: string | null
@@ -64768,6 +63686,7 @@ export namespace Prisma {
   }
 
   export type service_completedUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64780,9 +63699,9 @@ export namespace Prisma {
   }
 
   export type service_completedUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    request_id?: IntFieldUpdateOperationsInput | number
-    helper_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    request_id?: StringFieldUpdateOperationsInput | string
+    helper_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64805,8 +63724,8 @@ export namespace Prisma {
   }
 
   export type service_ratingUncheckedCreateInput = {
-    service_id: number
-    user_id: number
+    service_id: string
+    user_id: string
     rating?: number | null
     comment?: string | null
     rating_date?: Date | string | null
@@ -64825,8 +63744,8 @@ export namespace Prisma {
   }
 
   export type service_ratingUncheckedUpdateInput = {
-    service_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    service_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     rating?: NullableIntFieldUpdateOperationsInput | number | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     rating_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -64835,8 +63754,8 @@ export namespace Prisma {
   }
 
   export type service_ratingCreateManyInput = {
-    service_id: number
-    user_id: number
+    service_id: string
+    user_id: string
     rating?: number | null
     comment?: string | null
     rating_date?: Date | string | null
@@ -64853,8 +63772,8 @@ export namespace Prisma {
   }
 
   export type service_ratingUncheckedUpdateManyInput = {
-    service_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    service_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     rating?: NullableIntFieldUpdateOperationsInput | number | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     rating_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -64863,6 +63782,7 @@ export namespace Prisma {
   }
 
   export type skillCreateInput = {
+    id?: string
     name: string
     description?: string | null
     category?: string | null
@@ -64872,7 +63792,7 @@ export namespace Prisma {
   }
 
   export type skillUncheckedCreateInput = {
-    id?: number
+    id?: string
     name: string
     description?: string | null
     category?: string | null
@@ -64882,6 +63802,7 @@ export namespace Prisma {
   }
 
   export type skillUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64891,7 +63812,7 @@ export namespace Prisma {
   }
 
   export type skillUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64901,7 +63822,7 @@ export namespace Prisma {
   }
 
   export type skillCreateManyInput = {
-    id?: number
+    id?: string
     name: string
     description?: string | null
     category?: string | null
@@ -64910,6 +63831,7 @@ export namespace Prisma {
   }
 
   export type skillUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64918,7 +63840,7 @@ export namespace Prisma {
   }
 
   export type skillUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64936,8 +63858,8 @@ export namespace Prisma {
   }
 
   export type survey_responseUncheckedCreateInput = {
-    survey_id: number
-    user_id: number
+    survey_id: string
+    user_id: string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: Date | string | null
     created_at?: Date | string
@@ -64954,8 +63876,8 @@ export namespace Prisma {
   }
 
   export type survey_responseUncheckedUpdateInput = {
-    survey_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    survey_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64963,8 +63885,8 @@ export namespace Prisma {
   }
 
   export type survey_responseCreateManyInput = {
-    survey_id: number
-    user_id: number
+    survey_id: string
+    user_id: string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: Date | string | null
     created_at?: Date | string
@@ -64979,8 +63901,8 @@ export namespace Prisma {
   }
 
   export type survey_responseUncheckedUpdateManyInput = {
-    survey_id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    survey_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64997,8 +63919,8 @@ export namespace Prisma {
   }
 
   export type trust_circleUncheckedCreateInput = {
-    user_id: number
-    contact_id: number
+    user_id: string
+    contact_id: string
     date_added?: Date | string | null
     access_level?: string | null
     created_at?: Date | string
@@ -65015,8 +63937,8 @@ export namespace Prisma {
   }
 
   export type trust_circleUncheckedUpdateInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
-    contact_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    contact_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     access_level?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65024,8 +63946,8 @@ export namespace Prisma {
   }
 
   export type trust_circleCreateManyInput = {
-    user_id: number
-    contact_id: number
+    user_id: string
+    contact_id: string
     date_added?: Date | string | null
     access_level?: string | null
     created_at?: Date | string
@@ -65040,8 +63962,8 @@ export namespace Prisma {
   }
 
   export type trust_circleUncheckedUpdateManyInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
-    contact_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    contact_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     access_level?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65049,6 +63971,7 @@ export namespace Prisma {
   }
 
   export type trusted_contactCreateInput = {
+    id?: string
     last_name: string
     first_name: string
     email: string
@@ -65064,8 +63987,8 @@ export namespace Prisma {
   }
 
   export type trusted_contactUncheckedCreateInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     last_name: string
     first_name: string
     email: string
@@ -65080,6 +64003,7 @@ export namespace Prisma {
   }
 
   export type trusted_contactUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -65095,8 +64019,8 @@ export namespace Prisma {
   }
 
   export type trusted_contactUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -65111,8 +64035,8 @@ export namespace Prisma {
   }
 
   export type trusted_contactCreateManyInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     last_name: string
     first_name: string
     email: string
@@ -65127,6 +64051,7 @@ export namespace Prisma {
   }
 
   export type trusted_contactUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -65141,8 +64066,8 @@ export namespace Prisma {
   }
 
   export type trusted_contactUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -65157,9 +64082,11 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportCreateInput = {
+    id?: string
     category: string
     description?: string | null
     address?: string | null
+    gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
     city_reference?: string | null
@@ -65169,11 +64096,12 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportUncheckedCreateInput = {
-    id?: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     category: string
     description?: string | null
     address?: string | null
+    gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
     city_reference?: string | null
@@ -65182,9 +64110,11 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     city_reference?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65194,11 +64124,12 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     city_reference?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65207,11 +64138,12 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportCreateManyInput = {
-    id?: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     category: string
     description?: string | null
     address?: string | null
+    gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
     city_reference?: string | null
@@ -65220,9 +64152,11 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     city_reference?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65231,11 +64165,12 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     city_reference?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65244,6 +64179,7 @@ export namespace Prisma {
   }
 
   export type userCreateInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -65299,7 +64235,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -65355,6 +64291,7 @@ export namespace Prisma {
   }
 
   export type userUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65410,7 +64347,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65466,7 +64403,7 @@ export namespace Prisma {
   }
 
   export type userCreateManyInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -65491,6 +64428,7 @@ export namespace Prisma {
   }
 
   export type userUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65515,7 +64453,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65540,6 +64478,7 @@ export namespace Prisma {
   }
 
   export type user_activityCreateInput = {
+    id?: string
     completion_date: Date | string
     duration_minutes: number
     perceived_difficulty_level?: number | null
@@ -65553,11 +64492,11 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedCreateInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     completion_date: Date | string
-    exercise_program_id?: number | null
-    cognitive_exercise_id?: number | null
+    exercise_program_id?: string | null
+    cognitive_exercise_id?: string | null
     duration_minutes: number
     perceived_difficulty_level?: number | null
     enjoyment_level?: number | null
@@ -65567,6 +64506,7 @@ export namespace Prisma {
   }
 
   export type user_activityUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -65580,11 +64520,11 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    exercise_program_id?: NullableIntFieldUpdateOperationsInput | number | null
-    cognitive_exercise_id?: NullableIntFieldUpdateOperationsInput | number | null
+    exercise_program_id?: NullableStringFieldUpdateOperationsInput | string | null
+    cognitive_exercise_id?: NullableStringFieldUpdateOperationsInput | string | null
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
     enjoyment_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -65594,11 +64534,11 @@ export namespace Prisma {
   }
 
   export type user_activityCreateManyInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     completion_date: Date | string
-    exercise_program_id?: number | null
-    cognitive_exercise_id?: number | null
+    exercise_program_id?: string | null
+    cognitive_exercise_id?: string | null
     duration_minutes: number
     perceived_difficulty_level?: number | null
     enjoyment_level?: number | null
@@ -65608,6 +64548,7 @@ export namespace Prisma {
   }
 
   export type user_activityUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -65618,11 +64559,11 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    exercise_program_id?: NullableIntFieldUpdateOperationsInput | number | null
-    cognitive_exercise_id?: NullableIntFieldUpdateOperationsInput | number | null
+    exercise_program_id?: NullableStringFieldUpdateOperationsInput | string | null
+    cognitive_exercise_id?: NullableStringFieldUpdateOperationsInput | string | null
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
     enjoyment_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -65640,8 +64581,8 @@ export namespace Prisma {
   }
 
   export type user_badgeUncheckedCreateInput = {
-    user_id: number
-    badge_id: number
+    user_id: string
+    badge_id: string
     achievement_date?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -65656,16 +64597,16 @@ export namespace Prisma {
   }
 
   export type user_badgeUncheckedUpdateInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
-    badge_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    badge_id?: StringFieldUpdateOperationsInput | string
     achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_badgeCreateManyInput = {
-    user_id: number
-    badge_id: number
+    user_id: string
+    badge_id: string
     achievement_date?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -65678,15 +64619,15 @@ export namespace Prisma {
   }
 
   export type user_badgeUncheckedUpdateManyInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
-    badge_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    badge_id?: StringFieldUpdateOperationsInput | string
     achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_deviceCreateInput = {
-    id: number
+    id?: string
     device_type?: string | null
     device_name?: string | null
     operating_system?: string | null
@@ -65698,8 +64639,8 @@ export namespace Prisma {
   }
 
   export type user_deviceUncheckedCreateInput = {
-    id: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     device_type?: string | null
     device_name?: string | null
     operating_system?: string | null
@@ -65710,7 +64651,7 @@ export namespace Prisma {
   }
 
   export type user_deviceUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     device_type?: NullableStringFieldUpdateOperationsInput | string | null
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65722,8 +64663,8 @@ export namespace Prisma {
   }
 
   export type user_deviceUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     device_type?: NullableStringFieldUpdateOperationsInput | string | null
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65734,8 +64675,8 @@ export namespace Prisma {
   }
 
   export type user_deviceCreateManyInput = {
-    id: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     device_type?: string | null
     device_name?: string | null
     operating_system?: string | null
@@ -65746,7 +64687,7 @@ export namespace Prisma {
   }
 
   export type user_deviceUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     device_type?: NullableStringFieldUpdateOperationsInput | string | null
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65757,8 +64698,8 @@ export namespace Prisma {
   }
 
   export type user_deviceUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     device_type?: NullableStringFieldUpdateOperationsInput | string | null
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65777,8 +64718,8 @@ export namespace Prisma {
   }
 
   export type user_skillUncheckedCreateInput = {
-    user_id: number
-    skill_id: number
+    user_id: string
+    skill_id: string
     level?: number | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -65793,16 +64734,16 @@ export namespace Prisma {
   }
 
   export type user_skillUncheckedUpdateInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
-    skill_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    skill_id?: StringFieldUpdateOperationsInput | string
     level?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_skillCreateManyInput = {
-    user_id: number
-    skill_id: number
+    user_id: string
+    skill_id: string
     level?: number | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -65815,8 +64756,8 @@ export namespace Prisma {
   }
 
   export type user_skillUncheckedUpdateManyInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
-    skill_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
+    skill_id?: StringFieldUpdateOperationsInput | string
     level?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -65836,7 +64777,7 @@ export namespace Prisma {
   }
 
   export type user_statisticsUncheckedCreateInput = {
-    user_id: number
+    user_id: string
     services_provided?: number | null
     services_received?: number | null
     activities_participated?: number | null
@@ -65862,7 +64803,7 @@ export namespace Prisma {
   }
 
   export type user_statisticsUncheckedUpdateInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     services_provided?: NullableIntFieldUpdateOperationsInput | number | null
     services_received?: NullableIntFieldUpdateOperationsInput | number | null
     activities_participated?: NullableIntFieldUpdateOperationsInput | number | null
@@ -65875,7 +64816,7 @@ export namespace Prisma {
   }
 
   export type user_statisticsCreateManyInput = {
-    user_id: number
+    user_id: string
     services_provided?: number | null
     services_received?: number | null
     activities_participated?: number | null
@@ -65900,7 +64841,7 @@ export namespace Prisma {
   }
 
   export type user_statisticsUncheckedUpdateManyInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     services_provided?: NullableIntFieldUpdateOperationsInput | number | null
     services_received?: NullableIntFieldUpdateOperationsInput | number | null
     activities_participated?: NullableIntFieldUpdateOperationsInput | number | null
@@ -65913,6 +64854,7 @@ export namespace Prisma {
   }
 
   export type video_callCreateInput = {
+    id?: string
     start_date?: Date | string | null
     end_date?: Date | string | null
     status?: string | null
@@ -65923,9 +64865,9 @@ export namespace Prisma {
   }
 
   export type video_callUncheckedCreateInput = {
-    id?: number
-    conversation_id?: number | null
-    initiator_id?: number | null
+    id?: string
+    conversation_id?: string | null
+    initiator_id?: string | null
     start_date?: Date | string | null
     end_date?: Date | string | null
     status?: string | null
@@ -65934,6 +64876,7 @@ export namespace Prisma {
   }
 
   export type video_callUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65944,9 +64887,9 @@ export namespace Prisma {
   }
 
   export type video_callUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    conversation_id?: NullableIntFieldUpdateOperationsInput | number | null
-    initiator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
+    initiator_id?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65955,9 +64898,9 @@ export namespace Prisma {
   }
 
   export type video_callCreateManyInput = {
-    id?: number
-    conversation_id?: number | null
-    initiator_id?: number | null
+    id?: string
+    conversation_id?: string | null
+    initiator_id?: string | null
     start_date?: Date | string | null
     end_date?: Date | string | null
     status?: string | null
@@ -65966,6 +64909,7 @@ export namespace Prisma {
   }
 
   export type video_callUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65974,9 +64918,9 @@ export namespace Prisma {
   }
 
   export type video_callUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    conversation_id?: NullableIntFieldUpdateOperationsInput | number | null
-    initiator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
+    initiator_id?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65985,6 +64929,7 @@ export namespace Prisma {
   }
 
   export type wellness_badgeCreateInput = {
+    id?: string
     name: string
     description?: string | null
     category: string
@@ -65995,7 +64940,7 @@ export namespace Prisma {
   }
 
   export type wellness_badgeUncheckedCreateInput = {
-    id?: number
+    id?: string
     name: string
     description?: string | null
     category: string
@@ -66006,6 +64951,7 @@ export namespace Prisma {
   }
 
   export type wellness_badgeUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: StringFieldUpdateOperationsInput | string
@@ -66016,7 +64962,7 @@ export namespace Prisma {
   }
 
   export type wellness_badgeUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: StringFieldUpdateOperationsInput | string
@@ -66027,7 +64973,7 @@ export namespace Prisma {
   }
 
   export type wellness_badgeCreateManyInput = {
-    id?: number
+    id?: string
     name: string
     description?: string | null
     category: string
@@ -66038,6 +64984,7 @@ export namespace Prisma {
   }
 
   export type wellness_badgeUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: StringFieldUpdateOperationsInput | string
@@ -66048,7 +64995,7 @@ export namespace Prisma {
   }
 
   export type wellness_badgeUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: StringFieldUpdateOperationsInput | string
@@ -66059,6 +65006,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalCreateInput = {
+    id?: string
     title: string
     category: string
     target_value: number
@@ -66074,8 +65022,8 @@ export namespace Prisma {
   }
 
   export type wellness_goalUncheckedCreateInput = {
-    id?: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     title: string
     category: string
     target_value: number
@@ -66090,6 +65038,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -66105,8 +65054,8 @@ export namespace Prisma {
   }
 
   export type wellness_goalUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -66121,8 +65070,8 @@ export namespace Prisma {
   }
 
   export type wellness_goalCreateManyInput = {
-    id?: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     title: string
     category: string
     target_value: number
@@ -66136,6 +65085,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -66149,8 +65099,8 @@ export namespace Prisma {
   }
 
   export type wellness_goalUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -66161,17 +65111,6 @@ export namespace Prisma {
     active?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -66297,8 +65236,6 @@ export namespace Prisma {
   }
 
   export type activityAvgOrderByAggregateInput = {
-    id?: SortOrder
-    creator_id?: SortOrder
     max_spots?: SortOrder
     cost?: SortOrder
   }
@@ -66350,26 +65287,8 @@ export namespace Prisma {
   }
 
   export type activitySumOrderByAggregateInput = {
-    id?: SortOrder
-    creator_id?: SortOrder
     max_spots?: SortOrder
     cost?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -66493,11 +65412,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type activity_logAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type activity_logMaxOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
@@ -66522,19 +65436,14 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type activity_logSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type ActivityScalarRelationFilter = {
     is?: activityWhereInput
     isNot?: activityWhereInput
   }
 
   export type activity_registrationActivity_idUser_idCompoundUniqueInput = {
-    activity_id: number
-    user_id: number
+    activity_id: string
+    user_id: string
   }
 
   export type activity_registrationCountOrderByAggregateInput = {
@@ -66545,11 +65454,6 @@ export namespace Prisma {
     attendance_confirmed?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type activity_registrationAvgOrderByAggregateInput = {
-    activity_id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type activity_registrationMaxOrderByAggregateInput = {
@@ -66570,11 +65474,6 @@ export namespace Prisma {
     attendance_confirmed?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type activity_registrationSumOrderByAggregateInput = {
-    activity_id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type User_badgeListRelationFilter = {
@@ -66599,7 +65498,6 @@ export namespace Prisma {
   }
 
   export type badgeAvgOrderByAggregateInput = {
-    id?: SortOrder
     level?: SortOrder
   }
 
@@ -66626,8 +65524,18 @@ export namespace Prisma {
   }
 
   export type badgeSumOrderByAggregateInput = {
-    id?: SortOrder
     level?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type User_activityListRelationFilter = {
@@ -66653,7 +65561,6 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseAvgOrderByAggregateInput = {
-    id?: SortOrder
     duration_minutes?: SortOrder
   }
 
@@ -66682,8 +65589,23 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseSumOrderByAggregateInput = {
-    id?: SortOrder
     duration_minutes?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type Project_memberListRelationFilter = {
@@ -66718,11 +65640,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type collaborative_projectAvgOrderByAggregateInput = {
-    id?: SortOrder
-    creator_id?: SortOrder
-  }
-
   export type collaborative_projectMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
@@ -66745,11 +65662,6 @@ export namespace Prisma {
     category?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type collaborative_projectSumOrderByAggregateInput = {
-    id?: SortOrder
-    creator_id?: SortOrder
   }
 
   export type Conversation_participantListRelationFilter = {
@@ -66791,10 +65703,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type conversationAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type conversationMaxOrderByAggregateInput = {
     id?: SortOrder
     type?: SortOrder
@@ -66813,18 +65721,14 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type conversationSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type ConversationScalarRelationFilter = {
     is?: conversationWhereInput
     isNot?: conversationWhereInput
   }
 
   export type conversation_participantConversation_idUser_idCompoundUniqueInput = {
-    conversation_id: number
-    user_id: number
+    conversation_id: string
+    user_id: string
   }
 
   export type conversation_participantCountOrderByAggregateInput = {
@@ -66835,11 +65739,6 @@ export namespace Prisma {
     last_access?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type conversation_participantAvgOrderByAggregateInput = {
-    conversation_id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type conversation_participantMaxOrderByAggregateInput = {
@@ -66862,11 +65761,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type conversation_participantSumOrderByAggregateInput = {
-    conversation_id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -66887,7 +65781,6 @@ export namespace Prisma {
   }
 
   export type exercise_programAvgOrderByAggregateInput = {
-    id?: SortOrder
     duration_minutes?: SortOrder
   }
 
@@ -66920,7 +65813,6 @@ export namespace Prisma {
   }
 
   export type exercise_programSumOrderByAggregateInput = {
-    id?: SortOrder
     duration_minutes?: SortOrder
   }
 
@@ -66952,7 +65844,6 @@ export namespace Prisma {
   }
 
   export type forum_categoryAvgOrderByAggregateInput = {
-    id?: SortOrder
     parent_category_id?: SortOrder
   }
 
@@ -66975,7 +65866,6 @@ export namespace Prisma {
   }
 
   export type forum_categorySumOrderByAggregateInput = {
-    id?: SortOrder
     parent_category_id?: SortOrder
   }
 
@@ -66994,12 +65884,6 @@ export namespace Prisma {
     solution_message?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type forum_messageAvgOrderByAggregateInput = {
-    id?: SortOrder
-    topic_id?: SortOrder
-    author_id?: SortOrder
   }
 
   export type forum_messageMaxOrderByAggregateInput = {
@@ -67024,12 +65908,6 @@ export namespace Prisma {
     solution_message?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type forum_messageSumOrderByAggregateInput = {
-    id?: SortOrder
-    topic_id?: SortOrder
-    author_id?: SortOrder
   }
 
   export type Forum_messageListRelationFilter = {
@@ -67061,9 +65939,6 @@ export namespace Prisma {
   }
 
   export type forum_topicAvgOrderByAggregateInput = {
-    id?: SortOrder
-    category_id?: SortOrder
-    author_id?: SortOrder
     views?: SortOrder
   }
 
@@ -67094,9 +65969,6 @@ export namespace Prisma {
   }
 
   export type forum_topicSumOrderByAggregateInput = {
-    id?: SortOrder
-    category_id?: SortOrder
-    author_id?: SortOrder
     views?: SortOrder
   }
 
@@ -67116,8 +65988,6 @@ export namespace Prisma {
   }
 
   export type goal_progressAvgOrderByAggregateInput = {
-    id?: SortOrder
-    goal_id?: SortOrder
     achieved_value?: SortOrder
   }
 
@@ -67142,8 +66012,6 @@ export namespace Prisma {
   }
 
   export type goal_progressSumOrderByAggregateInput = {
-    id?: SortOrder
-    goal_id?: SortOrder
     achieved_value?: SortOrder
   }
 
@@ -67162,8 +66030,6 @@ export namespace Prisma {
   }
 
   export type health_indicatorAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
     step_count?: SortOrder
     sleep_duration_minutes?: SortOrder
     sleep_quality?: SortOrder
@@ -67199,8 +66065,6 @@ export namespace Prisma {
   }
 
   export type health_indicatorSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
     step_count?: SortOrder
     sleep_duration_minutes?: SortOrder
     sleep_quality?: SortOrder
@@ -67223,12 +66087,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type help_offerAvgOrderByAggregateInput = {
-    id?: SortOrder
-    request_id?: SortOrder
-    helper_id?: SortOrder
-  }
-
   export type help_offerMaxOrderByAggregateInput = {
     id?: SortOrder
     request_id?: SortOrder
@@ -67249,12 +66107,6 @@ export namespace Prisma {
     status?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type help_offerSumOrderByAggregateInput = {
-    id?: SortOrder
-    request_id?: SortOrder
-    helper_id?: SortOrder
   }
 
   export type Help_offerListRelationFilter = {
@@ -67297,8 +66149,6 @@ export namespace Prisma {
   }
 
   export type help_requestAvgOrderByAggregateInput = {
-    id?: SortOrder
-    creator_id?: SortOrder
     estimated_duration?: SortOrder
     points_offered?: SortOrder
   }
@@ -67342,8 +66192,6 @@ export namespace Prisma {
   }
 
   export type help_requestSumOrderByAggregateInput = {
-    id?: SortOrder
-    creator_id?: SortOrder
     estimated_duration?: SortOrder
     points_offered?: SortOrder
   }
@@ -67371,10 +66219,6 @@ export namespace Prisma {
     senior_friendly?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type local_serviceAvgOrderByAggregateInput = {
-    id?: SortOrder
   }
 
   export type local_serviceMaxOrderByAggregateInput = {
@@ -67407,10 +66251,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type local_serviceSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type medication_reminderCountOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
@@ -67427,11 +66267,6 @@ export namespace Prisma {
     end_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type medication_reminderAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type medication_reminderMaxOrderByAggregateInput = {
@@ -67470,11 +66305,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type medication_reminderSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type ConversationNullableScalarRelationFilter = {
     is?: conversationWhereInput | null
     isNot?: conversationWhereInput | null
@@ -67490,12 +66320,6 @@ export namespace Prisma {
     read?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type messageAvgOrderByAggregateInput = {
-    id?: SortOrder
-    conversation_id?: SortOrder
-    sender_id?: SortOrder
   }
 
   export type messageMaxOrderByAggregateInput = {
@@ -67522,12 +66346,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type messageSumOrderByAggregateInput = {
-    id?: SortOrder
-    conversation_id?: SortOrder
-    sender_id?: SortOrder
-  }
-
   export type municipal_eventCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
@@ -67535,15 +66353,12 @@ export namespace Prisma {
     start_date?: SortOrder
     end_date?: SortOrder
     location?: SortOrder
+    gps_coordinates?: SortOrder
     organizer?: SortOrder
     contact?: SortOrder
     official_link?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type municipal_eventAvgOrderByAggregateInput = {
-    id?: SortOrder
   }
 
   export type municipal_eventMaxOrderByAggregateInput = {
@@ -67553,6 +66368,7 @@ export namespace Prisma {
     start_date?: SortOrder
     end_date?: SortOrder
     location?: SortOrder
+    gps_coordinates?: SortOrder
     organizer?: SortOrder
     contact?: SortOrder
     official_link?: SortOrder
@@ -67567,15 +66383,12 @@ export namespace Prisma {
     start_date?: SortOrder
     end_date?: SortOrder
     location?: SortOrder
+    gps_coordinates?: SortOrder
     organizer?: SortOrder
     contact?: SortOrder
     official_link?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type municipal_eventSumOrderByAggregateInput = {
-    id?: SortOrder
   }
 
   export type notificationCountOrderByAggregateInput = {
@@ -67587,11 +66400,6 @@ export namespace Prisma {
     action_link?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type notificationAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type notificationMaxOrderByAggregateInput = {
@@ -67616,11 +66424,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type notificationSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type notification_preferencesCountOrderByAggregateInput = {
     user_id?: SortOrder
     message_notif?: SortOrder
@@ -67634,10 +66437,6 @@ export namespace Prisma {
     quiet_hours_end?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type notification_preferencesAvgOrderByAggregateInput = {
-    user_id?: SortOrder
   }
 
   export type notification_preferencesMaxOrderByAggregateInput = {
@@ -67670,10 +66469,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type notification_preferencesSumOrderByAggregateInput = {
-    user_id?: SortOrder
-  }
-
   export type nutritional_adviceCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
@@ -67683,10 +66478,6 @@ export namespace Prisma {
     image?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type nutritional_adviceAvgOrderByAggregateInput = {
-    id?: SortOrder
   }
 
   export type nutritional_adviceMaxOrderByAggregateInput = {
@@ -67709,10 +66500,6 @@ export namespace Prisma {
     image?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type nutritional_adviceSumOrderByAggregateInput = {
-    id?: SortOrder
   }
   export type JsonNullableFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -67746,10 +66533,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type offline_userAvgOrderByAggregateInput = {
-    user_id?: SortOrder
-  }
-
   export type offline_userMaxOrderByAggregateInput = {
     user_id?: SortOrder
     last_sync?: SortOrder
@@ -67762,10 +66545,6 @@ export namespace Prisma {
     last_sync?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type offline_userSumOrderByAggregateInput = {
-    user_id?: SortOrder
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -67800,8 +66579,8 @@ export namespace Prisma {
   }
 
   export type project_memberProject_idUser_idCompoundUniqueInput = {
-    project_id: number
-    user_id: number
+    project_id: string
+    user_id: string
   }
 
   export type project_memberCountOrderByAggregateInput = {
@@ -67811,11 +66590,6 @@ export namespace Prisma {
     join_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type project_memberAvgOrderByAggregateInput = {
-    project_id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type project_memberMaxOrderByAggregateInput = {
@@ -67836,11 +66610,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type project_memberSumOrderByAggregateInput = {
-    project_id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type Collaborative_projectNullableScalarRelationFilter = {
     is?: collaborative_projectWhereInput | null
     isNot?: collaborative_projectWhereInput | null
@@ -67857,12 +66626,6 @@ export namespace Prisma {
     assignee_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type project_taskAvgOrderByAggregateInput = {
-    id?: SortOrder
-    project_id?: SortOrder
-    assignee_id?: SortOrder
   }
 
   export type project_taskMaxOrderByAggregateInput = {
@@ -67891,12 +66654,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type project_taskSumOrderByAggregateInput = {
-    id?: SortOrder
-    project_id?: SortOrder
-    assignee_id?: SortOrder
-  }
-
   export type resourceCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
@@ -67907,11 +66664,6 @@ export namespace Prisma {
     admin_validated?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type resourceAvgOrderByAggregateInput = {
-    id?: SortOrder
-    author_id?: SortOrder
   }
 
   export type resourceMaxOrderByAggregateInput = {
@@ -67938,11 +66690,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type resourceSumOrderByAggregateInput = {
-    id?: SortOrder
-    author_id?: SortOrder
-  }
-
   export type Survey_responseListRelationFilter = {
     every?: survey_responseWhereInput
     some?: survey_responseWhereInput
@@ -67962,10 +66709,6 @@ export namespace Prisma {
     active?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type satisfaction_surveyAvgOrderByAggregateInput = {
-    id?: SortOrder
   }
 
   export type satisfaction_surveyMaxOrderByAggregateInput = {
@@ -67990,10 +66733,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type satisfaction_surveySumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type service_completedCountOrderByAggregateInput = {
     id?: SortOrder
     request_id?: SortOrder
@@ -68010,9 +66749,6 @@ export namespace Prisma {
   }
 
   export type service_completedAvgOrderByAggregateInput = {
-    id?: SortOrder
-    request_id?: SortOrder
-    helper_id?: SortOrder
     actual_duration?: SortOrder
     creator_rating?: SortOrder
     helper_rating?: SortOrder
@@ -68050,9 +66786,6 @@ export namespace Prisma {
   }
 
   export type service_completedSumOrderByAggregateInput = {
-    id?: SortOrder
-    request_id?: SortOrder
-    helper_id?: SortOrder
     actual_duration?: SortOrder
     creator_rating?: SortOrder
     helper_rating?: SortOrder
@@ -68065,8 +66798,8 @@ export namespace Prisma {
   }
 
   export type service_ratingService_idUser_idCompoundUniqueInput = {
-    service_id: number
-    user_id: number
+    service_id: string
+    user_id: string
   }
 
   export type service_ratingCountOrderByAggregateInput = {
@@ -68080,8 +66813,6 @@ export namespace Prisma {
   }
 
   export type service_ratingAvgOrderByAggregateInput = {
-    service_id?: SortOrder
-    user_id?: SortOrder
     rating?: SortOrder
   }
 
@@ -68106,8 +66837,6 @@ export namespace Prisma {
   }
 
   export type service_ratingSumOrderByAggregateInput = {
-    service_id?: SortOrder
-    user_id?: SortOrder
     rating?: SortOrder
   }
 
@@ -68130,10 +66859,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type skillAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type skillMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -68152,18 +66877,14 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type skillSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type Satisfaction_surveyScalarRelationFilter = {
     is?: satisfaction_surveyWhereInput
     isNot?: satisfaction_surveyWhereInput
   }
 
   export type survey_responseSurvey_idUser_idCompoundUniqueInput = {
-    survey_id: number
-    user_id: number
+    survey_id: string
+    user_id: string
   }
 
   export type survey_responseCountOrderByAggregateInput = {
@@ -68173,11 +66894,6 @@ export namespace Prisma {
     response_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type survey_responseAvgOrderByAggregateInput = {
-    survey_id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type survey_responseMaxOrderByAggregateInput = {
@@ -68196,14 +66912,9 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type survey_responseSumOrderByAggregateInput = {
-    survey_id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type trust_circleUser_idContact_idCompoundUniqueInput = {
-    user_id: number
-    contact_id: number
+    user_id: string
+    contact_id: string
   }
 
   export type trust_circleCountOrderByAggregateInput = {
@@ -68213,11 +66924,6 @@ export namespace Prisma {
     access_level?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type trust_circleAvgOrderByAggregateInput = {
-    user_id?: SortOrder
-    contact_id?: SortOrder
   }
 
   export type trust_circleMaxOrderByAggregateInput = {
@@ -68238,11 +66944,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type trust_circleSumOrderByAggregateInput = {
-    user_id?: SortOrder
-    contact_id?: SortOrder
-  }
-
   export type trusted_contactCountOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
@@ -68257,11 +66958,6 @@ export namespace Prisma {
     emergency_alerts?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type trusted_contactAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type trusted_contactMaxOrderByAggregateInput = {
@@ -68296,27 +66992,18 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type trusted_contactSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type urban_issue_reportCountOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
     category?: SortOrder
     description?: SortOrder
     address?: SortOrder
+    gps_coordinates?: SortOrder
     report_date?: SortOrder
     status?: SortOrder
     city_reference?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type urban_issue_reportAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type urban_issue_reportMaxOrderByAggregateInput = {
@@ -68325,6 +67012,7 @@ export namespace Prisma {
     category?: SortOrder
     description?: SortOrder
     address?: SortOrder
+    gps_coordinates?: SortOrder
     report_date?: SortOrder
     status?: SortOrder
     city_reference?: SortOrder
@@ -68338,16 +67026,12 @@ export namespace Prisma {
     category?: SortOrder
     description?: SortOrder
     address?: SortOrder
+    gps_coordinates?: SortOrder
     report_date?: SortOrder
     status?: SortOrder
     city_reference?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type urban_issue_reportSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type ActivityListRelationFilter = {
@@ -68516,7 +67200,6 @@ export namespace Prisma {
   }
 
   export type userAvgOrderByAggregateInput = {
-    id?: SortOrder
     help_points?: SortOrder
   }
 
@@ -68571,7 +67254,6 @@ export namespace Prisma {
   }
 
   export type userSumOrderByAggregateInput = {
-    id?: SortOrder
     help_points?: SortOrder
   }
 
@@ -68600,10 +67282,6 @@ export namespace Prisma {
   }
 
   export type user_activityAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    exercise_program_id?: SortOrder
-    cognitive_exercise_id?: SortOrder
     duration_minutes?: SortOrder
     perceived_difficulty_level?: SortOrder
     enjoyment_level?: SortOrder
@@ -68638,10 +67316,6 @@ export namespace Prisma {
   }
 
   export type user_activitySumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    exercise_program_id?: SortOrder
-    cognitive_exercise_id?: SortOrder
     duration_minutes?: SortOrder
     perceived_difficulty_level?: SortOrder
     enjoyment_level?: SortOrder
@@ -68653,8 +67327,8 @@ export namespace Prisma {
   }
 
   export type user_badgeUser_idBadge_idCompoundUniqueInput = {
-    user_id: number
-    badge_id: number
+    user_id: string
+    badge_id: string
   }
 
   export type user_badgeCountOrderByAggregateInput = {
@@ -68663,11 +67337,6 @@ export namespace Prisma {
     achievement_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type user_badgeAvgOrderByAggregateInput = {
-    user_id?: SortOrder
-    badge_id?: SortOrder
   }
 
   export type user_badgeMaxOrderByAggregateInput = {
@@ -68686,11 +67355,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type user_badgeSumOrderByAggregateInput = {
-    user_id?: SortOrder
-    badge_id?: SortOrder
-  }
-
   export type user_deviceCountOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
@@ -68701,11 +67365,6 @@ export namespace Prisma {
     last_connection?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type user_deviceAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
   }
 
   export type user_deviceMaxOrderByAggregateInput = {
@@ -68732,19 +67391,14 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type user_deviceSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-  }
-
   export type SkillScalarRelationFilter = {
     is?: skillWhereInput
     isNot?: skillWhereInput
   }
 
   export type user_skillUser_idSkill_idCompoundUniqueInput = {
-    user_id: number
-    skill_id: number
+    user_id: string
+    skill_id: string
   }
 
   export type user_skillCountOrderByAggregateInput = {
@@ -68756,8 +67410,6 @@ export namespace Prisma {
   }
 
   export type user_skillAvgOrderByAggregateInput = {
-    user_id?: SortOrder
-    skill_id?: SortOrder
     level?: SortOrder
   }
 
@@ -68778,8 +67430,6 @@ export namespace Prisma {
   }
 
   export type user_skillSumOrderByAggregateInput = {
-    user_id?: SortOrder
-    skill_id?: SortOrder
     level?: SortOrder
   }
 
@@ -68797,7 +67447,6 @@ export namespace Prisma {
   }
 
   export type user_statisticsAvgOrderByAggregateInput = {
-    user_id?: SortOrder
     services_provided?: SortOrder
     services_received?: SortOrder
     activities_participated?: SortOrder
@@ -68834,7 +67483,6 @@ export namespace Prisma {
   }
 
   export type user_statisticsSumOrderByAggregateInput = {
-    user_id?: SortOrder
     services_provided?: SortOrder
     services_received?: SortOrder
     activities_participated?: SortOrder
@@ -68853,12 +67501,6 @@ export namespace Prisma {
     status?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type video_callAvgOrderByAggregateInput = {
-    id?: SortOrder
-    conversation_id?: SortOrder
-    initiator_id?: SortOrder
   }
 
   export type video_callMaxOrderByAggregateInput = {
@@ -68883,12 +67525,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type video_callSumOrderByAggregateInput = {
-    id?: SortOrder
-    conversation_id?: SortOrder
-    initiator_id?: SortOrder
-  }
-
   export type wellness_badgeCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -68901,7 +67537,6 @@ export namespace Prisma {
   }
 
   export type wellness_badgeAvgOrderByAggregateInput = {
-    id?: SortOrder
     level?: SortOrder
   }
 
@@ -68928,7 +67563,6 @@ export namespace Prisma {
   }
 
   export type wellness_badgeSumOrderByAggregateInput = {
-    id?: SortOrder
     level?: SortOrder
   }
 
@@ -68958,8 +67592,6 @@ export namespace Prisma {
   }
 
   export type wellness_goalAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
     target_value?: SortOrder
   }
 
@@ -68994,8 +67626,6 @@ export namespace Prisma {
   }
 
   export type wellness_goalSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
     target_value?: SortOrder
   }
 
@@ -69075,14 +67705,6 @@ export namespace Prisma {
     update?: activity_registrationUpdateWithWhereUniqueWithoutActivityInput | activity_registrationUpdateWithWhereUniqueWithoutActivityInput[]
     updateMany?: activity_registrationUpdateManyWithWhereWithoutActivityInput | activity_registrationUpdateManyWithWhereWithoutActivityInput[]
     deleteMany?: activity_registrationScalarWhereInput | activity_registrationScalarWhereInput[]
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type activity_registrationUncheckedUpdateManyWithoutActivityNestedInput = {
@@ -69197,6 +67819,14 @@ export namespace Prisma {
     connectOrCreate?: user_activityCreateOrConnectWithoutCognitive_exerciseInput | user_activityCreateOrConnectWithoutCognitive_exerciseInput[]
     createMany?: user_activityCreateManyCognitive_exerciseInputEnvelope
     connect?: user_activityWhereUniqueInput | user_activityWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type user_activityUpdateManyWithoutCognitive_exerciseNestedInput = {
@@ -71751,17 +70381,6 @@ export namespace Prisma {
     deleteMany?: goal_progressScalarWhereInput | goal_progressScalarWhereInput[]
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -71839,33 +70458,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -71881,6 +70473,17 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -71968,6 +70571,33 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -72005,6 +70635,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutActivityInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -72059,7 +70690,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutActivityInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -72128,7 +70759,7 @@ export namespace Prisma {
   }
 
   export type activity_registrationUncheckedCreateWithoutActivityInput = {
-    user_id: number
+    user_id: string
     registration_date: Date | string
     status?: string | null
     attendance_confirmed?: boolean | null
@@ -72158,6 +70789,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -72212,7 +70844,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutActivityInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -72286,8 +70918,8 @@ export namespace Prisma {
     AND?: activity_registrationScalarWhereInput | activity_registrationScalarWhereInput[]
     OR?: activity_registrationScalarWhereInput[]
     NOT?: activity_registrationScalarWhereInput | activity_registrationScalarWhereInput[]
-    activity_id?: IntFilter<"activity_registration"> | number
-    user_id?: IntFilter<"activity_registration"> | number
+    activity_id?: StringFilter<"activity_registration"> | string
+    user_id?: StringFilter<"activity_registration"> | string
     registration_date?: DateTimeFilter<"activity_registration"> | Date | string
     status?: StringNullableFilter<"activity_registration"> | string | null
     attendance_confirmed?: BoolNullableFilter<"activity_registration"> | boolean | null
@@ -72296,6 +70928,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutActivity_logInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -72350,7 +70983,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutActivity_logInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -72421,6 +71054,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutActivity_logInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -72475,7 +71109,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutActivity_logInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -72530,6 +71164,7 @@ export namespace Prisma {
   }
 
   export type activityCreateWithoutActivity_registrationInput = {
+    id?: string
     title: string
     description?: string | null
     start_date: Date | string
@@ -72552,8 +71187,8 @@ export namespace Prisma {
   }
 
   export type activityUncheckedCreateWithoutActivity_registrationInput = {
-    id?: number
-    creator_id: number
+    id?: string
+    creator_id: string
     title: string
     description?: string | null
     start_date: Date | string
@@ -72580,6 +71215,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutActivity_registrationInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -72634,7 +71270,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutActivity_registrationInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -72705,6 +71341,7 @@ export namespace Prisma {
   }
 
   export type activityUpdateWithoutActivity_registrationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -72727,8 +71364,8 @@ export namespace Prisma {
   }
 
   export type activityUncheckedUpdateWithoutActivity_registrationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    creator_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    creator_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -72761,6 +71398,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutActivity_registrationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -72815,7 +71453,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutActivity_registrationInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -72877,7 +71515,7 @@ export namespace Prisma {
   }
 
   export type user_badgeUncheckedCreateWithoutBadgeInput = {
-    user_id: number
+    user_id: string
     achievement_date?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -72913,14 +71551,15 @@ export namespace Prisma {
     AND?: user_badgeScalarWhereInput | user_badgeScalarWhereInput[]
     OR?: user_badgeScalarWhereInput[]
     NOT?: user_badgeScalarWhereInput | user_badgeScalarWhereInput[]
-    user_id?: IntFilter<"user_badge"> | number
-    badge_id?: IntFilter<"user_badge"> | number
+    user_id?: StringFilter<"user_badge"> | string
+    badge_id?: StringFilter<"user_badge"> | string
     achievement_date?: DateTimeNullableFilter<"user_badge"> | Date | string | null
     created_at?: DateTimeFilter<"user_badge"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_badge"> | Date | string | null
   }
 
   export type user_activityCreateWithoutCognitive_exerciseInput = {
+    id?: string
     completion_date: Date | string
     duration_minutes: number
     perceived_difficulty_level?: number | null
@@ -72933,10 +71572,10 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedCreateWithoutCognitive_exerciseInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     completion_date: Date | string
-    exercise_program_id?: number | null
+    exercise_program_id?: string | null
     duration_minutes: number
     perceived_difficulty_level?: number | null
     enjoyment_level?: number | null
@@ -72975,11 +71614,11 @@ export namespace Prisma {
     AND?: user_activityScalarWhereInput | user_activityScalarWhereInput[]
     OR?: user_activityScalarWhereInput[]
     NOT?: user_activityScalarWhereInput | user_activityScalarWhereInput[]
-    id?: IntFilter<"user_activity"> | number
-    user_id?: IntFilter<"user_activity"> | number
+    id?: StringFilter<"user_activity"> | string
+    user_id?: StringFilter<"user_activity"> | string
     completion_date?: DateTimeFilter<"user_activity"> | Date | string
-    exercise_program_id?: IntNullableFilter<"user_activity"> | number | null
-    cognitive_exercise_id?: IntNullableFilter<"user_activity"> | number | null
+    exercise_program_id?: StringNullableFilter<"user_activity"> | string | null
+    cognitive_exercise_id?: StringNullableFilter<"user_activity"> | string | null
     duration_minutes?: IntFilter<"user_activity"> | number
     perceived_difficulty_level?: IntNullableFilter<"user_activity"> | number | null
     enjoyment_level?: IntNullableFilter<"user_activity"> | number | null
@@ -72989,6 +71628,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutCollaborative_projectInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -73043,7 +71683,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutCollaborative_projectInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -73111,7 +71751,7 @@ export namespace Prisma {
   }
 
   export type project_memberUncheckedCreateWithoutCollaborative_projectInput = {
-    user_id: number
+    user_id: string
     role?: string | null
     join_date?: Date | string | null
     created_at?: Date | string
@@ -73129,6 +71769,7 @@ export namespace Prisma {
   }
 
   export type project_taskCreateWithoutCollaborative_projectInput = {
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -73140,13 +71781,13 @@ export namespace Prisma {
   }
 
   export type project_taskUncheckedCreateWithoutCollaborative_projectInput = {
-    id?: number
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
     due_date?: Date | string | null
     status?: string | null
-    assignee_id?: number | null
+    assignee_id?: string | null
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -73173,6 +71814,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutCollaborative_projectInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -73227,7 +71869,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutCollaborative_projectInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -73301,8 +71943,8 @@ export namespace Prisma {
     AND?: project_memberScalarWhereInput | project_memberScalarWhereInput[]
     OR?: project_memberScalarWhereInput[]
     NOT?: project_memberScalarWhereInput | project_memberScalarWhereInput[]
-    project_id?: IntFilter<"project_member"> | number
-    user_id?: IntFilter<"project_member"> | number
+    project_id?: StringFilter<"project_member"> | string
+    user_id?: StringFilter<"project_member"> | string
     role?: StringNullableFilter<"project_member"> | string | null
     join_date?: DateTimeNullableFilter<"project_member"> | Date | string | null
     created_at?: DateTimeFilter<"project_member"> | Date | string
@@ -73329,14 +71971,14 @@ export namespace Prisma {
     AND?: project_taskScalarWhereInput | project_taskScalarWhereInput[]
     OR?: project_taskScalarWhereInput[]
     NOT?: project_taskScalarWhereInput | project_taskScalarWhereInput[]
-    id?: IntFilter<"project_task"> | number
-    project_id?: IntNullableFilter<"project_task"> | number | null
+    id?: StringFilter<"project_task"> | string
+    project_id?: StringNullableFilter<"project_task"> | string | null
     title?: StringNullableFilter<"project_task"> | string | null
     description?: StringNullableFilter<"project_task"> | string | null
     creation_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
     due_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
     status?: StringNullableFilter<"project_task"> | string | null
-    assignee_id?: IntNullableFilter<"project_task"> | number | null
+    assignee_id?: StringNullableFilter<"project_task"> | string | null
     created_at?: DateTimeFilter<"project_task"> | Date | string
     updated_at?: DateTimeNullableFilter<"project_task"> | Date | string | null
   }
@@ -73351,7 +71993,7 @@ export namespace Prisma {
   }
 
   export type conversation_participantUncheckedCreateWithoutConversationInput = {
-    user_id: number
+    user_id: string
     date_added?: Date | string | null
     administrator?: boolean | null
     last_access?: Date | string
@@ -73370,6 +72012,7 @@ export namespace Prisma {
   }
 
   export type messageCreateWithoutConversationInput = {
+    id?: string
     content?: string | null
     send_date?: Date | string | null
     type?: string | null
@@ -73380,8 +72023,8 @@ export namespace Prisma {
   }
 
   export type messageUncheckedCreateWithoutConversationInput = {
-    id?: number
-    sender_id?: number | null
+    id?: string
+    sender_id?: string | null
     content?: string | null
     send_date?: Date | string | null
     type?: string | null
@@ -73401,6 +72044,7 @@ export namespace Prisma {
   }
 
   export type video_callCreateWithoutConversationInput = {
+    id?: string
     start_date?: Date | string | null
     end_date?: Date | string | null
     status?: string | null
@@ -73410,8 +72054,8 @@ export namespace Prisma {
   }
 
   export type video_callUncheckedCreateWithoutConversationInput = {
-    id?: number
-    initiator_id?: number | null
+    id?: string
+    initiator_id?: string | null
     start_date?: Date | string | null
     end_date?: Date | string | null
     status?: string | null
@@ -73449,8 +72093,8 @@ export namespace Prisma {
     AND?: conversation_participantScalarWhereInput | conversation_participantScalarWhereInput[]
     OR?: conversation_participantScalarWhereInput[]
     NOT?: conversation_participantScalarWhereInput | conversation_participantScalarWhereInput[]
-    conversation_id?: IntFilter<"conversation_participant"> | number
-    user_id?: IntFilter<"conversation_participant"> | number
+    conversation_id?: StringFilter<"conversation_participant"> | string
+    user_id?: StringFilter<"conversation_participant"> | string
     date_added?: DateTimeNullableFilter<"conversation_participant"> | Date | string | null
     administrator?: BoolNullableFilter<"conversation_participant"> | boolean | null
     last_access?: DateTimeFilter<"conversation_participant"> | Date | string
@@ -73478,9 +72122,9 @@ export namespace Prisma {
     AND?: messageScalarWhereInput | messageScalarWhereInput[]
     OR?: messageScalarWhereInput[]
     NOT?: messageScalarWhereInput | messageScalarWhereInput[]
-    id?: IntFilter<"message"> | number
-    conversation_id?: IntNullableFilter<"message"> | number | null
-    sender_id?: IntNullableFilter<"message"> | number | null
+    id?: StringFilter<"message"> | string
+    conversation_id?: StringNullableFilter<"message"> | string | null
+    sender_id?: StringNullableFilter<"message"> | string | null
     content?: StringNullableFilter<"message"> | string | null
     send_date?: DateTimeNullableFilter<"message"> | Date | string | null
     type?: StringNullableFilter<"message"> | string | null
@@ -73509,9 +72153,9 @@ export namespace Prisma {
     AND?: video_callScalarWhereInput | video_callScalarWhereInput[]
     OR?: video_callScalarWhereInput[]
     NOT?: video_callScalarWhereInput | video_callScalarWhereInput[]
-    id?: IntFilter<"video_call"> | number
-    conversation_id?: IntNullableFilter<"video_call"> | number | null
-    initiator_id?: IntNullableFilter<"video_call"> | number | null
+    id?: StringFilter<"video_call"> | string
+    conversation_id?: StringNullableFilter<"video_call"> | string | null
+    initiator_id?: StringNullableFilter<"video_call"> | string | null
     start_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
     end_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
     status?: StringNullableFilter<"video_call"> | string | null
@@ -73520,6 +72164,7 @@ export namespace Prisma {
   }
 
   export type conversationCreateWithoutConversation_participantInput = {
+    id?: string
     type?: string | null
     creation_date?: Date | string | null
     title?: string | null
@@ -73530,7 +72175,7 @@ export namespace Prisma {
   }
 
   export type conversationUncheckedCreateWithoutConversation_participantInput = {
-    id?: number
+    id?: string
     type?: string | null
     creation_date?: Date | string | null
     title?: string | null
@@ -73546,6 +72191,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutConversation_participantInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -73600,7 +72246,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutConversation_participantInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -73671,6 +72317,7 @@ export namespace Prisma {
   }
 
   export type conversationUpdateWithoutConversation_participantInput = {
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -73681,7 +72328,7 @@ export namespace Prisma {
   }
 
   export type conversationUncheckedUpdateWithoutConversation_participantInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -73703,6 +72350,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutConversation_participantInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -73757,7 +72405,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutConversation_participantInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -73812,6 +72460,7 @@ export namespace Prisma {
   }
 
   export type user_activityCreateWithoutExercise_programInput = {
+    id?: string
     completion_date: Date | string
     duration_minutes: number
     perceived_difficulty_level?: number | null
@@ -73824,10 +72473,10 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedCreateWithoutExercise_programInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     completion_date: Date | string
-    cognitive_exercise_id?: number | null
+    cognitive_exercise_id?: string | null
     duration_minutes: number
     perceived_difficulty_level?: number | null
     enjoyment_level?: number | null
@@ -73863,6 +72512,7 @@ export namespace Prisma {
   }
 
   export type forum_topicCreateWithoutForum_categoryInput = {
+    id?: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -73875,8 +72525,8 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedCreateWithoutForum_categoryInput = {
-    id?: number
-    author_id: number
+    id?: string
+    author_id: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -73917,9 +72567,9 @@ export namespace Prisma {
     AND?: forum_topicScalarWhereInput | forum_topicScalarWhereInput[]
     OR?: forum_topicScalarWhereInput[]
     NOT?: forum_topicScalarWhereInput | forum_topicScalarWhereInput[]
-    id?: IntFilter<"forum_topic"> | number
-    category_id?: IntFilter<"forum_topic"> | number
-    author_id?: IntFilter<"forum_topic"> | number
+    id?: StringFilter<"forum_topic"> | string
+    category_id?: StringFilter<"forum_topic"> | string
+    author_id?: StringFilter<"forum_topic"> | string
     title?: StringFilter<"forum_topic"> | string
     creation_date?: DateTimeNullableFilter<"forum_topic"> | Date | string | null
     pinned?: BoolNullableFilter<"forum_topic"> | boolean | null
@@ -73930,6 +72580,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutForum_messageInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -73984,7 +72635,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutForum_messageInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -74044,6 +72695,7 @@ export namespace Prisma {
   }
 
   export type forum_topicCreateWithoutForum_messageInput = {
+    id?: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -74056,9 +72708,9 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedCreateWithoutForum_messageInput = {
-    id?: number
-    category_id: number
-    author_id: number
+    id?: string
+    category_id: string
+    author_id: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -74085,6 +72737,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutForum_messageInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -74139,7 +72792,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutForum_messageInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -74205,6 +72858,7 @@ export namespace Prisma {
   }
 
   export type forum_topicUpdateWithoutForum_messageInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -74217,9 +72871,9 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedUpdateWithoutForum_messageInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    category_id?: IntFieldUpdateOperationsInput | number
-    author_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    category_id?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -74230,6 +72884,7 @@ export namespace Prisma {
   }
 
   export type forum_messageCreateWithoutForum_topicInput = {
+    id?: string
     content?: string | null
     creation_date?: Date | string | null
     modification_date?: Date | string | null
@@ -74240,8 +72895,8 @@ export namespace Prisma {
   }
 
   export type forum_messageUncheckedCreateWithoutForum_topicInput = {
-    id?: number
-    author_id?: number | null
+    id?: string
+    author_id?: string | null
     content?: string | null
     creation_date?: Date | string | null
     modification_date?: Date | string | null
@@ -74261,6 +72916,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutForum_topicInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -74315,7 +72971,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutForum_topicInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -74375,6 +73031,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryCreateWithoutForum_topicInput = {
+    id?: string
     name: string
     description?: string | null
     parent_category_id?: number | null
@@ -74383,7 +73040,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryUncheckedCreateWithoutForum_topicInput = {
-    id?: number
+    id?: string
     name: string
     description?: string | null
     parent_category_id?: number | null
@@ -74416,9 +73073,9 @@ export namespace Prisma {
     AND?: forum_messageScalarWhereInput | forum_messageScalarWhereInput[]
     OR?: forum_messageScalarWhereInput[]
     NOT?: forum_messageScalarWhereInput | forum_messageScalarWhereInput[]
-    id?: IntFilter<"forum_message"> | number
-    topic_id?: IntNullableFilter<"forum_message"> | number | null
-    author_id?: IntNullableFilter<"forum_message"> | number | null
+    id?: StringFilter<"forum_message"> | string
+    topic_id?: StringNullableFilter<"forum_message"> | string | null
+    author_id?: StringNullableFilter<"forum_message"> | string | null
     content?: StringNullableFilter<"forum_message"> | string | null
     creation_date?: DateTimeNullableFilter<"forum_message"> | Date | string | null
     modification_date?: DateTimeNullableFilter<"forum_message"> | Date | string | null
@@ -74439,6 +73096,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutForum_topicInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -74493,7 +73151,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutForum_topicInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -74559,6 +73217,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryUpdateWithoutForum_topicInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -74567,7 +73226,7 @@ export namespace Prisma {
   }
 
   export type forum_categoryUncheckedUpdateWithoutForum_topicInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -74576,6 +73235,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalCreateWithoutGoal_progressInput = {
+    id?: string
     title: string
     category: string
     target_value: number
@@ -74590,8 +73250,8 @@ export namespace Prisma {
   }
 
   export type wellness_goalUncheckedCreateWithoutGoal_progressInput = {
-    id?: number
-    user_id?: number | null
+    id?: string
+    user_id?: string | null
     title: string
     category: string
     target_value: number
@@ -74621,6 +73281,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalUpdateWithoutGoal_progressInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -74635,8 +73296,8 @@ export namespace Prisma {
   }
 
   export type wellness_goalUncheckedUpdateWithoutGoal_progressInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -74650,6 +73311,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutHealth_indicatorInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -74704,7 +73366,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutHealth_indicatorInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -74775,6 +73437,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutHealth_indicatorInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -74829,7 +73492,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutHealth_indicatorInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -74884,6 +73547,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutHelp_offerInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -74938,7 +73602,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutHelp_offerInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -74998,6 +73662,7 @@ export namespace Prisma {
   }
 
   export type help_requestCreateWithoutHelp_offerInput = {
+    id?: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -75017,8 +73682,8 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedCreateWithoutHelp_offerInput = {
-    id?: number
-    creator_id: number
+    id?: string
+    creator_id: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -75053,6 +73718,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutHelp_offerInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -75107,7 +73773,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutHelp_offerInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -75173,6 +73839,7 @@ export namespace Prisma {
   }
 
   export type help_requestUpdateWithoutHelp_offerInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -75192,8 +73859,8 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedUpdateWithoutHelp_offerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    creator_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    creator_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -75212,6 +73879,7 @@ export namespace Prisma {
   }
 
   export type help_offerCreateWithoutHelp_requestInput = {
+    id?: string
     offer_date: Date | string
     message?: string | null
     status?: string | null
@@ -75221,8 +73889,8 @@ export namespace Prisma {
   }
 
   export type help_offerUncheckedCreateWithoutHelp_requestInput = {
-    id?: number
-    helper_id: number
+    id?: string
+    helper_id: string
     offer_date: Date | string
     message?: string | null
     status?: string | null
@@ -75241,6 +73909,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutHelp_requestInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -75295,7 +73964,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutHelp_requestInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -75355,6 +74024,7 @@ export namespace Prisma {
   }
 
   export type service_completedCreateWithoutHelp_requestInput = {
+    id?: string
     completion_date: Date | string
     actual_duration?: number | null
     creator_comment?: string | null
@@ -75368,8 +74038,8 @@ export namespace Prisma {
   }
 
   export type service_completedUncheckedCreateWithoutHelp_requestInput = {
-    id?: number
-    helper_id: number
+    id?: string
+    helper_id: string
     completion_date: Date | string
     actual_duration?: number | null
     creator_comment?: string | null
@@ -75411,9 +74081,9 @@ export namespace Prisma {
     AND?: help_offerScalarWhereInput | help_offerScalarWhereInput[]
     OR?: help_offerScalarWhereInput[]
     NOT?: help_offerScalarWhereInput | help_offerScalarWhereInput[]
-    id?: IntFilter<"help_offer"> | number
-    request_id?: IntFilter<"help_offer"> | number
-    helper_id?: IntFilter<"help_offer"> | number
+    id?: StringFilter<"help_offer"> | string
+    request_id?: StringFilter<"help_offer"> | string
+    helper_id?: StringFilter<"help_offer"> | string
     offer_date?: DateTimeFilter<"help_offer"> | Date | string
     message?: StringNullableFilter<"help_offer"> | string | null
     status?: StringNullableFilter<"help_offer"> | string | null
@@ -75433,6 +74103,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutHelp_requestInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -75487,7 +74158,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutHelp_requestInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -75561,9 +74232,9 @@ export namespace Prisma {
     AND?: service_completedScalarWhereInput | service_completedScalarWhereInput[]
     OR?: service_completedScalarWhereInput[]
     NOT?: service_completedScalarWhereInput | service_completedScalarWhereInput[]
-    id?: IntFilter<"service_completed"> | number
-    request_id?: IntFilter<"service_completed"> | number
-    helper_id?: IntFilter<"service_completed"> | number
+    id?: StringFilter<"service_completed"> | string
+    request_id?: StringFilter<"service_completed"> | string
+    helper_id?: StringFilter<"service_completed"> | string
     completion_date?: DateTimeFilter<"service_completed"> | Date | string
     actual_duration?: IntNullableFilter<"service_completed"> | number | null
     creator_comment?: StringNullableFilter<"service_completed"> | string | null
@@ -75585,7 +74256,7 @@ export namespace Prisma {
   }
 
   export type service_ratingUncheckedCreateWithoutLocal_serviceInput = {
-    user_id: number
+    user_id: string
     rating?: number | null
     comment?: string | null
     rating_date?: Date | string | null
@@ -75623,8 +74294,8 @@ export namespace Prisma {
     AND?: service_ratingScalarWhereInput | service_ratingScalarWhereInput[]
     OR?: service_ratingScalarWhereInput[]
     NOT?: service_ratingScalarWhereInput | service_ratingScalarWhereInput[]
-    service_id?: IntFilter<"service_rating"> | number
-    user_id?: IntFilter<"service_rating"> | number
+    service_id?: StringFilter<"service_rating"> | string
+    user_id?: StringFilter<"service_rating"> | string
     rating?: IntNullableFilter<"service_rating"> | number | null
     comment?: StringNullableFilter<"service_rating"> | string | null
     rating_date?: DateTimeNullableFilter<"service_rating"> | Date | string | null
@@ -75633,6 +74304,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutMedication_reminderInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -75687,7 +74359,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutMedication_reminderInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -75758,6 +74430,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutMedication_reminderInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -75812,7 +74485,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutMedication_reminderInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -75867,6 +74540,7 @@ export namespace Prisma {
   }
 
   export type conversationCreateWithoutMessageInput = {
+    id?: string
     type?: string | null
     creation_date?: Date | string | null
     title?: string | null
@@ -75877,7 +74551,7 @@ export namespace Prisma {
   }
 
   export type conversationUncheckedCreateWithoutMessageInput = {
-    id?: number
+    id?: string
     type?: string | null
     creation_date?: Date | string | null
     title?: string | null
@@ -75893,6 +74567,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutMessageInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -75947,7 +74622,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutMessageInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -76018,6 +74693,7 @@ export namespace Prisma {
   }
 
   export type conversationUpdateWithoutMessageInput = {
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76028,7 +74704,7 @@ export namespace Prisma {
   }
 
   export type conversationUncheckedUpdateWithoutMessageInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76050,6 +74726,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutMessageInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76104,7 +74781,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutMessageInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76159,6 +74836,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutNotificationInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -76213,7 +74891,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutNotificationInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -76284,6 +74962,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutNotificationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76338,7 +75017,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutNotificationInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76393,6 +75072,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutNotification_preferencesInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -76447,7 +75127,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutNotification_preferencesInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -76518,6 +75198,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutNotification_preferencesInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76572,7 +75253,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutNotification_preferencesInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76627,6 +75308,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectCreateWithoutProject_memberInput = {
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -76639,10 +75321,10 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedCreateWithoutProject_memberInput = {
-    id?: number
+    id?: string
     title?: string | null
     description?: string | null
-    creator_id?: number | null
+    creator_id?: string | null
     creation_date?: Date | string | null
     status?: string | null
     category?: string | null
@@ -76657,6 +75339,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutProject_memberInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -76711,7 +75394,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutProject_memberInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -76782,6 +75465,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUpdateWithoutProject_memberInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -76794,10 +75478,10 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedUpdateWithoutProject_memberInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    creator_id?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76818,6 +75502,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutProject_memberInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76872,7 +75557,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutProject_memberInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76927,6 +75612,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutProject_taskInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -76981,7 +75667,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutProject_taskInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -77041,6 +75727,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectCreateWithoutProject_taskInput = {
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -77053,10 +75740,10 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedCreateWithoutProject_taskInput = {
-    id?: number
+    id?: string
     title?: string | null
     description?: string | null
-    creator_id?: number | null
+    creator_id?: string | null
     creation_date?: Date | string | null
     status?: string | null
     category?: string | null
@@ -77082,6 +75769,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutProject_taskInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77136,7 +75824,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutProject_taskInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77202,6 +75890,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUpdateWithoutProject_taskInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77214,10 +75903,10 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedUpdateWithoutProject_taskInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    creator_id?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77227,6 +75916,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutResourceInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -77281,7 +75971,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutResourceInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -77352,6 +76042,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutResourceInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77406,7 +76097,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutResourceInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77469,7 +76160,7 @@ export namespace Prisma {
   }
 
   export type survey_responseUncheckedCreateWithoutSatisfaction_surveyInput = {
-    user_id: number
+    user_id: string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: Date | string | null
     created_at?: Date | string
@@ -77506,8 +76197,8 @@ export namespace Prisma {
     AND?: survey_responseScalarWhereInput | survey_responseScalarWhereInput[]
     OR?: survey_responseScalarWhereInput[]
     NOT?: survey_responseScalarWhereInput | survey_responseScalarWhereInput[]
-    survey_id?: IntFilter<"survey_response"> | number
-    user_id?: IntFilter<"survey_response"> | number
+    survey_id?: StringFilter<"survey_response"> | string
+    user_id?: StringFilter<"survey_response"> | string
     responses?: JsonNullableFilter<"survey_response">
     response_date?: DateTimeNullableFilter<"survey_response"> | Date | string | null
     created_at?: DateTimeFilter<"survey_response"> | Date | string
@@ -77515,6 +76206,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutService_completedInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -77569,7 +76261,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutService_completedInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -77629,6 +76321,7 @@ export namespace Prisma {
   }
 
   export type help_requestCreateWithoutService_completedInput = {
+    id?: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -77648,8 +76341,8 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedCreateWithoutService_completedInput = {
-    id?: number
-    creator_id: number
+    id?: string
+    creator_id: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -77684,6 +76377,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutService_completedInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77738,7 +76432,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutService_completedInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77804,6 +76498,7 @@ export namespace Prisma {
   }
 
   export type help_requestUpdateWithoutService_completedInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -77823,8 +76518,8 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedUpdateWithoutService_completedInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    creator_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    creator_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -77843,6 +76538,7 @@ export namespace Prisma {
   }
 
   export type local_serviceCreateWithoutService_ratingInput = {
+    id?: string
     name?: string | null
     category?: string | null
     address?: string | null
@@ -77857,7 +76553,7 @@ export namespace Prisma {
   }
 
   export type local_serviceUncheckedCreateWithoutService_ratingInput = {
-    id?: number
+    id?: string
     name?: string | null
     category?: string | null
     address?: string | null
@@ -77877,6 +76573,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutService_ratingInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -77931,7 +76628,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutService_ratingInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -78002,6 +76699,7 @@ export namespace Prisma {
   }
 
   export type local_serviceUpdateWithoutService_ratingInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78016,7 +76714,7 @@ export namespace Prisma {
   }
 
   export type local_serviceUncheckedUpdateWithoutService_ratingInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78042,6 +76740,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutService_ratingInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78096,7 +76795,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutService_ratingInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78158,7 +76857,7 @@ export namespace Prisma {
   }
 
   export type user_skillUncheckedCreateWithoutSkillInput = {
-    user_id: number
+    user_id: string
     level?: number | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -78194,14 +76893,15 @@ export namespace Prisma {
     AND?: user_skillScalarWhereInput | user_skillScalarWhereInput[]
     OR?: user_skillScalarWhereInput[]
     NOT?: user_skillScalarWhereInput | user_skillScalarWhereInput[]
-    user_id?: IntFilter<"user_skill"> | number
-    skill_id?: IntFilter<"user_skill"> | number
+    user_id?: StringFilter<"user_skill"> | string
+    skill_id?: StringFilter<"user_skill"> | string
     level?: IntNullableFilter<"user_skill"> | number | null
     created_at?: DateTimeFilter<"user_skill"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_skill"> | Date | string | null
   }
 
   export type satisfaction_surveyCreateWithoutSurvey_responseInput = {
+    id?: string
     title: string
     description?: string | null
     start_date?: Date | string | null
@@ -78212,7 +76912,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyUncheckedCreateWithoutSurvey_responseInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     start_date?: Date | string | null
@@ -78228,6 +76928,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutSurvey_responseInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -78282,7 +76983,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutSurvey_responseInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -78353,6 +77054,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyUpdateWithoutSurvey_responseInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78363,7 +77065,7 @@ export namespace Prisma {
   }
 
   export type satisfaction_surveyUncheckedUpdateWithoutSurvey_responseInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78385,6 +77087,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutSurvey_responseInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78439,7 +77142,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutSurvey_responseInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78494,6 +77197,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutTrust_circle_trust_circle_contact_idTouserInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -78548,7 +77252,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutTrust_circle_trust_circle_contact_idTouserInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -78608,6 +77312,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutTrust_circle_trust_circle_user_idTouserInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -78662,7 +77367,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutTrust_circle_trust_circle_user_idTouserInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -78733,6 +77438,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutTrust_circle_trust_circle_contact_idTouserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78787,7 +77493,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutTrust_circle_trust_circle_contact_idTouserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78853,6 +77559,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutTrust_circle_trust_circle_user_idTouserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78907,7 +77614,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutTrust_circle_trust_circle_user_idTouserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78962,6 +77669,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutTrusted_contactInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -79016,7 +77724,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutTrusted_contactInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -79087,6 +77795,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutTrusted_contactInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -79141,7 +77850,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutTrusted_contactInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -79196,6 +77905,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutUrban_issue_reportInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -79250,7 +77960,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutUrban_issue_reportInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -79321,6 +78031,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutUrban_issue_reportInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -79375,7 +78086,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutUrban_issue_reportInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -79430,6 +78141,7 @@ export namespace Prisma {
   }
 
   export type activityCreateWithoutUserInput = {
+    id?: string
     title: string
     description?: string | null
     start_date: Date | string
@@ -79452,7 +78164,7 @@ export namespace Prisma {
   }
 
   export type activityUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     start_date: Date | string
@@ -79485,7 +78197,7 @@ export namespace Prisma {
   }
 
   export type activity_logCreateWithoutUserInput = {
-    id: number
+    id?: string
     action_type?: string | null
     description?: string | null
     action_date?: Date | string | null
@@ -79496,7 +78208,7 @@ export namespace Prisma {
   }
 
   export type activity_logUncheckedCreateWithoutUserInput = {
-    id: number
+    id?: string
     action_type?: string | null
     description?: string | null
     action_date?: Date | string | null
@@ -79526,7 +78238,7 @@ export namespace Prisma {
   }
 
   export type activity_registrationUncheckedCreateWithoutUserInput = {
-    activity_id: number
+    activity_id: string
     registration_date: Date | string
     status?: string | null
     attendance_confirmed?: boolean | null
@@ -79545,6 +78257,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectCreateWithoutUserInput = {
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -79557,7 +78270,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -79589,7 +78302,7 @@ export namespace Prisma {
   }
 
   export type conversation_participantUncheckedCreateWithoutUserInput = {
-    conversation_id: number
+    conversation_id: string
     date_added?: Date | string | null
     administrator?: boolean | null
     last_access?: Date | string
@@ -79608,6 +78321,7 @@ export namespace Prisma {
   }
 
   export type forum_messageCreateWithoutUserInput = {
+    id?: string
     content?: string | null
     creation_date?: Date | string | null
     modification_date?: Date | string | null
@@ -79618,8 +78332,8 @@ export namespace Prisma {
   }
 
   export type forum_messageUncheckedCreateWithoutUserInput = {
-    id?: number
-    topic_id?: number | null
+    id?: string
+    topic_id?: string | null
     content?: string | null
     creation_date?: Date | string | null
     modification_date?: Date | string | null
@@ -79639,6 +78353,7 @@ export namespace Prisma {
   }
 
   export type forum_topicCreateWithoutUserInput = {
+    id?: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -79651,8 +78366,8 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedCreateWithoutUserInput = {
-    id?: number
-    category_id: number
+    id?: string
+    category_id: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -79674,6 +78389,7 @@ export namespace Prisma {
   }
 
   export type health_indicatorCreateWithoutUserInput = {
+    id?: string
     recording_date: Date | string
     step_count?: number | null
     sleep_duration_minutes?: number | null
@@ -79686,7 +78402,7 @@ export namespace Prisma {
   }
 
   export type health_indicatorUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     recording_date: Date | string
     step_count?: number | null
     sleep_duration_minutes?: number | null
@@ -79709,6 +78425,7 @@ export namespace Prisma {
   }
 
   export type help_offerCreateWithoutUserInput = {
+    id?: string
     offer_date: Date | string
     message?: string | null
     status?: string | null
@@ -79718,8 +78435,8 @@ export namespace Prisma {
   }
 
   export type help_offerUncheckedCreateWithoutUserInput = {
-    id?: number
-    request_id: number
+    id?: string
+    request_id: string
     offer_date: Date | string
     message?: string | null
     status?: string | null
@@ -79738,6 +78455,7 @@ export namespace Prisma {
   }
 
   export type help_requestCreateWithoutUserInput = {
+    id?: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -79757,7 +78475,7 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -79787,6 +78505,7 @@ export namespace Prisma {
   }
 
   export type medication_reminderCreateWithoutUserInput = {
+    id?: string
     medication_name: string
     dosage?: string | null
     morning_reminder_time?: Date | string | null
@@ -79803,7 +78522,7 @@ export namespace Prisma {
   }
 
   export type medication_reminderUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     medication_name: string
     dosage?: string | null
     morning_reminder_time?: Date | string | null
@@ -79830,6 +78549,7 @@ export namespace Prisma {
   }
 
   export type messageCreateWithoutUserInput = {
+    id?: string
     content?: string | null
     send_date?: Date | string | null
     type?: string | null
@@ -79840,8 +78560,8 @@ export namespace Prisma {
   }
 
   export type messageUncheckedCreateWithoutUserInput = {
-    id?: number
-    conversation_id?: number | null
+    id?: string
+    conversation_id?: string | null
     content?: string | null
     send_date?: Date | string | null
     type?: string | null
@@ -79861,6 +78581,7 @@ export namespace Prisma {
   }
 
   export type notificationCreateWithoutUserInput = {
+    id?: string
     type?: string | null
     content?: string | null
     read?: boolean | null
@@ -79870,7 +78591,7 @@ export namespace Prisma {
   }
 
   export type notificationUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     type?: string | null
     content?: string | null
     read?: boolean | null
@@ -79931,7 +78652,7 @@ export namespace Prisma {
   }
 
   export type project_memberUncheckedCreateWithoutUserInput = {
-    project_id: number
+    project_id: string
     role?: string | null
     join_date?: Date | string | null
     created_at?: Date | string
@@ -79949,6 +78670,7 @@ export namespace Prisma {
   }
 
   export type project_taskCreateWithoutUserInput = {
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -79960,8 +78682,8 @@ export namespace Prisma {
   }
 
   export type project_taskUncheckedCreateWithoutUserInput = {
-    id?: number
-    project_id?: number | null
+    id?: string
+    project_id?: string | null
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -79982,6 +78704,7 @@ export namespace Prisma {
   }
 
   export type resourceCreateWithoutUserInput = {
+    id?: string
     title: string
     content?: string | null
     type?: string | null
@@ -79992,7 +78715,7 @@ export namespace Prisma {
   }
 
   export type resourceUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     title: string
     content?: string | null
     type?: string | null
@@ -80013,6 +78736,7 @@ export namespace Prisma {
   }
 
   export type service_completedCreateWithoutUserInput = {
+    id?: string
     completion_date: Date | string
     actual_duration?: number | null
     creator_comment?: string | null
@@ -80026,8 +78750,8 @@ export namespace Prisma {
   }
 
   export type service_completedUncheckedCreateWithoutUserInput = {
-    id?: number
-    request_id: number
+    id?: string
+    request_id: string
     completion_date: Date | string
     actual_duration?: number | null
     creator_comment?: string | null
@@ -80059,7 +78783,7 @@ export namespace Prisma {
   }
 
   export type service_ratingUncheckedCreateWithoutUserInput = {
-    service_id: number
+    service_id: string
     rating?: number | null
     comment?: string | null
     rating_date?: Date | string | null
@@ -80086,7 +78810,7 @@ export namespace Prisma {
   }
 
   export type survey_responseUncheckedCreateWithoutUserInput = {
-    survey_id: number
+    survey_id: string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: Date | string | null
     created_at?: Date | string
@@ -80112,7 +78836,7 @@ export namespace Prisma {
   }
 
   export type trust_circleUncheckedCreateWithoutUser_trust_circle_contact_idTouserInput = {
-    user_id: number
+    user_id: string
     date_added?: Date | string | null
     access_level?: string | null
     created_at?: Date | string
@@ -80138,7 +78862,7 @@ export namespace Prisma {
   }
 
   export type trust_circleUncheckedCreateWithoutUser_trust_circle_user_idTouserInput = {
-    contact_id: number
+    contact_id: string
     date_added?: Date | string | null
     access_level?: string | null
     created_at?: Date | string
@@ -80156,6 +78880,7 @@ export namespace Prisma {
   }
 
   export type trusted_contactCreateWithoutUserInput = {
+    id?: string
     last_name: string
     first_name: string
     email: string
@@ -80170,7 +78895,7 @@ export namespace Prisma {
   }
 
   export type trusted_contactUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     last_name: string
     first_name: string
     email: string
@@ -80195,9 +78920,11 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportCreateWithoutUserInput = {
+    id?: string
     category: string
     description?: string | null
     address?: string | null
+    gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
     city_reference?: string | null
@@ -80206,10 +78933,11 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     category: string
     description?: string | null
     address?: string | null
+    gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
     city_reference?: string | null
@@ -80228,6 +78956,7 @@ export namespace Prisma {
   }
 
   export type user_activityCreateWithoutUserInput = {
+    id?: string
     completion_date: Date | string
     duration_minutes: number
     perceived_difficulty_level?: number | null
@@ -80240,10 +78969,10 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     completion_date: Date | string
-    exercise_program_id?: number | null
-    cognitive_exercise_id?: number | null
+    exercise_program_id?: string | null
+    cognitive_exercise_id?: string | null
     duration_minutes: number
     perceived_difficulty_level?: number | null
     enjoyment_level?: number | null
@@ -80270,7 +78999,7 @@ export namespace Prisma {
   }
 
   export type user_badgeUncheckedCreateWithoutUserInput = {
-    badge_id: number
+    badge_id: string
     achievement_date?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -80287,7 +79016,7 @@ export namespace Prisma {
   }
 
   export type user_deviceCreateWithoutUserInput = {
-    id: number
+    id?: string
     device_type?: string | null
     device_name?: string | null
     operating_system?: string | null
@@ -80298,7 +79027,7 @@ export namespace Prisma {
   }
 
   export type user_deviceUncheckedCreateWithoutUserInput = {
-    id: number
+    id?: string
     device_type?: string | null
     device_name?: string | null
     operating_system?: string | null
@@ -80326,7 +79055,7 @@ export namespace Prisma {
   }
 
   export type user_skillUncheckedCreateWithoutUserInput = {
-    skill_id: number
+    skill_id: string
     level?: number | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -80372,6 +79101,7 @@ export namespace Prisma {
   }
 
   export type video_callCreateWithoutUserInput = {
+    id?: string
     start_date?: Date | string | null
     end_date?: Date | string | null
     status?: string | null
@@ -80381,8 +79111,8 @@ export namespace Prisma {
   }
 
   export type video_callUncheckedCreateWithoutUserInput = {
-    id?: number
-    conversation_id?: number | null
+    id?: string
+    conversation_id?: string | null
     start_date?: Date | string | null
     end_date?: Date | string | null
     status?: string | null
@@ -80401,6 +79131,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalCreateWithoutUserInput = {
+    id?: string
     title: string
     category: string
     target_value: number
@@ -80415,7 +79146,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalUncheckedCreateWithoutUserInput = {
-    id?: number
+    id?: string
     title: string
     category: string
     target_value: number
@@ -80459,8 +79190,8 @@ export namespace Prisma {
     AND?: activityScalarWhereInput | activityScalarWhereInput[]
     OR?: activityScalarWhereInput[]
     NOT?: activityScalarWhereInput | activityScalarWhereInput[]
-    id?: IntFilter<"activity"> | number
-    creator_id?: IntFilter<"activity"> | number
+    id?: StringFilter<"activity"> | string
+    creator_id?: StringFilter<"activity"> | string
     title?: StringFilter<"activity"> | string
     description?: StringNullableFilter<"activity"> | string | null
     start_date?: DateTimeFilter<"activity"> | Date | string
@@ -80501,8 +79232,8 @@ export namespace Prisma {
     AND?: activity_logScalarWhereInput | activity_logScalarWhereInput[]
     OR?: activity_logScalarWhereInput[]
     NOT?: activity_logScalarWhereInput | activity_logScalarWhereInput[]
-    id?: IntFilter<"activity_log"> | number
-    user_id?: IntNullableFilter<"activity_log"> | number | null
+    id?: StringFilter<"activity_log"> | string
+    user_id?: StringNullableFilter<"activity_log"> | string | null
     action_type?: StringNullableFilter<"activity_log"> | string | null
     description?: StringNullableFilter<"activity_log"> | string | null
     action_date?: DateTimeNullableFilter<"activity_log"> | Date | string | null
@@ -80548,10 +79279,10 @@ export namespace Prisma {
     AND?: collaborative_projectScalarWhereInput | collaborative_projectScalarWhereInput[]
     OR?: collaborative_projectScalarWhereInput[]
     NOT?: collaborative_projectScalarWhereInput | collaborative_projectScalarWhereInput[]
-    id?: IntFilter<"collaborative_project"> | number
+    id?: StringFilter<"collaborative_project"> | string
     title?: StringNullableFilter<"collaborative_project"> | string | null
     description?: StringNullableFilter<"collaborative_project"> | string | null
-    creator_id?: IntNullableFilter<"collaborative_project"> | number | null
+    creator_id?: StringNullableFilter<"collaborative_project"> | string | null
     creation_date?: DateTimeNullableFilter<"collaborative_project"> | Date | string | null
     status?: StringNullableFilter<"collaborative_project"> | string | null
     category?: StringNullableFilter<"collaborative_project"> | string | null
@@ -80627,8 +79358,8 @@ export namespace Prisma {
     AND?: health_indicatorScalarWhereInput | health_indicatorScalarWhereInput[]
     OR?: health_indicatorScalarWhereInput[]
     NOT?: health_indicatorScalarWhereInput | health_indicatorScalarWhereInput[]
-    id?: IntFilter<"health_indicator"> | number
-    user_id?: IntNullableFilter<"health_indicator"> | number | null
+    id?: StringFilter<"health_indicator"> | string
+    user_id?: StringNullableFilter<"health_indicator"> | string | null
     recording_date?: DateTimeFilter<"health_indicator"> | Date | string
     step_count?: IntNullableFilter<"health_indicator"> | number | null
     sleep_duration_minutes?: IntNullableFilter<"health_indicator"> | number | null
@@ -80676,8 +79407,8 @@ export namespace Prisma {
     AND?: help_requestScalarWhereInput | help_requestScalarWhereInput[]
     OR?: help_requestScalarWhereInput[]
     NOT?: help_requestScalarWhereInput | help_requestScalarWhereInput[]
-    id?: IntFilter<"help_request"> | number
-    creator_id?: IntFilter<"help_request"> | number
+    id?: StringFilter<"help_request"> | string
+    creator_id?: StringFilter<"help_request"> | string
     title?: StringFilter<"help_request"> | string
     description?: StringNullableFilter<"help_request"> | string | null
     creation_date?: DateTimeFilter<"help_request"> | Date | string
@@ -80714,8 +79445,8 @@ export namespace Prisma {
     AND?: medication_reminderScalarWhereInput | medication_reminderScalarWhereInput[]
     OR?: medication_reminderScalarWhereInput[]
     NOT?: medication_reminderScalarWhereInput | medication_reminderScalarWhereInput[]
-    id?: IntFilter<"medication_reminder"> | number
-    user_id?: IntFilter<"medication_reminder"> | number
+    id?: StringFilter<"medication_reminder"> | string
+    user_id?: StringFilter<"medication_reminder"> | string
     medication_name?: StringFilter<"medication_reminder"> | string
     dosage?: StringNullableFilter<"medication_reminder"> | string | null
     morning_reminder_time?: DateTimeNullableFilter<"medication_reminder"> | Date | string | null
@@ -80767,8 +79498,8 @@ export namespace Prisma {
     AND?: notificationScalarWhereInput | notificationScalarWhereInput[]
     OR?: notificationScalarWhereInput[]
     NOT?: notificationScalarWhereInput | notificationScalarWhereInput[]
-    id?: IntFilter<"notification"> | number
-    user_id?: IntNullableFilter<"notification"> | number | null
+    id?: StringFilter<"notification"> | string
+    user_id?: StringNullableFilter<"notification"> | string | null
     type?: StringNullableFilter<"notification"> | string | null
     content?: StringNullableFilter<"notification"> | string | null
     read?: BoolNullableFilter<"notification"> | boolean | null
@@ -80868,12 +79599,12 @@ export namespace Prisma {
     AND?: resourceScalarWhereInput | resourceScalarWhereInput[]
     OR?: resourceScalarWhereInput[]
     NOT?: resourceScalarWhereInput | resourceScalarWhereInput[]
-    id?: IntFilter<"resource"> | number
+    id?: StringFilter<"resource"> | string
     title?: StringFilter<"resource"> | string
     content?: StringNullableFilter<"resource"> | string | null
     type?: StringNullableFilter<"resource"> | string | null
     category?: StringNullableFilter<"resource"> | string | null
-    author_id?: IntNullableFilter<"resource"> | number | null
+    author_id?: StringNullableFilter<"resource"> | string | null
     admin_validated?: BoolNullableFilter<"resource"> | boolean | null
     created_at?: DateTimeFilter<"resource"> | Date | string
     updated_at?: DateTimeNullableFilter<"resource"> | Date | string | null
@@ -80947,8 +79678,8 @@ export namespace Prisma {
     AND?: trust_circleScalarWhereInput | trust_circleScalarWhereInput[]
     OR?: trust_circleScalarWhereInput[]
     NOT?: trust_circleScalarWhereInput | trust_circleScalarWhereInput[]
-    user_id?: IntFilter<"trust_circle"> | number
-    contact_id?: IntFilter<"trust_circle"> | number
+    user_id?: StringFilter<"trust_circle"> | string
+    contact_id?: StringFilter<"trust_circle"> | string
     date_added?: DateTimeNullableFilter<"trust_circle"> | Date | string | null
     access_level?: StringNullableFilter<"trust_circle"> | string | null
     created_at?: DateTimeFilter<"trust_circle"> | Date | string
@@ -80991,8 +79722,8 @@ export namespace Prisma {
     AND?: trusted_contactScalarWhereInput | trusted_contactScalarWhereInput[]
     OR?: trusted_contactScalarWhereInput[]
     NOT?: trusted_contactScalarWhereInput | trusted_contactScalarWhereInput[]
-    id?: IntFilter<"trusted_contact"> | number
-    user_id?: IntFilter<"trusted_contact"> | number
+    id?: StringFilter<"trusted_contact"> | string
+    user_id?: StringFilter<"trusted_contact"> | string
     last_name?: StringFilter<"trusted_contact"> | string
     first_name?: StringFilter<"trusted_contact"> | string
     email?: StringFilter<"trusted_contact"> | string
@@ -81026,11 +79757,12 @@ export namespace Prisma {
     AND?: urban_issue_reportScalarWhereInput | urban_issue_reportScalarWhereInput[]
     OR?: urban_issue_reportScalarWhereInput[]
     NOT?: urban_issue_reportScalarWhereInput | urban_issue_reportScalarWhereInput[]
-    id?: IntFilter<"urban_issue_report"> | number
-    user_id?: IntNullableFilter<"urban_issue_report"> | number | null
+    id?: StringFilter<"urban_issue_report"> | string
+    user_id?: StringNullableFilter<"urban_issue_report"> | string | null
     category?: StringFilter<"urban_issue_report"> | string
     description?: StringNullableFilter<"urban_issue_report"> | string | null
     address?: StringNullableFilter<"urban_issue_report"> | string | null
+    gps_coordinates?: StringNullableFilter<"urban_issue_report"> | string | null
     report_date?: DateTimeFilter<"urban_issue_report"> | Date | string
     status?: StringNullableFilter<"urban_issue_report"> | string | null
     city_reference?: StringNullableFilter<"urban_issue_report"> | string | null
@@ -81090,8 +79822,8 @@ export namespace Prisma {
     AND?: user_deviceScalarWhereInput | user_deviceScalarWhereInput[]
     OR?: user_deviceScalarWhereInput[]
     NOT?: user_deviceScalarWhereInput | user_deviceScalarWhereInput[]
-    id?: IntFilter<"user_device"> | number
-    user_id?: IntNullableFilter<"user_device"> | number | null
+    id?: StringFilter<"user_device"> | string
+    user_id?: StringNullableFilter<"user_device"> | string | null
     device_type?: StringNullableFilter<"user_device"> | string | null
     device_name?: StringNullableFilter<"user_device"> | string | null
     operating_system?: StringNullableFilter<"user_device"> | string | null
@@ -81188,8 +79920,8 @@ export namespace Prisma {
     AND?: wellness_goalScalarWhereInput | wellness_goalScalarWhereInput[]
     OR?: wellness_goalScalarWhereInput[]
     NOT?: wellness_goalScalarWhereInput | wellness_goalScalarWhereInput[]
-    id?: IntFilter<"wellness_goal"> | number
-    user_id?: IntNullableFilter<"wellness_goal"> | number | null
+    id?: StringFilter<"wellness_goal"> | string
+    user_id?: StringNullableFilter<"wellness_goal"> | string | null
     title?: StringFilter<"wellness_goal"> | string
     category?: StringFilter<"wellness_goal"> | string
     target_value?: IntFilter<"wellness_goal"> | number
@@ -81203,6 +79935,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseCreateWithoutUser_activityInput = {
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -81214,7 +79947,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseUncheckedCreateWithoutUser_activityInput = {
-    id?: number
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -81231,6 +79964,7 @@ export namespace Prisma {
   }
 
   export type exercise_programCreateWithoutUser_activityInput = {
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -81244,7 +79978,7 @@ export namespace Prisma {
   }
 
   export type exercise_programUncheckedCreateWithoutUser_activityInput = {
-    id?: number
+    id?: string
     name: string
     category: string
     difficulty_level: string
@@ -81263,6 +79997,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutUser_activityInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -81317,7 +80052,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutUser_activityInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -81388,6 +80123,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseUpdateWithoutUser_activityInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -81399,7 +80135,7 @@ export namespace Prisma {
   }
 
   export type cognitive_exerciseUncheckedUpdateWithoutUser_activityInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -81422,6 +80158,7 @@ export namespace Prisma {
   }
 
   export type exercise_programUpdateWithoutUser_activityInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -81435,7 +80172,7 @@ export namespace Prisma {
   }
 
   export type exercise_programUncheckedUpdateWithoutUser_activityInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     difficulty_level?: StringFieldUpdateOperationsInput | string
@@ -81460,6 +80197,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutUser_activityInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -81514,7 +80252,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutUser_activityInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -81569,7 +80307,7 @@ export namespace Prisma {
   }
 
   export type badgeCreateWithoutUser_badgeInput = {
-    id: number
+    id?: string
     name?: string | null
     description?: string | null
     icon?: string | null
@@ -81580,7 +80318,7 @@ export namespace Prisma {
   }
 
   export type badgeUncheckedCreateWithoutUser_badgeInput = {
-    id: number
+    id?: string
     name?: string | null
     description?: string | null
     icon?: string | null
@@ -81596,6 +80334,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutUser_badgeInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -81650,7 +80389,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutUser_badgeInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -81721,7 +80460,7 @@ export namespace Prisma {
   }
 
   export type badgeUpdateWithoutUser_badgeInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
@@ -81732,7 +80471,7 @@ export namespace Prisma {
   }
 
   export type badgeUncheckedUpdateWithoutUser_badgeInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
@@ -81754,6 +80493,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutUser_badgeInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -81808,7 +80548,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutUser_badgeInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -81863,6 +80603,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutUser_deviceInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -81917,7 +80658,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutUser_deviceInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -81988,6 +80729,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutUser_deviceInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82042,7 +80784,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutUser_deviceInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82097,6 +80839,7 @@ export namespace Prisma {
   }
 
   export type skillCreateWithoutUser_skillInput = {
+    id?: string
     name: string
     description?: string | null
     category?: string | null
@@ -82105,7 +80848,7 @@ export namespace Prisma {
   }
 
   export type skillUncheckedCreateWithoutUser_skillInput = {
-    id?: number
+    id?: string
     name: string
     description?: string | null
     category?: string | null
@@ -82119,6 +80862,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutUser_skillInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -82173,7 +80917,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutUser_skillInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -82244,6 +80988,7 @@ export namespace Prisma {
   }
 
   export type skillUpdateWithoutUser_skillInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82252,7 +80997,7 @@ export namespace Prisma {
   }
 
   export type skillUncheckedUpdateWithoutUser_skillInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82272,6 +81017,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutUser_skillInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82326,7 +81072,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutUser_skillInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82381,6 +81127,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutUser_statisticsInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -82435,7 +81182,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutUser_statisticsInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -82506,6 +81253,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutUser_statisticsInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82560,7 +81308,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutUser_statisticsInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82615,6 +81363,7 @@ export namespace Prisma {
   }
 
   export type conversationCreateWithoutVideo_callInput = {
+    id?: string
     type?: string | null
     creation_date?: Date | string | null
     title?: string | null
@@ -82625,7 +81374,7 @@ export namespace Prisma {
   }
 
   export type conversationUncheckedCreateWithoutVideo_callInput = {
-    id?: number
+    id?: string
     type?: string | null
     creation_date?: Date | string | null
     title?: string | null
@@ -82641,6 +81390,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutVideo_callInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -82695,7 +81445,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutVideo_callInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -82766,6 +81516,7 @@ export namespace Prisma {
   }
 
   export type conversationUpdateWithoutVideo_callInput = {
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82776,7 +81527,7 @@ export namespace Prisma {
   }
 
   export type conversationUncheckedUpdateWithoutVideo_callInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82798,6 +81549,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutVideo_callInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82852,7 +81604,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutVideo_callInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82907,6 +81659,7 @@ export namespace Prisma {
   }
 
   export type goal_progressCreateWithoutWellness_goalInput = {
+    id?: string
     recording_date: Date | string
     achieved_value: number
     goal_achieved: boolean
@@ -82915,7 +81668,7 @@ export namespace Prisma {
   }
 
   export type goal_progressUncheckedCreateWithoutWellness_goalInput = {
-    id?: number
+    id?: string
     recording_date: Date | string
     achieved_value: number
     goal_achieved: boolean
@@ -82934,6 +81687,7 @@ export namespace Prisma {
   }
 
   export type userCreateWithoutWellness_goalInput = {
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -82988,7 +81742,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedCreateWithoutWellness_goalInput = {
-    id?: number
+    id?: string
     email: string
     password_hash: string
     first_name?: string | null
@@ -83067,8 +81821,8 @@ export namespace Prisma {
     AND?: goal_progressScalarWhereInput | goal_progressScalarWhereInput[]
     OR?: goal_progressScalarWhereInput[]
     NOT?: goal_progressScalarWhereInput | goal_progressScalarWhereInput[]
-    id?: IntFilter<"goal_progress"> | number
-    goal_id?: IntFilter<"goal_progress"> | number
+    id?: StringFilter<"goal_progress"> | string
+    goal_id?: StringFilter<"goal_progress"> | string
     recording_date?: DateTimeFilter<"goal_progress"> | Date | string
     achieved_value?: IntFilter<"goal_progress"> | number
     goal_achieved?: BoolFilter<"goal_progress"> | boolean
@@ -83088,6 +81842,7 @@ export namespace Prisma {
   }
 
   export type userUpdateWithoutWellness_goalInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83142,7 +81897,7 @@ export namespace Prisma {
   }
 
   export type userUncheckedUpdateWithoutWellness_goalInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
     first_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83197,7 +81952,7 @@ export namespace Prisma {
   }
 
   export type activity_registrationCreateManyActivityInput = {
-    user_id: number
+    user_id: string
     registration_date: Date | string
     status?: string | null
     attendance_confirmed?: boolean | null
@@ -83215,7 +81970,7 @@ export namespace Prisma {
   }
 
   export type activity_registrationUncheckedUpdateWithoutActivityInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     registration_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendance_confirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -83224,7 +81979,7 @@ export namespace Prisma {
   }
 
   export type activity_registrationUncheckedUpdateManyWithoutActivityInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     registration_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendance_confirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -83233,7 +81988,7 @@ export namespace Prisma {
   }
 
   export type user_badgeCreateManyBadgeInput = {
-    user_id: number
+    user_id: string
     achievement_date?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -83247,24 +82002,24 @@ export namespace Prisma {
   }
 
   export type user_badgeUncheckedUpdateWithoutBadgeInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_badgeUncheckedUpdateManyWithoutBadgeInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_activityCreateManyCognitive_exerciseInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     completion_date: Date | string
-    exercise_program_id?: number | null
+    exercise_program_id?: string | null
     duration_minutes: number
     perceived_difficulty_level?: number | null
     enjoyment_level?: number | null
@@ -83274,6 +82029,7 @@ export namespace Prisma {
   }
 
   export type user_activityUpdateWithoutCognitive_exerciseInput = {
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -83286,10 +82042,10 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedUpdateWithoutCognitive_exerciseInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    exercise_program_id?: NullableIntFieldUpdateOperationsInput | number | null
+    exercise_program_id?: NullableStringFieldUpdateOperationsInput | string | null
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
     enjoyment_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -83299,10 +82055,10 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedUpdateManyWithoutCognitive_exerciseInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    exercise_program_id?: NullableIntFieldUpdateOperationsInput | number | null
+    exercise_program_id?: NullableStringFieldUpdateOperationsInput | string | null
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
     enjoyment_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -83312,7 +82068,7 @@ export namespace Prisma {
   }
 
   export type project_memberCreateManyCollaborative_projectInput = {
-    user_id: number
+    user_id: string
     role?: string | null
     join_date?: Date | string | null
     created_at?: Date | string
@@ -83320,13 +82076,13 @@ export namespace Prisma {
   }
 
   export type project_taskCreateManyCollaborative_projectInput = {
-    id?: number
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
     due_date?: Date | string | null
     status?: string | null
-    assignee_id?: number | null
+    assignee_id?: string | null
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -83340,7 +82096,7 @@ export namespace Prisma {
   }
 
   export type project_memberUncheckedUpdateWithoutCollaborative_projectInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     role?: NullableStringFieldUpdateOperationsInput | string | null
     join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83348,7 +82104,7 @@ export namespace Prisma {
   }
 
   export type project_memberUncheckedUpdateManyWithoutCollaborative_projectInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     role?: NullableStringFieldUpdateOperationsInput | string | null
     join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83356,6 +82112,7 @@ export namespace Prisma {
   }
 
   export type project_taskUpdateWithoutCollaborative_projectInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -83367,31 +82124,31 @@ export namespace Prisma {
   }
 
   export type project_taskUncheckedUpdateWithoutCollaborative_projectInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type project_taskUncheckedUpdateManyWithoutCollaborative_projectInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    assignee_id?: NullableIntFieldUpdateOperationsInput | number | null
+    assignee_id?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type conversation_participantCreateManyConversationInput = {
-    user_id: number
+    user_id: string
     date_added?: Date | string | null
     administrator?: boolean | null
     last_access?: Date | string
@@ -83400,8 +82157,8 @@ export namespace Prisma {
   }
 
   export type messageCreateManyConversationInput = {
-    id?: number
-    sender_id?: number | null
+    id?: string
+    sender_id?: string | null
     content?: string | null
     send_date?: Date | string | null
     type?: string | null
@@ -83411,8 +82168,8 @@ export namespace Prisma {
   }
 
   export type video_callCreateManyConversationInput = {
-    id?: number
-    initiator_id?: number | null
+    id?: string
+    initiator_id?: string | null
     start_date?: Date | string | null
     end_date?: Date | string | null
     status?: string | null
@@ -83430,7 +82187,7 @@ export namespace Prisma {
   }
 
   export type conversation_participantUncheckedUpdateWithoutConversationInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     last_access?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83439,7 +82196,7 @@ export namespace Prisma {
   }
 
   export type conversation_participantUncheckedUpdateManyWithoutConversationInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     last_access?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83448,6 +82205,7 @@ export namespace Prisma {
   }
 
   export type messageUpdateWithoutConversationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83458,8 +82216,8 @@ export namespace Prisma {
   }
 
   export type messageUncheckedUpdateWithoutConversationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    sender_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    sender_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83469,8 +82227,8 @@ export namespace Prisma {
   }
 
   export type messageUncheckedUpdateManyWithoutConversationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    sender_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    sender_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83480,6 +82238,7 @@ export namespace Prisma {
   }
 
   export type video_callUpdateWithoutConversationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83489,8 +82248,8 @@ export namespace Prisma {
   }
 
   export type video_callUncheckedUpdateWithoutConversationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    initiator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    initiator_id?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83499,8 +82258,8 @@ export namespace Prisma {
   }
 
   export type video_callUncheckedUpdateManyWithoutConversationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    initiator_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    initiator_id?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83509,10 +82268,10 @@ export namespace Prisma {
   }
 
   export type user_activityCreateManyExercise_programInput = {
-    id?: number
-    user_id: number
+    id?: string
+    user_id: string
     completion_date: Date | string
-    cognitive_exercise_id?: number | null
+    cognitive_exercise_id?: string | null
     duration_minutes: number
     perceived_difficulty_level?: number | null
     enjoyment_level?: number | null
@@ -83522,6 +82281,7 @@ export namespace Prisma {
   }
 
   export type user_activityUpdateWithoutExercise_programInput = {
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -83534,10 +82294,10 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedUpdateWithoutExercise_programInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    cognitive_exercise_id?: NullableIntFieldUpdateOperationsInput | number | null
+    cognitive_exercise_id?: NullableStringFieldUpdateOperationsInput | string | null
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
     enjoyment_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -83547,10 +82307,10 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedUpdateManyWithoutExercise_programInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    cognitive_exercise_id?: NullableIntFieldUpdateOperationsInput | number | null
+    cognitive_exercise_id?: NullableStringFieldUpdateOperationsInput | string | null
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
     enjoyment_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -83560,8 +82320,8 @@ export namespace Prisma {
   }
 
   export type forum_topicCreateManyForum_categoryInput = {
-    id?: number
-    author_id: number
+    id?: string
+    author_id: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -83572,6 +82332,7 @@ export namespace Prisma {
   }
 
   export type forum_topicUpdateWithoutForum_categoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -83584,8 +82345,8 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedUpdateWithoutForum_categoryInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    author_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -83597,8 +82358,8 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedUpdateManyWithoutForum_categoryInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    author_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -83609,8 +82370,8 @@ export namespace Prisma {
   }
 
   export type forum_messageCreateManyForum_topicInput = {
-    id?: number
-    author_id?: number | null
+    id?: string
+    author_id?: string | null
     content?: string | null
     creation_date?: Date | string | null
     modification_date?: Date | string | null
@@ -83620,6 +82381,7 @@ export namespace Prisma {
   }
 
   export type forum_messageUpdateWithoutForum_topicInput = {
+    id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -83630,8 +82392,8 @@ export namespace Prisma {
   }
 
   export type forum_messageUncheckedUpdateWithoutForum_topicInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    author_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    author_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -83641,8 +82403,8 @@ export namespace Prisma {
   }
 
   export type forum_messageUncheckedUpdateManyWithoutForum_topicInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    author_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    author_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -83652,8 +82414,8 @@ export namespace Prisma {
   }
 
   export type help_offerCreateManyHelp_requestInput = {
-    id?: number
-    helper_id: number
+    id?: string
+    helper_id: string
     offer_date: Date | string
     message?: string | null
     status?: string | null
@@ -83662,8 +82424,8 @@ export namespace Prisma {
   }
 
   export type service_completedCreateManyHelp_requestInput = {
-    id?: number
-    helper_id: number
+    id?: string
+    helper_id: string
     completion_date: Date | string
     actual_duration?: number | null
     creator_comment?: string | null
@@ -83676,6 +82438,7 @@ export namespace Prisma {
   }
 
   export type help_offerUpdateWithoutHelp_requestInput = {
+    id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83685,8 +82448,8 @@ export namespace Prisma {
   }
 
   export type help_offerUncheckedUpdateWithoutHelp_requestInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    helper_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    helper_id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83695,8 +82458,8 @@ export namespace Prisma {
   }
 
   export type help_offerUncheckedUpdateManyWithoutHelp_requestInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    helper_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    helper_id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83705,6 +82468,7 @@ export namespace Prisma {
   }
 
   export type service_completedUpdateWithoutHelp_requestInput = {
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83718,8 +82482,8 @@ export namespace Prisma {
   }
 
   export type service_completedUncheckedUpdateWithoutHelp_requestInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    helper_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    helper_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83732,8 +82496,8 @@ export namespace Prisma {
   }
 
   export type service_completedUncheckedUpdateManyWithoutHelp_requestInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    helper_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    helper_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83746,7 +82510,7 @@ export namespace Prisma {
   }
 
   export type service_ratingCreateManyLocal_serviceInput = {
-    user_id: number
+    user_id: string
     rating?: number | null
     comment?: string | null
     rating_date?: Date | string | null
@@ -83764,7 +82528,7 @@ export namespace Prisma {
   }
 
   export type service_ratingUncheckedUpdateWithoutLocal_serviceInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     rating?: NullableIntFieldUpdateOperationsInput | number | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     rating_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -83773,7 +82537,7 @@ export namespace Prisma {
   }
 
   export type service_ratingUncheckedUpdateManyWithoutLocal_serviceInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     rating?: NullableIntFieldUpdateOperationsInput | number | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     rating_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -83782,7 +82546,7 @@ export namespace Prisma {
   }
 
   export type survey_responseCreateManySatisfaction_surveyInput = {
-    user_id: number
+    user_id: string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: Date | string | null
     created_at?: Date | string
@@ -83798,7 +82562,7 @@ export namespace Prisma {
   }
 
   export type survey_responseUncheckedUpdateWithoutSatisfaction_surveyInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83806,7 +82570,7 @@ export namespace Prisma {
   }
 
   export type survey_responseUncheckedUpdateManyWithoutSatisfaction_surveyInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83814,7 +82578,7 @@ export namespace Prisma {
   }
 
   export type user_skillCreateManySkillInput = {
-    user_id: number
+    user_id: string
     level?: number | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -83828,21 +82592,21 @@ export namespace Prisma {
   }
 
   export type user_skillUncheckedUpdateWithoutSkillInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     level?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_skillUncheckedUpdateManyWithoutSkillInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     level?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type activityCreateManyUserInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     start_date: Date | string
@@ -83864,7 +82628,7 @@ export namespace Prisma {
   }
 
   export type activity_logCreateManyUserInput = {
-    id: number
+    id?: string
     action_type?: string | null
     description?: string | null
     action_date?: Date | string | null
@@ -83875,7 +82639,7 @@ export namespace Prisma {
   }
 
   export type activity_registrationCreateManyUserInput = {
-    activity_id: number
+    activity_id: string
     registration_date: Date | string
     status?: string | null
     attendance_confirmed?: boolean | null
@@ -83884,7 +82648,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectCreateManyUserInput = {
-    id?: number
+    id?: string
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -83895,7 +82659,7 @@ export namespace Prisma {
   }
 
   export type conversation_participantCreateManyUserInput = {
-    conversation_id: number
+    conversation_id: string
     date_added?: Date | string | null
     administrator?: boolean | null
     last_access?: Date | string
@@ -83904,8 +82668,8 @@ export namespace Prisma {
   }
 
   export type forum_messageCreateManyUserInput = {
-    id?: number
-    topic_id?: number | null
+    id?: string
+    topic_id?: string | null
     content?: string | null
     creation_date?: Date | string | null
     modification_date?: Date | string | null
@@ -83915,8 +82679,8 @@ export namespace Prisma {
   }
 
   export type forum_topicCreateManyUserInput = {
-    id?: number
-    category_id: number
+    id?: string
+    category_id: string
     title: string
     creation_date?: Date | string | null
     pinned?: boolean | null
@@ -83927,7 +82691,7 @@ export namespace Prisma {
   }
 
   export type health_indicatorCreateManyUserInput = {
-    id?: number
+    id?: string
     recording_date: Date | string
     step_count?: number | null
     sleep_duration_minutes?: number | null
@@ -83940,8 +82704,8 @@ export namespace Prisma {
   }
 
   export type help_offerCreateManyUserInput = {
-    id?: number
-    request_id: number
+    id?: string
+    request_id: string
     offer_date: Date | string
     message?: string | null
     status?: string | null
@@ -83950,7 +82714,7 @@ export namespace Prisma {
   }
 
   export type help_requestCreateManyUserInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     creation_date?: Date | string
@@ -83968,7 +82732,7 @@ export namespace Prisma {
   }
 
   export type medication_reminderCreateManyUserInput = {
-    id?: number
+    id?: string
     medication_name: string
     dosage?: string | null
     morning_reminder_time?: Date | string | null
@@ -83985,8 +82749,8 @@ export namespace Prisma {
   }
 
   export type messageCreateManyUserInput = {
-    id?: number
-    conversation_id?: number | null
+    id?: string
+    conversation_id?: string | null
     content?: string | null
     send_date?: Date | string | null
     type?: string | null
@@ -83996,7 +82760,7 @@ export namespace Prisma {
   }
 
   export type notificationCreateManyUserInput = {
-    id?: number
+    id?: string
     type?: string | null
     content?: string | null
     read?: boolean | null
@@ -84006,7 +82770,7 @@ export namespace Prisma {
   }
 
   export type project_memberCreateManyUserInput = {
-    project_id: number
+    project_id: string
     role?: string | null
     join_date?: Date | string | null
     created_at?: Date | string
@@ -84014,8 +82778,8 @@ export namespace Prisma {
   }
 
   export type project_taskCreateManyUserInput = {
-    id?: number
-    project_id?: number | null
+    id?: string
+    project_id?: string | null
     title?: string | null
     description?: string | null
     creation_date?: Date | string | null
@@ -84026,7 +82790,7 @@ export namespace Prisma {
   }
 
   export type resourceCreateManyUserInput = {
-    id?: number
+    id?: string
     title: string
     content?: string | null
     type?: string | null
@@ -84037,8 +82801,8 @@ export namespace Prisma {
   }
 
   export type service_completedCreateManyUserInput = {
-    id?: number
-    request_id: number
+    id?: string
+    request_id: string
     completion_date: Date | string
     actual_duration?: number | null
     creator_comment?: string | null
@@ -84051,7 +82815,7 @@ export namespace Prisma {
   }
 
   export type service_ratingCreateManyUserInput = {
-    service_id: number
+    service_id: string
     rating?: number | null
     comment?: string | null
     rating_date?: Date | string | null
@@ -84060,7 +82824,7 @@ export namespace Prisma {
   }
 
   export type survey_responseCreateManyUserInput = {
-    survey_id: number
+    survey_id: string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: Date | string | null
     created_at?: Date | string
@@ -84068,7 +82832,7 @@ export namespace Prisma {
   }
 
   export type trust_circleCreateManyUser_trust_circle_contact_idTouserInput = {
-    user_id: number
+    user_id: string
     date_added?: Date | string | null
     access_level?: string | null
     created_at?: Date | string
@@ -84076,7 +82840,7 @@ export namespace Prisma {
   }
 
   export type trust_circleCreateManyUser_trust_circle_user_idTouserInput = {
-    contact_id: number
+    contact_id: string
     date_added?: Date | string | null
     access_level?: string | null
     created_at?: Date | string
@@ -84084,7 +82848,7 @@ export namespace Prisma {
   }
 
   export type trusted_contactCreateManyUserInput = {
-    id?: number
+    id?: string
     last_name: string
     first_name: string
     email: string
@@ -84099,10 +82863,11 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportCreateManyUserInput = {
-    id?: number
+    id?: string
     category: string
     description?: string | null
     address?: string | null
+    gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
     city_reference?: string | null
@@ -84111,10 +82876,10 @@ export namespace Prisma {
   }
 
   export type user_activityCreateManyUserInput = {
-    id?: number
+    id?: string
     completion_date: Date | string
-    exercise_program_id?: number | null
-    cognitive_exercise_id?: number | null
+    exercise_program_id?: string | null
+    cognitive_exercise_id?: string | null
     duration_minutes: number
     perceived_difficulty_level?: number | null
     enjoyment_level?: number | null
@@ -84124,14 +82889,14 @@ export namespace Prisma {
   }
 
   export type user_badgeCreateManyUserInput = {
-    badge_id: number
+    badge_id: string
     achievement_date?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type user_deviceCreateManyUserInput = {
-    id: number
+    id?: string
     device_type?: string | null
     device_name?: string | null
     operating_system?: string | null
@@ -84142,15 +82907,15 @@ export namespace Prisma {
   }
 
   export type user_skillCreateManyUserInput = {
-    skill_id: number
+    skill_id: string
     level?: number | null
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type video_callCreateManyUserInput = {
-    id?: number
-    conversation_id?: number | null
+    id?: string
+    conversation_id?: string | null
     start_date?: Date | string | null
     end_date?: Date | string | null
     status?: string | null
@@ -84159,7 +82924,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalCreateManyUserInput = {
-    id?: number
+    id?: string
     title: string
     category: string
     target_value: number
@@ -84173,6 +82938,7 @@ export namespace Prisma {
   }
 
   export type activityUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84195,7 +82961,7 @@ export namespace Prisma {
   }
 
   export type activityUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84218,7 +82984,7 @@ export namespace Prisma {
   }
 
   export type activityUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84240,7 +83006,7 @@ export namespace Prisma {
   }
 
   export type activity_logUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     action_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     action_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84251,7 +83017,7 @@ export namespace Prisma {
   }
 
   export type activity_logUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     action_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     action_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84262,7 +83028,7 @@ export namespace Prisma {
   }
 
   export type activity_logUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     action_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     action_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84282,7 +83048,7 @@ export namespace Prisma {
   }
 
   export type activity_registrationUncheckedUpdateWithoutUserInput = {
-    activity_id?: IntFieldUpdateOperationsInput | number
+    activity_id?: StringFieldUpdateOperationsInput | string
     registration_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendance_confirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -84291,7 +83057,7 @@ export namespace Prisma {
   }
 
   export type activity_registrationUncheckedUpdateManyWithoutUserInput = {
-    activity_id?: IntFieldUpdateOperationsInput | number
+    activity_id?: StringFieldUpdateOperationsInput | string
     registration_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendance_confirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -84300,6 +83066,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84312,7 +83079,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84325,7 +83092,7 @@ export namespace Prisma {
   }
 
   export type collaborative_projectUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84345,7 +83112,7 @@ export namespace Prisma {
   }
 
   export type conversation_participantUncheckedUpdateWithoutUserInput = {
-    conversation_id?: IntFieldUpdateOperationsInput | number
+    conversation_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     last_access?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84354,7 +83121,7 @@ export namespace Prisma {
   }
 
   export type conversation_participantUncheckedUpdateManyWithoutUserInput = {
-    conversation_id?: IntFieldUpdateOperationsInput | number
+    conversation_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     last_access?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84363,6 +83130,7 @@ export namespace Prisma {
   }
 
   export type forum_messageUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84373,8 +83141,8 @@ export namespace Prisma {
   }
 
   export type forum_messageUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    topic_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    topic_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84384,8 +83152,8 @@ export namespace Prisma {
   }
 
   export type forum_messageUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    topic_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    topic_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     modification_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84395,6 +83163,7 @@ export namespace Prisma {
   }
 
   export type forum_topicUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -84407,8 +83176,8 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    category_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    category_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -84420,8 +83189,8 @@ export namespace Prisma {
   }
 
   export type forum_topicUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    category_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    category_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -84432,6 +83201,7 @@ export namespace Prisma {
   }
 
   export type health_indicatorUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     step_count?: NullableIntFieldUpdateOperationsInput | number | null
     sleep_duration_minutes?: NullableIntFieldUpdateOperationsInput | number | null
@@ -84444,7 +83214,7 @@ export namespace Prisma {
   }
 
   export type health_indicatorUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     step_count?: NullableIntFieldUpdateOperationsInput | number | null
     sleep_duration_minutes?: NullableIntFieldUpdateOperationsInput | number | null
@@ -84457,7 +83227,7 @@ export namespace Prisma {
   }
 
   export type health_indicatorUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     step_count?: NullableIntFieldUpdateOperationsInput | number | null
     sleep_duration_minutes?: NullableIntFieldUpdateOperationsInput | number | null
@@ -84470,6 +83240,7 @@ export namespace Prisma {
   }
 
   export type help_offerUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84479,8 +83250,8 @@ export namespace Prisma {
   }
 
   export type help_offerUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    request_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    request_id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84489,8 +83260,8 @@ export namespace Prisma {
   }
 
   export type help_offerUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    request_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    request_id?: StringFieldUpdateOperationsInput | string
     offer_date?: DateTimeFieldUpdateOperationsInput | Date | string
     message?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84499,6 +83270,7 @@ export namespace Prisma {
   }
 
   export type help_requestUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84518,7 +83290,7 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84538,7 +83310,7 @@ export namespace Prisma {
   }
 
   export type help_requestUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84556,6 +83328,7 @@ export namespace Prisma {
   }
 
   export type medication_reminderUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     medication_name?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morning_reminder_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84572,7 +83345,7 @@ export namespace Prisma {
   }
 
   export type medication_reminderUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     medication_name?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morning_reminder_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84589,7 +83362,7 @@ export namespace Prisma {
   }
 
   export type medication_reminderUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     medication_name?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morning_reminder_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84606,6 +83379,7 @@ export namespace Prisma {
   }
 
   export type messageUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84616,8 +83390,8 @@ export namespace Prisma {
   }
 
   export type messageUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    conversation_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84627,8 +83401,8 @@ export namespace Prisma {
   }
 
   export type messageUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    conversation_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84638,6 +83412,7 @@ export namespace Prisma {
   }
 
   export type notificationUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -84647,7 +83422,7 @@ export namespace Prisma {
   }
 
   export type notificationUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -84657,7 +83432,7 @@ export namespace Prisma {
   }
 
   export type notificationUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -84675,7 +83450,7 @@ export namespace Prisma {
   }
 
   export type project_memberUncheckedUpdateWithoutUserInput = {
-    project_id?: IntFieldUpdateOperationsInput | number
+    project_id?: StringFieldUpdateOperationsInput | string
     role?: NullableStringFieldUpdateOperationsInput | string | null
     join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84683,7 +83458,7 @@ export namespace Prisma {
   }
 
   export type project_memberUncheckedUpdateManyWithoutUserInput = {
-    project_id?: IntFieldUpdateOperationsInput | number
+    project_id?: StringFieldUpdateOperationsInput | string
     role?: NullableStringFieldUpdateOperationsInput | string | null
     join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84691,6 +83466,7 @@ export namespace Prisma {
   }
 
   export type project_taskUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84702,8 +83478,8 @@ export namespace Prisma {
   }
 
   export type project_taskUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    project_id?: NullableStringFieldUpdateOperationsInput | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84714,8 +83490,8 @@ export namespace Prisma {
   }
 
   export type project_taskUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    project_id?: NullableStringFieldUpdateOperationsInput | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84726,6 +83502,7 @@ export namespace Prisma {
   }
 
   export type resourceUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84736,7 +83513,7 @@ export namespace Prisma {
   }
 
   export type resourceUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84747,7 +83524,7 @@ export namespace Prisma {
   }
 
   export type resourceUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84758,6 +83535,7 @@ export namespace Prisma {
   }
 
   export type service_completedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84771,8 +83549,8 @@ export namespace Prisma {
   }
 
   export type service_completedUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    request_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    request_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84785,8 +83563,8 @@ export namespace Prisma {
   }
 
   export type service_completedUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    request_id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    request_id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
     creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84808,7 +83586,7 @@ export namespace Prisma {
   }
 
   export type service_ratingUncheckedUpdateWithoutUserInput = {
-    service_id?: IntFieldUpdateOperationsInput | number
+    service_id?: StringFieldUpdateOperationsInput | string
     rating?: NullableIntFieldUpdateOperationsInput | number | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     rating_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84817,7 +83595,7 @@ export namespace Prisma {
   }
 
   export type service_ratingUncheckedUpdateManyWithoutUserInput = {
-    service_id?: IntFieldUpdateOperationsInput | number
+    service_id?: StringFieldUpdateOperationsInput | string
     rating?: NullableIntFieldUpdateOperationsInput | number | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     rating_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -84834,7 +83612,7 @@ export namespace Prisma {
   }
 
   export type survey_responseUncheckedUpdateWithoutUserInput = {
-    survey_id?: IntFieldUpdateOperationsInput | number
+    survey_id?: StringFieldUpdateOperationsInput | string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84842,7 +83620,7 @@ export namespace Prisma {
   }
 
   export type survey_responseUncheckedUpdateManyWithoutUserInput = {
-    survey_id?: IntFieldUpdateOperationsInput | number
+    survey_id?: StringFieldUpdateOperationsInput | string
     responses?: NullableJsonNullValueInput | InputJsonValue
     response_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84858,7 +83636,7 @@ export namespace Prisma {
   }
 
   export type trust_circleUncheckedUpdateWithoutUser_trust_circle_contact_idTouserInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     access_level?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84866,7 +83644,7 @@ export namespace Prisma {
   }
 
   export type trust_circleUncheckedUpdateManyWithoutUser_trust_circle_contact_idTouserInput = {
-    user_id?: IntFieldUpdateOperationsInput | number
+    user_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     access_level?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84882,7 +83660,7 @@ export namespace Prisma {
   }
 
   export type trust_circleUncheckedUpdateWithoutUser_trust_circle_user_idTouserInput = {
-    contact_id?: IntFieldUpdateOperationsInput | number
+    contact_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     access_level?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84890,7 +83668,7 @@ export namespace Prisma {
   }
 
   export type trust_circleUncheckedUpdateManyWithoutUser_trust_circle_user_idTouserInput = {
-    contact_id?: IntFieldUpdateOperationsInput | number
+    contact_id?: StringFieldUpdateOperationsInput | string
     date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     access_level?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -84898,6 +83676,7 @@ export namespace Prisma {
   }
 
   export type trusted_contactUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -84912,7 +83691,7 @@ export namespace Prisma {
   }
 
   export type trusted_contactUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -84927,7 +83706,7 @@ export namespace Prisma {
   }
 
   export type trusted_contactUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -84942,9 +83721,11 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     city_reference?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84953,10 +83734,11 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     city_reference?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84965,10 +83747,11 @@ export namespace Prisma {
   }
 
   export type urban_issue_reportUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
+    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     city_reference?: NullableStringFieldUpdateOperationsInput | string | null
@@ -84977,6 +83760,7 @@ export namespace Prisma {
   }
 
   export type user_activityUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -84989,10 +83773,10 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    exercise_program_id?: NullableIntFieldUpdateOperationsInput | number | null
-    cognitive_exercise_id?: NullableIntFieldUpdateOperationsInput | number | null
+    exercise_program_id?: NullableStringFieldUpdateOperationsInput | string | null
+    cognitive_exercise_id?: NullableStringFieldUpdateOperationsInput | string | null
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
     enjoyment_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -85002,10 +83786,10 @@ export namespace Prisma {
   }
 
   export type user_activityUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    exercise_program_id?: NullableIntFieldUpdateOperationsInput | number | null
-    cognitive_exercise_id?: NullableIntFieldUpdateOperationsInput | number | null
+    exercise_program_id?: NullableStringFieldUpdateOperationsInput | string | null
+    cognitive_exercise_id?: NullableStringFieldUpdateOperationsInput | string | null
     duration_minutes?: IntFieldUpdateOperationsInput | number
     perceived_difficulty_level?: NullableIntFieldUpdateOperationsInput | number | null
     enjoyment_level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -85022,21 +83806,21 @@ export namespace Prisma {
   }
 
   export type user_badgeUncheckedUpdateWithoutUserInput = {
-    badge_id?: IntFieldUpdateOperationsInput | number
+    badge_id?: StringFieldUpdateOperationsInput | string
     achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_badgeUncheckedUpdateManyWithoutUserInput = {
-    badge_id?: IntFieldUpdateOperationsInput | number
+    badge_id?: StringFieldUpdateOperationsInput | string
     achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_deviceUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     device_type?: NullableStringFieldUpdateOperationsInput | string | null
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
@@ -85047,7 +83831,7 @@ export namespace Prisma {
   }
 
   export type user_deviceUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     device_type?: NullableStringFieldUpdateOperationsInput | string | null
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
@@ -85058,7 +83842,7 @@ export namespace Prisma {
   }
 
   export type user_deviceUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     device_type?: NullableStringFieldUpdateOperationsInput | string | null
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
@@ -85076,20 +83860,21 @@ export namespace Prisma {
   }
 
   export type user_skillUncheckedUpdateWithoutUserInput = {
-    skill_id?: IntFieldUpdateOperationsInput | number
+    skill_id?: StringFieldUpdateOperationsInput | string
     level?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_skillUncheckedUpdateManyWithoutUserInput = {
-    skill_id?: IntFieldUpdateOperationsInput | number
+    skill_id?: StringFieldUpdateOperationsInput | string
     level?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type video_callUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -85099,8 +83884,8 @@ export namespace Prisma {
   }
 
   export type video_callUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    conversation_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -85109,8 +83894,8 @@ export namespace Prisma {
   }
 
   export type video_callUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    conversation_id?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -85119,6 +83904,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -85133,7 +83919,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -85148,7 +83934,7 @@ export namespace Prisma {
   }
 
   export type wellness_goalUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -85162,7 +83948,7 @@ export namespace Prisma {
   }
 
   export type goal_progressCreateManyWellness_goalInput = {
-    id?: number
+    id?: string
     recording_date: Date | string
     achieved_value: number
     goal_achieved: boolean
@@ -85171,6 +83957,7 @@ export namespace Prisma {
   }
 
   export type goal_progressUpdateWithoutWellness_goalInput = {
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     achieved_value?: IntFieldUpdateOperationsInput | number
     goal_achieved?: BoolFieldUpdateOperationsInput | boolean
@@ -85179,7 +83966,7 @@ export namespace Prisma {
   }
 
   export type goal_progressUncheckedUpdateWithoutWellness_goalInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     achieved_value?: IntFieldUpdateOperationsInput | number
     goal_achieved?: BoolFieldUpdateOperationsInput | boolean
@@ -85188,7 +83975,7 @@ export namespace Prisma {
   }
 
   export type goal_progressUncheckedUpdateManyWithoutWellness_goalInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     recording_date?: DateTimeFieldUpdateOperationsInput | Date | string
     achieved_value?: IntFieldUpdateOperationsInput | number
     goal_achieved?: BoolFieldUpdateOperationsInput | boolean

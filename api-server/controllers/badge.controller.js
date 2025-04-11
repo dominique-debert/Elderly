@@ -1,5 +1,6 @@
-import db from '../models/index.js';
-const Badge = db.Badge;
+
+import { PrismaClient } from '../prisma/client.js'
+const prisma = new PrismaClient()
 
 export const getAllBadges = async(req, res) => {
   try {
