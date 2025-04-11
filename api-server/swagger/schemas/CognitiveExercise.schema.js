@@ -11,8 +11,8 @@
  *         - duration_minutes
  *       properties:
  *         id:
- *           type: integer
- *           description: ID auto-incrémenté
+ *           type: string
+ *           description: Identifiant unique de l'exercice cognitif (UUID)
  *         name:
  *           type: string
  *           maxLength: 255

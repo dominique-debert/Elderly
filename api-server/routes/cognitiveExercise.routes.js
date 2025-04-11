@@ -38,7 +38,7 @@ router.get('/', getAllExercises);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *     responses:
  *       200:
  *         description: Exercice trouvé
@@ -80,7 +80,7 @@ router.post('/', createExercise);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *     requestBody:
  *       content:
  *         application/json:
@@ -105,7 +105,7 @@ router.put('/:id', updateExercise);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *     responses:
  *       204:
  *         description: Supprimé avec succès
