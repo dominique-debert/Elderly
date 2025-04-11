@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/prisma"
+  output   = "../prisma"
 }
 
 datasource db {
@@ -9,8 +9,8 @@ datasource db {
 }
 
 model activity {
-  id                      Int                     @id @default(autoincrement())
-  creator_id              Int
+  id                      String                  @id @default(cuid())
+  creator_id              String
   title                   String                  @db.VarChar(255)
   description             String?
   start_date              DateTime                @db.Timestamp(6)
@@ -34,8 +34,8 @@ model activity {
 }
 
 model activity_log {
-  id          Int       @id
-  user_id     Int?
+  id          String    @id @default(cuid())
+  user_id     String?
   action_type String?   @db.VarChar
   description String?
   action_date DateTime? @db.Timestamp(6)
@@ -47,8 +47,8 @@ model activity_log {
 }
 
 model activity_registration {
-  activity_id          Int
-  user_id              Int
+  activity_id          String
+  user_id              String
   registration_date    DateTime  @db.Timestamp(6)
   status               String?   @db.VarChar(50)
   attendance_confirmed Boolean?  @default(false)
@@ -61,7 +61,7 @@ model activity_registration {
 }
 
 model badge {
-  id          Int          @id
+  id          String       @id @default(cuid())
   name        String?      @db.VarChar(255)
   description String?      @db.VarChar(255)
   icon        String?      @db.VarChar(255)
@@ -74,7 +74,7 @@ model badge {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model cognitive_exercise {
-  id               Int             @id @default(autoincrement())
+  id               String          @id @default(cuid())
   name             String          @db.VarChar(255)
   category         String          @db.VarChar(50)
   difficulty_level String          @db.VarChar(50)
@@ -87,10 +87,10 @@ model cognitive_exercise {
 }
 
 model collaborative_project {
-  id             Int              @id @default(autoincrement())
+  id             String           @id @default(cuid())
   title          String?          @db.VarChar(255)
   description    String?
-  creator_id     Int?
+  creator_id     String?
   creation_date  DateTime?        @db.Timestamp(6)
   status         String?          @db.VarChar(50)
   category       String?          @db.VarChar(100)
@@ -102,7 +102,7 @@ model collaborative_project {
 }
 
 model conversation {
-  id                       Int                        @id @default(autoincrement())
+  id                       String                     @id @default(cuid())
   type                     String?                    @db.VarChar(255)
   creation_date            DateTime?                  @db.Timestamp(6)
   title                    String?                    @db.VarChar(255)
@@ -114,8 +114,8 @@ model conversation {
 }
 
 model conversation_participant {
-  conversation_id Int
-  user_id         Int
+  conversation_id String
+  user_id         String
   date_added      DateTime?    @db.Timestamptz(6)
   administrator   Boolean?
   last_access     DateTime     @default(now()) @db.Timestamp(6)
@@ -129,7 +129,7 @@ model conversation_participant {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model exercise_program {
-  id                           Int             @id @default(autoincrement())
+  id                           String          @id @default(cuid())
   name                         String          @db.VarChar(255)
   category                     String          @db.VarChar(50)
   difficulty_level             String          @db.VarChar(50)
@@ -144,7 +144,7 @@ model exercise_program {
 }
 
 model forum_category {
-  id                 Int           @id @default(autoincrement())
+  id                 String        @id @default(cuid())
   name               String        @db.VarChar(255)
   description        String?       @db.VarChar(255)
   parent_category_id Int?
@@ -154,9 +154,9 @@ model forum_category {
 }
 
 model forum_message {
-  id                Int          @id @default(autoincrement())
-  topic_id          Int?
-  author_id         Int?
+  id                String       @id @default(cuid())
+  topic_id          String?
+  author_id         String?
   content           String?
   creation_date     DateTime?    @db.Timestamp(6)
   modification_date DateTime?    @db.Timestamp(6)
@@ -168,9 +168,9 @@ model forum_message {
 }
 
 model forum_topic {
-  id             Int             @id @default(autoincrement())
-  category_id    Int
-  author_id      Int
+  id             String          @id @default(cuid())
+  category_id    String
+  author_id      String
   title          String          @db.VarChar(255)
   creation_date  DateTime?       @default(now()) @db.Timestamp(6)
   pinned         Boolean?        @default(false)
@@ -179,13 +179,13 @@ model forum_topic {
   created_at     DateTime        @default(now()) @db.Timestamp(6)
   updated_at     DateTime?       @db.Timestamp(6)
   forum_message  forum_message[]
-  user           user            @relation(fields: [author_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "fk_author")
+  user           user            @relation(fields: [author_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_author")
   forum_category forum_category  @relation(fields: [category_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_category")
 }
 
 model goal_progress {
-  id             Int           @id @default(autoincrement())
-  goal_id        Int
+  id             String        @id @default(cuid())
+  goal_id        String
   recording_date DateTime      @db.Date
   achieved_value Int
   goal_achieved  Boolean
@@ -196,8 +196,8 @@ model goal_progress {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model health_indicator {
-  id                     Int       @id @default(autoincrement())
-  user_id                Int?
+  id                     String    @id @default(cuid())
+  user_id                String?
   recording_date         DateTime  @db.Date
   step_count             Int?
   sleep_duration_minutes Int?
@@ -211,9 +211,9 @@ model health_indicator {
 }
 
 model help_offer {
-  id           Int          @id @default(autoincrement())
-  request_id   Int
-  helper_id    Int
+  id           String       @id @default(cuid())
+  request_id   String
+  helper_id    String
   offer_date   DateTime     @db.Timestamp(6)
   message      String?
   status       String?      @db.VarChar(50)
@@ -224,8 +224,8 @@ model help_offer {
 }
 
 model help_request {
-  id                 Int                 @id @default(autoincrement())
-  creator_id         Int
+  id                 String              @id @default(cuid())
+  creator_id         String
   title              String              @db.VarChar(255)
   description        String?
   creation_date      DateTime            @default(now()) @db.Timestamp(6)
@@ -246,7 +246,7 @@ model help_request {
 }
 
 model local_service {
-  id              Int              @id @default(autoincrement())
+  id              String           @id @default(cuid())
   name            String?          @db.VarChar(255)
   category        String?          @db.VarChar(255)
   address         String?          @db.VarChar(255)
@@ -262,8 +262,8 @@ model local_service {
 }
 
 model medication_reminder {
-  id                    Int       @id @default(autoincrement())
-  user_id               Int
+  id                    String    @id @default(cuid())
+  user_id               String
   medication_name       String    @db.VarChar(255)
   dosage                String?   @db.VarChar(100)
   morning_reminder_time DateTime? @db.Time(6)
@@ -281,9 +281,9 @@ model medication_reminder {
 }
 
 model message {
-  id              Int           @id @default(autoincrement())
-  conversation_id Int?
-  sender_id       Int?
+  id              String        @id @default(cuid())
+  conversation_id String?
+  sender_id       String?
   content         String?
   send_date       DateTime?     @db.Timestamp(6)
   type            String?       @db.VarChar(50)
@@ -295,23 +295,23 @@ model message {
 }
 
 model municipal_event {
-  id              Int                   @id @default(autoincrement())
-  title           String                @db.VarChar(255)
+  id              String    @id @default(cuid())
+  title           String    @db.VarChar(255)
   description     String?
-  start_date      DateTime              @db.Timestamp(6)
-  end_date        DateTime              @db.Timestamp(6)
-  location        String?               @db.VarChar(255)
-  gps_coordinates Unsupported("point")?
-  organizer       String?               @db.VarChar(255)
-  contact         String?               @db.VarChar(255)
-  official_link   String?               @db.VarChar(255)
-  created_at      DateTime              @default(now()) @db.Timestamp(6)
-  updated_at      DateTime?             @db.Timestamp(6)
+  start_date      DateTime  @db.Timestamp(6)
+  end_date        DateTime  @db.Timestamp(6)
+  location        String?   @db.VarChar(255)
+  gps_coordinates String?
+  organizer       String?   @db.VarChar(255)
+  contact         String?   @db.VarChar(255)
+  official_link   String?   @db.VarChar(255)
+  created_at      DateTime  @default(now()) @db.Timestamp(6)
+  updated_at      DateTime? @db.Timestamp(6)
 }
 
 model notification {
-  id          Int       @id @default(autoincrement())
-  user_id     Int?
+  id          String    @id @default(cuid())
+  user_id     String?
   type        String?   @db.VarChar(50)
   content     String?
   read        Boolean?
@@ -322,7 +322,7 @@ model notification {
 }
 
 model notification_preferences {
-  user_id           Int       @id
+  user_id           String    @id
   message_notif     Boolean?  @default(true)
   activity_notif    Boolean?  @default(true)
   help_notif        Boolean?  @default(true)
@@ -339,7 +339,7 @@ model notification_preferences {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model nutritional_advice {
-  id          Int       @id @default(autoincrement())
+  id          String    @id @default(cuid())
   title       String    @db.VarChar(255)
   description String?
   category    String?   @db.VarChar(50)
@@ -350,7 +350,7 @@ model nutritional_advice {
 }
 
 model offline_user {
-  user_id     Int       @id
+  user_id     String    @id
   cached_data Json?     @db.Json
   last_sync   DateTime? @db.Timestamp(6)
   created_at  DateTime  @default(now()) @db.Timestamp(6)
@@ -358,8 +358,8 @@ model offline_user {
 }
 
 model project_member {
-  project_id            Int
-  user_id               Int
+  project_id            String
+  user_id               String
   role                  String?               @db.VarChar(100)
   join_date             DateTime?             @db.Timestamp(6)
   created_at            DateTime              @default(now()) @db.Timestamp(6)
@@ -371,14 +371,14 @@ model project_member {
 }
 
 model project_task {
-  id                    Int                    @id @default(autoincrement())
-  project_id            Int?
+  id                    String                 @id @default(cuid())
+  project_id            String?
   title                 String?                @db.VarChar(255)
   description           String?
   creation_date         DateTime?              @db.Timestamp(6)
   due_date              DateTime?              @db.Timestamp(6)
   status                String?                @db.VarChar(50)
-  assignee_id           Int?
+  assignee_id           String?
   created_at            DateTime               @default(now()) @db.Timestamp(6)
   updated_at            DateTime?              @db.Timestamp(6)
   user                  user?                  @relation(fields: [assignee_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -386,12 +386,12 @@ model project_task {
 }
 
 model resource {
-  id              Int       @id @default(autoincrement())
+  id              String    @id @default(cuid())
   title           String    @db.VarChar(255)
   content         String?
   type            String?   @db.VarChar(100)
   category        String?   @db.VarChar(100)
-  author_id       Int?
+  author_id       String?
   admin_validated Boolean?  @default(false)
   created_at      DateTime  @default(now()) @db.Timestamp(6)
   updated_at      DateTime? @db.Timestamp(6)
@@ -399,7 +399,7 @@ model resource {
 }
 
 model satisfaction_survey {
-  id              Int               @id @default(autoincrement())
+  id              String            @id @default(cuid())
   title           String            @db.VarChar(255)
   description     String?
   start_date      DateTime?         @db.Timestamp(6)
@@ -412,9 +412,9 @@ model satisfaction_survey {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model service_completed {
-  id               Int          @id @default(autoincrement())
-  request_id       Int
-  helper_id        Int
+  id               String       @id @default(cuid())
+  request_id       String
+  helper_id        String
   completion_date  DateTime     @db.Timestamp(6)
   actual_duration  Int?
   creator_comment  String?
@@ -424,13 +424,13 @@ model service_completed {
   points_exchanged Int?
   created_at       DateTime     @default(now()) @db.Timestamp(6)
   updated_at       DateTime?    @db.Timestamp(6)
-  user             user         @relation(fields: [helper_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "fk_helper")
+  user             user         @relation(fields: [helper_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_helper")
   help_request     help_request @relation(fields: [request_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_request")
 }
 
 model service_rating {
-  service_id    Int
-  user_id       Int
+  service_id    String
+  user_id       String
   rating        Int?
   comment       String?
   rating_date   DateTime?     @db.Timestamp(6)
@@ -443,7 +443,7 @@ model service_rating {
 }
 
 model skill {
-  id          Int          @id @default(autoincrement())
+  id          String       @id @default(cuid())
   name        String       @db.VarChar(255)
   description String?      @db.VarChar(500)
   category    String?      @db.VarChar(255)
@@ -453,8 +453,8 @@ model skill {
 }
 
 model survey_response {
-  survey_id           Int
-  user_id             Int
+  survey_id           String
+  user_id             String
   responses           Json?
   response_date       DateTime?           @default(now()) @db.Timestamp(6)
   created_at          DateTime            @default(now()) @db.Timestamp(6)
@@ -466,8 +466,8 @@ model survey_response {
 }
 
 model trust_circle {
-  user_id                            Int
-  contact_id                         Int
+  user_id                            String
+  contact_id                         String
   date_added                         DateTime? @db.Date
   access_level                       String?   @db.VarChar
   created_at                         DateTime  @default(now()) @db.Timestamp(6)
@@ -478,10 +478,10 @@ model trust_circle {
   @@id([user_id, contact_id])
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This table contains check constraStrings and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model trusted_contact {
-  id                        Int       @id @default(autoincrement())
-  user_id                   Int
+  id                        String    @id @default(cuid())
+  user_id                   String
   last_name                 String    @db.VarChar(255)
   first_name                String    @db.VarChar(255)
   email                     String    @unique @db.VarChar(255)
@@ -497,23 +497,23 @@ model trusted_contact {
 }
 
 model urban_issue_report {
-  id              Int                   @id @default(autoincrement())
-  user_id         Int?
-  category        String                @db.VarChar(255)
+  id              String    @id @default(cuid())
+  user_id         String?
+  category        String    @db.VarChar(255)
   description     String?
-  address         String?               @db.VarChar(255)
-  gps_coordinates Unsupported("point")?
-  report_date     DateTime              @db.Timestamp(6)
-  status          String?               @db.VarChar(255)
-  city_reference  String?               @db.VarChar(255)
-  created_at      DateTime              @default(now()) @db.Timestamp(6)
-  updated_at      DateTime?             @db.Timestamp(6)
-  user            user?                 @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  address         String?   @db.VarChar(255)
+  gps_coordinates String?
+  report_date     DateTime  @db.Timestamp(6)
+  status          String?   @db.VarChar(255)
+  city_reference  String?   @db.VarChar(255)
+  created_at      DateTime  @default(now()) @db.Timestamp(6)
+  updated_at      DateTime? @db.Timestamp(6)
+  user            user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model user {
-  id                                         Int                        @id @default(autoincrement())
+  id                                         String                     @id @default(cuid())
   email                                      String                     @unique @db.VarChar(255)
   password_hash                              String                     @db.VarChar(255)
   first_name                                 String?                    @db.VarChar(100)
@@ -570,11 +570,11 @@ model user {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model user_activity {
-  id                         Int                 @id @default(autoincrement())
-  user_id                    Int
+  id                         String              @id @default(cuid())
+  user_id                    String
   completion_date            DateTime            @db.Date
-  exercise_program_id        Int?
-  cognitive_exercise_id      Int?
+  exercise_program_id        String?
+  cognitive_exercise_id      String?
   duration_minutes           Int
   perceived_difficulty_level Int?
   enjoyment_level            Int?
@@ -587,8 +587,8 @@ model user_activity {
 }
 
 model user_badge {
-  user_id          Int
-  badge_id         Int
+  user_id          String
+  badge_id         String
   achievement_date DateTime? @db.Timestamp(6)
   created_at       DateTime  @default(now()) @db.Timestamp(6)
   updated_at       DateTime? @db.Timestamp(6)
@@ -599,8 +599,8 @@ model user_badge {
 }
 
 model user_device {
-  id                 Int       @id
-  user_id            Int?
+  id                 String    @id @default(cuid())
+  user_id            String?
   device_type        String?   @db.VarChar
   device_name        String?   @db.VarChar
   operating_system   String?   @db.VarChar
@@ -612,8 +612,8 @@ model user_device {
 }
 
 model user_skill {
-  user_id    Int
-  skill_id   Int
+  user_id    String
+  skill_id   String
   level      Int?
   created_at DateTime  @default(now()) @db.Timestamp(6)
   updated_at DateTime? @db.Timestamp(6)
@@ -624,7 +624,7 @@ model user_skill {
 }
 
 model user_statistics {
-  user_id                 Int       @id
+  user_id                 String    @id
   services_provided       Int?
   services_received       Int?
   activities_participated Int?
@@ -638,9 +638,9 @@ model user_statistics {
 }
 
 model video_call {
-  id              Int           @id @default(autoincrement())
-  conversation_id Int?
-  initiator_id    Int?
+  id              String        @id @default(cuid())
+  conversation_id String?
+  initiator_id    String?
   start_date      DateTime?     @db.Timestamp(6)
   end_date        DateTime?     @db.Timestamp(6)
   status          String?       @db.VarChar(50)
@@ -652,7 +652,7 @@ model video_call {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model wellness_badge {
-  id          Int       @id @default(autoincrement())
+  id          String    @id @default(cuid())
   name        String    @db.VarChar(255)
   description String?
   category    String    @db.VarChar(50)
@@ -664,8 +664,8 @@ model wellness_badge {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model wellness_goal {
-  id            Int             @id @default(autoincrement())
-  user_id       Int?
+  id            String          @id @default(cuid())
+  user_id       String?
   title         String          @db.VarChar(255)
   category      String          @db.VarChar(50)
   target_value  Int

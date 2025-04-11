@@ -1,0 +1,681 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model activity {
+  id                      String                  @id @default(cuid())
+  creator_id              String
+  title                   String                  @db.VarChar(255)
+  description             String?
+  start_date              DateTime                @db.Timestamp(6)
+  end_date                DateTime?               @db.Timestamp(6)
+  location                String?                 @db.VarChar(255)
+  gps_coordinates         String?
+  max_spots               Int?
+  category                String?                 @db.VarChar(100)
+  recurring               Boolean?                @default(false)
+  frequency               String?                 @db.VarChar(100)
+  reduced_mobility_access Boolean?                @default(false)
+  difficulty_level        String?                 @db.VarChar(100)
+  cost                    Float?
+  status                  String?                 @db.VarChar(50)
+  weather_requirements    String?                 @db.VarChar(255)
+  transport_options       String?                 @db.VarChar(255)
+  created_at              DateTime                @default(now()) @db.Timestamp(6)
+  updated_at              DateTime?               @db.Timestamp(6)
+  user                    user                    @relation(fields: [creator_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  activity_registration   activity_registration[]
+}
+
+model activity_log {
+  id          String    @id @default(cuid())
+  user_id     String?
+  action_type String?   @db.VarChar
+  description String?
+  action_date DateTime? @db.Timestamp(6)
+  ip_address  String?   @db.VarChar
+  device      String?   @db.VarChar
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  updated_at  DateTime? @db.Timestamp(6)
+  user        user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model activity_registration {
+  activity_id          String
+  user_id              String
+  registration_date    DateTime  @db.Timestamp(6)
+  status               String?   @db.VarChar(50)
+  attendance_confirmed Boolean?  @default(false)
+  created_at           DateTime  @default(now()) @db.Timestamp(6)
+  updated_at           DateTime? @db.Timestamp(6)
+  activity             activity  @relation(fields: [activity_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user                 user      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([activity_id, user_id])
+}
+
+model badge {
+  id          String       @id @default(cuid())
+  name        String?      @db.VarChar(255)
+  description String?      @db.VarChar(255)
+  icon        String?      @db.VarChar(255)
+  category    String?      @db.VarChar(255)
+  level       Int?
+  created_at  DateTime     @default(now()) @db.Timestamp(6)
+  updated_at  DateTime?    @db.Timestamp(6)
+  user_badge  user_badge[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model cognitive_exercise {
+  id               String          @id @default(cuid())
+  name             String          @db.VarChar(255)
+  category         String          @db.VarChar(50)
+  difficulty_level String          @db.VarChar(50)
+  duration_minutes Int
+  description      String?
+  image            String?         @db.VarChar(255)
+  created_at       DateTime        @default(now()) @db.Timestamp(6)
+  updated_at       DateTime?       @db.Timestamp(6)
+  user_activity    user_activity[]
+}
+
+model collaborative_project {
+  id             String           @id @default(cuid())
+  title          String?          @db.VarChar(255)
+  description    String?
+  creator_id     String?
+  creation_date  DateTime?        @db.Timestamp(6)
+  status         String?          @db.VarChar(50)
+  category       String?          @db.VarChar(100)
+  created_at     DateTime         @default(now()) @db.Timestamp(6)
+  updated_at     DateTime?        @db.Timestamp(6)
+  user           user?            @relation(fields: [creator_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  project_member project_member[]
+  project_task   project_task[]
+}
+
+model conversation {
+  id                       String                     @id @default(cuid())
+  type                     String?                    @db.VarChar(255)
+  creation_date            DateTime?                  @db.Timestamp(6)
+  title                    String?                    @db.VarChar(255)
+  created_at               DateTime                   @default(now()) @db.Timestamp(6)
+  updated_at               DateTime?                  @db.Timestamp(6)
+  conversation_participant conversation_participant[]
+  message                  message[]
+  video_call               video_call[]
+}
+
+model conversation_participant {
+  conversation_id String
+  user_id         String
+  date_added      DateTime?    @db.Timestamptz(6)
+  administrator   Boolean?
+  last_access     DateTime     @default(now()) @db.Timestamp(6)
+  created_at      DateTime     @default(now()) @db.Timestamp(6)
+  updated_at      DateTime?    @db.Timestamp(6)
+  conversation    conversation @relation(fields: [conversation_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user            user         @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([conversation_id, user_id])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model exercise_program {
+  id                           String          @id @default(cuid())
+  name                         String          @db.VarChar(255)
+  category                     String          @db.VarChar(50)
+  difficulty_level             String          @db.VarChar(50)
+  adapted_for_reduced_mobility Boolean
+  duration_minutes             Int
+  description                  String?
+  video_link                   String?         @db.VarChar(255)
+  image                        String?         @db.VarChar(255)
+  created_at                   DateTime        @default(now()) @db.Timestamp(6)
+  updated_at                   DateTime?       @db.Timestamp(6)
+  user_activity                user_activity[]
+}
+
+model forum_category {
+  id                 String        @id @default(cuid())
+  name               String        @db.VarChar(255)
+  description        String?       @db.VarChar(255)
+  parent_category_id Int?
+  created_at         DateTime      @default(now()) @db.Timestamp(6)
+  updated_at         DateTime?     @db.Timestamp(6)
+  forum_topic        forum_topic[]
+}
+
+model forum_message {
+  id                String       @id @default(cuid())
+  topic_id          String?
+  author_id         String?
+  content           String?
+  creation_date     DateTime?    @db.Timestamp(6)
+  modification_date DateTime?    @db.Timestamp(6)
+  solution_message  Boolean?
+  created_at        DateTime     @default(now()) @db.Timestamp(6)
+  updated_at        DateTime?    @db.Timestamp(6)
+  user              user?        @relation(fields: [author_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_author_id")
+  forum_topic       forum_topic? @relation(fields: [topic_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_topic_id")
+}
+
+model forum_topic {
+  id             String          @id @default(cuid())
+  category_id    String
+  author_id      String
+  title          String          @db.VarChar(255)
+  creation_date  DateTime?       @default(now()) @db.Timestamp(6)
+  pinned         Boolean?        @default(false)
+  status         String?         @db.VarChar(50)
+  views          Int?            @default(0)
+  created_at     DateTime        @default(now()) @db.Timestamp(6)
+  updated_at     DateTime?       @db.Timestamp(6)
+  forum_message  forum_message[]
+  user           user            @relation(fields: [author_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_author")
+  forum_category forum_category  @relation(fields: [category_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_category")
+}
+
+model goal_progress {
+  id             String        @id @default(cuid())
+  goal_id        String
+  recording_date DateTime      @db.Date
+  achieved_value Int
+  goal_achieved  Boolean
+  created_at     DateTime      @default(now()) @db.Timestamp(6)
+  updated_at     DateTime?     @db.Timestamp(6)
+  wellness_goal  wellness_goal @relation(fields: [goal_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_goal")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model health_indicator {
+  id                     String    @id @default(cuid())
+  user_id                String?
+  recording_date         DateTime  @db.Date
+  step_count             Int?
+  sleep_duration_minutes Int?
+  sleep_quality          Int?
+  weight                 Float?
+  mood                   String?   @db.VarChar(10)
+  notes                  String?
+  created_at             DateTime  @default(now()) @db.Timestamp(6)
+  updated_at             DateTime? @db.Timestamp(6)
+  user                   user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model help_offer {
+  id           String       @id @default(cuid())
+  request_id   String
+  helper_id    String
+  offer_date   DateTime     @db.Timestamp(6)
+  message      String?
+  status       String?      @db.VarChar(50)
+  created_at   DateTime     @default(now()) @db.Timestamp(6)
+  updated_at   DateTime?    @db.Timestamp(6)
+  user         user         @relation(fields: [helper_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_helper")
+  help_request help_request @relation(fields: [request_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_request")
+}
+
+model help_request {
+  id                 String              @id @default(cuid())
+  creator_id         String
+  title              String              @db.VarChar(255)
+  description        String?
+  creation_date      DateTime            @default(now()) @db.Timestamp(6)
+  needed_date        DateTime?           @db.Timestamp(6)
+  estimated_duration Int?
+  location           String?             @db.VarChar(255)
+  gps_coordinates    String?
+  category           String?             @db.VarChar(100)
+  recurring          Boolean?            @default(false)
+  frequency          String?             @db.VarChar(50)
+  status             String?             @db.VarChar(50)
+  points_offered     Int?                @default(0)
+  created_at         DateTime            @default(now()) @db.Timestamp(6)
+  updated_at         DateTime?           @db.Timestamp(6)
+  help_offer         help_offer[]
+  user               user                @relation(fields: [creator_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_creator")
+  service_completed  service_completed[]
+}
+
+model local_service {
+  id              String           @id @default(cuid())
+  name            String?          @db.VarChar(255)
+  category        String?          @db.VarChar(255)
+  address         String?          @db.VarChar(255)
+  gps_coordinates String?
+  phone           String?          @db.VarChar(20)
+  website         String?          @db.VarChar(255)
+  description     String?
+  hours           String?          @db.VarChar(100)
+  senior_friendly Boolean?
+  created_at      DateTime         @default(now()) @db.Timestamp(6)
+  updated_at      DateTime?        @db.Timestamp(6)
+  service_rating  service_rating[]
+}
+
+model medication_reminder {
+  id                    String    @id @default(cuid())
+  user_id               String
+  medication_name       String    @db.VarChar(255)
+  dosage                String?   @db.VarChar(100)
+  morning_reminder_time DateTime? @db.Time(6)
+  noon_reminder_time    DateTime? @db.Time(6)
+  evening_reminder_time DateTime? @db.Time(6)
+  night_reminder_time   DateTime? @db.Time(6)
+  days_of_week          String?   @db.VarChar(50)
+  instructions          String?
+  active                Boolean?  @default(true)
+  start_date            DateTime? @db.Timestamp(6)
+  end_date              DateTime? @db.Timestamp(6)
+  created_at            DateTime  @default(now()) @db.Timestamp(6)
+  updated_at            DateTime? @db.Timestamp(6)
+  user                  user      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_user")
+}
+
+model message {
+  id              String        @id @default(cuid())
+  conversation_id String?
+  sender_id       String?
+  content         String?
+  send_date       DateTime?     @db.Timestamp(6)
+  type            String?       @db.VarChar(50)
+  read            Boolean?
+  created_at      DateTime      @default(now()) @db.Timestamp(6)
+  updated_at      DateTime?     @db.Timestamp(6)
+  conversation    conversation? @relation(fields: [conversation_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user            user?         @relation(fields: [sender_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model municipal_event {
+  id              String    @id @default(cuid())
+  title           String    @db.VarChar(255)
+  description     String?
+  start_date      DateTime  @db.Timestamp(6)
+  end_date        DateTime  @db.Timestamp(6)
+  location        String?   @db.VarChar(255)
+  gps_coordinates String?
+  organizer       String?   @db.VarChar(255)
+  contact         String?   @db.VarChar(255)
+  official_link   String?   @db.VarChar(255)
+  created_at      DateTime  @default(now()) @db.Timestamp(6)
+  updated_at      DateTime? @db.Timestamp(6)
+}
+
+model notification {
+  id          String    @id @default(cuid())
+  user_id     String?
+  type        String?   @db.VarChar(50)
+  content     String?
+  read        Boolean?
+  action_link String?   @db.VarChar(255)
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  updated_at  DateTime? @db.Timestamp(6)
+  user        user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model notification_preferences {
+  user_id           String    @id
+  message_notif     Boolean?  @default(true)
+  activity_notif    Boolean?  @default(true)
+  help_notif        Boolean?  @default(true)
+  forum_notif       Boolean?  @default(true)
+  email_notif       Boolean?  @default(true)
+  sms_notif         Boolean?  @default(false)
+  push_notif        Boolean?  @default(true)
+  quiet_hours_start DateTime? @db.Time(6)
+  quiet_hours_end   DateTime? @db.Time(6)
+  created_at        DateTime  @default(now()) @db.Timestamp(6)
+  updated_at        DateTime? @db.Timestamp(6)
+  user              user      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model nutritional_advice {
+  id          String    @id @default(cuid())
+  title       String    @db.VarChar(255)
+  description String?
+  category    String?   @db.VarChar(50)
+  season      String    @db.VarChar(50)
+  image       String?   @db.VarChar(255)
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  updated_at  DateTime? @db.Timestamp(6)
+}
+
+model offline_user {
+  user_id     Int       @id
+  cached_data Json?     @db.Json
+  last_sync   DateTime? @db.Timestamp(6)
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  updated_at  DateTime? @db.Timestamp(6)
+}
+
+model project_member {
+  project_id            String
+  user_id               String
+  role                  String?               @db.VarChar(100)
+  join_date             DateTime?             @db.Timestamp(6)
+  created_at            DateTime              @default(now()) @db.Timestamp(6)
+  updated_at            DateTime?             @db.Timestamp(6)
+  collaborative_project collaborative_project @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user                  user                  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([project_id, user_id])
+}
+
+model project_task {
+  id                    String                 @id @default(cuid())
+  project_id            String?
+  title                 String?                @db.VarChar(255)
+  description           String?
+  creation_date         DateTime?              @db.Timestamp(6)
+  due_date              DateTime?              @db.Timestamp(6)
+  status                String?                @db.VarChar(50)
+  assignee_id           String?
+  created_at            DateTime               @default(now()) @db.Timestamp(6)
+  updated_at            DateTime?              @db.Timestamp(6)
+  user                  user?                  @relation(fields: [assignee_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  collaborative_project collaborative_project? @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model resource {
+  id              String    @id @default(cuid())
+  title           String    @db.VarChar(255)
+  content         String?
+  type            String?   @db.VarChar(100)
+  category        String?   @db.VarChar(100)
+  author_id       String?
+  admin_validated Boolean?  @default(false)
+  created_at      DateTime  @default(now()) @db.Timestamp(6)
+  updated_at      DateTime? @db.Timestamp(6)
+  user            user?     @relation(fields: [author_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_author")
+}
+
+model satisfaction_survey {
+  id              String            @id @default(cuid())
+  title           String            @db.VarChar(255)
+  description     String?
+  start_date      DateTime?         @db.Timestamp(6)
+  end_date        DateTime?         @db.Timestamp(6)
+  active          Boolean?          @default(true)
+  created_at      DateTime          @default(now()) @db.Timestamp(6)
+  updated_at      DateTime?         @db.Timestamp(6)
+  survey_response survey_response[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model service_completed {
+  id               String       @id @default(cuid())
+  request_id       String
+  helper_id        String
+  completion_date  DateTime     @db.Timestamp(6)
+  actual_duration  Int?
+  creator_comment  String?
+  helper_comment   String?
+  creator_rating   Int?
+  helper_rating    Int?
+  points_exchanged Int?
+  created_at       DateTime     @default(now()) @db.Timestamp(6)
+  updated_at       DateTime?    @db.Timestamp(6)
+  user             user         @relation(fields: [helper_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_helper")
+  help_request     help_request @relation(fields: [request_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_request")
+}
+
+model service_rating {
+  service_id    String
+  user_id       String
+  rating        Int?
+  comment       String?
+  rating_date   DateTime?     @db.Timestamp(6)
+  created_at    DateTime      @default(now()) @db.Timestamp(6)
+  updated_at    DateTime?     @db.Timestamp(6)
+  local_service local_service @relation(fields: [service_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user          user          @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([service_id, user_id])
+}
+
+model skill {
+  id          String       @id @default(cuid())
+  name        String       @db.VarChar(255)
+  description String?      @db.VarChar(500)
+  category    String?      @db.VarChar(255)
+  created_at  DateTime     @default(now()) @db.Timestamp(6)
+  updated_at  DateTime?    @db.Timestamp(6)
+  user_skill  user_skill[]
+}
+
+model survey_response {
+  survey_id           String
+  user_id             String
+  responses           Json?
+  response_date       DateTime?           @default(now()) @db.Timestamp(6)
+  created_at          DateTime            @default(now()) @db.Timestamp(6)
+  updated_at          DateTime?           @db.Timestamp(6)
+  satisfaction_survey satisfaction_survey @relation(fields: [survey_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user                user                @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([survey_id, user_id])
+}
+
+model trust_circle {
+  user_id                            String
+  contact_id                         String
+  date_added                         DateTime? @db.Date
+  access_level                       String?   @db.VarChar
+  created_at                         DateTime  @default(now()) @db.Timestamp(6)
+  updated_at                         DateTime? @db.Timestamp(6)
+  user_trust_circle_contact_idTouser user      @relation("trust_circle_contact_idTouser", fields: [contact_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user_trust_circle_user_idTouser    user      @relation("trust_circle_user_idTouser", fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([user_id, contact_id])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model trusted_contact {
+  id                        String    @id @default(cuid())
+  user_id                   String
+  last_name                 String    @db.VarChar(255)
+  first_name                String    @db.VarChar(255)
+  email                     String    @unique @db.VarChar(255)
+  phone                     String?   @db.VarChar(20)
+  relationship              String?   @db.VarChar(50)
+  share_medications         Boolean   @default(false)
+  share_health_indicators   Boolean   @default(false)
+  share_wellness_activities Boolean   @default(false)
+  emergency_alerts          Boolean   @default(false)
+  created_at                DateTime  @default(now()) @db.Timestamp(6)
+  updated_at                DateTime? @db.Timestamp(6)
+  user                      user      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model urban_issue_report {
+  id              String    @id @default(cuid())
+  user_id         String?
+  category        String    @db.VarChar(255)
+  description     String?
+  address         String?   @db.VarChar(255)
+  gps_coordinates String?
+  report_date     DateTime  @db.Timestamp(6)
+  status          String?   @db.VarChar(255)
+  city_reference  String?   @db.VarChar(255)
+  created_at      DateTime  @default(now()) @db.Timestamp(6)
+  updated_at      DateTime? @db.Timestamp(6)
+  user            user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model user {
+  id                                         String                     @id @default(cuid())
+  email                                      String                     @unique @db.VarChar(255)
+  password_hash                              String                     @db.VarChar(255)
+  first_name                                 String?                    @db.VarChar(100)
+  last_name                                  String?                    @db.VarChar(100)
+  birth_date                                 DateTime?                  @db.Date
+  address                                    String?                    @db.VarChar(255)
+  gps_coordinates                            String?
+  phone                                      String?                    @db.VarChar(20)
+  profile_picture                            String?                    @db.VarChar(255)
+  registration_date                          DateTime                   @default(now()) @db.Timestamp(6)
+  account_verified                           Boolean                    @default(false)
+  interface_preferences                      String?                    @db.VarChar(255)
+  two_factor_authentication                  Boolean                    @default(false)
+  help_points                                Int?                       @default(0)
+  reduced_mobility                           Boolean?                   @default(false)
+  activity_level                             String?                    @db.VarChar(20)
+  emergency_contact_name                     String?                    @db.VarChar(100)
+  emergency_contact_phone                    String?                    @db.VarChar(20)
+  status                                     String?                    @default("active") @db.VarChar(50)
+  created_at                                 DateTime                   @default(now()) @db.Timestamp(6)
+  updated_at                                 DateTime?                  @db.Timestamp(6)
+  activity                                   activity[]
+  activity_log                               activity_log[]
+  activity_registration                      activity_registration[]
+  collaborative_project                      collaborative_project[]
+  conversation_participant                   conversation_participant[]
+  forum_message                              forum_message[]
+  forum_topic                                forum_topic[]
+  health_indicator                           health_indicator[]
+  help_offer                                 help_offer[]
+  help_request                               help_request[]
+  medication_reminder                        medication_reminder[]
+  message                                    message[]
+  notification                               notification[]
+  notification_preferences                   notification_preferences?
+  project_member                             project_member[]
+  project_task                               project_task[]
+  resource                                   resource[]
+  service_completed                          service_completed[]
+  service_rating                             service_rating[]
+  survey_response                            survey_response[]
+  trust_circle_trust_circle_contact_idTouser trust_circle[]             @relation("trust_circle_contact_idTouser")
+  trust_circle_trust_circle_user_idTouser    trust_circle[]             @relation("trust_circle_user_idTouser")
+  trusted_contact                            trusted_contact[]
+  urban_issue_report                         urban_issue_report[]
+  user_activity                              user_activity[]
+  user_badge                                 user_badge[]
+  user_device                                user_device[]
+  user_skill                                 user_skill[]
+  user_statistics                            user_statistics?
+  video_call                                 video_call[]
+  wellness_goal                              wellness_goal[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model user_activity {
+  id                         String              @id @default(cuid())
+  user_id                    String
+  completion_date            DateTime            @db.Date
+  exercise_program_id        String?
+  cognitive_exercise_id      String?
+  duration_minutes           Int
+  perceived_difficulty_level Int?
+  enjoyment_level            Int?
+  comment                    String?
+  created_at                 DateTime            @default(now()) @db.Timestamp(6)
+  updated_at                 DateTime?           @db.Timestamp(6)
+  cognitive_exercise         cognitive_exercise? @relation(fields: [cognitive_exercise_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  exercise_program           exercise_program?   @relation(fields: [exercise_program_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user                       user                @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model user_badge {
+  user_id          String
+  badge_id         String
+  achievement_date DateTime? @db.Timestamp(6)
+  created_at       DateTime  @default(now()) @db.Timestamp(6)
+  updated_at       DateTime? @db.Timestamp(6)
+  badge            badge     @relation(fields: [badge_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user             user      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([user_id, badge_id])
+}
+
+model user_device {
+  id                 String    @id @default(cuid())
+  user_id            String?
+  device_type        String?   @db.VarChar
+  device_name        String?   @db.VarChar
+  operating_system   String?   @db.VarChar
+  notification_token String?   @db.VarChar
+  last_connection    DateTime? @db.Timestamp(6)
+  created_at         DateTime  @default(now()) @db.Timestamp(6)
+  updated_at         DateTime? @db.Timestamp(6)
+  user               user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model user_skill {
+  user_id    String
+  skill_id   String
+  level      Int?
+  created_at DateTime  @default(now()) @db.Timestamp(6)
+  updated_at DateTime? @db.Timestamp(6)
+  skill      skill     @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user       user      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([user_id, skill_id])
+}
+
+model user_statistics {
+  user_id                 String    @id
+  services_provided       Int?
+  services_received       Int?
+  activities_participated Int?
+  activities_organized    Int?
+  forum_messages          Int?
+  total_help_points       Int?
+  network_size            Int?
+  created_at              DateTime  @default(now()) @db.Timestamp(6)
+  updated_at              DateTime? @db.Timestamp(6)
+  user                    user      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model video_call {
+  id              String        @id @default(cuid())
+  conversation_id String?
+  initiator_id    String?
+  start_date      DateTime?     @db.Timestamp(6)
+  end_date        DateTime?     @db.Timestamp(6)
+  status          String?       @db.VarChar(50)
+  created_at      DateTime      @default(now()) @db.Timestamp(6)
+  updated_at      DateTime?     @db.Timestamp(6)
+  conversation    conversation? @relation(fields: [conversation_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user            user?         @relation(fields: [initiator_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model wellness_badge {
+  id          String    @id @default(cuid())
+  name        String    @db.VarChar(255)
+  description String?
+  category    String    @db.VarChar(50)
+  image       String?   @db.VarChar(255)
+  level       Int
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  updated_at  DateTime? @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model wellness_goal {
+  id            String          @id @default(cuid())
+  user_id       String?
+  title         String          @db.VarChar(255)
+  category      String          @db.VarChar(50)
+  target_value  Int
+  unit          String          @db.VarChar(50)
+  frequency     String          @db.VarChar(50)
+  start_date    DateTime        @db.Date
+  end_date      DateTime        @db.Date
+  active        Boolean?        @default(true)
+  created_at    DateTime        @default(now()) @db.Timestamp(6)
+  updated_at    DateTime?       @db.Timestamp(6)
+  goal_progress goal_progress[]
+  user          user?           @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
