@@ -26,7 +26,7 @@ export const getExerciseProgramById = async (req, res) => {
     },
   });
   if (!program) return res.status(404).json({ error: `Programme d'exercices non trouvé` });
-  if (program) return res.json(program);
+  if (program) return res.status(200).json(program);
   res.status(404).json({ error: 'ExerciseProgram not found' });
 };
 

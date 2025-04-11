@@ -13,8 +13,6 @@
  *       properties:
  *         id:
  *           type: string
- *           format: uuid
- *           readOnly: true
  *         name:
  *           type: string
  *           example: "Morning Stretch"

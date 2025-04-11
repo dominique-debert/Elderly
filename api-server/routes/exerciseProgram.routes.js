@@ -32,9 +32,9 @@ exerciseProgramRoutes.get('/', getAllExercisePrograms);
  *       - in: path
  *         name: id
  *         required: true
+ *         description: ID du programme d'exercice à récupérer
  *         schema:
  *           type: string
- *           format: uuid
  *     responses:
  *       200:
  *         description: Programme d'exercice trouvé
@@ -73,7 +73,6 @@ exerciseProgramRoutes.post('/', createExerciseProgram);
  *         required: true
  *         schema:
  *           type: string
- *           format: uuid
  *     requestBody:
  *       required: true
  *       content:
@@ -100,7 +99,6 @@ exerciseProgramRoutes.put('/:id', updateExerciseProgram);
  *         required: true
  *         schema:
  *           type: string
- *           format: uuid
  *     responses:
  *       204:
  *         description: Programme d'exercice supprimé
