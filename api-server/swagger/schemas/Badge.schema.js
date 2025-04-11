@@ -4,8 +4,6 @@
  *   schemas:
  *     Badge:
  *       type: object
- *       required:
- *         - id
  *       properties:
  *         id:
  *           type: integer
@@ -34,7 +32,6 @@
  *           format: date-time
  *           description: Date de mise à jour du badge
  *       example:
- *         id: 1
  *         name: Expert
  *         description: Badge pour les utilisateurs experts
  *         icon: expert.png

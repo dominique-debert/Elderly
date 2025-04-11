@@ -11,34 +11,6 @@ const router = express.Router();
  *     summary: Récupérer tous les badges
  *     description: Renvoie une liste paginée de badges avec possibilité de filtrage
  *     tags: [Badges]
- *     parameters:
- *       - in: query
- *         name: page
- *         schema:
- *           type: integer
- *           default: 1
- *         description: Numéro de page pour la pagination
- *       - in: query
- *         name: limit
- *         schema:
- *           type: integer
- *           default: 10
- *         description: Nombre d'éléments par page
- *       - in: query
- *         name: search
- *         schema:
- *           type: string
- *         description: Terme de recherche pour filtrer les badges
- *       - in: query
- *         name: category
- *         schema:
- *           type: string
- *         description: Filtre par catégorie de badge
- *       - in: query
- *         name: level
- *         schema:
- *           type: integer
- *         description: Filtre par niveau de badge
  *     responses:
  *       200:
  *         description: Liste des badges récupérée avec succès
@@ -106,12 +78,7 @@ router.get('/:id', badgeController.getBadgeById);
  *         application/json:
  *           schema:
  *             type: object
- *             required:
- *               - id
  *             properties:
- *               id:
- *                 type: integer
- *                 description: ID du badge
  *               name:
  *                 type: string
  *                 description: Nom du badge
@@ -153,7 +120,7 @@ router.post('/', badgeController.createBadge);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *         description: ID du badge à mettre à jour
  *     requestBody:
  *       required: true
@@ -203,7 +170,7 @@ router.put('/:id', badgeController.updateBadge);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *         description: ID du badge à supprimer
  *     responses:
  *       200:

@@ -4,38 +4,14 @@ const prisma = new PrismaClient()
 
 export const getAllBadges = async(req, res) => {
   try {
-    const { page = 1, limit = 10, search, category, level } = req.query;
-    const offset = (page - 1) * limit;
-    
-    const whereClause = {};
-    
-    if (search) {
-      whereClause[Op.or] = [
-        { name: { [Op.iLike]: `%${search}%` } },
-        { description: { [Op.iLike]: `%${search}%` } }
-      ];
-    }
-    
-    if (category) {
-      whereClause.category = category;
-    }
-    
-    if (level) {
-      whereClause.level = level;
-    }
-    
-    const { count, rows } = await Badge.findAndCountAll({
-      where: whereClause,
-      limit: parseInt(limit),
-      offset: parseInt(offset),
-      order: [['id', 'ASC']]
+    const badges = await prisma.badge.findMany({
+      orderBy: {  
+        name: 'asc' // Tri par nom
+      },
     });
     
     res.status(200).json({
-      total: count,
-      totalPages: Math.ceil(count / limit),
-      currentPage: parseInt(page),
-      badges: rows
+      badges
     });
   } catch (error) {
     res.status(500).json({ message: 'Erreur lors de la récupération des badges', error: error.message });
@@ -45,7 +21,9 @@ export const getAllBadges = async(req, res) => {
 export const getBadgeById = async(req, res) => {
   try {
     const { id } = req.params;
-    const badge = await Badge.findByPk(id);
+    const badge = await prisma.badge.findUnique({
+      where: { id: parseInt(id) }
+    });
     
     if (!badge) {
       return res.status(404).json({ message: 'Badge non trouvé' });
@@ -59,21 +37,16 @@ export const getBadgeById = async(req, res) => {
 
 export const createBadge = async(req, res) => {
   try {
-    const { id, name, description, icon, category, level } = req.body;
+    const { name, description, icon, category, level } = req.body;
     
-    // Vérification si un badge avec cet ID existe déjà
-    const existingBadge = await Badge.findByPk(id);
-    if (existingBadge) {
-      return res.status(400).json({ message: 'Un badge avec cet ID existe déjà' });
-    }
-    
-    const newBadge = await Badge.create({
-      id,
-      name,
-      description,
-      icon,
-      category,
-      level
+    const newBadge = await prisma.badge.create({
+      data: {
+        name,
+        description,
+        icon,
+        category,
+        level
+      }
     });
     
     res.status(201).json(newBadge);
@@ -82,25 +55,31 @@ export const createBadge = async(req, res) => {
   }
 }
 
-
 export const updateBadge = async(req, res) => {
   try {
     const { id } = req.params;
     const { name, description, icon, category, level } = req.body;
     
-    const badge = await Badge.findByPk(id);
+    const badge = await prisma.badge.findUnique(
+      {
+        where: { id: id }
+      }
+    );
     
     if (!badge) {
       return res.status(404).json({ message: 'Badge non trouvé' });
     }
     
-    await badge.update({
-      name,
-      description,
-      icon,
-      category,
-      level,
-      updated_at: new Date()
+    await prisma.badge.update({
+      data: {
+        name,
+        description,
+        icon,
+        category,
+        level,
+        updated_at: new Date()
+      },
+      where: { id: id }
     });
     
     res.status(200).json(badge);
@@ -113,13 +92,17 @@ export const deleteBadge = async(req, res) => {
   try {
     const { id } = req.params;
     
-    const badge = await Badge.findByPk(id);
+    const badge = await prisma.badge.findUnique({
+      where: { id: id }
+    });
     
     if (!badge) {
       return res.status(404).json({ message: 'Badge non trouvé' });
     }
     
-    await badge.destroy();
+    await prisma.badge.delete( {
+      where: { id: id }
+    });
     
     res.status(200).json({ message: 'Badge supprimé avec succès' });
   } catch (error) {
