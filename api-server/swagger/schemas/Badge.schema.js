@@ -23,20 +23,10 @@
  *         level:
  *           type: integer
  *           description: Niveau du badge
- *         created_at:
- *           type: string
- *           format: date-time
- *           description: Date de création du badge
- *         updated_at:
- *           type: string
- *           format: date-time
- *           description: Date de mise à jour du badge
  *       example:
  *         name: Expert
  *         description: Badge pour les utilisateurs experts
  *         icon: expert.png
  *         category: Compétences
  *         level: 3
- *         created_at: 2025-04-10T10:00:00.000Z
- *         updated_at: 2025-04-10T10:00:00.000Z
  */
