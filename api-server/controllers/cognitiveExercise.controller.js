@@ -100,7 +100,7 @@ export const deleteCognitiveExercise = async (req, res) => {
     });
 
     if (!cognitiveExercise) {
-      throw createHttpError(404, 'Badge non trouvé');
+      throw createHttpError(404, 'Exercice cognitif non trouvé');
     }
 
     // Suppression de l'exercice

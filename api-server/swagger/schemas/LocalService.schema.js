@@ -7,7 +7,7 @@
  *       type: object
  *       properties:
  *         id:
- *           type: integer
+ *           type: string
  *           description: Identifiant unique
  *         name:
  *           type: string
