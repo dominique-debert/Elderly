@@ -12,6 +12,7 @@ import localServiceRoutes from './routes/localService.routes.js';
 import nutritionAdviceRoutes from './routes/nutritionAdvice.routes.js';
 import wellnessBadgeRoutes from './routes/wellnessBadge.routes.js';
 
+import errorHandler from './middlewares/errorHandler.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,6 +33,9 @@ app.use('/api//nutrition-advices', nutritionAdviceRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/skills', skillRoutes);
 app.use('/api/wellness-badges', wellnessBadgeRoutes);
+
+// Error handling middleware
+app.use(errorHandler);
 
 // Root route
 app.get('/', (req, res) => {

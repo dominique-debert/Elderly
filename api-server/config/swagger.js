@@ -4,9 +4,9 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Helpy API with PostgreSQL and Sequelize',
+      title: 'Helpy API with PostgreSQL and Prisma',
       version: '1.0.0',
-      description: 'A RESTful API with full CRUD operations built with Express, PostgreSQL, and Sequelize',
+      description: 'A RESTful API with full CRUD operations built with Express, PostgreSQL, and Prisma',
       contact: {
         name: 'API Support',
         email: 'support@example.com'

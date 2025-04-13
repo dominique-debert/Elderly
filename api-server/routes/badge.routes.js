@@ -3,6 +3,7 @@ import express from 'express';
 import * as badgeController from '../controllers/badge.controller.js';
 import { validate } from '../middlewares/validate.js';
 import { badgeSchema, idParamSchema } from '../schemas/badge.schema.js';
+import errorHandler from '../middlewares/errorHandler.js';
 
 const router = express.Router();
 
@@ -28,7 +29,7 @@ const router = express.Router();
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', badgeController.getAllBadges);
+router.get('/', errorHandler, badgeController.getAllBadges);
 
 /**
  * @swagger
@@ -57,7 +58,7 @@ router.get('/', badgeController.getAllBadges);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamSchema, 'params'), badgeController.getBadgeById);
+router.get('/:id', validate(idParamSchema, 'params'), errorHandler, badgeController.getBadgeById);
 
 /**
  * @swagger
@@ -100,7 +101,7 @@ router.get('/:id', validate(idParamSchema, 'params'), badgeController.getBadgeBy
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(badgeSchema), badgeController.createBadge);
+router.post('/', validate(badgeSchema), errorHandler, badgeController.createBadge);
 
 /**
  * @swagger
@@ -115,7 +116,6 @@ router.post('/', validate(badgeSchema), badgeController.createBadge);
  *         required: true
  *         schema:
  *           type: string
- *           format: uuid
  *         description: ID du badge à mettre à jour
  *     requestBody:
  *       required: true
@@ -151,7 +151,7 @@ router.post('/', validate(badgeSchema), badgeController.createBadge);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamSchema, 'params'), badgeController.updateBadge);
+router.put('/:id', validate(idParamSchema, 'params'), errorHandler, badgeController.updateBadge);
 
 /**
  * @swagger
@@ -176,6 +176,6 @@ router.put('/:id', validate(idParamSchema, 'params'), badgeController.updateBadg
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamSchema, 'params'), badgeController.deleteBadge);
+router.delete('/:id', validate(idParamSchema, 'params'), errorHandler, badgeController.deleteBadge);
 
 export default router;
