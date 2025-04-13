@@ -1,5 +1,7 @@
-// routes/exerciseProgram.routes.js
 import { Router } from 'express';
+import { validate } from '../middlewares/validate.js';
+import errorHandler from '../middlewares/errorHandler.js';
+
 import {
   getAllExercisePrograms,
   getExerciseProgramById,

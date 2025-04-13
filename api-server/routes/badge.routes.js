@@ -1,9 +1,16 @@
 // routes/badgeRoutes.js
 import express from 'express';
-import * as badgeController from '../controllers/badge.controller.js';
 import { validate } from '../middlewares/validate.js';
 import { badgeSchema, idParamSchema } from '../schemas/badge.schema.js';
 import errorHandler from '../middlewares/errorHandler.js';
+
+import {
+  createBadge,
+  getAllBadges,
+  getBadgeById,
+  updateBadge,
+  deleteBadge
+} from '../controllers/badge.controller.js';
 
 const router = express.Router();
 
@@ -29,7 +36,7 @@ const router = express.Router();
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, badgeController.getAllBadges);
+router.get('/', errorHandler, getAllBadges);
 
 /**
  * @swagger
@@ -44,7 +51,7 @@ router.get('/', errorHandler, badgeController.getAllBadges);
  *         required: true
  *         schema:
  *           type: string
- *           format: uuid
+ *           format: cuid
  *         description: ID du badge à récupérer
  *     responses:
  *       200:
@@ -58,7 +65,7 @@ router.get('/', errorHandler, badgeController.getAllBadges);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamSchema, 'params'), errorHandler, badgeController.getBadgeById);
+router.get('/:id', validate(idParamSchema, 'params'), errorHandler, getBadgeById);
 
 /**
  * @swagger
@@ -101,7 +108,7 @@ router.get('/:id', validate(idParamSchema, 'params'), errorHandler, badgeControl
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(badgeSchema), errorHandler, badgeController.createBadge);
+router.post('/', validate(badgeSchema), errorHandler, createBadge);
 
 /**
  * @swagger
@@ -116,6 +123,7 @@ router.post('/', validate(badgeSchema), errorHandler, badgeController.createBadg
  *         required: true
  *         schema:
  *           type: string
+ *           format: cuid
  *         description: ID du badge à mettre à jour
  *     requestBody:
  *       required: true
@@ -151,7 +159,7 @@ router.post('/', validate(badgeSchema), errorHandler, badgeController.createBadg
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamSchema, 'params'), errorHandler, badgeController.updateBadge);
+router.put('/:id', validate(idParamSchema, 'params'), errorHandler, updateBadge);
 
 /**
  * @swagger
@@ -166,7 +174,7 @@ router.put('/:id', validate(idParamSchema, 'params'), errorHandler, badgeControl
  *         required: true
  *         schema:
  *           type: string
- *           format: uuid
+ *           format: cuid
  *         description: ID du badge à supprimer
  *     responses:
  *       200:
@@ -176,6 +184,6 @@ router.put('/:id', validate(idParamSchema, 'params'), errorHandler, badgeControl
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamSchema, 'params'), errorHandler, badgeController.deleteBadge);
+router.delete('/:id', validate(idParamSchema, 'params'), errorHandler, deleteBadge);
 
 export default router;

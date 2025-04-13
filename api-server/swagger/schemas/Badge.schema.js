@@ -8,6 +8,7 @@
  *         id:
  *           type: integer
  *           description: Identifiant unique du badge
+ *           format: cuid
  *         name:
  *           type: string
  *           description: Nom du badge

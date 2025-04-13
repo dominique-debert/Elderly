@@ -1,13 +1,22 @@
-import express from 'express';
-import {
-  createExercise,
-  getAllExercises,
-  getExerciseById,
-  updateExercise,
-  deleteExercise
-} from '../controllers/cognitiveExercise.controller.js';
+import { Router } from 'express';
+import { validate } from '../middlewares/validate.js';
+import errorHandler from '../middlewares/errorHandler.js';
 
-const router = express.Router();
+import {
+  cognitiveExerciseSchema,
+  idParamCognitiveExerciseSchema }
+from '../schemas/cognitiveExercise.schema.js';
+
+import {
+  createCognitiveExercise,
+  getAllCognitiveExercises,
+  getCognitiveExerciseById,
+  updateCognitiveExercise,
+  deleteCognitiveExercise
+} from '../controllers/cognitiveExercise.controller.js';
+import { badgeSchema } from '../schemas/badge.schema.js';
+
+const router = Router();
 
 /**
  * @swagger
@@ -25,7 +34,7 @@ const router = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/CognitiveExercise'
  */
-router.get('/', getAllExercises);
+router.get('/', validate(cognitiveExerciseSchema), errorHandler, getAllCognitiveExercises);
 
 /**
  * @swagger
@@ -39,7 +48,7 @@ router.get('/', getAllExercises);
  *         required: true
  *         schema:
  *           type: string
- *           format: uuid
+ *           format: cuid
  *         description: ID de l'exercice à récupérer
  *     responses:
  *       200:
@@ -51,7 +60,7 @@ router.get('/', getAllExercises);
  *       404:
  *         description: Exercice non trouvé
  */
-router.get('/:id', getExerciseById);
+router.get('/:id', validate(idParamCognitiveExerciseSchema, 'params'), getCognitiveExerciseById);
 
 /**
  * @swagger
@@ -69,7 +78,7 @@ router.get('/:id', getExerciseById);
  *       201:
  *         description: Exercice créé
  */
-router.post('/', createExercise);
+router.post('/', validate(badgeSchema), errorHandler, createCognitiveExercise);
 
 /**
  * @swagger
@@ -83,7 +92,7 @@ router.post('/', createExercise);
  *         required: true
  *         schema:
  *           type: string
- *           format: uuid
+ *           format: cuid
  *         description: ID de l'exercice à mettre à jour
  *     requestBody:
  *       content:
@@ -96,7 +105,7 @@ router.post('/', createExercise);
  *       404:
  *         description: Exercice non trouvé
  */
-router.put('/:id', updateExercise);
+router.put('/:id', validate(idParamCognitiveExerciseSchema, 'params'), errorHandler, updateCognitiveExercise);
 
 /**
  * @swagger
@@ -110,7 +119,7 @@ router.put('/:id', updateExercise);
  *         required: true
  *         schema:
  *           type: string
- *           format: uuid
+ *           format: cuid
  *         description: ID de l'exercice à supprimer
  *     responses:
  *       204:
@@ -118,6 +127,6 @@ router.put('/:id', updateExercise);
  *       404:
  *         description: Exercice non trouvé
  */
-router.delete('/:id', deleteExercise);
+router.delete('/:id', validate(idParamCognitiveExerciseSchema, 'params'), errorHandler, deleteCognitiveExercise);
 
 export default router;

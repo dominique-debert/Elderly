@@ -12,6 +12,7 @@
  *       properties:
  *         id:
  *           type: string
+ *           format: cuid
  *           description: Identifiant unique de l'exercice cognitif (UUID)
  *         name:
  *           type: string

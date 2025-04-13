@@ -3,6 +3,25 @@ import { createHttpError } from '../utils/httpError.js';
 
 const prisma = new PrismaClient();
 
+export const createBadge = async (req, res, next) => {
+  const { name, description, icon, category, level } = req.body;
+  try {
+    const newBadge = await prisma.badge.create({
+      data: {
+        name,
+        description,
+        icon,
+        category,
+        level,
+      }
+    });
+
+    res.status(201).json(newBadge);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const getAllBadges = async (req, res, next) => {
   try {
     const badges = await prisma.badge.findMany({
@@ -33,25 +52,6 @@ export const getBadgeById = async (req, res, next) => {
   }
 };
 
-export const createBadge = async (req, res, next) => {
-  const { name, description, icon, category, level } = req.body;
-  try {
-    const newBadge = await prisma.badge.create({
-      data: {
-        name,
-        description,
-        icon,
-        category,
-        level,
-      }
-    });
-
-    res.status(201).json(newBadge);
-  } catch (error) {
-    next(error);
-  }
-};
-
 export const updateBadge = async (req, res, next) => {
   const { id, name, description, icon, category, level } = req.body;
 
@@ -63,7 +63,8 @@ export const updateBadge = async (req, res, next) => {
     if (!badge) {
       throw createHttpError(404, 'Badge non trouvé');
     }
-
+    
+    // Mise à jour du badge
     const updatedBadge = await prisma.badge.update({
       data: {
         name,
@@ -93,7 +94,8 @@ export const deleteBadge = async (req, res, next) => {
     if (!badge) {
       throw createHttpError(404, 'Badge non trouvé');
     }
-
+    
+    // Suppression du badge
     await prisma.badge.delete({
       where: { id }
     });
