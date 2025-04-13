@@ -1,7 +1,23 @@
-import express from 'express';
-import * as skillController from '../controllers/skill.controller.js';
+import { Router } from 'express';
+import { validate } from '../middlewares/validate.js';
+import errorHandler from '../middlewares/errorHandler.js';
 
-const skillRoutes = express.Router();
+import {
+  skillSchema,
+  idParamSkillSchema
+}
+from '../schemas/skill.schema.js'
+
+import { 
+  createSkill,
+  getAllSkills,
+  getSkillById,
+  updateSkill,
+  deleteSkill
+}
+from '../controllers/skill.controller.js';
+
+const router = Router();
 /**
  * @swagger
  * /api/skills:
@@ -24,7 +40,7 @@ const skillRoutes = express.Router();
  *       400:
  *         description: Données invalides
  */
-skillRoutes.post('/', skillController.createSkill);
+router.post('/', validate(skillSchema), errorHandler, createSkill);
 
 /**
  * @swagger
@@ -33,7 +49,7 @@ skillRoutes.post('/', skillController.createSkill);
  *     summary: Récupérer la liste des compétences
  *     tags: [Skills]       
  */ 
-skillRoutes.get('/', skillController.getAllSkills);
+router.get('/', errorHandler, getAllSkills);
 
 /**
  * @swagger
@@ -48,6 +64,7 @@ skillRoutes.get('/', skillController.getAllSkills);
  *         description: ID de la compétence
  *         schema:
  *           type: string
+ *           format: cuid
  *     responses:
  *       200:
  *         description: Compétence trouvée
@@ -58,7 +75,7 @@ skillRoutes.get('/', skillController.getAllSkills);
  *       404:
  *         description: Compétence non trouvée
  */
-skillRoutes.get('/:id', skillController.getSkillById);
+router.get('/:id', validate(idParamSkillSchema, 'params'), errorHandler, getSkillById);
 
 /**
  * @swagger
@@ -73,6 +90,7 @@ skillRoutes.get('/:id', skillController.getSkillById);
  *         description: ID de la compétence
  *         schema:
  *           type: string
+ *           format: cuid
  *     requestBody:
  *       required: true
  *       content:
@@ -89,7 +107,7 @@ skillRoutes.get('/:id', skillController.getSkillById);
  *       400:
  *         description: Données invalides
  */
-skillRoutes.put('/:id', skillController.updateSkill);
+router.put('/:id', validate(idParamSkillSchema, 'params'), errorHandler, updateSkill);
 
 /**
  * @swagger
@@ -104,12 +122,13 @@ skillRoutes.put('/:id', skillController.updateSkill);
  *         description: ID de la compétence
  *         schema:
  *           type: string
+ *           format: cuid
  *     responses:
  *       200:
  *         description: Compétence supprimée avec succès
  *       404:
  *         description: Compétence non trouvée
  */
-skillRoutes.delete('/:id', skillController.deleteSkill);
+router.delete('/:id', validate(idParamSkillSchema, 'params'), errorHandler, deleteSkill);
 
-export default skillRoutes;
+export default router;
