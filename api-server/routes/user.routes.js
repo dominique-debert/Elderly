@@ -1,7 +1,22 @@
-import express from 'express';
-import * as userController from '../controllers/user.controller.js';
+import { Router } from 'express';
+import { validate } from '../middlewares/validate.js';
+import errorHandler from '../middlewares/errorHandler.js';
 
-const userRoutes = express.Router();
+import {
+  userSchema,
+  idParamUserSchema }
+from '../schemas/user.schema.js';
+
+import {
+  createUser,
+  getAllUsers,
+  getUserById,
+  updateUser,
+  deleteUser
+} 
+from '../controllers/user.controller.js';
+
+const router = Router();
 
 /**
  * @swagger
@@ -25,7 +40,7 @@ const userRoutes = express.Router();
  *       400:
  *         description: Données invalides
  */
-userRoutes.post('/', userController.createUser);
+router.post('/', validate(userSchema), errorHandler, createUser);
 
 /**
  * @swagger
@@ -33,56 +48,11 @@ userRoutes.post('/', userController.createUser);
  *   get:
  *     summary: Récupérer la liste des utilisateurs
  *     tags: [Users]
- *     parameters:
- *       - in: query
- *         name: page
- *         schema:
- *           type: integer
- *           default: 1
- *         description: Numéro de page
- *       - in: query
- *         name: limit
- *         schema:
- *           type: integer
- *           default: 10
- *         description: Nombre d'éléments par page
- *       - in: query
- *         name: status
- *         schema:
- *           type: string
- *           enum: [active, inactive, suspended]
- *         description: Filtrer par statut
- *       - in: query
- *         name: email
- *         schema:
- *           type: string
- *         description: Recherche partielle sur l'email
- *       - in: query
- *         name: activity_level
- *         schema:
- *           type: string
- *           enum: [sedentary, moderate, active]
- *         description: Filtrer par niveau d'activité
  *     responses:
  *       200:
- *         description: Liste des utilisateurs récupérée avec succès
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 total:
- *                   type: integer
- *                 totalPages:
- *                   type: integer
- *                 currentPage:
- *                   type: integer
- *                 users:
- *                   type: array
- *                   items:
- *                     $ref: '#/components/schemas/User'
+ *         description: Liste des utilisateurs
  */
-userRoutes.get('/', userController.getAllUsers);
+router.get('/', errorHandler, getAllUsers);
 
 /**
  * @swagger
@@ -94,7 +64,8 @@ userRoutes.get('/', userController.getAllUsers);
  *       - in: path
  *         name: id
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: cuid
  *         required: true
  *         description: ID de l'utilisateur
  *     responses:
@@ -107,7 +78,7 @@ userRoutes.get('/', userController.getAllUsers);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRoutes.get('/:id', userController.getUserById);
+router.get('/:id', validate(idParamUserSchema, 'params'), errorHandler, getUserById);
 
 /**
  * @swagger
@@ -119,7 +90,8 @@ userRoutes.get('/:id', userController.getUserById);
  *       - in: path
  *         name: id
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: cuid
  *         required: true
  *         description: ID de l'utilisateur
  *     requestBody:
@@ -138,7 +110,7 @@ userRoutes.get('/:id', userController.getUserById);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRoutes.put('/:id', userController.updateUser);
+router.put('/:id', validate(idParamUserSchema, 'params'), errorHandler, updateUser);
 
 /**
  * @swagger
@@ -150,7 +122,8 @@ userRoutes.put('/:id', userController.updateUser);
  *       - in: path
  *         name: id
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: cuid
  *         required: true
  *         description: ID de l'utilisateur
  *     responses:
@@ -159,42 +132,6 @@ userRoutes.put('/:id', userController.updateUser);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRoutes.delete('/:id', userController.deleteUser);
+router.delete('/:id', validate(idParamUserSchema, 'params'), errorHandler, deleteUser);
 
-/**
- * @swagger
- * /api/users/{id}/status:
- *   patch:
- *     summary: Changer le statut d'un utilisateur
- *     tags: [Users]
- *     parameters:
- *       - in: path
- *         name: id
- *         schema:
- *           type: integer
- *         required: true
- *         description: ID de l'utilisateur
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - status
- *             properties:
- *               status:
- *                 type: string
- *                 enum: [active, inactive, suspended]
- *                 description: Nouveau statut de l'utilisateur
- *     responses:
- *       200:
- *         description: Statut de l'utilisateur changé avec succès
- *       400:
- *         description: Statut invalide
- *       404:
- *         description: Utilisateur non trouvé
- */
-userRoutes.patch('/:id/status', userController.changeUserStatus);
-
-export default userRoutes;
+export default router;

@@ -75,13 +75,25 @@ export const getLocalServiceById = async (req, res) => {
 
 export const updateLocalService = async (req, res) => {
   const { id } = req.params;
-  const { name, category, address, gps_coordinates, phone, website, description, hours, senior_friendly} = req.body;
+
+  const {
+    name,
+    category,
+    address,
+    gps_coordinates,
+    phone,
+    website,
+    description,
+    hours,
+    senior_friendly
+  } = req.body;
+  
   try {
     const service = await prisma.local_service.findUnique({
       where: { id },
     });
     
-    if (!program) {
+    if (!service) {
       throw createHttpError(404, `Service local non trouvé`);
     }
     

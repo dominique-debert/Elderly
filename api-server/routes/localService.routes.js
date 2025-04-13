@@ -39,7 +39,7 @@ router.post('/', validate(localServiceSchema), errorHandler, createLocalService)
  * @swagger
  * /api/local-services:
  *   get:
- *     summary: Liste tous les services locaux bien-être
+ *     summary: Liste tous les services locaux
  *     tags: [Local Services]
  *     responses:
  *       200:
