@@ -9,7 +9,17 @@ const prisma = new PrismaClient();
 */
 
 export const createLocalService = async (req, res) => {
-  const {name, category, address, gps_coordinates, phone, website, description, hours, senior_friendly} = req.body;
+  const {
+    name, 
+    category, 
+    address, 
+    gps_coordinates, 
+    phone, 
+    website, 
+    description, 
+    hours, 
+    senior_friendly
+  } = req.body;
   
   try {
     const newService = await prisma.local_service.create({
@@ -21,10 +31,11 @@ export const createLocalService = async (req, res) => {
         phone,
         hours,
         website,
+        description,
         senior_friendly
       }
     })
-    res.status(201).json(newProgram);
+    res.status(201).json(newService);
   } catch (error) {
     next(error);
   }
@@ -48,7 +59,7 @@ export const getLocalServiceById = async (req, res) => {
   const { id } = req.params;
   
   try {
-    const service = await prisma.exercise_program.findUnique({
+    const service = await prisma.local_service.findUnique({
       where: { id },
     });
     

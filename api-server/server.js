@@ -9,7 +9,7 @@ import badgeRoutes from './routes/badge.routes.js';
 import cognitiveExerciseRoutes from './routes/cognitiveExercise.routes.js';
 import exerciseProgramRoutes from './routes/exerciseProgram.routes.js';
 import localServiceRoutes from './routes/localService.routes.js';
-import nutritionAdviceRoutes from './routes/nutritionAdvice.routes.js';
+import nutritionAdviceRoutes from './routes/nutritionalAdvice.routes.js';
 import wellnessBadgeRoutes from './routes/wellnessBadge.routes.js';
 
 import errorHandler from './middlewares/errorHandler.js';

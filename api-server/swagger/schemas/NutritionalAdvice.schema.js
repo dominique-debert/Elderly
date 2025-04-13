@@ -2,14 +2,16 @@
  * @swagger
  * components:
  *   schemas:
- *     NutritionAdvice:
+ *     NutritionalAdvice:
  *       type: object
  *       required:
  *         - title
  *         - season
+ *         - category
  *       properties:
  *         id:
- *           type: integer
+ *           type: string
+ *           format: cuid
  *           description: ID auto-incrémenté
  *         title:
  *           type: string
