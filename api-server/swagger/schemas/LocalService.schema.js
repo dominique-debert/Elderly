@@ -39,4 +39,6 @@
  *       required:
  *         - name
  *         - category
+ *         - address
+ *         - senior_friendly
  */

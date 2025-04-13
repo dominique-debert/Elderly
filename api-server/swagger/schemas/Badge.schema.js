@@ -6,7 +6,7 @@
  *       type: object
  *       properties:
  *         id:
- *           type: integer
+ *           type: string
  *           description: Identifiant unique du badge
  *           format: cuid
  *         name:

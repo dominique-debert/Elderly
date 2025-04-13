@@ -21,6 +21,24 @@ const router = Router();
 /**
  * @swagger
  * /api/cognitive-exercises:
+ *   post:
+ *     summary: Crée un nouvel exercice cognitif
+ *     tags: [Cognitive exercises]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/CognitiveExercise'
+ *     responses:
+ *       201:
+ *         description: Exercice créé
+ */
+router.post('/', validate(badgeSchema), errorHandler, createCognitiveExercise);
+
+/**
+ * @swagger
+ * /api/cognitive-exercises:
  *   get:
  *     summary: Récupère la liste de tous les exercices cognitifs
  *     tags: [Cognitive exercises]
@@ -34,7 +52,7 @@ const router = Router();
  *               items:
  *                 $ref: '#/components/schemas/CognitiveExercise'
  */
-router.get('/', validate(cognitiveExerciseSchema), errorHandler, getAllCognitiveExercises);
+router.get('/', errorHandler, getAllCognitiveExercises);
 
 /**
  * @swagger
@@ -61,24 +79,6 @@ router.get('/', validate(cognitiveExerciseSchema), errorHandler, getAllCognitive
  *         description: Exercice non trouvé
  */
 router.get('/:id', validate(idParamCognitiveExerciseSchema, 'params'), getCognitiveExerciseById);
-
-/**
- * @swagger
- * /api/cognitive-exercises:
- *   post:
- *     summary: Crée un nouvel exercice cognitif
- *     tags: [Cognitive exercises]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/CognitiveExercise'
- *     responses:
- *       201:
- *         description: Exercice créé
- */
-router.post('/', validate(badgeSchema), errorHandler, createCognitiveExercise);
 
 /**
  * @swagger

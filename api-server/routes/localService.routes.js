@@ -1,39 +1,21 @@
-import express from 'express';
-import { getAllLocalServices, getLocalServiceById, updateLocalService, deleteLocalService, createLocalService } from '../controllers/localService.controller.js';
+import { Router } from 'express';
+import { validate } from '../middlewares/validate.js';
+import errorHandler from '../middlewares/errorHandler.js';
 
-const localServiceRoutes = express.Router();
+import {
+  localServiceSchema,
+  idParamLocalServiceSchema }
+from '../schemas/localService.schema.js';
 
-/**
- * @swagger
- * /api/local-services:
- *   get:
- *     summary: Liste tous les services locaux bien-être
- *     tags: [Local Services]
- *     responses:
- *       200:
- *         description: Liste des services locaux
- */
-localServiceRoutes.get('/', getAllLocalServices);
+import {
+  createLocalService,
+  getAllLocalServices,
+  getLocalServiceById,
+  updateLocalService,
+  deleteLocalService
+} from '../controllers/localService.controller.js';
 
-/**
- * @swagger
- * /api/local-services/{id}:
- *   get:
- *     summary: Récupère un service local par son ID
- *     tags: [Local Services]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: integer
- *     responses:
- *       200:
- *         description: Service local trouvé
- *       404:
- *         description: Service local introuvable
- */
-localServiceRoutes.get('/:id', getLocalServiceById);
+const router = Router();
 
 /**
  * @swagger
@@ -51,7 +33,40 @@ localServiceRoutes.get('/:id', getLocalServiceById);
  *       201:
  *         description: Service local créé
  */
-localServiceRoutes.post('/', createLocalService);
+router.post('/', validate(localServiceSchema), errorHandler, createLocalService);
+
+/**
+ * @swagger
+ * /api/local-services:
+ *   get:
+ *     summary: Liste tous les services locaux bien-être
+ *     tags: [Local Services]
+ *     responses:
+ *       200:
+ *         description: Liste des services locaux
+ */
+router.get('/', errorHandler, getAllLocalServices);
+
+/**
+ * @swagger
+ * /api/local-services/{id}:
+ *   get:
+ *     summary: Récupère un service local par son ID
+ *     tags: [Local Services]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: cuid
+ *     responses:
+ *       200:
+ *         description: Service local trouvé
+ *       404:
+ *         description: Service local introuvable
+ */
+router.get('/:id', validate(idParamLocalServiceSchema, 'params'), errorHandler, getLocalServiceById);
 
 /**
  * @swagger
@@ -64,7 +79,8 @@ localServiceRoutes.post('/', createLocalService);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: cuid
  *     requestBody:
  *       required: true
  *       content:
@@ -77,7 +93,7 @@ localServiceRoutes.post('/', createLocalService);
  *       404:
  *         description: Service local introuvable
  */
-localServiceRoutes.put('/:id', updateLocalService);
+router.put('/:id', validate(idParamLocalServiceSchema, 'params'), errorHandler, updateLocalService);
 
 /**
  * @swagger
@@ -90,13 +106,14 @@ localServiceRoutes.put('/:id', updateLocalService);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: cuid
  *     responses:
  *       204:
  *         description: Suppression réussie
  *       404:
  *         description: Service local introuvable
  */
-localServiceRoutes.delete('/:id', deleteLocalService);
+router.delete('/:id', validate(idParamLocalServiceSchema, 'params'), errorHandler, deleteLocalService);
 
-export default localServiceRoutes;
+export default router;

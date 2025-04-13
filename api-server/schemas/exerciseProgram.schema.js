@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-export const exerciseSchema = Joi.object({
+export const exerciseProgramSchema = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().allow(null, ''),
   icon: Joi.string().allow(null, ''),
@@ -8,6 +8,6 @@ export const exerciseSchema = Joi.object({
   level: Joi.number().integer().min(0).allow(null)
 });
 
-export const idParamExerciseSchema = Joi.object({
+export const idParamExerciseProgramSchema = Joi.object({
   id: Joi.string().required()
 });
