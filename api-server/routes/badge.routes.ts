@@ -17,6 +17,49 @@ const router = Router();
 /**
  * @swagger
  * /api/badges:
+ *   post:
+ *     summary: Créer un nouveau badge
+ *     description: Crée un nouveau badge avec les données fournies
+ *     tags: [Badges]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: Nom du badge
+ *               description:
+ *                 type: string
+ *                 description: Description du badge
+ *               icon:
+ *                 type: string
+ *                 description: Chemin de l'icône du badge
+ *               category:
+ *                 type: string
+ *                 description: Catégorie du badge
+ *               level:
+ *                 type: integer
+ *                 description: Niveau du badge
+ *     responses:
+ *       201:
+ *         description: Badge créé avec succès
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Badge'
+ *       400:
+ *         description: Requête invalide ou badge déjà existant
+ *       500:
+ *         description: Erreur serveur
+ */
+router.post('/', validate(badgeSchema), errorHandler, createBadge);
+
+/**
+ * @swagger
+ * /api/badges:
  *   get:
  *     summary: Récupérer tous les badges
  *     description: Renvoie une liste paginée de badges avec possibilité de filtrage
@@ -66,49 +109,6 @@ router.get('/', errorHandler, getAllBadges);
  *         description: Erreur serveur
  */
 router.get('/:id', validate(idParamSchema, 'params'), errorHandler, getBadgeById);
-
-/**
- * @swagger
- * /api/badges:
- *   post:
- *     summary: Créer un nouveau badge
- *     description: Crée un nouveau badge avec les données fournies
- *     tags: [Badges]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *                 description: Nom du badge
- *               description:
- *                 type: string
- *                 description: Description du badge
- *               icon:
- *                 type: string
- *                 description: Chemin de l'icône du badge
- *               category:
- *                 type: string
- *                 description: Catégorie du badge
- *               level:
- *                 type: integer
- *                 description: Niveau du badge
- *     responses:
- *       201:
- *         description: Badge créé avec succès
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Badge'
- *       400:
- *         description: Requête invalide ou badge déjà existant
- *       500:
- *         description: Erreur serveur
- */
-router.post('/', validate(badgeSchema), errorHandler, createBadge);
 
 /**
  * @swagger

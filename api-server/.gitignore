@@ -49,4 +49,5 @@ node_modules/.bin/*
 package-lock.json
 .env
 .DS_Store
+../.DS_Store
 
