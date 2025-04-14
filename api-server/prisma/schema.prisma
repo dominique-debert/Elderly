@@ -88,12 +88,12 @@ model cognitive_exercise {
 
 model collaborative_project {
   id             String           @id @default(cuid())
-  title          String?          @db.VarChar(255)
+  title          String           @db.VarChar(255)
   description    String?
-  creator_id     String?
-  creation_date  DateTime?        @db.Timestamp(6)
+  creator_id     String
+  creation_date  DateTime         @default(now()) @db.Timestamp(6)
   status         String?          @db.VarChar(50)
-  category       String?          @db.VarChar(100)
+  category       String           @db.VarChar(100)
   created_at     DateTime         @default(now()) @db.Timestamp(6)
   updated_at     DateTime?        @db.Timestamp(6)
   user           user?            @relation(fields: [creator_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -147,7 +147,7 @@ model forum_category {
   id                 String        @id @default(cuid())
   name               String        @db.VarChar(255)
   description        String?       @db.VarChar(255)
-  parent_category_id Int?
+  parent_category_id String
   created_at         DateTime      @default(now()) @db.Timestamp(6)
   updated_at         DateTime?     @db.Timestamp(6)
   forum_topic        forum_topic[]
@@ -233,7 +233,7 @@ model help_request {
   estimated_duration Int?
   location           String?             @db.VarChar(255)
   gps_coordinates    String?
-  category           String?             @db.VarChar(100)
+  category           String              @db.VarChar(100)
   recurring          Boolean?            @default(false)
   frequency          String?             @db.VarChar(50)
   status             String?             @db.VarChar(50)
@@ -282,10 +282,10 @@ model medication_reminder {
 
 model message {
   id              String        @id @default(cuid())
-  conversation_id String?
-  sender_id       String?
-  content         String?
-  send_date       DateTime?     @db.Timestamp(6)
+  conversation_id String
+  sender_id       String
+  content         String
+  send_date       DateTime      @db.Timestamp(6)
   type            String?       @db.VarChar(50)
   read            Boolean?
   created_at      DateTime      @default(now()) @db.Timestamp(6)
@@ -300,7 +300,7 @@ model municipal_event {
   description     String?
   start_date      DateTime  @db.Timestamp(6)
   end_date        DateTime  @db.Timestamp(6)
-  location        String?   @db.VarChar(255)
+  location        String    @db.VarChar(255)
   gps_coordinates String?
   organizer       String?   @db.VarChar(255)
   contact         String?   @db.VarChar(255)
@@ -311,9 +311,9 @@ model municipal_event {
 
 model notification {
   id          String    @id @default(cuid())
-  user_id     String?
-  type        String?   @db.VarChar(50)
-  content     String?
+  user_id     String
+  type        String    @db.VarChar(50)
+  content     String
   read        Boolean?
   action_link String?   @db.VarChar(255)
   created_at  DateTime  @default(now()) @db.Timestamp(6)
@@ -322,19 +322,19 @@ model notification {
 }
 
 model notification_preferences {
-  user_id           String    @id
-  message_notif     Boolean?  @default(true)
-  activity_notif    Boolean?  @default(true)
-  help_notif        Boolean?  @default(true)
-  forum_notif       Boolean?  @default(true)
-  email_notif       Boolean?  @default(true)
-  sms_notif         Boolean?  @default(false)
-  push_notif        Boolean?  @default(true)
-  quiet_hours_start DateTime? @db.Time(6)
-  quiet_hours_end   DateTime? @db.Time(6)
-  created_at        DateTime  @default(now()) @db.Timestamp(6)
-  updated_at        DateTime? @db.Timestamp(6)
-  user              user      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user_id               String    @id
+  message_notification  Boolean?  @default(false)
+  activity_notification Boolean?  @default(false)
+  help_notification     Boolean?  @default(false)
+  forum_notification    Boolean?  @default(false)
+  email_notification    Boolean?  @default(false)
+  sms_notification      Boolean?  @default(false)
+  push_notification     Boolean?  @default(false)
+  quiet_hours_start     DateTime? @db.Time(6)
+  quiet_hours_end       DateTime? @db.Time(6)
+  created_at            DateTime  @default(now()) @db.Timestamp(6)
+  updated_at            DateTime? @db.Timestamp(6)
+  user                  user      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
@@ -360,8 +360,8 @@ model offline_user {
 model project_member {
   project_id            String
   user_id               String
-  role                  String?               @db.VarChar(100)
-  join_date             DateTime?             @db.Timestamp(6)
+  role                  String                @db.VarChar(100)
+  join_date             DateTime              @db.Timestamp(6)
   created_at            DateTime              @default(now()) @db.Timestamp(6)
   updated_at            DateTime?             @db.Timestamp(6)
   collaborative_project collaborative_project @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -372,10 +372,10 @@ model project_member {
 
 model project_task {
   id                    String                 @id @default(cuid())
-  project_id            String?
-  title                 String?                @db.VarChar(255)
+  project_id            String
+  title                 String                 @db.VarChar(255)
   description           String?
-  creation_date         DateTime?              @db.Timestamp(6)
+  creation_date         DateTime               @db.Timestamp(6)
   due_date              DateTime?              @db.Timestamp(6)
   status                String?                @db.VarChar(50)
   assignee_id           String?
@@ -389,9 +389,9 @@ model resource {
   id              String    @id @default(cuid())
   title           String    @db.VarChar(255)
   content         String?
-  type            String?   @db.VarChar(100)
-  category        String?   @db.VarChar(100)
-  author_id       String?
+  type            String    @db.VarChar(100)
+  category        String    @db.VarChar(100)
+  author_id       String
   admin_validated Boolean?  @default(false)
   created_at      DateTime  @default(now()) @db.Timestamp(6)
   updated_at      DateTime? @db.Timestamp(6)
@@ -468,8 +468,8 @@ model survey_response {
 model trust_circle {
   user_id                            String
   contact_id                         String
-  date_added                         DateTime? @db.Date
-  access_level                       String?   @db.VarChar
+  date_added                         DateTime  @db.Date
+  access_level                       String    @db.VarChar
   created_at                         DateTime  @default(now()) @db.Timestamp(6)
   updated_at                         DateTime? @db.Timestamp(6)
   user_trust_circle_contact_idTouser user      @relation("trust_circle_contact_idTouser", fields: [contact_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
@@ -484,8 +484,8 @@ model trusted_contact {
   user_id                   String
   last_name                 String    @db.VarChar(255)
   first_name                String    @db.VarChar(255)
-  email                     String    @unique @db.VarChar(255)
-  phone                     String?   @db.VarChar(20)
+  email                     String?   @unique @db.VarChar(255)
+  phone                     String    @db.VarChar(20)
   relationship              String?   @db.VarChar(50)
   share_medications         Boolean   @default(false)
   share_health_indicators   Boolean   @default(false)
@@ -498,10 +498,10 @@ model trusted_contact {
 
 model urban_issue_report {
   id              String    @id @default(cuid())
-  user_id         String?
+  user_id         String
   category        String    @db.VarChar(255)
-  description     String?
-  address         String?   @db.VarChar(255)
+  description     String
+  address         String    @db.VarChar(255)
   gps_coordinates String?
   report_date     DateTime  @db.Timestamp(6)
   status          String?   @db.VarChar(255)
@@ -589,7 +589,7 @@ model user_activity {
 model user_badge {
   user_id          String
   badge_id         String
-  achievement_date DateTime? @db.Timestamp(6)
+  achievement_date DateTime  @db.Timestamp(6)
   created_at       DateTime  @default(now()) @db.Timestamp(6)
   updated_at       DateTime? @db.Timestamp(6)
   badge            badge     @relation(fields: [badge_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -600,12 +600,12 @@ model user_badge {
 
 model user_device {
   id                 String    @id @default(cuid())
-  user_id            String?
-  device_type        String?   @db.VarChar
+  user_id            String
+  device_type        String    @db.VarChar
   device_name        String?   @db.VarChar
   operating_system   String?   @db.VarChar
-  notification_token String?   @db.VarChar
-  last_connection    DateTime? @db.Timestamp(6)
+  notification_token String    @db.VarChar
+  last_connection    DateTime  @db.Timestamp(6)
   created_at         DateTime  @default(now()) @db.Timestamp(6)
   updated_at         DateTime? @db.Timestamp(6)
   user               user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -639,11 +639,11 @@ model user_statistics {
 
 model video_call {
   id              String        @id @default(cuid())
-  conversation_id String?
-  initiator_id    String?
-  start_date      DateTime?     @db.Timestamp(6)
-  end_date        DateTime?     @db.Timestamp(6)
-  status          String?       @db.VarChar(50)
+  conversation_id String
+  initiator_id    String
+  start_date      DateTime      @db.Timestamp(6)
+  end_date        DateTime      @db.Timestamp(6)
+  status          String        @db.VarChar(50)
   created_at      DateTime      @default(now()) @db.Timestamp(6)
   updated_at      DateTime?     @db.Timestamp(6)
   conversation    conversation? @relation(fields: [conversation_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -665,7 +665,7 @@ model wellness_badge {
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model wellness_goal {
   id            String          @id @default(cuid())
-  user_id       String?
+  user_id       String
   title         String          @db.VarChar(255)
   category      String          @db.VarChar(50)
   target_value  Int
@@ -673,7 +673,7 @@ model wellness_goal {
   frequency     String          @db.VarChar(50)
   start_date    DateTime        @db.Date
   end_date      DateTime        @db.Date
-  active        Boolean?        @default(true)
+  active        Boolean         @default(true)
   created_at    DateTime        @default(now()) @db.Timestamp(6)
   updated_at    DateTime?       @db.Timestamp(6)
   goal_progress goal_progress[]

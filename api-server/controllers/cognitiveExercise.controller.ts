@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client.js';
 import { createHttpError } from '@/utils/httpError.js';
-import ICognitiveExercise from '@/@types/ICognitiveExercise.js';
+import ICognitiveExercise from '@/@types/data/ICognitiveExercise.js';
 
 const prisma = new PrismaClient();
 

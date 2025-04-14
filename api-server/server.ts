@@ -1,16 +1,16 @@
 import express, { Application, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
-import { swaggerSpecs } from './config/swagger.ts';
+import { swaggerSpecs } from '@/config/swagger';
 
-import skillRouter from './routes/skill.routes';
-import badgeRouter from './routes/badge.routes';
-import cognitiveExerciseRouter from './routes/cognitiveExercise.routes';
-import localServiceRouter from './routes/localService.routes';
-import nutritionalAdviceRouter from './routes/nutritionalAdvice.routes';
+import skillRouter from '@/routes/skill.routes';
+import badgeRouter from '@/routes/badge.routes';
+import cognitiveExerciseRouter from '@/routes/cognitiveExercise.routes';
+import localServiceRouter from '@/routes/localService.routes';
+import nutritionalAdviceRouter from '@/routes/nutritionalAdvice.routes';
 
-import errorHandler from './middlewares/errorHandler';
-import exerciseProgramRoutes from './routes/exerciseProgram.routes';
-import userRouter from './routes/user.routes';
+import errorHandler from '@/middlewares/errorHandler';
+import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
+import userRouter from '@/routes/user.routes';
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT || '3000', 10);

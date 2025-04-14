@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '../prisma/client.js';
 import createHttpError from 'http-errors';
-import INutritionalAdvice from '@/@types/INutritionalAdvice.js';
+import INutritionalAdvice from '@/@types/data/INutritionalAdvice.js';
 
 const prisma = new PrismaClient();
 

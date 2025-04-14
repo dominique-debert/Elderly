@@ -1,17 +1,9 @@
 import { PrismaClient } from "../prisma/client.js";
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
+import IWellnessBadge from "@/@types/data/IWellnessBadge.js";
 
 const prisma = new PrismaClient();
-
-// Définition des interfaces
-interface WellnessBadgeData {
-  name: string;
-  description: string;
-  category: string;
-  image: string;
-  level: number;
-}
 
 /**
 * @swagger
@@ -27,7 +19,7 @@ export const createWellnessBadge = async (req: Request, res: Response, next: Nex
     category,
     image,
     level
-  }: WellnessBadgeData = req.body;
+  }: IWellnessBadge = req.body;
   
   try {
     const newWellnessBadge = await prisma.wellness_badge.create({
@@ -86,7 +78,7 @@ export const updateWellnessBadge = async (req: Request, res: Response, next: Nex
     category,
     image,
     level
-  }: WellnessBadgeData = req.body;
+  }: IWellnessBadge = req.body;
   
   try {
     const wellnessBadge = await prisma.wellness_badge.findUnique({
