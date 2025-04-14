@@ -161,3 +161,30 @@ export const updateActivity = async (
       next(error);
     }
   };
+
+  export const deleteActivity = async (
+    req: Request<{ id: string }>,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const { id } = req.params;
+  
+      const activity = await prisma.activity.findUnique({
+        where: { id },
+      });
+  
+      if (!activity) {
+        throw createHttpError(404, 'Activité non trouvée');
+      }
+  
+      await prisma.activity.delete({
+        where: { id },
+      });
+  
+      res.status(200).json({ message: 'Activité supprimée avec succès' });
+    } catch (error) {
+      next(error);
+    }
+  };
+  
