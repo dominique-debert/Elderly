@@ -11503,12 +11503,12 @@ export namespace Prisma {
 
   export type Collaborative_projectGroupByOutputType = {
     id: string
-    title: string | null
+    title: string
     description: string | null
-    creator_id: string | null
-    creation_date: Date | null
+    creator_id: string
+    creation_date: Date
     status: string | null
-    category: string | null
+    category: string
     created_at: Date
     updated_at: Date | null
     _count: Collaborative_projectCountAggregateOutputType | null
@@ -11607,12 +11607,12 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      title: string | null
+      title: string
       description: string | null
-      creator_id: string | null
-      creation_date: Date | null
+      creator_id: string
+      creation_date: Date
       status: string | null
-      category: string | null
+      category: string
       created_at: Date
       updated_at: Date | null
     }, ExtArgs["result"]["collaborative_project"]>
@@ -12268,7 +12268,7 @@ export namespace Prisma {
     /**
      * The data needed to create a collaborative_project.
      */
-    data?: XOR<collaborative_projectCreateInput, collaborative_projectUncheckedCreateInput>
+    data: XOR<collaborative_projectCreateInput, collaborative_projectUncheckedCreateInput>
   }
 
   /**
@@ -15950,25 +15950,15 @@ export namespace Prisma {
 
   export type AggregateForum_category = {
     _count: Forum_categoryCountAggregateOutputType | null
-    _avg: Forum_categoryAvgAggregateOutputType | null
-    _sum: Forum_categorySumAggregateOutputType | null
     _min: Forum_categoryMinAggregateOutputType | null
     _max: Forum_categoryMaxAggregateOutputType | null
-  }
-
-  export type Forum_categoryAvgAggregateOutputType = {
-    parent_category_id: number | null
-  }
-
-  export type Forum_categorySumAggregateOutputType = {
-    parent_category_id: number | null
   }
 
   export type Forum_categoryMinAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
-    parent_category_id: number | null
+    parent_category_id: string | null
     created_at: Date | null
     updated_at: Date | null
   }
@@ -15977,7 +15967,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
-    parent_category_id: number | null
+    parent_category_id: string | null
     created_at: Date | null
     updated_at: Date | null
   }
@@ -15992,14 +15982,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type Forum_categoryAvgAggregateInputType = {
-    parent_category_id?: true
-  }
-
-  export type Forum_categorySumAggregateInputType = {
-    parent_category_id?: true
-  }
 
   export type Forum_categoryMinAggregateInputType = {
     id?: true
@@ -16067,18 +16049,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: Forum_categoryAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Forum_categorySumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: Forum_categoryMinAggregateInputType
@@ -16109,8 +16079,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Forum_categoryCountAggregateInputType | true
-    _avg?: Forum_categoryAvgAggregateInputType
-    _sum?: Forum_categorySumAggregateInputType
     _min?: Forum_categoryMinAggregateInputType
     _max?: Forum_categoryMaxAggregateInputType
   }
@@ -16119,12 +16087,10 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
-    parent_category_id: number | null
+    parent_category_id: string
     created_at: Date
     updated_at: Date | null
     _count: Forum_categoryCountAggregateOutputType | null
-    _avg: Forum_categoryAvgAggregateOutputType | null
-    _sum: Forum_categorySumAggregateOutputType | null
     _min: Forum_categoryMinAggregateOutputType | null
     _max: Forum_categoryMaxAggregateOutputType | null
   }
@@ -16198,7 +16164,7 @@ export namespace Prisma {
       id: string
       name: string
       description: string | null
-      parent_category_id: number | null
+      parent_category_id: string
       created_at: Date
       updated_at: Date | null
     }, ExtArgs["result"]["forum_category"]>
@@ -16628,7 +16594,7 @@ export namespace Prisma {
     readonly id: FieldRef<"forum_category", 'String'>
     readonly name: FieldRef<"forum_category", 'String'>
     readonly description: FieldRef<"forum_category", 'String'>
-    readonly parent_category_id: FieldRef<"forum_category", 'Int'>
+    readonly parent_category_id: FieldRef<"forum_category", 'String'>
     readonly created_at: FieldRef<"forum_category", 'DateTime'>
     readonly updated_at: FieldRef<"forum_category", 'DateTime'>
   }
@@ -23081,7 +23047,7 @@ export namespace Prisma {
     estimated_duration: number | null
     location: string | null
     gps_coordinates: string | null
-    category: string | null
+    category: string
     recurring: boolean | null
     frequency: string | null
     status: string | null
@@ -23222,7 +23188,7 @@ export namespace Prisma {
       estimated_duration: number | null
       location: string | null
       gps_coordinates: string | null
-      category: string | null
+      category: string
       recurring: boolean | null
       frequency: string | null
       status: string | null
@@ -26641,10 +26607,10 @@ export namespace Prisma {
 
   export type MessageGroupByOutputType = {
     id: string
-    conversation_id: string | null
-    sender_id: string | null
-    content: string | null
-    send_date: Date | null
+    conversation_id: string
+    sender_id: string
+    content: string
+    send_date: Date
     type: string | null
     read: boolean | null
     created_at: Date
@@ -26744,10 +26710,10 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      conversation_id: string | null
-      sender_id: string | null
-      content: string | null
-      send_date: Date | null
+      conversation_id: string
+      sender_id: string
+      content: string
+      send_date: Date
       type: string | null
       read: boolean | null
       created_at: Date
@@ -27404,7 +27370,7 @@ export namespace Prisma {
     /**
      * The data needed to create a message.
      */
-    data?: XOR<messageCreateInput, messageUncheckedCreateInput>
+    data: XOR<messageCreateInput, messageUncheckedCreateInput>
   }
 
   /**
@@ -27819,7 +27785,7 @@ export namespace Prisma {
     description: string | null
     start_date: Date
     end_date: Date
-    location: string | null
+    location: string
     gps_coordinates: string | null
     organizer: string | null
     contact: string | null
@@ -27916,7 +27882,7 @@ export namespace Prisma {
       description: string | null
       start_date: Date
       end_date: Date
-      location: string | null
+      location: string
       gps_coordinates: string | null
       organizer: string | null
       contact: string | null
@@ -28877,9 +28843,9 @@ export namespace Prisma {
 
   export type NotificationGroupByOutputType = {
     id: string
-    user_id: string | null
-    type: string | null
-    content: string | null
+    user_id: string
+    type: string
+    content: string
     read: boolean | null
     action_link: string | null
     created_at: Date
@@ -28968,9 +28934,9 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      user_id: string | null
-      type: string | null
-      content: string | null
+      user_id: string
+      type: string
+      content: string
       read: boolean | null
       action_link: string | null
       created_at: Date
@@ -29625,7 +29591,7 @@ export namespace Prisma {
     /**
      * The data needed to create a notification.
      */
-    data?: XOR<notificationCreateInput, notificationUncheckedCreateInput>
+    data: XOR<notificationCreateInput, notificationUncheckedCreateInput>
   }
 
   /**
@@ -29852,13 +29818,13 @@ export namespace Prisma {
 
   export type Notification_preferencesMinAggregateOutputType = {
     user_id: string | null
-    message_notif: boolean | null
-    activity_notif: boolean | null
-    help_notif: boolean | null
-    forum_notif: boolean | null
-    email_notif: boolean | null
-    sms_notif: boolean | null
-    push_notif: boolean | null
+    message_notification: boolean | null
+    activity_notification: boolean | null
+    help_notification: boolean | null
+    forum_notification: boolean | null
+    email_notification: boolean | null
+    sms_notification: boolean | null
+    push_notification: boolean | null
     quiet_hours_start: Date | null
     quiet_hours_end: Date | null
     created_at: Date | null
@@ -29867,13 +29833,13 @@ export namespace Prisma {
 
   export type Notification_preferencesMaxAggregateOutputType = {
     user_id: string | null
-    message_notif: boolean | null
-    activity_notif: boolean | null
-    help_notif: boolean | null
-    forum_notif: boolean | null
-    email_notif: boolean | null
-    sms_notif: boolean | null
-    push_notif: boolean | null
+    message_notification: boolean | null
+    activity_notification: boolean | null
+    help_notification: boolean | null
+    forum_notification: boolean | null
+    email_notification: boolean | null
+    sms_notification: boolean | null
+    push_notification: boolean | null
     quiet_hours_start: Date | null
     quiet_hours_end: Date | null
     created_at: Date | null
@@ -29882,13 +29848,13 @@ export namespace Prisma {
 
   export type Notification_preferencesCountAggregateOutputType = {
     user_id: number
-    message_notif: number
-    activity_notif: number
-    help_notif: number
-    forum_notif: number
-    email_notif: number
-    sms_notif: number
-    push_notif: number
+    message_notification: number
+    activity_notification: number
+    help_notification: number
+    forum_notification: number
+    email_notification: number
+    sms_notification: number
+    push_notification: number
     quiet_hours_start: number
     quiet_hours_end: number
     created_at: number
@@ -29899,13 +29865,13 @@ export namespace Prisma {
 
   export type Notification_preferencesMinAggregateInputType = {
     user_id?: true
-    message_notif?: true
-    activity_notif?: true
-    help_notif?: true
-    forum_notif?: true
-    email_notif?: true
-    sms_notif?: true
-    push_notif?: true
+    message_notification?: true
+    activity_notification?: true
+    help_notification?: true
+    forum_notification?: true
+    email_notification?: true
+    sms_notification?: true
+    push_notification?: true
     quiet_hours_start?: true
     quiet_hours_end?: true
     created_at?: true
@@ -29914,13 +29880,13 @@ export namespace Prisma {
 
   export type Notification_preferencesMaxAggregateInputType = {
     user_id?: true
-    message_notif?: true
-    activity_notif?: true
-    help_notif?: true
-    forum_notif?: true
-    email_notif?: true
-    sms_notif?: true
-    push_notif?: true
+    message_notification?: true
+    activity_notification?: true
+    help_notification?: true
+    forum_notification?: true
+    email_notification?: true
+    sms_notification?: true
+    push_notification?: true
     quiet_hours_start?: true
     quiet_hours_end?: true
     created_at?: true
@@ -29929,13 +29895,13 @@ export namespace Prisma {
 
   export type Notification_preferencesCountAggregateInputType = {
     user_id?: true
-    message_notif?: true
-    activity_notif?: true
-    help_notif?: true
-    forum_notif?: true
-    email_notif?: true
-    sms_notif?: true
-    push_notif?: true
+    message_notification?: true
+    activity_notification?: true
+    help_notification?: true
+    forum_notification?: true
+    email_notification?: true
+    sms_notification?: true
+    push_notification?: true
     quiet_hours_start?: true
     quiet_hours_end?: true
     created_at?: true
@@ -30017,13 +29983,13 @@ export namespace Prisma {
 
   export type Notification_preferencesGroupByOutputType = {
     user_id: string
-    message_notif: boolean | null
-    activity_notif: boolean | null
-    help_notif: boolean | null
-    forum_notif: boolean | null
-    email_notif: boolean | null
-    sms_notif: boolean | null
-    push_notif: boolean | null
+    message_notification: boolean | null
+    activity_notification: boolean | null
+    help_notification: boolean | null
+    forum_notification: boolean | null
+    email_notification: boolean | null
+    sms_notification: boolean | null
+    push_notification: boolean | null
     quiet_hours_start: Date | null
     quiet_hours_end: Date | null
     created_at: Date
@@ -30049,13 +30015,13 @@ export namespace Prisma {
 
   export type notification_preferencesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     user_id?: boolean
-    message_notif?: boolean
-    activity_notif?: boolean
-    help_notif?: boolean
-    forum_notif?: boolean
-    email_notif?: boolean
-    sms_notif?: boolean
-    push_notif?: boolean
+    message_notification?: boolean
+    activity_notification?: boolean
+    help_notification?: boolean
+    forum_notification?: boolean
+    email_notification?: boolean
+    sms_notification?: boolean
+    push_notification?: boolean
     quiet_hours_start?: boolean
     quiet_hours_end?: boolean
     created_at?: boolean
@@ -30065,13 +30031,13 @@ export namespace Prisma {
 
   export type notification_preferencesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     user_id?: boolean
-    message_notif?: boolean
-    activity_notif?: boolean
-    help_notif?: boolean
-    forum_notif?: boolean
-    email_notif?: boolean
-    sms_notif?: boolean
-    push_notif?: boolean
+    message_notification?: boolean
+    activity_notification?: boolean
+    help_notification?: boolean
+    forum_notification?: boolean
+    email_notification?: boolean
+    sms_notification?: boolean
+    push_notification?: boolean
     quiet_hours_start?: boolean
     quiet_hours_end?: boolean
     created_at?: boolean
@@ -30081,13 +30047,13 @@ export namespace Prisma {
 
   export type notification_preferencesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     user_id?: boolean
-    message_notif?: boolean
-    activity_notif?: boolean
-    help_notif?: boolean
-    forum_notif?: boolean
-    email_notif?: boolean
-    sms_notif?: boolean
-    push_notif?: boolean
+    message_notification?: boolean
+    activity_notification?: boolean
+    help_notification?: boolean
+    forum_notification?: boolean
+    email_notification?: boolean
+    sms_notification?: boolean
+    push_notification?: boolean
     quiet_hours_start?: boolean
     quiet_hours_end?: boolean
     created_at?: boolean
@@ -30097,20 +30063,20 @@ export namespace Prisma {
 
   export type notification_preferencesSelectScalar = {
     user_id?: boolean
-    message_notif?: boolean
-    activity_notif?: boolean
-    help_notif?: boolean
-    forum_notif?: boolean
-    email_notif?: boolean
-    sms_notif?: boolean
-    push_notif?: boolean
+    message_notification?: boolean
+    activity_notification?: boolean
+    help_notification?: boolean
+    forum_notification?: boolean
+    email_notification?: boolean
+    sms_notification?: boolean
+    push_notification?: boolean
     quiet_hours_start?: boolean
     quiet_hours_end?: boolean
     created_at?: boolean
     updated_at?: boolean
   }
 
-  export type notification_preferencesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"user_id" | "message_notif" | "activity_notif" | "help_notif" | "forum_notif" | "email_notif" | "sms_notif" | "push_notif" | "quiet_hours_start" | "quiet_hours_end" | "created_at" | "updated_at", ExtArgs["result"]["notification_preferences"]>
+  export type notification_preferencesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"user_id" | "message_notification" | "activity_notification" | "help_notification" | "forum_notification" | "email_notification" | "sms_notification" | "push_notification" | "quiet_hours_start" | "quiet_hours_end" | "created_at" | "updated_at", ExtArgs["result"]["notification_preferences"]>
   export type notification_preferencesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | userDefaultArgs<ExtArgs>
   }
@@ -30128,13 +30094,13 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       user_id: string
-      message_notif: boolean | null
-      activity_notif: boolean | null
-      help_notif: boolean | null
-      forum_notif: boolean | null
-      email_notif: boolean | null
-      sms_notif: boolean | null
-      push_notif: boolean | null
+      message_notification: boolean | null
+      activity_notification: boolean | null
+      help_notification: boolean | null
+      forum_notification: boolean | null
+      email_notification: boolean | null
+      sms_notification: boolean | null
+      push_notification: boolean | null
       quiet_hours_start: Date | null
       quiet_hours_end: Date | null
       created_at: Date
@@ -30564,13 +30530,13 @@ export namespace Prisma {
    */
   interface notification_preferencesFieldRefs {
     readonly user_id: FieldRef<"notification_preferences", 'String'>
-    readonly message_notif: FieldRef<"notification_preferences", 'Boolean'>
-    readonly activity_notif: FieldRef<"notification_preferences", 'Boolean'>
-    readonly help_notif: FieldRef<"notification_preferences", 'Boolean'>
-    readonly forum_notif: FieldRef<"notification_preferences", 'Boolean'>
-    readonly email_notif: FieldRef<"notification_preferences", 'Boolean'>
-    readonly sms_notif: FieldRef<"notification_preferences", 'Boolean'>
-    readonly push_notif: FieldRef<"notification_preferences", 'Boolean'>
+    readonly message_notification: FieldRef<"notification_preferences", 'Boolean'>
+    readonly activity_notification: FieldRef<"notification_preferences", 'Boolean'>
+    readonly help_notification: FieldRef<"notification_preferences", 'Boolean'>
+    readonly forum_notification: FieldRef<"notification_preferences", 'Boolean'>
+    readonly email_notification: FieldRef<"notification_preferences", 'Boolean'>
+    readonly sms_notification: FieldRef<"notification_preferences", 'Boolean'>
+    readonly push_notification: FieldRef<"notification_preferences", 'Boolean'>
     readonly quiet_hours_start: FieldRef<"notification_preferences", 'DateTime'>
     readonly quiet_hours_end: FieldRef<"notification_preferences", 'DateTime'>
     readonly created_at: FieldRef<"notification_preferences", 'DateTime'>
@@ -33156,8 +33122,8 @@ export namespace Prisma {
   export type Project_memberGroupByOutputType = {
     project_id: string
     user_id: string
-    role: string | null
-    join_date: Date | null
+    role: string
+    join_date: Date
     created_at: Date
     updated_at: Date | null
     _count: Project_memberCountAggregateOutputType | null
@@ -33244,8 +33210,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       project_id: string
       user_id: string
-      role: string | null
-      join_date: Date | null
+      role: string
+      join_date: Date
       created_at: Date
       updated_at: Date | null
     }, ExtArgs["result"]["project_member"]>
@@ -34258,10 +34224,10 @@ export namespace Prisma {
 
   export type Project_taskGroupByOutputType = {
     id: string
-    project_id: string | null
-    title: string | null
+    project_id: string
+    title: string
     description: string | null
-    creation_date: Date | null
+    creation_date: Date
     due_date: Date | null
     status: string | null
     assignee_id: string | null
@@ -34366,10 +34332,10 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      project_id: string | null
-      title: string | null
+      project_id: string
+      title: string
       description: string | null
-      creation_date: Date | null
+      creation_date: Date
       due_date: Date | null
       status: string | null
       assignee_id: string | null
@@ -35028,7 +34994,7 @@ export namespace Prisma {
     /**
      * The data needed to create a project_task.
      */
-    data?: XOR<project_taskCreateInput, project_taskUncheckedCreateInput>
+    data: XOR<project_taskCreateInput, project_taskUncheckedCreateInput>
   }
 
   /**
@@ -35423,9 +35389,9 @@ export namespace Prisma {
     id: string
     title: string
     content: string | null
-    type: string | null
-    category: string | null
-    author_id: string | null
+    type: string
+    category: string
+    author_id: string
     admin_validated: boolean | null
     created_at: Date
     updated_at: Date | null
@@ -35519,9 +35485,9 @@ export namespace Prisma {
       id: string
       title: string
       content: string | null
-      type: string | null
-      category: string | null
-      author_id: string | null
+      type: string
+      category: string
+      author_id: string
       admin_validated: boolean | null
       created_at: Date
       updated_at: Date | null
@@ -42129,8 +42095,8 @@ export namespace Prisma {
   export type Trust_circleGroupByOutputType = {
     user_id: string
     contact_id: string
-    date_added: Date | null
-    access_level: string | null
+    date_added: Date
+    access_level: string
     created_at: Date
     updated_at: Date | null
     _count: Trust_circleCountAggregateOutputType | null
@@ -42217,8 +42183,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       user_id: string
       contact_id: string
-      date_added: Date | null
-      access_level: string | null
+      date_added: Date
+      access_level: string
       created_at: Date
       updated_at: Date | null
     }, ExtArgs["result"]["trust_circle"]>
@@ -43252,8 +43218,8 @@ export namespace Prisma {
     user_id: string
     last_name: string
     first_name: string
-    email: string
-    phone: string | null
+    email: string | null
+    phone: string
     relationship: string | null
     share_medications: boolean
     share_health_indicators: boolean
@@ -43368,8 +43334,8 @@ export namespace Prisma {
       user_id: string
       last_name: string
       first_name: string
-      email: string
-      phone: string | null
+      email: string | null
+      phone: string
       relationship: string | null
       share_medications: boolean
       share_health_indicators: boolean
@@ -44399,10 +44365,10 @@ export namespace Prisma {
 
   export type Urban_issue_reportGroupByOutputType = {
     id: string
-    user_id: string | null
+    user_id: string
     category: string
-    description: string | null
-    address: string | null
+    description: string
+    address: string
     gps_coordinates: string | null
     report_date: Date
     status: string | null
@@ -44505,10 +44471,10 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      user_id: string | null
+      user_id: string
       category: string
-      description: string | null
-      address: string | null
+      description: string
+      address: string
       gps_coordinates: string | null
       report_date: Date
       status: string | null
@@ -48906,7 +48872,7 @@ export namespace Prisma {
   export type User_badgeGroupByOutputType = {
     user_id: string
     badge_id: string
-    achievement_date: Date | null
+    achievement_date: Date
     created_at: Date
     updated_at: Date | null
     _count: User_badgeCountAggregateOutputType | null
@@ -48989,7 +48955,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       user_id: string
       badge_id: string
-      achievement_date: Date | null
+      achievement_date: Date
       created_at: Date
       updated_at: Date | null
     }, ExtArgs["result"]["user_badge"]>
@@ -49995,12 +49961,12 @@ export namespace Prisma {
 
   export type User_deviceGroupByOutputType = {
     id: string
-    user_id: string | null
-    device_type: string | null
+    user_id: string
+    device_type: string
     device_name: string | null
     operating_system: string | null
-    notification_token: string | null
-    last_connection: Date | null
+    notification_token: string
+    last_connection: Date
     created_at: Date
     updated_at: Date | null
     _count: User_deviceCountAggregateOutputType | null
@@ -50091,12 +50057,12 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      user_id: string | null
-      device_type: string | null
+      user_id: string
+      device_type: string
       device_name: string | null
       operating_system: string | null
-      notification_token: string | null
-      last_connection: Date | null
+      notification_token: string
+      last_connection: Date
       created_at: Date
       updated_at: Date | null
     }, ExtArgs["result"]["user_device"]>
@@ -50750,7 +50716,7 @@ export namespace Prisma {
     /**
      * The data needed to create a user_device.
      */
-    data?: XOR<user_deviceCreateInput, user_deviceUncheckedCreateInput>
+    data: XOR<user_deviceCreateInput, user_deviceUncheckedCreateInput>
   }
 
   /**
@@ -53399,11 +53365,11 @@ export namespace Prisma {
 
   export type Video_callGroupByOutputType = {
     id: string
-    conversation_id: string | null
-    initiator_id: string | null
-    start_date: Date | null
-    end_date: Date | null
-    status: string | null
+    conversation_id: string
+    initiator_id: string
+    start_date: Date
+    end_date: Date
+    status: string
     created_at: Date
     updated_at: Date | null
     _count: Video_callCountAggregateOutputType | null
@@ -53497,11 +53463,11 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      conversation_id: string | null
-      initiator_id: string | null
-      start_date: Date | null
-      end_date: Date | null
-      status: string | null
+      conversation_id: string
+      initiator_id: string
+      start_date: Date
+      end_date: Date
+      status: string
       created_at: Date
       updated_at: Date | null
     }, ExtArgs["result"]["video_call"]>
@@ -54155,7 +54121,7 @@ export namespace Prisma {
     /**
      * The data needed to create a video_call.
      */
-    data?: XOR<video_callCreateInput, video_callUncheckedCreateInput>
+    data: XOR<video_callCreateInput, video_callUncheckedCreateInput>
   }
 
   /**
@@ -55666,7 +55632,7 @@ export namespace Prisma {
 
   export type Wellness_goalGroupByOutputType = {
     id: string
-    user_id: string | null
+    user_id: string
     title: string
     category: string
     target_value: number
@@ -55674,7 +55640,7 @@ export namespace Prisma {
     frequency: string
     start_date: Date
     end_date: Date
-    active: boolean | null
+    active: boolean
     created_at: Date
     updated_at: Date | null
     _count: Wellness_goalCountAggregateOutputType | null
@@ -55784,7 +55750,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      user_id: string | null
+      user_id: string
       title: string
       category: string
       target_value: number
@@ -55792,7 +55758,7 @@ export namespace Prisma {
       frequency: string
       start_date: Date
       end_date: Date
-      active: boolean | null
+      active: boolean
       created_at: Date
       updated_at: Date | null
     }, ExtArgs["result"]["wellness_goal"]>
@@ -57040,13 +57006,13 @@ export namespace Prisma {
 
   export const Notification_preferencesScalarFieldEnum: {
     user_id: 'user_id',
-    message_notif: 'message_notif',
-    activity_notif: 'activity_notif',
-    help_notif: 'help_notif',
-    forum_notif: 'forum_notif',
-    email_notif: 'email_notif',
-    sms_notif: 'sms_notif',
-    push_notif: 'push_notif',
+    message_notification: 'message_notification',
+    activity_notification: 'activity_notification',
+    help_notification: 'help_notification',
+    forum_notification: 'forum_notification',
+    email_notification: 'email_notification',
+    sms_notification: 'sms_notification',
+    push_notification: 'push_notification',
     quiet_hours_start: 'quiet_hours_start',
     quiet_hours_end: 'quiet_hours_end',
     created_at: 'created_at',
@@ -57944,12 +57910,12 @@ export namespace Prisma {
     OR?: collaborative_projectWhereInput[]
     NOT?: collaborative_projectWhereInput | collaborative_projectWhereInput[]
     id?: StringFilter<"collaborative_project"> | string
-    title?: StringNullableFilter<"collaborative_project"> | string | null
+    title?: StringFilter<"collaborative_project"> | string
     description?: StringNullableFilter<"collaborative_project"> | string | null
-    creator_id?: StringNullableFilter<"collaborative_project"> | string | null
-    creation_date?: DateTimeNullableFilter<"collaborative_project"> | Date | string | null
+    creator_id?: StringFilter<"collaborative_project"> | string
+    creation_date?: DateTimeFilter<"collaborative_project"> | Date | string
     status?: StringNullableFilter<"collaborative_project"> | string | null
-    category?: StringNullableFilter<"collaborative_project"> | string | null
+    category?: StringFilter<"collaborative_project"> | string
     created_at?: DateTimeFilter<"collaborative_project"> | Date | string
     updated_at?: DateTimeNullableFilter<"collaborative_project"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
@@ -57959,12 +57925,12 @@ export namespace Prisma {
 
   export type collaborative_projectOrderByWithRelationInput = {
     id?: SortOrder
-    title?: SortOrderInput | SortOrder
+    title?: SortOrder
     description?: SortOrderInput | SortOrder
-    creator_id?: SortOrderInput | SortOrder
-    creation_date?: SortOrderInput | SortOrder
+    creator_id?: SortOrder
+    creation_date?: SortOrder
     status?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
+    category?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     user?: userOrderByWithRelationInput
@@ -57977,12 +57943,12 @@ export namespace Prisma {
     AND?: collaborative_projectWhereInput | collaborative_projectWhereInput[]
     OR?: collaborative_projectWhereInput[]
     NOT?: collaborative_projectWhereInput | collaborative_projectWhereInput[]
-    title?: StringNullableFilter<"collaborative_project"> | string | null
+    title?: StringFilter<"collaborative_project"> | string
     description?: StringNullableFilter<"collaborative_project"> | string | null
-    creator_id?: StringNullableFilter<"collaborative_project"> | string | null
-    creation_date?: DateTimeNullableFilter<"collaborative_project"> | Date | string | null
+    creator_id?: StringFilter<"collaborative_project"> | string
+    creation_date?: DateTimeFilter<"collaborative_project"> | Date | string
     status?: StringNullableFilter<"collaborative_project"> | string | null
-    category?: StringNullableFilter<"collaborative_project"> | string | null
+    category?: StringFilter<"collaborative_project"> | string
     created_at?: DateTimeFilter<"collaborative_project"> | Date | string
     updated_at?: DateTimeNullableFilter<"collaborative_project"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
@@ -57992,12 +57958,12 @@ export namespace Prisma {
 
   export type collaborative_projectOrderByWithAggregationInput = {
     id?: SortOrder
-    title?: SortOrderInput | SortOrder
+    title?: SortOrder
     description?: SortOrderInput | SortOrder
-    creator_id?: SortOrderInput | SortOrder
-    creation_date?: SortOrderInput | SortOrder
+    creator_id?: SortOrder
+    creation_date?: SortOrder
     status?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
+    category?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: collaborative_projectCountOrderByAggregateInput
@@ -58010,12 +57976,12 @@ export namespace Prisma {
     OR?: collaborative_projectScalarWhereWithAggregatesInput[]
     NOT?: collaborative_projectScalarWhereWithAggregatesInput | collaborative_projectScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"collaborative_project"> | string
-    title?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
+    title?: StringWithAggregatesFilter<"collaborative_project"> | string
     description?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
-    creator_id?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
-    creation_date?: DateTimeNullableWithAggregatesFilter<"collaborative_project"> | Date | string | null
+    creator_id?: StringWithAggregatesFilter<"collaborative_project"> | string
+    creation_date?: DateTimeWithAggregatesFilter<"collaborative_project"> | Date | string
     status?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
-    category?: StringNullableWithAggregatesFilter<"collaborative_project"> | string | null
+    category?: StringWithAggregatesFilter<"collaborative_project"> | string
     created_at?: DateTimeWithAggregatesFilter<"collaborative_project"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"collaborative_project"> | Date | string | null
   }
@@ -58249,7 +58215,7 @@ export namespace Prisma {
     id?: StringFilter<"forum_category"> | string
     name?: StringFilter<"forum_category"> | string
     description?: StringNullableFilter<"forum_category"> | string | null
-    parent_category_id?: IntNullableFilter<"forum_category"> | number | null
+    parent_category_id?: StringFilter<"forum_category"> | string
     created_at?: DateTimeFilter<"forum_category"> | Date | string
     updated_at?: DateTimeNullableFilter<"forum_category"> | Date | string | null
     forum_topic?: Forum_topicListRelationFilter
@@ -58259,7 +58225,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    parent_category_id?: SortOrderInput | SortOrder
+    parent_category_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     forum_topic?: forum_topicOrderByRelationAggregateInput
@@ -58272,7 +58238,7 @@ export namespace Prisma {
     NOT?: forum_categoryWhereInput | forum_categoryWhereInput[]
     name?: StringFilter<"forum_category"> | string
     description?: StringNullableFilter<"forum_category"> | string | null
-    parent_category_id?: IntNullableFilter<"forum_category"> | number | null
+    parent_category_id?: StringFilter<"forum_category"> | string
     created_at?: DateTimeFilter<"forum_category"> | Date | string
     updated_at?: DateTimeNullableFilter<"forum_category"> | Date | string | null
     forum_topic?: Forum_topicListRelationFilter
@@ -58282,14 +58248,12 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    parent_category_id?: SortOrderInput | SortOrder
+    parent_category_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: forum_categoryCountOrderByAggregateInput
-    _avg?: forum_categoryAvgOrderByAggregateInput
     _max?: forum_categoryMaxOrderByAggregateInput
     _min?: forum_categoryMinOrderByAggregateInput
-    _sum?: forum_categorySumOrderByAggregateInput
   }
 
   export type forum_categoryScalarWhereWithAggregatesInput = {
@@ -58299,7 +58263,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"forum_category"> | string
     name?: StringWithAggregatesFilter<"forum_category"> | string
     description?: StringNullableWithAggregatesFilter<"forum_category"> | string | null
-    parent_category_id?: IntNullableWithAggregatesFilter<"forum_category"> | number | null
+    parent_category_id?: StringWithAggregatesFilter<"forum_category"> | string
     created_at?: DateTimeWithAggregatesFilter<"forum_category"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"forum_category"> | Date | string | null
   }
@@ -58710,7 +58674,7 @@ export namespace Prisma {
     estimated_duration?: IntNullableFilter<"help_request"> | number | null
     location?: StringNullableFilter<"help_request"> | string | null
     gps_coordinates?: StringNullableFilter<"help_request"> | string | null
-    category?: StringNullableFilter<"help_request"> | string | null
+    category?: StringFilter<"help_request"> | string
     recurring?: BoolNullableFilter<"help_request"> | boolean | null
     frequency?: StringNullableFilter<"help_request"> | string | null
     status?: StringNullableFilter<"help_request"> | string | null
@@ -58732,7 +58696,7 @@ export namespace Prisma {
     estimated_duration?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
     gps_coordinates?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
+    category?: SortOrder
     recurring?: SortOrderInput | SortOrder
     frequency?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
@@ -58757,7 +58721,7 @@ export namespace Prisma {
     estimated_duration?: IntNullableFilter<"help_request"> | number | null
     location?: StringNullableFilter<"help_request"> | string | null
     gps_coordinates?: StringNullableFilter<"help_request"> | string | null
-    category?: StringNullableFilter<"help_request"> | string | null
+    category?: StringFilter<"help_request"> | string
     recurring?: BoolNullableFilter<"help_request"> | boolean | null
     frequency?: StringNullableFilter<"help_request"> | string | null
     status?: StringNullableFilter<"help_request"> | string | null
@@ -58779,7 +58743,7 @@ export namespace Prisma {
     estimated_duration?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
     gps_coordinates?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
+    category?: SortOrder
     recurring?: SortOrderInput | SortOrder
     frequency?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
@@ -58806,7 +58770,7 @@ export namespace Prisma {
     estimated_duration?: IntNullableWithAggregatesFilter<"help_request"> | number | null
     location?: StringNullableWithAggregatesFilter<"help_request"> | string | null
     gps_coordinates?: StringNullableWithAggregatesFilter<"help_request"> | string | null
-    category?: StringNullableWithAggregatesFilter<"help_request"> | string | null
+    category?: StringWithAggregatesFilter<"help_request"> | string
     recurring?: BoolNullableWithAggregatesFilter<"help_request"> | boolean | null
     frequency?: StringNullableWithAggregatesFilter<"help_request"> | string | null
     status?: StringNullableWithAggregatesFilter<"help_request"> | string | null
@@ -59015,10 +58979,10 @@ export namespace Prisma {
     OR?: messageWhereInput[]
     NOT?: messageWhereInput | messageWhereInput[]
     id?: StringFilter<"message"> | string
-    conversation_id?: StringNullableFilter<"message"> | string | null
-    sender_id?: StringNullableFilter<"message"> | string | null
-    content?: StringNullableFilter<"message"> | string | null
-    send_date?: DateTimeNullableFilter<"message"> | Date | string | null
+    conversation_id?: StringFilter<"message"> | string
+    sender_id?: StringFilter<"message"> | string
+    content?: StringFilter<"message"> | string
+    send_date?: DateTimeFilter<"message"> | Date | string
     type?: StringNullableFilter<"message"> | string | null
     read?: BoolNullableFilter<"message"> | boolean | null
     created_at?: DateTimeFilter<"message"> | Date | string
@@ -59029,10 +58993,10 @@ export namespace Prisma {
 
   export type messageOrderByWithRelationInput = {
     id?: SortOrder
-    conversation_id?: SortOrderInput | SortOrder
-    sender_id?: SortOrderInput | SortOrder
-    content?: SortOrderInput | SortOrder
-    send_date?: SortOrderInput | SortOrder
+    conversation_id?: SortOrder
+    sender_id?: SortOrder
+    content?: SortOrder
+    send_date?: SortOrder
     type?: SortOrderInput | SortOrder
     read?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -59046,10 +59010,10 @@ export namespace Prisma {
     AND?: messageWhereInput | messageWhereInput[]
     OR?: messageWhereInput[]
     NOT?: messageWhereInput | messageWhereInput[]
-    conversation_id?: StringNullableFilter<"message"> | string | null
-    sender_id?: StringNullableFilter<"message"> | string | null
-    content?: StringNullableFilter<"message"> | string | null
-    send_date?: DateTimeNullableFilter<"message"> | Date | string | null
+    conversation_id?: StringFilter<"message"> | string
+    sender_id?: StringFilter<"message"> | string
+    content?: StringFilter<"message"> | string
+    send_date?: DateTimeFilter<"message"> | Date | string
     type?: StringNullableFilter<"message"> | string | null
     read?: BoolNullableFilter<"message"> | boolean | null
     created_at?: DateTimeFilter<"message"> | Date | string
@@ -59060,10 +59024,10 @@ export namespace Prisma {
 
   export type messageOrderByWithAggregationInput = {
     id?: SortOrder
-    conversation_id?: SortOrderInput | SortOrder
-    sender_id?: SortOrderInput | SortOrder
-    content?: SortOrderInput | SortOrder
-    send_date?: SortOrderInput | SortOrder
+    conversation_id?: SortOrder
+    sender_id?: SortOrder
+    content?: SortOrder
+    send_date?: SortOrder
     type?: SortOrderInput | SortOrder
     read?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -59078,10 +59042,10 @@ export namespace Prisma {
     OR?: messageScalarWhereWithAggregatesInput[]
     NOT?: messageScalarWhereWithAggregatesInput | messageScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"message"> | string
-    conversation_id?: StringNullableWithAggregatesFilter<"message"> | string | null
-    sender_id?: StringNullableWithAggregatesFilter<"message"> | string | null
-    content?: StringNullableWithAggregatesFilter<"message"> | string | null
-    send_date?: DateTimeNullableWithAggregatesFilter<"message"> | Date | string | null
+    conversation_id?: StringWithAggregatesFilter<"message"> | string
+    sender_id?: StringWithAggregatesFilter<"message"> | string
+    content?: StringWithAggregatesFilter<"message"> | string
+    send_date?: DateTimeWithAggregatesFilter<"message"> | Date | string
     type?: StringNullableWithAggregatesFilter<"message"> | string | null
     read?: BoolNullableWithAggregatesFilter<"message"> | boolean | null
     created_at?: DateTimeWithAggregatesFilter<"message"> | Date | string
@@ -59097,7 +59061,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"municipal_event"> | string | null
     start_date?: DateTimeFilter<"municipal_event"> | Date | string
     end_date?: DateTimeFilter<"municipal_event"> | Date | string
-    location?: StringNullableFilter<"municipal_event"> | string | null
+    location?: StringFilter<"municipal_event"> | string
     gps_coordinates?: StringNullableFilter<"municipal_event"> | string | null
     organizer?: StringNullableFilter<"municipal_event"> | string | null
     contact?: StringNullableFilter<"municipal_event"> | string | null
@@ -59112,7 +59076,7 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
-    location?: SortOrderInput | SortOrder
+    location?: SortOrder
     gps_coordinates?: SortOrderInput | SortOrder
     organizer?: SortOrderInput | SortOrder
     contact?: SortOrderInput | SortOrder
@@ -59130,7 +59094,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"municipal_event"> | string | null
     start_date?: DateTimeFilter<"municipal_event"> | Date | string
     end_date?: DateTimeFilter<"municipal_event"> | Date | string
-    location?: StringNullableFilter<"municipal_event"> | string | null
+    location?: StringFilter<"municipal_event"> | string
     gps_coordinates?: StringNullableFilter<"municipal_event"> | string | null
     organizer?: StringNullableFilter<"municipal_event"> | string | null
     contact?: StringNullableFilter<"municipal_event"> | string | null
@@ -59145,7 +59109,7 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
-    location?: SortOrderInput | SortOrder
+    location?: SortOrder
     gps_coordinates?: SortOrderInput | SortOrder
     organizer?: SortOrderInput | SortOrder
     contact?: SortOrderInput | SortOrder
@@ -59166,7 +59130,7 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
     start_date?: DateTimeWithAggregatesFilter<"municipal_event"> | Date | string
     end_date?: DateTimeWithAggregatesFilter<"municipal_event"> | Date | string
-    location?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
+    location?: StringWithAggregatesFilter<"municipal_event"> | string
     gps_coordinates?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
     organizer?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
     contact?: StringNullableWithAggregatesFilter<"municipal_event"> | string | null
@@ -59180,9 +59144,9 @@ export namespace Prisma {
     OR?: notificationWhereInput[]
     NOT?: notificationWhereInput | notificationWhereInput[]
     id?: StringFilter<"notification"> | string
-    user_id?: StringNullableFilter<"notification"> | string | null
-    type?: StringNullableFilter<"notification"> | string | null
-    content?: StringNullableFilter<"notification"> | string | null
+    user_id?: StringFilter<"notification"> | string
+    type?: StringFilter<"notification"> | string
+    content?: StringFilter<"notification"> | string
     read?: BoolNullableFilter<"notification"> | boolean | null
     action_link?: StringNullableFilter<"notification"> | string | null
     created_at?: DateTimeFilter<"notification"> | Date | string
@@ -59192,9 +59156,9 @@ export namespace Prisma {
 
   export type notificationOrderByWithRelationInput = {
     id?: SortOrder
-    user_id?: SortOrderInput | SortOrder
-    type?: SortOrderInput | SortOrder
-    content?: SortOrderInput | SortOrder
+    user_id?: SortOrder
+    type?: SortOrder
+    content?: SortOrder
     read?: SortOrderInput | SortOrder
     action_link?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -59207,9 +59171,9 @@ export namespace Prisma {
     AND?: notificationWhereInput | notificationWhereInput[]
     OR?: notificationWhereInput[]
     NOT?: notificationWhereInput | notificationWhereInput[]
-    user_id?: StringNullableFilter<"notification"> | string | null
-    type?: StringNullableFilter<"notification"> | string | null
-    content?: StringNullableFilter<"notification"> | string | null
+    user_id?: StringFilter<"notification"> | string
+    type?: StringFilter<"notification"> | string
+    content?: StringFilter<"notification"> | string
     read?: BoolNullableFilter<"notification"> | boolean | null
     action_link?: StringNullableFilter<"notification"> | string | null
     created_at?: DateTimeFilter<"notification"> | Date | string
@@ -59219,9 +59183,9 @@ export namespace Prisma {
 
   export type notificationOrderByWithAggregationInput = {
     id?: SortOrder
-    user_id?: SortOrderInput | SortOrder
-    type?: SortOrderInput | SortOrder
-    content?: SortOrderInput | SortOrder
+    user_id?: SortOrder
+    type?: SortOrder
+    content?: SortOrder
     read?: SortOrderInput | SortOrder
     action_link?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -59236,9 +59200,9 @@ export namespace Prisma {
     OR?: notificationScalarWhereWithAggregatesInput[]
     NOT?: notificationScalarWhereWithAggregatesInput | notificationScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"notification"> | string
-    user_id?: StringNullableWithAggregatesFilter<"notification"> | string | null
-    type?: StringNullableWithAggregatesFilter<"notification"> | string | null
-    content?: StringNullableWithAggregatesFilter<"notification"> | string | null
+    user_id?: StringWithAggregatesFilter<"notification"> | string
+    type?: StringWithAggregatesFilter<"notification"> | string
+    content?: StringWithAggregatesFilter<"notification"> | string
     read?: BoolNullableWithAggregatesFilter<"notification"> | boolean | null
     action_link?: StringNullableWithAggregatesFilter<"notification"> | string | null
     created_at?: DateTimeWithAggregatesFilter<"notification"> | Date | string
@@ -59250,13 +59214,13 @@ export namespace Prisma {
     OR?: notification_preferencesWhereInput[]
     NOT?: notification_preferencesWhereInput | notification_preferencesWhereInput[]
     user_id?: StringFilter<"notification_preferences"> | string
-    message_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    activity_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    help_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    forum_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    email_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    sms_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    push_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    message_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    activity_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    help_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    forum_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    email_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    sms_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    push_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
     quiet_hours_start?: DateTimeNullableFilter<"notification_preferences"> | Date | string | null
     quiet_hours_end?: DateTimeNullableFilter<"notification_preferences"> | Date | string | null
     created_at?: DateTimeFilter<"notification_preferences"> | Date | string
@@ -59266,13 +59230,13 @@ export namespace Prisma {
 
   export type notification_preferencesOrderByWithRelationInput = {
     user_id?: SortOrder
-    message_notif?: SortOrderInput | SortOrder
-    activity_notif?: SortOrderInput | SortOrder
-    help_notif?: SortOrderInput | SortOrder
-    forum_notif?: SortOrderInput | SortOrder
-    email_notif?: SortOrderInput | SortOrder
-    sms_notif?: SortOrderInput | SortOrder
-    push_notif?: SortOrderInput | SortOrder
+    message_notification?: SortOrderInput | SortOrder
+    activity_notification?: SortOrderInput | SortOrder
+    help_notification?: SortOrderInput | SortOrder
+    forum_notification?: SortOrderInput | SortOrder
+    email_notification?: SortOrderInput | SortOrder
+    sms_notification?: SortOrderInput | SortOrder
+    push_notification?: SortOrderInput | SortOrder
     quiet_hours_start?: SortOrderInput | SortOrder
     quiet_hours_end?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -59285,13 +59249,13 @@ export namespace Prisma {
     AND?: notification_preferencesWhereInput | notification_preferencesWhereInput[]
     OR?: notification_preferencesWhereInput[]
     NOT?: notification_preferencesWhereInput | notification_preferencesWhereInput[]
-    message_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    activity_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    help_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    forum_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    email_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    sms_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
-    push_notif?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    message_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    activity_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    help_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    forum_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    email_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    sms_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
+    push_notification?: BoolNullableFilter<"notification_preferences"> | boolean | null
     quiet_hours_start?: DateTimeNullableFilter<"notification_preferences"> | Date | string | null
     quiet_hours_end?: DateTimeNullableFilter<"notification_preferences"> | Date | string | null
     created_at?: DateTimeFilter<"notification_preferences"> | Date | string
@@ -59301,13 +59265,13 @@ export namespace Prisma {
 
   export type notification_preferencesOrderByWithAggregationInput = {
     user_id?: SortOrder
-    message_notif?: SortOrderInput | SortOrder
-    activity_notif?: SortOrderInput | SortOrder
-    help_notif?: SortOrderInput | SortOrder
-    forum_notif?: SortOrderInput | SortOrder
-    email_notif?: SortOrderInput | SortOrder
-    sms_notif?: SortOrderInput | SortOrder
-    push_notif?: SortOrderInput | SortOrder
+    message_notification?: SortOrderInput | SortOrder
+    activity_notification?: SortOrderInput | SortOrder
+    help_notification?: SortOrderInput | SortOrder
+    forum_notification?: SortOrderInput | SortOrder
+    email_notification?: SortOrderInput | SortOrder
+    sms_notification?: SortOrderInput | SortOrder
+    push_notification?: SortOrderInput | SortOrder
     quiet_hours_start?: SortOrderInput | SortOrder
     quiet_hours_end?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -59322,13 +59286,13 @@ export namespace Prisma {
     OR?: notification_preferencesScalarWhereWithAggregatesInput[]
     NOT?: notification_preferencesScalarWhereWithAggregatesInput | notification_preferencesScalarWhereWithAggregatesInput[]
     user_id?: StringWithAggregatesFilter<"notification_preferences"> | string
-    message_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
-    activity_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
-    help_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
-    forum_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
-    email_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
-    sms_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
-    push_notif?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
+    message_notification?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
+    activity_notification?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
+    help_notification?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
+    forum_notification?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
+    email_notification?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
+    sms_notification?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
+    push_notification?: BoolNullableWithAggregatesFilter<"notification_preferences"> | boolean | null
     quiet_hours_start?: DateTimeNullableWithAggregatesFilter<"notification_preferences"> | Date | string | null
     quiet_hours_end?: DateTimeNullableWithAggregatesFilter<"notification_preferences"> | Date | string | null
     created_at?: DateTimeWithAggregatesFilter<"notification_preferences"> | Date | string
@@ -59460,8 +59424,8 @@ export namespace Prisma {
     NOT?: project_memberWhereInput | project_memberWhereInput[]
     project_id?: StringFilter<"project_member"> | string
     user_id?: StringFilter<"project_member"> | string
-    role?: StringNullableFilter<"project_member"> | string | null
-    join_date?: DateTimeNullableFilter<"project_member"> | Date | string | null
+    role?: StringFilter<"project_member"> | string
+    join_date?: DateTimeFilter<"project_member"> | Date | string
     created_at?: DateTimeFilter<"project_member"> | Date | string
     updated_at?: DateTimeNullableFilter<"project_member"> | Date | string | null
     collaborative_project?: XOR<Collaborative_projectScalarRelationFilter, collaborative_projectWhereInput>
@@ -59471,8 +59435,8 @@ export namespace Prisma {
   export type project_memberOrderByWithRelationInput = {
     project_id?: SortOrder
     user_id?: SortOrder
-    role?: SortOrderInput | SortOrder
-    join_date?: SortOrderInput | SortOrder
+    role?: SortOrder
+    join_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     collaborative_project?: collaborative_projectOrderByWithRelationInput
@@ -59486,8 +59450,8 @@ export namespace Prisma {
     NOT?: project_memberWhereInput | project_memberWhereInput[]
     project_id?: StringFilter<"project_member"> | string
     user_id?: StringFilter<"project_member"> | string
-    role?: StringNullableFilter<"project_member"> | string | null
-    join_date?: DateTimeNullableFilter<"project_member"> | Date | string | null
+    role?: StringFilter<"project_member"> | string
+    join_date?: DateTimeFilter<"project_member"> | Date | string
     created_at?: DateTimeFilter<"project_member"> | Date | string
     updated_at?: DateTimeNullableFilter<"project_member"> | Date | string | null
     collaborative_project?: XOR<Collaborative_projectScalarRelationFilter, collaborative_projectWhereInput>
@@ -59497,8 +59461,8 @@ export namespace Prisma {
   export type project_memberOrderByWithAggregationInput = {
     project_id?: SortOrder
     user_id?: SortOrder
-    role?: SortOrderInput | SortOrder
-    join_date?: SortOrderInput | SortOrder
+    role?: SortOrder
+    join_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: project_memberCountOrderByAggregateInput
@@ -59512,8 +59476,8 @@ export namespace Prisma {
     NOT?: project_memberScalarWhereWithAggregatesInput | project_memberScalarWhereWithAggregatesInput[]
     project_id?: StringWithAggregatesFilter<"project_member"> | string
     user_id?: StringWithAggregatesFilter<"project_member"> | string
-    role?: StringNullableWithAggregatesFilter<"project_member"> | string | null
-    join_date?: DateTimeNullableWithAggregatesFilter<"project_member"> | Date | string | null
+    role?: StringWithAggregatesFilter<"project_member"> | string
+    join_date?: DateTimeWithAggregatesFilter<"project_member"> | Date | string
     created_at?: DateTimeWithAggregatesFilter<"project_member"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"project_member"> | Date | string | null
   }
@@ -59523,10 +59487,10 @@ export namespace Prisma {
     OR?: project_taskWhereInput[]
     NOT?: project_taskWhereInput | project_taskWhereInput[]
     id?: StringFilter<"project_task"> | string
-    project_id?: StringNullableFilter<"project_task"> | string | null
-    title?: StringNullableFilter<"project_task"> | string | null
+    project_id?: StringFilter<"project_task"> | string
+    title?: StringFilter<"project_task"> | string
     description?: StringNullableFilter<"project_task"> | string | null
-    creation_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
+    creation_date?: DateTimeFilter<"project_task"> | Date | string
     due_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
     status?: StringNullableFilter<"project_task"> | string | null
     assignee_id?: StringNullableFilter<"project_task"> | string | null
@@ -59538,10 +59502,10 @@ export namespace Prisma {
 
   export type project_taskOrderByWithRelationInput = {
     id?: SortOrder
-    project_id?: SortOrderInput | SortOrder
-    title?: SortOrderInput | SortOrder
+    project_id?: SortOrder
+    title?: SortOrder
     description?: SortOrderInput | SortOrder
-    creation_date?: SortOrderInput | SortOrder
+    creation_date?: SortOrder
     due_date?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
     assignee_id?: SortOrderInput | SortOrder
@@ -59556,10 +59520,10 @@ export namespace Prisma {
     AND?: project_taskWhereInput | project_taskWhereInput[]
     OR?: project_taskWhereInput[]
     NOT?: project_taskWhereInput | project_taskWhereInput[]
-    project_id?: StringNullableFilter<"project_task"> | string | null
-    title?: StringNullableFilter<"project_task"> | string | null
+    project_id?: StringFilter<"project_task"> | string
+    title?: StringFilter<"project_task"> | string
     description?: StringNullableFilter<"project_task"> | string | null
-    creation_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
+    creation_date?: DateTimeFilter<"project_task"> | Date | string
     due_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
     status?: StringNullableFilter<"project_task"> | string | null
     assignee_id?: StringNullableFilter<"project_task"> | string | null
@@ -59571,10 +59535,10 @@ export namespace Prisma {
 
   export type project_taskOrderByWithAggregationInput = {
     id?: SortOrder
-    project_id?: SortOrderInput | SortOrder
-    title?: SortOrderInput | SortOrder
+    project_id?: SortOrder
+    title?: SortOrder
     description?: SortOrderInput | SortOrder
-    creation_date?: SortOrderInput | SortOrder
+    creation_date?: SortOrder
     due_date?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
     assignee_id?: SortOrderInput | SortOrder
@@ -59590,10 +59554,10 @@ export namespace Prisma {
     OR?: project_taskScalarWhereWithAggregatesInput[]
     NOT?: project_taskScalarWhereWithAggregatesInput | project_taskScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"project_task"> | string
-    project_id?: StringNullableWithAggregatesFilter<"project_task"> | string | null
-    title?: StringNullableWithAggregatesFilter<"project_task"> | string | null
+    project_id?: StringWithAggregatesFilter<"project_task"> | string
+    title?: StringWithAggregatesFilter<"project_task"> | string
     description?: StringNullableWithAggregatesFilter<"project_task"> | string | null
-    creation_date?: DateTimeNullableWithAggregatesFilter<"project_task"> | Date | string | null
+    creation_date?: DateTimeWithAggregatesFilter<"project_task"> | Date | string
     due_date?: DateTimeNullableWithAggregatesFilter<"project_task"> | Date | string | null
     status?: StringNullableWithAggregatesFilter<"project_task"> | string | null
     assignee_id?: StringNullableWithAggregatesFilter<"project_task"> | string | null
@@ -59608,9 +59572,9 @@ export namespace Prisma {
     id?: StringFilter<"resource"> | string
     title?: StringFilter<"resource"> | string
     content?: StringNullableFilter<"resource"> | string | null
-    type?: StringNullableFilter<"resource"> | string | null
-    category?: StringNullableFilter<"resource"> | string | null
-    author_id?: StringNullableFilter<"resource"> | string | null
+    type?: StringFilter<"resource"> | string
+    category?: StringFilter<"resource"> | string
+    author_id?: StringFilter<"resource"> | string
     admin_validated?: BoolNullableFilter<"resource"> | boolean | null
     created_at?: DateTimeFilter<"resource"> | Date | string
     updated_at?: DateTimeNullableFilter<"resource"> | Date | string | null
@@ -59621,9 +59585,9 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrderInput | SortOrder
-    type?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
-    author_id?: SortOrderInput | SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    author_id?: SortOrder
     admin_validated?: SortOrderInput | SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
@@ -59637,9 +59601,9 @@ export namespace Prisma {
     NOT?: resourceWhereInput | resourceWhereInput[]
     title?: StringFilter<"resource"> | string
     content?: StringNullableFilter<"resource"> | string | null
-    type?: StringNullableFilter<"resource"> | string | null
-    category?: StringNullableFilter<"resource"> | string | null
-    author_id?: StringNullableFilter<"resource"> | string | null
+    type?: StringFilter<"resource"> | string
+    category?: StringFilter<"resource"> | string
+    author_id?: StringFilter<"resource"> | string
     admin_validated?: BoolNullableFilter<"resource"> | boolean | null
     created_at?: DateTimeFilter<"resource"> | Date | string
     updated_at?: DateTimeNullableFilter<"resource"> | Date | string | null
@@ -59650,9 +59614,9 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrderInput | SortOrder
-    type?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
-    author_id?: SortOrderInput | SortOrder
+    type?: SortOrder
+    category?: SortOrder
+    author_id?: SortOrder
     admin_validated?: SortOrderInput | SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
@@ -59668,9 +59632,9 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"resource"> | string
     title?: StringWithAggregatesFilter<"resource"> | string
     content?: StringNullableWithAggregatesFilter<"resource"> | string | null
-    type?: StringNullableWithAggregatesFilter<"resource"> | string | null
-    category?: StringNullableWithAggregatesFilter<"resource"> | string | null
-    author_id?: StringNullableWithAggregatesFilter<"resource"> | string | null
+    type?: StringWithAggregatesFilter<"resource"> | string
+    category?: StringWithAggregatesFilter<"resource"> | string
+    author_id?: StringWithAggregatesFilter<"resource"> | string
     admin_validated?: BoolNullableWithAggregatesFilter<"resource"> | boolean | null
     created_at?: DateTimeWithAggregatesFilter<"resource"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"resource"> | Date | string | null
@@ -60042,8 +60006,8 @@ export namespace Prisma {
     NOT?: trust_circleWhereInput | trust_circleWhereInput[]
     user_id?: StringFilter<"trust_circle"> | string
     contact_id?: StringFilter<"trust_circle"> | string
-    date_added?: DateTimeNullableFilter<"trust_circle"> | Date | string | null
-    access_level?: StringNullableFilter<"trust_circle"> | string | null
+    date_added?: DateTimeFilter<"trust_circle"> | Date | string
+    access_level?: StringFilter<"trust_circle"> | string
     created_at?: DateTimeFilter<"trust_circle"> | Date | string
     updated_at?: DateTimeNullableFilter<"trust_circle"> | Date | string | null
     user_trust_circle_contact_idTouser?: XOR<UserScalarRelationFilter, userWhereInput>
@@ -60053,8 +60017,8 @@ export namespace Prisma {
   export type trust_circleOrderByWithRelationInput = {
     user_id?: SortOrder
     contact_id?: SortOrder
-    date_added?: SortOrderInput | SortOrder
-    access_level?: SortOrderInput | SortOrder
+    date_added?: SortOrder
+    access_level?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     user_trust_circle_contact_idTouser?: userOrderByWithRelationInput
@@ -60068,8 +60032,8 @@ export namespace Prisma {
     NOT?: trust_circleWhereInput | trust_circleWhereInput[]
     user_id?: StringFilter<"trust_circle"> | string
     contact_id?: StringFilter<"trust_circle"> | string
-    date_added?: DateTimeNullableFilter<"trust_circle"> | Date | string | null
-    access_level?: StringNullableFilter<"trust_circle"> | string | null
+    date_added?: DateTimeFilter<"trust_circle"> | Date | string
+    access_level?: StringFilter<"trust_circle"> | string
     created_at?: DateTimeFilter<"trust_circle"> | Date | string
     updated_at?: DateTimeNullableFilter<"trust_circle"> | Date | string | null
     user_trust_circle_contact_idTouser?: XOR<UserScalarRelationFilter, userWhereInput>
@@ -60079,8 +60043,8 @@ export namespace Prisma {
   export type trust_circleOrderByWithAggregationInput = {
     user_id?: SortOrder
     contact_id?: SortOrder
-    date_added?: SortOrderInput | SortOrder
-    access_level?: SortOrderInput | SortOrder
+    date_added?: SortOrder
+    access_level?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: trust_circleCountOrderByAggregateInput
@@ -60094,8 +60058,8 @@ export namespace Prisma {
     NOT?: trust_circleScalarWhereWithAggregatesInput | trust_circleScalarWhereWithAggregatesInput[]
     user_id?: StringWithAggregatesFilter<"trust_circle"> | string
     contact_id?: StringWithAggregatesFilter<"trust_circle"> | string
-    date_added?: DateTimeNullableWithAggregatesFilter<"trust_circle"> | Date | string | null
-    access_level?: StringNullableWithAggregatesFilter<"trust_circle"> | string | null
+    date_added?: DateTimeWithAggregatesFilter<"trust_circle"> | Date | string
+    access_level?: StringWithAggregatesFilter<"trust_circle"> | string
     created_at?: DateTimeWithAggregatesFilter<"trust_circle"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"trust_circle"> | Date | string | null
   }
@@ -60108,8 +60072,8 @@ export namespace Prisma {
     user_id?: StringFilter<"trusted_contact"> | string
     last_name?: StringFilter<"trusted_contact"> | string
     first_name?: StringFilter<"trusted_contact"> | string
-    email?: StringFilter<"trusted_contact"> | string
-    phone?: StringNullableFilter<"trusted_contact"> | string | null
+    email?: StringNullableFilter<"trusted_contact"> | string | null
+    phone?: StringFilter<"trusted_contact"> | string
     relationship?: StringNullableFilter<"trusted_contact"> | string | null
     share_medications?: BoolFilter<"trusted_contact"> | boolean
     share_health_indicators?: BoolFilter<"trusted_contact"> | boolean
@@ -60125,8 +60089,8 @@ export namespace Prisma {
     user_id?: SortOrder
     last_name?: SortOrder
     first_name?: SortOrder
-    email?: SortOrder
-    phone?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    phone?: SortOrder
     relationship?: SortOrderInput | SortOrder
     share_medications?: SortOrder
     share_health_indicators?: SortOrder
@@ -60146,7 +60110,7 @@ export namespace Prisma {
     user_id?: StringFilter<"trusted_contact"> | string
     last_name?: StringFilter<"trusted_contact"> | string
     first_name?: StringFilter<"trusted_contact"> | string
-    phone?: StringNullableFilter<"trusted_contact"> | string | null
+    phone?: StringFilter<"trusted_contact"> | string
     relationship?: StringNullableFilter<"trusted_contact"> | string | null
     share_medications?: BoolFilter<"trusted_contact"> | boolean
     share_health_indicators?: BoolFilter<"trusted_contact"> | boolean
@@ -60162,8 +60126,8 @@ export namespace Prisma {
     user_id?: SortOrder
     last_name?: SortOrder
     first_name?: SortOrder
-    email?: SortOrder
-    phone?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    phone?: SortOrder
     relationship?: SortOrderInput | SortOrder
     share_medications?: SortOrder
     share_health_indicators?: SortOrder
@@ -60184,8 +60148,8 @@ export namespace Prisma {
     user_id?: StringWithAggregatesFilter<"trusted_contact"> | string
     last_name?: StringWithAggregatesFilter<"trusted_contact"> | string
     first_name?: StringWithAggregatesFilter<"trusted_contact"> | string
-    email?: StringWithAggregatesFilter<"trusted_contact"> | string
-    phone?: StringNullableWithAggregatesFilter<"trusted_contact"> | string | null
+    email?: StringNullableWithAggregatesFilter<"trusted_contact"> | string | null
+    phone?: StringWithAggregatesFilter<"trusted_contact"> | string
     relationship?: StringNullableWithAggregatesFilter<"trusted_contact"> | string | null
     share_medications?: BoolWithAggregatesFilter<"trusted_contact"> | boolean
     share_health_indicators?: BoolWithAggregatesFilter<"trusted_contact"> | boolean
@@ -60200,10 +60164,10 @@ export namespace Prisma {
     OR?: urban_issue_reportWhereInput[]
     NOT?: urban_issue_reportWhereInput | urban_issue_reportWhereInput[]
     id?: StringFilter<"urban_issue_report"> | string
-    user_id?: StringNullableFilter<"urban_issue_report"> | string | null
+    user_id?: StringFilter<"urban_issue_report"> | string
     category?: StringFilter<"urban_issue_report"> | string
-    description?: StringNullableFilter<"urban_issue_report"> | string | null
-    address?: StringNullableFilter<"urban_issue_report"> | string | null
+    description?: StringFilter<"urban_issue_report"> | string
+    address?: StringFilter<"urban_issue_report"> | string
     gps_coordinates?: StringNullableFilter<"urban_issue_report"> | string | null
     report_date?: DateTimeFilter<"urban_issue_report"> | Date | string
     status?: StringNullableFilter<"urban_issue_report"> | string | null
@@ -60215,10 +60179,10 @@ export namespace Prisma {
 
   export type urban_issue_reportOrderByWithRelationInput = {
     id?: SortOrder
-    user_id?: SortOrderInput | SortOrder
+    user_id?: SortOrder
     category?: SortOrder
-    description?: SortOrderInput | SortOrder
-    address?: SortOrderInput | SortOrder
+    description?: SortOrder
+    address?: SortOrder
     gps_coordinates?: SortOrderInput | SortOrder
     report_date?: SortOrder
     status?: SortOrderInput | SortOrder
@@ -60233,10 +60197,10 @@ export namespace Prisma {
     AND?: urban_issue_reportWhereInput | urban_issue_reportWhereInput[]
     OR?: urban_issue_reportWhereInput[]
     NOT?: urban_issue_reportWhereInput | urban_issue_reportWhereInput[]
-    user_id?: StringNullableFilter<"urban_issue_report"> | string | null
+    user_id?: StringFilter<"urban_issue_report"> | string
     category?: StringFilter<"urban_issue_report"> | string
-    description?: StringNullableFilter<"urban_issue_report"> | string | null
-    address?: StringNullableFilter<"urban_issue_report"> | string | null
+    description?: StringFilter<"urban_issue_report"> | string
+    address?: StringFilter<"urban_issue_report"> | string
     gps_coordinates?: StringNullableFilter<"urban_issue_report"> | string | null
     report_date?: DateTimeFilter<"urban_issue_report"> | Date | string
     status?: StringNullableFilter<"urban_issue_report"> | string | null
@@ -60248,10 +60212,10 @@ export namespace Prisma {
 
   export type urban_issue_reportOrderByWithAggregationInput = {
     id?: SortOrder
-    user_id?: SortOrderInput | SortOrder
+    user_id?: SortOrder
     category?: SortOrder
-    description?: SortOrderInput | SortOrder
-    address?: SortOrderInput | SortOrder
+    description?: SortOrder
+    address?: SortOrder
     gps_coordinates?: SortOrderInput | SortOrder
     report_date?: SortOrder
     status?: SortOrderInput | SortOrder
@@ -60268,10 +60232,10 @@ export namespace Prisma {
     OR?: urban_issue_reportScalarWhereWithAggregatesInput[]
     NOT?: urban_issue_reportScalarWhereWithAggregatesInput | urban_issue_reportScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"urban_issue_report"> | string
-    user_id?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
+    user_id?: StringWithAggregatesFilter<"urban_issue_report"> | string
     category?: StringWithAggregatesFilter<"urban_issue_report"> | string
-    description?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
-    address?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
+    description?: StringWithAggregatesFilter<"urban_issue_report"> | string
+    address?: StringWithAggregatesFilter<"urban_issue_report"> | string
     gps_coordinates?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
     report_date?: DateTimeWithAggregatesFilter<"urban_issue_report"> | Date | string
     status?: StringNullableWithAggregatesFilter<"urban_issue_report"> | string | null
@@ -60611,7 +60575,7 @@ export namespace Prisma {
     NOT?: user_badgeWhereInput | user_badgeWhereInput[]
     user_id?: StringFilter<"user_badge"> | string
     badge_id?: StringFilter<"user_badge"> | string
-    achievement_date?: DateTimeNullableFilter<"user_badge"> | Date | string | null
+    achievement_date?: DateTimeFilter<"user_badge"> | Date | string
     created_at?: DateTimeFilter<"user_badge"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_badge"> | Date | string | null
     badge?: XOR<BadgeScalarRelationFilter, badgeWhereInput>
@@ -60621,7 +60585,7 @@ export namespace Prisma {
   export type user_badgeOrderByWithRelationInput = {
     user_id?: SortOrder
     badge_id?: SortOrder
-    achievement_date?: SortOrderInput | SortOrder
+    achievement_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     badge?: badgeOrderByWithRelationInput
@@ -60635,7 +60599,7 @@ export namespace Prisma {
     NOT?: user_badgeWhereInput | user_badgeWhereInput[]
     user_id?: StringFilter<"user_badge"> | string
     badge_id?: StringFilter<"user_badge"> | string
-    achievement_date?: DateTimeNullableFilter<"user_badge"> | Date | string | null
+    achievement_date?: DateTimeFilter<"user_badge"> | Date | string
     created_at?: DateTimeFilter<"user_badge"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_badge"> | Date | string | null
     badge?: XOR<BadgeScalarRelationFilter, badgeWhereInput>
@@ -60645,7 +60609,7 @@ export namespace Prisma {
   export type user_badgeOrderByWithAggregationInput = {
     user_id?: SortOrder
     badge_id?: SortOrder
-    achievement_date?: SortOrderInput | SortOrder
+    achievement_date?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: user_badgeCountOrderByAggregateInput
@@ -60659,7 +60623,7 @@ export namespace Prisma {
     NOT?: user_badgeScalarWhereWithAggregatesInput | user_badgeScalarWhereWithAggregatesInput[]
     user_id?: StringWithAggregatesFilter<"user_badge"> | string
     badge_id?: StringWithAggregatesFilter<"user_badge"> | string
-    achievement_date?: DateTimeNullableWithAggregatesFilter<"user_badge"> | Date | string | null
+    achievement_date?: DateTimeWithAggregatesFilter<"user_badge"> | Date | string
     created_at?: DateTimeWithAggregatesFilter<"user_badge"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"user_badge"> | Date | string | null
   }
@@ -60669,12 +60633,12 @@ export namespace Prisma {
     OR?: user_deviceWhereInput[]
     NOT?: user_deviceWhereInput | user_deviceWhereInput[]
     id?: StringFilter<"user_device"> | string
-    user_id?: StringNullableFilter<"user_device"> | string | null
-    device_type?: StringNullableFilter<"user_device"> | string | null
+    user_id?: StringFilter<"user_device"> | string
+    device_type?: StringFilter<"user_device"> | string
     device_name?: StringNullableFilter<"user_device"> | string | null
     operating_system?: StringNullableFilter<"user_device"> | string | null
-    notification_token?: StringNullableFilter<"user_device"> | string | null
-    last_connection?: DateTimeNullableFilter<"user_device"> | Date | string | null
+    notification_token?: StringFilter<"user_device"> | string
+    last_connection?: DateTimeFilter<"user_device"> | Date | string
     created_at?: DateTimeFilter<"user_device"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_device"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
@@ -60682,12 +60646,12 @@ export namespace Prisma {
 
   export type user_deviceOrderByWithRelationInput = {
     id?: SortOrder
-    user_id?: SortOrderInput | SortOrder
-    device_type?: SortOrderInput | SortOrder
+    user_id?: SortOrder
+    device_type?: SortOrder
     device_name?: SortOrderInput | SortOrder
     operating_system?: SortOrderInput | SortOrder
-    notification_token?: SortOrderInput | SortOrder
-    last_connection?: SortOrderInput | SortOrder
+    notification_token?: SortOrder
+    last_connection?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     user?: userOrderByWithRelationInput
@@ -60698,12 +60662,12 @@ export namespace Prisma {
     AND?: user_deviceWhereInput | user_deviceWhereInput[]
     OR?: user_deviceWhereInput[]
     NOT?: user_deviceWhereInput | user_deviceWhereInput[]
-    user_id?: StringNullableFilter<"user_device"> | string | null
-    device_type?: StringNullableFilter<"user_device"> | string | null
+    user_id?: StringFilter<"user_device"> | string
+    device_type?: StringFilter<"user_device"> | string
     device_name?: StringNullableFilter<"user_device"> | string | null
     operating_system?: StringNullableFilter<"user_device"> | string | null
-    notification_token?: StringNullableFilter<"user_device"> | string | null
-    last_connection?: DateTimeNullableFilter<"user_device"> | Date | string | null
+    notification_token?: StringFilter<"user_device"> | string
+    last_connection?: DateTimeFilter<"user_device"> | Date | string
     created_at?: DateTimeFilter<"user_device"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_device"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
@@ -60711,12 +60675,12 @@ export namespace Prisma {
 
   export type user_deviceOrderByWithAggregationInput = {
     id?: SortOrder
-    user_id?: SortOrderInput | SortOrder
-    device_type?: SortOrderInput | SortOrder
+    user_id?: SortOrder
+    device_type?: SortOrder
     device_name?: SortOrderInput | SortOrder
     operating_system?: SortOrderInput | SortOrder
-    notification_token?: SortOrderInput | SortOrder
-    last_connection?: SortOrderInput | SortOrder
+    notification_token?: SortOrder
+    last_connection?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: user_deviceCountOrderByAggregateInput
@@ -60729,12 +60693,12 @@ export namespace Prisma {
     OR?: user_deviceScalarWhereWithAggregatesInput[]
     NOT?: user_deviceScalarWhereWithAggregatesInput | user_deviceScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"user_device"> | string
-    user_id?: StringNullableWithAggregatesFilter<"user_device"> | string | null
-    device_type?: StringNullableWithAggregatesFilter<"user_device"> | string | null
+    user_id?: StringWithAggregatesFilter<"user_device"> | string
+    device_type?: StringWithAggregatesFilter<"user_device"> | string
     device_name?: StringNullableWithAggregatesFilter<"user_device"> | string | null
     operating_system?: StringNullableWithAggregatesFilter<"user_device"> | string | null
-    notification_token?: StringNullableWithAggregatesFilter<"user_device"> | string | null
-    last_connection?: DateTimeNullableWithAggregatesFilter<"user_device"> | Date | string | null
+    notification_token?: StringWithAggregatesFilter<"user_device"> | string
+    last_connection?: DateTimeWithAggregatesFilter<"user_device"> | Date | string
     created_at?: DateTimeWithAggregatesFilter<"user_device"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"user_device"> | Date | string | null
   }
@@ -60887,11 +60851,11 @@ export namespace Prisma {
     OR?: video_callWhereInput[]
     NOT?: video_callWhereInput | video_callWhereInput[]
     id?: StringFilter<"video_call"> | string
-    conversation_id?: StringNullableFilter<"video_call"> | string | null
-    initiator_id?: StringNullableFilter<"video_call"> | string | null
-    start_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
-    end_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
-    status?: StringNullableFilter<"video_call"> | string | null
+    conversation_id?: StringFilter<"video_call"> | string
+    initiator_id?: StringFilter<"video_call"> | string
+    start_date?: DateTimeFilter<"video_call"> | Date | string
+    end_date?: DateTimeFilter<"video_call"> | Date | string
+    status?: StringFilter<"video_call"> | string
     created_at?: DateTimeFilter<"video_call"> | Date | string
     updated_at?: DateTimeNullableFilter<"video_call"> | Date | string | null
     conversation?: XOR<ConversationNullableScalarRelationFilter, conversationWhereInput> | null
@@ -60900,11 +60864,11 @@ export namespace Prisma {
 
   export type video_callOrderByWithRelationInput = {
     id?: SortOrder
-    conversation_id?: SortOrderInput | SortOrder
-    initiator_id?: SortOrderInput | SortOrder
-    start_date?: SortOrderInput | SortOrder
-    end_date?: SortOrderInput | SortOrder
-    status?: SortOrderInput | SortOrder
+    conversation_id?: SortOrder
+    initiator_id?: SortOrder
+    start_date?: SortOrder
+    end_date?: SortOrder
+    status?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     conversation?: conversationOrderByWithRelationInput
@@ -60916,11 +60880,11 @@ export namespace Prisma {
     AND?: video_callWhereInput | video_callWhereInput[]
     OR?: video_callWhereInput[]
     NOT?: video_callWhereInput | video_callWhereInput[]
-    conversation_id?: StringNullableFilter<"video_call"> | string | null
-    initiator_id?: StringNullableFilter<"video_call"> | string | null
-    start_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
-    end_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
-    status?: StringNullableFilter<"video_call"> | string | null
+    conversation_id?: StringFilter<"video_call"> | string
+    initiator_id?: StringFilter<"video_call"> | string
+    start_date?: DateTimeFilter<"video_call"> | Date | string
+    end_date?: DateTimeFilter<"video_call"> | Date | string
+    status?: StringFilter<"video_call"> | string
     created_at?: DateTimeFilter<"video_call"> | Date | string
     updated_at?: DateTimeNullableFilter<"video_call"> | Date | string | null
     conversation?: XOR<ConversationNullableScalarRelationFilter, conversationWhereInput> | null
@@ -60929,11 +60893,11 @@ export namespace Prisma {
 
   export type video_callOrderByWithAggregationInput = {
     id?: SortOrder
-    conversation_id?: SortOrderInput | SortOrder
-    initiator_id?: SortOrderInput | SortOrder
-    start_date?: SortOrderInput | SortOrder
-    end_date?: SortOrderInput | SortOrder
-    status?: SortOrderInput | SortOrder
+    conversation_id?: SortOrder
+    initiator_id?: SortOrder
+    start_date?: SortOrder
+    end_date?: SortOrder
+    status?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: video_callCountOrderByAggregateInput
@@ -60946,11 +60910,11 @@ export namespace Prisma {
     OR?: video_callScalarWhereWithAggregatesInput[]
     NOT?: video_callScalarWhereWithAggregatesInput | video_callScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"video_call"> | string
-    conversation_id?: StringNullableWithAggregatesFilter<"video_call"> | string | null
-    initiator_id?: StringNullableWithAggregatesFilter<"video_call"> | string | null
-    start_date?: DateTimeNullableWithAggregatesFilter<"video_call"> | Date | string | null
-    end_date?: DateTimeNullableWithAggregatesFilter<"video_call"> | Date | string | null
-    status?: StringNullableWithAggregatesFilter<"video_call"> | string | null
+    conversation_id?: StringWithAggregatesFilter<"video_call"> | string
+    initiator_id?: StringWithAggregatesFilter<"video_call"> | string
+    start_date?: DateTimeWithAggregatesFilter<"video_call"> | Date | string
+    end_date?: DateTimeWithAggregatesFilter<"video_call"> | Date | string
+    status?: StringWithAggregatesFilter<"video_call"> | string
     created_at?: DateTimeWithAggregatesFilter<"video_call"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"video_call"> | Date | string | null
   }
@@ -61029,7 +60993,7 @@ export namespace Prisma {
     OR?: wellness_goalWhereInput[]
     NOT?: wellness_goalWhereInput | wellness_goalWhereInput[]
     id?: StringFilter<"wellness_goal"> | string
-    user_id?: StringNullableFilter<"wellness_goal"> | string | null
+    user_id?: StringFilter<"wellness_goal"> | string
     title?: StringFilter<"wellness_goal"> | string
     category?: StringFilter<"wellness_goal"> | string
     target_value?: IntFilter<"wellness_goal"> | number
@@ -61037,7 +61001,7 @@ export namespace Prisma {
     frequency?: StringFilter<"wellness_goal"> | string
     start_date?: DateTimeFilter<"wellness_goal"> | Date | string
     end_date?: DateTimeFilter<"wellness_goal"> | Date | string
-    active?: BoolNullableFilter<"wellness_goal"> | boolean | null
+    active?: BoolFilter<"wellness_goal"> | boolean
     created_at?: DateTimeFilter<"wellness_goal"> | Date | string
     updated_at?: DateTimeNullableFilter<"wellness_goal"> | Date | string | null
     goal_progress?: Goal_progressListRelationFilter
@@ -61046,7 +61010,7 @@ export namespace Prisma {
 
   export type wellness_goalOrderByWithRelationInput = {
     id?: SortOrder
-    user_id?: SortOrderInput | SortOrder
+    user_id?: SortOrder
     title?: SortOrder
     category?: SortOrder
     target_value?: SortOrder
@@ -61054,7 +61018,7 @@ export namespace Prisma {
     frequency?: SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
-    active?: SortOrderInput | SortOrder
+    active?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     goal_progress?: goal_progressOrderByRelationAggregateInput
@@ -61066,7 +61030,7 @@ export namespace Prisma {
     AND?: wellness_goalWhereInput | wellness_goalWhereInput[]
     OR?: wellness_goalWhereInput[]
     NOT?: wellness_goalWhereInput | wellness_goalWhereInput[]
-    user_id?: StringNullableFilter<"wellness_goal"> | string | null
+    user_id?: StringFilter<"wellness_goal"> | string
     title?: StringFilter<"wellness_goal"> | string
     category?: StringFilter<"wellness_goal"> | string
     target_value?: IntFilter<"wellness_goal"> | number
@@ -61074,7 +61038,7 @@ export namespace Prisma {
     frequency?: StringFilter<"wellness_goal"> | string
     start_date?: DateTimeFilter<"wellness_goal"> | Date | string
     end_date?: DateTimeFilter<"wellness_goal"> | Date | string
-    active?: BoolNullableFilter<"wellness_goal"> | boolean | null
+    active?: BoolFilter<"wellness_goal"> | boolean
     created_at?: DateTimeFilter<"wellness_goal"> | Date | string
     updated_at?: DateTimeNullableFilter<"wellness_goal"> | Date | string | null
     goal_progress?: Goal_progressListRelationFilter
@@ -61083,7 +61047,7 @@ export namespace Prisma {
 
   export type wellness_goalOrderByWithAggregationInput = {
     id?: SortOrder
-    user_id?: SortOrderInput | SortOrder
+    user_id?: SortOrder
     title?: SortOrder
     category?: SortOrder
     target_value?: SortOrder
@@ -61091,7 +61055,7 @@ export namespace Prisma {
     frequency?: SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
-    active?: SortOrderInput | SortOrder
+    active?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrderInput | SortOrder
     _count?: wellness_goalCountOrderByAggregateInput
@@ -61106,7 +61070,7 @@ export namespace Prisma {
     OR?: wellness_goalScalarWhereWithAggregatesInput[]
     NOT?: wellness_goalScalarWhereWithAggregatesInput | wellness_goalScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"wellness_goal"> | string
-    user_id?: StringNullableWithAggregatesFilter<"wellness_goal"> | string | null
+    user_id?: StringWithAggregatesFilter<"wellness_goal"> | string
     title?: StringWithAggregatesFilter<"wellness_goal"> | string
     category?: StringWithAggregatesFilter<"wellness_goal"> | string
     target_value?: IntWithAggregatesFilter<"wellness_goal"> | number
@@ -61114,7 +61078,7 @@ export namespace Prisma {
     frequency?: StringWithAggregatesFilter<"wellness_goal"> | string
     start_date?: DateTimeWithAggregatesFilter<"wellness_goal"> | Date | string
     end_date?: DateTimeWithAggregatesFilter<"wellness_goal"> | Date | string
-    active?: BoolNullableWithAggregatesFilter<"wellness_goal"> | boolean | null
+    active?: BoolWithAggregatesFilter<"wellness_goal"> | boolean
     created_at?: DateTimeWithAggregatesFilter<"wellness_goal"> | Date | string
     updated_at?: DateTimeNullableWithAggregatesFilter<"wellness_goal"> | Date | string | null
   }
@@ -61605,11 +61569,11 @@ export namespace Prisma {
 
   export type collaborative_projectCreateInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
     user?: userCreateNestedOneWithoutCollaborative_projectInput
@@ -61619,12 +61583,12 @@ export namespace Prisma {
 
   export type collaborative_projectUncheckedCreateInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creator_id?: string | null
-    creation_date?: Date | string | null
+    creator_id: string
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
     project_member?: project_memberUncheckedCreateNestedManyWithoutCollaborative_projectInput
@@ -61633,11 +61597,11 @@ export namespace Prisma {
 
   export type collaborative_projectUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutCollaborative_projectNestedInput
@@ -61647,12 +61611,12 @@ export namespace Prisma {
 
   export type collaborative_projectUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_id?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creator_id?: StringFieldUpdateOperationsInput | string
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     project_member?: project_memberUncheckedUpdateManyWithoutCollaborative_projectNestedInput
@@ -61661,35 +61625,35 @@ export namespace Prisma {
 
   export type collaborative_projectCreateManyInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creator_id?: string | null
-    creation_date?: Date | string | null
+    creator_id: string
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type collaborative_projectUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type collaborative_projectUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_id?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creator_id?: StringFieldUpdateOperationsInput | string
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -61943,7 +61907,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parent_category_id?: number | null
+    parent_category_id: string
     created_at?: Date | string
     updated_at?: Date | string | null
     forum_topic?: forum_topicCreateNestedManyWithoutForum_categoryInput
@@ -61953,7 +61917,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parent_category_id?: number | null
+    parent_category_id: string
     created_at?: Date | string
     updated_at?: Date | string | null
     forum_topic?: forum_topicUncheckedCreateNestedManyWithoutForum_categoryInput
@@ -61963,7 +61927,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    parent_category_id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     forum_topic?: forum_topicUpdateManyWithoutForum_categoryNestedInput
@@ -61973,7 +61937,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    parent_category_id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     forum_topic?: forum_topicUncheckedUpdateManyWithoutForum_categoryNestedInput
@@ -61983,7 +61947,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parent_category_id?: number | null
+    parent_category_id: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -61992,7 +61956,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    parent_category_id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -62001,7 +61965,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    parent_category_id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -62431,7 +62395,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -62453,7 +62417,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -62473,7 +62437,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62495,7 +62459,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62516,7 +62480,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -62534,7 +62498,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62553,7 +62517,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62798,8 +62762,8 @@ export namespace Prisma {
 
   export type messageCreateInput = {
     id?: string
-    content?: string | null
-    send_date?: Date | string | null
+    content: string
+    send_date: Date | string
     type?: string | null
     read?: boolean | null
     created_at?: Date | string
@@ -62810,10 +62774,10 @@ export namespace Prisma {
 
   export type messageUncheckedCreateInput = {
     id?: string
-    conversation_id?: string | null
-    sender_id?: string | null
-    content?: string | null
-    send_date?: Date | string | null
+    conversation_id: string
+    sender_id: string
+    content: string
+    send_date: Date | string
     type?: string | null
     read?: boolean | null
     created_at?: Date | string
@@ -62822,8 +62786,8 @@ export namespace Prisma {
 
   export type messageUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62834,10 +62798,10 @@ export namespace Prisma {
 
   export type messageUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
-    sender_id?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    sender_id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62846,10 +62810,10 @@ export namespace Prisma {
 
   export type messageCreateManyInput = {
     id?: string
-    conversation_id?: string | null
-    sender_id?: string | null
-    content?: string | null
-    send_date?: Date | string | null
+    conversation_id: string
+    sender_id: string
+    content: string
+    send_date: Date | string
     type?: string | null
     read?: boolean | null
     created_at?: Date | string
@@ -62858,8 +62822,8 @@ export namespace Prisma {
 
   export type messageUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62868,10 +62832,10 @@ export namespace Prisma {
 
   export type messageUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
-    sender_id?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    sender_id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62884,7 +62848,7 @@ export namespace Prisma {
     description?: string | null
     start_date: Date | string
     end_date: Date | string
-    location?: string | null
+    location: string
     gps_coordinates?: string | null
     organizer?: string | null
     contact?: string | null
@@ -62899,7 +62863,7 @@ export namespace Prisma {
     description?: string | null
     start_date: Date | string
     end_date: Date | string
-    location?: string | null
+    location: string
     gps_coordinates?: string | null
     organizer?: string | null
     contact?: string | null
@@ -62914,7 +62878,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62929,7 +62893,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62944,7 +62908,7 @@ export namespace Prisma {
     description?: string | null
     start_date: Date | string
     end_date: Date | string
-    location?: string | null
+    location: string
     gps_coordinates?: string | null
     organizer?: string | null
     contact?: string | null
@@ -62959,7 +62923,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62974,7 +62938,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62985,8 +62949,8 @@ export namespace Prisma {
 
   export type notificationCreateInput = {
     id?: string
-    type?: string | null
-    content?: string | null
+    type: string
+    content: string
     read?: boolean | null
     action_link?: string | null
     created_at?: Date | string
@@ -62996,9 +62960,9 @@ export namespace Prisma {
 
   export type notificationUncheckedCreateInput = {
     id?: string
-    user_id?: string | null
-    type?: string | null
-    content?: string | null
+    user_id: string
+    type: string
+    content: string
     read?: boolean | null
     action_link?: string | null
     created_at?: Date | string
@@ -63007,8 +62971,8 @@ export namespace Prisma {
 
   export type notificationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     action_link?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63018,9 +62982,9 @@ export namespace Prisma {
 
   export type notificationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     action_link?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63029,9 +62993,9 @@ export namespace Prisma {
 
   export type notificationCreateManyInput = {
     id?: string
-    user_id?: string | null
-    type?: string | null
-    content?: string | null
+    user_id: string
+    type: string
+    content: string
     read?: boolean | null
     action_link?: string | null
     created_at?: Date | string
@@ -63040,8 +63004,8 @@ export namespace Prisma {
 
   export type notificationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     action_link?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63050,9 +63014,9 @@ export namespace Prisma {
 
   export type notificationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     action_link?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63060,13 +63024,13 @@ export namespace Prisma {
   }
 
   export type notification_preferencesCreateInput = {
-    message_notif?: boolean | null
-    activity_notif?: boolean | null
-    help_notif?: boolean | null
-    forum_notif?: boolean | null
-    email_notif?: boolean | null
-    sms_notif?: boolean | null
-    push_notif?: boolean | null
+    message_notification?: boolean | null
+    activity_notification?: boolean | null
+    help_notification?: boolean | null
+    forum_notification?: boolean | null
+    email_notification?: boolean | null
+    sms_notification?: boolean | null
+    push_notification?: boolean | null
     quiet_hours_start?: Date | string | null
     quiet_hours_end?: Date | string | null
     created_at?: Date | string
@@ -63076,13 +63040,13 @@ export namespace Prisma {
 
   export type notification_preferencesUncheckedCreateInput = {
     user_id: string
-    message_notif?: boolean | null
-    activity_notif?: boolean | null
-    help_notif?: boolean | null
-    forum_notif?: boolean | null
-    email_notif?: boolean | null
-    sms_notif?: boolean | null
-    push_notif?: boolean | null
+    message_notification?: boolean | null
+    activity_notification?: boolean | null
+    help_notification?: boolean | null
+    forum_notification?: boolean | null
+    email_notification?: boolean | null
+    sms_notification?: boolean | null
+    push_notification?: boolean | null
     quiet_hours_start?: Date | string | null
     quiet_hours_end?: Date | string | null
     created_at?: Date | string
@@ -63090,13 +63054,13 @@ export namespace Prisma {
   }
 
   export type notification_preferencesUpdateInput = {
-    message_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    activity_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    help_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    forum_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    email_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    sms_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    push_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    message_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    activity_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    help_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    forum_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    email_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sms_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    push_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
     quiet_hours_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     quiet_hours_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63106,13 +63070,13 @@ export namespace Prisma {
 
   export type notification_preferencesUncheckedUpdateInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    message_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    activity_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    help_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    forum_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    email_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    sms_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    push_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    message_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    activity_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    help_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    forum_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    email_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sms_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    push_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
     quiet_hours_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     quiet_hours_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63121,13 +63085,13 @@ export namespace Prisma {
 
   export type notification_preferencesCreateManyInput = {
     user_id: string
-    message_notif?: boolean | null
-    activity_notif?: boolean | null
-    help_notif?: boolean | null
-    forum_notif?: boolean | null
-    email_notif?: boolean | null
-    sms_notif?: boolean | null
-    push_notif?: boolean | null
+    message_notification?: boolean | null
+    activity_notification?: boolean | null
+    help_notification?: boolean | null
+    forum_notification?: boolean | null
+    email_notification?: boolean | null
+    sms_notification?: boolean | null
+    push_notification?: boolean | null
     quiet_hours_start?: Date | string | null
     quiet_hours_end?: Date | string | null
     created_at?: Date | string
@@ -63135,13 +63099,13 @@ export namespace Prisma {
   }
 
   export type notification_preferencesUpdateManyMutationInput = {
-    message_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    activity_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    help_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    forum_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    email_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    sms_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    push_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    message_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    activity_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    help_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    forum_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    email_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sms_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    push_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
     quiet_hours_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     quiet_hours_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63150,13 +63114,13 @@ export namespace Prisma {
 
   export type notification_preferencesUncheckedUpdateManyInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    message_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    activity_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    help_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    forum_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    email_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    sms_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    push_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    message_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    activity_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    help_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    forum_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    email_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sms_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    push_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
     quiet_hours_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     quiet_hours_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63297,8 +63261,8 @@ export namespace Prisma {
   }
 
   export type project_memberCreateInput = {
-    role?: string | null
-    join_date?: Date | string | null
+    role: string
+    join_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
     collaborative_project: collaborative_projectCreateNestedOneWithoutProject_memberInput
@@ -63308,15 +63272,15 @@ export namespace Prisma {
   export type project_memberUncheckedCreateInput = {
     project_id: string
     user_id: string
-    role?: string | null
-    join_date?: Date | string | null
+    role: string
+    join_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type project_memberUpdateInput = {
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     collaborative_project?: collaborative_projectUpdateOneRequiredWithoutProject_memberNestedInput
@@ -63326,8 +63290,8 @@ export namespace Prisma {
   export type project_memberUncheckedUpdateInput = {
     project_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -63335,15 +63299,15 @@ export namespace Prisma {
   export type project_memberCreateManyInput = {
     project_id: string
     user_id: string
-    role?: string | null
-    join_date?: Date | string | null
+    role: string
+    join_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type project_memberUpdateManyMutationInput = {
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -63351,17 +63315,17 @@ export namespace Prisma {
   export type project_memberUncheckedUpdateManyInput = {
     project_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type project_taskCreateInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date: Date | string
     due_date?: Date | string | null
     status?: string | null
     created_at?: Date | string
@@ -63372,10 +63336,10 @@ export namespace Prisma {
 
   export type project_taskUncheckedCreateInput = {
     id?: string
-    project_id?: string | null
-    title?: string | null
+    project_id: string
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date: Date | string
     due_date?: Date | string | null
     status?: string | null
     assignee_id?: string | null
@@ -63385,9 +63349,9 @@ export namespace Prisma {
 
   export type project_taskUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63398,10 +63362,10 @@ export namespace Prisma {
 
   export type project_taskUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    project_id?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    project_id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     assignee_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63411,10 +63375,10 @@ export namespace Prisma {
 
   export type project_taskCreateManyInput = {
     id?: string
-    project_id?: string | null
-    title?: string | null
+    project_id: string
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date: Date | string
     due_date?: Date | string | null
     status?: string | null
     assignee_id?: string | null
@@ -63424,9 +63388,9 @@ export namespace Prisma {
 
   export type project_taskUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -63435,10 +63399,10 @@ export namespace Prisma {
 
   export type project_taskUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    project_id?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    project_id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     assignee_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63450,8 +63414,8 @@ export namespace Prisma {
     id?: string
     title: string
     content?: string | null
-    type?: string | null
-    category?: string | null
+    type: string
+    category: string
     admin_validated?: boolean | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -63462,9 +63426,9 @@ export namespace Prisma {
     id?: string
     title: string
     content?: string | null
-    type?: string | null
-    category?: string | null
-    author_id?: string | null
+    type: string
+    category: string
+    author_id: string
     admin_validated?: boolean | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -63474,8 +63438,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     admin_validated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63486,9 +63450,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
-    author_id?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
     admin_validated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63498,9 +63462,9 @@ export namespace Prisma {
     id?: string
     title: string
     content?: string | null
-    type?: string | null
-    category?: string | null
-    author_id?: string | null
+    type: string
+    category: string
+    author_id: string
     admin_validated?: boolean | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -63510,8 +63474,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     admin_validated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63521,9 +63485,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
-    author_id?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    author_id?: StringFieldUpdateOperationsInput | string
     admin_validated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63910,8 +63874,8 @@ export namespace Prisma {
   }
 
   export type trust_circleCreateInput = {
-    date_added?: Date | string | null
-    access_level?: string | null
+    date_added: Date | string
+    access_level: string
     created_at?: Date | string
     updated_at?: Date | string | null
     user_trust_circle_contact_idTouser: userCreateNestedOneWithoutTrust_circle_trust_circle_contact_idTouserInput
@@ -63921,15 +63885,15 @@ export namespace Prisma {
   export type trust_circleUncheckedCreateInput = {
     user_id: string
     contact_id: string
-    date_added?: Date | string | null
-    access_level?: string | null
+    date_added: Date | string
+    access_level: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type trust_circleUpdateInput = {
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user_trust_circle_contact_idTouser?: userUpdateOneRequiredWithoutTrust_circle_trust_circle_contact_idTouserNestedInput
@@ -63939,8 +63903,8 @@ export namespace Prisma {
   export type trust_circleUncheckedUpdateInput = {
     user_id?: StringFieldUpdateOperationsInput | string
     contact_id?: StringFieldUpdateOperationsInput | string
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -63948,15 +63912,15 @@ export namespace Prisma {
   export type trust_circleCreateManyInput = {
     user_id: string
     contact_id: string
-    date_added?: Date | string | null
-    access_level?: string | null
+    date_added: Date | string
+    access_level: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type trust_circleUpdateManyMutationInput = {
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -63964,8 +63928,8 @@ export namespace Prisma {
   export type trust_circleUncheckedUpdateManyInput = {
     user_id?: StringFieldUpdateOperationsInput | string
     contact_id?: StringFieldUpdateOperationsInput | string
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -63974,8 +63938,8 @@ export namespace Prisma {
     id?: string
     last_name: string
     first_name: string
-    email: string
-    phone?: string | null
+    email?: string | null
+    phone: string
     relationship?: string | null
     share_medications?: boolean
     share_health_indicators?: boolean
@@ -63991,8 +63955,8 @@ export namespace Prisma {
     user_id: string
     last_name: string
     first_name: string
-    email: string
-    phone?: string | null
+    email?: string | null
+    phone: string
     relationship?: string | null
     share_medications?: boolean
     share_health_indicators?: boolean
@@ -64006,8 +63970,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
     share_medications?: BoolFieldUpdateOperationsInput | boolean
     share_health_indicators?: BoolFieldUpdateOperationsInput | boolean
@@ -64023,8 +63987,8 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
     share_medications?: BoolFieldUpdateOperationsInput | boolean
     share_health_indicators?: BoolFieldUpdateOperationsInput | boolean
@@ -64039,8 +64003,8 @@ export namespace Prisma {
     user_id: string
     last_name: string
     first_name: string
-    email: string
-    phone?: string | null
+    email?: string | null
+    phone: string
     relationship?: string | null
     share_medications?: boolean
     share_health_indicators?: boolean
@@ -64054,8 +64018,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
     share_medications?: BoolFieldUpdateOperationsInput | boolean
     share_health_indicators?: BoolFieldUpdateOperationsInput | boolean
@@ -64070,8 +64034,8 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
     share_medications?: BoolFieldUpdateOperationsInput | boolean
     share_health_indicators?: BoolFieldUpdateOperationsInput | boolean
@@ -64084,8 +64048,8 @@ export namespace Prisma {
   export type urban_issue_reportCreateInput = {
     id?: string
     category: string
-    description?: string | null
-    address?: string | null
+    description: string
+    address: string
     gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
@@ -64097,10 +64061,10 @@ export namespace Prisma {
 
   export type urban_issue_reportUncheckedCreateInput = {
     id?: string
-    user_id?: string | null
+    user_id: string
     category: string
-    description?: string | null
-    address?: string | null
+    description: string
+    address: string
     gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
@@ -64112,8 +64076,8 @@ export namespace Prisma {
   export type urban_issue_reportUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64125,10 +64089,10 @@ export namespace Prisma {
 
   export type urban_issue_reportUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64139,10 +64103,10 @@ export namespace Prisma {
 
   export type urban_issue_reportCreateManyInput = {
     id?: string
-    user_id?: string | null
+    user_id: string
     category: string
-    description?: string | null
-    address?: string | null
+    description: string
+    address: string
     gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
@@ -64154,8 +64118,8 @@ export namespace Prisma {
   export type urban_issue_reportUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64166,10 +64130,10 @@ export namespace Prisma {
 
   export type urban_issue_reportUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64573,7 +64537,7 @@ export namespace Prisma {
   }
 
   export type user_badgeCreateInput = {
-    achievement_date?: Date | string | null
+    achievement_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
     badge: badgeCreateNestedOneWithoutUser_badgeInput
@@ -64583,13 +64547,13 @@ export namespace Prisma {
   export type user_badgeUncheckedCreateInput = {
     user_id: string
     badge_id: string
-    achievement_date?: Date | string | null
+    achievement_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type user_badgeUpdateInput = {
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     badge?: badgeUpdateOneRequiredWithoutUser_badgeNestedInput
@@ -64599,7 +64563,7 @@ export namespace Prisma {
   export type user_badgeUncheckedUpdateInput = {
     user_id?: StringFieldUpdateOperationsInput | string
     badge_id?: StringFieldUpdateOperationsInput | string
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -64607,13 +64571,13 @@ export namespace Prisma {
   export type user_badgeCreateManyInput = {
     user_id: string
     badge_id: string
-    achievement_date?: Date | string | null
+    achievement_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type user_badgeUpdateManyMutationInput = {
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -64621,18 +64585,18 @@ export namespace Prisma {
   export type user_badgeUncheckedUpdateManyInput = {
     user_id?: StringFieldUpdateOperationsInput | string
     badge_id?: StringFieldUpdateOperationsInput | string
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_deviceCreateInput = {
     id?: string
-    device_type?: string | null
+    device_type: string
     device_name?: string | null
     operating_system?: string | null
-    notification_token?: string | null
-    last_connection?: Date | string | null
+    notification_token: string
+    last_connection: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
     user?: userCreateNestedOneWithoutUser_deviceInput
@@ -64640,23 +64604,23 @@ export namespace Prisma {
 
   export type user_deviceUncheckedCreateInput = {
     id?: string
-    user_id?: string | null
-    device_type?: string | null
+    user_id: string
+    device_type: string
     device_name?: string | null
     operating_system?: string | null
-    notification_token?: string | null
-    last_connection?: Date | string | null
+    notification_token: string
+    last_connection: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type user_deviceUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    device_type?: NullableStringFieldUpdateOperationsInput | string | null
+    device_type?: StringFieldUpdateOperationsInput | string
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
-    notification_token?: NullableStringFieldUpdateOperationsInput | string | null
-    last_connection?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notification_token?: StringFieldUpdateOperationsInput | string
+    last_connection?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutUser_deviceNestedInput
@@ -64664,47 +64628,47 @@ export namespace Prisma {
 
   export type user_deviceUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
-    device_type?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: StringFieldUpdateOperationsInput | string
+    device_type?: StringFieldUpdateOperationsInput | string
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
-    notification_token?: NullableStringFieldUpdateOperationsInput | string | null
-    last_connection?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notification_token?: StringFieldUpdateOperationsInput | string
+    last_connection?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_deviceCreateManyInput = {
     id?: string
-    user_id?: string | null
-    device_type?: string | null
+    user_id: string
+    device_type: string
     device_name?: string | null
     operating_system?: string | null
-    notification_token?: string | null
-    last_connection?: Date | string | null
+    notification_token: string
+    last_connection: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type user_deviceUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    device_type?: NullableStringFieldUpdateOperationsInput | string | null
+    device_type?: StringFieldUpdateOperationsInput | string
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
-    notification_token?: NullableStringFieldUpdateOperationsInput | string | null
-    last_connection?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notification_token?: StringFieldUpdateOperationsInput | string
+    last_connection?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_deviceUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
-    device_type?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: StringFieldUpdateOperationsInput | string
+    device_type?: StringFieldUpdateOperationsInput | string
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
-    notification_token?: NullableStringFieldUpdateOperationsInput | string | null
-    last_connection?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notification_token?: StringFieldUpdateOperationsInput | string
+    last_connection?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -64855,9 +64819,9 @@ export namespace Prisma {
 
   export type video_callCreateInput = {
     id?: string
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string | null
+    start_date: Date | string
+    end_date: Date | string
+    status: string
     created_at?: Date | string
     updated_at?: Date | string | null
     conversation?: conversationCreateNestedOneWithoutVideo_callInput
@@ -64866,20 +64830,20 @@ export namespace Prisma {
 
   export type video_callUncheckedCreateInput = {
     id?: string
-    conversation_id?: string | null
-    initiator_id?: string | null
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string | null
+    conversation_id: string
+    initiator_id: string
+    start_date: Date | string
+    end_date: Date | string
+    status: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type video_callUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     conversation?: conversationUpdateOneWithoutVideo_callNestedInput
@@ -64888,42 +64852,42 @@ export namespace Prisma {
 
   export type video_callUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
-    initiator_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    initiator_id?: StringFieldUpdateOperationsInput | string
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type video_callCreateManyInput = {
     id?: string
-    conversation_id?: string | null
-    initiator_id?: string | null
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string | null
+    conversation_id: string
+    initiator_id: string
+    start_date: Date | string
+    end_date: Date | string
+    status: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type video_callUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type video_callUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
-    initiator_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    initiator_id?: StringFieldUpdateOperationsInput | string
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -65014,7 +64978,7 @@ export namespace Prisma {
     frequency: string
     start_date: Date | string
     end_date: Date | string
-    active?: boolean | null
+    active?: boolean
     created_at?: Date | string
     updated_at?: Date | string | null
     goal_progress?: goal_progressCreateNestedManyWithoutWellness_goalInput
@@ -65023,7 +64987,7 @@ export namespace Prisma {
 
   export type wellness_goalUncheckedCreateInput = {
     id?: string
-    user_id?: string | null
+    user_id: string
     title: string
     category: string
     target_value: number
@@ -65031,7 +64995,7 @@ export namespace Prisma {
     frequency: string
     start_date: Date | string
     end_date: Date | string
-    active?: boolean | null
+    active?: boolean
     created_at?: Date | string
     updated_at?: Date | string | null
     goal_progress?: goal_progressUncheckedCreateNestedManyWithoutWellness_goalInput
@@ -65046,7 +65010,7 @@ export namespace Prisma {
     frequency?: StringFieldUpdateOperationsInput | string
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     goal_progress?: goal_progressUpdateManyWithoutWellness_goalNestedInput
@@ -65055,7 +65019,7 @@ export namespace Prisma {
 
   export type wellness_goalUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -65063,7 +65027,7 @@ export namespace Prisma {
     frequency?: StringFieldUpdateOperationsInput | string
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     goal_progress?: goal_progressUncheckedUpdateManyWithoutWellness_goalNestedInput
@@ -65071,7 +65035,7 @@ export namespace Prisma {
 
   export type wellness_goalCreateManyInput = {
     id?: string
-    user_id?: string | null
+    user_id: string
     title: string
     category: string
     target_value: number
@@ -65079,7 +65043,7 @@ export namespace Prisma {
     frequency: string
     start_date: Date | string
     end_date: Date | string
-    active?: boolean | null
+    active?: boolean
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -65093,14 +65057,14 @@ export namespace Prisma {
     frequency?: StringFieldUpdateOperationsInput | string
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type wellness_goalUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -65108,7 +65072,7 @@ export namespace Prisma {
     frequency?: StringFieldUpdateOperationsInput | string
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -65843,10 +65807,6 @@ export namespace Prisma {
     updated_at?: SortOrder
   }
 
-  export type forum_categoryAvgOrderByAggregateInput = {
-    parent_category_id?: SortOrder
-  }
-
   export type forum_categoryMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -65863,10 +65823,6 @@ export namespace Prisma {
     parent_category_id?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
-  }
-
-  export type forum_categorySumOrderByAggregateInput = {
-    parent_category_id?: SortOrder
   }
 
   export type Forum_topicNullableScalarRelationFilter = {
@@ -66426,13 +66382,13 @@ export namespace Prisma {
 
   export type notification_preferencesCountOrderByAggregateInput = {
     user_id?: SortOrder
-    message_notif?: SortOrder
-    activity_notif?: SortOrder
-    help_notif?: SortOrder
-    forum_notif?: SortOrder
-    email_notif?: SortOrder
-    sms_notif?: SortOrder
-    push_notif?: SortOrder
+    message_notification?: SortOrder
+    activity_notification?: SortOrder
+    help_notification?: SortOrder
+    forum_notification?: SortOrder
+    email_notification?: SortOrder
+    sms_notification?: SortOrder
+    push_notification?: SortOrder
     quiet_hours_start?: SortOrder
     quiet_hours_end?: SortOrder
     created_at?: SortOrder
@@ -66441,13 +66397,13 @@ export namespace Prisma {
 
   export type notification_preferencesMaxOrderByAggregateInput = {
     user_id?: SortOrder
-    message_notif?: SortOrder
-    activity_notif?: SortOrder
-    help_notif?: SortOrder
-    forum_notif?: SortOrder
-    email_notif?: SortOrder
-    sms_notif?: SortOrder
-    push_notif?: SortOrder
+    message_notification?: SortOrder
+    activity_notification?: SortOrder
+    help_notification?: SortOrder
+    forum_notification?: SortOrder
+    email_notification?: SortOrder
+    sms_notification?: SortOrder
+    push_notification?: SortOrder
     quiet_hours_start?: SortOrder
     quiet_hours_end?: SortOrder
     created_at?: SortOrder
@@ -66456,13 +66412,13 @@ export namespace Prisma {
 
   export type notification_preferencesMinOrderByAggregateInput = {
     user_id?: SortOrder
-    message_notif?: SortOrder
-    activity_notif?: SortOrder
-    help_notif?: SortOrder
-    forum_notif?: SortOrder
-    email_notif?: SortOrder
-    sms_notif?: SortOrder
-    push_notif?: SortOrder
+    message_notification?: SortOrder
+    activity_notification?: SortOrder
+    help_notification?: SortOrder
+    forum_notification?: SortOrder
+    email_notification?: SortOrder
+    sms_notification?: SortOrder
+    push_notification?: SortOrder
     quiet_hours_start?: SortOrder
     quiet_hours_end?: SortOrder
     created_at?: SortOrder
@@ -71508,7 +71464,7 @@ export namespace Prisma {
   }
 
   export type user_badgeCreateWithoutBadgeInput = {
-    achievement_date?: Date | string | null
+    achievement_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
     user: userCreateNestedOneWithoutUser_badgeInput
@@ -71516,7 +71472,7 @@ export namespace Prisma {
 
   export type user_badgeUncheckedCreateWithoutBadgeInput = {
     user_id: string
-    achievement_date?: Date | string | null
+    achievement_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -71553,7 +71509,7 @@ export namespace Prisma {
     NOT?: user_badgeScalarWhereInput | user_badgeScalarWhereInput[]
     user_id?: StringFilter<"user_badge"> | string
     badge_id?: StringFilter<"user_badge"> | string
-    achievement_date?: DateTimeNullableFilter<"user_badge"> | Date | string | null
+    achievement_date?: DateTimeFilter<"user_badge"> | Date | string
     created_at?: DateTimeFilter<"user_badge"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_badge"> | Date | string | null
   }
@@ -71743,8 +71699,8 @@ export namespace Prisma {
   }
 
   export type project_memberCreateWithoutCollaborative_projectInput = {
-    role?: string | null
-    join_date?: Date | string | null
+    role: string
+    join_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
     user: userCreateNestedOneWithoutProject_memberInput
@@ -71752,8 +71708,8 @@ export namespace Prisma {
 
   export type project_memberUncheckedCreateWithoutCollaborative_projectInput = {
     user_id: string
-    role?: string | null
-    join_date?: Date | string | null
+    role: string
+    join_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -71770,9 +71726,9 @@ export namespace Prisma {
 
   export type project_taskCreateWithoutCollaborative_projectInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date: Date | string
     due_date?: Date | string | null
     status?: string | null
     created_at?: Date | string
@@ -71782,9 +71738,9 @@ export namespace Prisma {
 
   export type project_taskUncheckedCreateWithoutCollaborative_projectInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date: Date | string
     due_date?: Date | string | null
     status?: string | null
     assignee_id?: string | null
@@ -71945,8 +71901,8 @@ export namespace Prisma {
     NOT?: project_memberScalarWhereInput | project_memberScalarWhereInput[]
     project_id?: StringFilter<"project_member"> | string
     user_id?: StringFilter<"project_member"> | string
-    role?: StringNullableFilter<"project_member"> | string | null
-    join_date?: DateTimeNullableFilter<"project_member"> | Date | string | null
+    role?: StringFilter<"project_member"> | string
+    join_date?: DateTimeFilter<"project_member"> | Date | string
     created_at?: DateTimeFilter<"project_member"> | Date | string
     updated_at?: DateTimeNullableFilter<"project_member"> | Date | string | null
   }
@@ -71972,10 +71928,10 @@ export namespace Prisma {
     OR?: project_taskScalarWhereInput[]
     NOT?: project_taskScalarWhereInput | project_taskScalarWhereInput[]
     id?: StringFilter<"project_task"> | string
-    project_id?: StringNullableFilter<"project_task"> | string | null
-    title?: StringNullableFilter<"project_task"> | string | null
+    project_id?: StringFilter<"project_task"> | string
+    title?: StringFilter<"project_task"> | string
     description?: StringNullableFilter<"project_task"> | string | null
-    creation_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
+    creation_date?: DateTimeFilter<"project_task"> | Date | string
     due_date?: DateTimeNullableFilter<"project_task"> | Date | string | null
     status?: StringNullableFilter<"project_task"> | string | null
     assignee_id?: StringNullableFilter<"project_task"> | string | null
@@ -72013,8 +71969,8 @@ export namespace Prisma {
 
   export type messageCreateWithoutConversationInput = {
     id?: string
-    content?: string | null
-    send_date?: Date | string | null
+    content: string
+    send_date: Date | string
     type?: string | null
     read?: boolean | null
     created_at?: Date | string
@@ -72024,9 +71980,9 @@ export namespace Prisma {
 
   export type messageUncheckedCreateWithoutConversationInput = {
     id?: string
-    sender_id?: string | null
-    content?: string | null
-    send_date?: Date | string | null
+    sender_id: string
+    content: string
+    send_date: Date | string
     type?: string | null
     read?: boolean | null
     created_at?: Date | string
@@ -72045,9 +72001,9 @@ export namespace Prisma {
 
   export type video_callCreateWithoutConversationInput = {
     id?: string
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string | null
+    start_date: Date | string
+    end_date: Date | string
+    status: string
     created_at?: Date | string
     updated_at?: Date | string | null
     user?: userCreateNestedOneWithoutVideo_callInput
@@ -72055,10 +72011,10 @@ export namespace Prisma {
 
   export type video_callUncheckedCreateWithoutConversationInput = {
     id?: string
-    initiator_id?: string | null
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string | null
+    initiator_id: string
+    start_date: Date | string
+    end_date: Date | string
+    status: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -72123,10 +72079,10 @@ export namespace Prisma {
     OR?: messageScalarWhereInput[]
     NOT?: messageScalarWhereInput | messageScalarWhereInput[]
     id?: StringFilter<"message"> | string
-    conversation_id?: StringNullableFilter<"message"> | string | null
-    sender_id?: StringNullableFilter<"message"> | string | null
-    content?: StringNullableFilter<"message"> | string | null
-    send_date?: DateTimeNullableFilter<"message"> | Date | string | null
+    conversation_id?: StringFilter<"message"> | string
+    sender_id?: StringFilter<"message"> | string
+    content?: StringFilter<"message"> | string
+    send_date?: DateTimeFilter<"message"> | Date | string
     type?: StringNullableFilter<"message"> | string | null
     read?: BoolNullableFilter<"message"> | boolean | null
     created_at?: DateTimeFilter<"message"> | Date | string
@@ -72154,11 +72110,11 @@ export namespace Prisma {
     OR?: video_callScalarWhereInput[]
     NOT?: video_callScalarWhereInput | video_callScalarWhereInput[]
     id?: StringFilter<"video_call"> | string
-    conversation_id?: StringNullableFilter<"video_call"> | string | null
-    initiator_id?: StringNullableFilter<"video_call"> | string | null
-    start_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
-    end_date?: DateTimeNullableFilter<"video_call"> | Date | string | null
-    status?: StringNullableFilter<"video_call"> | string | null
+    conversation_id?: StringFilter<"video_call"> | string
+    initiator_id?: StringFilter<"video_call"> | string
+    start_date?: DateTimeFilter<"video_call"> | Date | string
+    end_date?: DateTimeFilter<"video_call"> | Date | string
+    status?: StringFilter<"video_call"> | string
     created_at?: DateTimeFilter<"video_call"> | Date | string
     updated_at?: DateTimeNullableFilter<"video_call"> | Date | string | null
   }
@@ -73034,7 +72990,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parent_category_id?: number | null
+    parent_category_id: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -73043,7 +72999,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parent_category_id?: number | null
+    parent_category_id: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -73220,7 +73176,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    parent_category_id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -73229,7 +73185,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parent_category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    parent_category_id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -73243,7 +73199,7 @@ export namespace Prisma {
     frequency: string
     start_date: Date | string
     end_date: Date | string
-    active?: boolean | null
+    active?: boolean
     created_at?: Date | string
     updated_at?: Date | string | null
     user?: userCreateNestedOneWithoutWellness_goalInput
@@ -73251,7 +73207,7 @@ export namespace Prisma {
 
   export type wellness_goalUncheckedCreateWithoutGoal_progressInput = {
     id?: string
-    user_id?: string | null
+    user_id: string
     title: string
     category: string
     target_value: number
@@ -73259,7 +73215,7 @@ export namespace Prisma {
     frequency: string
     start_date: Date | string
     end_date: Date | string
-    active?: boolean | null
+    active?: boolean
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -73289,7 +73245,7 @@ export namespace Prisma {
     frequency?: StringFieldUpdateOperationsInput | string
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutWellness_goalNestedInput
@@ -73297,7 +73253,7 @@ export namespace Prisma {
 
   export type wellness_goalUncheckedUpdateWithoutGoal_progressInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     target_value?: IntFieldUpdateOperationsInput | number
@@ -73305,7 +73261,7 @@ export namespace Prisma {
     frequency?: StringFieldUpdateOperationsInput | string
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -73670,7 +73626,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -73691,7 +73647,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -73847,7 +73803,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -73868,7 +73824,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -75309,11 +75265,11 @@ export namespace Prisma {
 
   export type collaborative_projectCreateWithoutProject_memberInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
     user?: userCreateNestedOneWithoutCollaborative_projectInput
@@ -75322,12 +75278,12 @@ export namespace Prisma {
 
   export type collaborative_projectUncheckedCreateWithoutProject_memberInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creator_id?: string | null
-    creation_date?: Date | string | null
+    creator_id: string
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
     project_task?: project_taskUncheckedCreateNestedManyWithoutCollaborative_projectInput
@@ -75466,11 +75422,11 @@ export namespace Prisma {
 
   export type collaborative_projectUpdateWithoutProject_memberInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutCollaborative_projectNestedInput
@@ -75479,12 +75435,12 @@ export namespace Prisma {
 
   export type collaborative_projectUncheckedUpdateWithoutProject_memberInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_id?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creator_id?: StringFieldUpdateOperationsInput | string
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     project_task?: project_taskUncheckedUpdateManyWithoutCollaborative_projectNestedInput
@@ -75728,11 +75684,11 @@ export namespace Prisma {
 
   export type collaborative_projectCreateWithoutProject_taskInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
     user?: userCreateNestedOneWithoutCollaborative_projectInput
@@ -75741,12 +75697,12 @@ export namespace Prisma {
 
   export type collaborative_projectUncheckedCreateWithoutProject_taskInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creator_id?: string | null
-    creation_date?: Date | string | null
+    creator_id: string
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
     project_member?: project_memberUncheckedCreateNestedManyWithoutCollaborative_projectInput
@@ -75891,11 +75847,11 @@ export namespace Prisma {
 
   export type collaborative_projectUpdateWithoutProject_taskInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutCollaborative_projectNestedInput
@@ -75904,12 +75860,12 @@ export namespace Prisma {
 
   export type collaborative_projectUncheckedUpdateWithoutProject_taskInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_id?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creator_id?: StringFieldUpdateOperationsInput | string
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     project_member?: project_memberUncheckedUpdateManyWithoutCollaborative_projectNestedInput
@@ -76329,7 +76285,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -76350,7 +76306,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -76506,7 +76462,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -76527,7 +76483,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78258,11 +78214,11 @@ export namespace Prisma {
 
   export type collaborative_projectCreateWithoutUserInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
     project_member?: project_memberCreateNestedManyWithoutCollaborative_projectInput
@@ -78271,11 +78227,11 @@ export namespace Prisma {
 
   export type collaborative_projectUncheckedCreateWithoutUserInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
     project_member?: project_memberUncheckedCreateNestedManyWithoutCollaborative_projectInput
@@ -78463,7 +78419,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -78483,7 +78439,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -78550,8 +78506,8 @@ export namespace Prisma {
 
   export type messageCreateWithoutUserInput = {
     id?: string
-    content?: string | null
-    send_date?: Date | string | null
+    content: string
+    send_date: Date | string
     type?: string | null
     read?: boolean | null
     created_at?: Date | string
@@ -78561,9 +78517,9 @@ export namespace Prisma {
 
   export type messageUncheckedCreateWithoutUserInput = {
     id?: string
-    conversation_id?: string | null
-    content?: string | null
-    send_date?: Date | string | null
+    conversation_id: string
+    content: string
+    send_date: Date | string
     type?: string | null
     read?: boolean | null
     created_at?: Date | string
@@ -78582,8 +78538,8 @@ export namespace Prisma {
 
   export type notificationCreateWithoutUserInput = {
     id?: string
-    type?: string | null
-    content?: string | null
+    type: string
+    content: string
     read?: boolean | null
     action_link?: string | null
     created_at?: Date | string
@@ -78592,8 +78548,8 @@ export namespace Prisma {
 
   export type notificationUncheckedCreateWithoutUserInput = {
     id?: string
-    type?: string | null
-    content?: string | null
+    type: string
+    content: string
     read?: boolean | null
     action_link?: string | null
     created_at?: Date | string
@@ -78611,13 +78567,13 @@ export namespace Prisma {
   }
 
   export type notification_preferencesCreateWithoutUserInput = {
-    message_notif?: boolean | null
-    activity_notif?: boolean | null
-    help_notif?: boolean | null
-    forum_notif?: boolean | null
-    email_notif?: boolean | null
-    sms_notif?: boolean | null
-    push_notif?: boolean | null
+    message_notification?: boolean | null
+    activity_notification?: boolean | null
+    help_notification?: boolean | null
+    forum_notification?: boolean | null
+    email_notification?: boolean | null
+    sms_notification?: boolean | null
+    push_notification?: boolean | null
     quiet_hours_start?: Date | string | null
     quiet_hours_end?: Date | string | null
     created_at?: Date | string
@@ -78625,13 +78581,13 @@ export namespace Prisma {
   }
 
   export type notification_preferencesUncheckedCreateWithoutUserInput = {
-    message_notif?: boolean | null
-    activity_notif?: boolean | null
-    help_notif?: boolean | null
-    forum_notif?: boolean | null
-    email_notif?: boolean | null
-    sms_notif?: boolean | null
-    push_notif?: boolean | null
+    message_notification?: boolean | null
+    activity_notification?: boolean | null
+    help_notification?: boolean | null
+    forum_notification?: boolean | null
+    email_notification?: boolean | null
+    sms_notification?: boolean | null
+    push_notification?: boolean | null
     quiet_hours_start?: Date | string | null
     quiet_hours_end?: Date | string | null
     created_at?: Date | string
@@ -78644,8 +78600,8 @@ export namespace Prisma {
   }
 
   export type project_memberCreateWithoutUserInput = {
-    role?: string | null
-    join_date?: Date | string | null
+    role: string
+    join_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
     collaborative_project: collaborative_projectCreateNestedOneWithoutProject_memberInput
@@ -78653,8 +78609,8 @@ export namespace Prisma {
 
   export type project_memberUncheckedCreateWithoutUserInput = {
     project_id: string
-    role?: string | null
-    join_date?: Date | string | null
+    role: string
+    join_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -78671,9 +78627,9 @@ export namespace Prisma {
 
   export type project_taskCreateWithoutUserInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date: Date | string
     due_date?: Date | string | null
     status?: string | null
     created_at?: Date | string
@@ -78683,10 +78639,10 @@ export namespace Prisma {
 
   export type project_taskUncheckedCreateWithoutUserInput = {
     id?: string
-    project_id?: string | null
-    title?: string | null
+    project_id: string
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date: Date | string
     due_date?: Date | string | null
     status?: string | null
     created_at?: Date | string
@@ -78707,8 +78663,8 @@ export namespace Prisma {
     id?: string
     title: string
     content?: string | null
-    type?: string | null
-    category?: string | null
+    type: string
+    category: string
     admin_validated?: boolean | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -78718,8 +78674,8 @@ export namespace Prisma {
     id?: string
     title: string
     content?: string | null
-    type?: string | null
-    category?: string | null
+    type: string
+    category: string
     admin_validated?: boolean | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -78828,8 +78784,8 @@ export namespace Prisma {
   }
 
   export type trust_circleCreateWithoutUser_trust_circle_contact_idTouserInput = {
-    date_added?: Date | string | null
-    access_level?: string | null
+    date_added: Date | string
+    access_level: string
     created_at?: Date | string
     updated_at?: Date | string | null
     user_trust_circle_user_idTouser: userCreateNestedOneWithoutTrust_circle_trust_circle_user_idTouserInput
@@ -78837,8 +78793,8 @@ export namespace Prisma {
 
   export type trust_circleUncheckedCreateWithoutUser_trust_circle_contact_idTouserInput = {
     user_id: string
-    date_added?: Date | string | null
-    access_level?: string | null
+    date_added: Date | string
+    access_level: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -78854,8 +78810,8 @@ export namespace Prisma {
   }
 
   export type trust_circleCreateWithoutUser_trust_circle_user_idTouserInput = {
-    date_added?: Date | string | null
-    access_level?: string | null
+    date_added: Date | string
+    access_level: string
     created_at?: Date | string
     updated_at?: Date | string | null
     user_trust_circle_contact_idTouser: userCreateNestedOneWithoutTrust_circle_trust_circle_contact_idTouserInput
@@ -78863,8 +78819,8 @@ export namespace Prisma {
 
   export type trust_circleUncheckedCreateWithoutUser_trust_circle_user_idTouserInput = {
     contact_id: string
-    date_added?: Date | string | null
-    access_level?: string | null
+    date_added: Date | string
+    access_level: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -78883,8 +78839,8 @@ export namespace Prisma {
     id?: string
     last_name: string
     first_name: string
-    email: string
-    phone?: string | null
+    email?: string | null
+    phone: string
     relationship?: string | null
     share_medications?: boolean
     share_health_indicators?: boolean
@@ -78898,8 +78854,8 @@ export namespace Prisma {
     id?: string
     last_name: string
     first_name: string
-    email: string
-    phone?: string | null
+    email?: string | null
+    phone: string
     relationship?: string | null
     share_medications?: boolean
     share_health_indicators?: boolean
@@ -78922,8 +78878,8 @@ export namespace Prisma {
   export type urban_issue_reportCreateWithoutUserInput = {
     id?: string
     category: string
-    description?: string | null
-    address?: string | null
+    description: string
+    address: string
     gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
@@ -78935,8 +78891,8 @@ export namespace Prisma {
   export type urban_issue_reportUncheckedCreateWithoutUserInput = {
     id?: string
     category: string
-    description?: string | null
-    address?: string | null
+    description: string
+    address: string
     gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
@@ -78992,7 +78948,7 @@ export namespace Prisma {
   }
 
   export type user_badgeCreateWithoutUserInput = {
-    achievement_date?: Date | string | null
+    achievement_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
     badge: badgeCreateNestedOneWithoutUser_badgeInput
@@ -79000,7 +78956,7 @@ export namespace Prisma {
 
   export type user_badgeUncheckedCreateWithoutUserInput = {
     badge_id: string
-    achievement_date?: Date | string | null
+    achievement_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -79017,22 +78973,22 @@ export namespace Prisma {
 
   export type user_deviceCreateWithoutUserInput = {
     id?: string
-    device_type?: string | null
+    device_type: string
     device_name?: string | null
     operating_system?: string | null
-    notification_token?: string | null
-    last_connection?: Date | string | null
+    notification_token: string
+    last_connection: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type user_deviceUncheckedCreateWithoutUserInput = {
     id?: string
-    device_type?: string | null
+    device_type: string
     device_name?: string | null
     operating_system?: string | null
-    notification_token?: string | null
-    last_connection?: Date | string | null
+    notification_token: string
+    last_connection: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -79102,9 +79058,9 @@ export namespace Prisma {
 
   export type video_callCreateWithoutUserInput = {
     id?: string
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string | null
+    start_date: Date | string
+    end_date: Date | string
+    status: string
     created_at?: Date | string
     updated_at?: Date | string | null
     conversation?: conversationCreateNestedOneWithoutVideo_callInput
@@ -79112,10 +79068,10 @@ export namespace Prisma {
 
   export type video_callUncheckedCreateWithoutUserInput = {
     id?: string
-    conversation_id?: string | null
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string | null
+    conversation_id: string
+    start_date: Date | string
+    end_date: Date | string
+    status: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -79139,7 +79095,7 @@ export namespace Prisma {
     frequency: string
     start_date: Date | string
     end_date: Date | string
-    active?: boolean | null
+    active?: boolean
     created_at?: Date | string
     updated_at?: Date | string | null
     goal_progress?: goal_progressCreateNestedManyWithoutWellness_goalInput
@@ -79154,7 +79110,7 @@ export namespace Prisma {
     frequency: string
     start_date: Date | string
     end_date: Date | string
-    active?: boolean | null
+    active?: boolean
     created_at?: Date | string
     updated_at?: Date | string | null
     goal_progress?: goal_progressUncheckedCreateNestedManyWithoutWellness_goalInput
@@ -79280,12 +79236,12 @@ export namespace Prisma {
     OR?: collaborative_projectScalarWhereInput[]
     NOT?: collaborative_projectScalarWhereInput | collaborative_projectScalarWhereInput[]
     id?: StringFilter<"collaborative_project"> | string
-    title?: StringNullableFilter<"collaborative_project"> | string | null
+    title?: StringFilter<"collaborative_project"> | string
     description?: StringNullableFilter<"collaborative_project"> | string | null
-    creator_id?: StringNullableFilter<"collaborative_project"> | string | null
-    creation_date?: DateTimeNullableFilter<"collaborative_project"> | Date | string | null
+    creator_id?: StringFilter<"collaborative_project"> | string
+    creation_date?: DateTimeFilter<"collaborative_project"> | Date | string
     status?: StringNullableFilter<"collaborative_project"> | string | null
-    category?: StringNullableFilter<"collaborative_project"> | string | null
+    category?: StringFilter<"collaborative_project"> | string
     created_at?: DateTimeFilter<"collaborative_project"> | Date | string
     updated_at?: DateTimeNullableFilter<"collaborative_project"> | Date | string | null
   }
@@ -79416,7 +79372,7 @@ export namespace Prisma {
     estimated_duration?: IntNullableFilter<"help_request"> | number | null
     location?: StringNullableFilter<"help_request"> | string | null
     gps_coordinates?: StringNullableFilter<"help_request"> | string | null
-    category?: StringNullableFilter<"help_request"> | string | null
+    category?: StringFilter<"help_request"> | string
     recurring?: BoolNullableFilter<"help_request"> | boolean | null
     frequency?: StringNullableFilter<"help_request"> | string | null
     status?: StringNullableFilter<"help_request"> | string | null
@@ -79499,9 +79455,9 @@ export namespace Prisma {
     OR?: notificationScalarWhereInput[]
     NOT?: notificationScalarWhereInput | notificationScalarWhereInput[]
     id?: StringFilter<"notification"> | string
-    user_id?: StringNullableFilter<"notification"> | string | null
-    type?: StringNullableFilter<"notification"> | string | null
-    content?: StringNullableFilter<"notification"> | string | null
+    user_id?: StringFilter<"notification"> | string
+    type?: StringFilter<"notification"> | string
+    content?: StringFilter<"notification"> | string
     read?: BoolNullableFilter<"notification"> | boolean | null
     action_link?: StringNullableFilter<"notification"> | string | null
     created_at?: DateTimeFilter<"notification"> | Date | string
@@ -79520,13 +79476,13 @@ export namespace Prisma {
   }
 
   export type notification_preferencesUpdateWithoutUserInput = {
-    message_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    activity_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    help_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    forum_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    email_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    sms_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    push_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    message_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    activity_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    help_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    forum_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    email_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sms_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    push_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
     quiet_hours_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     quiet_hours_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -79534,13 +79490,13 @@ export namespace Prisma {
   }
 
   export type notification_preferencesUncheckedUpdateWithoutUserInput = {
-    message_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    activity_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    help_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    forum_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    email_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    sms_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    push_notif?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    message_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    activity_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    help_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    forum_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    email_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sms_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    push_notification?: NullableBoolFieldUpdateOperationsInput | boolean | null
     quiet_hours_start?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     quiet_hours_end?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -79602,9 +79558,9 @@ export namespace Prisma {
     id?: StringFilter<"resource"> | string
     title?: StringFilter<"resource"> | string
     content?: StringNullableFilter<"resource"> | string | null
-    type?: StringNullableFilter<"resource"> | string | null
-    category?: StringNullableFilter<"resource"> | string | null
-    author_id?: StringNullableFilter<"resource"> | string | null
+    type?: StringFilter<"resource"> | string
+    category?: StringFilter<"resource"> | string
+    author_id?: StringFilter<"resource"> | string
     admin_validated?: BoolNullableFilter<"resource"> | boolean | null
     created_at?: DateTimeFilter<"resource"> | Date | string
     updated_at?: DateTimeNullableFilter<"resource"> | Date | string | null
@@ -79680,8 +79636,8 @@ export namespace Prisma {
     NOT?: trust_circleScalarWhereInput | trust_circleScalarWhereInput[]
     user_id?: StringFilter<"trust_circle"> | string
     contact_id?: StringFilter<"trust_circle"> | string
-    date_added?: DateTimeNullableFilter<"trust_circle"> | Date | string | null
-    access_level?: StringNullableFilter<"trust_circle"> | string | null
+    date_added?: DateTimeFilter<"trust_circle"> | Date | string
+    access_level?: StringFilter<"trust_circle"> | string
     created_at?: DateTimeFilter<"trust_circle"> | Date | string
     updated_at?: DateTimeNullableFilter<"trust_circle"> | Date | string | null
   }
@@ -79726,8 +79682,8 @@ export namespace Prisma {
     user_id?: StringFilter<"trusted_contact"> | string
     last_name?: StringFilter<"trusted_contact"> | string
     first_name?: StringFilter<"trusted_contact"> | string
-    email?: StringFilter<"trusted_contact"> | string
-    phone?: StringNullableFilter<"trusted_contact"> | string | null
+    email?: StringNullableFilter<"trusted_contact"> | string | null
+    phone?: StringFilter<"trusted_contact"> | string
     relationship?: StringNullableFilter<"trusted_contact"> | string | null
     share_medications?: BoolFilter<"trusted_contact"> | boolean
     share_health_indicators?: BoolFilter<"trusted_contact"> | boolean
@@ -79758,10 +79714,10 @@ export namespace Prisma {
     OR?: urban_issue_reportScalarWhereInput[]
     NOT?: urban_issue_reportScalarWhereInput | urban_issue_reportScalarWhereInput[]
     id?: StringFilter<"urban_issue_report"> | string
-    user_id?: StringNullableFilter<"urban_issue_report"> | string | null
+    user_id?: StringFilter<"urban_issue_report"> | string
     category?: StringFilter<"urban_issue_report"> | string
-    description?: StringNullableFilter<"urban_issue_report"> | string | null
-    address?: StringNullableFilter<"urban_issue_report"> | string | null
+    description?: StringFilter<"urban_issue_report"> | string
+    address?: StringFilter<"urban_issue_report"> | string
     gps_coordinates?: StringNullableFilter<"urban_issue_report"> | string | null
     report_date?: DateTimeFilter<"urban_issue_report"> | Date | string
     status?: StringNullableFilter<"urban_issue_report"> | string | null
@@ -79823,12 +79779,12 @@ export namespace Prisma {
     OR?: user_deviceScalarWhereInput[]
     NOT?: user_deviceScalarWhereInput | user_deviceScalarWhereInput[]
     id?: StringFilter<"user_device"> | string
-    user_id?: StringNullableFilter<"user_device"> | string | null
-    device_type?: StringNullableFilter<"user_device"> | string | null
+    user_id?: StringFilter<"user_device"> | string
+    device_type?: StringFilter<"user_device"> | string
     device_name?: StringNullableFilter<"user_device"> | string | null
     operating_system?: StringNullableFilter<"user_device"> | string | null
-    notification_token?: StringNullableFilter<"user_device"> | string | null
-    last_connection?: DateTimeNullableFilter<"user_device"> | Date | string | null
+    notification_token?: StringFilter<"user_device"> | string
+    last_connection?: DateTimeFilter<"user_device"> | Date | string
     created_at?: DateTimeFilter<"user_device"> | Date | string
     updated_at?: DateTimeNullableFilter<"user_device"> | Date | string | null
   }
@@ -79921,7 +79877,7 @@ export namespace Prisma {
     OR?: wellness_goalScalarWhereInput[]
     NOT?: wellness_goalScalarWhereInput | wellness_goalScalarWhereInput[]
     id?: StringFilter<"wellness_goal"> | string
-    user_id?: StringNullableFilter<"wellness_goal"> | string | null
+    user_id?: StringFilter<"wellness_goal"> | string
     title?: StringFilter<"wellness_goal"> | string
     category?: StringFilter<"wellness_goal"> | string
     target_value?: IntFilter<"wellness_goal"> | number
@@ -79929,7 +79885,7 @@ export namespace Prisma {
     frequency?: StringFilter<"wellness_goal"> | string
     start_date?: DateTimeFilter<"wellness_goal"> | Date | string
     end_date?: DateTimeFilter<"wellness_goal"> | Date | string
-    active?: BoolNullableFilter<"wellness_goal"> | boolean | null
+    active?: BoolFilter<"wellness_goal"> | boolean
     created_at?: DateTimeFilter<"wellness_goal"> | Date | string
     updated_at?: DateTimeNullableFilter<"wellness_goal"> | Date | string | null
   }
@@ -81989,13 +81945,13 @@ export namespace Prisma {
 
   export type user_badgeCreateManyBadgeInput = {
     user_id: string
-    achievement_date?: Date | string | null
+    achievement_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type user_badgeUpdateWithoutBadgeInput = {
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneRequiredWithoutUser_badgeNestedInput
@@ -82003,14 +81959,14 @@ export namespace Prisma {
 
   export type user_badgeUncheckedUpdateWithoutBadgeInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_badgeUncheckedUpdateManyWithoutBadgeInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -82069,17 +82025,17 @@ export namespace Prisma {
 
   export type project_memberCreateManyCollaborative_projectInput = {
     user_id: string
-    role?: string | null
-    join_date?: Date | string | null
+    role: string
+    join_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type project_taskCreateManyCollaborative_projectInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date: Date | string
     due_date?: Date | string | null
     status?: string | null
     assignee_id?: string | null
@@ -82088,8 +82044,8 @@ export namespace Prisma {
   }
 
   export type project_memberUpdateWithoutCollaborative_projectInput = {
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneRequiredWithoutProject_memberNestedInput
@@ -82097,25 +82053,25 @@ export namespace Prisma {
 
   export type project_memberUncheckedUpdateWithoutCollaborative_projectInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type project_memberUncheckedUpdateManyWithoutCollaborative_projectInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type project_taskUpdateWithoutCollaborative_projectInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -82125,9 +82081,9 @@ export namespace Prisma {
 
   export type project_taskUncheckedUpdateWithoutCollaborative_projectInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     assignee_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82137,9 +82093,9 @@ export namespace Prisma {
 
   export type project_taskUncheckedUpdateManyWithoutCollaborative_projectInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     assignee_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -82158,9 +82114,9 @@ export namespace Prisma {
 
   export type messageCreateManyConversationInput = {
     id?: string
-    sender_id?: string | null
-    content?: string | null
-    send_date?: Date | string | null
+    sender_id: string
+    content: string
+    send_date: Date | string
     type?: string | null
     read?: boolean | null
     created_at?: Date | string
@@ -82169,10 +82125,10 @@ export namespace Prisma {
 
   export type video_callCreateManyConversationInput = {
     id?: string
-    initiator_id?: string | null
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string | null
+    initiator_id: string
+    start_date: Date | string
+    end_date: Date | string
+    status: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -82206,8 +82162,8 @@ export namespace Prisma {
 
   export type messageUpdateWithoutConversationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -82217,9 +82173,9 @@ export namespace Prisma {
 
   export type messageUncheckedUpdateWithoutConversationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sender_id?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sender_id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -82228,9 +82184,9 @@ export namespace Prisma {
 
   export type messageUncheckedUpdateManyWithoutConversationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sender_id?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sender_id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -82239,9 +82195,9 @@ export namespace Prisma {
 
   export type video_callUpdateWithoutConversationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutVideo_callNestedInput
@@ -82249,20 +82205,20 @@ export namespace Prisma {
 
   export type video_callUncheckedUpdateWithoutConversationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    initiator_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    initiator_id?: StringFieldUpdateOperationsInput | string
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type video_callUncheckedUpdateManyWithoutConversationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    initiator_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    initiator_id?: StringFieldUpdateOperationsInput | string
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -82649,11 +82605,11 @@ export namespace Prisma {
 
   export type collaborative_projectCreateManyUserInput = {
     id?: string
-    title?: string | null
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date?: Date | string
     status?: string | null
-    category?: string | null
+    category: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -82722,7 +82678,7 @@ export namespace Prisma {
     estimated_duration?: number | null
     location?: string | null
     gps_coordinates?: string | null
-    category?: string | null
+    category: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -82750,9 +82706,9 @@ export namespace Prisma {
 
   export type messageCreateManyUserInput = {
     id?: string
-    conversation_id?: string | null
-    content?: string | null
-    send_date?: Date | string | null
+    conversation_id: string
+    content: string
+    send_date: Date | string
     type?: string | null
     read?: boolean | null
     created_at?: Date | string
@@ -82761,8 +82717,8 @@ export namespace Prisma {
 
   export type notificationCreateManyUserInput = {
     id?: string
-    type?: string | null
-    content?: string | null
+    type: string
+    content: string
     read?: boolean | null
     action_link?: string | null
     created_at?: Date | string
@@ -82771,18 +82727,18 @@ export namespace Prisma {
 
   export type project_memberCreateManyUserInput = {
     project_id: string
-    role?: string | null
-    join_date?: Date | string | null
+    role: string
+    join_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type project_taskCreateManyUserInput = {
     id?: string
-    project_id?: string | null
-    title?: string | null
+    project_id: string
+    title: string
     description?: string | null
-    creation_date?: Date | string | null
+    creation_date: Date | string
     due_date?: Date | string | null
     status?: string | null
     created_at?: Date | string
@@ -82793,8 +82749,8 @@ export namespace Prisma {
     id?: string
     title: string
     content?: string | null
-    type?: string | null
-    category?: string | null
+    type: string
+    category: string
     admin_validated?: boolean | null
     created_at?: Date | string
     updated_at?: Date | string | null
@@ -82833,16 +82789,16 @@ export namespace Prisma {
 
   export type trust_circleCreateManyUser_trust_circle_contact_idTouserInput = {
     user_id: string
-    date_added?: Date | string | null
-    access_level?: string | null
+    date_added: Date | string
+    access_level: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type trust_circleCreateManyUser_trust_circle_user_idTouserInput = {
     contact_id: string
-    date_added?: Date | string | null
-    access_level?: string | null
+    date_added: Date | string
+    access_level: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -82851,8 +82807,8 @@ export namespace Prisma {
     id?: string
     last_name: string
     first_name: string
-    email: string
-    phone?: string | null
+    email?: string | null
+    phone: string
     relationship?: string | null
     share_medications?: boolean
     share_health_indicators?: boolean
@@ -82865,8 +82821,8 @@ export namespace Prisma {
   export type urban_issue_reportCreateManyUserInput = {
     id?: string
     category: string
-    description?: string | null
-    address?: string | null
+    description: string
+    address: string
     gps_coordinates?: string | null
     report_date: Date | string
     status?: string | null
@@ -82890,18 +82846,18 @@ export namespace Prisma {
 
   export type user_badgeCreateManyUserInput = {
     badge_id: string
-    achievement_date?: Date | string | null
+    achievement_date: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
 
   export type user_deviceCreateManyUserInput = {
     id?: string
-    device_type?: string | null
+    device_type: string
     device_name?: string | null
     operating_system?: string | null
-    notification_token?: string | null
-    last_connection?: Date | string | null
+    notification_token: string
+    last_connection: Date | string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -82915,10 +82871,10 @@ export namespace Prisma {
 
   export type video_callCreateManyUserInput = {
     id?: string
-    conversation_id?: string | null
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string | null
+    conversation_id: string
+    start_date: Date | string
+    end_date: Date | string
+    status: string
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -82932,7 +82888,7 @@ export namespace Prisma {
     frequency: string
     start_date: Date | string
     end_date: Date | string
-    active?: boolean | null
+    active?: boolean
     created_at?: Date | string
     updated_at?: Date | string | null
   }
@@ -83067,11 +83023,11 @@ export namespace Prisma {
 
   export type collaborative_projectUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     project_member?: project_memberUpdateManyWithoutCollaborative_projectNestedInput
@@ -83080,11 +83036,11 @@ export namespace Prisma {
 
   export type collaborative_projectUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     project_member?: project_memberUncheckedUpdateManyWithoutCollaborative_projectNestedInput
@@ -83093,11 +83049,11 @@ export namespace Prisma {
 
   export type collaborative_projectUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -83278,7 +83234,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83298,7 +83254,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83318,7 +83274,7 @@ export namespace Prisma {
     estimated_duration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83380,8 +83336,8 @@ export namespace Prisma {
 
   export type messageUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83391,9 +83347,9 @@ export namespace Prisma {
 
   export type messageUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83402,9 +83358,9 @@ export namespace Prisma {
 
   export type messageUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    send_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    send_date?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83413,8 +83369,8 @@ export namespace Prisma {
 
   export type notificationUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     action_link?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83423,8 +83379,8 @@ export namespace Prisma {
 
   export type notificationUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     action_link?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83433,8 +83389,8 @@ export namespace Prisma {
 
   export type notificationUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     read?: NullableBoolFieldUpdateOperationsInput | boolean | null
     action_link?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83442,8 +83398,8 @@ export namespace Prisma {
   }
 
   export type project_memberUpdateWithoutUserInput = {
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     collaborative_project?: collaborative_projectUpdateOneRequiredWithoutProject_memberNestedInput
@@ -83451,25 +83407,25 @@ export namespace Prisma {
 
   export type project_memberUncheckedUpdateWithoutUserInput = {
     project_id?: StringFieldUpdateOperationsInput | string
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type project_memberUncheckedUpdateManyWithoutUserInput = {
     project_id?: StringFieldUpdateOperationsInput | string
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    join_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type project_taskUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83479,10 +83435,10 @@ export namespace Prisma {
 
   export type project_taskUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    project_id?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    project_id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83491,10 +83447,10 @@ export namespace Prisma {
 
   export type project_taskUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    project_id?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: NullableStringFieldUpdateOperationsInput | string | null
+    project_id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83505,8 +83461,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     admin_validated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -83516,8 +83472,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     admin_validated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -83527,8 +83483,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     admin_validated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -83628,8 +83584,8 @@ export namespace Prisma {
   }
 
   export type trust_circleUpdateWithoutUser_trust_circle_contact_idTouserInput = {
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user_trust_circle_user_idTouser?: userUpdateOneRequiredWithoutTrust_circle_trust_circle_user_idTouserNestedInput
@@ -83637,23 +83593,23 @@ export namespace Prisma {
 
   export type trust_circleUncheckedUpdateWithoutUser_trust_circle_contact_idTouserInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type trust_circleUncheckedUpdateManyWithoutUser_trust_circle_contact_idTouserInput = {
     user_id?: StringFieldUpdateOperationsInput | string
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type trust_circleUpdateWithoutUser_trust_circle_user_idTouserInput = {
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user_trust_circle_contact_idTouser?: userUpdateOneRequiredWithoutTrust_circle_trust_circle_contact_idTouserNestedInput
@@ -83661,16 +83617,16 @@ export namespace Prisma {
 
   export type trust_circleUncheckedUpdateWithoutUser_trust_circle_user_idTouserInput = {
     contact_id?: StringFieldUpdateOperationsInput | string
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type trust_circleUncheckedUpdateManyWithoutUser_trust_circle_user_idTouserInput = {
     contact_id?: StringFieldUpdateOperationsInput | string
-    date_added?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    access_level?: NullableStringFieldUpdateOperationsInput | string | null
+    date_added?: DateTimeFieldUpdateOperationsInput | Date | string
+    access_level?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -83679,8 +83635,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
     share_medications?: BoolFieldUpdateOperationsInput | boolean
     share_health_indicators?: BoolFieldUpdateOperationsInput | boolean
@@ -83694,8 +83650,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
     share_medications?: BoolFieldUpdateOperationsInput | boolean
     share_health_indicators?: BoolFieldUpdateOperationsInput | boolean
@@ -83709,8 +83665,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
     share_medications?: BoolFieldUpdateOperationsInput | boolean
     share_health_indicators?: BoolFieldUpdateOperationsInput | boolean
@@ -83723,8 +83679,8 @@ export namespace Prisma {
   export type urban_issue_reportUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83736,8 +83692,8 @@ export namespace Prisma {
   export type urban_issue_reportUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83749,8 +83705,8 @@ export namespace Prisma {
   export type urban_issue_reportUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
     gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
     report_date?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -83799,7 +83755,7 @@ export namespace Prisma {
   }
 
   export type user_badgeUpdateWithoutUserInput = {
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     badge?: badgeUpdateOneRequiredWithoutUser_badgeNestedInput
@@ -83807,47 +83763,47 @@ export namespace Prisma {
 
   export type user_badgeUncheckedUpdateWithoutUserInput = {
     badge_id?: StringFieldUpdateOperationsInput | string
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_badgeUncheckedUpdateManyWithoutUserInput = {
     badge_id?: StringFieldUpdateOperationsInput | string
-    achievement_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    achievement_date?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_deviceUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    device_type?: NullableStringFieldUpdateOperationsInput | string | null
+    device_type?: StringFieldUpdateOperationsInput | string
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
-    notification_token?: NullableStringFieldUpdateOperationsInput | string | null
-    last_connection?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notification_token?: StringFieldUpdateOperationsInput | string
+    last_connection?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_deviceUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    device_type?: NullableStringFieldUpdateOperationsInput | string | null
+    device_type?: StringFieldUpdateOperationsInput | string
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
-    notification_token?: NullableStringFieldUpdateOperationsInput | string | null
-    last_connection?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notification_token?: StringFieldUpdateOperationsInput | string
+    last_connection?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type user_deviceUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    device_type?: NullableStringFieldUpdateOperationsInput | string | null
+    device_type?: StringFieldUpdateOperationsInput | string
     device_name?: NullableStringFieldUpdateOperationsInput | string | null
     operating_system?: NullableStringFieldUpdateOperationsInput | string | null
-    notification_token?: NullableStringFieldUpdateOperationsInput | string | null
-    last_connection?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notification_token?: StringFieldUpdateOperationsInput | string
+    last_connection?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -83875,9 +83831,9 @@ export namespace Prisma {
 
   export type video_callUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     conversation?: conversationUpdateOneWithoutVideo_callNestedInput
@@ -83885,20 +83841,20 @@ export namespace Prisma {
 
   export type video_callUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type video_callUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    conversation_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
+    conversation_id?: StringFieldUpdateOperationsInput | string
+    start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -83912,7 +83868,7 @@ export namespace Prisma {
     frequency?: StringFieldUpdateOperationsInput | string
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     goal_progress?: goal_progressUpdateManyWithoutWellness_goalNestedInput
@@ -83927,7 +83883,7 @@ export namespace Prisma {
     frequency?: StringFieldUpdateOperationsInput | string
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     goal_progress?: goal_progressUncheckedUpdateManyWithoutWellness_goalNestedInput
@@ -83942,7 +83898,7 @@ export namespace Prisma {
     frequency?: StringFieldUpdateOperationsInput | string
     start_date?: DateTimeFieldUpdateOperationsInput | Date | string
     end_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }

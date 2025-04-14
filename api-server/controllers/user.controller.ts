@@ -77,7 +77,11 @@ export const getAllUsers = async (req: Request, res: Response, next: NextFunctio
 };
 
 // Récupérer un utilisateur par son ID
-export const getUserById = async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
+export const getUserById = async (
+  req: Request<{ id: string }>, 
+  res: Response, 
+  next: NextFunction) => {
+  
   const { id } = req.params;
 
   try {

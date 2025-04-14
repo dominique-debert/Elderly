@@ -14,15 +14,15 @@ model activity {
   title                   String                  @db.VarChar(255)
   description             String?
   start_date              DateTime                @db.Timestamp(6)
-  end_date                DateTime?               @db.Timestamp(6)
+  end_date                DateTime                @db.Timestamp(6)
   location                String?                 @db.VarChar(255)
   gps_coordinates         String?
-  max_spots               Int?
-  category                String?                 @db.VarChar(100)
+  max_spots               Int
+  category                String                  @db.VarChar(100)
   recurring               Boolean?                @default(false)
   frequency               String?                 @db.VarChar(100)
-  reduced_mobility_access Boolean?                @default(false)
-  difficulty_level        String?                 @db.VarChar(100)
+  reduced_mobility_access Boolean                 @default(false)
+  difficulty_level        String                  @db.VarChar(100)
   cost                    Float?
   status                  String?                 @db.VarChar(50)
   weather_requirements    String?                 @db.VarChar(255)

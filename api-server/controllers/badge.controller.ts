@@ -1,23 +1,23 @@
 import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import { createHttpError } from '@/utils/httpError.js';
-import IBadgeRequest from '@/@types/data/IBadgeRequest.js';
+import { PrismaClient } from '@/prisma/client';
+import { createHttpError } from '@/utils/httpError';
+import IBadge from '@/@types/data/IBadge';
 
 const prisma = new PrismaClient();
 
 export const createBadge = async (
-  req: Request<{}, {}, IBadgeRequest>,
+  req: Request<{}, {}, IBadge>,
   res: Response,
   next: NextFunction
 ) => {
   const { name, description, icon, category, level } = req.body;
 
   try {
-    const newBadge = await prisma.badge.create({
+    const badgeToCreate = await prisma.badge.create({
       data: { name, description, icon, category, level },
     });
 
-    res.status(201).json(newBadge);
+    res.status(201).json(badgeToCreate);
   } catch (error) {
     next(error);
   }
@@ -62,11 +62,12 @@ export const getBadgeById = async (
 };
 
 export const updateBadge = async (
-  req: Request<{}, {}, IBadgeRequest>,
-  res: Response,
-  next: NextFunction
-) => {
-  const { id, name, description, icon, category, level } = req.body;
+  req: Request<{ id: string }>, 
+  res: Response, 
+  next: NextFunction) => {
+    
+    const { id } = req.params;
+    const { name, description, icon, category, level } = req.body;
 
   try {
     const badge = await prisma.badge.findUnique({
@@ -77,7 +78,7 @@ export const updateBadge = async (
       throw createHttpError(404, 'Badge non trouvé');
     }
 
-    const updatedBadge = await prisma.badge.update({
+    const badgeToUpdate = await prisma.badge.update({
       data: {
         name,
         description,
@@ -89,7 +90,7 @@ export const updateBadge = async (
       where: { id },
     });
 
-    res.status(200).json(updatedBadge);
+    res.status(200).json(badgeToUpdate);
   } catch (error) {
     next(error);
   }
