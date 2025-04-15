@@ -1,7 +1,7 @@
-import { PrismaClient } from "../prisma/client.js";
+import { PrismaClient } from "../prisma/client";
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
-import IWellnessBadge from "@/@types/data/IWellnessBadge";
+import IActivityLog from "@/@types/data/IActivityLog";
 
 const prisma = new PrismaClient();
 
@@ -13,22 +13,22 @@ const prisma = new PrismaClient();
 */
 
 export const createWellnessBadge = async (
-  req: Request<{}, {}, IWellnessBadge>,
+  req: Request<{}, {}, IActivityLog>,
   res: Response, 
   next: NextFunction
 ) => {
   
   try {
-    const newWellnessBadge = await prisma.wellnessBadge.create({
+    const newActivityLog = await prisma.activityLog.create({
       data: req.body
     });
-    res.status(201).json(newWellnessBadge);
+    res.status(201).json(newActivityLog);
   } catch (error) {
     next(error);
   }
 };
 
-export const getAllWellnessBadges = async (req: Request, res: Response, next: NextFunction) => {
+export const getAllWellnessBadges = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const wellnessBadges = await prisma.wellnessBadge.findMany({
       orderBy: {
@@ -42,7 +42,7 @@ export const getAllWellnessBadges = async (req: Request, res: Response, next: Ne
   }  
 };
 
-export const getWellnessBadgeById = async (req: Request, res: Response, next: NextFunction) => {
+export const getWellnessBadgeById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const { id } = req.params;
   
   try {
@@ -60,7 +60,7 @@ export const getWellnessBadgeById = async (req: Request, res: Response, next: Ne
   }  
 };
 
-export const updateWellnessBadge = async (req: Request, res: Response, next: NextFunction) => {
+export const updateWellnessBadge = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const { id } = req.params;
   
   try {
@@ -82,7 +82,7 @@ export const updateWellnessBadge = async (req: Request, res: Response, next: Nex
   }
 };
 
-export const deleteWellnessBadge = async (req: Request, res: Response, next: NextFunction) => {
+export const deleteWellnessBadge = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const { id } = req.params;
  
   try {
