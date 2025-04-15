@@ -1,11 +1,11 @@
 export default interface ILocalService {
   name: string;
-  category_id: string;
+  categoryId: string;
   address: string;
-  gps_coordinates: string;
+  gpsCoordinates: string;
   phone: string;
   website?: string;
   description?: string;
   hours?: string;
-  senior_friendly: boolean;
+  seniorFriendly: boolean;
 }

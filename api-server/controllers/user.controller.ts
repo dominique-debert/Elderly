@@ -8,51 +8,10 @@ const prisma = new PrismaClient();
 // Créer un nouvel utilisateur
 export const createUser = async (
   req: Request<{}, {}, IUser>, res: Response, next: NextFunction) => {
-  const {
-    email,
-    password_hash,
-    first_name,
-    last_name,
-    birth_date,
-    address,
-    gps_coordinates,
-    phone,
-    profile_picture,
-    registration_date,
-    account_verified,
-    interface_preferences,
-    two_factor_authentication,
-    help_points,
-    reduced_mobility,
-    activity_level,
-    emergency_contact_name,
-    emergency_contact_phone,
-    status
-  } = req.body;
 
   try {
     const newUser = await prisma.user.create({
-      data: {
-        email,
-        password_hash,
-        first_name,
-        last_name,
-        birth_date,
-        address,
-        gps_coordinates,
-        phone,
-        profile_picture,
-        registration_date,
-        account_verified,
-        interface_preferences,
-        two_factor_authentication,
-        help_points,
-        reduced_mobility,
-        activity_level,
-        emergency_contact_name,
-        emergency_contact_phone,
-        status
-      }
+      data: req.body
     })
     res.status(201).json(newUser);
   } catch (error) {
@@ -65,8 +24,8 @@ export const getAllUsers = async (req: Request, res: Response, next: NextFunctio
   try {
     const users = await prisma.user.findMany({
       orderBy: {
-        last_name: 'asc',
-        first_name: 'asc' // Ascending order (A-Z)
+        lastName: 'asc',
+        firstName: 'asc' // Ascending order (A-Z)
       },
     });
 
@@ -103,28 +62,6 @@ export const getUserById = async (
 export const updateUser = async (req: Request<{ id: string }, {}, IUser>, res: Response, next: NextFunction) => {
   const { id } = req.params;
 
-  const {
-    email,
-    password_hash,
-    first_name,
-    last_name,
-    birth_date,
-    address,
-    gps_coordinates,
-    phone,
-    profile_picture,
-    registration_date,
-    account_verified,
-    interface_preferences,
-    two_factor_authentication,
-    help_points,
-    reduced_mobility,
-    activity_level,
-    emergency_contact_name,
-    emergency_contact_phone,
-    status
-  } = req.body;
-
   try {
     const user = await prisma.user.findUnique({
       where: { id },
@@ -134,31 +71,11 @@ export const updateUser = async (req: Request<{ id: string }, {}, IUser>, res: R
       throw createHttpError(404, `Utilisateur non trouvé`);
     }
 
-    const updatedUser = await prisma.user.update({
-      data: {
-        email,
-        password_hash,
-        first_name,
-        last_name,
-        birth_date,
-        address,
-        gps_coordinates,
-        phone,
-        profile_picture,
-        registration_date,
-        account_verified,
-        interface_preferences,
-        two_factor_authentication,
-        help_points,
-        reduced_mobility,
-        activity_level,
-        emergency_contact_name,
-        emergency_contact_phone,
-        status
-      },
+    const userToUpdate = await prisma.user.update({
+      data: req.body,
       where: { id },
     });
-    res.status(200).json(updatedUser);
+    res.status(200).json(userToUpdate);
   } catch (error) {
     next(error);
   }

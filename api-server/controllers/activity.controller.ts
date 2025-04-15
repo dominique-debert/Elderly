@@ -10,47 +10,10 @@ export const createActivity = async (
   res: Response,
   next: NextFunction
 ) => {
-  const {
-    creator_id,
-    title,
-    description,
-    start_date,
-    end_date,
-    location,
-    gps_coordinates,
-    max_spots,
-    category_id,
-    recurring,
-    frequency,
-    reduced_mobility_access,
-    difficulty_level,
-    cost,
-    status,
-    weather_requirements,
-    transport_options
-  } = req.body;
-  
+ 
   try {
     const activityToCreate = await prisma.activity.create({
-      data: {
-        creator_id,
-        title,
-        description,
-        start_date,
-        end_date: end_date || '',
-        location,
-        gps_coordinates,
-        max_spots,
-        category_id,
-        recurring,
-        frequency,
-        reduced_mobility_access,
-        difficulty_level,
-        cost,
-        status,
-        weather_requirements,
-        transport_options
-      },
+      data: req.body,
     });
     
     res.status(201).json(activityToCreate);
@@ -103,25 +66,7 @@ export const updateActivity = async (
   next: NextFunction) => {
     
     const { id } = req.params;
-    const {
-      title,
-      description,
-      start_date,
-      end_date,
-      location,
-      gps_coordinates,
-      max_spots,
-      category_id,
-      recurring,
-      frequency,
-      reduced_mobility_access,
-      difficulty_level,
-      cost,
-      status,
-      weather_requirements,
-      transport_options
-    } = req.body;
-    
+   
     try {
       const badge = await prisma.activity.findUnique({
         where: { id },
@@ -132,25 +77,7 @@ export const updateActivity = async (
       }
       
       const activityToUpddate = await prisma.activity.update({
-        data: {
-          title,
-          description,
-          start_date,
-          end_date,
-          location,
-          gps_coordinates,
-          max_spots,
-          category_id,
-          recurring,
-          frequency,
-          reduced_mobility_access,
-          difficulty_level,
-          cost,
-          status,
-          weather_requirements,
-          transport_options,
-          updated_at: new Date(),
-        },
+        data: req.body,
         where: { id },
       });
       

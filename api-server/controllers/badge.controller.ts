@@ -10,11 +10,10 @@ export const createBadge = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { name, description, icon, category_id, level } = req.body;
 
   try {
     const badgeToCreate = await prisma.badge.create({
-      data: { name, description, icon, category_id, level },
+      data: req.body
     });
 
     res.status(201).json(badgeToCreate);
@@ -67,7 +66,6 @@ export const updateBadge = async (
   next: NextFunction) => {
     
     const { id } = req.params;
-    const { name, description, icon, category_id, level } = req.body;
 
   try {
     const badge = await prisma.badge.findUnique({
@@ -79,14 +77,7 @@ export const updateBadge = async (
     }
 
     const badgeToUpdate = await prisma.badge.update({
-      data: {
-        name,
-        description,
-        icon,
-        category_id,
-        level,
-        updated_at: new Date(),
-      },
+      data: req.body,
       where: { id },
     });
 

@@ -119,331 +119,331 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.ActivityScalarFieldEnum = {
   id: 'id',
-  creator_id: 'creator_id',
+  creatorId: 'creatorId',
   title: 'title',
   description: 'description',
-  start_date: 'start_date',
-  end_date: 'end_date',
+  startDate: 'startDate',
+  endDate: 'endDate',
   location: 'location',
-  gps_coordinates: 'gps_coordinates',
-  max_spots: 'max_spots',
-  category_id: 'category_id',
+  gpsCoordinates: 'gpsCoordinates',
+  maxSpots: 'maxSpots',
+  categoryId: 'categoryId',
   recurring: 'recurring',
   frequency: 'frequency',
-  reduced_mobility_access: 'reduced_mobility_access',
-  difficulty_level: 'difficulty_level',
+  reducedMobilityAccess: 'reducedMobilityAccess',
+  difficultyLevel: 'difficultyLevel',
   cost: 'cost',
   status: 'status',
-  weather_requirements: 'weather_requirements',
-  transport_options: 'transport_options',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  weatherRequirements: 'weatherRequirements',
+  transportOptions: 'transportOptions',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Activity_logScalarFieldEnum = {
+exports.Prisma.ActivityLogScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
+  userId: 'userId',
   action_type: 'action_type',
   description: 'description',
-  action_date: 'action_date',
-  ip_address: 'ip_address',
+  actionDate: 'actionDate',
+  ipAddress: 'ipAddress',
   device: 'device',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Activity_registrationScalarFieldEnum = {
-  activity_id: 'activity_id',
-  user_id: 'user_id',
-  registration_date: 'registration_date',
+exports.Prisma.ActivityRegistrationScalarFieldEnum = {
+  activityId: 'activityId',
+  userId: 'userId',
+  registrationDate: 'registrationDate',
   status: 'status',
-  attendance_confirmed: 'attendance_confirmed',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  attendanceConfirmed: 'attendanceConfirmed',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.BadgeScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  category_id: 'category_id',
+  categoryId: 'categoryId',
   description: 'description',
   icon: 'icon',
   level: 'level',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Cognitive_exerciseScalarFieldEnum = {
+exports.Prisma.CognitiveExerciseScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  category_id: 'category_id',
-  difficulty_level: 'difficulty_level',
-  duration_minutes: 'duration_minutes',
+  categoryId: 'categoryId',
+  difficultyLevel: 'difficultyLevel',
+  durationMinutes: 'durationMinutes',
   description: 'description',
   image: 'image',
-  created_at: 'created_at',
-  updated_at: 'updated_at',
-  program_categoryId: 'program_categoryId'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  programCategoryId: 'programCategoryId'
 };
 
-exports.Prisma.Collaborative_projectScalarFieldEnum = {
+exports.Prisma.CollaborativeProjectScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  creator_id: 'creator_id',
-  creation_date: 'creation_date',
+  creatorId: 'creatorId',
+  creationDate: 'creationDate',
   status: 'status',
-  category_id: 'category_id',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  categoryId: 'categoryId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ConversationScalarFieldEnum = {
   id: 'id',
   type: 'type',
-  creation_date: 'creation_date',
+  creationDate: 'creationDate',
   title: 'title',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Conversation_participantScalarFieldEnum = {
-  conversation_id: 'conversation_id',
-  user_id: 'user_id',
-  date_added: 'date_added',
+exports.Prisma.ConversationParticipantScalarFieldEnum = {
+  conversationId: 'conversationId',
+  userId: 'userId',
+  dateAdded: 'dateAdded',
   administrator: 'administrator',
-  last_access: 'last_access',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  lastAccess: 'lastAccess',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Exercise_programScalarFieldEnum = {
+exports.Prisma.ExerciseProgramScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  category_id: 'category_id',
-  difficulty_level: 'difficulty_level',
-  adapted_for_reduced_mobility: 'adapted_for_reduced_mobility',
-  duration_minutes: 'duration_minutes',
+  categoryId: 'categoryId',
+  difficultyLevel: 'difficultyLevel',
+  adaptedForReducedMobility: 'adaptedForReducedMobility',
+  durationMinutes: 'durationMinutes',
   description: 'description',
-  video_link: 'video_link',
+  videoLink: 'videoLink',
   image: 'image',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Forum_categoryScalarFieldEnum = {
+exports.Prisma.ForumCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
-  parent_category_id: 'parent_category_id',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  parentCategoryId: 'parentCategoryId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Forum_messageScalarFieldEnum = {
+exports.Prisma.ForumMessageScalarFieldEnum = {
   id: 'id',
-  topic_id: 'topic_id',
-  author_id: 'author_id',
+  topicId: 'topicId',
+  authorId: 'authorId',
   content: 'content',
-  creation_date: 'creation_date',
-  modification_date: 'modification_date',
-  solution_message: 'solution_message',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  creationDate: 'creationDate',
+  modificationDate: 'modificationDate',
+  solutionMessage: 'solutionMessage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Forum_topicScalarFieldEnum = {
+exports.Prisma.ForumTopicScalarFieldEnum = {
   id: 'id',
-  category_id: 'category_id',
-  author_id: 'author_id',
+  categoryId: 'categoryId',
+  authorId: 'authorId',
   title: 'title',
-  creation_date: 'creation_date',
+  creationDate: 'creationDate',
   pinned: 'pinned',
   status: 'status',
   views: 'views',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Goal_progressScalarFieldEnum = {
+exports.Prisma.GoalProgressScalarFieldEnum = {
   id: 'id',
-  goal_id: 'goal_id',
-  recording_date: 'recording_date',
-  achieved_value: 'achieved_value',
-  goal_achieved: 'goal_achieved',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  goalId: 'goalId',
+  recordingDate: 'recordingDate',
+  achievedValue: 'achievedValue',
+  goalAchieved: 'goalAchieved',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Health_indicatorScalarFieldEnum = {
+exports.Prisma.HealthIndicatorScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
-  recording_date: 'recording_date',
-  step_count: 'step_count',
-  sleep_duration_minutes: 'sleep_duration_minutes',
-  sleep_quality: 'sleep_quality',
+  userId: 'userId',
+  recordingDate: 'recordingDate',
+  stepCount: 'stepCount',
+  sleepDurationMinutes: 'sleepDurationMinutes',
+  sleepQuality: 'sleepQuality',
   weight: 'weight',
   mood: 'mood',
   notes: 'notes',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Help_offerScalarFieldEnum = {
+exports.Prisma.HelpOfferScalarFieldEnum = {
   id: 'id',
-  request_id: 'request_id',
-  helper_id: 'helper_id',
-  offer_date: 'offer_date',
+  requestId: 'requestId',
+  helperId: 'helperId',
+  offerDate: 'offerDate',
   message: 'message',
   status: 'status',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Help_requestScalarFieldEnum = {
+exports.Prisma.HelpRequestScalarFieldEnum = {
   id: 'id',
-  creator_id: 'creator_id',
+  creatorId: 'creatorId',
   title: 'title',
   description: 'description',
-  creation_date: 'creation_date',
-  needed_date: 'needed_date',
-  estimated_duration: 'estimated_duration',
+  creationDate: 'creationDate',
+  neededDate: 'neededDate',
+  estimatedDuration: 'estimatedDuration',
   location: 'location',
-  gps_coordinates: 'gps_coordinates',
-  category_id: 'category_id',
+  gpsCoordinates: 'gpsCoordinates',
+  categoryId: 'categoryId',
   recurring: 'recurring',
   frequency: 'frequency',
   status: 'status',
   points_offered: 'points_offered',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Local_serviceScalarFieldEnum = {
+exports.Prisma.LocalServiceScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  category_id: 'category_id',
+  categoryId: 'categoryId',
   address: 'address',
-  gps_coordinates: 'gps_coordinates',
+  gpsCoordinates: 'gpsCoordinates',
   phone: 'phone',
   website: 'website',
   description: 'description',
   hours: 'hours',
-  senior_friendly: 'senior_friendly',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  seniorFriendly: 'seniorFriendly',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Medication_reminderScalarFieldEnum = {
+exports.Prisma.MedicationReminderScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
+  userId: 'userId',
   medication_name: 'medication_name',
   dosage: 'dosage',
-  morning_reminder_time: 'morning_reminder_time',
-  noon_reminder_time: 'noon_reminder_time',
-  evening_reminder_time: 'evening_reminder_time',
-  night_reminder_time: 'night_reminder_time',
-  days_of_week: 'days_of_week',
+  morningReminderTime: 'morningReminderTime',
+  noonReminderTime: 'noonReminderTime',
+  eveningReminderTime: 'eveningReminderTime',
+  nightReminderTime: 'nightReminderTime',
+  daysOfWeek: 'daysOfWeek',
   instructions: 'instructions',
   active: 'active',
-  start_date: 'start_date',
+  startDate: 'startDate',
   end_date: 'end_date',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.MessageScalarFieldEnum = {
   id: 'id',
-  conversation_id: 'conversation_id',
-  sender_id: 'sender_id',
+  conversationId: 'conversationId',
+  senderId: 'senderId',
   content: 'content',
-  send_date: 'send_date',
+  sendDate: 'sendDate',
   type: 'type',
   read: 'read',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Municipal_eventScalarFieldEnum = {
+exports.Prisma.MunicipalEventScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  start_date: 'start_date',
+  startDate: 'startDate',
   end_date: 'end_date',
   location: 'location',
   gps_coordinates: 'gps_coordinates',
   organizer: 'organizer',
   contact: 'contact',
-  official_link: 'official_link',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  officialLink: 'officialLink',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.NotificationScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
+  userId: 'userId',
   type: 'type',
   content: 'content',
   read: 'read',
-  action_link: 'action_link',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  actionLink: 'actionLink',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Notification_preferencesScalarFieldEnum = {
-  user_id: 'user_id',
-  message_notification: 'message_notification',
-  activity_notification: 'activity_notification',
-  help_notification: 'help_notification',
-  forum_notification: 'forum_notification',
-  email_notification: 'email_notification',
-  sms_notification: 'sms_notification',
-  push_notification: 'push_notification',
-  quiet_hours_start: 'quiet_hours_start',
-  quiet_hours_end: 'quiet_hours_end',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+exports.Prisma.NotificationPreferencesScalarFieldEnum = {
+  userId: 'userId',
+  messageNotification: 'messageNotification',
+  activityNotification: 'activityNotification',
+  helpNotification: 'helpNotification',
+  forumNotification: 'forumNotification',
+  emailNotification: 'emailNotification',
+  smsNotification: 'smsNotification',
+  pushNotification: 'pushNotification',
+  quietHoursStart: 'quietHoursStart',
+  quietHoursEnd: 'quietHoursEnd',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Nutritional_adviceScalarFieldEnum = {
+exports.Prisma.NutritionalAdviceScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  category_id: 'category_id',
+  categoryId: 'categoryId',
   season: 'season',
   image: 'image',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Offline_userScalarFieldEnum = {
-  user_id: 'user_id',
-  cached_data: 'cached_data',
-  last_sync: 'last_sync',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+exports.Prisma.OfflineUserScalarFieldEnum = {
+  userId: 'userId',
+  cachedData: 'cachedData',
+  lastSync: 'lastSync',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Project_memberScalarFieldEnum = {
-  project_id: 'project_id',
-  user_id: 'user_id',
+exports.Prisma.ProjectMemberScalarFieldEnum = {
+  projectId: 'projectId',
+  userId: 'userId',
   role: 'role',
   join_date: 'join_date',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Project_taskScalarFieldEnum = {
+exports.Prisma.ProjectTaskScalarFieldEnum = {
   id: 'id',
-  project_id: 'project_id',
+  projectId: 'projectId',
   title: 'title',
   description: 'description',
-  creation_date: 'creation_date',
-  due_date: 'due_date',
+  creationDate: 'creationDate',
+  dueDate: 'dueDate',
   status: 'status',
-  assignee_id: 'assignee_id',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  assigneeId: 'assigneeId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ResourceScalarFieldEnum = {
@@ -451,28 +451,28 @@ exports.Prisma.ResourceScalarFieldEnum = {
   title: 'title',
   content: 'content',
   type: 'type',
-  category_id: 'category_id',
-  author_id: 'author_id',
-  admin_validated: 'admin_validated',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  categoryId: 'categoryId',
+  authorId: 'authorId',
+  adminValidated: 'adminValidated',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Satisfaction_surveyScalarFieldEnum = {
+exports.Prisma.SatisfactionSurveyScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  start_date: 'start_date',
-  end_date: 'end_date',
+  startDate: 'startDate',
+  endDate: 'endDate',
   active: 'active',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Service_completedScalarFieldEnum = {
+exports.Prisma.ServiceCompletedScalarFieldEnum = {
   id: 'id',
-  request_id: 'request_id',
-  helper_id: 'helper_id',
+  requestId: 'requestId',
+  helperId: 'helperId',
   completion_date: 'completion_date',
   actual_duration: 'actual_duration',
   creator_comment: 'creator_comment',
@@ -480,265 +480,287 @@ exports.Prisma.Service_completedScalarFieldEnum = {
   creator_rating: 'creator_rating',
   helper_rating: 'helper_rating',
   points_exchanged: 'points_exchanged',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Service_ratingScalarFieldEnum = {
-  service_id: 'service_id',
-  user_id: 'user_id',
+exports.Prisma.ServiceRatingScalarFieldEnum = {
+  serviceId: 'serviceId',
+  userId: 'userId',
   rating: 'rating',
   comment: 'comment',
-  rating_date: 'rating_date',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  ratingDate: 'ratingDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SkillScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
-  category_id: 'category_id',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  categoryId: 'categoryId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Survey_responseScalarFieldEnum = {
-  survey_id: 'survey_id',
-  user_id: 'user_id',
+exports.Prisma.SurveyResponseScalarFieldEnum = {
+  surveyId: 'surveyId',
+  userId: 'userId',
   responses: 'responses',
   response_date: 'response_date',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Trust_circleScalarFieldEnum = {
-  user_id: 'user_id',
-  contact_id: 'contact_id',
-  date_added: 'date_added',
+exports.Prisma.TrustCircleScalarFieldEnum = {
+  userId: 'userId',
+  contactId: 'contactId',
+  dateAdded: 'dateAdded',
   access_level: 'access_level',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Trusted_contactScalarFieldEnum = {
+exports.Prisma.TrustedContactScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
-  last_name: 'last_name',
-  first_name: 'first_name',
+  userId: 'userId',
+  lastName: 'lastName',
+  firstName: 'firstName',
   email: 'email',
   phone: 'phone',
   relationship: 'relationship',
-  share_medications: 'share_medications',
-  share_health_indicators: 'share_health_indicators',
-  share_wellness_activities: 'share_wellness_activities',
-  emergency_alerts: 'emergency_alerts',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  shareMedications: 'shareMedications',
+  shareHealthIndicators: 'shareHealthIndicators',
+  shareWellnessActivities: 'shareWellnessActivities',
+  emergencyAlerts: 'emergencyAlerts',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Urban_issue_reportScalarFieldEnum = {
+exports.Prisma.UrbanIssueReportScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
-  category_id: 'category_id',
+  userId: 'userId',
+  categoryId: 'categoryId',
   description: 'description',
   address: 'address',
-  gps_coordinates: 'gps_coordinates',
-  report_date: 'report_date',
+  gpsCoordinates: 'gpsCoordinates',
+  reportDate: 'reportDate',
   status: 'status',
-  city_reference: 'city_reference',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  cityReference: 'cityReference',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
-  password_hash: 'password_hash',
-  first_name: 'first_name',
-  last_name: 'last_name',
-  birth_date: 'birth_date',
+  passwordHash: 'passwordHash',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  birthDate: 'birthDate',
   address: 'address',
-  gps_coordinates: 'gps_coordinates',
+  gpsCoordinates: 'gpsCoordinates',
   phone: 'phone',
-  profile_picture: 'profile_picture',
-  registration_date: 'registration_date',
-  account_verified: 'account_verified',
-  interface_preferences: 'interface_preferences',
-  two_factor_authentication: 'two_factor_authentication',
-  help_points: 'help_points',
-  reduced_mobility: 'reduced_mobility',
-  activity_level: 'activity_level',
-  emergency_contact_name: 'emergency_contact_name',
-  emergency_contact_phone: 'emergency_contact_phone',
+  profilePicture: 'profilePicture',
+  registrationDate: 'registrationDate',
+  accountVerified: 'accountVerified',
+  interfacePreferences: 'interfacePreferences',
+  twoFactorAuthentication: 'twoFactorAuthentication',
+  helpPoints: 'helpPoints',
+  reducedMobility: 'reducedMobility',
+  activityLevel: 'activityLevel',
   status: 'status',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.User_activityScalarFieldEnum = {
+exports.Prisma.UserActivityScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
-  completion_date: 'completion_date',
-  exercise_program_id: 'exercise_program_id',
-  cognitive_exercise_id: 'cognitive_exercise_id',
-  duration_minutes: 'duration_minutes',
-  perceived_difficulty_level: 'perceived_difficulty_level',
-  enjoyment_level: 'enjoyment_level',
+  userId: 'userId',
+  completionDate: 'completionDate',
+  exerciseProgramId: 'exerciseProgramId',
+  cognitiveExerciseId: 'cognitiveExerciseId',
+  durationMinutes: 'durationMinutes',
+  perceivedDifficultyLevel: 'perceivedDifficultyLevel',
+  enjoymentLevel: 'enjoymentLevel',
   comment: 'comment',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.User_badgeScalarFieldEnum = {
-  user_id: 'user_id',
-  badge_id: 'badge_id',
-  achievement_date: 'achievement_date',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+exports.Prisma.UserBadgeScalarFieldEnum = {
+  userId: 'userId',
+  badgeId: 'badgeId',
+  achievementDate: 'achievementDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.User_deviceScalarFieldEnum = {
+exports.Prisma.UserDeviceScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
-  device_type: 'device_type',
-  device_name: 'device_name',
-  operating_system: 'operating_system',
-  notification_token: 'notification_token',
-  last_connection: 'last_connection',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  userId: 'userId',
+  deviceType: 'deviceType',
+  deviceName: 'deviceName',
+  operatingSystem: 'operatingSystem',
+  notificationToken: 'notificationToken',
+  lastConnection: 'lastConnection',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.User_skillScalarFieldEnum = {
-  user_id: 'user_id',
-  skill_id: 'skill_id',
+exports.Prisma.UserSkillScalarFieldEnum = {
+  userId: 'userId',
+  skillId: 'skillId',
   level: 'level',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.User_statisticsScalarFieldEnum = {
-  user_id: 'user_id',
-  services_provided: 'services_provided',
-  services_received: 'services_received',
-  activities_participated: 'activities_participated',
-  activities_organized: 'activities_organized',
-  forum_messages: 'forum_messages',
-  total_help_points: 'total_help_points',
-  network_size: 'network_size',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+exports.Prisma.UserStatisticsScalarFieldEnum = {
+  userId: 'userId',
+  servicesProvided: 'servicesProvided',
+  servicesReceived: 'servicesReceived',
+  activitiesParticipated: 'activitiesParticipated',
+  activitiesOrganized: 'activitiesOrganized',
+  forumMessages: 'forumMessages',
+  totalHelpPoints: 'totalHelpPoints',
+  networkSize: 'networkSize',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Video_callScalarFieldEnum = {
+exports.Prisma.VideoCallScalarFieldEnum = {
   id: 'id',
-  conversation_id: 'conversation_id',
-  initiator_id: 'initiator_id',
-  start_date: 'start_date',
-  end_date: 'end_date',
+  conversationId: 'conversationId',
+  initiatorId: 'initiatorId',
+  startDate: 'startDate',
+  endDate: 'endDate',
   status: 'status',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Wellness_badgeScalarFieldEnum = {
+exports.Prisma.WellnessBadgeScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
-  category_id: 'category_id',
+  categoryId: 'categoryId',
   image: 'image',
   level: 'level',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Wellness_goalScalarFieldEnum = {
+exports.Prisma.WellnessGoalScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
+  userId: 'userId',
   title: 'title',
-  category_id: 'category_id',
-  target_value: 'target_value',
+  categoryId: 'categoryId',
+  targetValue: 'targetValue',
   unit: 'unit',
   frequency: 'frequency',
-  start_date: 'start_date',
-  end_date: 'end_date',
+  startDate: 'startDate',
+  endDate: 'endDate',
   active: 'active',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.Activity_categoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  description: 'description'
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Badge_categoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description'
-};
-
-exports.Prisma.Cognitive_categoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description'
-};
-
-exports.Prisma.Help_categoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description'
-};
-
-exports.Prisma.Issue_categoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description'
-};
-
-exports.Prisma.Nutritional_categoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description'
-};
-
-exports.Prisma.Program_categoryScalarFieldEnum = {
+exports.Prisma.BadgeCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
-  exercise_programId: 'exercise_programId'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Project_categoryScalarFieldEnum = {
+exports.Prisma.CognitiveCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  description: 'description'
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Resource_categoryScalarFieldEnum = {
+exports.Prisma.HelpCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  description: 'description'
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Service_categoryScalarFieldEnum = {
+exports.Prisma.IssueCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  description: 'description'
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Skill_categoryScalarFieldEnum = {
+exports.Prisma.NutritionalCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  description: 'description'
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Wellness_categoryScalarFieldEnum = {
+exports.Prisma.ProgramCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  description: 'description'
+  description: 'description',
+  exerciseProgramId: 'exerciseProgramId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProjectCategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ResourceCategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ServiceCategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SkillCategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.WellnessCategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -770,61 +792,61 @@ exports.Prisma.JsonNullValueFilter = {
 
 exports.Prisma.ModelName = {
   activity: 'activity',
-  activity_log: 'activity_log',
-  activity_registration: 'activity_registration',
+  activityLog: 'activityLog',
+  activityRegistration: 'activityRegistration',
   badge: 'badge',
-  cognitive_exercise: 'cognitive_exercise',
-  collaborative_project: 'collaborative_project',
+  cognitiveExercise: 'cognitiveExercise',
+  collaborativeProject: 'collaborativeProject',
   conversation: 'conversation',
-  conversation_participant: 'conversation_participant',
-  exercise_program: 'exercise_program',
-  forum_category: 'forum_category',
-  forum_message: 'forum_message',
-  forum_topic: 'forum_topic',
-  goal_progress: 'goal_progress',
-  health_indicator: 'health_indicator',
-  help_offer: 'help_offer',
-  help_request: 'help_request',
-  local_service: 'local_service',
-  medication_reminder: 'medication_reminder',
+  conversationParticipant: 'conversationParticipant',
+  exerciseProgram: 'exerciseProgram',
+  forumCategory: 'forumCategory',
+  forumMessage: 'forumMessage',
+  forumTopic: 'forumTopic',
+  goalProgress: 'goalProgress',
+  healthIndicator: 'healthIndicator',
+  helpOffer: 'helpOffer',
+  helpRequest: 'helpRequest',
+  localService: 'localService',
+  medicationReminder: 'medicationReminder',
   message: 'message',
-  municipal_event: 'municipal_event',
+  municipalEvent: 'municipalEvent',
   notification: 'notification',
-  notification_preferences: 'notification_preferences',
-  nutritional_advice: 'nutritional_advice',
-  offline_user: 'offline_user',
-  project_member: 'project_member',
-  project_task: 'project_task',
+  notificationPreferences: 'notificationPreferences',
+  nutritionalAdvice: 'nutritionalAdvice',
+  offlineUser: 'offlineUser',
+  projectMember: 'projectMember',
+  projectTask: 'projectTask',
   resource: 'resource',
-  satisfaction_survey: 'satisfaction_survey',
-  service_completed: 'service_completed',
-  service_rating: 'service_rating',
+  satisfactionSurvey: 'satisfactionSurvey',
+  serviceCompleted: 'serviceCompleted',
+  serviceRating: 'serviceRating',
   skill: 'skill',
-  survey_response: 'survey_response',
-  trust_circle: 'trust_circle',
-  trusted_contact: 'trusted_contact',
-  urban_issue_report: 'urban_issue_report',
+  surveyResponse: 'surveyResponse',
+  trustCircle: 'trustCircle',
+  trustedContact: 'trustedContact',
+  urbanIssueReport: 'urbanIssueReport',
   user: 'user',
-  user_activity: 'user_activity',
-  user_badge: 'user_badge',
-  user_device: 'user_device',
-  user_skill: 'user_skill',
-  user_statistics: 'user_statistics',
-  video_call: 'video_call',
-  wellness_badge: 'wellness_badge',
-  wellness_goal: 'wellness_goal',
+  userActivity: 'userActivity',
+  userBadge: 'userBadge',
+  userDevice: 'userDevice',
+  userSkill: 'userSkill',
+  userStatistics: 'userStatistics',
+  videoCall: 'videoCall',
+  wellnessBadge: 'wellnessBadge',
+  wellnessGoal: 'wellnessGoal',
   activity_category: 'activity_category',
-  badge_category: 'badge_category',
-  cognitive_category: 'cognitive_category',
-  help_category: 'help_category',
-  issue_category: 'issue_category',
-  nutritional_category: 'nutritional_category',
-  program_category: 'program_category',
-  project_category: 'project_category',
-  resource_category: 'resource_category',
-  service_category: 'service_category',
-  skill_category: 'skill_category',
-  wellness_category: 'wellness_category'
+  badgeCategory: 'badgeCategory',
+  cognitiveCategory: 'cognitiveCategory',
+  helpCategory: 'helpCategory',
+  issueCategory: 'issueCategory',
+  nutritionalCategory: 'nutritionalCategory',
+  programCategory: 'programCategory',
+  projectCategory: 'projectCategory',
+  resourceCategory: 'resourceCategory',
+  serviceCategory: 'serviceCategory',
+  skillCategory: 'skillCategory',
+  wellnessCategory: 'wellnessCategory'
 };
 
 /**

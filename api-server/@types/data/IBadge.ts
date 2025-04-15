@@ -3,6 +3,6 @@ export default interface IBadge {
   name: string;
   description: string;
   icon: string;
-  category_id: string;
+  categoryId: string;
   level: number;
 }

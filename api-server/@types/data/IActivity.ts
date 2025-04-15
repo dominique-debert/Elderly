@@ -1,19 +1,19 @@
   export default interface IActivity {
-    creator_id: string
+    creatorId: string
     title: string
     description?: string
-    start_date: Date
-    end_date?: Date
+    startDate: Date
+    endDate?: Date
     location?: string
-    gps_coordinates?: string
-    max_spots?: number
-    category_id: string
+    gpsCoordinates?: string
+    maxSpots?: number
+    categoryId: string
     recurring?: boolean
     frequency?: string
-    reduced_mobility_access?: boolean
-    difficulty_level?: number
+    reducedMobilityAccess?: boolean
+    difficultyLevel?: number
     cost?: number
     status?: string
-    weather_requirements?: string
-    transport_options?: string
+    weatherRequirements?: string
+    transportOptions?: string
 }

@@ -12,24 +12,15 @@ const prisma = new PrismaClient();
 *   description: Gestion des badges bien-être
 */
 
-export const createWellnessBadge = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-  const {
-    name,
-    description,
-    category_id,
-    image,
-    level
-  }: IWellnessBadge = req.body;
+export const createWellnessBadge = async (
+  req: Request<{}, {}, IWellnessBadge>,
+  res: Response, 
+  next: NextFunction
+) => {
   
   try {
-    const newWellnessBadge = await prisma.wellness_badge.create({
-      data: {
-        name,
-        description,
-        category_id,
-        image,
-        level      
-      }
+    const newWellnessBadge = await prisma.wellnessBadge.create({
+      data: req.body
     });
     res.status(201).json(newWellnessBadge);
   } catch (error) {
@@ -39,7 +30,7 @@ export const createWellnessBadge = async (req: Request, res: Response, next: Nex
 
 export const getAllWellnessBadges = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const wellnessBadges = await prisma.wellness_badge.findMany({
+    const wellnessBadges = await prisma.wellnessBadge.findMany({
       orderBy: {
         name: 'asc', // Ascending order (A-Z)
       },
@@ -55,7 +46,7 @@ export const getWellnessBadgeById = async (req: Request, res: Response, next: Ne
   const { id } = req.params;
   
   try {
-    const wellnessBadge = await prisma.wellness_badge.findUnique({
+    const wellnessBadge = await prisma.wellnessBadge.findUnique({
       where: { id },
     });
     
@@ -72,16 +63,8 @@ export const getWellnessBadgeById = async (req: Request, res: Response, next: Ne
 export const updateWellnessBadge = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const { id } = req.params;
   
-  const {
-    name,
-    description,
-    category_id,
-    image,
-    level
-  }: IWellnessBadge = req.body;
-  
   try {
-    const wellnessBadge = await prisma.wellness_badge.findUnique({
+    const wellnessBadge = await prisma.wellnessBadge.findUnique({
       where: { id },
     });    
     
@@ -89,14 +72,8 @@ export const updateWellnessBadge = async (req: Request, res: Response, next: Nex
       throw createHttpError(404, `Badge bien-être non trouvé`);
     }
     
-    const updatedWellnessBadge = await prisma.wellness_badge.update({
-      data: {
-        name,
-        description,
-        category_id,
-        image,
-        level      
-      },
+    const updatedWellnessBadge = await prisma.wellnessBadge.update({
+      data: req.body,
       where: { id },
     });
     res.status(200).json(updatedWellnessBadge);
@@ -109,7 +86,7 @@ export const deleteWellnessBadge = async (req: Request, res: Response, next: Nex
   const { id } = req.params;
  
   try {
-    const wellnessBadge = await prisma.wellness_badge.findUnique({
+    const wellnessBadge = await prisma.wellnessBadge.findUnique({
       where: { id },
     });    
     
@@ -117,7 +94,7 @@ export const deleteWellnessBadge = async (req: Request, res: Response, next: Nex
       throw createHttpError(404, `Badge bien-être non trouvé`);
     }
     
-    await prisma.wellness_badge.delete({
+    await prisma.wellnessBadge.delete({
       where: { id },
     });
     

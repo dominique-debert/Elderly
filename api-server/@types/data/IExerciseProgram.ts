@@ -1,10 +1,10 @@
 export default interface IExerciseProgram {
   name: string;
-  category_id: string;
-  difficulty_level: number;
-  adapted_for_reduced_mobility: boolean;
-  duration_minutes: number;
+  categoryId: string;
+  difficultyLevel: number;
+  adaptedForReducedMobility: boolean;
+  durationMinutes: number;
   description?: string;
-  video_link?: string;
+  videoLink?: string;
   image?: string;
 }
