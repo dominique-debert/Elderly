@@ -5,7 +5,7 @@ import IActivity from '@/@types/data/IActivity'
 
 const prisma = new PrismaClient()
 
-export const createBadge = async (
+export const createActivity = async (
   req: Request<{}, {}, IActivity>,
   res: Response,
   next: NextFunction
