@@ -7,6 +7,7 @@ import badgeRouter from '@/routes/badge.routes';
 import cognitiveExerciseRouter from '@/routes/cognitiveExercise.routes';
 import localServiceRouter from '@/routes/localService.routes';
 import nutritionalAdviceRouter from '@/routes/nutritionalAdvice.routes';
+import activityRouter from '@/routes/activity.routes'
 
 import errorHandler from '@/middlewares/errorHandler';
 import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Routes
+app.use('/api/activities', activityRouter);
 app.use('/api/badges', badgeRouter);
 app.use('/api/cognitive-exercises', cognitiveExerciseRouter);
 app.use('/api/exercise-programs', exerciseProgramRoutes);

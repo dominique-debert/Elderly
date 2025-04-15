@@ -2,7 +2,7 @@
  * @swagger
  * components:
  *   schemas:
- *     CognitiveExercise:
+ *     Activity:
  *       type: object
  *       required:
  *         - creator_id
@@ -17,7 +17,7 @@
  *         id:
  *           type: string
  *           format: cuid
- *           description: Identifiant unique de l'exercice cognitif (UUID)
+ *           description: Identifiant unique de l'activité (UUID)
  *         title:
  *           type: string
  *           maxLength: 255

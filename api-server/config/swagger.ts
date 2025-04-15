@@ -45,7 +45,7 @@ const options: SwaggerOptions = {
   },
   apis: [
     './routes/*',
-    './swagger/schemas/*',
+    './schemas/swagger/*',
   ], // Path to the API routes with JSDoc comments
 };
 

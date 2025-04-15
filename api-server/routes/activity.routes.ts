@@ -9,7 +9,7 @@ import {
   getActivityById,
   updateActivity,
   deleteActivity
-} from '@/controllers/activity.controller';
+} from '@/controllers/activities/activity.controller';
 
 const router = Router();
 
@@ -26,34 +26,15 @@ const router = Router();
  *         application/json:
  *           schema:
  *             type: object
- *             properties:
- *               title:
- *                 type: string
- *                 description: Titre de l'activité
- *               name:
- *                 type: string
- *                 description: Nom du badge
- *               description:
- *                 type: string
- *                 description: Description du badge
- *               icon:
- *                 type: string
- *                 description: Chemin de l'icône du badge
- *               category:
- *                 type: string
- *                 description: Catégorie du badge
- *               level:
- *                 type: integer
- *                 description: Niveau du badge
  *     responses:
  *       201:
- *         description: Badge créé avec succès
+ *         description: activité créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Badge'
+ *               $ref: '#/components/schemas/Activity'
  *       400:
- *         description: Requête invalide ou badge déjà existant
+ *         description: Requête invalide ou activité déjà existante
  *       500:
  *         description: Erreur serveur
  */
@@ -64,10 +45,11 @@ router.post('/', validate(activitySchema), errorHandler, createActivity);
  * /api/activities:
  *   get:
  *     summary: Récupérer toutes les activités
+ *     description: Renvoie une liste d'activités
  *     tags: [Activities]
  *     responses:
  *       200:
- *         description: Liste des activités récupérées avec succès
+ *         description: Liste des activités récupérée avec succès
  *         content:
  *           application/json:
  *             schema:
