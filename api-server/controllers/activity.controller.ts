@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 import { PrismaClient } from '@/prisma/client.js'
 import { createHttpError } from '@/utils/httpError.js'
-import IActivity from '@/@types/data/IActivity'
+import IActivity from '@/@types/data/activities/IActivity'
 
 const prisma = new PrismaClient()
 

@@ -15,7 +15,7 @@ import {
   deleteWellnessBadge,
 } from '@/controllers/wellnessBadge.controller';
 
-const wellnessBadgeRouter = Router();
+const router = Router();
 
 /**
  * @swagger
@@ -33,7 +33,7 @@ const wellnessBadgeRouter = Router();
  *       201:
  *         description: Badge créé
  */
-wellnessBadgeRouter.post('/', validate(wellnessBadgeSchema), errorHandler, createWellnessBadge);
+router.post('/', validate(wellnessBadgeSchema), errorHandler, createWellnessBadge);
 
 /**
  * @swagger
@@ -45,7 +45,7 @@ wellnessBadgeRouter.post('/', validate(wellnessBadgeSchema), errorHandler, creat
  *       200:
  *         description: Liste des badges
  */
-wellnessBadgeRouter.get('/', errorHandler, getAllWellnessBadges);
+router.get('/', errorHandler, getAllWellnessBadges);
 
 /**
  * @swagger
@@ -66,7 +66,7 @@ wellnessBadgeRouter.get('/', errorHandler, getAllWellnessBadges);
  *       404:
  *         description: Badge introuvable
  */
-wellnessBadgeRouter.get('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler, getWellnessBadgeById);
+router.get('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler, getWellnessBadgeById);
 
 /**
  * @swagger
@@ -93,7 +93,7 @@ wellnessBadgeRouter.get('/:id', validate(idParamWellnessBadgeSchema, 'params'), 
  *       404:
  *         description: Badge introuvable
  */
-wellnessBadgeRouter.put('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler, updateWellnessBadge);
+router.put('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler, updateWellnessBadge);
 
 /**
  * @swagger
@@ -114,6 +114,6 @@ wellnessBadgeRouter.put('/:id', validate(idParamWellnessBadgeSchema, 'params'), 
  *       404:
  *         description: Badge introuvable
  */
-wellnessBadgeRouter.delete('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler, deleteWellnessBadge);
+router.delete('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler, deleteWellnessBadge);
 
-export default wellnessBadgeRouter;
+export default router;

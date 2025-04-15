@@ -153,6 +153,7 @@ exports.Prisma.ActivityLogScalarFieldEnum = {
 };
 
 exports.Prisma.ActivityRegistrationScalarFieldEnum = {
+  id: 'id',
   activityId: 'activityId',
   userId: 'userId',
   registrationDate: 'registrationDate',
@@ -265,7 +266,7 @@ exports.Prisma.ForumTopicScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.GoalProgressScalarFieldEnum = {
+exports.Prisma.WellnessGoalProgressScalarFieldEnum = {
   id: 'id',
   goalId: 'goalId',
   recordingDate: 'recordingDate',
@@ -803,7 +804,7 @@ exports.Prisma.ModelName = {
   forumCategory: 'forumCategory',
   forumMessage: 'forumMessage',
   forumTopic: 'forumTopic',
-  goalProgress: 'goalProgress',
+  wellnessGoalProgress: 'wellnessGoalProgress',
   healthIndicator: 'healthIndicator',
   helpOffer: 'helpOffer',
   helpRequest: 'helpRequest',

@@ -50,6 +50,7 @@ model activityLog {
 }
 
 model activityRegistration {
+  id                  String    @id @default(cuid())
   activityId          String    @map("activity_id")
   userId              String    @map("user_id")
   registrationDate    DateTime  @map("registration_date") @db.Timestamp(6)
@@ -60,7 +61,6 @@ model activityRegistration {
   activity            activity  @relation(fields: [activityId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   user                user      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
-  @@id([activityId, userId])
   @@map("activity_registration")
 }
 
@@ -206,7 +206,7 @@ model forumTopic {
   @@map("forum_topic")
 }
 
-model goalProgress {
+model wellnessGoalProgress {
   id            String       @id @default(cuid())
   goalId        String       @map("goal_id")
   recordingDate DateTime     @map("recording_date") @db.Date
@@ -216,7 +216,7 @@ model goalProgress {
   updatedAt     DateTime?    @map("updated_at") @db.Timestamp(6)
   wellnessGoal  wellnessGoal @relation(fields: [goalId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_goal")
 
-  @@map("goal_progress")
+  @@map("wellness_goal_progress")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
@@ -734,21 +734,21 @@ model wellnessBadge {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model wellnessGoal {
-  id               String           @id @default(cuid())
-  userId           String           @map("user_id")
-  title            String           @db.VarChar(255)
-  categoryId       String           @map("category_id")
-  targetValue      Int              @map("target_value")
-  unit             String           @db.VarChar(50)
-  frequency        String           @db.VarChar(50)
-  startDate        DateTime         @map("start_date") @db.Date
-  endDate          DateTime         @map("end_date") @db.Date
-  active           Boolean          @default(true)
-  createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt        DateTime?        @map("updated_at") @db.Timestamp(6)
-  goalProgress     goalProgress[]
-  user             user?            @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  wellnessCategory wellnessCategory @relation(fields: [categoryId], references: [id])
+  id                   String                 @id @default(cuid())
+  userId               String                 @map("user_id")
+  title                String                 @db.VarChar(255)
+  categoryId           String                 @map("category_id")
+  targetValue          Int                    @map("target_value")
+  unit                 String                 @db.VarChar(50)
+  frequency            String                 @db.VarChar(50)
+  startDate            DateTime               @map("start_date") @db.Date
+  endDate              DateTime               @map("end_date") @db.Date
+  active               Boolean                @default(true)
+  createdAt            DateTime               @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt            DateTime?              @map("updated_at") @db.Timestamp(6)
+  wellnessGoalProgress wellnessGoalProgress[]
+  user                 user?                  @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  wellnessCategory     wellnessCategory       @relation(fields: [categoryId], references: [id])
 
   @@map("wellness_goal")
 }

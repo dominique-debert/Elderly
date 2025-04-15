@@ -74,10 +74,10 @@ export type forumMessage = $Result.DefaultSelection<Prisma.$forumMessagePayload>
  */
 export type forumTopic = $Result.DefaultSelection<Prisma.$forumTopicPayload>
 /**
- * Model goalProgress
+ * Model wellnessGoalProgress
  * 
  */
-export type goalProgress = $Result.DefaultSelection<Prisma.$goalProgressPayload>
+export type wellnessGoalProgress = $Result.DefaultSelection<Prisma.$wellnessGoalProgressPayload>
 /**
  * Model healthIndicator
  * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
@@ -540,14 +540,14 @@ export class PrismaClient<
   get forumTopic(): Prisma.forumTopicDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.goalProgress`: Exposes CRUD operations for the **goalProgress** model.
+   * `prisma.wellnessGoalProgress`: Exposes CRUD operations for the **wellnessGoalProgress** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more GoalProgresses
-    * const goalProgresses = await prisma.goalProgress.findMany()
+    * // Fetch zero or more WellnessGoalProgresses
+    * const wellnessGoalProgresses = await prisma.wellnessGoalProgress.findMany()
     * ```
     */
-  get goalProgress(): Prisma.goalProgressDelegate<ExtArgs, ClientOptions>;
+  get wellnessGoalProgress(): Prisma.wellnessGoalProgressDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.healthIndicator`: Exposes CRUD operations for the **healthIndicator** model.
@@ -1430,7 +1430,7 @@ export namespace Prisma {
     forumCategory: 'forumCategory',
     forumMessage: 'forumMessage',
     forumTopic: 'forumTopic',
-    goalProgress: 'goalProgress',
+    wellnessGoalProgress: 'wellnessGoalProgress',
     healthIndicator: 'healthIndicator',
     helpOffer: 'helpOffer',
     helpRequest: 'helpRequest',
@@ -1492,7 +1492,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "goalProgress" | "healthIndicator" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "offlineUser" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "activity_category" | "badgeCategory" | "cognitiveCategory" | "helpCategory" | "issueCategory" | "nutritionalCategory" | "programCategory" | "projectCategory" | "resourceCategory" | "serviceCategory" | "skillCategory" | "wellnessCategory"
+      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "wellnessGoalProgress" | "healthIndicator" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "offlineUser" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "activity_category" | "badgeCategory" | "cognitiveCategory" | "helpCategory" | "issueCategory" | "nutritionalCategory" | "programCategory" | "projectCategory" | "resourceCategory" | "serviceCategory" | "skillCategory" | "wellnessCategory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2384,77 +2384,77 @@ export namespace Prisma {
           }
         }
       }
-      goalProgress: {
-        payload: Prisma.$goalProgressPayload<ExtArgs>
-        fields: Prisma.goalProgressFieldRefs
+      wellnessGoalProgress: {
+        payload: Prisma.$wellnessGoalProgressPayload<ExtArgs>
+        fields: Prisma.wellnessGoalProgressFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.goalProgressFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload> | null
+            args: Prisma.wellnessGoalProgressFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.goalProgressFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload>
+            args: Prisma.wellnessGoalProgressFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
           }
           findFirst: {
-            args: Prisma.goalProgressFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload> | null
+            args: Prisma.wellnessGoalProgressFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.goalProgressFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload>
+            args: Prisma.wellnessGoalProgressFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
           }
           findMany: {
-            args: Prisma.goalProgressFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload>[]
+            args: Prisma.wellnessGoalProgressFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>[]
           }
           create: {
-            args: Prisma.goalProgressCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload>
+            args: Prisma.wellnessGoalProgressCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
           }
           createMany: {
-            args: Prisma.goalProgressCreateManyArgs<ExtArgs>
+            args: Prisma.wellnessGoalProgressCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.goalProgressCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload>[]
+            args: Prisma.wellnessGoalProgressCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>[]
           }
           delete: {
-            args: Prisma.goalProgressDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload>
+            args: Prisma.wellnessGoalProgressDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
           }
           update: {
-            args: Prisma.goalProgressUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload>
+            args: Prisma.wellnessGoalProgressUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
           }
           deleteMany: {
-            args: Prisma.goalProgressDeleteManyArgs<ExtArgs>
+            args: Prisma.wellnessGoalProgressDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.goalProgressUpdateManyArgs<ExtArgs>
+            args: Prisma.wellnessGoalProgressUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.goalProgressUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload>[]
+            args: Prisma.wellnessGoalProgressUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>[]
           }
           upsert: {
-            args: Prisma.goalProgressUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$goalProgressPayload>
+            args: Prisma.wellnessGoalProgressUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
           }
           aggregate: {
-            args: Prisma.GoalProgressAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateGoalProgress>
+            args: Prisma.WellnessGoalProgressAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWellnessGoalProgress>
           }
           groupBy: {
-            args: Prisma.goalProgressGroupByArgs<ExtArgs>
-            result: $Utils.Optional<GoalProgressGroupByOutputType>[]
+            args: Prisma.wellnessGoalProgressGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WellnessGoalProgressGroupByOutputType>[]
           }
           count: {
-            args: Prisma.goalProgressCountArgs<ExtArgs>
-            result: $Utils.Optional<GoalProgressCountAggregateOutputType> | number
+            args: Prisma.wellnessGoalProgressCountArgs<ExtArgs>
+            result: $Utils.Optional<WellnessGoalProgressCountAggregateOutputType> | number
           }
         }
       }
@@ -5736,7 +5736,7 @@ export namespace Prisma {
     forumCategory?: forumCategoryOmit
     forumMessage?: forumMessageOmit
     forumTopic?: forumTopicOmit
-    goalProgress?: goalProgressOmit
+    wellnessGoalProgress?: wellnessGoalProgressOmit
     healthIndicator?: healthIndicatorOmit
     helpOffer?: helpOfferOmit
     helpRequest?: helpRequestOmit
@@ -6556,11 +6556,11 @@ export namespace Prisma {
    */
 
   export type WellnessGoalCountOutputType = {
-    goalProgress: number
+    wellnessGoalProgress: number
   }
 
   export type WellnessGoalCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    goalProgress?: boolean | WellnessGoalCountOutputTypeCountGoalProgressArgs
+    wellnessGoalProgress?: boolean | WellnessGoalCountOutputTypeCountWellnessGoalProgressArgs
   }
 
   // Custom InputTypes
@@ -6577,8 +6577,8 @@ export namespace Prisma {
   /**
    * WellnessGoalCountOutputType without action
    */
-  export type WellnessGoalCountOutputTypeCountGoalProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: goalProgressWhereInput
+  export type WellnessGoalCountOutputTypeCountWellnessGoalProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: wellnessGoalProgressWhereInput
   }
 
 
@@ -9440,6 +9440,7 @@ export namespace Prisma {
   }
 
   export type ActivityRegistrationMinAggregateOutputType = {
+    id: string | null
     activityId: string | null
     userId: string | null
     registrationDate: Date | null
@@ -9450,6 +9451,7 @@ export namespace Prisma {
   }
 
   export type ActivityRegistrationMaxAggregateOutputType = {
+    id: string | null
     activityId: string | null
     userId: string | null
     registrationDate: Date | null
@@ -9460,6 +9462,7 @@ export namespace Prisma {
   }
 
   export type ActivityRegistrationCountAggregateOutputType = {
+    id: number
     activityId: number
     userId: number
     registrationDate: number
@@ -9472,6 +9475,7 @@ export namespace Prisma {
 
 
   export type ActivityRegistrationMinAggregateInputType = {
+    id?: true
     activityId?: true
     userId?: true
     registrationDate?: true
@@ -9482,6 +9486,7 @@ export namespace Prisma {
   }
 
   export type ActivityRegistrationMaxAggregateInputType = {
+    id?: true
     activityId?: true
     userId?: true
     registrationDate?: true
@@ -9492,6 +9497,7 @@ export namespace Prisma {
   }
 
   export type ActivityRegistrationCountAggregateInputType = {
+    id?: true
     activityId?: true
     userId?: true
     registrationDate?: true
@@ -9575,6 +9581,7 @@ export namespace Prisma {
   }
 
   export type ActivityRegistrationGroupByOutputType = {
+    id: string
     activityId: string
     userId: string
     registrationDate: Date
@@ -9602,6 +9609,7 @@ export namespace Prisma {
 
 
   export type activityRegistrationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     activityId?: boolean
     userId?: boolean
     registrationDate?: boolean
@@ -9614,6 +9622,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["activityRegistration"]>
 
   export type activityRegistrationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     activityId?: boolean
     userId?: boolean
     registrationDate?: boolean
@@ -9626,6 +9635,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["activityRegistration"]>
 
   export type activityRegistrationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     activityId?: boolean
     userId?: boolean
     registrationDate?: boolean
@@ -9638,6 +9648,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["activityRegistration"]>
 
   export type activityRegistrationSelectScalar = {
+    id?: boolean
     activityId?: boolean
     userId?: boolean
     registrationDate?: boolean
@@ -9647,7 +9658,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type activityRegistrationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"activityId" | "userId" | "registrationDate" | "status" | "attendanceConfirmed" | "createdAt" | "updatedAt", ExtArgs["result"]["activityRegistration"]>
+  export type activityRegistrationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "activityId" | "userId" | "registrationDate" | "status" | "attendanceConfirmed" | "createdAt" | "updatedAt", ExtArgs["result"]["activityRegistration"]>
   export type activityRegistrationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     activity?: boolean | activityDefaultArgs<ExtArgs>
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -9668,6 +9679,7 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
+      id: string
       activityId: string
       userId: string
       registrationDate: Date
@@ -9758,8 +9770,8 @@ export namespace Prisma {
      * // Get first 10 ActivityRegistrations
      * const activityRegistrations = await prisma.activityRegistration.findMany({ take: 10 })
      * 
-     * // Only select the `activityId`
-     * const activityRegistrationWithActivityIdOnly = await prisma.activityRegistration.findMany({ select: { activityId: true } })
+     * // Only select the `id`
+     * const activityRegistrationWithIdOnly = await prisma.activityRegistration.findMany({ select: { id: true } })
      * 
      */
     findMany<T extends activityRegistrationFindManyArgs>(args?: SelectSubset<T, activityRegistrationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activityRegistrationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -9803,9 +9815,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many ActivityRegistrations and only return the `activityId`
-     * const activityRegistrationWithActivityIdOnly = await prisma.activityRegistration.createManyAndReturn({
-     *   select: { activityId: true },
+     * // Create many ActivityRegistrations and only return the `id`
+     * const activityRegistrationWithIdOnly = await prisma.activityRegistration.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -9894,9 +9906,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more ActivityRegistrations and only return the `activityId`
-     * const activityRegistrationWithActivityIdOnly = await prisma.activityRegistration.updateManyAndReturn({
-     *   select: { activityId: true },
+     * // Update zero or more ActivityRegistrations and only return the `id`
+     * const activityRegistrationWithIdOnly = await prisma.activityRegistration.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10100,6 +10112,7 @@ export namespace Prisma {
    * Fields of the activityRegistration model
    */
   interface activityRegistrationFieldRefs {
+    readonly id: FieldRef<"activityRegistration", 'String'>
     readonly activityId: FieldRef<"activityRegistration", 'String'>
     readonly userId: FieldRef<"activityRegistration", 'String'>
     readonly registrationDate: FieldRef<"activityRegistration", 'DateTime'>
@@ -20994,26 +21007,26 @@ export namespace Prisma {
 
 
   /**
-   * Model goalProgress
+   * Model wellnessGoalProgress
    */
 
-  export type AggregateGoalProgress = {
-    _count: GoalProgressCountAggregateOutputType | null
-    _avg: GoalProgressAvgAggregateOutputType | null
-    _sum: GoalProgressSumAggregateOutputType | null
-    _min: GoalProgressMinAggregateOutputType | null
-    _max: GoalProgressMaxAggregateOutputType | null
+  export type AggregateWellnessGoalProgress = {
+    _count: WellnessGoalProgressCountAggregateOutputType | null
+    _avg: WellnessGoalProgressAvgAggregateOutputType | null
+    _sum: WellnessGoalProgressSumAggregateOutputType | null
+    _min: WellnessGoalProgressMinAggregateOutputType | null
+    _max: WellnessGoalProgressMaxAggregateOutputType | null
   }
 
-  export type GoalProgressAvgAggregateOutputType = {
+  export type WellnessGoalProgressAvgAggregateOutputType = {
     achievedValue: number | null
   }
 
-  export type GoalProgressSumAggregateOutputType = {
+  export type WellnessGoalProgressSumAggregateOutputType = {
     achievedValue: number | null
   }
 
-  export type GoalProgressMinAggregateOutputType = {
+  export type WellnessGoalProgressMinAggregateOutputType = {
     id: string | null
     goalId: string | null
     recordingDate: Date | null
@@ -21023,7 +21036,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type GoalProgressMaxAggregateOutputType = {
+  export type WellnessGoalProgressMaxAggregateOutputType = {
     id: string | null
     goalId: string | null
     recordingDate: Date | null
@@ -21033,7 +21046,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type GoalProgressCountAggregateOutputType = {
+  export type WellnessGoalProgressCountAggregateOutputType = {
     id: number
     goalId: number
     recordingDate: number
@@ -21045,15 +21058,15 @@ export namespace Prisma {
   }
 
 
-  export type GoalProgressAvgAggregateInputType = {
+  export type WellnessGoalProgressAvgAggregateInputType = {
     achievedValue?: true
   }
 
-  export type GoalProgressSumAggregateInputType = {
+  export type WellnessGoalProgressSumAggregateInputType = {
     achievedValue?: true
   }
 
-  export type GoalProgressMinAggregateInputType = {
+  export type WellnessGoalProgressMinAggregateInputType = {
     id?: true
     goalId?: true
     recordingDate?: true
@@ -21063,7 +21076,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type GoalProgressMaxAggregateInputType = {
+  export type WellnessGoalProgressMaxAggregateInputType = {
     id?: true
     goalId?: true
     recordingDate?: true
@@ -21073,7 +21086,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type GoalProgressCountAggregateInputType = {
+  export type WellnessGoalProgressCountAggregateInputType = {
     id?: true
     goalId?: true
     recordingDate?: true
@@ -21084,93 +21097,93 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type GoalProgressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type WellnessGoalProgressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which goalProgress to aggregate.
+     * Filter which wellnessGoalProgress to aggregate.
      */
-    where?: goalProgressWhereInput
+    where?: wellnessGoalProgressWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of goalProgresses to fetch.
+     * Determine the order of wellnessGoalProgresses to fetch.
      */
-    orderBy?: goalProgressOrderByWithRelationInput | goalProgressOrderByWithRelationInput[]
+    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: goalProgressWhereUniqueInput
+    cursor?: wellnessGoalProgressWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` goalProgresses from the position of the cursor.
+     * Take `±n` wellnessGoalProgresses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` goalProgresses.
+     * Skip the first `n` wellnessGoalProgresses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned goalProgresses
+     * Count returned wellnessGoalProgresses
     **/
-    _count?: true | GoalProgressCountAggregateInputType
+    _count?: true | WellnessGoalProgressCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: GoalProgressAvgAggregateInputType
+    _avg?: WellnessGoalProgressAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: GoalProgressSumAggregateInputType
+    _sum?: WellnessGoalProgressSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: GoalProgressMinAggregateInputType
+    _min?: WellnessGoalProgressMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: GoalProgressMaxAggregateInputType
+    _max?: WellnessGoalProgressMaxAggregateInputType
   }
 
-  export type GetGoalProgressAggregateType<T extends GoalProgressAggregateArgs> = {
-        [P in keyof T & keyof AggregateGoalProgress]: P extends '_count' | 'count'
+  export type GetWellnessGoalProgressAggregateType<T extends WellnessGoalProgressAggregateArgs> = {
+        [P in keyof T & keyof AggregateWellnessGoalProgress]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateGoalProgress[P]>
-      : GetScalarType<T[P], AggregateGoalProgress[P]>
+        : GetScalarType<T[P], AggregateWellnessGoalProgress[P]>
+      : GetScalarType<T[P], AggregateWellnessGoalProgress[P]>
   }
 
 
 
 
-  export type goalProgressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: goalProgressWhereInput
-    orderBy?: goalProgressOrderByWithAggregationInput | goalProgressOrderByWithAggregationInput[]
-    by: GoalProgressScalarFieldEnum[] | GoalProgressScalarFieldEnum
-    having?: goalProgressScalarWhereWithAggregatesInput
+  export type wellnessGoalProgressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: wellnessGoalProgressWhereInput
+    orderBy?: wellnessGoalProgressOrderByWithAggregationInput | wellnessGoalProgressOrderByWithAggregationInput[]
+    by: WellnessGoalProgressScalarFieldEnum[] | WellnessGoalProgressScalarFieldEnum
+    having?: wellnessGoalProgressScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: GoalProgressCountAggregateInputType | true
-    _avg?: GoalProgressAvgAggregateInputType
-    _sum?: GoalProgressSumAggregateInputType
-    _min?: GoalProgressMinAggregateInputType
-    _max?: GoalProgressMaxAggregateInputType
+    _count?: WellnessGoalProgressCountAggregateInputType | true
+    _avg?: WellnessGoalProgressAvgAggregateInputType
+    _sum?: WellnessGoalProgressSumAggregateInputType
+    _min?: WellnessGoalProgressMinAggregateInputType
+    _max?: WellnessGoalProgressMaxAggregateInputType
   }
 
-  export type GoalProgressGroupByOutputType = {
+  export type WellnessGoalProgressGroupByOutputType = {
     id: string
     goalId: string
     recordingDate: Date
@@ -21178,28 +21191,28 @@ export namespace Prisma {
     goalAchieved: boolean
     createdAt: Date
     updatedAt: Date | null
-    _count: GoalProgressCountAggregateOutputType | null
-    _avg: GoalProgressAvgAggregateOutputType | null
-    _sum: GoalProgressSumAggregateOutputType | null
-    _min: GoalProgressMinAggregateOutputType | null
-    _max: GoalProgressMaxAggregateOutputType | null
+    _count: WellnessGoalProgressCountAggregateOutputType | null
+    _avg: WellnessGoalProgressAvgAggregateOutputType | null
+    _sum: WellnessGoalProgressSumAggregateOutputType | null
+    _min: WellnessGoalProgressMinAggregateOutputType | null
+    _max: WellnessGoalProgressMaxAggregateOutputType | null
   }
 
-  type GetGoalProgressGroupByPayload<T extends goalProgressGroupByArgs> = Prisma.PrismaPromise<
+  type GetWellnessGoalProgressGroupByPayload<T extends wellnessGoalProgressGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<GoalProgressGroupByOutputType, T['by']> &
+      PickEnumerable<WellnessGoalProgressGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof GoalProgressGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof WellnessGoalProgressGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], GoalProgressGroupByOutputType[P]>
-            : GetScalarType<T[P], GoalProgressGroupByOutputType[P]>
+              : GetScalarType<T[P], WellnessGoalProgressGroupByOutputType[P]>
+            : GetScalarType<T[P], WellnessGoalProgressGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type goalProgressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type wellnessGoalProgressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     goalId?: boolean
     recordingDate?: boolean
@@ -21208,9 +21221,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["goalProgress"]>
+  }, ExtArgs["result"]["wellnessGoalProgress"]>
 
-  export type goalProgressSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type wellnessGoalProgressSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     goalId?: boolean
     recordingDate?: boolean
@@ -21219,9 +21232,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["goalProgress"]>
+  }, ExtArgs["result"]["wellnessGoalProgress"]>
 
-  export type goalProgressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type wellnessGoalProgressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     goalId?: boolean
     recordingDate?: boolean
@@ -21230,9 +21243,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["goalProgress"]>
+  }, ExtArgs["result"]["wellnessGoalProgress"]>
 
-  export type goalProgressSelectScalar = {
+  export type wellnessGoalProgressSelectScalar = {
     id?: boolean
     goalId?: boolean
     recordingDate?: boolean
@@ -21242,19 +21255,19 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type goalProgressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "goalId" | "recordingDate" | "achievedValue" | "goalAchieved" | "createdAt" | "updatedAt", ExtArgs["result"]["goalProgress"]>
-  export type goalProgressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "goalId" | "recordingDate" | "achievedValue" | "goalAchieved" | "createdAt" | "updatedAt", ExtArgs["result"]["wellnessGoalProgress"]>
+  export type wellnessGoalProgressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
   }
-  export type goalProgressIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
   }
-  export type goalProgressIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
   }
 
-  export type $goalProgressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "goalProgress"
+  export type $wellnessGoalProgressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "wellnessGoalProgress"
     objects: {
       wellnessGoal: Prisma.$wellnessGoalPayload<ExtArgs>
     }
@@ -21266,136 +21279,136 @@ export namespace Prisma {
       goalAchieved: boolean
       createdAt: Date
       updatedAt: Date | null
-    }, ExtArgs["result"]["goalProgress"]>
+    }, ExtArgs["result"]["wellnessGoalProgress"]>
     composites: {}
   }
 
-  type goalProgressGetPayload<S extends boolean | null | undefined | goalProgressDefaultArgs> = $Result.GetResult<Prisma.$goalProgressPayload, S>
+  type wellnessGoalProgressGetPayload<S extends boolean | null | undefined | wellnessGoalProgressDefaultArgs> = $Result.GetResult<Prisma.$wellnessGoalProgressPayload, S>
 
-  type goalProgressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<goalProgressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: GoalProgressCountAggregateInputType | true
+  type wellnessGoalProgressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<wellnessGoalProgressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WellnessGoalProgressCountAggregateInputType | true
     }
 
-  export interface goalProgressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['goalProgress'], meta: { name: 'goalProgress' } }
+  export interface wellnessGoalProgressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['wellnessGoalProgress'], meta: { name: 'wellnessGoalProgress' } }
     /**
-     * Find zero or one GoalProgress that matches the filter.
-     * @param {goalProgressFindUniqueArgs} args - Arguments to find a GoalProgress
+     * Find zero or one WellnessGoalProgress that matches the filter.
+     * @param {wellnessGoalProgressFindUniqueArgs} args - Arguments to find a WellnessGoalProgress
      * @example
-     * // Get one GoalProgress
-     * const goalProgress = await prisma.goalProgress.findUnique({
+     * // Get one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends goalProgressFindUniqueArgs>(args: SelectSubset<T, goalProgressFindUniqueArgs<ExtArgs>>): Prisma__goalProgressClient<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends wellnessGoalProgressFindUniqueArgs>(args: SelectSubset<T, wellnessGoalProgressFindUniqueArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one GoalProgress that matches the filter or throw an error with `error.code='P2025'`
+     * Find one WellnessGoalProgress that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {goalProgressFindUniqueOrThrowArgs} args - Arguments to find a GoalProgress
+     * @param {wellnessGoalProgressFindUniqueOrThrowArgs} args - Arguments to find a WellnessGoalProgress
      * @example
-     * // Get one GoalProgress
-     * const goalProgress = await prisma.goalProgress.findUniqueOrThrow({
+     * // Get one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends goalProgressFindUniqueOrThrowArgs>(args: SelectSubset<T, goalProgressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__goalProgressClient<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends wellnessGoalProgressFindUniqueOrThrowArgs>(args: SelectSubset<T, wellnessGoalProgressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first GoalProgress that matches the filter.
+     * Find the first WellnessGoalProgress that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {goalProgressFindFirstArgs} args - Arguments to find a GoalProgress
+     * @param {wellnessGoalProgressFindFirstArgs} args - Arguments to find a WellnessGoalProgress
      * @example
-     * // Get one GoalProgress
-     * const goalProgress = await prisma.goalProgress.findFirst({
+     * // Get one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends goalProgressFindFirstArgs>(args?: SelectSubset<T, goalProgressFindFirstArgs<ExtArgs>>): Prisma__goalProgressClient<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends wellnessGoalProgressFindFirstArgs>(args?: SelectSubset<T, wellnessGoalProgressFindFirstArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first GoalProgress that matches the filter or
+     * Find the first WellnessGoalProgress that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {goalProgressFindFirstOrThrowArgs} args - Arguments to find a GoalProgress
+     * @param {wellnessGoalProgressFindFirstOrThrowArgs} args - Arguments to find a WellnessGoalProgress
      * @example
-     * // Get one GoalProgress
-     * const goalProgress = await prisma.goalProgress.findFirstOrThrow({
+     * // Get one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends goalProgressFindFirstOrThrowArgs>(args?: SelectSubset<T, goalProgressFindFirstOrThrowArgs<ExtArgs>>): Prisma__goalProgressClient<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends wellnessGoalProgressFindFirstOrThrowArgs>(args?: SelectSubset<T, wellnessGoalProgressFindFirstOrThrowArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more GoalProgresses that matches the filter.
+     * Find zero or more WellnessGoalProgresses that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {goalProgressFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {wellnessGoalProgressFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all GoalProgresses
-     * const goalProgresses = await prisma.goalProgress.findMany()
+     * // Get all WellnessGoalProgresses
+     * const wellnessGoalProgresses = await prisma.wellnessGoalProgress.findMany()
      * 
-     * // Get first 10 GoalProgresses
-     * const goalProgresses = await prisma.goalProgress.findMany({ take: 10 })
+     * // Get first 10 WellnessGoalProgresses
+     * const wellnessGoalProgresses = await prisma.wellnessGoalProgress.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const goalProgressWithIdOnly = await prisma.goalProgress.findMany({ select: { id: true } })
+     * const wellnessGoalProgressWithIdOnly = await prisma.wellnessGoalProgress.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends goalProgressFindManyArgs>(args?: SelectSubset<T, goalProgressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends wellnessGoalProgressFindManyArgs>(args?: SelectSubset<T, wellnessGoalProgressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a GoalProgress.
-     * @param {goalProgressCreateArgs} args - Arguments to create a GoalProgress.
+     * Create a WellnessGoalProgress.
+     * @param {wellnessGoalProgressCreateArgs} args - Arguments to create a WellnessGoalProgress.
      * @example
-     * // Create one GoalProgress
-     * const GoalProgress = await prisma.goalProgress.create({
+     * // Create one WellnessGoalProgress
+     * const WellnessGoalProgress = await prisma.wellnessGoalProgress.create({
      *   data: {
-     *     // ... data to create a GoalProgress
+     *     // ... data to create a WellnessGoalProgress
      *   }
      * })
      * 
      */
-    create<T extends goalProgressCreateArgs>(args: SelectSubset<T, goalProgressCreateArgs<ExtArgs>>): Prisma__goalProgressClient<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends wellnessGoalProgressCreateArgs>(args: SelectSubset<T, wellnessGoalProgressCreateArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many GoalProgresses.
-     * @param {goalProgressCreateManyArgs} args - Arguments to create many GoalProgresses.
+     * Create many WellnessGoalProgresses.
+     * @param {wellnessGoalProgressCreateManyArgs} args - Arguments to create many WellnessGoalProgresses.
      * @example
-     * // Create many GoalProgresses
-     * const goalProgress = await prisma.goalProgress.createMany({
+     * // Create many WellnessGoalProgresses
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends goalProgressCreateManyArgs>(args?: SelectSubset<T, goalProgressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends wellnessGoalProgressCreateManyArgs>(args?: SelectSubset<T, wellnessGoalProgressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many GoalProgresses and returns the data saved in the database.
-     * @param {goalProgressCreateManyAndReturnArgs} args - Arguments to create many GoalProgresses.
+     * Create many WellnessGoalProgresses and returns the data saved in the database.
+     * @param {wellnessGoalProgressCreateManyAndReturnArgs} args - Arguments to create many WellnessGoalProgresses.
      * @example
-     * // Create many GoalProgresses
-     * const goalProgress = await prisma.goalProgress.createManyAndReturn({
+     * // Create many WellnessGoalProgresses
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many GoalProgresses and only return the `id`
-     * const goalProgressWithIdOnly = await prisma.goalProgress.createManyAndReturn({
+     * // Create many WellnessGoalProgresses and only return the `id`
+     * const wellnessGoalProgressWithIdOnly = await prisma.wellnessGoalProgress.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -21405,28 +21418,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends goalProgressCreateManyAndReturnArgs>(args?: SelectSubset<T, goalProgressCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends wellnessGoalProgressCreateManyAndReturnArgs>(args?: SelectSubset<T, wellnessGoalProgressCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a GoalProgress.
-     * @param {goalProgressDeleteArgs} args - Arguments to delete one GoalProgress.
+     * Delete a WellnessGoalProgress.
+     * @param {wellnessGoalProgressDeleteArgs} args - Arguments to delete one WellnessGoalProgress.
      * @example
-     * // Delete one GoalProgress
-     * const GoalProgress = await prisma.goalProgress.delete({
+     * // Delete one WellnessGoalProgress
+     * const WellnessGoalProgress = await prisma.wellnessGoalProgress.delete({
      *   where: {
-     *     // ... filter to delete one GoalProgress
+     *     // ... filter to delete one WellnessGoalProgress
      *   }
      * })
      * 
      */
-    delete<T extends goalProgressDeleteArgs>(args: SelectSubset<T, goalProgressDeleteArgs<ExtArgs>>): Prisma__goalProgressClient<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends wellnessGoalProgressDeleteArgs>(args: SelectSubset<T, wellnessGoalProgressDeleteArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one GoalProgress.
-     * @param {goalProgressUpdateArgs} args - Arguments to update one GoalProgress.
+     * Update one WellnessGoalProgress.
+     * @param {wellnessGoalProgressUpdateArgs} args - Arguments to update one WellnessGoalProgress.
      * @example
-     * // Update one GoalProgress
-     * const goalProgress = await prisma.goalProgress.update({
+     * // Update one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21436,30 +21449,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends goalProgressUpdateArgs>(args: SelectSubset<T, goalProgressUpdateArgs<ExtArgs>>): Prisma__goalProgressClient<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends wellnessGoalProgressUpdateArgs>(args: SelectSubset<T, wellnessGoalProgressUpdateArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more GoalProgresses.
-     * @param {goalProgressDeleteManyArgs} args - Arguments to filter GoalProgresses to delete.
+     * Delete zero or more WellnessGoalProgresses.
+     * @param {wellnessGoalProgressDeleteManyArgs} args - Arguments to filter WellnessGoalProgresses to delete.
      * @example
-     * // Delete a few GoalProgresses
-     * const { count } = await prisma.goalProgress.deleteMany({
+     * // Delete a few WellnessGoalProgresses
+     * const { count } = await prisma.wellnessGoalProgress.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends goalProgressDeleteManyArgs>(args?: SelectSubset<T, goalProgressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends wellnessGoalProgressDeleteManyArgs>(args?: SelectSubset<T, wellnessGoalProgressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more GoalProgresses.
+     * Update zero or more WellnessGoalProgresses.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {goalProgressUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {wellnessGoalProgressUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many GoalProgresses
-     * const goalProgress = await prisma.goalProgress.updateMany({
+     * // Update many WellnessGoalProgresses
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21469,14 +21482,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends goalProgressUpdateManyArgs>(args: SelectSubset<T, goalProgressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends wellnessGoalProgressUpdateManyArgs>(args: SelectSubset<T, wellnessGoalProgressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more GoalProgresses and returns the data updated in the database.
-     * @param {goalProgressUpdateManyAndReturnArgs} args - Arguments to update many GoalProgresses.
+     * Update zero or more WellnessGoalProgresses and returns the data updated in the database.
+     * @param {wellnessGoalProgressUpdateManyAndReturnArgs} args - Arguments to update many WellnessGoalProgresses.
      * @example
-     * // Update many GoalProgresses
-     * const goalProgress = await prisma.goalProgress.updateManyAndReturn({
+     * // Update many WellnessGoalProgresses
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21485,8 +21498,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more GoalProgresses and only return the `id`
-     * const goalProgressWithIdOnly = await prisma.goalProgress.updateManyAndReturn({
+     * // Update zero or more WellnessGoalProgresses and only return the `id`
+     * const wellnessGoalProgressWithIdOnly = await prisma.wellnessGoalProgress.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -21499,56 +21512,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends goalProgressUpdateManyAndReturnArgs>(args: SelectSubset<T, goalProgressUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends wellnessGoalProgressUpdateManyAndReturnArgs>(args: SelectSubset<T, wellnessGoalProgressUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one GoalProgress.
-     * @param {goalProgressUpsertArgs} args - Arguments to update or create a GoalProgress.
+     * Create or update one WellnessGoalProgress.
+     * @param {wellnessGoalProgressUpsertArgs} args - Arguments to update or create a WellnessGoalProgress.
      * @example
-     * // Update or create a GoalProgress
-     * const goalProgress = await prisma.goalProgress.upsert({
+     * // Update or create a WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.upsert({
      *   create: {
-     *     // ... data to create a GoalProgress
+     *     // ... data to create a WellnessGoalProgress
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the GoalProgress we want to update
+     *     // ... the filter for the WellnessGoalProgress we want to update
      *   }
      * })
      */
-    upsert<T extends goalProgressUpsertArgs>(args: SelectSubset<T, goalProgressUpsertArgs<ExtArgs>>): Prisma__goalProgressClient<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends wellnessGoalProgressUpsertArgs>(args: SelectSubset<T, wellnessGoalProgressUpsertArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of GoalProgresses.
+     * Count the number of WellnessGoalProgresses.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {goalProgressCountArgs} args - Arguments to filter GoalProgresses to count.
+     * @param {wellnessGoalProgressCountArgs} args - Arguments to filter WellnessGoalProgresses to count.
      * @example
-     * // Count the number of GoalProgresses
-     * const count = await prisma.goalProgress.count({
+     * // Count the number of WellnessGoalProgresses
+     * const count = await prisma.wellnessGoalProgress.count({
      *   where: {
-     *     // ... the filter for the GoalProgresses we want to count
+     *     // ... the filter for the WellnessGoalProgresses we want to count
      *   }
      * })
     **/
-    count<T extends goalProgressCountArgs>(
-      args?: Subset<T, goalProgressCountArgs>,
+    count<T extends wellnessGoalProgressCountArgs>(
+      args?: Subset<T, wellnessGoalProgressCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], GoalProgressCountAggregateOutputType>
+          : GetScalarType<T['select'], WellnessGoalProgressCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a GoalProgress.
+     * Allows you to perform aggregations operations on a WellnessGoalProgress.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GoalProgressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {WellnessGoalProgressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -21568,13 +21581,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends GoalProgressAggregateArgs>(args: Subset<T, GoalProgressAggregateArgs>): Prisma.PrismaPromise<GetGoalProgressAggregateType<T>>
+    aggregate<T extends WellnessGoalProgressAggregateArgs>(args: Subset<T, WellnessGoalProgressAggregateArgs>): Prisma.PrismaPromise<GetWellnessGoalProgressAggregateType<T>>
 
     /**
-     * Group by GoalProgress.
+     * Group by WellnessGoalProgress.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {goalProgressGroupByArgs} args - Group by arguments.
+     * @param {wellnessGoalProgressGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -21589,14 +21602,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends goalProgressGroupByArgs,
+      T extends wellnessGoalProgressGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: goalProgressGroupByArgs['orderBy'] }
-        : { orderBy?: goalProgressGroupByArgs['orderBy'] },
+        ? { orderBy: wellnessGoalProgressGroupByArgs['orderBy'] }
+        : { orderBy?: wellnessGoalProgressGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -21645,20 +21658,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, goalProgressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGoalProgressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, wellnessGoalProgressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWellnessGoalProgressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the goalProgress model
+   * Fields of the wellnessGoalProgress model
    */
-  readonly fields: goalProgressFieldRefs;
+  readonly fields: wellnessGoalProgressFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for goalProgress.
+   * The delegate class that acts as a "Promise-like" for wellnessGoalProgress.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__goalProgressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__wellnessGoalProgressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     wellnessGoal<T extends wellnessGoalDefaultArgs<ExtArgs> = {}>(args?: Subset<T, wellnessGoalDefaultArgs<ExtArgs>>): Prisma__wellnessGoalClient<$Result.GetResult<Prisma.$wellnessGoalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -21687,427 +21700,427 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the goalProgress model
+   * Fields of the wellnessGoalProgress model
    */
-  interface goalProgressFieldRefs {
-    readonly id: FieldRef<"goalProgress", 'String'>
-    readonly goalId: FieldRef<"goalProgress", 'String'>
-    readonly recordingDate: FieldRef<"goalProgress", 'DateTime'>
-    readonly achievedValue: FieldRef<"goalProgress", 'Int'>
-    readonly goalAchieved: FieldRef<"goalProgress", 'Boolean'>
-    readonly createdAt: FieldRef<"goalProgress", 'DateTime'>
-    readonly updatedAt: FieldRef<"goalProgress", 'DateTime'>
+  interface wellnessGoalProgressFieldRefs {
+    readonly id: FieldRef<"wellnessGoalProgress", 'String'>
+    readonly goalId: FieldRef<"wellnessGoalProgress", 'String'>
+    readonly recordingDate: FieldRef<"wellnessGoalProgress", 'DateTime'>
+    readonly achievedValue: FieldRef<"wellnessGoalProgress", 'Int'>
+    readonly goalAchieved: FieldRef<"wellnessGoalProgress", 'Boolean'>
+    readonly createdAt: FieldRef<"wellnessGoalProgress", 'DateTime'>
+    readonly updatedAt: FieldRef<"wellnessGoalProgress", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * goalProgress findUnique
+   * wellnessGoalProgress findUnique
    */
-  export type goalProgressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
     /**
-     * Filter, which goalProgress to fetch.
+     * Filter, which wellnessGoalProgress to fetch.
      */
-    where: goalProgressWhereUniqueInput
+    where: wellnessGoalProgressWhereUniqueInput
   }
 
   /**
-   * goalProgress findUniqueOrThrow
+   * wellnessGoalProgress findUniqueOrThrow
    */
-  export type goalProgressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
     /**
-     * Filter, which goalProgress to fetch.
+     * Filter, which wellnessGoalProgress to fetch.
      */
-    where: goalProgressWhereUniqueInput
+    where: wellnessGoalProgressWhereUniqueInput
   }
 
   /**
-   * goalProgress findFirst
+   * wellnessGoalProgress findFirst
    */
-  export type goalProgressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
     /**
-     * Filter, which goalProgress to fetch.
+     * Filter, which wellnessGoalProgress to fetch.
      */
-    where?: goalProgressWhereInput
+    where?: wellnessGoalProgressWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of goalProgresses to fetch.
+     * Determine the order of wellnessGoalProgresses to fetch.
      */
-    orderBy?: goalProgressOrderByWithRelationInput | goalProgressOrderByWithRelationInput[]
+    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for goalProgresses.
+     * Sets the position for searching for wellnessGoalProgresses.
      */
-    cursor?: goalProgressWhereUniqueInput
+    cursor?: wellnessGoalProgressWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` goalProgresses from the position of the cursor.
+     * Take `±n` wellnessGoalProgresses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` goalProgresses.
+     * Skip the first `n` wellnessGoalProgresses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of goalProgresses.
+     * Filter by unique combinations of wellnessGoalProgresses.
      */
-    distinct?: GoalProgressScalarFieldEnum | GoalProgressScalarFieldEnum[]
+    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
   }
 
   /**
-   * goalProgress findFirstOrThrow
+   * wellnessGoalProgress findFirstOrThrow
    */
-  export type goalProgressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
     /**
-     * Filter, which goalProgress to fetch.
+     * Filter, which wellnessGoalProgress to fetch.
      */
-    where?: goalProgressWhereInput
+    where?: wellnessGoalProgressWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of goalProgresses to fetch.
+     * Determine the order of wellnessGoalProgresses to fetch.
      */
-    orderBy?: goalProgressOrderByWithRelationInput | goalProgressOrderByWithRelationInput[]
+    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for goalProgresses.
+     * Sets the position for searching for wellnessGoalProgresses.
      */
-    cursor?: goalProgressWhereUniqueInput
+    cursor?: wellnessGoalProgressWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` goalProgresses from the position of the cursor.
+     * Take `±n` wellnessGoalProgresses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` goalProgresses.
+     * Skip the first `n` wellnessGoalProgresses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of goalProgresses.
+     * Filter by unique combinations of wellnessGoalProgresses.
      */
-    distinct?: GoalProgressScalarFieldEnum | GoalProgressScalarFieldEnum[]
+    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
   }
 
   /**
-   * goalProgress findMany
+   * wellnessGoalProgress findMany
    */
-  export type goalProgressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
     /**
-     * Filter, which goalProgresses to fetch.
+     * Filter, which wellnessGoalProgresses to fetch.
      */
-    where?: goalProgressWhereInput
+    where?: wellnessGoalProgressWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of goalProgresses to fetch.
+     * Determine the order of wellnessGoalProgresses to fetch.
      */
-    orderBy?: goalProgressOrderByWithRelationInput | goalProgressOrderByWithRelationInput[]
+    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing goalProgresses.
+     * Sets the position for listing wellnessGoalProgresses.
      */
-    cursor?: goalProgressWhereUniqueInput
+    cursor?: wellnessGoalProgressWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` goalProgresses from the position of the cursor.
+     * Take `±n` wellnessGoalProgresses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` goalProgresses.
+     * Skip the first `n` wellnessGoalProgresses.
      */
     skip?: number
-    distinct?: GoalProgressScalarFieldEnum | GoalProgressScalarFieldEnum[]
+    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
   }
 
   /**
-   * goalProgress create
+   * wellnessGoalProgress create
    */
-  export type goalProgressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
     /**
-     * The data needed to create a goalProgress.
+     * The data needed to create a wellnessGoalProgress.
      */
-    data: XOR<goalProgressCreateInput, goalProgressUncheckedCreateInput>
+    data: XOR<wellnessGoalProgressCreateInput, wellnessGoalProgressUncheckedCreateInput>
   }
 
   /**
-   * goalProgress createMany
+   * wellnessGoalProgress createMany
    */
-  export type goalProgressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many goalProgresses.
+     * The data used to create many wellnessGoalProgresses.
      */
-    data: goalProgressCreateManyInput | goalProgressCreateManyInput[]
+    data: wellnessGoalProgressCreateManyInput | wellnessGoalProgressCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * goalProgress createManyAndReturn
+   * wellnessGoalProgress createManyAndReturn
    */
-  export type goalProgressCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelectCreateManyAndReturn<ExtArgs> | null
+    select?: wellnessGoalProgressSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
-     * The data used to create many goalProgresses.
+     * The data used to create many wellnessGoalProgresses.
      */
-    data: goalProgressCreateManyInput | goalProgressCreateManyInput[]
+    data: wellnessGoalProgressCreateManyInput | wellnessGoalProgressCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: wellnessGoalProgressIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * goalProgress update
+   * wellnessGoalProgress update
    */
-  export type goalProgressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
     /**
-     * The data needed to update a goalProgress.
+     * The data needed to update a wellnessGoalProgress.
      */
-    data: XOR<goalProgressUpdateInput, goalProgressUncheckedUpdateInput>
+    data: XOR<wellnessGoalProgressUpdateInput, wellnessGoalProgressUncheckedUpdateInput>
     /**
-     * Choose, which goalProgress to update.
+     * Choose, which wellnessGoalProgress to update.
      */
-    where: goalProgressWhereUniqueInput
+    where: wellnessGoalProgressWhereUniqueInput
   }
 
   /**
-   * goalProgress updateMany
+   * wellnessGoalProgress updateMany
    */
-  export type goalProgressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update goalProgresses.
+     * The data used to update wellnessGoalProgresses.
      */
-    data: XOR<goalProgressUpdateManyMutationInput, goalProgressUncheckedUpdateManyInput>
+    data: XOR<wellnessGoalProgressUpdateManyMutationInput, wellnessGoalProgressUncheckedUpdateManyInput>
     /**
-     * Filter which goalProgresses to update
+     * Filter which wellnessGoalProgresses to update
      */
-    where?: goalProgressWhereInput
+    where?: wellnessGoalProgressWhereInput
     /**
-     * Limit how many goalProgresses to update.
+     * Limit how many wellnessGoalProgresses to update.
      */
     limit?: number
   }
 
   /**
-   * goalProgress updateManyAndReturn
+   * wellnessGoalProgress updateManyAndReturn
    */
-  export type goalProgressUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: wellnessGoalProgressSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
-     * The data used to update goalProgresses.
+     * The data used to update wellnessGoalProgresses.
      */
-    data: XOR<goalProgressUpdateManyMutationInput, goalProgressUncheckedUpdateManyInput>
+    data: XOR<wellnessGoalProgressUpdateManyMutationInput, wellnessGoalProgressUncheckedUpdateManyInput>
     /**
-     * Filter which goalProgresses to update
+     * Filter which wellnessGoalProgresses to update
      */
-    where?: goalProgressWhereInput
+    where?: wellnessGoalProgressWhereInput
     /**
-     * Limit how many goalProgresses to update.
+     * Limit how many wellnessGoalProgresses to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: wellnessGoalProgressIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * goalProgress upsert
+   * wellnessGoalProgress upsert
    */
-  export type goalProgressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
     /**
-     * The filter to search for the goalProgress to update in case it exists.
+     * The filter to search for the wellnessGoalProgress to update in case it exists.
      */
-    where: goalProgressWhereUniqueInput
+    where: wellnessGoalProgressWhereUniqueInput
     /**
-     * In case the goalProgress found by the `where` argument doesn't exist, create a new goalProgress with this data.
+     * In case the wellnessGoalProgress found by the `where` argument doesn't exist, create a new wellnessGoalProgress with this data.
      */
-    create: XOR<goalProgressCreateInput, goalProgressUncheckedCreateInput>
+    create: XOR<wellnessGoalProgressCreateInput, wellnessGoalProgressUncheckedCreateInput>
     /**
-     * In case the goalProgress was found with the provided `where` argument, update it with this data.
+     * In case the wellnessGoalProgress was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<goalProgressUpdateInput, goalProgressUncheckedUpdateInput>
+    update: XOR<wellnessGoalProgressUpdateInput, wellnessGoalProgressUncheckedUpdateInput>
   }
 
   /**
-   * goalProgress delete
+   * wellnessGoalProgress delete
    */
-  export type goalProgressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
     /**
-     * Filter which goalProgress to delete.
+     * Filter which wellnessGoalProgress to delete.
      */
-    where: goalProgressWhereUniqueInput
+    where: wellnessGoalProgressWhereUniqueInput
   }
 
   /**
-   * goalProgress deleteMany
+   * wellnessGoalProgress deleteMany
    */
-  export type goalProgressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which goalProgresses to delete
+     * Filter which wellnessGoalProgresses to delete
      */
-    where?: goalProgressWhereInput
+    where?: wellnessGoalProgressWhereInput
     /**
-     * Limit how many goalProgresses to delete.
+     * Limit how many wellnessGoalProgresses to delete.
      */
     limit?: number
   }
 
   /**
-   * goalProgress without action
+   * wellnessGoalProgress without action
    */
-  export type goalProgressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoalProgressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
   }
 
 
@@ -57363,7 +57376,7 @@ export namespace Prisma {
     active?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    goalProgress?: boolean | wellnessGoal$goalProgressArgs<ExtArgs>
+    wellnessGoalProgress?: boolean | wellnessGoal$wellnessGoalProgressArgs<ExtArgs>
     user?: boolean | wellnessGoal$userArgs<ExtArgs>
     wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
     _count?: boolean | WellnessGoalCountOutputTypeDefaultArgs<ExtArgs>
@@ -57420,7 +57433,7 @@ export namespace Prisma {
 
   export type wellnessGoalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "categoryId" | "targetValue" | "unit" | "frequency" | "startDate" | "endDate" | "active" | "createdAt" | "updatedAt", ExtArgs["result"]["wellnessGoal"]>
   export type wellnessGoalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    goalProgress?: boolean | wellnessGoal$goalProgressArgs<ExtArgs>
+    wellnessGoalProgress?: boolean | wellnessGoal$wellnessGoalProgressArgs<ExtArgs>
     user?: boolean | wellnessGoal$userArgs<ExtArgs>
     wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
     _count?: boolean | WellnessGoalCountOutputTypeDefaultArgs<ExtArgs>
@@ -57437,7 +57450,7 @@ export namespace Prisma {
   export type $wellnessGoalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "wellnessGoal"
     objects: {
-      goalProgress: Prisma.$goalProgressPayload<ExtArgs>[]
+      wellnessGoalProgress: Prisma.$wellnessGoalProgressPayload<ExtArgs>[]
       user: Prisma.$userPayload<ExtArgs> | null
       wellnessCategory: Prisma.$wellnessCategoryPayload<ExtArgs>
     }
@@ -57848,7 +57861,7 @@ export namespace Prisma {
    */
   export interface Prisma__wellnessGoalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    goalProgress<T extends wellnessGoal$goalProgressArgs<ExtArgs> = {}>(args?: Subset<T, wellnessGoal$goalProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$goalProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    wellnessGoalProgress<T extends wellnessGoal$wellnessGoalProgressArgs<ExtArgs> = {}>(args?: Subset<T, wellnessGoal$wellnessGoalProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends wellnessGoal$userArgs<ExtArgs> = {}>(args?: Subset<T, wellnessGoal$userArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     wellnessCategory<T extends wellnessCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, wellnessCategoryDefaultArgs<ExtArgs>>): Prisma__wellnessCategoryClient<$Result.GetResult<Prisma.$wellnessCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -58288,27 +58301,27 @@ export namespace Prisma {
   }
 
   /**
-   * wellnessGoal.goalProgress
+   * wellnessGoal.wellnessGoalProgress
    */
-  export type wellnessGoal$goalProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type wellnessGoal$wellnessGoalProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the goalProgress
+     * Select specific fields to fetch from the wellnessGoalProgress
      */
-    select?: goalProgressSelect<ExtArgs> | null
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the goalProgress
+     * Omit specific fields from the wellnessGoalProgress
      */
-    omit?: goalProgressOmit<ExtArgs> | null
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: goalProgressInclude<ExtArgs> | null
-    where?: goalProgressWhereInput
-    orderBy?: goalProgressOrderByWithRelationInput | goalProgressOrderByWithRelationInput[]
-    cursor?: goalProgressWhereUniqueInput
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    where?: wellnessGoalProgressWhereInput
+    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
+    cursor?: wellnessGoalProgressWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: GoalProgressScalarFieldEnum | GoalProgressScalarFieldEnum[]
+    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
   }
 
   /**
@@ -71304,6 +71317,7 @@ export namespace Prisma {
 
 
   export const ActivityRegistrationScalarFieldEnum: {
+    id: 'id',
     activityId: 'activityId',
     userId: 'userId',
     registrationDate: 'registrationDate',
@@ -71446,7 +71460,7 @@ export namespace Prisma {
   export type ForumTopicScalarFieldEnum = (typeof ForumTopicScalarFieldEnum)[keyof typeof ForumTopicScalarFieldEnum]
 
 
-  export const GoalProgressScalarFieldEnum: {
+  export const WellnessGoalProgressScalarFieldEnum: {
     id: 'id',
     goalId: 'goalId',
     recordingDate: 'recordingDate',
@@ -71456,7 +71470,7 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type GoalProgressScalarFieldEnum = (typeof GoalProgressScalarFieldEnum)[keyof typeof GoalProgressScalarFieldEnum]
+  export type WellnessGoalProgressScalarFieldEnum = (typeof WellnessGoalProgressScalarFieldEnum)[keyof typeof WellnessGoalProgressScalarFieldEnum]
 
 
   export const HealthIndicatorScalarFieldEnum: {
@@ -72419,6 +72433,7 @@ export namespace Prisma {
     AND?: activityRegistrationWhereInput | activityRegistrationWhereInput[]
     OR?: activityRegistrationWhereInput[]
     NOT?: activityRegistrationWhereInput | activityRegistrationWhereInput[]
+    id?: StringFilter<"activityRegistration"> | string
     activityId?: StringFilter<"activityRegistration"> | string
     userId?: StringFilter<"activityRegistration"> | string
     registrationDate?: DateTimeFilter<"activityRegistration"> | Date | string
@@ -72431,6 +72446,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationOrderByWithRelationInput = {
+    id?: SortOrder
     activityId?: SortOrder
     userId?: SortOrder
     registrationDate?: SortOrder
@@ -72443,7 +72459,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationWhereUniqueInput = Prisma.AtLeast<{
-    activityId_userId?: activityRegistrationActivityIdUserIdCompoundUniqueInput
+    id?: string
     AND?: activityRegistrationWhereInput | activityRegistrationWhereInput[]
     OR?: activityRegistrationWhereInput[]
     NOT?: activityRegistrationWhereInput | activityRegistrationWhereInput[]
@@ -72456,9 +72472,10 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"activityRegistration"> | Date | string | null
     activity?: XOR<ActivityScalarRelationFilter, activityWhereInput>
     user?: XOR<UserScalarRelationFilter, userWhereInput>
-  }, "activityId_userId">
+  }, "id">
 
   export type activityRegistrationOrderByWithAggregationInput = {
+    id?: SortOrder
     activityId?: SortOrder
     userId?: SortOrder
     registrationDate?: SortOrder
@@ -72475,6 +72492,7 @@ export namespace Prisma {
     AND?: activityRegistrationScalarWhereWithAggregatesInput | activityRegistrationScalarWhereWithAggregatesInput[]
     OR?: activityRegistrationScalarWhereWithAggregatesInput[]
     NOT?: activityRegistrationScalarWhereWithAggregatesInput | activityRegistrationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"activityRegistration"> | string
     activityId?: StringWithAggregatesFilter<"activityRegistration"> | string
     userId?: StringWithAggregatesFilter<"activityRegistration"> | string
     registrationDate?: DateTimeWithAggregatesFilter<"activityRegistration"> | Date | string
@@ -73182,21 +73200,21 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableWithAggregatesFilter<"forumTopic"> | Date | string | null
   }
 
-  export type goalProgressWhereInput = {
-    AND?: goalProgressWhereInput | goalProgressWhereInput[]
-    OR?: goalProgressWhereInput[]
-    NOT?: goalProgressWhereInput | goalProgressWhereInput[]
-    id?: StringFilter<"goalProgress"> | string
-    goalId?: StringFilter<"goalProgress"> | string
-    recordingDate?: DateTimeFilter<"goalProgress"> | Date | string
-    achievedValue?: IntFilter<"goalProgress"> | number
-    goalAchieved?: BoolFilter<"goalProgress"> | boolean
-    createdAt?: DateTimeFilter<"goalProgress"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"goalProgress"> | Date | string | null
+  export type wellnessGoalProgressWhereInput = {
+    AND?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
+    OR?: wellnessGoalProgressWhereInput[]
+    NOT?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
+    id?: StringFilter<"wellnessGoalProgress"> | string
+    goalId?: StringFilter<"wellnessGoalProgress"> | string
+    recordingDate?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    achievedValue?: IntFilter<"wellnessGoalProgress"> | number
+    goalAchieved?: BoolFilter<"wellnessGoalProgress"> | boolean
+    createdAt?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"wellnessGoalProgress"> | Date | string | null
     wellnessGoal?: XOR<WellnessGoalScalarRelationFilter, wellnessGoalWhereInput>
   }
 
-  export type goalProgressOrderByWithRelationInput = {
+  export type wellnessGoalProgressOrderByWithRelationInput = {
     id?: SortOrder
     goalId?: SortOrder
     recordingDate?: SortOrder
@@ -73207,21 +73225,21 @@ export namespace Prisma {
     wellnessGoal?: wellnessGoalOrderByWithRelationInput
   }
 
-  export type goalProgressWhereUniqueInput = Prisma.AtLeast<{
+  export type wellnessGoalProgressWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: goalProgressWhereInput | goalProgressWhereInput[]
-    OR?: goalProgressWhereInput[]
-    NOT?: goalProgressWhereInput | goalProgressWhereInput[]
-    goalId?: StringFilter<"goalProgress"> | string
-    recordingDate?: DateTimeFilter<"goalProgress"> | Date | string
-    achievedValue?: IntFilter<"goalProgress"> | number
-    goalAchieved?: BoolFilter<"goalProgress"> | boolean
-    createdAt?: DateTimeFilter<"goalProgress"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"goalProgress"> | Date | string | null
+    AND?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
+    OR?: wellnessGoalProgressWhereInput[]
+    NOT?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
+    goalId?: StringFilter<"wellnessGoalProgress"> | string
+    recordingDate?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    achievedValue?: IntFilter<"wellnessGoalProgress"> | number
+    goalAchieved?: BoolFilter<"wellnessGoalProgress"> | boolean
+    createdAt?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"wellnessGoalProgress"> | Date | string | null
     wellnessGoal?: XOR<WellnessGoalScalarRelationFilter, wellnessGoalWhereInput>
   }, "id">
 
-  export type goalProgressOrderByWithAggregationInput = {
+  export type wellnessGoalProgressOrderByWithAggregationInput = {
     id?: SortOrder
     goalId?: SortOrder
     recordingDate?: SortOrder
@@ -73229,24 +73247,24 @@ export namespace Prisma {
     goalAchieved?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    _count?: goalProgressCountOrderByAggregateInput
-    _avg?: goalProgressAvgOrderByAggregateInput
-    _max?: goalProgressMaxOrderByAggregateInput
-    _min?: goalProgressMinOrderByAggregateInput
-    _sum?: goalProgressSumOrderByAggregateInput
+    _count?: wellnessGoalProgressCountOrderByAggregateInput
+    _avg?: wellnessGoalProgressAvgOrderByAggregateInput
+    _max?: wellnessGoalProgressMaxOrderByAggregateInput
+    _min?: wellnessGoalProgressMinOrderByAggregateInput
+    _sum?: wellnessGoalProgressSumOrderByAggregateInput
   }
 
-  export type goalProgressScalarWhereWithAggregatesInput = {
-    AND?: goalProgressScalarWhereWithAggregatesInput | goalProgressScalarWhereWithAggregatesInput[]
-    OR?: goalProgressScalarWhereWithAggregatesInput[]
-    NOT?: goalProgressScalarWhereWithAggregatesInput | goalProgressScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"goalProgress"> | string
-    goalId?: StringWithAggregatesFilter<"goalProgress"> | string
-    recordingDate?: DateTimeWithAggregatesFilter<"goalProgress"> | Date | string
-    achievedValue?: IntWithAggregatesFilter<"goalProgress"> | number
-    goalAchieved?: BoolWithAggregatesFilter<"goalProgress"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"goalProgress"> | Date | string
-    updatedAt?: DateTimeNullableWithAggregatesFilter<"goalProgress"> | Date | string | null
+  export type wellnessGoalProgressScalarWhereWithAggregatesInput = {
+    AND?: wellnessGoalProgressScalarWhereWithAggregatesInput | wellnessGoalProgressScalarWhereWithAggregatesInput[]
+    OR?: wellnessGoalProgressScalarWhereWithAggregatesInput[]
+    NOT?: wellnessGoalProgressScalarWhereWithAggregatesInput | wellnessGoalProgressScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"wellnessGoalProgress"> | string
+    goalId?: StringWithAggregatesFilter<"wellnessGoalProgress"> | string
+    recordingDate?: DateTimeWithAggregatesFilter<"wellnessGoalProgress"> | Date | string
+    achievedValue?: IntWithAggregatesFilter<"wellnessGoalProgress"> | number
+    goalAchieved?: BoolWithAggregatesFilter<"wellnessGoalProgress"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"wellnessGoalProgress"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"wellnessGoalProgress"> | Date | string | null
   }
 
   export type healthIndicatorWhereInput = {
@@ -75751,7 +75769,7 @@ export namespace Prisma {
     active?: BoolFilter<"wellnessGoal"> | boolean
     createdAt?: DateTimeFilter<"wellnessGoal"> | Date | string
     updatedAt?: DateTimeNullableFilter<"wellnessGoal"> | Date | string | null
-    goalProgress?: GoalProgressListRelationFilter
+    wellnessGoalProgress?: WellnessGoalProgressListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
     wellnessCategory?: XOR<WellnessCategoryScalarRelationFilter, wellnessCategoryWhereInput>
   }
@@ -75769,7 +75787,7 @@ export namespace Prisma {
     active?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    goalProgress?: goalProgressOrderByRelationAggregateInput
+    wellnessGoalProgress?: wellnessGoalProgressOrderByRelationAggregateInput
     user?: userOrderByWithRelationInput
     wellnessCategory?: wellnessCategoryOrderByWithRelationInput
   }
@@ -75790,7 +75808,7 @@ export namespace Prisma {
     active?: BoolFilter<"wellnessGoal"> | boolean
     createdAt?: DateTimeFilter<"wellnessGoal"> | Date | string
     updatedAt?: DateTimeNullableFilter<"wellnessGoal"> | Date | string | null
-    goalProgress?: GoalProgressListRelationFilter
+    wellnessGoalProgress?: WellnessGoalProgressListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
     wellnessCategory?: XOR<WellnessCategoryScalarRelationFilter, wellnessCategoryWhereInput>
   }, "id">
@@ -76751,6 +76769,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationCreateInput = {
+    id?: string
     registrationDate: Date | string
     status?: string | null
     attendanceConfirmed?: boolean | null
@@ -76761,6 +76780,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUncheckedCreateInput = {
+    id?: string
     activityId: string
     userId: string
     registrationDate: Date | string
@@ -76771,6 +76791,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendanceConfirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -76781,6 +76802,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     activityId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -76791,6 +76813,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationCreateManyInput = {
+    id?: string
     activityId: string
     userId: string
     registrationDate: Date | string
@@ -76801,6 +76824,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendanceConfirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -76809,6 +76833,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
     activityId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -77572,17 +77597,17 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type goalProgressCreateInput = {
+  export type wellnessGoalProgressCreateInput = {
     id?: string
     recordingDate: Date | string
     achievedValue: number
     goalAchieved: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    wellnessGoal: wellnessGoalCreateNestedOneWithoutGoalProgressInput
+    wellnessGoal: wellnessGoalCreateNestedOneWithoutWellnessGoalProgressInput
   }
 
-  export type goalProgressUncheckedCreateInput = {
+  export type wellnessGoalProgressUncheckedCreateInput = {
     id?: string
     goalId: string
     recordingDate: Date | string
@@ -77592,17 +77617,17 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type goalProgressUpdateInput = {
+  export type wellnessGoalProgressUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     achievedValue?: IntFieldUpdateOperationsInput | number
     goalAchieved?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wellnessGoal?: wellnessGoalUpdateOneRequiredWithoutGoalProgressNestedInput
+    wellnessGoal?: wellnessGoalUpdateOneRequiredWithoutWellnessGoalProgressNestedInput
   }
 
-  export type goalProgressUncheckedUpdateInput = {
+  export type wellnessGoalProgressUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     goalId?: StringFieldUpdateOperationsInput | string
     recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -77612,7 +77637,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type goalProgressCreateManyInput = {
+  export type wellnessGoalProgressCreateManyInput = {
     id?: string
     goalId: string
     recordingDate: Date | string
@@ -77622,7 +77647,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type goalProgressUpdateManyMutationInput = {
+  export type wellnessGoalProgressUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     achievedValue?: IntFieldUpdateOperationsInput | number
@@ -77631,7 +77656,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type goalProgressUncheckedUpdateManyInput = {
+  export type wellnessGoalProgressUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     goalId?: StringFieldUpdateOperationsInput | string
     recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -80380,7 +80405,7 @@ export namespace Prisma {
     active?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    goalProgress?: goalProgressCreateNestedManyWithoutWellnessGoalInput
+    wellnessGoalProgress?: wellnessGoalProgressCreateNestedManyWithoutWellnessGoalInput
     user?: userCreateNestedOneWithoutWellnessGoalInput
     wellnessCategory: wellnessCategoryCreateNestedOneWithoutWellnessGoalInput
   }
@@ -80398,7 +80423,7 @@ export namespace Prisma {
     active?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    goalProgress?: goalProgressUncheckedCreateNestedManyWithoutWellnessGoalInput
+    wellnessGoalProgress?: wellnessGoalProgressUncheckedCreateNestedManyWithoutWellnessGoalInput
   }
 
   export type wellnessGoalUpdateInput = {
@@ -80412,7 +80437,7 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    goalProgress?: goalProgressUpdateManyWithoutWellnessGoalNestedInput
+    wellnessGoalProgress?: wellnessGoalProgressUpdateManyWithoutWellnessGoalNestedInput
     user?: userUpdateOneWithoutWellnessGoalNestedInput
     wellnessCategory?: wellnessCategoryUpdateOneRequiredWithoutWellnessGoalNestedInput
   }
@@ -80430,7 +80455,7 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    goalProgress?: goalProgressUncheckedUpdateManyWithoutWellnessGoalNestedInput
+    wellnessGoalProgress?: wellnessGoalProgressUncheckedUpdateManyWithoutWellnessGoalNestedInput
   }
 
   export type wellnessGoalCreateManyInput = {
@@ -81554,12 +81579,8 @@ export namespace Prisma {
     isNot?: activityWhereInput
   }
 
-  export type activityRegistrationActivityIdUserIdCompoundUniqueInput = {
-    activityId: string
-    userId: string
-  }
-
   export type activityRegistrationCountOrderByAggregateInput = {
+    id?: SortOrder
     activityId?: SortOrder
     userId?: SortOrder
     registrationDate?: SortOrder
@@ -81570,6 +81591,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationMaxOrderByAggregateInput = {
+    id?: SortOrder
     activityId?: SortOrder
     userId?: SortOrder
     registrationDate?: SortOrder
@@ -81580,6 +81602,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationMinOrderByAggregateInput = {
+    id?: SortOrder
     activityId?: SortOrder
     userId?: SortOrder
     registrationDate?: SortOrder
@@ -82090,7 +82113,7 @@ export namespace Prisma {
     isNot?: wellnessGoalWhereInput
   }
 
-  export type goalProgressCountOrderByAggregateInput = {
+  export type wellnessGoalProgressCountOrderByAggregateInput = {
     id?: SortOrder
     goalId?: SortOrder
     recordingDate?: SortOrder
@@ -82100,11 +82123,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type goalProgressAvgOrderByAggregateInput = {
+  export type wellnessGoalProgressAvgOrderByAggregateInput = {
     achievedValue?: SortOrder
   }
 
-  export type goalProgressMaxOrderByAggregateInput = {
+  export type wellnessGoalProgressMaxOrderByAggregateInput = {
     id?: SortOrder
     goalId?: SortOrder
     recordingDate?: SortOrder
@@ -82114,7 +82137,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type goalProgressMinOrderByAggregateInput = {
+  export type wellnessGoalProgressMinOrderByAggregateInput = {
     id?: SortOrder
     goalId?: SortOrder
     recordingDate?: SortOrder
@@ -82124,7 +82147,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type goalProgressSumOrderByAggregateInput = {
+  export type wellnessGoalProgressSumOrderByAggregateInput = {
     achievedValue?: SortOrder
   }
 
@@ -83714,13 +83737,13 @@ export namespace Prisma {
     level?: SortOrder
   }
 
-  export type GoalProgressListRelationFilter = {
-    every?: goalProgressWhereInput
-    some?: goalProgressWhereInput
-    none?: goalProgressWhereInput
+  export type WellnessGoalProgressListRelationFilter = {
+    every?: wellnessGoalProgressWhereInput
+    some?: wellnessGoalProgressWhereInput
+    none?: wellnessGoalProgressWhereInput
   }
 
-  export type goalProgressOrderByRelationAggregateInput = {
+  export type wellnessGoalProgressOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -84913,9 +84936,9 @@ export namespace Prisma {
     deleteMany?: forumMessageScalarWhereInput | forumMessageScalarWhereInput[]
   }
 
-  export type wellnessGoalCreateNestedOneWithoutGoalProgressInput = {
-    create?: XOR<wellnessGoalCreateWithoutGoalProgressInput, wellnessGoalUncheckedCreateWithoutGoalProgressInput>
-    connectOrCreate?: wellnessGoalCreateOrConnectWithoutGoalProgressInput
+  export type wellnessGoalCreateNestedOneWithoutWellnessGoalProgressInput = {
+    create?: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
+    connectOrCreate?: wellnessGoalCreateOrConnectWithoutWellnessGoalProgressInput
     connect?: wellnessGoalWhereUniqueInput
   }
 
@@ -84927,12 +84950,12 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type wellnessGoalUpdateOneRequiredWithoutGoalProgressNestedInput = {
-    create?: XOR<wellnessGoalCreateWithoutGoalProgressInput, wellnessGoalUncheckedCreateWithoutGoalProgressInput>
-    connectOrCreate?: wellnessGoalCreateOrConnectWithoutGoalProgressInput
-    upsert?: wellnessGoalUpsertWithoutGoalProgressInput
+  export type wellnessGoalUpdateOneRequiredWithoutWellnessGoalProgressNestedInput = {
+    create?: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
+    connectOrCreate?: wellnessGoalCreateOrConnectWithoutWellnessGoalProgressInput
+    upsert?: wellnessGoalUpsertWithoutWellnessGoalProgressInput
     connect?: wellnessGoalWhereUniqueInput
-    update?: XOR<XOR<wellnessGoalUpdateToOneWithWhereWithoutGoalProgressInput, wellnessGoalUpdateWithoutGoalProgressInput>, wellnessGoalUncheckedUpdateWithoutGoalProgressInput>
+    update?: XOR<XOR<wellnessGoalUpdateToOneWithWhereWithoutWellnessGoalProgressInput, wellnessGoalUpdateWithoutWellnessGoalProgressInput>, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
   }
 
   export type userCreateNestedOneWithoutHealthIndicatorInput = {
@@ -86933,11 +86956,11 @@ export namespace Prisma {
     update?: XOR<XOR<wellnessCategoryUpdateToOneWithWhereWithoutWellnessBadgeInput, wellnessCategoryUpdateWithoutWellnessBadgeInput>, wellnessCategoryUncheckedUpdateWithoutWellnessBadgeInput>
   }
 
-  export type goalProgressCreateNestedManyWithoutWellnessGoalInput = {
-    create?: XOR<goalProgressCreateWithoutWellnessGoalInput, goalProgressUncheckedCreateWithoutWellnessGoalInput> | goalProgressCreateWithoutWellnessGoalInput[] | goalProgressUncheckedCreateWithoutWellnessGoalInput[]
-    connectOrCreate?: goalProgressCreateOrConnectWithoutWellnessGoalInput | goalProgressCreateOrConnectWithoutWellnessGoalInput[]
-    createMany?: goalProgressCreateManyWellnessGoalInputEnvelope
-    connect?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
+  export type wellnessGoalProgressCreateNestedManyWithoutWellnessGoalInput = {
+    create?: XOR<wellnessGoalProgressCreateWithoutWellnessGoalInput, wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput> | wellnessGoalProgressCreateWithoutWellnessGoalInput[] | wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput[]
+    connectOrCreate?: wellnessGoalProgressCreateOrConnectWithoutWellnessGoalInput | wellnessGoalProgressCreateOrConnectWithoutWellnessGoalInput[]
+    createMany?: wellnessGoalProgressCreateManyWellnessGoalInputEnvelope
+    connect?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
   }
 
   export type userCreateNestedOneWithoutWellnessGoalInput = {
@@ -86952,25 +86975,25 @@ export namespace Prisma {
     connect?: wellnessCategoryWhereUniqueInput
   }
 
-  export type goalProgressUncheckedCreateNestedManyWithoutWellnessGoalInput = {
-    create?: XOR<goalProgressCreateWithoutWellnessGoalInput, goalProgressUncheckedCreateWithoutWellnessGoalInput> | goalProgressCreateWithoutWellnessGoalInput[] | goalProgressUncheckedCreateWithoutWellnessGoalInput[]
-    connectOrCreate?: goalProgressCreateOrConnectWithoutWellnessGoalInput | goalProgressCreateOrConnectWithoutWellnessGoalInput[]
-    createMany?: goalProgressCreateManyWellnessGoalInputEnvelope
-    connect?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
+  export type wellnessGoalProgressUncheckedCreateNestedManyWithoutWellnessGoalInput = {
+    create?: XOR<wellnessGoalProgressCreateWithoutWellnessGoalInput, wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput> | wellnessGoalProgressCreateWithoutWellnessGoalInput[] | wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput[]
+    connectOrCreate?: wellnessGoalProgressCreateOrConnectWithoutWellnessGoalInput | wellnessGoalProgressCreateOrConnectWithoutWellnessGoalInput[]
+    createMany?: wellnessGoalProgressCreateManyWellnessGoalInputEnvelope
+    connect?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
   }
 
-  export type goalProgressUpdateManyWithoutWellnessGoalNestedInput = {
-    create?: XOR<goalProgressCreateWithoutWellnessGoalInput, goalProgressUncheckedCreateWithoutWellnessGoalInput> | goalProgressCreateWithoutWellnessGoalInput[] | goalProgressUncheckedCreateWithoutWellnessGoalInput[]
-    connectOrCreate?: goalProgressCreateOrConnectWithoutWellnessGoalInput | goalProgressCreateOrConnectWithoutWellnessGoalInput[]
-    upsert?: goalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput | goalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput[]
-    createMany?: goalProgressCreateManyWellnessGoalInputEnvelope
-    set?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
-    disconnect?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
-    delete?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
-    connect?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
-    update?: goalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput | goalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput[]
-    updateMany?: goalProgressUpdateManyWithWhereWithoutWellnessGoalInput | goalProgressUpdateManyWithWhereWithoutWellnessGoalInput[]
-    deleteMany?: goalProgressScalarWhereInput | goalProgressScalarWhereInput[]
+  export type wellnessGoalProgressUpdateManyWithoutWellnessGoalNestedInput = {
+    create?: XOR<wellnessGoalProgressCreateWithoutWellnessGoalInput, wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput> | wellnessGoalProgressCreateWithoutWellnessGoalInput[] | wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput[]
+    connectOrCreate?: wellnessGoalProgressCreateOrConnectWithoutWellnessGoalInput | wellnessGoalProgressCreateOrConnectWithoutWellnessGoalInput[]
+    upsert?: wellnessGoalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput | wellnessGoalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput[]
+    createMany?: wellnessGoalProgressCreateManyWellnessGoalInputEnvelope
+    set?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
+    disconnect?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
+    delete?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
+    connect?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
+    update?: wellnessGoalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput | wellnessGoalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput[]
+    updateMany?: wellnessGoalProgressUpdateManyWithWhereWithoutWellnessGoalInput | wellnessGoalProgressUpdateManyWithWhereWithoutWellnessGoalInput[]
+    deleteMany?: wellnessGoalProgressScalarWhereInput | wellnessGoalProgressScalarWhereInput[]
   }
 
   export type userUpdateOneWithoutWellnessGoalNestedInput = {
@@ -86991,18 +87014,18 @@ export namespace Prisma {
     update?: XOR<XOR<wellnessCategoryUpdateToOneWithWhereWithoutWellnessGoalInput, wellnessCategoryUpdateWithoutWellnessGoalInput>, wellnessCategoryUncheckedUpdateWithoutWellnessGoalInput>
   }
 
-  export type goalProgressUncheckedUpdateManyWithoutWellnessGoalNestedInput = {
-    create?: XOR<goalProgressCreateWithoutWellnessGoalInput, goalProgressUncheckedCreateWithoutWellnessGoalInput> | goalProgressCreateWithoutWellnessGoalInput[] | goalProgressUncheckedCreateWithoutWellnessGoalInput[]
-    connectOrCreate?: goalProgressCreateOrConnectWithoutWellnessGoalInput | goalProgressCreateOrConnectWithoutWellnessGoalInput[]
-    upsert?: goalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput | goalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput[]
-    createMany?: goalProgressCreateManyWellnessGoalInputEnvelope
-    set?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
-    disconnect?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
-    delete?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
-    connect?: goalProgressWhereUniqueInput | goalProgressWhereUniqueInput[]
-    update?: goalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput | goalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput[]
-    updateMany?: goalProgressUpdateManyWithWhereWithoutWellnessGoalInput | goalProgressUpdateManyWithWhereWithoutWellnessGoalInput[]
-    deleteMany?: goalProgressScalarWhereInput | goalProgressScalarWhereInput[]
+  export type wellnessGoalProgressUncheckedUpdateManyWithoutWellnessGoalNestedInput = {
+    create?: XOR<wellnessGoalProgressCreateWithoutWellnessGoalInput, wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput> | wellnessGoalProgressCreateWithoutWellnessGoalInput[] | wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput[]
+    connectOrCreate?: wellnessGoalProgressCreateOrConnectWithoutWellnessGoalInput | wellnessGoalProgressCreateOrConnectWithoutWellnessGoalInput[]
+    upsert?: wellnessGoalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput | wellnessGoalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput[]
+    createMany?: wellnessGoalProgressCreateManyWellnessGoalInputEnvelope
+    set?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
+    disconnect?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
+    delete?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
+    connect?: wellnessGoalProgressWhereUniqueInput | wellnessGoalProgressWhereUniqueInput[]
+    update?: wellnessGoalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput | wellnessGoalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput[]
+    updateMany?: wellnessGoalProgressUpdateManyWithWhereWithoutWellnessGoalInput | wellnessGoalProgressUpdateManyWithWhereWithoutWellnessGoalInput[]
+    deleteMany?: wellnessGoalProgressScalarWhereInput | wellnessGoalProgressScalarWhereInput[]
   }
 
   export type activityCreateNestedManyWithoutActivity_categoryInput = {
@@ -87947,6 +87970,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationCreateWithoutActivityInput = {
+    id?: string
     registrationDate: Date | string
     status?: string | null
     attendanceConfirmed?: boolean | null
@@ -87956,6 +87980,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUncheckedCreateWithoutActivityInput = {
+    id?: string
     userId: string
     registrationDate: Date | string
     status?: string | null
@@ -88134,6 +88159,7 @@ export namespace Prisma {
     AND?: activityRegistrationScalarWhereInput | activityRegistrationScalarWhereInput[]
     OR?: activityRegistrationScalarWhereInput[]
     NOT?: activityRegistrationScalarWhereInput | activityRegistrationScalarWhereInput[]
+    id?: StringFilter<"activityRegistration"> | string
     activityId?: StringFilter<"activityRegistration"> | string
     userId?: StringFilter<"activityRegistration"> | string
     registrationDate?: DateTimeFilter<"activityRegistration"> | Date | string
@@ -90606,7 +90632,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type wellnessGoalCreateWithoutGoalProgressInput = {
+  export type wellnessGoalCreateWithoutWellnessGoalProgressInput = {
     id?: string
     title: string
     targetValue: number
@@ -90621,7 +90647,7 @@ export namespace Prisma {
     wellnessCategory: wellnessCategoryCreateNestedOneWithoutWellnessGoalInput
   }
 
-  export type wellnessGoalUncheckedCreateWithoutGoalProgressInput = {
+  export type wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput = {
     id?: string
     userId: string
     title: string
@@ -90636,23 +90662,23 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type wellnessGoalCreateOrConnectWithoutGoalProgressInput = {
+  export type wellnessGoalCreateOrConnectWithoutWellnessGoalProgressInput = {
     where: wellnessGoalWhereUniqueInput
-    create: XOR<wellnessGoalCreateWithoutGoalProgressInput, wellnessGoalUncheckedCreateWithoutGoalProgressInput>
+    create: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
   }
 
-  export type wellnessGoalUpsertWithoutGoalProgressInput = {
-    update: XOR<wellnessGoalUpdateWithoutGoalProgressInput, wellnessGoalUncheckedUpdateWithoutGoalProgressInput>
-    create: XOR<wellnessGoalCreateWithoutGoalProgressInput, wellnessGoalUncheckedCreateWithoutGoalProgressInput>
+  export type wellnessGoalUpsertWithoutWellnessGoalProgressInput = {
+    update: XOR<wellnessGoalUpdateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
+    create: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
     where?: wellnessGoalWhereInput
   }
 
-  export type wellnessGoalUpdateToOneWithWhereWithoutGoalProgressInput = {
+  export type wellnessGoalUpdateToOneWithWhereWithoutWellnessGoalProgressInput = {
     where?: wellnessGoalWhereInput
-    data: XOR<wellnessGoalUpdateWithoutGoalProgressInput, wellnessGoalUncheckedUpdateWithoutGoalProgressInput>
+    data: XOR<wellnessGoalUpdateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
   }
 
-  export type wellnessGoalUpdateWithoutGoalProgressInput = {
+  export type wellnessGoalUpdateWithoutWellnessGoalProgressInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     targetValue?: IntFieldUpdateOperationsInput | number
@@ -90667,7 +90693,7 @@ export namespace Prisma {
     wellnessCategory?: wellnessCategoryUpdateOneRequiredWithoutWellnessGoalNestedInput
   }
 
-  export type wellnessGoalUncheckedUpdateWithoutGoalProgressInput = {
+  export type wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
@@ -95177,6 +95203,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationCreateWithoutUserInput = {
+    id?: string
     registrationDate: Date | string
     status?: string | null
     attendanceConfirmed?: boolean | null
@@ -95186,6 +95213,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUncheckedCreateWithoutUserInput = {
+    id?: string
     activityId: string
     registrationDate: Date | string
     status?: string | null
@@ -96037,7 +96065,7 @@ export namespace Prisma {
     active?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    goalProgress?: goalProgressCreateNestedManyWithoutWellnessGoalInput
+    wellnessGoalProgress?: wellnessGoalProgressCreateNestedManyWithoutWellnessGoalInput
     wellnessCategory: wellnessCategoryCreateNestedOneWithoutWellnessGoalInput
   }
 
@@ -96053,7 +96081,7 @@ export namespace Prisma {
     active?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    goalProgress?: goalProgressUncheckedCreateNestedManyWithoutWellnessGoalInput
+    wellnessGoalProgress?: wellnessGoalProgressUncheckedCreateNestedManyWithoutWellnessGoalInput
   }
 
   export type wellnessGoalCreateOrConnectWithoutUserInput = {
@@ -98474,7 +98502,7 @@ export namespace Prisma {
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutWellnessCategoryNestedInput
   }
 
-  export type goalProgressCreateWithoutWellnessGoalInput = {
+  export type wellnessGoalProgressCreateWithoutWellnessGoalInput = {
     id?: string
     recordingDate: Date | string
     achievedValue: number
@@ -98483,7 +98511,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type goalProgressUncheckedCreateWithoutWellnessGoalInput = {
+  export type wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput = {
     id?: string
     recordingDate: Date | string
     achievedValue: number
@@ -98492,13 +98520,13 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type goalProgressCreateOrConnectWithoutWellnessGoalInput = {
-    where: goalProgressWhereUniqueInput
-    create: XOR<goalProgressCreateWithoutWellnessGoalInput, goalProgressUncheckedCreateWithoutWellnessGoalInput>
+  export type wellnessGoalProgressCreateOrConnectWithoutWellnessGoalInput = {
+    where: wellnessGoalProgressWhereUniqueInput
+    create: XOR<wellnessGoalProgressCreateWithoutWellnessGoalInput, wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput>
   }
 
-  export type goalProgressCreateManyWellnessGoalInputEnvelope = {
-    data: goalProgressCreateManyWellnessGoalInput | goalProgressCreateManyWellnessGoalInput[]
+  export type wellnessGoalProgressCreateManyWellnessGoalInputEnvelope = {
+    data: wellnessGoalProgressCreateManyWellnessGoalInput | wellnessGoalProgressCreateManyWellnessGoalInput[]
     skipDuplicates?: boolean
   }
 
@@ -98632,33 +98660,33 @@ export namespace Prisma {
     create: XOR<wellnessCategoryCreateWithoutWellnessGoalInput, wellnessCategoryUncheckedCreateWithoutWellnessGoalInput>
   }
 
-  export type goalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput = {
-    where: goalProgressWhereUniqueInput
-    update: XOR<goalProgressUpdateWithoutWellnessGoalInput, goalProgressUncheckedUpdateWithoutWellnessGoalInput>
-    create: XOR<goalProgressCreateWithoutWellnessGoalInput, goalProgressUncheckedCreateWithoutWellnessGoalInput>
+  export type wellnessGoalProgressUpsertWithWhereUniqueWithoutWellnessGoalInput = {
+    where: wellnessGoalProgressWhereUniqueInput
+    update: XOR<wellnessGoalProgressUpdateWithoutWellnessGoalInput, wellnessGoalProgressUncheckedUpdateWithoutWellnessGoalInput>
+    create: XOR<wellnessGoalProgressCreateWithoutWellnessGoalInput, wellnessGoalProgressUncheckedCreateWithoutWellnessGoalInput>
   }
 
-  export type goalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput = {
-    where: goalProgressWhereUniqueInput
-    data: XOR<goalProgressUpdateWithoutWellnessGoalInput, goalProgressUncheckedUpdateWithoutWellnessGoalInput>
+  export type wellnessGoalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput = {
+    where: wellnessGoalProgressWhereUniqueInput
+    data: XOR<wellnessGoalProgressUpdateWithoutWellnessGoalInput, wellnessGoalProgressUncheckedUpdateWithoutWellnessGoalInput>
   }
 
-  export type goalProgressUpdateManyWithWhereWithoutWellnessGoalInput = {
-    where: goalProgressScalarWhereInput
-    data: XOR<goalProgressUpdateManyMutationInput, goalProgressUncheckedUpdateManyWithoutWellnessGoalInput>
+  export type wellnessGoalProgressUpdateManyWithWhereWithoutWellnessGoalInput = {
+    where: wellnessGoalProgressScalarWhereInput
+    data: XOR<wellnessGoalProgressUpdateManyMutationInput, wellnessGoalProgressUncheckedUpdateManyWithoutWellnessGoalInput>
   }
 
-  export type goalProgressScalarWhereInput = {
-    AND?: goalProgressScalarWhereInput | goalProgressScalarWhereInput[]
-    OR?: goalProgressScalarWhereInput[]
-    NOT?: goalProgressScalarWhereInput | goalProgressScalarWhereInput[]
-    id?: StringFilter<"goalProgress"> | string
-    goalId?: StringFilter<"goalProgress"> | string
-    recordingDate?: DateTimeFilter<"goalProgress"> | Date | string
-    achievedValue?: IntFilter<"goalProgress"> | number
-    goalAchieved?: BoolFilter<"goalProgress"> | boolean
-    createdAt?: DateTimeFilter<"goalProgress"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"goalProgress"> | Date | string | null
+  export type wellnessGoalProgressScalarWhereInput = {
+    AND?: wellnessGoalProgressScalarWhereInput | wellnessGoalProgressScalarWhereInput[]
+    OR?: wellnessGoalProgressScalarWhereInput[]
+    NOT?: wellnessGoalProgressScalarWhereInput | wellnessGoalProgressScalarWhereInput[]
+    id?: StringFilter<"wellnessGoalProgress"> | string
+    goalId?: StringFilter<"wellnessGoalProgress"> | string
+    recordingDate?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    achievedValue?: IntFilter<"wellnessGoalProgress"> | number
+    goalAchieved?: BoolFilter<"wellnessGoalProgress"> | boolean
+    createdAt?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"wellnessGoalProgress"> | Date | string | null
   }
 
   export type userUpsertWithoutWellnessGoalInput = {
@@ -99582,7 +99610,7 @@ export namespace Prisma {
     active?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    goalProgress?: goalProgressCreateNestedManyWithoutWellnessGoalInput
+    wellnessGoalProgress?: wellnessGoalProgressCreateNestedManyWithoutWellnessGoalInput
     user?: userCreateNestedOneWithoutWellnessGoalInput
   }
 
@@ -99598,7 +99626,7 @@ export namespace Prisma {
     active?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    goalProgress?: goalProgressUncheckedCreateNestedManyWithoutWellnessGoalInput
+    wellnessGoalProgress?: wellnessGoalProgressUncheckedCreateNestedManyWithoutWellnessGoalInput
   }
 
   export type wellnessGoalCreateOrConnectWithoutWellnessCategoryInput = {
@@ -99658,6 +99686,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationCreateManyActivityInput = {
+    id?: string
     userId: string
     registrationDate: Date | string
     status?: string | null
@@ -99667,6 +99696,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUpdateWithoutActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendanceConfirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -99676,6 +99706,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUncheckedUpdateWithoutActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -99685,6 +99716,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUncheckedUpdateManyWithoutActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -100379,6 +100411,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationCreateManyUserInput = {
+    id?: string
     activityId: string
     registrationDate: Date | string
     status?: string | null
@@ -100763,6 +100796,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendanceConfirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -100772,6 +100806,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     activityId?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -100781,6 +100816,7 @@ export namespace Prisma {
   }
 
   export type activityRegistrationUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     activityId?: StringFieldUpdateOperationsInput | string
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101590,7 +101626,7 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    goalProgress?: goalProgressUpdateManyWithoutWellnessGoalNestedInput
+    wellnessGoalProgress?: wellnessGoalProgressUpdateManyWithoutWellnessGoalNestedInput
     wellnessCategory?: wellnessCategoryUpdateOneRequiredWithoutWellnessGoalNestedInput
   }
 
@@ -101606,7 +101642,7 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    goalProgress?: goalProgressUncheckedUpdateManyWithoutWellnessGoalNestedInput
+    wellnessGoalProgress?: wellnessGoalProgressUncheckedUpdateManyWithoutWellnessGoalNestedInput
   }
 
   export type wellnessGoalUncheckedUpdateManyWithoutUserInput = {
@@ -101623,7 +101659,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type goalProgressCreateManyWellnessGoalInput = {
+  export type wellnessGoalProgressCreateManyWellnessGoalInput = {
     id?: string
     recordingDate: Date | string
     achievedValue: number
@@ -101632,7 +101668,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type goalProgressUpdateWithoutWellnessGoalInput = {
+  export type wellnessGoalProgressUpdateWithoutWellnessGoalInput = {
     id?: StringFieldUpdateOperationsInput | string
     recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     achievedValue?: IntFieldUpdateOperationsInput | number
@@ -101641,7 +101677,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type goalProgressUncheckedUpdateWithoutWellnessGoalInput = {
+  export type wellnessGoalProgressUncheckedUpdateWithoutWellnessGoalInput = {
     id?: StringFieldUpdateOperationsInput | string
     recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     achievedValue?: IntFieldUpdateOperationsInput | number
@@ -101650,7 +101686,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type goalProgressUncheckedUpdateManyWithoutWellnessGoalInput = {
+  export type wellnessGoalProgressUncheckedUpdateManyWithoutWellnessGoalInput = {
     id?: StringFieldUpdateOperationsInput | string
     recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     achievedValue?: IntFieldUpdateOperationsInput | number
@@ -102308,7 +102344,7 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    goalProgress?: goalProgressUpdateManyWithoutWellnessGoalNestedInput
+    wellnessGoalProgress?: wellnessGoalProgressUpdateManyWithoutWellnessGoalNestedInput
     user?: userUpdateOneWithoutWellnessGoalNestedInput
   }
 
@@ -102324,7 +102360,7 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    goalProgress?: goalProgressUncheckedUpdateManyWithoutWellnessGoalNestedInput
+    wellnessGoalProgress?: wellnessGoalProgressUncheckedUpdateManyWithoutWellnessGoalNestedInput
   }
 
   export type wellnessGoalUncheckedUpdateManyWithoutWellnessCategoryInput = {

@@ -1,105 +1,105 @@
 import { PrismaClient } from "../prisma/client";
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
-import IActivityLog from "@/@types/data/IActivityLog";
+import IActivityLog from "@/@types/data/activities/IActivityLog";
 
 const prisma = new PrismaClient();
 
 /**
 * @swagger
 * tags:
-*   name: WellnessBadges
+*   name: ActivityLogs
 *   description: Gestion des badges bien-être
 */
 
-export const createWellnessBadge = async (
+export const createActivityLog = async (
   req: Request<{}, {}, IActivityLog>,
   res: Response, 
   next: NextFunction
 ) => {
   
   try {
-    const newActivityLog = await prisma.activityLog.create({
+    const logToCreate = await prisma.activityLog.create({
       data: req.body
     });
-    res.status(201).json(newActivityLog);
+    res.status(201).json(logToCreate);
   } catch (error) {
     next(error);
   }
 };
 
-export const getAllWellnessBadges = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const getAllActivityLogs = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const wellnessBadges = await prisma.wellnessBadge.findMany({
+    const logs = await prisma.activityLog.findMany({
       orderBy: {
-        name: 'asc', // Ascending order (A-Z)
+        userId: 'asc', // Ascending order (A-Z)
       },
     });
     
-    res.status(200).json({ wellnessBadges });
+    res.status(200).json({ logs });
   } catch (error) {
     next(error);
   }  
 };
 
-export const getWellnessBadgeById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const getActivityLogById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const { id } = req.params;
   
   try {
-    const wellnessBadge = await prisma.wellnessBadge.findUnique({
+    const log = await prisma.activityLog.findUnique({
       where: { id },
     });
     
-    if (!wellnessBadge) {
-      throw createHttpError(404, `Badge bien-être non trouvé`);
+    if (!log) {
+      throw createHttpError(404, `Log d'activité non trouvé`);
     }
     
-    res.status(200).json(wellnessBadge);
+    res.status(200).json(log);
   } catch (error) {
     next(error);
   }  
 };
 
-export const updateWellnessBadge = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const updateActivityLog = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const { id } = req.params;
   
   try {
-    const wellnessBadge = await prisma.wellnessBadge.findUnique({
+    const log = await prisma.activityLog.findUnique({
       where: { id },
     });    
     
-    if (!wellnessBadge) {
-      throw createHttpError(404, `Badge bien-être non trouvé`);
+    if (!log) {
+      throw createHttpError(404, `Log d'activité non trouvé`);
     }
     
-    const updatedWellnessBadge = await prisma.wellnessBadge.update({
+    const logToUpdate = await prisma.activityLog.update({
       data: req.body,
       where: { id },
     });
-    res.status(200).json(updatedWellnessBadge);
+    res.status(200).json(logToUpdate);
   } catch (error) {
     next(error);
   }
 };
 
-export const deleteWellnessBadge = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const deleteActivityLog = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const { id } = req.params;
  
   try {
-    const wellnessBadge = await prisma.wellnessBadge.findUnique({
+    const log = await prisma.activityLog.findUnique({
       where: { id },
     });    
     
-    if (!wellnessBadge) {
-      throw createHttpError(404, `Badge bien-être non trouvé`);
+    if (!log) {
+      throw createHttpError(404, `Log d'activité non trouvé`);
     }
     
-    await prisma.wellnessBadge.delete({
+    await prisma.activityLog.delete({
       where: { id },
     });
     
     // Correction : Cette variable n'existait pas dans le code d'origine
-    res.status(200).json({ message: "Badge bien-être supprimé avec succès" });
+    res.status(200).json({ message: "Log d'activité supprimé avec succès" });
   } catch (error) {
     next(error);
   }

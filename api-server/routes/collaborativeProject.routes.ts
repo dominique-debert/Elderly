@@ -3,71 +3,71 @@ import { validate } from '@/middlewares/validate';
 import errorHandler from '@/middlewares/errorHandler';
 
 import {
-  cognitiveExerciseSchema,
-  idParamCognitiveExerciseSchema
-} from '@/schemas/validation/cognitiveExercise.schema';
+  projectSchema,
+  idParamProjectSchema
+} from '@/schemas/validation/collaborativeProject.schema';
 
 import {
-  createCognitiveExercise,
-  getAllCognitiveExercises,
-  getCognitiveExerciseById,
-  updateCognitiveExercise,
-  deleteCognitiveExercise
-} from '@/controllers/cognitiveExercise.controller';
+  createCollaborativeProject,
+  getAllCollaborativeProjects,
+  getCollaborativeProjectById,
+  updateCollaborativeProject,
+  deleteCollaborativeProject
+} from '@/controllers/collaborativeProject.controller';
 
 const router = Router();
 
 /**
  * @swagger
- * /api/cognitive-exercises:
+ * /api/collaborative-projects:
  *   post:
- *     summary: Crée un nouvel exercice cognitif
- *     tags: [Cognitive exercises]
+ *     summary: Crée un nouveau projet
+ *     tags: [Collaborative projects]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/CognitiveExercise'
+ *             $ref: '#/components/schemas/CollaborativeProject'
  *     responses:
  *       201:
  *         description: Exercice créé
  */
 router.post(
   '/',
-  validate(cognitiveExerciseSchema),
+  validate(projectSchema),
   errorHandler,
-  createCognitiveExercise
+  createCollaborativeProject
 );
 
 /**
  * @swagger
- * /api/cognitive-exercises:
+ * /api/collaborative-projects:
  *   get:
- *     summary: Récupère la liste de tous les exercices cognitifs
- *     tags: [Cognitive exercises]
+ *     summary: Récupère la liste de tous les projets
+ *     tags: [Collaborative projects]
  *     responses:
  *       200:
- *         description: Liste des exercices
+ *         description: Liste des projets
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/CognitiveExercise'
+ *                 $ref: '#/components/schemas/CollaborativeProject'
  */
 router.get(
   '/',
   errorHandler,
-  getAllCognitiveExercises
+  getAllCollaborativeProjects
 );
 
 /**
  * @swagger
- * /api/cognitive-exercises/{id}:
+ * /api/collaborative-projects/{id}:
  *   get:
- *     summary: Récupère un exercice par son ID
- *     tags: [Cognitive exercises]
+ *     summary: Récupère un projet par son ID
+ *     tags: [Collaborative projects]
  *     parameters:
  *       - in: path
  *         name: id
@@ -75,29 +75,29 @@ router.get(
  *         schema:
  *           type: string
  *           format: cuid
- *         description: ID de l'exercice à récupérer
+ *         description: ID du projet à récupérer
  *     responses:
  *       200:
- *         description: Exercice trouvé
+ *         description: Projet trouvé
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/CognitiveExercise'
+ *               $ref: '#/components/schemas/CollaborativeProject'
  *       404:
- *         description: Exercice non trouvé
+ *         description: Projet non trouvé
  */
 router.get(
   '/:id',
-  validate(idParamCognitiveExerciseSchema, 'params'),
-  getCognitiveExerciseById
+  validate(idParamProjectSchema, 'params'),
+  getCollaborativeProjectById
 );
 
 /**
  * @swagger
- * /api/cognitive-exercises/{id}:
+ * /api/collaborative-projects/{id}:
  *   put:
- *     summary: Met à jour un exercice existant
- *     tags: [Cognitive exercises]
+ *     summary: Met à jour un projet existant
+ *     tags: [Collaborative projects]
  *     parameters:
  *       - in: path
  *         name: id
@@ -105,31 +105,31 @@ router.get(
  *         schema:
  *           type: string
  *           format: cuid
- *         description: ID de l'exercice à mettre à jour
+ *         description: ID du projet à mettre à jour
  *     requestBody:
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/CognitiveExercise'
+ *             $ref: '#/components/schemas/CollaborativeProject'
  *     responses:
  *       200:
- *         description: Exercice mis à jour
+ *         description: Projet mis à jour
  *       404:
- *         description: Exercice non trouvé
+ *         description: Projet non trouvé
  */
 router.put(
   '/:id',
-  validate(idParamCognitiveExerciseSchema, 'params'),
+  validate(idParamProjectSchema, 'params'),
   errorHandler,
-  updateCognitiveExercise
+  updateCollaborativeProject
 );
 
 /**
  * @swagger
- * /api/cognitive-exercises/{id}:
+ * /api/collaborative-projects/{id}:
  *   delete:
  *     summary: Supprime un exercice
- *     tags: [Cognitive exercises]
+ *     tags: [Collaborative projects]
  *     parameters:
  *       - in: path
  *         name: id
@@ -146,9 +146,9 @@ router.put(
  */
 router.delete(
   '/:id',
-  validate(idParamCognitiveExerciseSchema, 'params'),
+  validate(idParamProjectSchema, 'params'),
   errorHandler,
-  deleteCognitiveExercise
+  deleteCollaborativeProject
 );
 
 export default router;

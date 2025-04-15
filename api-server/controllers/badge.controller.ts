@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError';
-import IBadge from '@/@types/data/IBadge';
+import IBadge from '@/@types/data/badges/IBadge';
 
 const prisma = new PrismaClient();
 

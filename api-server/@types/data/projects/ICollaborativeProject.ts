@@ -1,8 +1,8 @@
 export default interface ICollaborativeProject {
   title: string
   description?: string
-  creator_id: string
-  creation_date: Date
+  creatorId: string
+  creationDate: Date
   status?: string
-  category: string
+  categoryId: string
 }

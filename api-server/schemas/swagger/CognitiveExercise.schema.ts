@@ -7,8 +7,8 @@
  *       required:
  *         - name
  *         - category
- *         - difficulty_level
- *         - duration_minutes
+ *         - difficultyLevel
+ *         - durationMinutes
  *       properties:
  *         id:
  *           type: string
@@ -20,26 +20,20 @@
  *         category:
  *           type: string
  *           enum: [memory, attention, logic, language]
- *         difficulty_level:
+ *         difficultyLevel:
  *           type: string
  *           enum: [beginner, intermediate, advanced]
- *         duration_minutes:
+ *         durationMinutes:
  *           type: integer
  *         description:
  *           type: string
  *         image:
  *           type: string
- *         created_at:
- *           type: string
- *           format: date-time
- *         updated_at:
- *           type: string
- *           format: date-time
  *       example:
  *         name: Memory Match
  *         category: memory
- *         difficulty_level: beginner
- *         duration_minutes: 15
+ *         difficultyLevel: beginner
+ *         durationMinutes: 15
  *         description: Jeu de mémoire pour tester la concentration
  *         image: memory.png
  */

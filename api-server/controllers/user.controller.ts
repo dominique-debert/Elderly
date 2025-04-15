@@ -1,7 +1,7 @@
 import { PrismaClient } from "../prisma/client";
 import { Request, Response, NextFunction } from "express";
 import { createHttpError } from "@/utils/httpError";
-import IUser from '@/@types/data/IUser'
+import IUser from '@/@types/data/users/IUser'
 
 const prisma = new PrismaClient();
 
@@ -10,10 +10,10 @@ export const createUser = async (
   req: Request<{}, {}, IUser>, res: Response, next: NextFunction) => {
 
   try {
-    const newUser = await prisma.user.create({
+    const userToCreate = await prisma.user.create({
       data: req.body
     })
-    res.status(201).json(newUser);
+    res.status(201).json(userToCreate);
   } catch (error) {
     next(error);
   }
