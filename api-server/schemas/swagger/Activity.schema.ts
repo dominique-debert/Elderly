@@ -24,11 +24,9 @@
  *         description:
  *           type: string
  *         start_date:
- *           type: string
- *           format: date-time
+ *           type: date
  *         end_date:
- *           type: string
- *           format: date-time
+ *           type: date
  *         location:
  *           type: string
  *         gps_coordinates:

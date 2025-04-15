@@ -10,13 +10,13 @@ export const createSkill = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { name, category, description } = req.body;
+  const { name, category_id, description } = req.body;
 
   try {
     const newSkill = await prisma.skill.create({
       data: {
         name,
-        category,
+        category_id,
         description,
       },
     });
@@ -72,7 +72,7 @@ export const updateSkill = async (
   next: NextFunction
 ) => {
   const id = req.params.id;
-  const { name, category, description } = req.body;
+  const { name, category_id, description } = req.body;
 
   try {
     const skill = await prisma.skill.findUnique({
@@ -87,7 +87,7 @@ export const updateSkill = async (
       where: { id },
       data: {
         name,
-        category,
+        category_id,
         description,
       },
     });

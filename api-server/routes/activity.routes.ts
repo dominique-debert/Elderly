@@ -15,7 +15,7 @@ const router = Router();
 
 /**
  * @swagger
- * /api/badges:
+ * /api/activities:
  *   post:
  *     summary: Créer une nouvelle activité
  *     description: Crée une nouvelle activité avec les données fournies
@@ -61,35 +61,34 @@ router.post('/', validate(activitySchema), errorHandler, createActivity);
 
 /**
  * @swagger
- * /api/badges:
+ * /api/activities:
  *   get:
- *     summary: Récupérer tous les badges
- *     description: Renvoie une liste paginée de badges avec possibilité de filtrage
- *     tags: [Badges]
+ *     summary: Récupérer toutes les activités
+ *     tags: [Activities]
  *     responses:
  *       200:
- *         description: Liste des badges récupérée avec succès
+ *         description: Liste des activités récupérées avec succès
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 badges:
+ *                 activities:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/Badge'
+ *                     $ref: '#/components/schemas/Activity'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllBadges);
+router.get('/', errorHandler, getAllActivities);
 
 /**
  * @swagger
- * /api/badges/{id}:
+ * /api/activities/{id}:
  *   get:
- *     summary: Récupérer un badge par son ID
- *     description: Renvoie un badge basé sur son ID
- *     tags: [Badges]
+ *     summary: Récupérer une activité par son ID
+ *     description: Renvoie une activité basée sur son ID
+ *     tags: [Activities]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,28 +96,28 @@ router.get('/', errorHandler, getAllBadges);
  *         schema:
  *           type: string
  *           format: cuid
- *         description: ID du badge à récupérer
+ *         description: ID de l'activité à récupérer
  *     responses:
  *       200:
- *         description: Badge récupéré avec succès
+ *         description: Activité récupéré avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Badge'
+ *               $ref: '#/components/schemas/Activity'
  *       404:
- *         description: Badge non trouvé
+ *         description: Activité non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamSchema, 'params'), errorHandler, getBadgeById);
+router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getActivityById);
 
 /**
  * @swagger
- * /api/badges/{id}:
+ * /api/activities/{id}:
  *   put:
- *     summary: Mettre à jour un badge
- *     description: Met à jour un badge existant avec les données fournies
- *     tags: [Badges]
+ *     summary: Mettre à jour une activité
+ *     description: Met à jour une activité existante avec les données fournies
+ *     tags: [Activities]
  *     parameters:
  *       - in: path
  *         name: id
@@ -126,50 +125,30 @@ router.get('/:id', validate(idParamSchema, 'params'), errorHandler, getBadgeById
  *         schema:
  *           type: string
  *           format: cuid
- *         description: ID du badge à mettre à jour
+ *         description: ID de l'activité à mettre à jour
  *     requestBody:
  *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *                 description: Nom du badge
- *               description:
- *                 type: string
- *                 description: Description du badge
- *               icon:
- *                 type: string
- *                 description: Chemin de l'icône du badge
- *               category:
- *                 type: string
- *                 description: Catégorie du badge
- *               level:
- *                 type: integer
- *                 description: Niveau du badge
  *     responses:
  *       200:
- *         description: Badge mis à jour avec succès
+ *         description: Activité mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Badge'
+ *               $ref: '#/components/schemas/Activity'
  *       404:
- *         description: Badge non trouvé
+ *         description: Activité non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamSchema, 'params'), errorHandler, updateBadge);
+router.put('/:id', validate(idParamActivitySchema, 'params'), errorHandler, updateActivity);
 
 /**
  * @swagger
- * /api/badges/{id}:
+ * /api/activities/{id}:
  *   delete:
- *     summary: Supprimer un badge
- *     description: Supprime un badge existant
- *     tags: [Badges]
+ *     summary: Supprimer une activité
+ *     description: Supprime une activité existante
+ *     tags: [Activities]
  *     parameters:
  *       - in: path
  *         name: id
@@ -177,15 +156,15 @@ router.put('/:id', validate(idParamSchema, 'params'), errorHandler, updateBadge)
  *         schema:
  *           type: string
  *           format: cuid
- *         description: ID du badge à supprimer
+ *         description: ID de l'activité à supprimer
  *     responses:
  *       200:
- *         description: Badge supprimé avec succès
+ *         description: Activité supprimée avec succès
  *       404:
- *         description: Badge non trouvé
+ *         description: Activité non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamSchema, 'params'), errorHandler, deleteBadge);
+router.delete('/:id', validate(idParamActivitySchema, 'params'), errorHandler, deleteActivity);
 
 export default router;

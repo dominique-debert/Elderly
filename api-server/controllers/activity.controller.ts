@@ -19,7 +19,7 @@ export const createActivity = async (
     location,
     gps_coordinates,
     max_spots,
-    category,
+    category_id,
     recurring,
     frequency,
     reduced_mobility_access,
@@ -37,11 +37,11 @@ export const createActivity = async (
         title,
         description,
         start_date,
-        end_date,
+        end_date: end_date || '',
         location,
         gps_coordinates,
         max_spots,
-        category,
+        category_id,
         recurring,
         frequency,
         reduced_mobility_access,
@@ -104,7 +104,6 @@ export const updateActivity = async (
     
     const { id } = req.params;
     const {
-      creator_id,
       title,
       description,
       start_date,
@@ -112,7 +111,7 @@ export const updateActivity = async (
       location,
       gps_coordinates,
       max_spots,
-      category,
+      category_id,
       recurring,
       frequency,
       reduced_mobility_access,
@@ -129,12 +128,11 @@ export const updateActivity = async (
       });
       
       if (!badge) {
-        throw createHttpError(404, 'Badge non trouvé');
+        throw createHttpError(404, 'Activité non trouvée');
       }
       
       const activityToUpddate = await prisma.activity.update({
         data: {
-          creator_id,
           title,
           description,
           start_date,
@@ -142,7 +140,7 @@ export const updateActivity = async (
           location,
           gps_coordinates,
           max_spots,
-          category,
+          category_id,
           recurring,
           frequency,
           reduced_mobility_access,

@@ -3,7 +3,7 @@
 export default interface IWellnessBadge {
   name: string;
   description: string;
-  category: string;
+  category_id: string;
   image: string;
   level: number;
 }

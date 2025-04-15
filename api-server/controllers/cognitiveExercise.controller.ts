@@ -17,12 +17,12 @@ export const createCognitiveExercise = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { name, category, difficulty_level, duration_minutes, description, image } = req.body;
+  const { name, category_id, difficulty_level, duration_minutes, description, image } = req.body;
   try {
     const newCognitiveExercise = await prisma.cognitive_exercise.create({
       data: {
         name,
-        category,
+        category_id,
         difficulty_level,
         duration_minutes,
         description,
@@ -81,7 +81,7 @@ export const updateCognitiveExercise = async (
   next: NextFunction
 ) => {
   const { id } = req.params;
-  const { name, category, difficulty_level, duration_minutes, description, image } = req.body;
+  const { name, category_id, difficulty_level, duration_minutes, description, image } = req.body;
 
   try {
     const cognitiveExercise = await prisma.cognitive_exercise.findUnique({
@@ -95,7 +95,7 @@ export const updateCognitiveExercise = async (
     const updatedCognitiveExercise = await prisma.cognitive_exercise.update({
       data: {
         name,
-        category,
+        category_id,
         difficulty_level,
         duration_minutes,
         description,

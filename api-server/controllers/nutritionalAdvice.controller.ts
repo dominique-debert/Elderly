@@ -16,14 +16,14 @@ export const createNutritionalAdvice = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { title, description, category, season, image } = req.body;
+  const { title, description, category_id, season, image } = req.body;
 
   try {
     const newAdvice = await prisma.nutritional_advice.create({
       data: {
         title,
         description,
-        category,
+        category_id,
         season,
         image,
       },
@@ -80,7 +80,7 @@ export const updateNutritionalAdvice = async (
   next: NextFunction
 ) => {
   const { id } = req.params;
-  const { title, description, category, season, image } = req.body;
+  const { title, description, category_id, season, image } = req.body;
 
   try {
     const advice = await prisma.nutritional_advice.findUnique({
@@ -95,7 +95,7 @@ export const updateNutritionalAdvice = async (
       data: {
         title,
         description,
-        category,
+        category_id,
         season,
         image,
       },

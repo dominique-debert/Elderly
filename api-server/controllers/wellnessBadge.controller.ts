@@ -16,7 +16,7 @@ export const createWellnessBadge = async (req: Request, res: Response, next: Nex
   const {
     name,
     description,
-    category,
+    category_id,
     image,
     level
   }: IWellnessBadge = req.body;
@@ -26,7 +26,7 @@ export const createWellnessBadge = async (req: Request, res: Response, next: Nex
       data: {
         name,
         description,
-        category,
+        category_id,
         image,
         level      
       }
@@ -75,7 +75,7 @@ export const updateWellnessBadge = async (req: Request, res: Response, next: Nex
   const {
     name,
     description,
-    category,
+    category_id,
     image,
     level
   }: IWellnessBadge = req.body;
@@ -93,7 +93,7 @@ export const updateWellnessBadge = async (req: Request, res: Response, next: Nex
       data: {
         name,
         description,
-        category,
+        category_id,
         image,
         level      
       },

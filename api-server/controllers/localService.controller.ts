@@ -18,7 +18,7 @@ export const createLocalService = async (
 ) => {
   const {
     name,
-    category,
+    category_id,
     address,
     gps_coordinates,
     phone,
@@ -32,7 +32,7 @@ export const createLocalService = async (
     const newService = await prisma.local_service.create({
       data: {
         name,
-        category,
+        category_id,
         address,
         gps_coordinates,
         phone,
@@ -96,7 +96,7 @@ export const updateLocalService = async (
 
   const {
     name,
-    category,
+    category_id,
     address,
     gps_coordinates,
     phone,
@@ -119,7 +119,7 @@ export const updateLocalService = async (
       where: { id },
       data: {
         name,
-        category,
+        category_id,
         address,
         gps_coordinates,
         phone,
