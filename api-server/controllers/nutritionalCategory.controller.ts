@@ -113,7 +113,7 @@ export const deleteNutritionalCategory = async (
       throw createHttpError(404, 'Catégorie non trouvée');
     }
 
-    await prisma.activityCategory.delete({
+    await prisma.nutritionalCategory.delete({
       where: { id }
     });
 

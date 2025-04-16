@@ -33651,7 +33651,7 @@ export namespace Prisma {
     projectId: string | null
     userId: string | null
     role: string | null
-    join_date: Date | null
+    joinDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -33660,7 +33660,7 @@ export namespace Prisma {
     projectId: string | null
     userId: string | null
     role: string | null
-    join_date: Date | null
+    joinDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -33669,7 +33669,7 @@ export namespace Prisma {
     projectId: number
     userId: number
     role: number
-    join_date: number
+    joinDate: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -33680,7 +33680,7 @@ export namespace Prisma {
     projectId?: true
     userId?: true
     role?: true
-    join_date?: true
+    joinDate?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -33689,7 +33689,7 @@ export namespace Prisma {
     projectId?: true
     userId?: true
     role?: true
-    join_date?: true
+    joinDate?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -33698,7 +33698,7 @@ export namespace Prisma {
     projectId?: true
     userId?: true
     role?: true
-    join_date?: true
+    joinDate?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -33780,7 +33780,7 @@ export namespace Prisma {
     projectId: string
     userId: string
     role: string
-    join_date: Date
+    joinDate: Date
     createdAt: Date
     updatedAt: Date | null
     _count: ProjectMemberCountAggregateOutputType | null
@@ -33806,7 +33806,7 @@ export namespace Prisma {
     projectId?: boolean
     userId?: boolean
     role?: boolean
-    join_date?: boolean
+    joinDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     collaborativeProject?: boolean | collaborativeProjectDefaultArgs<ExtArgs>
@@ -33817,7 +33817,7 @@ export namespace Prisma {
     projectId?: boolean
     userId?: boolean
     role?: boolean
-    join_date?: boolean
+    joinDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     collaborativeProject?: boolean | collaborativeProjectDefaultArgs<ExtArgs>
@@ -33828,7 +33828,7 @@ export namespace Prisma {
     projectId?: boolean
     userId?: boolean
     role?: boolean
-    join_date?: boolean
+    joinDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     collaborativeProject?: boolean | collaborativeProjectDefaultArgs<ExtArgs>
@@ -33839,12 +33839,12 @@ export namespace Prisma {
     projectId?: boolean
     userId?: boolean
     role?: boolean
-    join_date?: boolean
+    joinDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type projectMemberOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"projectId" | "userId" | "role" | "join_date" | "createdAt" | "updatedAt", ExtArgs["result"]["projectMember"]>
+  export type projectMemberOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"projectId" | "userId" | "role" | "joinDate" | "createdAt" | "updatedAt", ExtArgs["result"]["projectMember"]>
   export type projectMemberInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     collaborativeProject?: boolean | collaborativeProjectDefaultArgs<ExtArgs>
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -33868,7 +33868,7 @@ export namespace Prisma {
       projectId: string
       userId: string
       role: string
-      join_date: Date
+      joinDate: Date
       createdAt: Date
       updatedAt: Date | null
     }, ExtArgs["result"]["projectMember"]>
@@ -34299,7 +34299,7 @@ export namespace Prisma {
     readonly projectId: FieldRef<"projectMember", 'String'>
     readonly userId: FieldRef<"projectMember", 'String'>
     readonly role: FieldRef<"projectMember", 'String'>
-    readonly join_date: FieldRef<"projectMember", 'DateTime'>
+    readonly joinDate: FieldRef<"projectMember", 'DateTime'>
     readonly createdAt: FieldRef<"projectMember", 'DateTime'>
     readonly updatedAt: FieldRef<"projectMember", 'DateTime'>
   }
@@ -38163,30 +38163,30 @@ export namespace Prisma {
   }
 
   export type ServiceCompletedAvgAggregateOutputType = {
-    actual_duration: number | null
-    creator_rating: number | null
-    helper_rating: number | null
-    points_exchanged: number | null
+    actualDuration: number | null
+    creatorRating: number | null
+    helperRating: number | null
+    pointsExchanged: number | null
   }
 
   export type ServiceCompletedSumAggregateOutputType = {
-    actual_duration: number | null
-    creator_rating: number | null
-    helper_rating: number | null
-    points_exchanged: number | null
+    actualDuration: number | null
+    creatorRating: number | null
+    helperRating: number | null
+    pointsExchanged: number | null
   }
 
   export type ServiceCompletedMinAggregateOutputType = {
     id: string | null
     requestId: string | null
     helperId: string | null
-    completion_date: Date | null
-    actual_duration: number | null
-    creator_comment: string | null
-    helper_comment: string | null
-    creator_rating: number | null
-    helper_rating: number | null
-    points_exchanged: number | null
+    completionDate: Date | null
+    actualDuration: number | null
+    creatorComment: string | null
+    helperComment: string | null
+    creatorRating: number | null
+    helperRating: number | null
+    pointsExchanged: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -38195,13 +38195,13 @@ export namespace Prisma {
     id: string | null
     requestId: string | null
     helperId: string | null
-    completion_date: Date | null
-    actual_duration: number | null
-    creator_comment: string | null
-    helper_comment: string | null
-    creator_rating: number | null
-    helper_rating: number | null
-    points_exchanged: number | null
+    completionDate: Date | null
+    actualDuration: number | null
+    creatorComment: string | null
+    helperComment: string | null
+    creatorRating: number | null
+    helperRating: number | null
+    pointsExchanged: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -38210,13 +38210,13 @@ export namespace Prisma {
     id: number
     requestId: number
     helperId: number
-    completion_date: number
-    actual_duration: number
-    creator_comment: number
-    helper_comment: number
-    creator_rating: number
-    helper_rating: number
-    points_exchanged: number
+    completionDate: number
+    actualDuration: number
+    creatorComment: number
+    helperComment: number
+    creatorRating: number
+    helperRating: number
+    pointsExchanged: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -38224,30 +38224,30 @@ export namespace Prisma {
 
 
   export type ServiceCompletedAvgAggregateInputType = {
-    actual_duration?: true
-    creator_rating?: true
-    helper_rating?: true
-    points_exchanged?: true
+    actualDuration?: true
+    creatorRating?: true
+    helperRating?: true
+    pointsExchanged?: true
   }
 
   export type ServiceCompletedSumAggregateInputType = {
-    actual_duration?: true
-    creator_rating?: true
-    helper_rating?: true
-    points_exchanged?: true
+    actualDuration?: true
+    creatorRating?: true
+    helperRating?: true
+    pointsExchanged?: true
   }
 
   export type ServiceCompletedMinAggregateInputType = {
     id?: true
     requestId?: true
     helperId?: true
-    completion_date?: true
-    actual_duration?: true
-    creator_comment?: true
-    helper_comment?: true
-    creator_rating?: true
-    helper_rating?: true
-    points_exchanged?: true
+    completionDate?: true
+    actualDuration?: true
+    creatorComment?: true
+    helperComment?: true
+    creatorRating?: true
+    helperRating?: true
+    pointsExchanged?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -38256,13 +38256,13 @@ export namespace Prisma {
     id?: true
     requestId?: true
     helperId?: true
-    completion_date?: true
-    actual_duration?: true
-    creator_comment?: true
-    helper_comment?: true
-    creator_rating?: true
-    helper_rating?: true
-    points_exchanged?: true
+    completionDate?: true
+    actualDuration?: true
+    creatorComment?: true
+    helperComment?: true
+    creatorRating?: true
+    helperRating?: true
+    pointsExchanged?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -38271,13 +38271,13 @@ export namespace Prisma {
     id?: true
     requestId?: true
     helperId?: true
-    completion_date?: true
-    actual_duration?: true
-    creator_comment?: true
-    helper_comment?: true
-    creator_rating?: true
-    helper_rating?: true
-    points_exchanged?: true
+    completionDate?: true
+    actualDuration?: true
+    creatorComment?: true
+    helperComment?: true
+    creatorRating?: true
+    helperRating?: true
+    pointsExchanged?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -38373,13 +38373,13 @@ export namespace Prisma {
     id: string
     requestId: string
     helperId: string
-    completion_date: Date
-    actual_duration: number | null
-    creator_comment: string | null
-    helper_comment: string | null
-    creator_rating: number | null
-    helper_rating: number | null
-    points_exchanged: number | null
+    completionDate: Date
+    actualDuration: number | null
+    creatorComment: string | null
+    helperComment: string | null
+    creatorRating: number | null
+    helperRating: number | null
+    pointsExchanged: number | null
     createdAt: Date
     updatedAt: Date | null
     _count: ServiceCompletedCountAggregateOutputType | null
@@ -38407,13 +38407,13 @@ export namespace Prisma {
     id?: boolean
     requestId?: boolean
     helperId?: boolean
-    completion_date?: boolean
-    actual_duration?: boolean
-    creator_comment?: boolean
-    helper_comment?: boolean
-    creator_rating?: boolean
-    helper_rating?: boolean
-    points_exchanged?: boolean
+    completionDate?: boolean
+    actualDuration?: boolean
+    creatorComment?: boolean
+    helperComment?: boolean
+    creatorRating?: boolean
+    helperRating?: boolean
+    pointsExchanged?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -38424,13 +38424,13 @@ export namespace Prisma {
     id?: boolean
     requestId?: boolean
     helperId?: boolean
-    completion_date?: boolean
-    actual_duration?: boolean
-    creator_comment?: boolean
-    helper_comment?: boolean
-    creator_rating?: boolean
-    helper_rating?: boolean
-    points_exchanged?: boolean
+    completionDate?: boolean
+    actualDuration?: boolean
+    creatorComment?: boolean
+    helperComment?: boolean
+    creatorRating?: boolean
+    helperRating?: boolean
+    pointsExchanged?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -38441,13 +38441,13 @@ export namespace Prisma {
     id?: boolean
     requestId?: boolean
     helperId?: boolean
-    completion_date?: boolean
-    actual_duration?: boolean
-    creator_comment?: boolean
-    helper_comment?: boolean
-    creator_rating?: boolean
-    helper_rating?: boolean
-    points_exchanged?: boolean
+    completionDate?: boolean
+    actualDuration?: boolean
+    creatorComment?: boolean
+    helperComment?: boolean
+    creatorRating?: boolean
+    helperRating?: boolean
+    pointsExchanged?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -38458,18 +38458,18 @@ export namespace Prisma {
     id?: boolean
     requestId?: boolean
     helperId?: boolean
-    completion_date?: boolean
-    actual_duration?: boolean
-    creator_comment?: boolean
-    helper_comment?: boolean
-    creator_rating?: boolean
-    helper_rating?: boolean
-    points_exchanged?: boolean
+    completionDate?: boolean
+    actualDuration?: boolean
+    creatorComment?: boolean
+    helperComment?: boolean
+    creatorRating?: boolean
+    helperRating?: boolean
+    pointsExchanged?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type serviceCompletedOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "requestId" | "helperId" | "completion_date" | "actual_duration" | "creator_comment" | "helper_comment" | "creator_rating" | "helper_rating" | "points_exchanged" | "createdAt" | "updatedAt", ExtArgs["result"]["serviceCompleted"]>
+  export type serviceCompletedOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "requestId" | "helperId" | "completionDate" | "actualDuration" | "creatorComment" | "helperComment" | "creatorRating" | "helperRating" | "pointsExchanged" | "createdAt" | "updatedAt", ExtArgs["result"]["serviceCompleted"]>
   export type serviceCompletedInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | userDefaultArgs<ExtArgs>
     helpRequest?: boolean | helpRequestDefaultArgs<ExtArgs>
@@ -38493,13 +38493,13 @@ export namespace Prisma {
       id: string
       requestId: string
       helperId: string
-      completion_date: Date
-      actual_duration: number | null
-      creator_comment: string | null
-      helper_comment: string | null
-      creator_rating: number | null
-      helper_rating: number | null
-      points_exchanged: number | null
+      completionDate: Date
+      actualDuration: number | null
+      creatorComment: string | null
+      helperComment: string | null
+      creatorRating: number | null
+      helperRating: number | null
+      pointsExchanged: number | null
       createdAt: Date
       updatedAt: Date | null
     }, ExtArgs["result"]["serviceCompleted"]>
@@ -38930,13 +38930,13 @@ export namespace Prisma {
     readonly id: FieldRef<"serviceCompleted", 'String'>
     readonly requestId: FieldRef<"serviceCompleted", 'String'>
     readonly helperId: FieldRef<"serviceCompleted", 'String'>
-    readonly completion_date: FieldRef<"serviceCompleted", 'DateTime'>
-    readonly actual_duration: FieldRef<"serviceCompleted", 'Int'>
-    readonly creator_comment: FieldRef<"serviceCompleted", 'String'>
-    readonly helper_comment: FieldRef<"serviceCompleted", 'String'>
-    readonly creator_rating: FieldRef<"serviceCompleted", 'Int'>
-    readonly helper_rating: FieldRef<"serviceCompleted", 'Int'>
-    readonly points_exchanged: FieldRef<"serviceCompleted", 'Int'>
+    readonly completionDate: FieldRef<"serviceCompleted", 'DateTime'>
+    readonly actualDuration: FieldRef<"serviceCompleted", 'Int'>
+    readonly creatorComment: FieldRef<"serviceCompleted", 'String'>
+    readonly helperComment: FieldRef<"serviceCompleted", 'String'>
+    readonly creatorRating: FieldRef<"serviceCompleted", 'Int'>
+    readonly helperRating: FieldRef<"serviceCompleted", 'Int'>
+    readonly pointsExchanged: FieldRef<"serviceCompleted", 'Int'>
     readonly createdAt: FieldRef<"serviceCompleted", 'DateTime'>
     readonly updatedAt: FieldRef<"serviceCompleted", 'DateTime'>
   }
@@ -42688,7 +42688,7 @@ export namespace Prisma {
     userId: string | null
     contactId: string | null
     dateAdded: Date | null
-    access_level: string | null
+    accessLevel: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -42697,7 +42697,7 @@ export namespace Prisma {
     userId: string | null
     contactId: string | null
     dateAdded: Date | null
-    access_level: string | null
+    accessLevel: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -42706,7 +42706,7 @@ export namespace Prisma {
     userId: number
     contactId: number
     dateAdded: number
-    access_level: number
+    accessLevel: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -42717,7 +42717,7 @@ export namespace Prisma {
     userId?: true
     contactId?: true
     dateAdded?: true
-    access_level?: true
+    accessLevel?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -42726,7 +42726,7 @@ export namespace Prisma {
     userId?: true
     contactId?: true
     dateAdded?: true
-    access_level?: true
+    accessLevel?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -42735,7 +42735,7 @@ export namespace Prisma {
     userId?: true
     contactId?: true
     dateAdded?: true
-    access_level?: true
+    accessLevel?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -42817,7 +42817,7 @@ export namespace Prisma {
     userId: string
     contactId: string
     dateAdded: Date
-    access_level: string
+    accessLevel: string
     createdAt: Date
     updatedAt: Date | null
     _count: TrustCircleCountAggregateOutputType | null
@@ -42843,7 +42843,7 @@ export namespace Prisma {
     userId?: boolean
     contactId?: boolean
     dateAdded?: boolean
-    access_level?: boolean
+    accessLevel?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["trustCircle"]>
@@ -42852,7 +42852,7 @@ export namespace Prisma {
     userId?: boolean
     contactId?: boolean
     dateAdded?: boolean
-    access_level?: boolean
+    accessLevel?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["trustCircle"]>
@@ -42861,7 +42861,7 @@ export namespace Prisma {
     userId?: boolean
     contactId?: boolean
     dateAdded?: boolean
-    access_level?: boolean
+    accessLevel?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["trustCircle"]>
@@ -42870,12 +42870,12 @@ export namespace Prisma {
     userId?: boolean
     contactId?: boolean
     dateAdded?: boolean
-    access_level?: boolean
+    accessLevel?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type trustCircleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "contactId" | "dateAdded" | "access_level" | "createdAt" | "updatedAt", ExtArgs["result"]["trustCircle"]>
+  export type trustCircleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "contactId" | "dateAdded" | "accessLevel" | "createdAt" | "updatedAt", ExtArgs["result"]["trustCircle"]>
 
   export type $trustCirclePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "trustCircle"
@@ -42884,7 +42884,7 @@ export namespace Prisma {
       userId: string
       contactId: string
       dateAdded: Date
-      access_level: string
+      accessLevel: string
       createdAt: Date
       updatedAt: Date | null
     }, ExtArgs["result"]["trustCircle"]>
@@ -43313,7 +43313,7 @@ export namespace Prisma {
     readonly userId: FieldRef<"trustCircle", 'String'>
     readonly contactId: FieldRef<"trustCircle", 'String'>
     readonly dateAdded: FieldRef<"trustCircle", 'DateTime'>
-    readonly access_level: FieldRef<"trustCircle", 'String'>
+    readonly accessLevel: FieldRef<"trustCircle", 'String'>
     readonly createdAt: FieldRef<"trustCircle", 'DateTime'>
     readonly updatedAt: FieldRef<"trustCircle", 'DateTime'>
   }
@@ -43695,8 +43695,8 @@ export namespace Prisma {
   export type TrustedContactMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    lastName: string | null
     firstName: string | null
+    lastName: string | null
     email: string | null
     phone: string | null
     relationship: string | null
@@ -43711,8 +43711,8 @@ export namespace Prisma {
   export type TrustedContactMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    lastName: string | null
     firstName: string | null
+    lastName: string | null
     email: string | null
     phone: string | null
     relationship: string | null
@@ -43727,8 +43727,8 @@ export namespace Prisma {
   export type TrustedContactCountAggregateOutputType = {
     id: number
     userId: number
-    lastName: number
     firstName: number
+    lastName: number
     email: number
     phone: number
     relationship: number
@@ -43745,8 +43745,8 @@ export namespace Prisma {
   export type TrustedContactMinAggregateInputType = {
     id?: true
     userId?: true
-    lastName?: true
     firstName?: true
+    lastName?: true
     email?: true
     phone?: true
     relationship?: true
@@ -43761,8 +43761,8 @@ export namespace Prisma {
   export type TrustedContactMaxAggregateInputType = {
     id?: true
     userId?: true
-    lastName?: true
     firstName?: true
+    lastName?: true
     email?: true
     phone?: true
     relationship?: true
@@ -43777,8 +43777,8 @@ export namespace Prisma {
   export type TrustedContactCountAggregateInputType = {
     id?: true
     userId?: true
-    lastName?: true
     firstName?: true
+    lastName?: true
     email?: true
     phone?: true
     relationship?: true
@@ -43866,8 +43866,8 @@ export namespace Prisma {
   export type TrustedContactGroupByOutputType = {
     id: string
     userId: string
-    lastName: string
     firstName: string
+    lastName: string
     email: string | null
     phone: string
     relationship: string | null
@@ -43899,8 +43899,8 @@ export namespace Prisma {
   export type trustedContactSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    lastName?: boolean
     firstName?: boolean
+    lastName?: boolean
     email?: boolean
     phone?: boolean
     relationship?: boolean
@@ -43916,8 +43916,8 @@ export namespace Prisma {
   export type trustedContactSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    lastName?: boolean
     firstName?: boolean
+    lastName?: boolean
     email?: boolean
     phone?: boolean
     relationship?: boolean
@@ -43933,8 +43933,8 @@ export namespace Prisma {
   export type trustedContactSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    lastName?: boolean
     firstName?: boolean
+    lastName?: boolean
     email?: boolean
     phone?: boolean
     relationship?: boolean
@@ -43950,8 +43950,8 @@ export namespace Prisma {
   export type trustedContactSelectScalar = {
     id?: boolean
     userId?: boolean
-    lastName?: boolean
     firstName?: boolean
+    lastName?: boolean
     email?: boolean
     phone?: boolean
     relationship?: boolean
@@ -43963,7 +43963,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type trustedContactOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "lastName" | "firstName" | "email" | "phone" | "relationship" | "shareMedications" | "shareHealthIndicators" | "shareWellnessActivities" | "emergencyAlerts" | "createdAt" | "updatedAt", ExtArgs["result"]["trustedContact"]>
+  export type trustedContactOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "firstName" | "lastName" | "email" | "phone" | "relationship" | "shareMedications" | "shareHealthIndicators" | "shareWellnessActivities" | "emergencyAlerts" | "createdAt" | "updatedAt", ExtArgs["result"]["trustedContact"]>
   export type trustedContactInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | userDefaultArgs<ExtArgs>
   }
@@ -43982,8 +43982,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
-      lastName: string
       firstName: string
+      lastName: string
       email: string | null
       phone: string
       relationship: string | null
@@ -44419,8 +44419,8 @@ export namespace Prisma {
   interface trustedContactFieldRefs {
     readonly id: FieldRef<"trustedContact", 'String'>
     readonly userId: FieldRef<"trustedContact", 'String'>
-    readonly lastName: FieldRef<"trustedContact", 'String'>
     readonly firstName: FieldRef<"trustedContact", 'String'>
+    readonly lastName: FieldRef<"trustedContact", 'String'>
     readonly email: FieldRef<"trustedContact", 'String'>
     readonly phone: FieldRef<"trustedContact", 'String'>
     readonly relationship: FieldRef<"trustedContact", 'String'>
@@ -71753,7 +71753,7 @@ export namespace Prisma {
     projectId: 'projectId',
     userId: 'userId',
     role: 'role',
-    join_date: 'join_date',
+    joinDate: 'joinDate',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -71810,13 +71810,13 @@ export namespace Prisma {
     id: 'id',
     requestId: 'requestId',
     helperId: 'helperId',
-    completion_date: 'completion_date',
-    actual_duration: 'actual_duration',
-    creator_comment: 'creator_comment',
-    helper_comment: 'helper_comment',
-    creator_rating: 'creator_rating',
-    helper_rating: 'helper_rating',
-    points_exchanged: 'points_exchanged',
+    completionDate: 'completionDate',
+    actualDuration: 'actualDuration',
+    creatorComment: 'creatorComment',
+    helperComment: 'helperComment',
+    creatorRating: 'creatorRating',
+    helperRating: 'helperRating',
+    pointsExchanged: 'pointsExchanged',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -71865,7 +71865,7 @@ export namespace Prisma {
     userId: 'userId',
     contactId: 'contactId',
     dateAdded: 'dateAdded',
-    access_level: 'access_level',
+    accessLevel: 'accessLevel',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -71876,8 +71876,8 @@ export namespace Prisma {
   export const TrustedContactScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    lastName: 'lastName',
     firstName: 'firstName',
+    lastName: 'lastName',
     email: 'email',
     phone: 'phone',
     relationship: 'relationship',
@@ -74213,7 +74213,7 @@ export namespace Prisma {
     projectId?: StringFilter<"projectMember"> | string
     userId?: StringFilter<"projectMember"> | string
     role?: StringFilter<"projectMember"> | string
-    join_date?: DateTimeFilter<"projectMember"> | Date | string
+    joinDate?: DateTimeFilter<"projectMember"> | Date | string
     createdAt?: DateTimeFilter<"projectMember"> | Date | string
     updatedAt?: DateTimeNullableFilter<"projectMember"> | Date | string | null
     collaborativeProject?: XOR<CollaborativeProjectScalarRelationFilter, collaborativeProjectWhereInput>
@@ -74224,7 +74224,7 @@ export namespace Prisma {
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
-    join_date?: SortOrder
+    joinDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     collaborativeProject?: collaborativeProjectOrderByWithRelationInput
@@ -74239,7 +74239,7 @@ export namespace Prisma {
     projectId?: StringFilter<"projectMember"> | string
     userId?: StringFilter<"projectMember"> | string
     role?: StringFilter<"projectMember"> | string
-    join_date?: DateTimeFilter<"projectMember"> | Date | string
+    joinDate?: DateTimeFilter<"projectMember"> | Date | string
     createdAt?: DateTimeFilter<"projectMember"> | Date | string
     updatedAt?: DateTimeNullableFilter<"projectMember"> | Date | string | null
     collaborativeProject?: XOR<CollaborativeProjectScalarRelationFilter, collaborativeProjectWhereInput>
@@ -74250,7 +74250,7 @@ export namespace Prisma {
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
-    join_date?: SortOrder
+    joinDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: projectMemberCountOrderByAggregateInput
@@ -74265,7 +74265,7 @@ export namespace Prisma {
     projectId?: StringWithAggregatesFilter<"projectMember"> | string
     userId?: StringWithAggregatesFilter<"projectMember"> | string
     role?: StringWithAggregatesFilter<"projectMember"> | string
-    join_date?: DateTimeWithAggregatesFilter<"projectMember"> | Date | string
+    joinDate?: DateTimeWithAggregatesFilter<"projectMember"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"projectMember"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"projectMember"> | Date | string | null
   }
@@ -74508,13 +74508,13 @@ export namespace Prisma {
     id?: StringFilter<"serviceCompleted"> | string
     requestId?: StringFilter<"serviceCompleted"> | string
     helperId?: StringFilter<"serviceCompleted"> | string
-    completion_date?: DateTimeFilter<"serviceCompleted"> | Date | string
-    actual_duration?: IntNullableFilter<"serviceCompleted"> | number | null
-    creator_comment?: StringNullableFilter<"serviceCompleted"> | string | null
-    helper_comment?: StringNullableFilter<"serviceCompleted"> | string | null
-    creator_rating?: IntNullableFilter<"serviceCompleted"> | number | null
-    helper_rating?: IntNullableFilter<"serviceCompleted"> | number | null
-    points_exchanged?: IntNullableFilter<"serviceCompleted"> | number | null
+    completionDate?: DateTimeFilter<"serviceCompleted"> | Date | string
+    actualDuration?: IntNullableFilter<"serviceCompleted"> | number | null
+    creatorComment?: StringNullableFilter<"serviceCompleted"> | string | null
+    helperComment?: StringNullableFilter<"serviceCompleted"> | string | null
+    creatorRating?: IntNullableFilter<"serviceCompleted"> | number | null
+    helperRating?: IntNullableFilter<"serviceCompleted"> | number | null
+    pointsExchanged?: IntNullableFilter<"serviceCompleted"> | number | null
     createdAt?: DateTimeFilter<"serviceCompleted"> | Date | string
     updatedAt?: DateTimeNullableFilter<"serviceCompleted"> | Date | string | null
     user?: XOR<UserScalarRelationFilter, userWhereInput>
@@ -74525,13 +74525,13 @@ export namespace Prisma {
     id?: SortOrder
     requestId?: SortOrder
     helperId?: SortOrder
-    completion_date?: SortOrder
-    actual_duration?: SortOrderInput | SortOrder
-    creator_comment?: SortOrderInput | SortOrder
-    helper_comment?: SortOrderInput | SortOrder
-    creator_rating?: SortOrderInput | SortOrder
-    helper_rating?: SortOrderInput | SortOrder
-    points_exchanged?: SortOrderInput | SortOrder
+    completionDate?: SortOrder
+    actualDuration?: SortOrderInput | SortOrder
+    creatorComment?: SortOrderInput | SortOrder
+    helperComment?: SortOrderInput | SortOrder
+    creatorRating?: SortOrderInput | SortOrder
+    helperRating?: SortOrderInput | SortOrder
+    pointsExchanged?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     user?: userOrderByWithRelationInput
@@ -74545,13 +74545,13 @@ export namespace Prisma {
     NOT?: serviceCompletedWhereInput | serviceCompletedWhereInput[]
     requestId?: StringFilter<"serviceCompleted"> | string
     helperId?: StringFilter<"serviceCompleted"> | string
-    completion_date?: DateTimeFilter<"serviceCompleted"> | Date | string
-    actual_duration?: IntNullableFilter<"serviceCompleted"> | number | null
-    creator_comment?: StringNullableFilter<"serviceCompleted"> | string | null
-    helper_comment?: StringNullableFilter<"serviceCompleted"> | string | null
-    creator_rating?: IntNullableFilter<"serviceCompleted"> | number | null
-    helper_rating?: IntNullableFilter<"serviceCompleted"> | number | null
-    points_exchanged?: IntNullableFilter<"serviceCompleted"> | number | null
+    completionDate?: DateTimeFilter<"serviceCompleted"> | Date | string
+    actualDuration?: IntNullableFilter<"serviceCompleted"> | number | null
+    creatorComment?: StringNullableFilter<"serviceCompleted"> | string | null
+    helperComment?: StringNullableFilter<"serviceCompleted"> | string | null
+    creatorRating?: IntNullableFilter<"serviceCompleted"> | number | null
+    helperRating?: IntNullableFilter<"serviceCompleted"> | number | null
+    pointsExchanged?: IntNullableFilter<"serviceCompleted"> | number | null
     createdAt?: DateTimeFilter<"serviceCompleted"> | Date | string
     updatedAt?: DateTimeNullableFilter<"serviceCompleted"> | Date | string | null
     user?: XOR<UserScalarRelationFilter, userWhereInput>
@@ -74562,13 +74562,13 @@ export namespace Prisma {
     id?: SortOrder
     requestId?: SortOrder
     helperId?: SortOrder
-    completion_date?: SortOrder
-    actual_duration?: SortOrderInput | SortOrder
-    creator_comment?: SortOrderInput | SortOrder
-    helper_comment?: SortOrderInput | SortOrder
-    creator_rating?: SortOrderInput | SortOrder
-    helper_rating?: SortOrderInput | SortOrder
-    points_exchanged?: SortOrderInput | SortOrder
+    completionDate?: SortOrder
+    actualDuration?: SortOrderInput | SortOrder
+    creatorComment?: SortOrderInput | SortOrder
+    helperComment?: SortOrderInput | SortOrder
+    creatorRating?: SortOrderInput | SortOrder
+    helperRating?: SortOrderInput | SortOrder
+    pointsExchanged?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: serviceCompletedCountOrderByAggregateInput
@@ -74585,13 +74585,13 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"serviceCompleted"> | string
     requestId?: StringWithAggregatesFilter<"serviceCompleted"> | string
     helperId?: StringWithAggregatesFilter<"serviceCompleted"> | string
-    completion_date?: DateTimeWithAggregatesFilter<"serviceCompleted"> | Date | string
-    actual_duration?: IntNullableWithAggregatesFilter<"serviceCompleted"> | number | null
-    creator_comment?: StringNullableWithAggregatesFilter<"serviceCompleted"> | string | null
-    helper_comment?: StringNullableWithAggregatesFilter<"serviceCompleted"> | string | null
-    creator_rating?: IntNullableWithAggregatesFilter<"serviceCompleted"> | number | null
-    helper_rating?: IntNullableWithAggregatesFilter<"serviceCompleted"> | number | null
-    points_exchanged?: IntNullableWithAggregatesFilter<"serviceCompleted"> | number | null
+    completionDate?: DateTimeWithAggregatesFilter<"serviceCompleted"> | Date | string
+    actualDuration?: IntNullableWithAggregatesFilter<"serviceCompleted"> | number | null
+    creatorComment?: StringNullableWithAggregatesFilter<"serviceCompleted"> | string | null
+    helperComment?: StringNullableWithAggregatesFilter<"serviceCompleted"> | string | null
+    creatorRating?: IntNullableWithAggregatesFilter<"serviceCompleted"> | number | null
+    helperRating?: IntNullableWithAggregatesFilter<"serviceCompleted"> | number | null
+    pointsExchanged?: IntNullableWithAggregatesFilter<"serviceCompleted"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"serviceCompleted"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"serviceCompleted"> | Date | string | null
   }
@@ -74801,7 +74801,7 @@ export namespace Prisma {
     userId?: StringFilter<"trustCircle"> | string
     contactId?: StringFilter<"trustCircle"> | string
     dateAdded?: DateTimeFilter<"trustCircle"> | Date | string
-    access_level?: StringFilter<"trustCircle"> | string
+    accessLevel?: StringFilter<"trustCircle"> | string
     createdAt?: DateTimeFilter<"trustCircle"> | Date | string
     updatedAt?: DateTimeNullableFilter<"trustCircle"> | Date | string | null
   }
@@ -74810,7 +74810,7 @@ export namespace Prisma {
     userId?: SortOrder
     contactId?: SortOrder
     dateAdded?: SortOrder
-    access_level?: SortOrder
+    accessLevel?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
   }
@@ -74823,7 +74823,7 @@ export namespace Prisma {
     userId?: StringFilter<"trustCircle"> | string
     contactId?: StringFilter<"trustCircle"> | string
     dateAdded?: DateTimeFilter<"trustCircle"> | Date | string
-    access_level?: StringFilter<"trustCircle"> | string
+    accessLevel?: StringFilter<"trustCircle"> | string
     createdAt?: DateTimeFilter<"trustCircle"> | Date | string
     updatedAt?: DateTimeNullableFilter<"trustCircle"> | Date | string | null
   }, "userId_contactId">
@@ -74832,7 +74832,7 @@ export namespace Prisma {
     userId?: SortOrder
     contactId?: SortOrder
     dateAdded?: SortOrder
-    access_level?: SortOrder
+    accessLevel?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: trustCircleCountOrderByAggregateInput
@@ -74847,7 +74847,7 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"trustCircle"> | string
     contactId?: StringWithAggregatesFilter<"trustCircle"> | string
     dateAdded?: DateTimeWithAggregatesFilter<"trustCircle"> | Date | string
-    access_level?: StringWithAggregatesFilter<"trustCircle"> | string
+    accessLevel?: StringWithAggregatesFilter<"trustCircle"> | string
     createdAt?: DateTimeWithAggregatesFilter<"trustCircle"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"trustCircle"> | Date | string | null
   }
@@ -74858,8 +74858,8 @@ export namespace Prisma {
     NOT?: trustedContactWhereInput | trustedContactWhereInput[]
     id?: StringFilter<"trustedContact"> | string
     userId?: StringFilter<"trustedContact"> | string
-    lastName?: StringFilter<"trustedContact"> | string
     firstName?: StringFilter<"trustedContact"> | string
+    lastName?: StringFilter<"trustedContact"> | string
     email?: StringNullableFilter<"trustedContact"> | string | null
     phone?: StringFilter<"trustedContact"> | string
     relationship?: StringNullableFilter<"trustedContact"> | string | null
@@ -74875,8 +74875,8 @@ export namespace Prisma {
   export type trustedContactOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    lastName?: SortOrder
     firstName?: SortOrder
+    lastName?: SortOrder
     email?: SortOrderInput | SortOrder
     phone?: SortOrder
     relationship?: SortOrderInput | SortOrder
@@ -74896,8 +74896,8 @@ export namespace Prisma {
     OR?: trustedContactWhereInput[]
     NOT?: trustedContactWhereInput | trustedContactWhereInput[]
     userId?: StringFilter<"trustedContact"> | string
-    lastName?: StringFilter<"trustedContact"> | string
     firstName?: StringFilter<"trustedContact"> | string
+    lastName?: StringFilter<"trustedContact"> | string
     phone?: StringFilter<"trustedContact"> | string
     relationship?: StringNullableFilter<"trustedContact"> | string | null
     shareMedications?: BoolFilter<"trustedContact"> | boolean
@@ -74912,8 +74912,8 @@ export namespace Prisma {
   export type trustedContactOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    lastName?: SortOrder
     firstName?: SortOrder
+    lastName?: SortOrder
     email?: SortOrderInput | SortOrder
     phone?: SortOrder
     relationship?: SortOrderInput | SortOrder
@@ -74934,8 +74934,8 @@ export namespace Prisma {
     NOT?: trustedContactScalarWhereWithAggregatesInput | trustedContactScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"trustedContact"> | string
     userId?: StringWithAggregatesFilter<"trustedContact"> | string
-    lastName?: StringWithAggregatesFilter<"trustedContact"> | string
     firstName?: StringWithAggregatesFilter<"trustedContact"> | string
+    lastName?: StringWithAggregatesFilter<"trustedContact"> | string
     email?: StringNullableWithAggregatesFilter<"trustedContact"> | string | null
     phone?: StringWithAggregatesFilter<"trustedContact"> | string
     relationship?: StringNullableWithAggregatesFilter<"trustedContact"> | string | null
@@ -78677,7 +78677,7 @@ export namespace Prisma {
 
   export type projectMemberCreateInput = {
     role: string
-    join_date: Date | string
+    joinDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string | null
     collaborativeProject: collaborativeProjectCreateNestedOneWithoutProjectMemberInput
@@ -78688,14 +78688,14 @@ export namespace Prisma {
     projectId: string
     userId: string
     role: string
-    join_date: Date | string
+    joinDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
 
   export type projectMemberUpdateInput = {
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     collaborativeProject?: collaborativeProjectUpdateOneRequiredWithoutProjectMemberNestedInput
@@ -78706,7 +78706,7 @@ export namespace Prisma {
     projectId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -78715,14 +78715,14 @@ export namespace Prisma {
     projectId: string
     userId: string
     role: string
-    join_date: Date | string
+    joinDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
 
   export type projectMemberUpdateManyMutationInput = {
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -78731,7 +78731,7 @@ export namespace Prisma {
     projectId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -78990,13 +78990,13 @@ export namespace Prisma {
 
   export type serviceCompletedCreateInput = {
     id?: string
-    completion_date: Date | string
-    actual_duration?: number | null
-    creator_comment?: string | null
-    helper_comment?: string | null
-    creator_rating?: number | null
-    helper_rating?: number | null
-    points_exchanged?: number | null
+    completionDate: Date | string
+    actualDuration?: number | null
+    creatorComment?: string | null
+    helperComment?: string | null
+    creatorRating?: number | null
+    helperRating?: number | null
+    pointsExchanged?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user: userCreateNestedOneWithoutServiceCompletedInput
@@ -79007,26 +79007,26 @@ export namespace Prisma {
     id?: string
     requestId: string
     helperId: string
-    completion_date: Date | string
-    actual_duration?: number | null
-    creator_comment?: string | null
-    helper_comment?: string | null
-    creator_rating?: number | null
-    helper_rating?: number | null
-    points_exchanged?: number | null
+    completionDate: Date | string
+    actualDuration?: number | null
+    creatorComment?: string | null
+    helperComment?: string | null
+    creatorRating?: number | null
+    helperRating?: number | null
+    pointsExchanged?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
 
   export type serviceCompletedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneRequiredWithoutServiceCompletedNestedInput
@@ -79037,13 +79037,13 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     requestId?: StringFieldUpdateOperationsInput | string
     helperId?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -79052,26 +79052,26 @@ export namespace Prisma {
     id?: string
     requestId: string
     helperId: string
-    completion_date: Date | string
-    actual_duration?: number | null
-    creator_comment?: string | null
-    helper_comment?: string | null
-    creator_rating?: number | null
-    helper_rating?: number | null
-    points_exchanged?: number | null
+    completionDate: Date | string
+    actualDuration?: number | null
+    creatorComment?: string | null
+    helperComment?: string | null
+    creatorRating?: number | null
+    helperRating?: number | null
+    pointsExchanged?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
 
   export type serviceCompletedUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -79080,13 +79080,13 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     requestId?: StringFieldUpdateOperationsInput | string
     helperId?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -79290,7 +79290,7 @@ export namespace Prisma {
     userId: string
     contactId: string
     dateAdded: Date | string
-    access_level: string
+    accessLevel: string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -79299,7 +79299,7 @@ export namespace Prisma {
     userId: string
     contactId: string
     dateAdded: Date | string
-    access_level: string
+    accessLevel: string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -79308,7 +79308,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     contactId?: StringFieldUpdateOperationsInput | string
     dateAdded?: DateTimeFieldUpdateOperationsInput | Date | string
-    access_level?: StringFieldUpdateOperationsInput | string
+    accessLevel?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -79317,7 +79317,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     contactId?: StringFieldUpdateOperationsInput | string
     dateAdded?: DateTimeFieldUpdateOperationsInput | Date | string
-    access_level?: StringFieldUpdateOperationsInput | string
+    accessLevel?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -79326,7 +79326,7 @@ export namespace Prisma {
     userId: string
     contactId: string
     dateAdded: Date | string
-    access_level: string
+    accessLevel: string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -79335,7 +79335,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     contactId?: StringFieldUpdateOperationsInput | string
     dateAdded?: DateTimeFieldUpdateOperationsInput | Date | string
-    access_level?: StringFieldUpdateOperationsInput | string
+    accessLevel?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -79344,15 +79344,15 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     contactId?: StringFieldUpdateOperationsInput | string
     dateAdded?: DateTimeFieldUpdateOperationsInput | Date | string
-    access_level?: StringFieldUpdateOperationsInput | string
+    accessLevel?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type trustedContactCreateInput = {
     id?: string
-    lastName: string
     firstName: string
+    lastName: string
     email?: string | null
     phone: string
     relationship?: string | null
@@ -79368,8 +79368,8 @@ export namespace Prisma {
   export type trustedContactUncheckedCreateInput = {
     id?: string
     userId: string
-    lastName: string
     firstName: string
+    lastName: string
     email?: string | null
     phone: string
     relationship?: string | null
@@ -79383,8 +79383,8 @@ export namespace Prisma {
 
   export type trustedContactUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
@@ -79400,8 +79400,8 @@ export namespace Prisma {
   export type trustedContactUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
@@ -79416,8 +79416,8 @@ export namespace Prisma {
   export type trustedContactCreateManyInput = {
     id?: string
     userId: string
-    lastName: string
     firstName: string
+    lastName: string
     email?: string | null
     phone: string
     relationship?: string | null
@@ -79431,8 +79431,8 @@ export namespace Prisma {
 
   export type trustedContactUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
@@ -79447,8 +79447,8 @@ export namespace Prisma {
   export type trustedContactUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
@@ -80471,7 +80471,11 @@ export namespace Prisma {
     id?: string
     recordingDate: Date | string
     achievedValue: number
+<<<<<<< HEAD
     goalAchieved: boolean
+=======
+    goalAchieved?: boolean
+>>>>>>> c1326ef (API: Adding Joi validators)
     createdAt?: Date | string
     updatedAt?: Date | string | null
     wellnessGoal: wellnessGoalCreateNestedOneWithoutWellnessGoalProgressInput
@@ -80482,7 +80486,11 @@ export namespace Prisma {
     goalId: string
     recordingDate: Date | string
     achievedValue: number
+<<<<<<< HEAD
     goalAchieved: boolean
+=======
+    goalAchieved?: boolean
+>>>>>>> c1326ef (API: Adding Joi validators)
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -80512,7 +80520,11 @@ export namespace Prisma {
     goalId: string
     recordingDate: Date | string
     achievedValue: number
+<<<<<<< HEAD
     goalAchieved: boolean
+=======
+    goalAchieved?: boolean
+>>>>>>> c1326ef (API: Adding Joi validators)
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -82682,7 +82694,7 @@ export namespace Prisma {
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
-    join_date?: SortOrder
+    joinDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -82691,7 +82703,7 @@ export namespace Prisma {
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
-    join_date?: SortOrder
+    joinDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -82700,7 +82712,7 @@ export namespace Prisma {
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
-    join_date?: SortOrder
+    joinDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -82837,35 +82849,35 @@ export namespace Prisma {
     id?: SortOrder
     requestId?: SortOrder
     helperId?: SortOrder
-    completion_date?: SortOrder
-    actual_duration?: SortOrder
-    creator_comment?: SortOrder
-    helper_comment?: SortOrder
-    creator_rating?: SortOrder
-    helper_rating?: SortOrder
-    points_exchanged?: SortOrder
+    completionDate?: SortOrder
+    actualDuration?: SortOrder
+    creatorComment?: SortOrder
+    helperComment?: SortOrder
+    creatorRating?: SortOrder
+    helperRating?: SortOrder
+    pointsExchanged?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type serviceCompletedAvgOrderByAggregateInput = {
-    actual_duration?: SortOrder
-    creator_rating?: SortOrder
-    helper_rating?: SortOrder
-    points_exchanged?: SortOrder
+    actualDuration?: SortOrder
+    creatorRating?: SortOrder
+    helperRating?: SortOrder
+    pointsExchanged?: SortOrder
   }
 
   export type serviceCompletedMaxOrderByAggregateInput = {
     id?: SortOrder
     requestId?: SortOrder
     helperId?: SortOrder
-    completion_date?: SortOrder
-    actual_duration?: SortOrder
-    creator_comment?: SortOrder
-    helper_comment?: SortOrder
-    creator_rating?: SortOrder
-    helper_rating?: SortOrder
-    points_exchanged?: SortOrder
+    completionDate?: SortOrder
+    actualDuration?: SortOrder
+    creatorComment?: SortOrder
+    helperComment?: SortOrder
+    creatorRating?: SortOrder
+    helperRating?: SortOrder
+    pointsExchanged?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -82874,22 +82886,22 @@ export namespace Prisma {
     id?: SortOrder
     requestId?: SortOrder
     helperId?: SortOrder
-    completion_date?: SortOrder
-    actual_duration?: SortOrder
-    creator_comment?: SortOrder
-    helper_comment?: SortOrder
-    creator_rating?: SortOrder
-    helper_rating?: SortOrder
-    points_exchanged?: SortOrder
+    completionDate?: SortOrder
+    actualDuration?: SortOrder
+    creatorComment?: SortOrder
+    helperComment?: SortOrder
+    creatorRating?: SortOrder
+    helperRating?: SortOrder
+    pointsExchanged?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type serviceCompletedSumOrderByAggregateInput = {
-    actual_duration?: SortOrder
-    creator_rating?: SortOrder
-    helper_rating?: SortOrder
-    points_exchanged?: SortOrder
+    actualDuration?: SortOrder
+    creatorRating?: SortOrder
+    helperRating?: SortOrder
+    pointsExchanged?: SortOrder
   }
 
   export type LocalServiceScalarRelationFilter = {
@@ -83026,7 +83038,7 @@ export namespace Prisma {
     userId?: SortOrder
     contactId?: SortOrder
     dateAdded?: SortOrder
-    access_level?: SortOrder
+    accessLevel?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -83035,7 +83047,7 @@ export namespace Prisma {
     userId?: SortOrder
     contactId?: SortOrder
     dateAdded?: SortOrder
-    access_level?: SortOrder
+    accessLevel?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -83044,7 +83056,7 @@ export namespace Prisma {
     userId?: SortOrder
     contactId?: SortOrder
     dateAdded?: SortOrder
-    access_level?: SortOrder
+    accessLevel?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -83052,8 +83064,8 @@ export namespace Prisma {
   export type trustedContactCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    lastName?: SortOrder
     firstName?: SortOrder
+    lastName?: SortOrder
     email?: SortOrder
     phone?: SortOrder
     relationship?: SortOrder
@@ -83068,8 +83080,8 @@ export namespace Prisma {
   export type trustedContactMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    lastName?: SortOrder
     firstName?: SortOrder
+    lastName?: SortOrder
     email?: SortOrder
     phone?: SortOrder
     relationship?: SortOrder
@@ -83084,8 +83096,8 @@ export namespace Prisma {
   export type trustedContactMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    lastName?: SortOrder
     firstName?: SortOrder
+    lastName?: SortOrder
     email?: SortOrder
     phone?: SortOrder
     relationship?: SortOrder
@@ -89132,7 +89144,7 @@ export namespace Prisma {
 
   export type projectMemberCreateWithoutCollaborativeProjectInput = {
     role: string
-    join_date: Date | string
+    joinDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user: userCreateNestedOneWithoutProjectMemberInput
@@ -89141,7 +89153,7 @@ export namespace Prisma {
   export type projectMemberUncheckedCreateWithoutCollaborativeProjectInput = {
     userId: string
     role: string
-    join_date: Date | string
+    joinDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -89353,7 +89365,7 @@ export namespace Prisma {
     projectId?: StringFilter<"projectMember"> | string
     userId?: StringFilter<"projectMember"> | string
     role?: StringFilter<"projectMember"> | string
-    join_date?: DateTimeFilter<"projectMember"> | Date | string
+    joinDate?: DateTimeFilter<"projectMember"> | Date | string
     createdAt?: DateTimeFilter<"projectMember"> | Date | string
     updatedAt?: DateTimeNullableFilter<"projectMember"> | Date | string | null
   }
@@ -91302,13 +91314,13 @@ export namespace Prisma {
 
   export type serviceCompletedCreateWithoutHelpRequestInput = {
     id?: string
-    completion_date: Date | string
-    actual_duration?: number | null
-    creator_comment?: string | null
-    helper_comment?: string | null
-    creator_rating?: number | null
-    helper_rating?: number | null
-    points_exchanged?: number | null
+    completionDate: Date | string
+    actualDuration?: number | null
+    creatorComment?: string | null
+    helperComment?: string | null
+    creatorRating?: number | null
+    helperRating?: number | null
+    pointsExchanged?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user: userCreateNestedOneWithoutServiceCompletedInput
@@ -91317,13 +91329,13 @@ export namespace Prisma {
   export type serviceCompletedUncheckedCreateWithoutHelpRequestInput = {
     id?: string
     helperId: string
-    completion_date: Date | string
-    actual_duration?: number | null
-    creator_comment?: string | null
-    helper_comment?: string | null
-    creator_rating?: number | null
-    helper_rating?: number | null
-    points_exchanged?: number | null
+    completionDate: Date | string
+    actualDuration?: number | null
+    creatorComment?: string | null
+    helperComment?: string | null
+    creatorRating?: number | null
+    helperRating?: number | null
+    pointsExchanged?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -91525,13 +91537,13 @@ export namespace Prisma {
     id?: StringFilter<"serviceCompleted"> | string
     requestId?: StringFilter<"serviceCompleted"> | string
     helperId?: StringFilter<"serviceCompleted"> | string
-    completion_date?: DateTimeFilter<"serviceCompleted"> | Date | string
-    actual_duration?: IntNullableFilter<"serviceCompleted"> | number | null
-    creator_comment?: StringNullableFilter<"serviceCompleted"> | string | null
-    helper_comment?: StringNullableFilter<"serviceCompleted"> | string | null
-    creator_rating?: IntNullableFilter<"serviceCompleted"> | number | null
-    helper_rating?: IntNullableFilter<"serviceCompleted"> | number | null
-    points_exchanged?: IntNullableFilter<"serviceCompleted"> | number | null
+    completionDate?: DateTimeFilter<"serviceCompleted"> | Date | string
+    actualDuration?: IntNullableFilter<"serviceCompleted"> | number | null
+    creatorComment?: StringNullableFilter<"serviceCompleted"> | string | null
+    helperComment?: StringNullableFilter<"serviceCompleted"> | string | null
+    creatorRating?: IntNullableFilter<"serviceCompleted"> | number | null
+    helperRating?: IntNullableFilter<"serviceCompleted"> | number | null
+    pointsExchanged?: IntNullableFilter<"serviceCompleted"> | number | null
     createdAt?: DateTimeFilter<"serviceCompleted"> | Date | string
     updatedAt?: DateTimeNullableFilter<"serviceCompleted"> | Date | string | null
   }
@@ -95524,7 +95536,7 @@ export namespace Prisma {
 
   export type projectMemberCreateWithoutUserInput = {
     role: string
-    join_date: Date | string
+    joinDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string | null
     collaborativeProject: collaborativeProjectCreateNestedOneWithoutProjectMemberInput
@@ -95533,7 +95545,7 @@ export namespace Prisma {
   export type projectMemberUncheckedCreateWithoutUserInput = {
     projectId: string
     role: string
-    join_date: Date | string
+    joinDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -95616,13 +95628,13 @@ export namespace Prisma {
 
   export type serviceCompletedCreateWithoutUserInput = {
     id?: string
-    completion_date: Date | string
-    actual_duration?: number | null
-    creator_comment?: string | null
-    helper_comment?: string | null
-    creator_rating?: number | null
-    helper_rating?: number | null
-    points_exchanged?: number | null
+    completionDate: Date | string
+    actualDuration?: number | null
+    creatorComment?: string | null
+    helperComment?: string | null
+    creatorRating?: number | null
+    helperRating?: number | null
+    pointsExchanged?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     helpRequest: helpRequestCreateNestedOneWithoutServiceCompletedInput
@@ -95631,13 +95643,13 @@ export namespace Prisma {
   export type serviceCompletedUncheckedCreateWithoutUserInput = {
     id?: string
     requestId: string
-    completion_date: Date | string
-    actual_duration?: number | null
-    creator_comment?: string | null
-    helper_comment?: string | null
-    creator_rating?: number | null
-    helper_rating?: number | null
-    points_exchanged?: number | null
+    completionDate: Date | string
+    actualDuration?: number | null
+    creatorComment?: string | null
+    helperComment?: string | null
+    creatorRating?: number | null
+    helperRating?: number | null
+    pointsExchanged?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -95708,8 +95720,8 @@ export namespace Prisma {
 
   export type trustedContactCreateWithoutUserInput = {
     id?: string
-    lastName: string
     firstName: string
+    lastName: string
     email?: string | null
     phone: string
     relationship?: string | null
@@ -95723,8 +95735,8 @@ export namespace Prisma {
 
   export type trustedContactUncheckedCreateWithoutUserInput = {
     id?: string
-    lastName: string
     firstName: string
+    lastName: string
     email?: string | null
     phone: string
     relationship?: string | null
@@ -96505,8 +96517,8 @@ export namespace Prisma {
     NOT?: trustedContactScalarWhereInput | trustedContactScalarWhereInput[]
     id?: StringFilter<"trustedContact"> | string
     userId?: StringFilter<"trustedContact"> | string
-    lastName?: StringFilter<"trustedContact"> | string
     firstName?: StringFilter<"trustedContact"> | string
+    lastName?: StringFilter<"trustedContact"> | string
     email?: StringNullableFilter<"trustedContact"> | string | null
     phone?: StringFilter<"trustedContact"> | string
     relationship?: StringNullableFilter<"trustedContact"> | string | null
@@ -98410,7 +98422,7 @@ export namespace Prisma {
     id?: string
     recordingDate: Date | string
     achievedValue: number
-    goalAchieved: boolean
+    goalAchieved?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -98419,7 +98431,7 @@ export namespace Prisma {
     id?: string
     recordingDate: Date | string
     achievedValue: number
-    goalAchieved: boolean
+    goalAchieved?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -99753,7 +99765,7 @@ export namespace Prisma {
   export type projectMemberCreateManyCollaborativeProjectInput = {
     userId: string
     role: string
-    join_date: Date | string
+    joinDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -99772,7 +99784,7 @@ export namespace Prisma {
 
   export type projectMemberUpdateWithoutCollaborativeProjectInput = {
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneRequiredWithoutProjectMemberNestedInput
@@ -99781,7 +99793,7 @@ export namespace Prisma {
   export type projectMemberUncheckedUpdateWithoutCollaborativeProjectInput = {
     userId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -99789,7 +99801,7 @@ export namespace Prisma {
   export type projectMemberUncheckedUpdateManyWithoutCollaborativeProjectInput = {
     userId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -100101,13 +100113,13 @@ export namespace Prisma {
   export type serviceCompletedCreateManyHelpRequestInput = {
     id?: string
     helperId: string
-    completion_date: Date | string
-    actual_duration?: number | null
-    creator_comment?: string | null
-    helper_comment?: string | null
-    creator_rating?: number | null
-    helper_rating?: number | null
-    points_exchanged?: number | null
+    completionDate: Date | string
+    actualDuration?: number | null
+    creatorComment?: string | null
+    helperComment?: string | null
+    creatorRating?: number | null
+    helperRating?: number | null
+    pointsExchanged?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -100144,13 +100156,13 @@ export namespace Prisma {
 
   export type serviceCompletedUpdateWithoutHelpRequestInput = {
     id?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneRequiredWithoutServiceCompletedNestedInput
@@ -100159,13 +100171,13 @@ export namespace Prisma {
   export type serviceCompletedUncheckedUpdateWithoutHelpRequestInput = {
     id?: StringFieldUpdateOperationsInput | string
     helperId?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -100173,13 +100185,13 @@ export namespace Prisma {
   export type serviceCompletedUncheckedUpdateManyWithoutHelpRequestInput = {
     id?: StringFieldUpdateOperationsInput | string
     helperId?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -100444,7 +100456,7 @@ export namespace Prisma {
   export type projectMemberCreateManyUserInput = {
     projectId: string
     role: string
-    join_date: Date | string
+    joinDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -100475,13 +100487,13 @@ export namespace Prisma {
   export type serviceCompletedCreateManyUserInput = {
     id?: string
     requestId: string
-    completion_date: Date | string
-    actual_duration?: number | null
-    creator_comment?: string | null
-    helper_comment?: string | null
-    creator_rating?: number | null
-    helper_rating?: number | null
-    points_exchanged?: number | null
+    completionDate: Date | string
+    actualDuration?: number | null
+    creatorComment?: string | null
+    helperComment?: string | null
+    creatorRating?: number | null
+    helperRating?: number | null
+    pointsExchanged?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -100505,8 +100517,8 @@ export namespace Prisma {
 
   export type trustedContactCreateManyUserInput = {
     id?: string
-    lastName: string
     firstName: string
+    lastName: string
     email?: string | null
     phone: string
     relationship?: string | null
@@ -101090,7 +101102,7 @@ export namespace Prisma {
 
   export type projectMemberUpdateWithoutUserInput = {
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     collaborativeProject?: collaborativeProjectUpdateOneRequiredWithoutProjectMemberNestedInput
@@ -101099,7 +101111,7 @@ export namespace Prisma {
   export type projectMemberUncheckedUpdateWithoutUserInput = {
     projectId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -101107,7 +101119,7 @@ export namespace Prisma {
   export type projectMemberUncheckedUpdateManyWithoutUserInput = {
     projectId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    join_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -101183,13 +101195,13 @@ export namespace Prisma {
 
   export type serviceCompletedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     helpRequest?: helpRequestUpdateOneRequiredWithoutServiceCompletedNestedInput
@@ -101198,13 +101210,13 @@ export namespace Prisma {
   export type serviceCompletedUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     requestId?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -101212,13 +101224,13 @@ export namespace Prisma {
   export type serviceCompletedUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     requestId?: StringFieldUpdateOperationsInput | string
-    completion_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    actual_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    creator_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    helper_comment?: NullableStringFieldUpdateOperationsInput | string | null
-    creator_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    helper_rating?: NullableIntFieldUpdateOperationsInput | number | null
-    points_exchanged?: NullableIntFieldUpdateOperationsInput | number | null
+    completionDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    actualDuration?: NullableIntFieldUpdateOperationsInput | number | null
+    creatorComment?: NullableStringFieldUpdateOperationsInput | string | null
+    helperComment?: NullableStringFieldUpdateOperationsInput | string | null
+    creatorRating?: NullableIntFieldUpdateOperationsInput | number | null
+    helperRating?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsExchanged?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -101276,8 +101288,8 @@ export namespace Prisma {
 
   export type trustedContactUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101291,8 +101303,8 @@ export namespace Prisma {
 
   export type trustedContactUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101306,8 +101318,8 @@ export namespace Prisma {
 
   export type trustedContactUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     relationship?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101550,7 +101562,7 @@ export namespace Prisma {
     id?: string
     recordingDate: Date | string
     achievedValue: number
-    goalAchieved: boolean
+    goalAchieved?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }

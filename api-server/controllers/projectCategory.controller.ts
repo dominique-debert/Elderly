@@ -7,17 +7,17 @@ const prisma = new PrismaClient();
 /**
  * @swagger
  * tags:
- *   name: Program Categories
- *   description: API pour gérer les catégories de programmes d'activité
+ *   name: Project Categories
+ *   description: API pour gérer les catégories de projets
  */
 
-export const createProgramCategory = async (
+export const createProjectCategory = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const categoryToCreate = await prisma.programCategory.create({
+    const categoryToCreate = await prisma.projectCategory.create({
       data: req.body
     });
     res.status(201).json(categoryToCreate);
@@ -26,13 +26,13 @@ export const createProgramCategory = async (
   }
 };
 
-export const getAllProgramCategories = async (
+export const getAllProjectCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const categories = await prisma.programCategory.findMany({
+    const categories = await prisma.projectCategory.findMany({
       orderBy: {
         name: 'asc'
       }
@@ -44,7 +44,7 @@ export const getAllProgramCategories = async (
   }
 };
 
-export const getProgramCategoryById = async (
+export const getProjectCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -52,7 +52,7 @@ export const getProgramCategoryById = async (
   const { id } = req.params;
 
   try {
-    const category = await prisma.programCategory.findUnique({
+    const category = await prisma.projectCategory.findUnique({
       where: { id }
     });
 
@@ -66,7 +66,7 @@ export const getProgramCategoryById = async (
   }
 };
 
-export const updateProgramCategory = async (
+export const updateProjectCategory = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -74,7 +74,7 @@ export const updateProgramCategory = async (
   const { id } = req.params;
 
   try {
-    const category = await prisma.programCategory.findUnique({
+    const category = await prisma.projectCategory.findUnique({
       where: { id }
     });
 
@@ -82,7 +82,7 @@ export const updateProgramCategory = async (
       throw createHttpError(404, 'Catégorie non trouvée');
     }
 
-    const categoryToUpdate = await prisma.programCategory.update({
+    const categoryToUpdate = await prisma.projectCategory.update({
       data: {
         ...req.body,
         updatedAt: new Date()
@@ -96,7 +96,7 @@ export const updateProgramCategory = async (
   }
 };
 
-export const deleteProgramCategory = async (
+export const deleteProjectCategory = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -104,7 +104,7 @@ export const deleteProgramCategory = async (
   const { id } = req.params;
 
   try {
-    const category = await prisma.programCategory.findUnique({
+    const category = await prisma.projectCategory.findUnique({
       where: { id }
     });
 
@@ -112,11 +112,7 @@ export const deleteProgramCategory = async (
       throw createHttpError(404, 'Catégorie non trouvée');
     }
 
-<<<<<<< HEAD
-    await prisma.activityCategory.delete({
-=======
     await prisma.projectCategory.delete({
->>>>>>> c1326ef (API: Adding Joi validators)
       where: { id }
     });
 

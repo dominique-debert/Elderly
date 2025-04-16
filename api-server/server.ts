@@ -14,6 +14,12 @@ import cognitiveCategoriesRouter from '@/routes/cognitiveCategory.routes'
 import helpCategoriesRouter from '@/routes/helpCategory.routes'
 import issueCategoriesRouter from '@/routes/issueCategory.routes'
 import nutritionalCategoriesRouter from '@/routes/nutritionalCategory.routes'
+import programCategoriesRouter from '@/routes/programCategory.routes'
+import projectCategoriesRouter from '@/routes/projectCategory.routes'
+import resourceCategoriesRouter from '@/routes/resourceCategory.routes'
+import serviceCategoriesRouter from '@/routes/serviceCategory.routes'
+import skillCategoriesRouter from '@/routes/skillCategory.routes'
+import wellnessCategoriesRouter from '@/routes/serviceCategory.routes'
 
 import errorHandler from '@/middlewares/errorHandler';
 import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
@@ -37,6 +43,12 @@ app.use('/api/cognitive-categories', cognitiveCategoriesRouter);
 app.use('/api/help-categories', helpCategoriesRouter);
 app.use('/api/issue-categories', issueCategoriesRouter);
 app.use('/api/nutritional-categories', nutritionalCategoriesRouter);
+app.use('/api/program-categories', programCategoriesRouter);
+app.use('/api/project-categories', projectCategoriesRouter);
+app.use('/api/resource-categories', resourceCategoriesRouter);
+app.use('/api/service-categories', serviceCategoriesRouter);
+app.use('/api/skill-categories', skillCategoriesRouter);
+app.use('/api/wellness-categories', wellnessCategoriesRouter);
 
 app.use('/api/activities', activityRouter);
 app.use('/api/badges', badgeRouter);

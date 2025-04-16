@@ -414,7 +414,7 @@ exports.Prisma.ProjectMemberScalarFieldEnum = {
   projectId: 'projectId',
   userId: 'userId',
   role: 'role',
-  join_date: 'join_date',
+  joinDate: 'joinDate',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -459,13 +459,13 @@ exports.Prisma.ServiceCompletedScalarFieldEnum = {
   id: 'id',
   requestId: 'requestId',
   helperId: 'helperId',
-  completion_date: 'completion_date',
-  actual_duration: 'actual_duration',
-  creator_comment: 'creator_comment',
-  helper_comment: 'helper_comment',
-  creator_rating: 'creator_rating',
-  helper_rating: 'helper_rating',
-  points_exchanged: 'points_exchanged',
+  completionDate: 'completionDate',
+  actualDuration: 'actualDuration',
+  creatorComment: 'creatorComment',
+  helperComment: 'helperComment',
+  creatorRating: 'creatorRating',
+  helperRating: 'helperRating',
+  pointsExchanged: 'pointsExchanged',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -502,7 +502,7 @@ exports.Prisma.TrustCircleScalarFieldEnum = {
   userId: 'userId',
   contactId: 'contactId',
   dateAdded: 'dateAdded',
-  access_level: 'access_level',
+  accessLevel: 'accessLevel',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -510,8 +510,8 @@ exports.Prisma.TrustCircleScalarFieldEnum = {
 exports.Prisma.TrustedContactScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  lastName: 'lastName',
   firstName: 'firstName',
+  lastName: 'lastName',
   email: 'email',
   phone: 'phone',
   relationship: 'relationship',
