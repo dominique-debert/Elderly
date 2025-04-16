@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client.js';
 import { createHttpError } from '@/utils/httpError.js';
-import IActivityCategory from '@/@types/data/categories/IActivityCategory';
+import ICategory from '@/@types/data/categories/ICategory';
 
 const prisma = new PrismaClient();
 
@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 export const createActivityCategory = async (
-  req: Request<{}, {}, IActivityCategory>,
+  req: Request<{}, {}, ICategory>,
   res: Response,
   next: NextFunction
 ) => {
@@ -68,7 +68,7 @@ export const getActivityCategoryById = async (
 };
 
 export const updateActivityCategory = async (
-  req: Request<{ id: string }, IActivityCategory>,
+  req: Request<{ id: string }, ICategory>,
   res: Response,
   next: NextFunction
 ) => {

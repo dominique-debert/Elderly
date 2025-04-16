@@ -37,8 +37,11 @@ const router = Router();
  *             properties:
  *               name:
  *                 type: string
+ *               description:
+ *                 type: string
  *             example:
  *               name: "Sport"
+ *               description: "Tout ce qui touche au sport"
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
@@ -124,8 +127,11 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getA
  *             properties:
  *               name:
  *                 type: string
+ *               description:
+ *                 type: string
  *             example:
  *               name: "Activités sociales"
+ *               description: "Tout ce qui touche à l'humain"
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
