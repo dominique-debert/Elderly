@@ -234,10 +234,10 @@ export type wellnessBadge = $Result.DefaultSelection<Prisma.$wellnessBadgePayloa
  */
 export type wellnessGoal = $Result.DefaultSelection<Prisma.$wellnessGoalPayload>
 /**
- * Model activity_category
+ * Model activityCategory
  * 
  */
-export type activity_category = $Result.DefaultSelection<Prisma.$activity_categoryPayload>
+export type activityCategory = $Result.DefaultSelection<Prisma.$activityCategoryPayload>
 /**
  * Model badgeCategory
  * 
@@ -860,14 +860,14 @@ export class PrismaClient<
   get wellnessGoal(): Prisma.wellnessGoalDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.activity_category`: Exposes CRUD operations for the **activity_category** model.
+   * `prisma.activityCategory`: Exposes CRUD operations for the **activityCategory** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Activity_categories
-    * const activity_categories = await prisma.activity_category.findMany()
+    * // Fetch zero or more ActivityCategories
+    * const activityCategories = await prisma.activityCategory.findMany()
     * ```
     */
-  get activity_category(): Prisma.activity_categoryDelegate<ExtArgs, ClientOptions>;
+  get activityCategory(): Prisma.activityCategoryDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.badgeCategory`: Exposes CRUD operations for the **badgeCategory** model.
@@ -1462,7 +1462,7 @@ export namespace Prisma {
     videoCall: 'videoCall',
     wellnessBadge: 'wellnessBadge',
     wellnessGoal: 'wellnessGoal',
-    activity_category: 'activity_category',
+    activityCategory: 'activityCategory',
     badgeCategory: 'badgeCategory',
     cognitiveCategory: 'cognitiveCategory',
     helpCategory: 'helpCategory',
@@ -1492,7 +1492,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "wellnessGoalProgress" | "healthIndicator" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "offlineUser" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "activity_category" | "badgeCategory" | "cognitiveCategory" | "helpCategory" | "issueCategory" | "nutritionalCategory" | "programCategory" | "projectCategory" | "resourceCategory" | "serviceCategory" | "skillCategory" | "wellnessCategory"
+      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "wellnessGoalProgress" | "healthIndicator" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "offlineUser" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "activityCategory" | "badgeCategory" | "cognitiveCategory" | "helpCategory" | "issueCategory" | "nutritionalCategory" | "programCategory" | "projectCategory" | "resourceCategory" | "serviceCategory" | "skillCategory" | "wellnessCategory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4752,77 +4752,77 @@ export namespace Prisma {
           }
         }
       }
-      activity_category: {
-        payload: Prisma.$activity_categoryPayload<ExtArgs>
-        fields: Prisma.activity_categoryFieldRefs
+      activityCategory: {
+        payload: Prisma.$activityCategoryPayload<ExtArgs>
+        fields: Prisma.activityCategoryFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.activity_categoryFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload> | null
+            args: Prisma.activityCategoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.activity_categoryFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload>
+            args: Prisma.activityCategoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload>
           }
           findFirst: {
-            args: Prisma.activity_categoryFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload> | null
+            args: Prisma.activityCategoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.activity_categoryFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload>
+            args: Prisma.activityCategoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload>
           }
           findMany: {
-            args: Prisma.activity_categoryFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload>[]
+            args: Prisma.activityCategoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload>[]
           }
           create: {
-            args: Prisma.activity_categoryCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload>
+            args: Prisma.activityCategoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload>
           }
           createMany: {
-            args: Prisma.activity_categoryCreateManyArgs<ExtArgs>
+            args: Prisma.activityCategoryCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.activity_categoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload>[]
+            args: Prisma.activityCategoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload>[]
           }
           delete: {
-            args: Prisma.activity_categoryDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload>
+            args: Prisma.activityCategoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload>
           }
           update: {
-            args: Prisma.activity_categoryUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload>
+            args: Prisma.activityCategoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload>
           }
           deleteMany: {
-            args: Prisma.activity_categoryDeleteManyArgs<ExtArgs>
+            args: Prisma.activityCategoryDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.activity_categoryUpdateManyArgs<ExtArgs>
+            args: Prisma.activityCategoryUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.activity_categoryUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload>[]
+            args: Prisma.activityCategoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload>[]
           }
           upsert: {
-            args: Prisma.activity_categoryUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$activity_categoryPayload>
+            args: Prisma.activityCategoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$activityCategoryPayload>
           }
           aggregate: {
-            args: Prisma.Activity_categoryAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateActivity_category>
+            args: Prisma.ActivityCategoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateActivityCategory>
           }
           groupBy: {
-            args: Prisma.activity_categoryGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Activity_categoryGroupByOutputType>[]
+            args: Prisma.activityCategoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ActivityCategoryGroupByOutputType>[]
           }
           count: {
-            args: Prisma.activity_categoryCountArgs<ExtArgs>
-            result: $Utils.Optional<Activity_categoryCountAggregateOutputType> | number
+            args: Prisma.activityCategoryCountArgs<ExtArgs>
+            result: $Utils.Optional<ActivityCategoryCountAggregateOutputType> | number
           }
         }
       }
@@ -5768,7 +5768,7 @@ export namespace Prisma {
     videoCall?: videoCallOmit
     wellnessBadge?: wellnessBadgeOmit
     wellnessGoal?: wellnessGoalOmit
-    activity_category?: activity_categoryOmit
+    activityCategory?: activityCategoryOmit
     badgeCategory?: badgeCategoryOmit
     cognitiveCategory?: cognitiveCategoryOmit
     helpCategory?: helpCategoryOmit
@@ -6583,32 +6583,32 @@ export namespace Prisma {
 
 
   /**
-   * Count Type Activity_categoryCountOutputType
+   * Count Type ActivityCategoryCountOutputType
    */
 
-  export type Activity_categoryCountOutputType = {
+  export type ActivityCategoryCountOutputType = {
     activity: number
   }
 
-  export type Activity_categoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    activity?: boolean | Activity_categoryCountOutputTypeCountActivityArgs
+  export type ActivityCategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    activity?: boolean | ActivityCategoryCountOutputTypeCountActivityArgs
   }
 
   // Custom InputTypes
   /**
-   * Activity_categoryCountOutputType without action
+   * ActivityCategoryCountOutputType without action
    */
-  export type Activity_categoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ActivityCategoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Activity_categoryCountOutputType
+     * Select specific fields to fetch from the ActivityCategoryCountOutputType
      */
-    select?: Activity_categoryCountOutputTypeSelect<ExtArgs> | null
+    select?: ActivityCategoryCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * Activity_categoryCountOutputType without action
+   * ActivityCategoryCountOutputType without action
    */
-  export type Activity_categoryCountOutputTypeCountActivityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ActivityCategoryCountOutputTypeCountActivityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: activityWhereInput
   }
 
@@ -7294,7 +7294,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | activity$userArgs<ExtArgs>
-    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
+    activityCategory?: boolean | activity$activityCategoryArgs<ExtArgs>
     activity_registration?: boolean | activity$activity_registrationArgs<ExtArgs>
     _count?: boolean | ActivityCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["activity"]>
@@ -7321,7 +7321,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | activity$userArgs<ExtArgs>
-    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
+    activityCategory?: boolean | activity$activityCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["activity"]>
 
   export type activitySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7346,7 +7346,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | activity$userArgs<ExtArgs>
-    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
+    activityCategory?: boolean | activity$activityCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["activity"]>
 
   export type activitySelectScalar = {
@@ -7375,24 +7375,24 @@ export namespace Prisma {
   export type activityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "creatorId" | "title" | "description" | "startDate" | "endDate" | "location" | "gpsCoordinates" | "maxSpots" | "categoryId" | "recurring" | "frequency" | "reducedMobilityAccess" | "difficultyLevel" | "cost" | "status" | "weatherRequirements" | "transportOptions" | "createdAt" | "updatedAt", ExtArgs["result"]["activity"]>
   export type activityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | activity$userArgs<ExtArgs>
-    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
+    activityCategory?: boolean | activity$activityCategoryArgs<ExtArgs>
     activity_registration?: boolean | activity$activity_registrationArgs<ExtArgs>
     _count?: boolean | ActivityCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type activityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | activity$userArgs<ExtArgs>
-    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
+    activityCategory?: boolean | activity$activityCategoryArgs<ExtArgs>
   }
   export type activityIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | activity$userArgs<ExtArgs>
-    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
+    activityCategory?: boolean | activity$activityCategoryArgs<ExtArgs>
   }
 
   export type $activityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "activity"
     objects: {
       user: Prisma.$userPayload<ExtArgs> | null
-      activity_category: Prisma.$activity_categoryPayload<ExtArgs> | null
+      activityCategory: Prisma.$activityCategoryPayload<ExtArgs> | null
       activity_registration: Prisma.$activityRegistrationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -7811,7 +7811,7 @@ export namespace Prisma {
   export interface Prisma__activityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends activity$userArgs<ExtArgs> = {}>(args?: Subset<T, activity$userArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    activity_category<T extends activity$activity_categoryArgs<ExtArgs> = {}>(args?: Subset<T, activity$activity_categoryArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    activityCategory<T extends activity$activityCategoryArgs<ExtArgs> = {}>(args?: Subset<T, activity$activityCategoryArgs<ExtArgs>>): Prisma__activityCategoryClient<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     activity_registration<T extends activity$activity_registrationArgs<ExtArgs> = {}>(args?: Subset<T, activity$activity_registrationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activityRegistrationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -8277,22 +8277,22 @@ export namespace Prisma {
   }
 
   /**
-   * activity.activity_category
+   * activity.activityCategory
    */
-  export type activity$activity_categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activity$activityCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
-    where?: activity_categoryWhereInput
+    include?: activityCategoryInclude<ExtArgs> | null
+    where?: activityCategoryWhereInput
   }
 
   /**
@@ -58401,16 +58401,16 @@ export namespace Prisma {
 
 
   /**
-   * Model activity_category
+   * Model activityCategory
    */
 
-  export type AggregateActivity_category = {
-    _count: Activity_categoryCountAggregateOutputType | null
-    _min: Activity_categoryMinAggregateOutputType | null
-    _max: Activity_categoryMaxAggregateOutputType | null
+  export type AggregateActivityCategory = {
+    _count: ActivityCategoryCountAggregateOutputType | null
+    _min: ActivityCategoryMinAggregateOutputType | null
+    _max: ActivityCategoryMaxAggregateOutputType | null
   }
 
-  export type Activity_categoryMinAggregateOutputType = {
+  export type ActivityCategoryMinAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
@@ -58418,7 +58418,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type Activity_categoryMaxAggregateOutputType = {
+  export type ActivityCategoryMaxAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
@@ -58426,7 +58426,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type Activity_categoryCountAggregateOutputType = {
+  export type ActivityCategoryCountAggregateOutputType = {
     id: number
     name: number
     description: number
@@ -58436,7 +58436,7 @@ export namespace Prisma {
   }
 
 
-  export type Activity_categoryMinAggregateInputType = {
+  export type ActivityCategoryMinAggregateInputType = {
     id?: true
     name?: true
     description?: true
@@ -58444,7 +58444,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type Activity_categoryMaxAggregateInputType = {
+  export type ActivityCategoryMaxAggregateInputType = {
     id?: true
     name?: true
     description?: true
@@ -58452,7 +58452,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type Activity_categoryCountAggregateInputType = {
+  export type ActivityCategoryCountAggregateInputType = {
     id?: true
     name?: true
     description?: true
@@ -58461,130 +58461,130 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type Activity_categoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ActivityCategoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which activity_category to aggregate.
+     * Filter which activityCategory to aggregate.
      */
-    where?: activity_categoryWhereInput
+    where?: activityCategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of activity_categories to fetch.
+     * Determine the order of activityCategories to fetch.
      */
-    orderBy?: activity_categoryOrderByWithRelationInput | activity_categoryOrderByWithRelationInput[]
+    orderBy?: activityCategoryOrderByWithRelationInput | activityCategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: activity_categoryWhereUniqueInput
+    cursor?: activityCategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` activity_categories from the position of the cursor.
+     * Take `±n` activityCategories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` activity_categories.
+     * Skip the first `n` activityCategories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned activity_categories
+     * Count returned activityCategories
     **/
-    _count?: true | Activity_categoryCountAggregateInputType
+    _count?: true | ActivityCategoryCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: Activity_categoryMinAggregateInputType
+    _min?: ActivityCategoryMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: Activity_categoryMaxAggregateInputType
+    _max?: ActivityCategoryMaxAggregateInputType
   }
 
-  export type GetActivity_categoryAggregateType<T extends Activity_categoryAggregateArgs> = {
-        [P in keyof T & keyof AggregateActivity_category]: P extends '_count' | 'count'
+  export type GetActivityCategoryAggregateType<T extends ActivityCategoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateActivityCategory]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateActivity_category[P]>
-      : GetScalarType<T[P], AggregateActivity_category[P]>
+        : GetScalarType<T[P], AggregateActivityCategory[P]>
+      : GetScalarType<T[P], AggregateActivityCategory[P]>
   }
 
 
 
 
-  export type activity_categoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: activity_categoryWhereInput
-    orderBy?: activity_categoryOrderByWithAggregationInput | activity_categoryOrderByWithAggregationInput[]
-    by: Activity_categoryScalarFieldEnum[] | Activity_categoryScalarFieldEnum
-    having?: activity_categoryScalarWhereWithAggregatesInput
+  export type activityCategoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: activityCategoryWhereInput
+    orderBy?: activityCategoryOrderByWithAggregationInput | activityCategoryOrderByWithAggregationInput[]
+    by: ActivityCategoryScalarFieldEnum[] | ActivityCategoryScalarFieldEnum
+    having?: activityCategoryScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: Activity_categoryCountAggregateInputType | true
-    _min?: Activity_categoryMinAggregateInputType
-    _max?: Activity_categoryMaxAggregateInputType
+    _count?: ActivityCategoryCountAggregateInputType | true
+    _min?: ActivityCategoryMinAggregateInputType
+    _max?: ActivityCategoryMaxAggregateInputType
   }
 
-  export type Activity_categoryGroupByOutputType = {
+  export type ActivityCategoryGroupByOutputType = {
     id: string
     name: string
     description: string | null
     createdAt: Date
     updatedAt: Date | null
-    _count: Activity_categoryCountAggregateOutputType | null
-    _min: Activity_categoryMinAggregateOutputType | null
-    _max: Activity_categoryMaxAggregateOutputType | null
+    _count: ActivityCategoryCountAggregateOutputType | null
+    _min: ActivityCategoryMinAggregateOutputType | null
+    _max: ActivityCategoryMaxAggregateOutputType | null
   }
 
-  type GetActivity_categoryGroupByPayload<T extends activity_categoryGroupByArgs> = Prisma.PrismaPromise<
+  type GetActivityCategoryGroupByPayload<T extends activityCategoryGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<Activity_categoryGroupByOutputType, T['by']> &
+      PickEnumerable<ActivityCategoryGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof Activity_categoryGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ActivityCategoryGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], Activity_categoryGroupByOutputType[P]>
-            : GetScalarType<T[P], Activity_categoryGroupByOutputType[P]>
+              : GetScalarType<T[P], ActivityCategoryGroupByOutputType[P]>
+            : GetScalarType<T[P], ActivityCategoryGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type activity_categorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type activityCategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    activity?: boolean | activity_category$activityArgs<ExtArgs>
-    _count?: boolean | Activity_categoryCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["activity_category"]>
+    activity?: boolean | activityCategory$activityArgs<ExtArgs>
+    _count?: boolean | ActivityCategoryCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["activityCategory"]>
 
-  export type activity_categorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type activityCategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["activity_category"]>
+  }, ExtArgs["result"]["activityCategory"]>
 
-  export type activity_categorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type activityCategorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["activity_category"]>
+  }, ExtArgs["result"]["activityCategory"]>
 
-  export type activity_categorySelectScalar = {
+  export type activityCategorySelectScalar = {
     id?: boolean
     name?: boolean
     description?: boolean
@@ -58592,16 +58592,16 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type activity_categoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["activity_category"]>
-  export type activity_categoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    activity?: boolean | activity_category$activityArgs<ExtArgs>
-    _count?: boolean | Activity_categoryCountOutputTypeDefaultArgs<ExtArgs>
+  export type activityCategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["activityCategory"]>
+  export type activityCategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    activity?: boolean | activityCategory$activityArgs<ExtArgs>
+    _count?: boolean | ActivityCategoryCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type activity_categoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type activity_categoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type activityCategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type activityCategoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $activity_categoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "activity_category"
+  export type $activityCategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "activityCategory"
     objects: {
       activity: Prisma.$activityPayload<ExtArgs>[]
     }
@@ -58611,136 +58611,136 @@ export namespace Prisma {
       description: string | null
       createdAt: Date
       updatedAt: Date | null
-    }, ExtArgs["result"]["activity_category"]>
+    }, ExtArgs["result"]["activityCategory"]>
     composites: {}
   }
 
-  type activity_categoryGetPayload<S extends boolean | null | undefined | activity_categoryDefaultArgs> = $Result.GetResult<Prisma.$activity_categoryPayload, S>
+  type activityCategoryGetPayload<S extends boolean | null | undefined | activityCategoryDefaultArgs> = $Result.GetResult<Prisma.$activityCategoryPayload, S>
 
-  type activity_categoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<activity_categoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Activity_categoryCountAggregateInputType | true
+  type activityCategoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<activityCategoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ActivityCategoryCountAggregateInputType | true
     }
 
-  export interface activity_categoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['activity_category'], meta: { name: 'activity_category' } }
+  export interface activityCategoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['activityCategory'], meta: { name: 'activityCategory' } }
     /**
-     * Find zero or one Activity_category that matches the filter.
-     * @param {activity_categoryFindUniqueArgs} args - Arguments to find a Activity_category
+     * Find zero or one ActivityCategory that matches the filter.
+     * @param {activityCategoryFindUniqueArgs} args - Arguments to find a ActivityCategory
      * @example
-     * // Get one Activity_category
-     * const activity_category = await prisma.activity_category.findUnique({
+     * // Get one ActivityCategory
+     * const activityCategory = await prisma.activityCategory.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends activity_categoryFindUniqueArgs>(args: SelectSubset<T, activity_categoryFindUniqueArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends activityCategoryFindUniqueArgs>(args: SelectSubset<T, activityCategoryFindUniqueArgs<ExtArgs>>): Prisma__activityCategoryClient<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Activity_category that matches the filter or throw an error with `error.code='P2025'`
+     * Find one ActivityCategory that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {activity_categoryFindUniqueOrThrowArgs} args - Arguments to find a Activity_category
+     * @param {activityCategoryFindUniqueOrThrowArgs} args - Arguments to find a ActivityCategory
      * @example
-     * // Get one Activity_category
-     * const activity_category = await prisma.activity_category.findUniqueOrThrow({
+     * // Get one ActivityCategory
+     * const activityCategory = await prisma.activityCategory.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends activity_categoryFindUniqueOrThrowArgs>(args: SelectSubset<T, activity_categoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends activityCategoryFindUniqueOrThrowArgs>(args: SelectSubset<T, activityCategoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__activityCategoryClient<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Activity_category that matches the filter.
+     * Find the first ActivityCategory that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {activity_categoryFindFirstArgs} args - Arguments to find a Activity_category
+     * @param {activityCategoryFindFirstArgs} args - Arguments to find a ActivityCategory
      * @example
-     * // Get one Activity_category
-     * const activity_category = await prisma.activity_category.findFirst({
+     * // Get one ActivityCategory
+     * const activityCategory = await prisma.activityCategory.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends activity_categoryFindFirstArgs>(args?: SelectSubset<T, activity_categoryFindFirstArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends activityCategoryFindFirstArgs>(args?: SelectSubset<T, activityCategoryFindFirstArgs<ExtArgs>>): Prisma__activityCategoryClient<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Activity_category that matches the filter or
+     * Find the first ActivityCategory that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {activity_categoryFindFirstOrThrowArgs} args - Arguments to find a Activity_category
+     * @param {activityCategoryFindFirstOrThrowArgs} args - Arguments to find a ActivityCategory
      * @example
-     * // Get one Activity_category
-     * const activity_category = await prisma.activity_category.findFirstOrThrow({
+     * // Get one ActivityCategory
+     * const activityCategory = await prisma.activityCategory.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends activity_categoryFindFirstOrThrowArgs>(args?: SelectSubset<T, activity_categoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends activityCategoryFindFirstOrThrowArgs>(args?: SelectSubset<T, activityCategoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__activityCategoryClient<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Activity_categories that matches the filter.
+     * Find zero or more ActivityCategories that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {activity_categoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {activityCategoryFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Activity_categories
-     * const activity_categories = await prisma.activity_category.findMany()
+     * // Get all ActivityCategories
+     * const activityCategories = await prisma.activityCategory.findMany()
      * 
-     * // Get first 10 Activity_categories
-     * const activity_categories = await prisma.activity_category.findMany({ take: 10 })
+     * // Get first 10 ActivityCategories
+     * const activityCategories = await prisma.activityCategory.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const activity_categoryWithIdOnly = await prisma.activity_category.findMany({ select: { id: true } })
+     * const activityCategoryWithIdOnly = await prisma.activityCategory.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends activity_categoryFindManyArgs>(args?: SelectSubset<T, activity_categoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends activityCategoryFindManyArgs>(args?: SelectSubset<T, activityCategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Activity_category.
-     * @param {activity_categoryCreateArgs} args - Arguments to create a Activity_category.
+     * Create a ActivityCategory.
+     * @param {activityCategoryCreateArgs} args - Arguments to create a ActivityCategory.
      * @example
-     * // Create one Activity_category
-     * const Activity_category = await prisma.activity_category.create({
+     * // Create one ActivityCategory
+     * const ActivityCategory = await prisma.activityCategory.create({
      *   data: {
-     *     // ... data to create a Activity_category
+     *     // ... data to create a ActivityCategory
      *   }
      * })
      * 
      */
-    create<T extends activity_categoryCreateArgs>(args: SelectSubset<T, activity_categoryCreateArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends activityCategoryCreateArgs>(args: SelectSubset<T, activityCategoryCreateArgs<ExtArgs>>): Prisma__activityCategoryClient<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Activity_categories.
-     * @param {activity_categoryCreateManyArgs} args - Arguments to create many Activity_categories.
+     * Create many ActivityCategories.
+     * @param {activityCategoryCreateManyArgs} args - Arguments to create many ActivityCategories.
      * @example
-     * // Create many Activity_categories
-     * const activity_category = await prisma.activity_category.createMany({
+     * // Create many ActivityCategories
+     * const activityCategory = await prisma.activityCategory.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends activity_categoryCreateManyArgs>(args?: SelectSubset<T, activity_categoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends activityCategoryCreateManyArgs>(args?: SelectSubset<T, activityCategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Activity_categories and returns the data saved in the database.
-     * @param {activity_categoryCreateManyAndReturnArgs} args - Arguments to create many Activity_categories.
+     * Create many ActivityCategories and returns the data saved in the database.
+     * @param {activityCategoryCreateManyAndReturnArgs} args - Arguments to create many ActivityCategories.
      * @example
-     * // Create many Activity_categories
-     * const activity_category = await prisma.activity_category.createManyAndReturn({
+     * // Create many ActivityCategories
+     * const activityCategory = await prisma.activityCategory.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Activity_categories and only return the `id`
-     * const activity_categoryWithIdOnly = await prisma.activity_category.createManyAndReturn({
+     * // Create many ActivityCategories and only return the `id`
+     * const activityCategoryWithIdOnly = await prisma.activityCategory.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -58750,28 +58750,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends activity_categoryCreateManyAndReturnArgs>(args?: SelectSubset<T, activity_categoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends activityCategoryCreateManyAndReturnArgs>(args?: SelectSubset<T, activityCategoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Activity_category.
-     * @param {activity_categoryDeleteArgs} args - Arguments to delete one Activity_category.
+     * Delete a ActivityCategory.
+     * @param {activityCategoryDeleteArgs} args - Arguments to delete one ActivityCategory.
      * @example
-     * // Delete one Activity_category
-     * const Activity_category = await prisma.activity_category.delete({
+     * // Delete one ActivityCategory
+     * const ActivityCategory = await prisma.activityCategory.delete({
      *   where: {
-     *     // ... filter to delete one Activity_category
+     *     // ... filter to delete one ActivityCategory
      *   }
      * })
      * 
      */
-    delete<T extends activity_categoryDeleteArgs>(args: SelectSubset<T, activity_categoryDeleteArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends activityCategoryDeleteArgs>(args: SelectSubset<T, activityCategoryDeleteArgs<ExtArgs>>): Prisma__activityCategoryClient<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Activity_category.
-     * @param {activity_categoryUpdateArgs} args - Arguments to update one Activity_category.
+     * Update one ActivityCategory.
+     * @param {activityCategoryUpdateArgs} args - Arguments to update one ActivityCategory.
      * @example
-     * // Update one Activity_category
-     * const activity_category = await prisma.activity_category.update({
+     * // Update one ActivityCategory
+     * const activityCategory = await prisma.activityCategory.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -58781,30 +58781,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends activity_categoryUpdateArgs>(args: SelectSubset<T, activity_categoryUpdateArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends activityCategoryUpdateArgs>(args: SelectSubset<T, activityCategoryUpdateArgs<ExtArgs>>): Prisma__activityCategoryClient<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Activity_categories.
-     * @param {activity_categoryDeleteManyArgs} args - Arguments to filter Activity_categories to delete.
+     * Delete zero or more ActivityCategories.
+     * @param {activityCategoryDeleteManyArgs} args - Arguments to filter ActivityCategories to delete.
      * @example
-     * // Delete a few Activity_categories
-     * const { count } = await prisma.activity_category.deleteMany({
+     * // Delete a few ActivityCategories
+     * const { count } = await prisma.activityCategory.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends activity_categoryDeleteManyArgs>(args?: SelectSubset<T, activity_categoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends activityCategoryDeleteManyArgs>(args?: SelectSubset<T, activityCategoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Activity_categories.
+     * Update zero or more ActivityCategories.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {activity_categoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {activityCategoryUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Activity_categories
-     * const activity_category = await prisma.activity_category.updateMany({
+     * // Update many ActivityCategories
+     * const activityCategory = await prisma.activityCategory.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -58814,14 +58814,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends activity_categoryUpdateManyArgs>(args: SelectSubset<T, activity_categoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends activityCategoryUpdateManyArgs>(args: SelectSubset<T, activityCategoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Activity_categories and returns the data updated in the database.
-     * @param {activity_categoryUpdateManyAndReturnArgs} args - Arguments to update many Activity_categories.
+     * Update zero or more ActivityCategories and returns the data updated in the database.
+     * @param {activityCategoryUpdateManyAndReturnArgs} args - Arguments to update many ActivityCategories.
      * @example
-     * // Update many Activity_categories
-     * const activity_category = await prisma.activity_category.updateManyAndReturn({
+     * // Update many ActivityCategories
+     * const activityCategory = await prisma.activityCategory.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -58830,8 +58830,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Activity_categories and only return the `id`
-     * const activity_categoryWithIdOnly = await prisma.activity_category.updateManyAndReturn({
+     * // Update zero or more ActivityCategories and only return the `id`
+     * const activityCategoryWithIdOnly = await prisma.activityCategory.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -58844,56 +58844,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends activity_categoryUpdateManyAndReturnArgs>(args: SelectSubset<T, activity_categoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends activityCategoryUpdateManyAndReturnArgs>(args: SelectSubset<T, activityCategoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Activity_category.
-     * @param {activity_categoryUpsertArgs} args - Arguments to update or create a Activity_category.
+     * Create or update one ActivityCategory.
+     * @param {activityCategoryUpsertArgs} args - Arguments to update or create a ActivityCategory.
      * @example
-     * // Update or create a Activity_category
-     * const activity_category = await prisma.activity_category.upsert({
+     * // Update or create a ActivityCategory
+     * const activityCategory = await prisma.activityCategory.upsert({
      *   create: {
-     *     // ... data to create a Activity_category
+     *     // ... data to create a ActivityCategory
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Activity_category we want to update
+     *     // ... the filter for the ActivityCategory we want to update
      *   }
      * })
      */
-    upsert<T extends activity_categoryUpsertArgs>(args: SelectSubset<T, activity_categoryUpsertArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends activityCategoryUpsertArgs>(args: SelectSubset<T, activityCategoryUpsertArgs<ExtArgs>>): Prisma__activityCategoryClient<$Result.GetResult<Prisma.$activityCategoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Activity_categories.
+     * Count the number of ActivityCategories.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {activity_categoryCountArgs} args - Arguments to filter Activity_categories to count.
+     * @param {activityCategoryCountArgs} args - Arguments to filter ActivityCategories to count.
      * @example
-     * // Count the number of Activity_categories
-     * const count = await prisma.activity_category.count({
+     * // Count the number of ActivityCategories
+     * const count = await prisma.activityCategory.count({
      *   where: {
-     *     // ... the filter for the Activity_categories we want to count
+     *     // ... the filter for the ActivityCategories we want to count
      *   }
      * })
     **/
-    count<T extends activity_categoryCountArgs>(
-      args?: Subset<T, activity_categoryCountArgs>,
+    count<T extends activityCategoryCountArgs>(
+      args?: Subset<T, activityCategoryCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], Activity_categoryCountAggregateOutputType>
+          : GetScalarType<T['select'], ActivityCategoryCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Activity_category.
+     * Allows you to perform aggregations operations on a ActivityCategory.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Activity_categoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ActivityCategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -58913,13 +58913,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends Activity_categoryAggregateArgs>(args: Subset<T, Activity_categoryAggregateArgs>): Prisma.PrismaPromise<GetActivity_categoryAggregateType<T>>
+    aggregate<T extends ActivityCategoryAggregateArgs>(args: Subset<T, ActivityCategoryAggregateArgs>): Prisma.PrismaPromise<GetActivityCategoryAggregateType<T>>
 
     /**
-     * Group by Activity_category.
+     * Group by ActivityCategory.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {activity_categoryGroupByArgs} args - Group by arguments.
+     * @param {activityCategoryGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -58934,14 +58934,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends activity_categoryGroupByArgs,
+      T extends activityCategoryGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: activity_categoryGroupByArgs['orderBy'] }
-        : { orderBy?: activity_categoryGroupByArgs['orderBy'] },
+        ? { orderBy: activityCategoryGroupByArgs['orderBy'] }
+        : { orderBy?: activityCategoryGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -58990,22 +58990,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, activity_categoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetActivity_categoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, activityCategoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetActivityCategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the activity_category model
+   * Fields of the activityCategory model
    */
-  readonly fields: activity_categoryFieldRefs;
+  readonly fields: activityCategoryFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for activity_category.
+   * The delegate class that acts as a "Promise-like" for activityCategory.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__activity_categoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__activityCategoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    activity<T extends activity_category$activityArgs<ExtArgs> = {}>(args?: Subset<T, activity_category$activityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    activity<T extends activityCategory$activityArgs<ExtArgs> = {}>(args?: Subset<T, activityCategory$activityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -59032,405 +59032,405 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the activity_category model
+   * Fields of the activityCategory model
    */
-  interface activity_categoryFieldRefs {
-    readonly id: FieldRef<"activity_category", 'String'>
-    readonly name: FieldRef<"activity_category", 'String'>
-    readonly description: FieldRef<"activity_category", 'String'>
-    readonly createdAt: FieldRef<"activity_category", 'DateTime'>
-    readonly updatedAt: FieldRef<"activity_category", 'DateTime'>
+  interface activityCategoryFieldRefs {
+    readonly id: FieldRef<"activityCategory", 'String'>
+    readonly name: FieldRef<"activityCategory", 'String'>
+    readonly description: FieldRef<"activityCategory", 'String'>
+    readonly createdAt: FieldRef<"activityCategory", 'DateTime'>
+    readonly updatedAt: FieldRef<"activityCategory", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * activity_category findUnique
+   * activityCategory findUnique
    */
-  export type activity_categoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
     /**
-     * Filter, which activity_category to fetch.
+     * Filter, which activityCategory to fetch.
      */
-    where: activity_categoryWhereUniqueInput
+    where: activityCategoryWhereUniqueInput
   }
 
   /**
-   * activity_category findUniqueOrThrow
+   * activityCategory findUniqueOrThrow
    */
-  export type activity_categoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
     /**
-     * Filter, which activity_category to fetch.
+     * Filter, which activityCategory to fetch.
      */
-    where: activity_categoryWhereUniqueInput
+    where: activityCategoryWhereUniqueInput
   }
 
   /**
-   * activity_category findFirst
+   * activityCategory findFirst
    */
-  export type activity_categoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
     /**
-     * Filter, which activity_category to fetch.
+     * Filter, which activityCategory to fetch.
      */
-    where?: activity_categoryWhereInput
+    where?: activityCategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of activity_categories to fetch.
+     * Determine the order of activityCategories to fetch.
      */
-    orderBy?: activity_categoryOrderByWithRelationInput | activity_categoryOrderByWithRelationInput[]
+    orderBy?: activityCategoryOrderByWithRelationInput | activityCategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for activity_categories.
+     * Sets the position for searching for activityCategories.
      */
-    cursor?: activity_categoryWhereUniqueInput
+    cursor?: activityCategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` activity_categories from the position of the cursor.
+     * Take `±n` activityCategories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` activity_categories.
+     * Skip the first `n` activityCategories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of activity_categories.
+     * Filter by unique combinations of activityCategories.
      */
-    distinct?: Activity_categoryScalarFieldEnum | Activity_categoryScalarFieldEnum[]
+    distinct?: ActivityCategoryScalarFieldEnum | ActivityCategoryScalarFieldEnum[]
   }
 
   /**
-   * activity_category findFirstOrThrow
+   * activityCategory findFirstOrThrow
    */
-  export type activity_categoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
     /**
-     * Filter, which activity_category to fetch.
+     * Filter, which activityCategory to fetch.
      */
-    where?: activity_categoryWhereInput
+    where?: activityCategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of activity_categories to fetch.
+     * Determine the order of activityCategories to fetch.
      */
-    orderBy?: activity_categoryOrderByWithRelationInput | activity_categoryOrderByWithRelationInput[]
+    orderBy?: activityCategoryOrderByWithRelationInput | activityCategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for activity_categories.
+     * Sets the position for searching for activityCategories.
      */
-    cursor?: activity_categoryWhereUniqueInput
+    cursor?: activityCategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` activity_categories from the position of the cursor.
+     * Take `±n` activityCategories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` activity_categories.
+     * Skip the first `n` activityCategories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of activity_categories.
+     * Filter by unique combinations of activityCategories.
      */
-    distinct?: Activity_categoryScalarFieldEnum | Activity_categoryScalarFieldEnum[]
+    distinct?: ActivityCategoryScalarFieldEnum | ActivityCategoryScalarFieldEnum[]
   }
 
   /**
-   * activity_category findMany
+   * activityCategory findMany
    */
-  export type activity_categoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
     /**
-     * Filter, which activity_categories to fetch.
+     * Filter, which activityCategories to fetch.
      */
-    where?: activity_categoryWhereInput
+    where?: activityCategoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of activity_categories to fetch.
+     * Determine the order of activityCategories to fetch.
      */
-    orderBy?: activity_categoryOrderByWithRelationInput | activity_categoryOrderByWithRelationInput[]
+    orderBy?: activityCategoryOrderByWithRelationInput | activityCategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing activity_categories.
+     * Sets the position for listing activityCategories.
      */
-    cursor?: activity_categoryWhereUniqueInput
+    cursor?: activityCategoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` activity_categories from the position of the cursor.
+     * Take `±n` activityCategories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` activity_categories.
+     * Skip the first `n` activityCategories.
      */
     skip?: number
-    distinct?: Activity_categoryScalarFieldEnum | Activity_categoryScalarFieldEnum[]
+    distinct?: ActivityCategoryScalarFieldEnum | ActivityCategoryScalarFieldEnum[]
   }
 
   /**
-   * activity_category create
+   * activityCategory create
    */
-  export type activity_categoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
     /**
-     * The data needed to create a activity_category.
+     * The data needed to create a activityCategory.
      */
-    data: XOR<activity_categoryCreateInput, activity_categoryUncheckedCreateInput>
+    data: XOR<activityCategoryCreateInput, activityCategoryUncheckedCreateInput>
   }
 
   /**
-   * activity_category createMany
+   * activityCategory createMany
    */
-  export type activity_categoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many activity_categories.
+     * The data used to create many activityCategories.
      */
-    data: activity_categoryCreateManyInput | activity_categoryCreateManyInput[]
+    data: activityCategoryCreateManyInput | activityCategoryCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * activity_category createManyAndReturn
+   * activityCategory createManyAndReturn
    */
-  export type activity_categoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelectCreateManyAndReturn<ExtArgs> | null
+    select?: activityCategorySelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
-     * The data used to create many activity_categories.
+     * The data used to create many activityCategories.
      */
-    data: activity_categoryCreateManyInput | activity_categoryCreateManyInput[]
+    data: activityCategoryCreateManyInput | activityCategoryCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * activity_category update
+   * activityCategory update
    */
-  export type activity_categoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
     /**
-     * The data needed to update a activity_category.
+     * The data needed to update a activityCategory.
      */
-    data: XOR<activity_categoryUpdateInput, activity_categoryUncheckedUpdateInput>
+    data: XOR<activityCategoryUpdateInput, activityCategoryUncheckedUpdateInput>
     /**
-     * Choose, which activity_category to update.
+     * Choose, which activityCategory to update.
      */
-    where: activity_categoryWhereUniqueInput
+    where: activityCategoryWhereUniqueInput
   }
 
   /**
-   * activity_category updateMany
+   * activityCategory updateMany
    */
-  export type activity_categoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update activity_categories.
+     * The data used to update activityCategories.
      */
-    data: XOR<activity_categoryUpdateManyMutationInput, activity_categoryUncheckedUpdateManyInput>
+    data: XOR<activityCategoryUpdateManyMutationInput, activityCategoryUncheckedUpdateManyInput>
     /**
-     * Filter which activity_categories to update
+     * Filter which activityCategories to update
      */
-    where?: activity_categoryWhereInput
+    where?: activityCategoryWhereInput
     /**
-     * Limit how many activity_categories to update.
+     * Limit how many activityCategories to update.
      */
     limit?: number
   }
 
   /**
-   * activity_category updateManyAndReturn
+   * activityCategory updateManyAndReturn
    */
-  export type activity_categoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelectUpdateManyAndReturn<ExtArgs> | null
+    select?: activityCategorySelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
-     * The data used to update activity_categories.
+     * The data used to update activityCategories.
      */
-    data: XOR<activity_categoryUpdateManyMutationInput, activity_categoryUncheckedUpdateManyInput>
+    data: XOR<activityCategoryUpdateManyMutationInput, activityCategoryUncheckedUpdateManyInput>
     /**
-     * Filter which activity_categories to update
+     * Filter which activityCategories to update
      */
-    where?: activity_categoryWhereInput
+    where?: activityCategoryWhereInput
     /**
-     * Limit how many activity_categories to update.
+     * Limit how many activityCategories to update.
      */
     limit?: number
   }
 
   /**
-   * activity_category upsert
+   * activityCategory upsert
    */
-  export type activity_categoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
     /**
-     * The filter to search for the activity_category to update in case it exists.
+     * The filter to search for the activityCategory to update in case it exists.
      */
-    where: activity_categoryWhereUniqueInput
+    where: activityCategoryWhereUniqueInput
     /**
-     * In case the activity_category found by the `where` argument doesn't exist, create a new activity_category with this data.
+     * In case the activityCategory found by the `where` argument doesn't exist, create a new activityCategory with this data.
      */
-    create: XOR<activity_categoryCreateInput, activity_categoryUncheckedCreateInput>
+    create: XOR<activityCategoryCreateInput, activityCategoryUncheckedCreateInput>
     /**
-     * In case the activity_category was found with the provided `where` argument, update it with this data.
+     * In case the activityCategory was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<activity_categoryUpdateInput, activity_categoryUncheckedUpdateInput>
+    update: XOR<activityCategoryUpdateInput, activityCategoryUncheckedUpdateInput>
   }
 
   /**
-   * activity_category delete
+   * activityCategory delete
    */
-  export type activity_categoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
     /**
-     * Filter which activity_category to delete.
+     * Filter which activityCategory to delete.
      */
-    where: activity_categoryWhereUniqueInput
+    where: activityCategoryWhereUniqueInput
   }
 
   /**
-   * activity_category deleteMany
+   * activityCategory deleteMany
    */
-  export type activity_categoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which activity_categories to delete
+     * Filter which activityCategories to delete
      */
-    where?: activity_categoryWhereInput
+    where?: activityCategoryWhereInput
     /**
-     * Limit how many activity_categories to delete.
+     * Limit how many activityCategories to delete.
      */
     limit?: number
   }
 
   /**
-   * activity_category.activity
+   * activityCategory.activity
    */
-  export type activity_category$activityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategory$activityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the activity
      */
@@ -59452,21 +59452,21 @@ export namespace Prisma {
   }
 
   /**
-   * activity_category without action
+   * activityCategory without action
    */
-  export type activity_categoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type activityCategoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the activity_category
+     * Select specific fields to fetch from the activityCategory
      */
-    select?: activity_categorySelect<ExtArgs> | null
+    select?: activityCategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the activity_category
+     * Omit specific fields from the activityCategory
      */
-    omit?: activity_categoryOmit<ExtArgs> | null
+    omit?: activityCategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: activity_categoryInclude<ExtArgs> | null
+    include?: activityCategoryInclude<ExtArgs> | null
   }
 
 
@@ -71995,7 +71995,7 @@ export namespace Prisma {
   export type WellnessGoalScalarFieldEnum = (typeof WellnessGoalScalarFieldEnum)[keyof typeof WellnessGoalScalarFieldEnum]
 
 
-  export const Activity_categoryScalarFieldEnum: {
+  export const ActivityCategoryScalarFieldEnum: {
     id: 'id',
     name: 'name',
     description: 'description',
@@ -72003,7 +72003,7 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type Activity_categoryScalarFieldEnum = (typeof Activity_categoryScalarFieldEnum)[keyof typeof Activity_categoryScalarFieldEnum]
+  export type ActivityCategoryScalarFieldEnum = (typeof ActivityCategoryScalarFieldEnum)[keyof typeof ActivityCategoryScalarFieldEnum]
 
 
   export const BadgeCategoryScalarFieldEnum: {
@@ -72279,7 +72279,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"activity"> | Date | string
     updatedAt?: DateTimeNullableFilter<"activity"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
-    activity_category?: XOR<Activity_categoryNullableScalarRelationFilter, activity_categoryWhereInput> | null
+    activityCategory?: XOR<ActivityCategoryNullableScalarRelationFilter, activityCategoryWhereInput> | null
     activity_registration?: ActivityRegistrationListRelationFilter
   }
 
@@ -72305,7 +72305,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     user?: userOrderByWithRelationInput
-    activity_category?: activity_categoryOrderByWithRelationInput
+    activityCategory?: activityCategoryOrderByWithRelationInput
     activity_registration?: activityRegistrationOrderByRelationAggregateInput
   }
 
@@ -72334,7 +72334,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"activity"> | Date | string
     updatedAt?: DateTimeNullableFilter<"activity"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
-    activity_category?: XOR<Activity_categoryNullableScalarRelationFilter, activity_categoryWhereInput> | null
+    activityCategory?: XOR<ActivityCategoryNullableScalarRelationFilter, activityCategoryWhereInput> | null
     activity_registration?: ActivityRegistrationListRelationFilter
   }, "id">
 
@@ -75889,19 +75889,19 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableWithAggregatesFilter<"wellnessGoal"> | Date | string | null
   }
 
-  export type activity_categoryWhereInput = {
-    AND?: activity_categoryWhereInput | activity_categoryWhereInput[]
-    OR?: activity_categoryWhereInput[]
-    NOT?: activity_categoryWhereInput | activity_categoryWhereInput[]
-    id?: StringFilter<"activity_category"> | string
-    name?: StringFilter<"activity_category"> | string
-    description?: StringNullableFilter<"activity_category"> | string | null
-    createdAt?: DateTimeFilter<"activity_category"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"activity_category"> | Date | string | null
+  export type activityCategoryWhereInput = {
+    AND?: activityCategoryWhereInput | activityCategoryWhereInput[]
+    OR?: activityCategoryWhereInput[]
+    NOT?: activityCategoryWhereInput | activityCategoryWhereInput[]
+    id?: StringFilter<"activityCategory"> | string
+    name?: StringFilter<"activityCategory"> | string
+    description?: StringNullableFilter<"activityCategory"> | string | null
+    createdAt?: DateTimeFilter<"activityCategory"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"activityCategory"> | Date | string | null
     activity?: ActivityListRelationFilter
   }
 
-  export type activity_categoryOrderByWithRelationInput = {
+  export type activityCategoryOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
@@ -75910,38 +75910,38 @@ export namespace Prisma {
     activity?: activityOrderByRelationAggregateInput
   }
 
-  export type activity_categoryWhereUniqueInput = Prisma.AtLeast<{
+  export type activityCategoryWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: activity_categoryWhereInput | activity_categoryWhereInput[]
-    OR?: activity_categoryWhereInput[]
-    NOT?: activity_categoryWhereInput | activity_categoryWhereInput[]
-    name?: StringFilter<"activity_category"> | string
-    description?: StringNullableFilter<"activity_category"> | string | null
-    createdAt?: DateTimeFilter<"activity_category"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"activity_category"> | Date | string | null
+    AND?: activityCategoryWhereInput | activityCategoryWhereInput[]
+    OR?: activityCategoryWhereInput[]
+    NOT?: activityCategoryWhereInput | activityCategoryWhereInput[]
+    name?: StringFilter<"activityCategory"> | string
+    description?: StringNullableFilter<"activityCategory"> | string | null
+    createdAt?: DateTimeFilter<"activityCategory"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"activityCategory"> | Date | string | null
     activity?: ActivityListRelationFilter
   }, "id">
 
-  export type activity_categoryOrderByWithAggregationInput = {
+  export type activityCategoryOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    _count?: activity_categoryCountOrderByAggregateInput
-    _max?: activity_categoryMaxOrderByAggregateInput
-    _min?: activity_categoryMinOrderByAggregateInput
+    _count?: activityCategoryCountOrderByAggregateInput
+    _max?: activityCategoryMaxOrderByAggregateInput
+    _min?: activityCategoryMinOrderByAggregateInput
   }
 
-  export type activity_categoryScalarWhereWithAggregatesInput = {
-    AND?: activity_categoryScalarWhereWithAggregatesInput | activity_categoryScalarWhereWithAggregatesInput[]
-    OR?: activity_categoryScalarWhereWithAggregatesInput[]
-    NOT?: activity_categoryScalarWhereWithAggregatesInput | activity_categoryScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"activity_category"> | string
-    name?: StringWithAggregatesFilter<"activity_category"> | string
-    description?: StringNullableWithAggregatesFilter<"activity_category"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"activity_category"> | Date | string
-    updatedAt?: DateTimeNullableWithAggregatesFilter<"activity_category"> | Date | string | null
+  export type activityCategoryScalarWhereWithAggregatesInput = {
+    AND?: activityCategoryScalarWhereWithAggregatesInput | activityCategoryScalarWhereWithAggregatesInput[]
+    OR?: activityCategoryScalarWhereWithAggregatesInput[]
+    NOT?: activityCategoryScalarWhereWithAggregatesInput | activityCategoryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"activityCategory"> | string
+    name?: StringWithAggregatesFilter<"activityCategory"> | string
+    description?: StringNullableWithAggregatesFilter<"activityCategory"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"activityCategory"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"activityCategory"> | Date | string | null
   }
 
   export type badgeCategoryWhereInput = {
@@ -76580,7 +76580,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user?: userCreateNestedOneWithoutActivityInput
-    activity_category?: activity_categoryCreateNestedOneWithoutActivityInput
+    activityCategory?: activityCategoryCreateNestedOneWithoutActivityInput
     activity_registration?: activityRegistrationCreateNestedManyWithoutActivityInput
   }
 
@@ -76628,7 +76628,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutActivityNestedInput
-    activity_category?: activity_categoryUpdateOneWithoutActivityNestedInput
+    activityCategory?: activityCategoryUpdateOneWithoutActivityNestedInput
     activity_registration?: activityRegistrationUpdateManyWithoutActivityNestedInput
   }
 
@@ -80539,43 +80539,43 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type activity_categoryCreateInput = {
+  export type activityCategoryCreateInput = {
     id?: string
     name: string
     description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    activity?: activityCreateNestedManyWithoutActivity_categoryInput
+    activity?: activityCreateNestedManyWithoutActivityCategoryInput
   }
 
-  export type activity_categoryUncheckedCreateInput = {
+  export type activityCategoryUncheckedCreateInput = {
     id?: string
     name: string
     description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    activity?: activityUncheckedCreateNestedManyWithoutActivity_categoryInput
+    activity?: activityUncheckedCreateNestedManyWithoutActivityCategoryInput
   }
 
-  export type activity_categoryUpdateInput = {
+  export type activityCategoryUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activity?: activityUpdateManyWithoutActivity_categoryNestedInput
+    activity?: activityUpdateManyWithoutActivityCategoryNestedInput
   }
 
-  export type activity_categoryUncheckedUpdateInput = {
+  export type activityCategoryUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activity?: activityUncheckedUpdateManyWithoutActivity_categoryNestedInput
+    activity?: activityUncheckedUpdateManyWithoutActivityCategoryNestedInput
   }
 
-  export type activity_categoryCreateManyInput = {
+  export type activityCategoryCreateManyInput = {
     id?: string
     name: string
     description?: string | null
@@ -80583,7 +80583,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type activity_categoryUpdateManyMutationInput = {
+  export type activityCategoryUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -80591,7 +80591,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type activity_categoryUncheckedUpdateManyInput = {
+  export type activityCategoryUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -81358,9 +81358,9 @@ export namespace Prisma {
     isNot?: userWhereInput | null
   }
 
-  export type Activity_categoryNullableScalarRelationFilter = {
-    is?: activity_categoryWhereInput | null
-    isNot?: activity_categoryWhereInput | null
+  export type ActivityCategoryNullableScalarRelationFilter = {
+    is?: activityCategoryWhereInput | null
+    isNot?: activityCategoryWhereInput | null
   }
 
   export type ActivityRegistrationListRelationFilter = {
@@ -83838,7 +83838,7 @@ export namespace Prisma {
     targetValue?: SortOrder
   }
 
-  export type activity_categoryCountOrderByAggregateInput = {
+  export type activityCategoryCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -83846,7 +83846,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type activity_categoryMaxOrderByAggregateInput = {
+  export type activityCategoryMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -83854,7 +83854,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type activity_categoryMinOrderByAggregateInput = {
+  export type activityCategoryMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -84200,10 +84200,10 @@ export namespace Prisma {
     connect?: userWhereUniqueInput
   }
 
-  export type activity_categoryCreateNestedOneWithoutActivityInput = {
-    create?: XOR<activity_categoryCreateWithoutActivityInput, activity_categoryUncheckedCreateWithoutActivityInput>
-    connectOrCreate?: activity_categoryCreateOrConnectWithoutActivityInput
-    connect?: activity_categoryWhereUniqueInput
+  export type activityCategoryCreateNestedOneWithoutActivityInput = {
+    create?: XOR<activityCategoryCreateWithoutActivityInput, activityCategoryUncheckedCreateWithoutActivityInput>
+    connectOrCreate?: activityCategoryCreateOrConnectWithoutActivityInput
+    connect?: activityCategoryWhereUniqueInput
   }
 
   export type activityRegistrationCreateNestedManyWithoutActivityInput = {
@@ -84270,14 +84270,14 @@ export namespace Prisma {
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutActivityInput, userUpdateWithoutActivityInput>, userUncheckedUpdateWithoutActivityInput>
   }
 
-  export type activity_categoryUpdateOneWithoutActivityNestedInput = {
-    create?: XOR<activity_categoryCreateWithoutActivityInput, activity_categoryUncheckedCreateWithoutActivityInput>
-    connectOrCreate?: activity_categoryCreateOrConnectWithoutActivityInput
-    upsert?: activity_categoryUpsertWithoutActivityInput
-    disconnect?: activity_categoryWhereInput | boolean
-    delete?: activity_categoryWhereInput | boolean
-    connect?: activity_categoryWhereUniqueInput
-    update?: XOR<XOR<activity_categoryUpdateToOneWithWhereWithoutActivityInput, activity_categoryUpdateWithoutActivityInput>, activity_categoryUncheckedUpdateWithoutActivityInput>
+  export type activityCategoryUpdateOneWithoutActivityNestedInput = {
+    create?: XOR<activityCategoryCreateWithoutActivityInput, activityCategoryUncheckedCreateWithoutActivityInput>
+    connectOrCreate?: activityCategoryCreateOrConnectWithoutActivityInput
+    upsert?: activityCategoryUpsertWithoutActivityInput
+    disconnect?: activityCategoryWhereInput | boolean
+    delete?: activityCategoryWhereInput | boolean
+    connect?: activityCategoryWhereUniqueInput
+    update?: XOR<XOR<activityCategoryUpdateToOneWithWhereWithoutActivityInput, activityCategoryUpdateWithoutActivityInput>, activityCategoryUncheckedUpdateWithoutActivityInput>
   }
 
   export type activityRegistrationUpdateManyWithoutActivityNestedInput = {
@@ -87070,45 +87070,45 @@ export namespace Prisma {
     deleteMany?: wellnessGoalProgressScalarWhereInput | wellnessGoalProgressScalarWhereInput[]
   }
 
-  export type activityCreateNestedManyWithoutActivity_categoryInput = {
-    create?: XOR<activityCreateWithoutActivity_categoryInput, activityUncheckedCreateWithoutActivity_categoryInput> | activityCreateWithoutActivity_categoryInput[] | activityUncheckedCreateWithoutActivity_categoryInput[]
-    connectOrCreate?: activityCreateOrConnectWithoutActivity_categoryInput | activityCreateOrConnectWithoutActivity_categoryInput[]
-    createMany?: activityCreateManyActivity_categoryInputEnvelope
+  export type activityCreateNestedManyWithoutActivityCategoryInput = {
+    create?: XOR<activityCreateWithoutActivityCategoryInput, activityUncheckedCreateWithoutActivityCategoryInput> | activityCreateWithoutActivityCategoryInput[] | activityUncheckedCreateWithoutActivityCategoryInput[]
+    connectOrCreate?: activityCreateOrConnectWithoutActivityCategoryInput | activityCreateOrConnectWithoutActivityCategoryInput[]
+    createMany?: activityCreateManyActivityCategoryInputEnvelope
     connect?: activityWhereUniqueInput | activityWhereUniqueInput[]
   }
 
-  export type activityUncheckedCreateNestedManyWithoutActivity_categoryInput = {
-    create?: XOR<activityCreateWithoutActivity_categoryInput, activityUncheckedCreateWithoutActivity_categoryInput> | activityCreateWithoutActivity_categoryInput[] | activityUncheckedCreateWithoutActivity_categoryInput[]
-    connectOrCreate?: activityCreateOrConnectWithoutActivity_categoryInput | activityCreateOrConnectWithoutActivity_categoryInput[]
-    createMany?: activityCreateManyActivity_categoryInputEnvelope
+  export type activityUncheckedCreateNestedManyWithoutActivityCategoryInput = {
+    create?: XOR<activityCreateWithoutActivityCategoryInput, activityUncheckedCreateWithoutActivityCategoryInput> | activityCreateWithoutActivityCategoryInput[] | activityUncheckedCreateWithoutActivityCategoryInput[]
+    connectOrCreate?: activityCreateOrConnectWithoutActivityCategoryInput | activityCreateOrConnectWithoutActivityCategoryInput[]
+    createMany?: activityCreateManyActivityCategoryInputEnvelope
     connect?: activityWhereUniqueInput | activityWhereUniqueInput[]
   }
 
-  export type activityUpdateManyWithoutActivity_categoryNestedInput = {
-    create?: XOR<activityCreateWithoutActivity_categoryInput, activityUncheckedCreateWithoutActivity_categoryInput> | activityCreateWithoutActivity_categoryInput[] | activityUncheckedCreateWithoutActivity_categoryInput[]
-    connectOrCreate?: activityCreateOrConnectWithoutActivity_categoryInput | activityCreateOrConnectWithoutActivity_categoryInput[]
-    upsert?: activityUpsertWithWhereUniqueWithoutActivity_categoryInput | activityUpsertWithWhereUniqueWithoutActivity_categoryInput[]
-    createMany?: activityCreateManyActivity_categoryInputEnvelope
+  export type activityUpdateManyWithoutActivityCategoryNestedInput = {
+    create?: XOR<activityCreateWithoutActivityCategoryInput, activityUncheckedCreateWithoutActivityCategoryInput> | activityCreateWithoutActivityCategoryInput[] | activityUncheckedCreateWithoutActivityCategoryInput[]
+    connectOrCreate?: activityCreateOrConnectWithoutActivityCategoryInput | activityCreateOrConnectWithoutActivityCategoryInput[]
+    upsert?: activityUpsertWithWhereUniqueWithoutActivityCategoryInput | activityUpsertWithWhereUniqueWithoutActivityCategoryInput[]
+    createMany?: activityCreateManyActivityCategoryInputEnvelope
     set?: activityWhereUniqueInput | activityWhereUniqueInput[]
     disconnect?: activityWhereUniqueInput | activityWhereUniqueInput[]
     delete?: activityWhereUniqueInput | activityWhereUniqueInput[]
     connect?: activityWhereUniqueInput | activityWhereUniqueInput[]
-    update?: activityUpdateWithWhereUniqueWithoutActivity_categoryInput | activityUpdateWithWhereUniqueWithoutActivity_categoryInput[]
-    updateMany?: activityUpdateManyWithWhereWithoutActivity_categoryInput | activityUpdateManyWithWhereWithoutActivity_categoryInput[]
+    update?: activityUpdateWithWhereUniqueWithoutActivityCategoryInput | activityUpdateWithWhereUniqueWithoutActivityCategoryInput[]
+    updateMany?: activityUpdateManyWithWhereWithoutActivityCategoryInput | activityUpdateManyWithWhereWithoutActivityCategoryInput[]
     deleteMany?: activityScalarWhereInput | activityScalarWhereInput[]
   }
 
-  export type activityUncheckedUpdateManyWithoutActivity_categoryNestedInput = {
-    create?: XOR<activityCreateWithoutActivity_categoryInput, activityUncheckedCreateWithoutActivity_categoryInput> | activityCreateWithoutActivity_categoryInput[] | activityUncheckedCreateWithoutActivity_categoryInput[]
-    connectOrCreate?: activityCreateOrConnectWithoutActivity_categoryInput | activityCreateOrConnectWithoutActivity_categoryInput[]
-    upsert?: activityUpsertWithWhereUniqueWithoutActivity_categoryInput | activityUpsertWithWhereUniqueWithoutActivity_categoryInput[]
-    createMany?: activityCreateManyActivity_categoryInputEnvelope
+  export type activityUncheckedUpdateManyWithoutActivityCategoryNestedInput = {
+    create?: XOR<activityCreateWithoutActivityCategoryInput, activityUncheckedCreateWithoutActivityCategoryInput> | activityCreateWithoutActivityCategoryInput[] | activityUncheckedCreateWithoutActivityCategoryInput[]
+    connectOrCreate?: activityCreateOrConnectWithoutActivityCategoryInput | activityCreateOrConnectWithoutActivityCategoryInput[]
+    upsert?: activityUpsertWithWhereUniqueWithoutActivityCategoryInput | activityUpsertWithWhereUniqueWithoutActivityCategoryInput[]
+    createMany?: activityCreateManyActivityCategoryInputEnvelope
     set?: activityWhereUniqueInput | activityWhereUniqueInput[]
     disconnect?: activityWhereUniqueInput | activityWhereUniqueInput[]
     delete?: activityWhereUniqueInput | activityWhereUniqueInput[]
     connect?: activityWhereUniqueInput | activityWhereUniqueInput[]
-    update?: activityUpdateWithWhereUniqueWithoutActivity_categoryInput | activityUpdateWithWhereUniqueWithoutActivity_categoryInput[]
-    updateMany?: activityUpdateManyWithWhereWithoutActivity_categoryInput | activityUpdateManyWithWhereWithoutActivity_categoryInput[]
+    update?: activityUpdateWithWhereUniqueWithoutActivityCategoryInput | activityUpdateWithWhereUniqueWithoutActivityCategoryInput[]
+    updateMany?: activityUpdateManyWithWhereWithoutActivityCategoryInput | activityUpdateManyWithWhereWithoutActivityCategoryInput[]
     deleteMany?: activityScalarWhereInput | activityScalarWhereInput[]
   }
 
@@ -87990,7 +87990,7 @@ export namespace Prisma {
     create: XOR<userCreateWithoutActivityInput, userUncheckedCreateWithoutActivityInput>
   }
 
-  export type activity_categoryCreateWithoutActivityInput = {
+  export type activityCategoryCreateWithoutActivityInput = {
     id?: string
     name: string
     description?: string | null
@@ -87998,7 +87998,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type activity_categoryUncheckedCreateWithoutActivityInput = {
+  export type activityCategoryUncheckedCreateWithoutActivityInput = {
     id?: string
     name: string
     description?: string | null
@@ -88006,9 +88006,9 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type activity_categoryCreateOrConnectWithoutActivityInput = {
-    where: activity_categoryWhereUniqueInput
-    create: XOR<activity_categoryCreateWithoutActivityInput, activity_categoryUncheckedCreateWithoutActivityInput>
+  export type activityCategoryCreateOrConnectWithoutActivityInput = {
+    where: activityCategoryWhereUniqueInput
+    create: XOR<activityCategoryCreateWithoutActivityInput, activityCategoryUncheckedCreateWithoutActivityInput>
   }
 
   export type activityRegistrationCreateWithoutActivityInput = {
@@ -88154,18 +88154,18 @@ export namespace Prisma {
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type activity_categoryUpsertWithoutActivityInput = {
-    update: XOR<activity_categoryUpdateWithoutActivityInput, activity_categoryUncheckedUpdateWithoutActivityInput>
-    create: XOR<activity_categoryCreateWithoutActivityInput, activity_categoryUncheckedCreateWithoutActivityInput>
-    where?: activity_categoryWhereInput
+  export type activityCategoryUpsertWithoutActivityInput = {
+    update: XOR<activityCategoryUpdateWithoutActivityInput, activityCategoryUncheckedUpdateWithoutActivityInput>
+    create: XOR<activityCategoryCreateWithoutActivityInput, activityCategoryUncheckedCreateWithoutActivityInput>
+    where?: activityCategoryWhereInput
   }
 
-  export type activity_categoryUpdateToOneWithWhereWithoutActivityInput = {
-    where?: activity_categoryWhereInput
-    data: XOR<activity_categoryUpdateWithoutActivityInput, activity_categoryUncheckedUpdateWithoutActivityInput>
+  export type activityCategoryUpdateToOneWithWhereWithoutActivityInput = {
+    where?: activityCategoryWhereInput
+    data: XOR<activityCategoryUpdateWithoutActivityInput, activityCategoryUncheckedUpdateWithoutActivityInput>
   }
 
-  export type activity_categoryUpdateWithoutActivityInput = {
+  export type activityCategoryUpdateWithoutActivityInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -88173,7 +88173,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type activity_categoryUncheckedUpdateWithoutActivityInput = {
+  export type activityCategoryUncheckedUpdateWithoutActivityInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -88451,7 +88451,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user?: userCreateNestedOneWithoutActivityInput
-    activity_category?: activity_categoryCreateNestedOneWithoutActivityInput
+    activityCategory?: activityCategoryCreateNestedOneWithoutActivityInput
   }
 
   export type activityUncheckedCreateWithoutActivity_registrationInput = {
@@ -88620,7 +88620,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutActivityNestedInput
-    activity_category?: activity_categoryUpdateOneWithoutActivityNestedInput
+    activityCategory?: activityCategoryUpdateOneWithoutActivityNestedInput
   }
 
   export type activityUncheckedUpdateWithoutActivity_registrationInput = {
@@ -95175,7 +95175,7 @@ export namespace Prisma {
     transportOptions?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    activity_category?: activity_categoryCreateNestedOneWithoutActivityInput
+    activityCategory?: activityCategoryCreateNestedOneWithoutActivityInput
     activity_registration?: activityRegistrationCreateNestedManyWithoutActivityInput
   }
 
@@ -98873,7 +98873,7 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutWellnessCategoryNestedInput
   }
 
-  export type activityCreateWithoutActivity_categoryInput = {
+  export type activityCreateWithoutActivityCategoryInput = {
     id?: string
     title: string
     description?: string | null
@@ -98896,7 +98896,7 @@ export namespace Prisma {
     activity_registration?: activityRegistrationCreateNestedManyWithoutActivityInput
   }
 
-  export type activityUncheckedCreateWithoutActivity_categoryInput = {
+  export type activityUncheckedCreateWithoutActivityCategoryInput = {
     id?: string
     creatorId?: string | null
     title: string
@@ -98919,30 +98919,30 @@ export namespace Prisma {
     activity_registration?: activityRegistrationUncheckedCreateNestedManyWithoutActivityInput
   }
 
-  export type activityCreateOrConnectWithoutActivity_categoryInput = {
+  export type activityCreateOrConnectWithoutActivityCategoryInput = {
     where: activityWhereUniqueInput
-    create: XOR<activityCreateWithoutActivity_categoryInput, activityUncheckedCreateWithoutActivity_categoryInput>
+    create: XOR<activityCreateWithoutActivityCategoryInput, activityUncheckedCreateWithoutActivityCategoryInput>
   }
 
-  export type activityCreateManyActivity_categoryInputEnvelope = {
-    data: activityCreateManyActivity_categoryInput | activityCreateManyActivity_categoryInput[]
+  export type activityCreateManyActivityCategoryInputEnvelope = {
+    data: activityCreateManyActivityCategoryInput | activityCreateManyActivityCategoryInput[]
     skipDuplicates?: boolean
   }
 
-  export type activityUpsertWithWhereUniqueWithoutActivity_categoryInput = {
+  export type activityUpsertWithWhereUniqueWithoutActivityCategoryInput = {
     where: activityWhereUniqueInput
-    update: XOR<activityUpdateWithoutActivity_categoryInput, activityUncheckedUpdateWithoutActivity_categoryInput>
-    create: XOR<activityCreateWithoutActivity_categoryInput, activityUncheckedCreateWithoutActivity_categoryInput>
+    update: XOR<activityUpdateWithoutActivityCategoryInput, activityUncheckedUpdateWithoutActivityCategoryInput>
+    create: XOR<activityCreateWithoutActivityCategoryInput, activityUncheckedCreateWithoutActivityCategoryInput>
   }
 
-  export type activityUpdateWithWhereUniqueWithoutActivity_categoryInput = {
+  export type activityUpdateWithWhereUniqueWithoutActivityCategoryInput = {
     where: activityWhereUniqueInput
-    data: XOR<activityUpdateWithoutActivity_categoryInput, activityUncheckedUpdateWithoutActivity_categoryInput>
+    data: XOR<activityUpdateWithoutActivityCategoryInput, activityUncheckedUpdateWithoutActivityCategoryInput>
   }
 
-  export type activityUpdateManyWithWhereWithoutActivity_categoryInput = {
+  export type activityUpdateManyWithWhereWithoutActivityCategoryInput = {
     where: activityScalarWhereInput
-    data: XOR<activityUpdateManyMutationInput, activityUncheckedUpdateManyWithoutActivity_categoryInput>
+    data: XOR<activityUpdateManyMutationInput, activityUncheckedUpdateManyWithoutActivityCategoryInput>
   }
 
   export type badgeCreateWithoutBadgeCategoryInput = {
@@ -100755,7 +100755,7 @@ export namespace Prisma {
     transportOptions?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activity_category?: activity_categoryUpdateOneWithoutActivityNestedInput
+    activityCategory?: activityCategoryUpdateOneWithoutActivityNestedInput
     activity_registration?: activityRegistrationUpdateManyWithoutActivityNestedInput
   }
 
@@ -101737,7 +101737,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type activityCreateManyActivity_categoryInput = {
+  export type activityCreateManyActivityCategoryInput = {
     id?: string
     creatorId?: string | null
     title: string
@@ -101759,7 +101759,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type activityUpdateWithoutActivity_categoryInput = {
+  export type activityUpdateWithoutActivityCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101782,7 +101782,7 @@ export namespace Prisma {
     activity_registration?: activityRegistrationUpdateManyWithoutActivityNestedInput
   }
 
-  export type activityUncheckedUpdateWithoutActivity_categoryInput = {
+  export type activityUncheckedUpdateWithoutActivityCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     creatorId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
@@ -101805,7 +101805,7 @@ export namespace Prisma {
     activity_registration?: activityRegistrationUncheckedUpdateManyWithoutActivityNestedInput
   }
 
-  export type activityUncheckedUpdateManyWithoutActivity_categoryInput = {
+  export type activityUncheckedUpdateManyWithoutActivityCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     creatorId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string

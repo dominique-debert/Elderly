@@ -667,7 +667,7 @@ exports.Prisma.WellnessGoalScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.Activity_categoryScalarFieldEnum = {
+exports.Prisma.ActivityCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
@@ -836,7 +836,7 @@ exports.Prisma.ModelName = {
   videoCall: 'videoCall',
   wellnessBadge: 'wellnessBadge',
   wellnessGoal: 'wellnessGoal',
-  activity_category: 'activity_category',
+  activityCategory: 'activityCategory',
   badgeCategory: 'badgeCategory',
   cognitiveCategory: 'cognitiveCategory',
   helpCategory: 'helpCategory',

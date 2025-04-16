@@ -30,7 +30,7 @@ model activity {
   createdAt             DateTime               @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt             DateTime?              @map("updated_at") @db.Timestamp(6)
   user                  user?                  @relation(fields: [creatorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  activity_category     activity_category?     @relation(fields: [categoryId], references: [id])
+  activityCategory      activityCategory?      @relation(fields: [categoryId], references: [id])
   activity_registration activityRegistration[]
 }
 
@@ -753,13 +753,15 @@ model wellnessGoal {
 }
 
 // Gestion des catégories diverses et variées
-model activity_category {
+model activityCategory {
   id          String     @id @default(cuid())
   name        String     @db.Text
   description String?    @db.Text
   createdAt   DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt   DateTime?  @map("updated_at") @db.Timestamp(6)
   activity    activity[]
+
+  @@map("activity_category")
 }
 
 model badgeCategory {
