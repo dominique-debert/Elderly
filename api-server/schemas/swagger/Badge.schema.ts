@@ -18,9 +18,9 @@
  *         icon:
  *           type: string
  *           description: Chemin de l'icône du badge
- *         category:
+ *         categoryId:
  *           type: string
- *           description: Catégorie du badge
+ *           description: Id de la catégorie du badge
  *         level:
  *           type: integer
  *           description: Niveau du badge

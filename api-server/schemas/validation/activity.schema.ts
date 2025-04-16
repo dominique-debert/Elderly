@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 export const activitySchema = Joi.object({
-  creatorId: Joi.string().required(),
+  creatorId: Joi.string().allow(null, ''),
   title: Joi.string().required(),
   description: Joi.string().allow(null, ''),
   startDate: Joi.date().required(),

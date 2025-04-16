@@ -7232,7 +7232,7 @@ export namespace Prisma {
 
   export type ActivityGroupByOutputType = {
     id: string
-    creatorId: string
+    creatorId: string | null
     title: string
     description: string | null
     startDate: Date
@@ -7240,7 +7240,7 @@ export namespace Prisma {
     location: string | null
     gpsCoordinates: string | null
     maxSpots: number | null
-    categoryId: string
+    categoryId: string | null
     recurring: boolean | null
     frequency: string | null
     reducedMobilityAccess: boolean
@@ -7293,8 +7293,8 @@ export namespace Prisma {
     transportOptions?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | userDefaultArgs<ExtArgs>
-    activity_category?: boolean | activity_categoryDefaultArgs<ExtArgs>
+    user?: boolean | activity$userArgs<ExtArgs>
+    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
     activity_registration?: boolean | activity$activity_registrationArgs<ExtArgs>
     _count?: boolean | ActivityCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["activity"]>
@@ -7320,8 +7320,8 @@ export namespace Prisma {
     transportOptions?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | userDefaultArgs<ExtArgs>
-    activity_category?: boolean | activity_categoryDefaultArgs<ExtArgs>
+    user?: boolean | activity$userArgs<ExtArgs>
+    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
   }, ExtArgs["result"]["activity"]>
 
   export type activitySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7345,8 +7345,8 @@ export namespace Prisma {
     transportOptions?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | userDefaultArgs<ExtArgs>
-    activity_category?: boolean | activity_categoryDefaultArgs<ExtArgs>
+    user?: boolean | activity$userArgs<ExtArgs>
+    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
   }, ExtArgs["result"]["activity"]>
 
   export type activitySelectScalar = {
@@ -7374,30 +7374,30 @@ export namespace Prisma {
 
   export type activityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "creatorId" | "title" | "description" | "startDate" | "endDate" | "location" | "gpsCoordinates" | "maxSpots" | "categoryId" | "recurring" | "frequency" | "reducedMobilityAccess" | "difficultyLevel" | "cost" | "status" | "weatherRequirements" | "transportOptions" | "createdAt" | "updatedAt", ExtArgs["result"]["activity"]>
   export type activityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | userDefaultArgs<ExtArgs>
-    activity_category?: boolean | activity_categoryDefaultArgs<ExtArgs>
+    user?: boolean | activity$userArgs<ExtArgs>
+    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
     activity_registration?: boolean | activity$activity_registrationArgs<ExtArgs>
     _count?: boolean | ActivityCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type activityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | userDefaultArgs<ExtArgs>
-    activity_category?: boolean | activity_categoryDefaultArgs<ExtArgs>
+    user?: boolean | activity$userArgs<ExtArgs>
+    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
   }
   export type activityIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | userDefaultArgs<ExtArgs>
-    activity_category?: boolean | activity_categoryDefaultArgs<ExtArgs>
+    user?: boolean | activity$userArgs<ExtArgs>
+    activity_category?: boolean | activity$activity_categoryArgs<ExtArgs>
   }
 
   export type $activityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "activity"
     objects: {
-      user: Prisma.$userPayload<ExtArgs>
-      activity_category: Prisma.$activity_categoryPayload<ExtArgs>
+      user: Prisma.$userPayload<ExtArgs> | null
+      activity_category: Prisma.$activity_categoryPayload<ExtArgs> | null
       activity_registration: Prisma.$activityRegistrationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      creatorId: string
+      creatorId: string | null
       title: string
       description: string | null
       startDate: Date
@@ -7405,7 +7405,7 @@ export namespace Prisma {
       location: string | null
       gpsCoordinates: string | null
       maxSpots: number | null
-      categoryId: string
+      categoryId: string | null
       recurring: boolean | null
       frequency: string | null
       reducedMobilityAccess: boolean
@@ -7810,8 +7810,8 @@ export namespace Prisma {
    */
   export interface Prisma__activityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends userDefaultArgs<ExtArgs> = {}>(args?: Subset<T, userDefaultArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    activity_category<T extends activity_categoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, activity_categoryDefaultArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends activity$userArgs<ExtArgs> = {}>(args?: Subset<T, activity$userArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    activity_category<T extends activity$activity_categoryArgs<ExtArgs> = {}>(args?: Subset<T, activity$activity_categoryArgs<ExtArgs>>): Prisma__activity_categoryClient<$Result.GetResult<Prisma.$activity_categoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     activity_registration<T extends activity$activity_registrationArgs<ExtArgs> = {}>(args?: Subset<T, activity$activity_registrationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activityRegistrationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -8255,6 +8255,44 @@ export namespace Prisma {
      * Limit how many activities to delete.
      */
     limit?: number
+  }
+
+  /**
+   * activity.user
+   */
+  export type activity$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user
+     */
+    select?: userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user
+     */
+    omit?: userOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
+    where?: userWhereInput
+  }
+
+  /**
+   * activity.activity_category
+   */
+  export type activity$activity_categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the activity_category
+     */
+    select?: activity_categorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the activity_category
+     */
+    omit?: activity_categoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: activity_categoryInclude<ExtArgs> | null
+    where?: activity_categoryWhereInput
   }
 
   /**
@@ -72221,7 +72259,7 @@ export namespace Prisma {
     OR?: activityWhereInput[]
     NOT?: activityWhereInput | activityWhereInput[]
     id?: StringFilter<"activity"> | string
-    creatorId?: StringFilter<"activity"> | string
+    creatorId?: StringNullableFilter<"activity"> | string | null
     title?: StringFilter<"activity"> | string
     description?: StringNullableFilter<"activity"> | string | null
     startDate?: DateTimeFilter<"activity"> | Date | string
@@ -72229,7 +72267,7 @@ export namespace Prisma {
     location?: StringNullableFilter<"activity"> | string | null
     gpsCoordinates?: StringNullableFilter<"activity"> | string | null
     maxSpots?: IntNullableFilter<"activity"> | number | null
-    categoryId?: StringFilter<"activity"> | string
+    categoryId?: StringNullableFilter<"activity"> | string | null
     recurring?: BoolNullableFilter<"activity"> | boolean | null
     frequency?: StringNullableFilter<"activity"> | string | null
     reducedMobilityAccess?: BoolFilter<"activity"> | boolean
@@ -72240,14 +72278,14 @@ export namespace Prisma {
     transportOptions?: StringNullableFilter<"activity"> | string | null
     createdAt?: DateTimeFilter<"activity"> | Date | string
     updatedAt?: DateTimeNullableFilter<"activity"> | Date | string | null
-    user?: XOR<UserScalarRelationFilter, userWhereInput>
-    activity_category?: XOR<Activity_categoryScalarRelationFilter, activity_categoryWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
+    activity_category?: XOR<Activity_categoryNullableScalarRelationFilter, activity_categoryWhereInput> | null
     activity_registration?: ActivityRegistrationListRelationFilter
   }
 
   export type activityOrderByWithRelationInput = {
     id?: SortOrder
-    creatorId?: SortOrder
+    creatorId?: SortOrderInput | SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
     startDate?: SortOrder
@@ -72255,7 +72293,7 @@ export namespace Prisma {
     location?: SortOrderInput | SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
     maxSpots?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     recurring?: SortOrderInput | SortOrder
     frequency?: SortOrderInput | SortOrder
     reducedMobilityAccess?: SortOrder
@@ -72276,7 +72314,7 @@ export namespace Prisma {
     AND?: activityWhereInput | activityWhereInput[]
     OR?: activityWhereInput[]
     NOT?: activityWhereInput | activityWhereInput[]
-    creatorId?: StringFilter<"activity"> | string
+    creatorId?: StringNullableFilter<"activity"> | string | null
     title?: StringFilter<"activity"> | string
     description?: StringNullableFilter<"activity"> | string | null
     startDate?: DateTimeFilter<"activity"> | Date | string
@@ -72284,7 +72322,7 @@ export namespace Prisma {
     location?: StringNullableFilter<"activity"> | string | null
     gpsCoordinates?: StringNullableFilter<"activity"> | string | null
     maxSpots?: IntNullableFilter<"activity"> | number | null
-    categoryId?: StringFilter<"activity"> | string
+    categoryId?: StringNullableFilter<"activity"> | string | null
     recurring?: BoolNullableFilter<"activity"> | boolean | null
     frequency?: StringNullableFilter<"activity"> | string | null
     reducedMobilityAccess?: BoolFilter<"activity"> | boolean
@@ -72295,14 +72333,14 @@ export namespace Prisma {
     transportOptions?: StringNullableFilter<"activity"> | string | null
     createdAt?: DateTimeFilter<"activity"> | Date | string
     updatedAt?: DateTimeNullableFilter<"activity"> | Date | string | null
-    user?: XOR<UserScalarRelationFilter, userWhereInput>
-    activity_category?: XOR<Activity_categoryScalarRelationFilter, activity_categoryWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
+    activity_category?: XOR<Activity_categoryNullableScalarRelationFilter, activity_categoryWhereInput> | null
     activity_registration?: ActivityRegistrationListRelationFilter
   }, "id">
 
   export type activityOrderByWithAggregationInput = {
     id?: SortOrder
-    creatorId?: SortOrder
+    creatorId?: SortOrderInput | SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
     startDate?: SortOrder
@@ -72310,7 +72348,7 @@ export namespace Prisma {
     location?: SortOrderInput | SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
     maxSpots?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     recurring?: SortOrderInput | SortOrder
     frequency?: SortOrderInput | SortOrder
     reducedMobilityAccess?: SortOrder
@@ -72333,7 +72371,7 @@ export namespace Prisma {
     OR?: activityScalarWhereWithAggregatesInput[]
     NOT?: activityScalarWhereWithAggregatesInput | activityScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"activity"> | string
-    creatorId?: StringWithAggregatesFilter<"activity"> | string
+    creatorId?: StringNullableWithAggregatesFilter<"activity"> | string | null
     title?: StringWithAggregatesFilter<"activity"> | string
     description?: StringNullableWithAggregatesFilter<"activity"> | string | null
     startDate?: DateTimeWithAggregatesFilter<"activity"> | Date | string
@@ -72341,7 +72379,7 @@ export namespace Prisma {
     location?: StringNullableWithAggregatesFilter<"activity"> | string | null
     gpsCoordinates?: StringNullableWithAggregatesFilter<"activity"> | string | null
     maxSpots?: IntNullableWithAggregatesFilter<"activity"> | number | null
-    categoryId?: StringWithAggregatesFilter<"activity"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"activity"> | string | null
     recurring?: BoolNullableWithAggregatesFilter<"activity"> | boolean | null
     frequency?: StringNullableWithAggregatesFilter<"activity"> | string | null
     reducedMobilityAccess?: BoolWithAggregatesFilter<"activity"> | boolean
@@ -76541,14 +76579,14 @@ export namespace Prisma {
     transportOptions?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    user: userCreateNestedOneWithoutActivityInput
-    activity_category: activity_categoryCreateNestedOneWithoutActivityInput
+    user?: userCreateNestedOneWithoutActivityInput
+    activity_category?: activity_categoryCreateNestedOneWithoutActivityInput
     activity_registration?: activityRegistrationCreateNestedManyWithoutActivityInput
   }
 
   export type activityUncheckedCreateInput = {
     id?: string
-    creatorId: string
+    creatorId?: string | null
     title: string
     description?: string | null
     startDate: Date | string
@@ -76556,7 +76594,7 @@ export namespace Prisma {
     location?: string | null
     gpsCoordinates?: string | null
     maxSpots?: number | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     reducedMobilityAccess?: boolean
@@ -76589,14 +76627,14 @@ export namespace Prisma {
     transportOptions?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: userUpdateOneRequiredWithoutActivityNestedInput
-    activity_category?: activity_categoryUpdateOneRequiredWithoutActivityNestedInput
+    user?: userUpdateOneWithoutActivityNestedInput
+    activity_category?: activity_categoryUpdateOneWithoutActivityNestedInput
     activity_registration?: activityRegistrationUpdateManyWithoutActivityNestedInput
   }
 
   export type activityUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    creatorId?: StringFieldUpdateOperationsInput | string
+    creatorId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -76604,7 +76642,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     maxSpots?: NullableIntFieldUpdateOperationsInput | number | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     reducedMobilityAccess?: BoolFieldUpdateOperationsInput | boolean
@@ -76620,7 +76658,7 @@ export namespace Prisma {
 
   export type activityCreateManyInput = {
     id?: string
-    creatorId: string
+    creatorId?: string | null
     title: string
     description?: string | null
     startDate: Date | string
@@ -76628,7 +76666,7 @@ export namespace Prisma {
     location?: string | null
     gpsCoordinates?: string | null
     maxSpots?: number | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     reducedMobilityAccess?: boolean
@@ -76664,7 +76702,7 @@ export namespace Prisma {
 
   export type activityUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    creatorId?: StringFieldUpdateOperationsInput | string
+    creatorId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -76672,7 +76710,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     maxSpots?: NullableIntFieldUpdateOperationsInput | number | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     reducedMobilityAccess?: BoolFieldUpdateOperationsInput | boolean
@@ -81315,14 +81353,14 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type UserScalarRelationFilter = {
-    is?: userWhereInput
-    isNot?: userWhereInput
+  export type UserNullableScalarRelationFilter = {
+    is?: userWhereInput | null
+    isNot?: userWhereInput | null
   }
 
-  export type Activity_categoryScalarRelationFilter = {
-    is?: activity_categoryWhereInput
-    isNot?: activity_categoryWhereInput
+  export type Activity_categoryNullableScalarRelationFilter = {
+    is?: activity_categoryWhereInput | null
+    isNot?: activity_categoryWhereInput | null
   }
 
   export type ActivityRegistrationListRelationFilter = {
@@ -81533,11 +81571,6 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type UserNullableScalarRelationFilter = {
-    is?: userWhereInput | null
-    isNot?: userWhereInput | null
-  }
-
   export type activityLogCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -81577,6 +81610,11 @@ export namespace Prisma {
   export type ActivityScalarRelationFilter = {
     is?: activityWhereInput
     isNot?: activityWhereInput
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: userWhereInput
+    isNot?: userWhereInput
   }
 
   export type activityRegistrationCountOrderByAggregateInput = {
@@ -84222,18 +84260,22 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type userUpdateOneRequiredWithoutActivityNestedInput = {
+  export type userUpdateOneWithoutActivityNestedInput = {
     create?: XOR<userCreateWithoutActivityInput, userUncheckedCreateWithoutActivityInput>
     connectOrCreate?: userCreateOrConnectWithoutActivityInput
     upsert?: userUpsertWithoutActivityInput
+    disconnect?: userWhereInput | boolean
+    delete?: userWhereInput | boolean
     connect?: userWhereUniqueInput
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutActivityInput, userUpdateWithoutActivityInput>, userUncheckedUpdateWithoutActivityInput>
   }
 
-  export type activity_categoryUpdateOneRequiredWithoutActivityNestedInput = {
+  export type activity_categoryUpdateOneWithoutActivityNestedInput = {
     create?: XOR<activity_categoryCreateWithoutActivityInput, activity_categoryUncheckedCreateWithoutActivityInput>
     connectOrCreate?: activity_categoryCreateOrConnectWithoutActivityInput
     upsert?: activity_categoryUpsertWithoutActivityInput
+    disconnect?: activity_categoryWhereInput | boolean
+    delete?: activity_categoryWhereInput | boolean
     connect?: activity_categoryWhereUniqueInput
     update?: XOR<XOR<activity_categoryUpdateToOneWithWhereWithoutActivityInput, activity_categoryUpdateWithoutActivityInput>, activity_categoryUncheckedUpdateWithoutActivityInput>
   }
@@ -88408,13 +88450,13 @@ export namespace Prisma {
     transportOptions?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    user: userCreateNestedOneWithoutActivityInput
-    activity_category: activity_categoryCreateNestedOneWithoutActivityInput
+    user?: userCreateNestedOneWithoutActivityInput
+    activity_category?: activity_categoryCreateNestedOneWithoutActivityInput
   }
 
   export type activityUncheckedCreateWithoutActivity_registrationInput = {
     id?: string
-    creatorId: string
+    creatorId?: string | null
     title: string
     description?: string | null
     startDate: Date | string
@@ -88422,7 +88464,7 @@ export namespace Prisma {
     location?: string | null
     gpsCoordinates?: string | null
     maxSpots?: number | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     reducedMobilityAccess?: boolean
@@ -88577,13 +88619,13 @@ export namespace Prisma {
     transportOptions?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: userUpdateOneRequiredWithoutActivityNestedInput
-    activity_category?: activity_categoryUpdateOneRequiredWithoutActivityNestedInput
+    user?: userUpdateOneWithoutActivityNestedInput
+    activity_category?: activity_categoryUpdateOneWithoutActivityNestedInput
   }
 
   export type activityUncheckedUpdateWithoutActivity_registrationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    creatorId?: StringFieldUpdateOperationsInput | string
+    creatorId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -88591,7 +88633,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     maxSpots?: NullableIntFieldUpdateOperationsInput | number | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     reducedMobilityAccess?: BoolFieldUpdateOperationsInput | boolean
@@ -95133,7 +95175,7 @@ export namespace Prisma {
     transportOptions?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    activity_category: activity_categoryCreateNestedOneWithoutActivityInput
+    activity_category?: activity_categoryCreateNestedOneWithoutActivityInput
     activity_registration?: activityRegistrationCreateNestedManyWithoutActivityInput
   }
 
@@ -95146,7 +95188,7 @@ export namespace Prisma {
     location?: string | null
     gpsCoordinates?: string | null
     maxSpots?: number | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     reducedMobilityAccess?: boolean
@@ -96115,7 +96157,7 @@ export namespace Prisma {
     OR?: activityScalarWhereInput[]
     NOT?: activityScalarWhereInput | activityScalarWhereInput[]
     id?: StringFilter<"activity"> | string
-    creatorId?: StringFilter<"activity"> | string
+    creatorId?: StringNullableFilter<"activity"> | string | null
     title?: StringFilter<"activity"> | string
     description?: StringNullableFilter<"activity"> | string | null
     startDate?: DateTimeFilter<"activity"> | Date | string
@@ -96123,7 +96165,7 @@ export namespace Prisma {
     location?: StringNullableFilter<"activity"> | string | null
     gpsCoordinates?: StringNullableFilter<"activity"> | string | null
     maxSpots?: IntNullableFilter<"activity"> | number | null
-    categoryId?: StringFilter<"activity"> | string
+    categoryId?: StringNullableFilter<"activity"> | string | null
     recurring?: BoolNullableFilter<"activity"> | boolean | null
     frequency?: StringNullableFilter<"activity"> | string | null
     reducedMobilityAccess?: BoolFilter<"activity"> | boolean
@@ -98850,13 +98892,13 @@ export namespace Prisma {
     transportOptions?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    user: userCreateNestedOneWithoutActivityInput
+    user?: userCreateNestedOneWithoutActivityInput
     activity_registration?: activityRegistrationCreateNestedManyWithoutActivityInput
   }
 
   export type activityUncheckedCreateWithoutActivity_categoryInput = {
     id?: string
-    creatorId: string
+    creatorId?: string | null
     title: string
     description?: string | null
     startDate: Date | string
@@ -100386,7 +100428,7 @@ export namespace Prisma {
     location?: string | null
     gpsCoordinates?: string | null
     maxSpots?: number | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     reducedMobilityAccess?: boolean
@@ -100713,7 +100755,7 @@ export namespace Prisma {
     transportOptions?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activity_category?: activity_categoryUpdateOneRequiredWithoutActivityNestedInput
+    activity_category?: activity_categoryUpdateOneWithoutActivityNestedInput
     activity_registration?: activityRegistrationUpdateManyWithoutActivityNestedInput
   }
 
@@ -100726,7 +100768,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     maxSpots?: NullableIntFieldUpdateOperationsInput | number | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     reducedMobilityAccess?: BoolFieldUpdateOperationsInput | boolean
@@ -100749,7 +100791,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     maxSpots?: NullableIntFieldUpdateOperationsInput | number | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     reducedMobilityAccess?: BoolFieldUpdateOperationsInput | boolean
@@ -101697,7 +101739,7 @@ export namespace Prisma {
 
   export type activityCreateManyActivity_categoryInput = {
     id?: string
-    creatorId: string
+    creatorId?: string | null
     title: string
     description?: string | null
     startDate: Date | string
@@ -101736,13 +101778,13 @@ export namespace Prisma {
     transportOptions?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: userUpdateOneRequiredWithoutActivityNestedInput
+    user?: userUpdateOneWithoutActivityNestedInput
     activity_registration?: activityRegistrationUpdateManyWithoutActivityNestedInput
   }
 
   export type activityUncheckedUpdateWithoutActivity_categoryInput = {
     id?: StringFieldUpdateOperationsInput | string
-    creatorId?: StringFieldUpdateOperationsInput | string
+    creatorId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -101765,7 +101807,7 @@ export namespace Prisma {
 
   export type activityUncheckedUpdateManyWithoutActivity_categoryInput = {
     id?: StringFieldUpdateOperationsInput | string
-    creatorId?: StringFieldUpdateOperationsInput | string
+    creatorId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string

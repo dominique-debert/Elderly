@@ -20,12 +20,47 @@ const router = Router();
  *     summary: Créer une nouvelle activité
  *     description: Crée une nouvelle activité avec les données fournies
  *     tags: [Activities]
- *     requestBody:
+  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 maxLength: 255
+ *               description:
+ *                 type: string
+ *               startDate:
+ *                 type: string
+ *                 format: date
+ *               endDate:
+ *                 type: string
+ *                 format: date
+ *               location:
+ *                 type: string
+ *               gpsCoordinates:
+ *                 type: string
+ *               maxSpots:
+ *                 type: integer
+ *               categoryId:
+ *                 type: string
+ *               recurring:
+ *                 type: boolean
+ *               frequency:
+ *                 type: string
+ *               reducedMobilityAccess:
+ *                 type: boolean
+ *               cost:
+ *                 type: number
+ *                 format: float
+ *               status:
+ *                 type: string
+ *               weatherRequirements:
+ *                 type: string
+ *               transportOptions:
+ *                 type: string
  *     responses:
  *       201:
  *         description: activité créée avec succès

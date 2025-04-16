@@ -1,5 +1,4 @@
   export default interface IActivity {
-    creatorId: string
     title: string
     description?: string
     startDate: Date

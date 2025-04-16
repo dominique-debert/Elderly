@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express'
 import { PrismaClient } from '@/prisma/client.js'
 import { createHttpError } from '@/utils/httpError.js'
 import IActivity from '@/@types/data/activities/IActivity'
+import cuid from 'cuid'
 
 const prisma = new PrismaClient()
 
@@ -11,9 +12,19 @@ export const createActivity = async (
   next: NextFunction
 ) => {
  
+  // ATTENTION A FAIRE CORRESPONDRE A L'UTILISATEUR CONNECTÉ !  
+  const userId = cuid()
+  console.log(userId)
+  console.log(req.body)
+
   try {
     const activityToCreate = await prisma.activity.create({
-      data: req.body,
+      data: {
+        ...req.body,
+        creatorId: userId,
+        startDate: new Date(),
+        endDate: new Date()
+      }
     });
     
     res.status(201).json(activityToCreate);
