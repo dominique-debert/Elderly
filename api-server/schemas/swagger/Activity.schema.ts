@@ -7,8 +7,13 @@
  *       required:
  *         - title
  *         - startDate
+ *         - creatorId
+ *         - categoryId
  *       properties:
  *         id:
+ *           type: string
+ *           format: cuid
+ *         creatorId:
  *           type: string
  *           format: cuid
  *         title:

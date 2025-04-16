@@ -22,6 +22,7 @@ export const createActivity = async (
       data: {
         ...req.body,
         creatorId: userId,
+        categoryId: userId,
         startDate: new Date(),
         endDate: new Date()
       }

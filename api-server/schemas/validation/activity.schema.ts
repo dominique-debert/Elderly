@@ -9,7 +9,7 @@ export const activitySchema = Joi.object({
   location: Joi.string().allow(null, ''),
   gpsCoordinates: Joi.string().allow(null, ''),
   maxSpots: Joi.number().allow(0),
-  categoryId: Joi.string().required(),
+  categoryId: Joi.string().allow(null, ''),
   recurring: Joi.boolean().default(false),
   frequency: Joi.string().allow(null, ''),
   reducedMobilityAccess: Joi.boolean().required().default(false),

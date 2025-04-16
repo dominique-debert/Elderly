@@ -77,7 +77,6 @@ model badge {
   userBadge     userBadge[]
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model cognitiveExercise {
   id                String            @id @default(cuid())
   name              String            @db.VarChar(255)
@@ -182,8 +181,8 @@ model forumMessage {
   solutionMessage  Boolean?    @map("solution_message")
   createdAt        DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt        DateTime?   @map("updated_at") @db.Timestamp(6)
-  user             user?       @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_author_id")
-  forumTopic       forumTopic? @relation(fields: [topicId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_topic_id")
+  user             user?       @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  forumTopic       forumTopic? @relation(fields: [topicId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("forum_message")
 }
@@ -200,8 +199,8 @@ model forumTopic {
   createdAt     DateTime       @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt     DateTime?      @map("updated_at") @db.Timestamp(6)
   forumMessage  forumMessage[]
-  user          user           @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_author")
-  forumCategory forumCategory  @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_category")
+  user          user           @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  forumCategory forumCategory  @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@map("forum_topic")
 }
@@ -214,7 +213,7 @@ model wellnessGoalProgress {
   goalAchieved  Boolean      @map("goal_achieved")
   createdAt     DateTime     @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt     DateTime?    @map("updated_at") @db.Timestamp(6)
-  wellnessGoal  wellnessGoal @relation(fields: [goalId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_goal")
+  wellnessGoal  wellnessGoal @relation(fields: [goalId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@map("wellness_goal_progress")
 }
@@ -246,8 +245,8 @@ model helpOffer {
   status      String?     @db.VarChar(50)
   createdAt   DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt   DateTime?   @map("updated_at") @db.Timestamp(6)
-  user        user        @relation(fields: [helperId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_helper")
-  helpRequest helpRequest @relation(fields: [requestId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_request")
+  user        user        @relation(fields: [helperId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  helpRequest helpRequest @relation(fields: [requestId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@map("help_offer")
 }
@@ -270,7 +269,7 @@ model helpRequest {
   createdAt         DateTime           @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt         DateTime?          @map("updated_at") @db.Timestamp(6)
   helpOffer         helpOffer[]
-  user              user               @relation(fields: [creatorId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_creator")
+  user              user               @relation(fields: [creatorId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   serviceCompleted  serviceCompleted[]
   helpCategory      helpCategory?      @relation(fields: [categoryId], references: [id])
 
@@ -312,7 +311,7 @@ model medicationReminder {
   end_date            DateTime? @db.Timestamp(6)
   createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt           DateTime? @map("updated_at") @db.Timestamp(6)
-  user                user      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_user")
+  user                user      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@map("medication_reminder")
 }
@@ -444,7 +443,7 @@ model resource {
   adminValidated   Boolean?         @default(false) @map("admin_validated")
   createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt        DateTime?        @map("updated_at") @db.Timestamp(6)
-  user             user?            @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_author")
+  user             user?            @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   resourceCategory resourceCategory @relation(fields: [categoryId], references: [id])
 }
 
@@ -476,8 +475,8 @@ model serviceCompleted {
   points_exchanged Int?
   createdAt        DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt        DateTime?   @map("updated_at") @db.Timestamp(6)
-  user             user        @relation(fields: [helperId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_helper")
-  helpRequest      helpRequest @relation(fields: [requestId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_request")
+  user             user        @relation(fields: [helperId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  helpRequest      helpRequest @relation(fields: [requestId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@map("service_completed")
 }
