@@ -73,7 +73,10 @@ export const updateWellnessBadge = async (req: Request, res: Response, next: Nex
     }
     
     const updatedWellnessBadge = await prisma.wellnessBadge.update({
-      data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id },
     });
     res.status(200).json(updatedWellnessBadge);

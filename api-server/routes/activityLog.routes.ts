@@ -49,7 +49,7 @@ const router = Router();
  * /api/activity-logs:
  *   post:
  *     summary: Créer un nouveau journal d’activité
- *     tags: [ActivityLogs]
+ *     tags: [Activity Logs]
  *     requestBody:
  *       required: true
  *       content:
@@ -71,7 +71,7 @@ router.post('/', createActivityLog);
  * /api/activity-logs:
  *   get:
  *     summary: Récupérer tous les journaux d’activité
- *     tags: [ActivityLogs]
+ *     tags: [Activity Logs]
  *     responses:
  *       200:
  *         description: Liste des journaux récupérée
@@ -92,7 +92,7 @@ router.get('/', getAllActivityLogs);
  * /api/activity-logs/{id}:
  *   get:
  *     summary: Récupérer un journal d’activité par ID
- *     tags: [ActivityLogs]
+ *     tags: [Activity Logs]
  *     parameters:
  *       - in: path
  *         name: id
@@ -117,7 +117,7 @@ router.get('/:id', getActivityLogById);
  * /api/activity-logs/{id}:
  *   put:
  *     summary: Mettre à jour un journal d’activité
- *     tags: [ActivityLogs]
+ *     tags: [Activity Logs]
  *     parameters:
  *       - in: path
  *         name: id
@@ -145,7 +145,7 @@ router.put('/:id', updateActivityLog);
  * /api/activity-logs/{id}:
  *   delete:
  *     summary: Supprimer un journal d’activité
- *     tags: [ActivityLogs]
+ *     tags: [Activity Logs]
  *     parameters:
  *       - in: path
  *         name: id

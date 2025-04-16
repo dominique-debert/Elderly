@@ -78,7 +78,10 @@ export const updateSkill = async (
     }
 
     const skillToUpdate = await prisma.skill.update({
-      data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id },
     });
 

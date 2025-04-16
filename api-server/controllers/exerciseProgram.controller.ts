@@ -81,7 +81,10 @@ export const updateExerciseProgram = async (
     }
 
     const updatedProgram = await prisma.exerciseProgram.update({
-      data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id },
     });
 

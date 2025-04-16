@@ -11,21 +11,10 @@ export const createActivity = async (
   res: Response,
   next: NextFunction
 ) => {
- 
-  // ATTENTION A FAIRE CORRESPONDRE A L'UTILISATEUR CONNECTÉ !  
-  const userId = cuid()
-  console.log(userId)
-  console.log(req.body)
 
   try {
     const activityToCreate = await prisma.activity.create({
-      data: {
-        ...req.body,
-        creatorId: userId,
-        categoryId: userId,
-        startDate: new Date(),
-        endDate: new Date()
-      }
+      data: req.body
     });
     
     res.status(201).json(activityToCreate);
@@ -89,7 +78,10 @@ export const updateActivity = async (
       }
       
       const activityToUpddate = await prisma.activity.update({
-        data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
         where: { id },
       });
       

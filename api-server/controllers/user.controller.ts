@@ -72,7 +72,10 @@ export const updateUser = async (req: Request<{ id: string }, {}, IUser>, res: R
     }
 
     const userToUpdate = await prisma.user.update({
-      data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id },
     });
     res.status(200).json(userToUpdate);

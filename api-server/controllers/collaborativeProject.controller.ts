@@ -84,7 +84,10 @@ export const updateCollaborativeProject = async (
     }
 
     const projectToUpdate = await prisma.collaborativeProject.update({
-      data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id }
     });
 

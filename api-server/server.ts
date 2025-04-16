@@ -10,6 +10,8 @@ import nutritionalAdviceRouter from '@/routes/nutritionalAdvice.routes';
 import activityRouter from '@/routes/activity.routes'
 import activityCategoriesRouter from '@/routes/activityCategory.routes'
 import badgeCategoriesRouter from '@/routes/badgeCategory.routes'
+import cognitiveCategoriesRouter from '@/routes/cognitiveCategory.routes'
+import helpCategoriesRouter from '@/routes/helpCategory.routes'
 
 import errorHandler from '@/middlewares/errorHandler';
 import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
@@ -26,10 +28,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Routes
-app.use('/api/activities', activityRouter);
+// Catégories
 app.use('/api/activity-categories', activityCategoriesRouter);
-app.use('/api/badges', badgeRouter);
 app.use('/api/badge-categories', badgeCategoriesRouter);
+app.use('/api/cognitive-categories', cognitiveCategoriesRouter);
+app.use('/api/help-categories', helpCategoriesRouter);
+
+app.use('/api/activities', activityRouter);
+app.use('/api/badges', badgeRouter);
 app.use('/api/cognitive-exercises', cognitiveExerciseRouter);
 app.use('/api/exercise-programs', exerciseProgramRoutes);
 app.use('/api/local-services', localServiceRouter);

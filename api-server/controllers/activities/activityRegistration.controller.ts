@@ -73,7 +73,10 @@ export const updateActivityRegistration = async (req: Request, res: Response, ne
     }
     
     const registrationToUpdate = await prisma.activityRegistration.update({
-      data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id },
     });
     res.status(200).json(registrationToUpdate);

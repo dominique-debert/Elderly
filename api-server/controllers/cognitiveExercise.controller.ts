@@ -84,7 +84,10 @@ export const updateCognitiveExercise = async (
     }
 
     const exerciseToUpdate = await prisma.cognitiveExercise.update({
-      data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id }
     });
 

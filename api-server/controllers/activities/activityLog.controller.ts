@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 /**
 * @swagger
 * tags:
-*   name: ActivityLogs
+*   name: Activity Logs
 *   description: Gestion des badges bien-être
 */
 
@@ -28,7 +28,11 @@ export const createActivityLog = async (
   }
 };
 
-export const getAllActivityLogs = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const getAllActivityLogs = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const logs = await prisma.activityLog.findMany({
       orderBy: {
@@ -42,7 +46,11 @@ export const getAllActivityLogs = async (req: Request, res: Response, next: Next
   }  
 };
 
-export const getActivityLogById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const getActivityLogById = async (
+  req: Request, 
+  res: Response, 
+  next: NextFunction
+) => {
   const { id } = req.params;
   
   try {
@@ -60,7 +68,11 @@ export const getActivityLogById = async (req: Request, res: Response, next: Next
   }  
 };
 
-export const updateActivityLog = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const updateActivityLog = async (
+  req: Request, 
+  res: Response, 
+  next: NextFunction
+) => {
   const { id } = req.params;
   
   try {
@@ -73,7 +85,10 @@ export const updateActivityLog = async (req: Request, res: Response, next: NextF
     }
     
     const logToUpdate = await prisma.activityLog.update({
-      data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id },
     });
     res.status(200).json(logToUpdate);
@@ -82,7 +97,11 @@ export const updateActivityLog = async (req: Request, res: Response, next: NextF
   }
 };
 
-export const deleteActivityLog = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const deleteActivityLog = async (
+  req: Request, 
+  res: Response, 
+  next: NextFunction
+) => {
   const { id } = req.params;
  
   try {

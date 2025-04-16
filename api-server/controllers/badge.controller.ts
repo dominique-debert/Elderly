@@ -77,7 +77,10 @@ export const updateBadge = async (
     }
 
     const badgeToUpdate = await prisma.badge.update({
-      data: req.body,
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id },
     });
 

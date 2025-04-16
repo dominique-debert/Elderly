@@ -13,7 +13,7 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: ActivityRegistrations
+ *   name: Activity Registrations
  *   description: Gestion des inscriptions aux activités
  */
 
@@ -22,7 +22,7 @@ const router = Router();
  * /api/activity-registrations:
  *   post:
  *     summary: Créer une inscription à une activité
- *     tags: [ActivityRegistrations]
+ *     tags: [Activity Registrations]
  *     requestBody:
  *       required: true
  *       content:
@@ -57,7 +57,7 @@ router.post('/', createActivityRegistration);
  * /api/activity-registrations:
  *   get:
  *     summary: Récupérer toutes les inscriptions aux activités
- *     tags: [ActivityRegistrations]
+ *     tags: [Activity Registrations]
  *     responses:
  *       200:
  *         description: Liste des inscriptions récupérée
@@ -71,7 +71,7 @@ router.get('/', getAllActivityRegistrations);
  * /api/activity-registrations/{id}:
  *   get:
  *     summary: Récupérer une inscription par ID
- *     tags: [ActivityRegistrations]
+ *     tags: [Activity Registrations]
  *     parameters:
  *       - in: path
  *         name: id
@@ -94,7 +94,7 @@ router.get('/:id', getActivityRegistrationById);
  * /api/activity-registrations/{id}:
  *   put:
  *     summary: Mettre à jour une inscription
- *     tags: [ActivityRegistrations]
+ *     tags: [Activity Registrations]
  *     parameters:
  *       - in: path
  *         name: id
@@ -126,7 +126,7 @@ router.put('/:id', updateActivityRegistration);
  * /api/activity-registrations/{id}:
  *   delete:
  *     summary: Supprimer une inscription
- *     tags: [ActivityRegistrations]
+ *     tags: [Activity Registrations]
  *     parameters:
  *       - in: path
  *         name: id

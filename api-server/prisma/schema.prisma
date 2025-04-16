@@ -716,7 +716,6 @@ model videoCall {
   @@map("video_call")
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model wellnessBadge {
   id               String           @id @default(cuid())
   name             String           @db.VarChar(255)
@@ -731,7 +730,6 @@ model wellnessBadge {
   @@map("wellness_badge")
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model wellnessGoal {
   id                   String                 @id @default(cuid())
   userId               String                 @map("user_id")

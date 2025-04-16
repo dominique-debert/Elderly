@@ -40,36 +40,4 @@
  *         createdAt: "2025-04-16T14:48:00.000Z"
  *         updatedAt: "2025-04-16T14:48:00.000Z"
  *         cognitiveExercise: []
- *
- *     CreateCognitiveCategory:
- *       type: object
- *       required:
- *         - name
- *       properties:
- *         name:
- *           type: string
- *           description: Nom de la catégorie cognitive
- *           example: "Mémoire"
- *         description:
- *           type: string
- *           description: Description de la catégorie cognitive
- *           example: "Catégorie pour les exercices de mémoire"
- *       example:
- *         name: "Mémoire"
- *         description: "Catégorie pour les exercices de mémoire"
- *
- *     UpdateCognitiveCategory:
- *       type: object
- *       properties:
- *         name:
- *           type: string
- *           description: Nom de la catégorie cognitive
- *           example: "Mémoire"
- *         description:
- *           type: string
- *           description: Description de la catégorie cognitive
- *           example: "Catégorie pour les exercices de mémoire"
- *       example:
- *         name: "Mémoire"
- *         description: "Catégorie pour les exercices de mémoire"
  */
