@@ -8,7 +8,8 @@ import cognitiveExerciseRouter from '@/routes/cognitiveExercise.routes';
 import localServiceRouter from '@/routes/localService.routes';
 import nutritionalAdviceRouter from '@/routes/nutritionalAdvice.routes';
 import activityRouter from '@/routes/activity.routes'
-import activityCategoryRouter from '@/routes/activityCategory.routes'
+import activityCategoriesRouter from '@/routes/activityCategory.routes'
+import badgeCategoriesRouter from '@/routes/badgeCategory.routes'
 
 import errorHandler from '@/middlewares/errorHandler';
 import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
@@ -26,8 +27,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Routes
 app.use('/api/activities', activityRouter);
-app.use('/api/activity-categories', activityCategoryRouter);
+app.use('/api/activity-categories', activityCategoriesRouter);
 app.use('/api/badges', badgeRouter);
+app.use('/api/badge-categories', badgeCategoriesRouter);
 app.use('/api/cognitive-exercises', cognitiveExerciseRouter);
 app.use('/api/exercise-programs', exerciseProgramRoutes);
 app.use('/api/local-services', localServiceRouter);
