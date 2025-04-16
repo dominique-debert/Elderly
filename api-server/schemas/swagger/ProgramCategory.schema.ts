@@ -49,47 +49,4 @@
  *         updatedAt: "2025-04-16T14:48:00.000Z"
  *         cognitiveExercise: []
  *         exerciseProgram: {}
- *
- *     CreateProgramCategory:
- *       type: object
- *       required:
- *         - name
- *         - exerciseProgramId
- *       properties:
- *         name:
- *           type: string
- *           description: Nom de la catégorie de programme
- *           example: "Programme de remise en forme"
- *         description:
- *           type: string
- *           description: Description de la catégorie de programme
- *           example: "Catégorie pour les programmes de remise en forme"
- *         exerciseProgramId:
- *           type: string
- *           description: Identifiant du programme d'exercice associé
- *           example: "prog001"
- *       example:
- *         name: "Programme de remise en forme"
- *         description: "Catégorie pour les programmes de remise en forme"
- *         exerciseProgramId: "prog001"
- *
- *     UpdateProgramCategory:
- *       type: object
- *       properties:
- *         name:
- *           type: string
- *           description: Nom de la catégorie de programme
- *           example: "Programme de remise en forme"
- *         description:
- *           type: string
- *           description: Description de la catégorie de programme
- *           example: "Catégorie pour les programmes de remise en forme"
- *         exerciseProgramId:
- *           type: string
- *           description: Identifiant du programme d'exercice associé
- *           example: "prog001"
- *       example:
- *         name: "Programme de remise en forme"
- *         description: "Catégorie pour les programmes de remise en forme"
- *         exerciseProgramId: "prog001"
  */

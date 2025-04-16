@@ -13,6 +13,7 @@ import badgeCategoriesRouter from '@/routes/badgeCategory.routes'
 import cognitiveCategoriesRouter from '@/routes/cognitiveCategory.routes'
 import helpCategoriesRouter from '@/routes/helpCategory.routes'
 import issueCategoriesRouter from '@/routes/issueCategory.routes'
+import nutritionalCategoriesRouter from '@/routes/nutritionalCategory.routes'
 
 import errorHandler from '@/middlewares/errorHandler';
 import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
@@ -35,6 +36,7 @@ app.use('/api/badge-categories', badgeCategoriesRouter);
 app.use('/api/cognitive-categories', cognitiveCategoriesRouter);
 app.use('/api/help-categories', helpCategoriesRouter);
 app.use('/api/issue-categories', issueCategoriesRouter);
+app.use('/api/nutritional-categories', nutritionalCategoriesRouter);
 
 app.use('/api/activities', activityRouter);
 app.use('/api/badges', badgeRouter);

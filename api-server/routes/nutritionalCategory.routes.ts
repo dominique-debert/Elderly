@@ -24,7 +24,7 @@ const router = Router();
  * @swagger
  * /api/nutritional-categories:
  *   post:
- *     summary: Créer une nouvelle catégorie de badge
+ *     summary: Créer une nouvelle catégorie de conseils nutritionnels
  *     tags: [Nutritional Categories]
  *     requestBody:
  *       required: true
@@ -40,8 +40,8 @@ const router = Router();
  *               description:
  *                 type: string
  *             example:
- *               name: "Propreté urbaine"
- *               description: "Catégorie pour les problèmes liés à la propreté urbaine"
+ *               name: "Régime végétarien"
+ *               description: "Catégorie pour les conseils nutritionnels adaptés aux régimes végétariens"
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès

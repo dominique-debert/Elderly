@@ -62,7 +62,7 @@ router.post('/', validate(badgeSchema), errorHandler, createBadge);
  * /api/badges:
  *   get:
  *     summary: Récupérer tous les badges
- *     description: Renvoie une liste paginée de badges avec possibilité de filtrage
+ *     description: Renvoie une liste de badges
  *     tags: [Badges]
  *     responses:
  *       200:

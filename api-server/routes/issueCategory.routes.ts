@@ -24,7 +24,7 @@ const router = Router();
  * @swagger
  * /api/issue-categories:
  *   post:
- *     summary: Créer une nouvelle catégorie de badge
+ *     summary: Créer une nouvelle catégorie de problèmes
  *     tags: [Issue Categories]
  *     requestBody:
  *       required: true

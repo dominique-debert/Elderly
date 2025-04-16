@@ -5,18 +5,11 @@ export const projectSchema = Joi.object({
   description: Joi.string().allow('', null),
   creatorId: Joi.string().required(),
   creationDate: Joi.date().required(),
-  categoryId: Joi.string().required(),
+  categoryId: Joi.string().allow(null, ''),
   difficultyLevel: Joi.string().required(),
   status: Joi.string().allow('', null)
 });
 
 export const idParamProjectSchema = Joi.object({
-  id: Joi.string().uuid().required()
+  id: Joi.string().required()
 });
-
-// title           String           @db.VarChar(255)
-// description     String?
-// creatorId       String           @map("creator_id")
-// creationDate    DateTime         @default(now()) @map("creation_date") @db.Timestamp(6)
-// status          String?          @db.VarChar(50)
-// categoryId      String           @map("category_id") @db.VarChar(100)

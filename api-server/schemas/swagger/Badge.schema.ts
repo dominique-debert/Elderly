@@ -28,6 +28,6 @@
  *         name: Expert
  *         description: Badge pour les utilisateurs experts
  *         icon: expert.png
- *         category: Compétences
+ *         categoryId: cm9k1mt8m0000tbda72ibub78
  *         level: 3
  */

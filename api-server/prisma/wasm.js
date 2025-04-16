@@ -143,9 +143,8 @@ exports.Prisma.ActivityScalarFieldEnum = {
 exports.Prisma.ActivityLogScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  action_type: 'action_type',
+  actionType: 'actionType',
   description: 'description',
-  actionDate: 'actionDate',
   ipAddress: 'ipAddress',
   device: 'device',
   createdAt: 'createdAt',
@@ -202,13 +201,13 @@ exports.Prisma.CollaborativeProjectScalarFieldEnum = {
 exports.Prisma.ConversationScalarFieldEnum = {
   id: 'id',
   type: 'type',
-  creationDate: 'creationDate',
   title: 'title',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ConversationParticipantScalarFieldEnum = {
+  id: 'id',
   conversationId: 'conversationId',
   userId: 'userId',
   dateAdded: 'dateAdded',
@@ -246,8 +245,6 @@ exports.Prisma.ForumMessageScalarFieldEnum = {
   topicId: 'topicId',
   authorId: 'authorId',
   content: 'content',
-  creationDate: 'creationDate',
-  modificationDate: 'modificationDate',
   solutionMessage: 'solutionMessage',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -258,20 +255,9 @@ exports.Prisma.ForumTopicScalarFieldEnum = {
   categoryId: 'categoryId',
   authorId: 'authorId',
   title: 'title',
-  creationDate: 'creationDate',
   pinned: 'pinned',
   status: 'status',
   views: 'views',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.WellnessGoalProgressScalarFieldEnum = {
-  id: 'id',
-  goalId: 'goalId',
-  recordingDate: 'recordingDate',
-  achievedValue: 'achievedValue',
-  goalAchieved: 'goalAchieved',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -306,7 +292,6 @@ exports.Prisma.HelpRequestScalarFieldEnum = {
   creatorId: 'creatorId',
   title: 'title',
   description: 'description',
-  creationDate: 'creationDate',
   neededDate: 'neededDate',
   estimatedDuration: 'estimatedDuration',
   location: 'location',
@@ -315,7 +300,7 @@ exports.Prisma.HelpRequestScalarFieldEnum = {
   recurring: 'recurring',
   frequency: 'frequency',
   status: 'status',
-  points_offered: 'points_offered',
+  pointsOffered: 'pointsOffered',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -338,7 +323,7 @@ exports.Prisma.LocalServiceScalarFieldEnum = {
 exports.Prisma.MedicationReminderScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  medication_name: 'medication_name',
+  medicationName: 'medicationName',
   dosage: 'dosage',
   morningReminderTime: 'morningReminderTime',
   noonReminderTime: 'noonReminderTime',
@@ -348,7 +333,7 @@ exports.Prisma.MedicationReminderScalarFieldEnum = {
   instructions: 'instructions',
   active: 'active',
   startDate: 'startDate',
-  end_date: 'end_date',
+  endDate: 'endDate',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -370,9 +355,9 @@ exports.Prisma.MunicipalEventScalarFieldEnum = {
   title: 'title',
   description: 'description',
   startDate: 'startDate',
-  end_date: 'end_date',
+  endDate: 'endDate',
   location: 'location',
-  gps_coordinates: 'gps_coordinates',
+  gpsCoordinates: 'gpsCoordinates',
   organizer: 'organizer',
   contact: 'contact',
   officialLink: 'officialLink',
@@ -667,6 +652,16 @@ exports.Prisma.WellnessGoalScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.WellnessGoalProgressScalarFieldEnum = {
+  id: 'id',
+  goalId: 'goalId',
+  recordingDate: 'recordingDate',
+  achievedValue: 'achievedValue',
+  goalAchieved: 'goalAchieved',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.ActivityCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -719,7 +714,6 @@ exports.Prisma.ProgramCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
-  exerciseProgramId: 'exerciseProgramId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -804,7 +798,6 @@ exports.Prisma.ModelName = {
   forumCategory: 'forumCategory',
   forumMessage: 'forumMessage',
   forumTopic: 'forumTopic',
-  wellnessGoalProgress: 'wellnessGoalProgress',
   healthIndicator: 'healthIndicator',
   helpOffer: 'helpOffer',
   helpRequest: 'helpRequest',
@@ -836,6 +829,7 @@ exports.Prisma.ModelName = {
   videoCall: 'videoCall',
   wellnessBadge: 'wellnessBadge',
   wellnessGoal: 'wellnessGoal',
+  wellnessGoalProgress: 'wellnessGoalProgress',
   activityCategory: 'activityCategory',
   badgeCategory: 'badgeCategory',
   cognitiveCategory: 'cognitiveCategory',

@@ -1,12 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError';
-import IBadge from '@/@types/data/badges/IBadge';
 
 const prisma = new PrismaClient();
 
 export const createBadge = async (
-  req: Request<{}, {}, IBadge>,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
@@ -39,7 +38,7 @@ export const getAllBadges = async (
 };
 
 export const getBadgeById = async (
-  req: Request<{ id: string }>,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
@@ -61,7 +60,7 @@ export const getBadgeById = async (
 };
 
 export const updateBadge = async (
-  req: Request<{ id: string }>, 
+  req: Request, 
   res: Response, 
   next: NextFunction) => {
     
@@ -91,7 +90,7 @@ export const updateBadge = async (
 };
 
 export const deleteBadge = async (
-  req: Request<{ id: string }>,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {

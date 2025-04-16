@@ -74,11 +74,6 @@ export type forumMessage = $Result.DefaultSelection<Prisma.$forumMessagePayload>
  */
 export type forumTopic = $Result.DefaultSelection<Prisma.$forumTopicPayload>
 /**
- * Model wellnessGoalProgress
- * 
- */
-export type wellnessGoalProgress = $Result.DefaultSelection<Prisma.$wellnessGoalProgressPayload>
-/**
  * Model healthIndicator
  * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
  */
@@ -225,14 +220,19 @@ export type userStatistics = $Result.DefaultSelection<Prisma.$userStatisticsPayl
 export type videoCall = $Result.DefaultSelection<Prisma.$videoCallPayload>
 /**
  * Model wellnessBadge
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * 
  */
 export type wellnessBadge = $Result.DefaultSelection<Prisma.$wellnessBadgePayload>
 /**
  * Model wellnessGoal
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * 
  */
 export type wellnessGoal = $Result.DefaultSelection<Prisma.$wellnessGoalPayload>
+/**
+ * Model wellnessGoalProgress
+ * 
+ */
+export type wellnessGoalProgress = $Result.DefaultSelection<Prisma.$wellnessGoalProgressPayload>
 /**
  * Model activityCategory
  * 
@@ -538,16 +538,6 @@ export class PrismaClient<
     * ```
     */
   get forumTopic(): Prisma.forumTopicDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.wellnessGoalProgress`: Exposes CRUD operations for the **wellnessGoalProgress** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more WellnessGoalProgresses
-    * const wellnessGoalProgresses = await prisma.wellnessGoalProgress.findMany()
-    * ```
-    */
-  get wellnessGoalProgress(): Prisma.wellnessGoalProgressDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.healthIndicator`: Exposes CRUD operations for the **healthIndicator** model.
@@ -858,6 +848,16 @@ export class PrismaClient<
     * ```
     */
   get wellnessGoal(): Prisma.wellnessGoalDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.wellnessGoalProgress`: Exposes CRUD operations for the **wellnessGoalProgress** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more WellnessGoalProgresses
+    * const wellnessGoalProgresses = await prisma.wellnessGoalProgress.findMany()
+    * ```
+    */
+  get wellnessGoalProgress(): Prisma.wellnessGoalProgressDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.activityCategory`: Exposes CRUD operations for the **activityCategory** model.
@@ -1430,7 +1430,6 @@ export namespace Prisma {
     forumCategory: 'forumCategory',
     forumMessage: 'forumMessage',
     forumTopic: 'forumTopic',
-    wellnessGoalProgress: 'wellnessGoalProgress',
     healthIndicator: 'healthIndicator',
     helpOffer: 'helpOffer',
     helpRequest: 'helpRequest',
@@ -1462,6 +1461,7 @@ export namespace Prisma {
     videoCall: 'videoCall',
     wellnessBadge: 'wellnessBadge',
     wellnessGoal: 'wellnessGoal',
+    wellnessGoalProgress: 'wellnessGoalProgress',
     activityCategory: 'activityCategory',
     badgeCategory: 'badgeCategory',
     cognitiveCategory: 'cognitiveCategory',
@@ -1492,7 +1492,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "wellnessGoalProgress" | "healthIndicator" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "offlineUser" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "activityCategory" | "badgeCategory" | "cognitiveCategory" | "helpCategory" | "issueCategory" | "nutritionalCategory" | "programCategory" | "projectCategory" | "resourceCategory" | "serviceCategory" | "skillCategory" | "wellnessCategory"
+      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "healthIndicator" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "offlineUser" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "wellnessGoalProgress" | "activityCategory" | "badgeCategory" | "cognitiveCategory" | "helpCategory" | "issueCategory" | "nutritionalCategory" | "programCategory" | "projectCategory" | "resourceCategory" | "serviceCategory" | "skillCategory" | "wellnessCategory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2381,80 +2381,6 @@ export namespace Prisma {
           count: {
             args: Prisma.forumTopicCountArgs<ExtArgs>
             result: $Utils.Optional<ForumTopicCountAggregateOutputType> | number
-          }
-        }
-      }
-      wellnessGoalProgress: {
-        payload: Prisma.$wellnessGoalProgressPayload<ExtArgs>
-        fields: Prisma.wellnessGoalProgressFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.wellnessGoalProgressFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.wellnessGoalProgressFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
-          }
-          findFirst: {
-            args: Prisma.wellnessGoalProgressFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.wellnessGoalProgressFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
-          }
-          findMany: {
-            args: Prisma.wellnessGoalProgressFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>[]
-          }
-          create: {
-            args: Prisma.wellnessGoalProgressCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
-          }
-          createMany: {
-            args: Prisma.wellnessGoalProgressCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.wellnessGoalProgressCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>[]
-          }
-          delete: {
-            args: Prisma.wellnessGoalProgressDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
-          }
-          update: {
-            args: Prisma.wellnessGoalProgressUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
-          }
-          deleteMany: {
-            args: Prisma.wellnessGoalProgressDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.wellnessGoalProgressUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.wellnessGoalProgressUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>[]
-          }
-          upsert: {
-            args: Prisma.wellnessGoalProgressUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
-          }
-          aggregate: {
-            args: Prisma.WellnessGoalProgressAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateWellnessGoalProgress>
-          }
-          groupBy: {
-            args: Prisma.wellnessGoalProgressGroupByArgs<ExtArgs>
-            result: $Utils.Optional<WellnessGoalProgressGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.wellnessGoalProgressCountArgs<ExtArgs>
-            result: $Utils.Optional<WellnessGoalProgressCountAggregateOutputType> | number
           }
         }
       }
@@ -4752,6 +4678,80 @@ export namespace Prisma {
           }
         }
       }
+      wellnessGoalProgress: {
+        payload: Prisma.$wellnessGoalProgressPayload<ExtArgs>
+        fields: Prisma.wellnessGoalProgressFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.wellnessGoalProgressFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.wellnessGoalProgressFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
+          }
+          findFirst: {
+            args: Prisma.wellnessGoalProgressFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.wellnessGoalProgressFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
+          }
+          findMany: {
+            args: Prisma.wellnessGoalProgressFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>[]
+          }
+          create: {
+            args: Prisma.wellnessGoalProgressCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
+          }
+          createMany: {
+            args: Prisma.wellnessGoalProgressCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.wellnessGoalProgressCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>[]
+          }
+          delete: {
+            args: Prisma.wellnessGoalProgressDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
+          }
+          update: {
+            args: Prisma.wellnessGoalProgressUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
+          }
+          deleteMany: {
+            args: Prisma.wellnessGoalProgressDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.wellnessGoalProgressUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.wellnessGoalProgressUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>[]
+          }
+          upsert: {
+            args: Prisma.wellnessGoalProgressUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$wellnessGoalProgressPayload>
+          }
+          aggregate: {
+            args: Prisma.WellnessGoalProgressAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWellnessGoalProgress>
+          }
+          groupBy: {
+            args: Prisma.wellnessGoalProgressGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WellnessGoalProgressGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.wellnessGoalProgressCountArgs<ExtArgs>
+            result: $Utils.Optional<WellnessGoalProgressCountAggregateOutputType> | number
+          }
+        }
+      }
       activityCategory: {
         payload: Prisma.$activityCategoryPayload<ExtArgs>
         fields: Prisma.activityCategoryFieldRefs
@@ -5736,7 +5736,6 @@ export namespace Prisma {
     forumCategory?: forumCategoryOmit
     forumMessage?: forumMessageOmit
     forumTopic?: forumTopicOmit
-    wellnessGoalProgress?: wellnessGoalProgressOmit
     healthIndicator?: healthIndicatorOmit
     helpOffer?: helpOfferOmit
     helpRequest?: helpRequestOmit
@@ -5768,6 +5767,7 @@ export namespace Prisma {
     videoCall?: videoCallOmit
     wellnessBadge?: wellnessBadgeOmit
     wellnessGoal?: wellnessGoalOmit
+    wellnessGoalProgress?: wellnessGoalProgressOmit
     activityCategory?: activityCategoryOmit
     badgeCategory?: badgeCategoryOmit
     cognitiveCategory?: cognitiveCategoryOmit
@@ -5901,37 +5901,6 @@ export namespace Prisma {
 
 
   /**
-   * Count Type BadgeCountOutputType
-   */
-
-  export type BadgeCountOutputType = {
-    userBadge: number
-  }
-
-  export type BadgeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    userBadge?: boolean | BadgeCountOutputTypeCountUserBadgeArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * BadgeCountOutputType without action
-   */
-  export type BadgeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BadgeCountOutputType
-     */
-    select?: BadgeCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * BadgeCountOutputType without action
-   */
-  export type BadgeCountOutputTypeCountUserBadgeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: userBadgeWhereInput
-  }
-
-
-  /**
    * Count Type CognitiveExerciseCountOutputType
    */
 
@@ -6056,12 +6025,10 @@ export namespace Prisma {
    */
 
   export type ExerciseProgramCountOutputType = {
-    programCategory: number
     userActivity: number
   }
 
   export type ExerciseProgramCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    programCategory?: boolean | ExerciseProgramCountOutputTypeCountProgramCategoryArgs
     userActivity?: boolean | ExerciseProgramCountOutputTypeCountUserActivityArgs
   }
 
@@ -6074,13 +6041,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the ExerciseProgramCountOutputType
      */
     select?: ExerciseProgramCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * ExerciseProgramCountOutputType without action
-   */
-  export type ExerciseProgramCountOutputTypeCountProgramCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: programCategoryWhereInput
   }
 
   /**
@@ -6774,10 +6734,12 @@ export namespace Prisma {
 
   export type ProgramCategoryCountOutputType = {
     cognitiveExercise: number
+    exerciseProgram: number
   }
 
   export type ProgramCategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cognitiveExercise?: boolean | ProgramCategoryCountOutputTypeCountCognitiveExerciseArgs
+    exerciseProgram?: boolean | ProgramCategoryCountOutputTypeCountExerciseProgramArgs
   }
 
   // Custom InputTypes
@@ -6796,6 +6758,13 @@ export namespace Prisma {
    */
   export type ProgramCategoryCountOutputTypeCountCognitiveExerciseArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: cognitiveExerciseWhereInput
+  }
+
+  /**
+   * ProgramCategoryCountOutputType without action
+   */
+  export type ProgramCategoryCountOutputTypeCountExerciseProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: exerciseProgramWhereInput
   }
 
 
@@ -8351,9 +8320,8 @@ export namespace Prisma {
   export type ActivityLogMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    action_type: string | null
+    actionType: string | null
     description: string | null
-    actionDate: Date | null
     ipAddress: string | null
     device: string | null
     createdAt: Date | null
@@ -8363,9 +8331,8 @@ export namespace Prisma {
   export type ActivityLogMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    action_type: string | null
+    actionType: string | null
     description: string | null
-    actionDate: Date | null
     ipAddress: string | null
     device: string | null
     createdAt: Date | null
@@ -8375,9 +8342,8 @@ export namespace Prisma {
   export type ActivityLogCountAggregateOutputType = {
     id: number
     userId: number
-    action_type: number
+    actionType: number
     description: number
-    actionDate: number
     ipAddress: number
     device: number
     createdAt: number
@@ -8389,9 +8355,8 @@ export namespace Prisma {
   export type ActivityLogMinAggregateInputType = {
     id?: true
     userId?: true
-    action_type?: true
+    actionType?: true
     description?: true
-    actionDate?: true
     ipAddress?: true
     device?: true
     createdAt?: true
@@ -8401,9 +8366,8 @@ export namespace Prisma {
   export type ActivityLogMaxAggregateInputType = {
     id?: true
     userId?: true
-    action_type?: true
+    actionType?: true
     description?: true
-    actionDate?: true
     ipAddress?: true
     device?: true
     createdAt?: true
@@ -8413,9 +8377,8 @@ export namespace Prisma {
   export type ActivityLogCountAggregateInputType = {
     id?: true
     userId?: true
-    action_type?: true
+    actionType?: true
     description?: true
-    actionDate?: true
     ipAddress?: true
     device?: true
     createdAt?: true
@@ -8498,9 +8461,8 @@ export namespace Prisma {
   export type ActivityLogGroupByOutputType = {
     id: string
     userId: string | null
-    action_type: string | null
+    actionType: string | null
     description: string | null
-    actionDate: Date | null
     ipAddress: string | null
     device: string | null
     createdAt: Date
@@ -8527,9 +8489,8 @@ export namespace Prisma {
   export type activityLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    action_type?: boolean
+    actionType?: boolean
     description?: boolean
-    actionDate?: boolean
     ipAddress?: boolean
     device?: boolean
     createdAt?: boolean
@@ -8540,9 +8501,8 @@ export namespace Prisma {
   export type activityLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    action_type?: boolean
+    actionType?: boolean
     description?: boolean
-    actionDate?: boolean
     ipAddress?: boolean
     device?: boolean
     createdAt?: boolean
@@ -8553,9 +8513,8 @@ export namespace Prisma {
   export type activityLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    action_type?: boolean
+    actionType?: boolean
     description?: boolean
-    actionDate?: boolean
     ipAddress?: boolean
     device?: boolean
     createdAt?: boolean
@@ -8566,16 +8525,15 @@ export namespace Prisma {
   export type activityLogSelectScalar = {
     id?: boolean
     userId?: boolean
-    action_type?: boolean
+    actionType?: boolean
     description?: boolean
-    actionDate?: boolean
     ipAddress?: boolean
     device?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type activityLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "action_type" | "description" | "actionDate" | "ipAddress" | "device" | "createdAt" | "updatedAt", ExtArgs["result"]["activityLog"]>
+  export type activityLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "actionType" | "description" | "ipAddress" | "device" | "createdAt" | "updatedAt", ExtArgs["result"]["activityLog"]>
   export type activityLogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | activityLog$userArgs<ExtArgs>
   }
@@ -8594,9 +8552,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string | null
-      action_type: string | null
+      actionType: string | null
       description: string | null
-      actionDate: Date | null
       ipAddress: string | null
       device: string | null
       createdAt: Date
@@ -9027,9 +8984,8 @@ export namespace Prisma {
   interface activityLogFieldRefs {
     readonly id: FieldRef<"activityLog", 'String'>
     readonly userId: FieldRef<"activityLog", 'String'>
-    readonly action_type: FieldRef<"activityLog", 'String'>
+    readonly actionType: FieldRef<"activityLog", 'String'>
     readonly description: FieldRef<"activityLog", 'String'>
-    readonly actionDate: FieldRef<"activityLog", 'DateTime'>
     readonly ipAddress: FieldRef<"activityLog", 'String'>
     readonly device: FieldRef<"activityLog", 'String'>
     readonly createdAt: FieldRef<"activityLog", 'DateTime'>
@@ -10758,7 +10714,7 @@ export namespace Prisma {
   export type BadgeGroupByOutputType = {
     id: string
     name: string
-    categoryId: string
+    categoryId: string | null
     description: string | null
     icon: string | null
     level: number | null
@@ -10794,9 +10750,8 @@ export namespace Prisma {
     level?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    badgeCategory?: boolean | badgeCategoryDefaultArgs<ExtArgs>
     userBadge?: boolean | badge$userBadgeArgs<ExtArgs>
-    _count?: boolean | BadgeCountOutputTypeDefaultArgs<ExtArgs>
+    badgeCategory?: boolean | badge$badgeCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["badge"]>
 
   export type badgeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -10808,7 +10763,7 @@ export namespace Prisma {
     level?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    badgeCategory?: boolean | badgeCategoryDefaultArgs<ExtArgs>
+    badgeCategory?: boolean | badge$badgeCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["badge"]>
 
   export type badgeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -10820,7 +10775,7 @@ export namespace Prisma {
     level?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    badgeCategory?: boolean | badgeCategoryDefaultArgs<ExtArgs>
+    badgeCategory?: boolean | badge$badgeCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["badge"]>
 
   export type badgeSelectScalar = {
@@ -10836,27 +10791,26 @@ export namespace Prisma {
 
   export type badgeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "categoryId" | "description" | "icon" | "level" | "createdAt" | "updatedAt", ExtArgs["result"]["badge"]>
   export type badgeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    badgeCategory?: boolean | badgeCategoryDefaultArgs<ExtArgs>
     userBadge?: boolean | badge$userBadgeArgs<ExtArgs>
-    _count?: boolean | BadgeCountOutputTypeDefaultArgs<ExtArgs>
+    badgeCategory?: boolean | badge$badgeCategoryArgs<ExtArgs>
   }
   export type badgeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    badgeCategory?: boolean | badgeCategoryDefaultArgs<ExtArgs>
+    badgeCategory?: boolean | badge$badgeCategoryArgs<ExtArgs>
   }
   export type badgeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    badgeCategory?: boolean | badgeCategoryDefaultArgs<ExtArgs>
+    badgeCategory?: boolean | badge$badgeCategoryArgs<ExtArgs>
   }
 
   export type $badgePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "badge"
     objects: {
-      badgeCategory: Prisma.$badgeCategoryPayload<ExtArgs>
-      userBadge: Prisma.$userBadgePayload<ExtArgs>[]
+      userBadge: Prisma.$userBadgePayload<ExtArgs> | null
+      badgeCategory: Prisma.$badgeCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      categoryId: string
+      categoryId: string | null
       description: string | null
       icon: string | null
       level: number | null
@@ -11256,8 +11210,8 @@ export namespace Prisma {
    */
   export interface Prisma__badgeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    badgeCategory<T extends badgeCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, badgeCategoryDefaultArgs<ExtArgs>>): Prisma__badgeCategoryClient<$Result.GetResult<Prisma.$badgeCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    userBadge<T extends badge$userBadgeArgs<ExtArgs> = {}>(args?: Subset<T, badge$userBadgeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$userBadgePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    userBadge<T extends badge$userBadgeArgs<ExtArgs> = {}>(args?: Subset<T, badge$userBadgeArgs<ExtArgs>>): Prisma__userBadgeClient<$Result.GetResult<Prisma.$userBadgePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    badgeCategory<T extends badge$badgeCategoryArgs<ExtArgs> = {}>(args?: Subset<T, badge$badgeCategoryArgs<ExtArgs>>): Prisma__badgeCategoryClient<$Result.GetResult<Prisma.$badgeCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11707,11 +11661,25 @@ export namespace Prisma {
      */
     include?: userBadgeInclude<ExtArgs> | null
     where?: userBadgeWhereInput
-    orderBy?: userBadgeOrderByWithRelationInput | userBadgeOrderByWithRelationInput[]
-    cursor?: userBadgeWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UserBadgeScalarFieldEnum | UserBadgeScalarFieldEnum[]
+  }
+
+  /**
+   * badge.badgeCategory
+   */
+  export type badge$badgeCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the badgeCategory
+     */
+    select?: badgeCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the badgeCategory
+     */
+    omit?: badgeCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: badgeCategoryInclude<ExtArgs> | null
+    where?: badgeCategoryWhereInput
   }
 
   /**
@@ -11935,7 +11903,7 @@ export namespace Prisma {
   export type CognitiveExerciseGroupByOutputType = {
     id: string
     name: string
-    categoryId: string
+    categoryId: string | null
     difficultyLevel: number | null
     durationMinutes: number | null
     description: string | null
@@ -11975,7 +11943,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     programCategoryId?: boolean
-    cognitiveCategory?: boolean | cognitiveCategoryDefaultArgs<ExtArgs>
+    cognitiveCategory?: boolean | cognitiveExercise$cognitiveCategoryArgs<ExtArgs>
     userActivity?: boolean | cognitiveExercise$userActivityArgs<ExtArgs>
     programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
     _count?: boolean | CognitiveExerciseCountOutputTypeDefaultArgs<ExtArgs>
@@ -11992,7 +11960,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     programCategoryId?: boolean
-    cognitiveCategory?: boolean | cognitiveCategoryDefaultArgs<ExtArgs>
+    cognitiveCategory?: boolean | cognitiveExercise$cognitiveCategoryArgs<ExtArgs>
     programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["cognitiveExercise"]>
 
@@ -12007,7 +11975,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     programCategoryId?: boolean
-    cognitiveCategory?: boolean | cognitiveCategoryDefaultArgs<ExtArgs>
+    cognitiveCategory?: boolean | cognitiveExercise$cognitiveCategoryArgs<ExtArgs>
     programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["cognitiveExercise"]>
 
@@ -12026,31 +11994,31 @@ export namespace Prisma {
 
   export type cognitiveExerciseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "categoryId" | "difficultyLevel" | "durationMinutes" | "description" | "image" | "createdAt" | "updatedAt" | "programCategoryId", ExtArgs["result"]["cognitiveExercise"]>
   export type cognitiveExerciseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cognitiveCategory?: boolean | cognitiveCategoryDefaultArgs<ExtArgs>
+    cognitiveCategory?: boolean | cognitiveExercise$cognitiveCategoryArgs<ExtArgs>
     userActivity?: boolean | cognitiveExercise$userActivityArgs<ExtArgs>
     programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
     _count?: boolean | CognitiveExerciseCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type cognitiveExerciseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cognitiveCategory?: boolean | cognitiveCategoryDefaultArgs<ExtArgs>
+    cognitiveCategory?: boolean | cognitiveExercise$cognitiveCategoryArgs<ExtArgs>
     programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
   }
   export type cognitiveExerciseIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cognitiveCategory?: boolean | cognitiveCategoryDefaultArgs<ExtArgs>
+    cognitiveCategory?: boolean | cognitiveExercise$cognitiveCategoryArgs<ExtArgs>
     programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
   }
 
   export type $cognitiveExercisePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "cognitiveExercise"
     objects: {
-      cognitiveCategory: Prisma.$cognitiveCategoryPayload<ExtArgs>
+      cognitiveCategory: Prisma.$cognitiveCategoryPayload<ExtArgs> | null
       userActivity: Prisma.$userActivityPayload<ExtArgs>[]
       programCategory: Prisma.$programCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      categoryId: string
+      categoryId: string | null
       difficultyLevel: number | null
       durationMinutes: number | null
       description: string | null
@@ -12452,7 +12420,7 @@ export namespace Prisma {
    */
   export interface Prisma__cognitiveExerciseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    cognitiveCategory<T extends cognitiveCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, cognitiveCategoryDefaultArgs<ExtArgs>>): Prisma__cognitiveCategoryClient<$Result.GetResult<Prisma.$cognitiveCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    cognitiveCategory<T extends cognitiveExercise$cognitiveCategoryArgs<ExtArgs> = {}>(args?: Subset<T, cognitiveExercise$cognitiveCategoryArgs<ExtArgs>>): Prisma__cognitiveCategoryClient<$Result.GetResult<Prisma.$cognitiveCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     userActivity<T extends cognitiveExercise$userActivityArgs<ExtArgs> = {}>(args?: Subset<T, cognitiveExercise$userActivityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$userActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     programCategory<T extends cognitiveExercise$programCategoryArgs<ExtArgs> = {}>(args?: Subset<T, cognitiveExercise$programCategoryArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
@@ -12890,6 +12858,25 @@ export namespace Prisma {
   }
 
   /**
+   * cognitiveExercise.cognitiveCategory
+   */
+  export type cognitiveExercise$cognitiveCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the cognitiveCategory
+     */
+    select?: cognitiveCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the cognitiveCategory
+     */
+    omit?: cognitiveCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: cognitiveCategoryInclude<ExtArgs> | null
+    where?: cognitiveCategoryWhereInput
+  }
+
+  /**
    * cognitiveExercise.userActivity
    */
   export type cognitiveExercise$userActivityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13115,7 +13102,7 @@ export namespace Prisma {
     creatorId: string
     creationDate: Date
     status: string | null
-    categoryId: string
+    categoryId: string | null
     createdAt: Date
     updatedAt: Date | null
     _count: CollaborativeProjectCountAggregateOutputType | null
@@ -13226,7 +13213,7 @@ export namespace Prisma {
       creatorId: string
       creationDate: Date
       status: string | null
-      categoryId: string
+      categoryId: string | null
       createdAt: Date
       updatedAt: Date | null
     }, ExtArgs["result"]["collaborativeProject"]>
@@ -14178,7 +14165,6 @@ export namespace Prisma {
   export type ConversationMinAggregateOutputType = {
     id: string | null
     type: string | null
-    creationDate: Date | null
     title: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -14187,7 +14173,6 @@ export namespace Prisma {
   export type ConversationMaxAggregateOutputType = {
     id: string | null
     type: string | null
-    creationDate: Date | null
     title: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -14196,7 +14181,6 @@ export namespace Prisma {
   export type ConversationCountAggregateOutputType = {
     id: number
     type: number
-    creationDate: number
     title: number
     createdAt: number
     updatedAt: number
@@ -14207,7 +14191,6 @@ export namespace Prisma {
   export type ConversationMinAggregateInputType = {
     id?: true
     type?: true
-    creationDate?: true
     title?: true
     createdAt?: true
     updatedAt?: true
@@ -14216,7 +14199,6 @@ export namespace Prisma {
   export type ConversationMaxAggregateInputType = {
     id?: true
     type?: true
-    creationDate?: true
     title?: true
     createdAt?: true
     updatedAt?: true
@@ -14225,7 +14207,6 @@ export namespace Prisma {
   export type ConversationCountAggregateInputType = {
     id?: true
     type?: true
-    creationDate?: true
     title?: true
     createdAt?: true
     updatedAt?: true
@@ -14307,7 +14288,6 @@ export namespace Prisma {
   export type ConversationGroupByOutputType = {
     id: string
     type: string | null
-    creationDate: Date | null
     title: string | null
     createdAt: Date
     updatedAt: Date | null
@@ -14333,7 +14313,6 @@ export namespace Prisma {
   export type conversationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     type?: boolean
-    creationDate?: boolean
     title?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -14346,7 +14325,6 @@ export namespace Prisma {
   export type conversationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     type?: boolean
-    creationDate?: boolean
     title?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -14355,7 +14333,6 @@ export namespace Prisma {
   export type conversationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     type?: boolean
-    creationDate?: boolean
     title?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -14364,13 +14341,12 @@ export namespace Prisma {
   export type conversationSelectScalar = {
     id?: boolean
     type?: boolean
-    creationDate?: boolean
     title?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type conversationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "creationDate" | "title" | "createdAt" | "updatedAt", ExtArgs["result"]["conversation"]>
+  export type conversationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "title" | "createdAt" | "updatedAt", ExtArgs["result"]["conversation"]>
   export type conversationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     conversationParticipant?: boolean | conversation$conversationParticipantArgs<ExtArgs>
     message?: boolean | conversation$messageArgs<ExtArgs>
@@ -14390,7 +14366,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       type: string | null
-      creationDate: Date | null
       title: string | null
       createdAt: Date
       updatedAt: Date | null
@@ -14822,7 +14797,6 @@ export namespace Prisma {
   interface conversationFieldRefs {
     readonly id: FieldRef<"conversation", 'String'>
     readonly type: FieldRef<"conversation", 'String'>
-    readonly creationDate: FieldRef<"conversation", 'DateTime'>
     readonly title: FieldRef<"conversation", 'String'>
     readonly createdAt: FieldRef<"conversation", 'DateTime'>
     readonly updatedAt: FieldRef<"conversation", 'DateTime'>
@@ -15315,6 +15289,7 @@ export namespace Prisma {
   }
 
   export type ConversationParticipantMinAggregateOutputType = {
+    id: string | null
     conversationId: string | null
     userId: string | null
     dateAdded: Date | null
@@ -15325,6 +15300,7 @@ export namespace Prisma {
   }
 
   export type ConversationParticipantMaxAggregateOutputType = {
+    id: string | null
     conversationId: string | null
     userId: string | null
     dateAdded: Date | null
@@ -15335,6 +15311,7 @@ export namespace Prisma {
   }
 
   export type ConversationParticipantCountAggregateOutputType = {
+    id: number
     conversationId: number
     userId: number
     dateAdded: number
@@ -15347,6 +15324,7 @@ export namespace Prisma {
 
 
   export type ConversationParticipantMinAggregateInputType = {
+    id?: true
     conversationId?: true
     userId?: true
     dateAdded?: true
@@ -15357,6 +15335,7 @@ export namespace Prisma {
   }
 
   export type ConversationParticipantMaxAggregateInputType = {
+    id?: true
     conversationId?: true
     userId?: true
     dateAdded?: true
@@ -15367,6 +15346,7 @@ export namespace Prisma {
   }
 
   export type ConversationParticipantCountAggregateInputType = {
+    id?: true
     conversationId?: true
     userId?: true
     dateAdded?: true
@@ -15450,6 +15430,7 @@ export namespace Prisma {
   }
 
   export type ConversationParticipantGroupByOutputType = {
+    id: string
     conversationId: string
     userId: string
     dateAdded: Date | null
@@ -15477,6 +15458,7 @@ export namespace Prisma {
 
 
   export type conversationParticipantSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     conversationId?: boolean
     userId?: boolean
     dateAdded?: boolean
@@ -15489,6 +15471,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["conversationParticipant"]>
 
   export type conversationParticipantSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     conversationId?: boolean
     userId?: boolean
     dateAdded?: boolean
@@ -15501,6 +15484,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["conversationParticipant"]>
 
   export type conversationParticipantSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     conversationId?: boolean
     userId?: boolean
     dateAdded?: boolean
@@ -15513,6 +15497,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["conversationParticipant"]>
 
   export type conversationParticipantSelectScalar = {
+    id?: boolean
     conversationId?: boolean
     userId?: boolean
     dateAdded?: boolean
@@ -15522,7 +15507,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type conversationParticipantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"conversationId" | "userId" | "dateAdded" | "administrator" | "lastAccess" | "createdAt" | "updatedAt", ExtArgs["result"]["conversationParticipant"]>
+  export type conversationParticipantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "conversationId" | "userId" | "dateAdded" | "administrator" | "lastAccess" | "createdAt" | "updatedAt", ExtArgs["result"]["conversationParticipant"]>
   export type conversationParticipantInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     conversation?: boolean | conversationDefaultArgs<ExtArgs>
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -15543,6 +15528,7 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
+      id: string
       conversationId: string
       userId: string
       dateAdded: Date | null
@@ -15633,8 +15619,8 @@ export namespace Prisma {
      * // Get first 10 ConversationParticipants
      * const conversationParticipants = await prisma.conversationParticipant.findMany({ take: 10 })
      * 
-     * // Only select the `conversationId`
-     * const conversationParticipantWithConversationIdOnly = await prisma.conversationParticipant.findMany({ select: { conversationId: true } })
+     * // Only select the `id`
+     * const conversationParticipantWithIdOnly = await prisma.conversationParticipant.findMany({ select: { id: true } })
      * 
      */
     findMany<T extends conversationParticipantFindManyArgs>(args?: SelectSubset<T, conversationParticipantFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$conversationParticipantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -15678,9 +15664,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many ConversationParticipants and only return the `conversationId`
-     * const conversationParticipantWithConversationIdOnly = await prisma.conversationParticipant.createManyAndReturn({
-     *   select: { conversationId: true },
+     * // Create many ConversationParticipants and only return the `id`
+     * const conversationParticipantWithIdOnly = await prisma.conversationParticipant.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -15769,9 +15755,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more ConversationParticipants and only return the `conversationId`
-     * const conversationParticipantWithConversationIdOnly = await prisma.conversationParticipant.updateManyAndReturn({
-     *   select: { conversationId: true },
+     * // Update zero or more ConversationParticipants and only return the `id`
+     * const conversationParticipantWithIdOnly = await prisma.conversationParticipant.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -15975,6 +15961,7 @@ export namespace Prisma {
    * Fields of the conversationParticipant model
    */
   interface conversationParticipantFieldRefs {
+    readonly id: FieldRef<"conversationParticipant", 'String'>
     readonly conversationId: FieldRef<"conversationParticipant", 'String'>
     readonly userId: FieldRef<"conversationParticipant", 'String'>
     readonly dateAdded: FieldRef<"conversationParticipant", 'DateTime'>
@@ -16604,9 +16591,9 @@ export namespace Prisma {
   export type ExerciseProgramGroupByOutputType = {
     id: string
     name: string
-    categoryId: string
+    categoryId: string | null
     difficultyLevel: number | null
-    adaptedForReducedMobility: boolean
+    adaptedForReducedMobility: boolean | null
     durationMinutes: number | null
     description: string | null
     videoLink: string | null
@@ -16663,6 +16650,7 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["exerciseProgram"]>
 
   export type exerciseProgramSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -16677,6 +16665,7 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["exerciseProgram"]>
 
   export type exerciseProgramSelectScalar = {
@@ -16699,21 +16688,25 @@ export namespace Prisma {
     userActivity?: boolean | exerciseProgram$userActivityArgs<ExtArgs>
     _count?: boolean | ExerciseProgramCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type exerciseProgramIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type exerciseProgramIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type exerciseProgramIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
+  }
+  export type exerciseProgramIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
+  }
 
   export type $exerciseProgramPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "exerciseProgram"
     objects: {
-      programCategory: Prisma.$programCategoryPayload<ExtArgs>[]
+      programCategory: Prisma.$programCategoryPayload<ExtArgs> | null
       userActivity: Prisma.$userActivityPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      categoryId: string
+      categoryId: string | null
       difficultyLevel: number | null
-      adaptedForReducedMobility: boolean
+      adaptedForReducedMobility: boolean | null
       durationMinutes: number | null
       description: string | null
       videoLink: string | null
@@ -17114,7 +17107,7 @@ export namespace Prisma {
    */
   export interface Prisma__exerciseProgramClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    programCategory<T extends exerciseProgram$programCategoryArgs<ExtArgs> = {}>(args?: Subset<T, exerciseProgram$programCategoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    programCategory<T extends exerciseProgram$programCategoryArgs<ExtArgs> = {}>(args?: Subset<T, exerciseProgram$programCategoryArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     userActivity<T extends exerciseProgram$userActivityArgs<ExtArgs> = {}>(args?: Subset<T, exerciseProgram$userActivityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$userActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -17405,6 +17398,10 @@ export namespace Prisma {
      */
     data: exerciseProgramCreateManyInput | exerciseProgramCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: exerciseProgramIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -17475,6 +17472,10 @@ export namespace Prisma {
      * Limit how many exercisePrograms to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: exerciseProgramIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -17560,11 +17561,6 @@ export namespace Prisma {
      */
     include?: programCategoryInclude<ExtArgs> | null
     where?: programCategoryWhereInput
-    orderBy?: programCategoryOrderByWithRelationInput | programCategoryOrderByWithRelationInput[]
-    cursor?: programCategoryWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ProgramCategoryScalarFieldEnum | ProgramCategoryScalarFieldEnum[]
   }
 
   /**
@@ -17753,7 +17749,7 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
-    parentCategoryId: string
+    parentCategoryId: string | null
     createdAt: Date
     updatedAt: Date | null
     _count: ForumCategoryCountAggregateOutputType | null
@@ -17830,7 +17826,7 @@ export namespace Prisma {
       id: string
       name: string
       description: string | null
-      parentCategoryId: string
+      parentCategoryId: string | null
       createdAt: Date
       updatedAt: Date | null
     }, ExtArgs["result"]["forumCategory"]>
@@ -18708,8 +18704,6 @@ export namespace Prisma {
     topicId: string | null
     authorId: string | null
     content: string | null
-    creationDate: Date | null
-    modificationDate: Date | null
     solutionMessage: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -18720,8 +18714,6 @@ export namespace Prisma {
     topicId: string | null
     authorId: string | null
     content: string | null
-    creationDate: Date | null
-    modificationDate: Date | null
     solutionMessage: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -18732,8 +18724,6 @@ export namespace Prisma {
     topicId: number
     authorId: number
     content: number
-    creationDate: number
-    modificationDate: number
     solutionMessage: number
     createdAt: number
     updatedAt: number
@@ -18746,8 +18736,6 @@ export namespace Prisma {
     topicId?: true
     authorId?: true
     content?: true
-    creationDate?: true
-    modificationDate?: true
     solutionMessage?: true
     createdAt?: true
     updatedAt?: true
@@ -18758,8 +18746,6 @@ export namespace Prisma {
     topicId?: true
     authorId?: true
     content?: true
-    creationDate?: true
-    modificationDate?: true
     solutionMessage?: true
     createdAt?: true
     updatedAt?: true
@@ -18770,8 +18756,6 @@ export namespace Prisma {
     topicId?: true
     authorId?: true
     content?: true
-    creationDate?: true
-    modificationDate?: true
     solutionMessage?: true
     createdAt?: true
     updatedAt?: true
@@ -18852,11 +18836,9 @@ export namespace Prisma {
 
   export type ForumMessageGroupByOutputType = {
     id: string
-    topicId: string | null
-    authorId: string | null
+    topicId: string
+    authorId: string
     content: string | null
-    creationDate: Date | null
-    modificationDate: Date | null
     solutionMessage: boolean | null
     createdAt: Date
     updatedAt: Date | null
@@ -18884,8 +18866,6 @@ export namespace Prisma {
     topicId?: boolean
     authorId?: boolean
     content?: boolean
-    creationDate?: boolean
-    modificationDate?: boolean
     solutionMessage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -18898,8 +18878,6 @@ export namespace Prisma {
     topicId?: boolean
     authorId?: boolean
     content?: boolean
-    creationDate?: boolean
-    modificationDate?: boolean
     solutionMessage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -18912,8 +18890,6 @@ export namespace Prisma {
     topicId?: boolean
     authorId?: boolean
     content?: boolean
-    creationDate?: boolean
-    modificationDate?: boolean
     solutionMessage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -18926,14 +18902,12 @@ export namespace Prisma {
     topicId?: boolean
     authorId?: boolean
     content?: boolean
-    creationDate?: boolean
-    modificationDate?: boolean
     solutionMessage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type forumMessageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "topicId" | "authorId" | "content" | "creationDate" | "modificationDate" | "solutionMessage" | "createdAt" | "updatedAt", ExtArgs["result"]["forumMessage"]>
+  export type forumMessageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "topicId" | "authorId" | "content" | "solutionMessage" | "createdAt" | "updatedAt", ExtArgs["result"]["forumMessage"]>
   export type forumMessageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | forumMessage$userArgs<ExtArgs>
     forumTopic?: boolean | forumMessage$forumTopicArgs<ExtArgs>
@@ -18955,11 +18929,9 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      topicId: string | null
-      authorId: string | null
+      topicId: string
+      authorId: string
       content: string | null
-      creationDate: Date | null
-      modificationDate: Date | null
       solutionMessage: boolean | null
       createdAt: Date
       updatedAt: Date | null
@@ -19392,8 +19364,6 @@ export namespace Prisma {
     readonly topicId: FieldRef<"forumMessage", 'String'>
     readonly authorId: FieldRef<"forumMessage", 'String'>
     readonly content: FieldRef<"forumMessage", 'String'>
-    readonly creationDate: FieldRef<"forumMessage", 'DateTime'>
-    readonly modificationDate: FieldRef<"forumMessage", 'DateTime'>
     readonly solutionMessage: FieldRef<"forumMessage", 'Boolean'>
     readonly createdAt: FieldRef<"forumMessage", 'DateTime'>
     readonly updatedAt: FieldRef<"forumMessage", 'DateTime'>
@@ -19615,7 +19585,7 @@ export namespace Prisma {
     /**
      * The data needed to create a forumMessage.
      */
-    data?: XOR<forumMessageCreateInput, forumMessageUncheckedCreateInput>
+    data: XOR<forumMessageCreateInput, forumMessageUncheckedCreateInput>
   }
 
   /**
@@ -19874,7 +19844,6 @@ export namespace Prisma {
     categoryId: string | null
     authorId: string | null
     title: string | null
-    creationDate: Date | null
     pinned: boolean | null
     status: string | null
     views: number | null
@@ -19887,7 +19856,6 @@ export namespace Prisma {
     categoryId: string | null
     authorId: string | null
     title: string | null
-    creationDate: Date | null
     pinned: boolean | null
     status: string | null
     views: number | null
@@ -19900,7 +19868,6 @@ export namespace Prisma {
     categoryId: number
     authorId: number
     title: number
-    creationDate: number
     pinned: number
     status: number
     views: number
@@ -19923,7 +19890,6 @@ export namespace Prisma {
     categoryId?: true
     authorId?: true
     title?: true
-    creationDate?: true
     pinned?: true
     status?: true
     views?: true
@@ -19936,7 +19902,6 @@ export namespace Prisma {
     categoryId?: true
     authorId?: true
     title?: true
-    creationDate?: true
     pinned?: true
     status?: true
     views?: true
@@ -19949,7 +19914,6 @@ export namespace Prisma {
     categoryId?: true
     authorId?: true
     title?: true
-    creationDate?: true
     pinned?: true
     status?: true
     views?: true
@@ -20049,7 +20013,6 @@ export namespace Prisma {
     categoryId: string
     authorId: string
     title: string
-    creationDate: Date | null
     pinned: boolean | null
     status: string | null
     views: number | null
@@ -20081,7 +20044,6 @@ export namespace Prisma {
     categoryId?: boolean
     authorId?: boolean
     title?: boolean
-    creationDate?: boolean
     pinned?: boolean
     status?: boolean
     views?: boolean
@@ -20089,7 +20051,7 @@ export namespace Prisma {
     updatedAt?: boolean
     forumMessage?: boolean | forumTopic$forumMessageArgs<ExtArgs>
     user?: boolean | userDefaultArgs<ExtArgs>
-    forumCategory?: boolean | forumCategoryDefaultArgs<ExtArgs>
+    forumCategory?: boolean | forumTopic$forumCategoryArgs<ExtArgs>
     _count?: boolean | ForumTopicCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["forumTopic"]>
 
@@ -20098,14 +20060,13 @@ export namespace Prisma {
     categoryId?: boolean
     authorId?: boolean
     title?: boolean
-    creationDate?: boolean
     pinned?: boolean
     status?: boolean
     views?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
-    forumCategory?: boolean | forumCategoryDefaultArgs<ExtArgs>
+    forumCategory?: boolean | forumTopic$forumCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["forumTopic"]>
 
   export type forumTopicSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -20113,14 +20074,13 @@ export namespace Prisma {
     categoryId?: boolean
     authorId?: boolean
     title?: boolean
-    creationDate?: boolean
     pinned?: boolean
     status?: boolean
     views?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
-    forumCategory?: boolean | forumCategoryDefaultArgs<ExtArgs>
+    forumCategory?: boolean | forumTopic$forumCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["forumTopic"]>
 
   export type forumTopicSelectScalar = {
@@ -20128,7 +20088,6 @@ export namespace Prisma {
     categoryId?: boolean
     authorId?: boolean
     title?: boolean
-    creationDate?: boolean
     pinned?: boolean
     status?: boolean
     views?: boolean
@@ -20136,20 +20095,20 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type forumTopicOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "categoryId" | "authorId" | "title" | "creationDate" | "pinned" | "status" | "views" | "createdAt" | "updatedAt", ExtArgs["result"]["forumTopic"]>
+  export type forumTopicOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "categoryId" | "authorId" | "title" | "pinned" | "status" | "views" | "createdAt" | "updatedAt", ExtArgs["result"]["forumTopic"]>
   export type forumTopicInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     forumMessage?: boolean | forumTopic$forumMessageArgs<ExtArgs>
     user?: boolean | userDefaultArgs<ExtArgs>
-    forumCategory?: boolean | forumCategoryDefaultArgs<ExtArgs>
+    forumCategory?: boolean | forumTopic$forumCategoryArgs<ExtArgs>
     _count?: boolean | ForumTopicCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type forumTopicIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | userDefaultArgs<ExtArgs>
-    forumCategory?: boolean | forumCategoryDefaultArgs<ExtArgs>
+    forumCategory?: boolean | forumTopic$forumCategoryArgs<ExtArgs>
   }
   export type forumTopicIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | userDefaultArgs<ExtArgs>
-    forumCategory?: boolean | forumCategoryDefaultArgs<ExtArgs>
+    forumCategory?: boolean | forumTopic$forumCategoryArgs<ExtArgs>
   }
 
   export type $forumTopicPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20157,14 +20116,13 @@ export namespace Prisma {
     objects: {
       forumMessage: Prisma.$forumMessagePayload<ExtArgs>[]
       user: Prisma.$userPayload<ExtArgs>
-      forumCategory: Prisma.$forumCategoryPayload<ExtArgs>
+      forumCategory: Prisma.$forumCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       categoryId: string
       authorId: string
       title: string
-      creationDate: Date | null
       pinned: boolean | null
       status: string | null
       views: number | null
@@ -20566,7 +20524,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     forumMessage<T extends forumTopic$forumMessageArgs<ExtArgs> = {}>(args?: Subset<T, forumTopic$forumMessageArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$forumMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends userDefaultArgs<ExtArgs> = {}>(args?: Subset<T, userDefaultArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    forumCategory<T extends forumCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, forumCategoryDefaultArgs<ExtArgs>>): Prisma__forumCategoryClient<$Result.GetResult<Prisma.$forumCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    forumCategory<T extends forumTopic$forumCategoryArgs<ExtArgs> = {}>(args?: Subset<T, forumTopic$forumCategoryArgs<ExtArgs>>): Prisma__forumCategoryClient<$Result.GetResult<Prisma.$forumCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -20600,7 +20558,6 @@ export namespace Prisma {
     readonly categoryId: FieldRef<"forumTopic", 'String'>
     readonly authorId: FieldRef<"forumTopic", 'String'>
     readonly title: FieldRef<"forumTopic", 'String'>
-    readonly creationDate: FieldRef<"forumTopic", 'DateTime'>
     readonly pinned: FieldRef<"forumTopic", 'Boolean'>
     readonly status: FieldRef<"forumTopic", 'String'>
     readonly views: FieldRef<"forumTopic", 'Int'>
@@ -21026,6 +20983,25 @@ export namespace Prisma {
   }
 
   /**
+   * forumTopic.forumCategory
+   */
+  export type forumTopic$forumCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the forumCategory
+     */
+    select?: forumCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the forumCategory
+     */
+    omit?: forumCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: forumCategoryInclude<ExtArgs> | null
+    where?: forumCategoryWhereInput
+  }
+
+  /**
    * forumTopic without action
    */
   export type forumTopicDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21041,1124 +21017,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: forumTopicInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model wellnessGoalProgress
-   */
-
-  export type AggregateWellnessGoalProgress = {
-    _count: WellnessGoalProgressCountAggregateOutputType | null
-    _avg: WellnessGoalProgressAvgAggregateOutputType | null
-    _sum: WellnessGoalProgressSumAggregateOutputType | null
-    _min: WellnessGoalProgressMinAggregateOutputType | null
-    _max: WellnessGoalProgressMaxAggregateOutputType | null
-  }
-
-  export type WellnessGoalProgressAvgAggregateOutputType = {
-    achievedValue: number | null
-  }
-
-  export type WellnessGoalProgressSumAggregateOutputType = {
-    achievedValue: number | null
-  }
-
-  export type WellnessGoalProgressMinAggregateOutputType = {
-    id: string | null
-    goalId: string | null
-    recordingDate: Date | null
-    achievedValue: number | null
-    goalAchieved: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type WellnessGoalProgressMaxAggregateOutputType = {
-    id: string | null
-    goalId: string | null
-    recordingDate: Date | null
-    achievedValue: number | null
-    goalAchieved: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type WellnessGoalProgressCountAggregateOutputType = {
-    id: number
-    goalId: number
-    recordingDate: number
-    achievedValue: number
-    goalAchieved: number
-    createdAt: number
-    updatedAt: number
-    _all: number
-  }
-
-
-  export type WellnessGoalProgressAvgAggregateInputType = {
-    achievedValue?: true
-  }
-
-  export type WellnessGoalProgressSumAggregateInputType = {
-    achievedValue?: true
-  }
-
-  export type WellnessGoalProgressMinAggregateInputType = {
-    id?: true
-    goalId?: true
-    recordingDate?: true
-    achievedValue?: true
-    goalAchieved?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type WellnessGoalProgressMaxAggregateInputType = {
-    id?: true
-    goalId?: true
-    recordingDate?: true
-    achievedValue?: true
-    goalAchieved?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type WellnessGoalProgressCountAggregateInputType = {
-    id?: true
-    goalId?: true
-    recordingDate?: true
-    achievedValue?: true
-    goalAchieved?: true
-    createdAt?: true
-    updatedAt?: true
-    _all?: true
-  }
-
-  export type WellnessGoalProgressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which wellnessGoalProgress to aggregate.
-     */
-    where?: wellnessGoalProgressWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of wellnessGoalProgresses to fetch.
-     */
-    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: wellnessGoalProgressWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` wellnessGoalProgresses from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` wellnessGoalProgresses.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned wellnessGoalProgresses
-    **/
-    _count?: true | WellnessGoalProgressCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: WellnessGoalProgressAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: WellnessGoalProgressSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: WellnessGoalProgressMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: WellnessGoalProgressMaxAggregateInputType
-  }
-
-  export type GetWellnessGoalProgressAggregateType<T extends WellnessGoalProgressAggregateArgs> = {
-        [P in keyof T & keyof AggregateWellnessGoalProgress]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateWellnessGoalProgress[P]>
-      : GetScalarType<T[P], AggregateWellnessGoalProgress[P]>
-  }
-
-
-
-
-  export type wellnessGoalProgressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: wellnessGoalProgressWhereInput
-    orderBy?: wellnessGoalProgressOrderByWithAggregationInput | wellnessGoalProgressOrderByWithAggregationInput[]
-    by: WellnessGoalProgressScalarFieldEnum[] | WellnessGoalProgressScalarFieldEnum
-    having?: wellnessGoalProgressScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: WellnessGoalProgressCountAggregateInputType | true
-    _avg?: WellnessGoalProgressAvgAggregateInputType
-    _sum?: WellnessGoalProgressSumAggregateInputType
-    _min?: WellnessGoalProgressMinAggregateInputType
-    _max?: WellnessGoalProgressMaxAggregateInputType
-  }
-
-  export type WellnessGoalProgressGroupByOutputType = {
-    id: string
-    goalId: string
-    recordingDate: Date
-    achievedValue: number
-    goalAchieved: boolean
-    createdAt: Date
-    updatedAt: Date | null
-    _count: WellnessGoalProgressCountAggregateOutputType | null
-    _avg: WellnessGoalProgressAvgAggregateOutputType | null
-    _sum: WellnessGoalProgressSumAggregateOutputType | null
-    _min: WellnessGoalProgressMinAggregateOutputType | null
-    _max: WellnessGoalProgressMaxAggregateOutputType | null
-  }
-
-  type GetWellnessGoalProgressGroupByPayload<T extends wellnessGoalProgressGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<WellnessGoalProgressGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof WellnessGoalProgressGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], WellnessGoalProgressGroupByOutputType[P]>
-            : GetScalarType<T[P], WellnessGoalProgressGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type wellnessGoalProgressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    goalId?: boolean
-    recordingDate?: boolean
-    achievedValue?: boolean
-    goalAchieved?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["wellnessGoalProgress"]>
-
-  export type wellnessGoalProgressSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    goalId?: boolean
-    recordingDate?: boolean
-    achievedValue?: boolean
-    goalAchieved?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["wellnessGoalProgress"]>
-
-  export type wellnessGoalProgressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    goalId?: boolean
-    recordingDate?: boolean
-    achievedValue?: boolean
-    goalAchieved?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["wellnessGoalProgress"]>
-
-  export type wellnessGoalProgressSelectScalar = {
-    id?: boolean
-    goalId?: boolean
-    recordingDate?: boolean
-    achievedValue?: boolean
-    goalAchieved?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }
-
-  export type wellnessGoalProgressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "goalId" | "recordingDate" | "achievedValue" | "goalAchieved" | "createdAt" | "updatedAt", ExtArgs["result"]["wellnessGoalProgress"]>
-  export type wellnessGoalProgressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
-  }
-  export type wellnessGoalProgressIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
-  }
-  export type wellnessGoalProgressIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
-  }
-
-  export type $wellnessGoalProgressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "wellnessGoalProgress"
-    objects: {
-      wellnessGoal: Prisma.$wellnessGoalPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      goalId: string
-      recordingDate: Date
-      achievedValue: number
-      goalAchieved: boolean
-      createdAt: Date
-      updatedAt: Date | null
-    }, ExtArgs["result"]["wellnessGoalProgress"]>
-    composites: {}
-  }
-
-  type wellnessGoalProgressGetPayload<S extends boolean | null | undefined | wellnessGoalProgressDefaultArgs> = $Result.GetResult<Prisma.$wellnessGoalProgressPayload, S>
-
-  type wellnessGoalProgressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<wellnessGoalProgressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: WellnessGoalProgressCountAggregateInputType | true
-    }
-
-  export interface wellnessGoalProgressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['wellnessGoalProgress'], meta: { name: 'wellnessGoalProgress' } }
-    /**
-     * Find zero or one WellnessGoalProgress that matches the filter.
-     * @param {wellnessGoalProgressFindUniqueArgs} args - Arguments to find a WellnessGoalProgress
-     * @example
-     * // Get one WellnessGoalProgress
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends wellnessGoalProgressFindUniqueArgs>(args: SelectSubset<T, wellnessGoalProgressFindUniqueArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one WellnessGoalProgress that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {wellnessGoalProgressFindUniqueOrThrowArgs} args - Arguments to find a WellnessGoalProgress
-     * @example
-     * // Get one WellnessGoalProgress
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends wellnessGoalProgressFindUniqueOrThrowArgs>(args: SelectSubset<T, wellnessGoalProgressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first WellnessGoalProgress that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {wellnessGoalProgressFindFirstArgs} args - Arguments to find a WellnessGoalProgress
-     * @example
-     * // Get one WellnessGoalProgress
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends wellnessGoalProgressFindFirstArgs>(args?: SelectSubset<T, wellnessGoalProgressFindFirstArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first WellnessGoalProgress that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {wellnessGoalProgressFindFirstOrThrowArgs} args - Arguments to find a WellnessGoalProgress
-     * @example
-     * // Get one WellnessGoalProgress
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends wellnessGoalProgressFindFirstOrThrowArgs>(args?: SelectSubset<T, wellnessGoalProgressFindFirstOrThrowArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more WellnessGoalProgresses that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {wellnessGoalProgressFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all WellnessGoalProgresses
-     * const wellnessGoalProgresses = await prisma.wellnessGoalProgress.findMany()
-     * 
-     * // Get first 10 WellnessGoalProgresses
-     * const wellnessGoalProgresses = await prisma.wellnessGoalProgress.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const wellnessGoalProgressWithIdOnly = await prisma.wellnessGoalProgress.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends wellnessGoalProgressFindManyArgs>(args?: SelectSubset<T, wellnessGoalProgressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a WellnessGoalProgress.
-     * @param {wellnessGoalProgressCreateArgs} args - Arguments to create a WellnessGoalProgress.
-     * @example
-     * // Create one WellnessGoalProgress
-     * const WellnessGoalProgress = await prisma.wellnessGoalProgress.create({
-     *   data: {
-     *     // ... data to create a WellnessGoalProgress
-     *   }
-     * })
-     * 
-     */
-    create<T extends wellnessGoalProgressCreateArgs>(args: SelectSubset<T, wellnessGoalProgressCreateArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many WellnessGoalProgresses.
-     * @param {wellnessGoalProgressCreateManyArgs} args - Arguments to create many WellnessGoalProgresses.
-     * @example
-     * // Create many WellnessGoalProgresses
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends wellnessGoalProgressCreateManyArgs>(args?: SelectSubset<T, wellnessGoalProgressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many WellnessGoalProgresses and returns the data saved in the database.
-     * @param {wellnessGoalProgressCreateManyAndReturnArgs} args - Arguments to create many WellnessGoalProgresses.
-     * @example
-     * // Create many WellnessGoalProgresses
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many WellnessGoalProgresses and only return the `id`
-     * const wellnessGoalProgressWithIdOnly = await prisma.wellnessGoalProgress.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends wellnessGoalProgressCreateManyAndReturnArgs>(args?: SelectSubset<T, wellnessGoalProgressCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a WellnessGoalProgress.
-     * @param {wellnessGoalProgressDeleteArgs} args - Arguments to delete one WellnessGoalProgress.
-     * @example
-     * // Delete one WellnessGoalProgress
-     * const WellnessGoalProgress = await prisma.wellnessGoalProgress.delete({
-     *   where: {
-     *     // ... filter to delete one WellnessGoalProgress
-     *   }
-     * })
-     * 
-     */
-    delete<T extends wellnessGoalProgressDeleteArgs>(args: SelectSubset<T, wellnessGoalProgressDeleteArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one WellnessGoalProgress.
-     * @param {wellnessGoalProgressUpdateArgs} args - Arguments to update one WellnessGoalProgress.
-     * @example
-     * // Update one WellnessGoalProgress
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends wellnessGoalProgressUpdateArgs>(args: SelectSubset<T, wellnessGoalProgressUpdateArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more WellnessGoalProgresses.
-     * @param {wellnessGoalProgressDeleteManyArgs} args - Arguments to filter WellnessGoalProgresses to delete.
-     * @example
-     * // Delete a few WellnessGoalProgresses
-     * const { count } = await prisma.wellnessGoalProgress.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends wellnessGoalProgressDeleteManyArgs>(args?: SelectSubset<T, wellnessGoalProgressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more WellnessGoalProgresses.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {wellnessGoalProgressUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many WellnessGoalProgresses
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends wellnessGoalProgressUpdateManyArgs>(args: SelectSubset<T, wellnessGoalProgressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more WellnessGoalProgresses and returns the data updated in the database.
-     * @param {wellnessGoalProgressUpdateManyAndReturnArgs} args - Arguments to update many WellnessGoalProgresses.
-     * @example
-     * // Update many WellnessGoalProgresses
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more WellnessGoalProgresses and only return the `id`
-     * const wellnessGoalProgressWithIdOnly = await prisma.wellnessGoalProgress.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends wellnessGoalProgressUpdateManyAndReturnArgs>(args: SelectSubset<T, wellnessGoalProgressUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one WellnessGoalProgress.
-     * @param {wellnessGoalProgressUpsertArgs} args - Arguments to update or create a WellnessGoalProgress.
-     * @example
-     * // Update or create a WellnessGoalProgress
-     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.upsert({
-     *   create: {
-     *     // ... data to create a WellnessGoalProgress
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the WellnessGoalProgress we want to update
-     *   }
-     * })
-     */
-    upsert<T extends wellnessGoalProgressUpsertArgs>(args: SelectSubset<T, wellnessGoalProgressUpsertArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of WellnessGoalProgresses.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {wellnessGoalProgressCountArgs} args - Arguments to filter WellnessGoalProgresses to count.
-     * @example
-     * // Count the number of WellnessGoalProgresses
-     * const count = await prisma.wellnessGoalProgress.count({
-     *   where: {
-     *     // ... the filter for the WellnessGoalProgresses we want to count
-     *   }
-     * })
-    **/
-    count<T extends wellnessGoalProgressCountArgs>(
-      args?: Subset<T, wellnessGoalProgressCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], WellnessGoalProgressCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a WellnessGoalProgress.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WellnessGoalProgressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends WellnessGoalProgressAggregateArgs>(args: Subset<T, WellnessGoalProgressAggregateArgs>): Prisma.PrismaPromise<GetWellnessGoalProgressAggregateType<T>>
-
-    /**
-     * Group by WellnessGoalProgress.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {wellnessGoalProgressGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends wellnessGoalProgressGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: wellnessGoalProgressGroupByArgs['orderBy'] }
-        : { orderBy?: wellnessGoalProgressGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, wellnessGoalProgressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWellnessGoalProgressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the wellnessGoalProgress model
-   */
-  readonly fields: wellnessGoalProgressFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for wellnessGoalProgress.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__wellnessGoalProgressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    wellnessGoal<T extends wellnessGoalDefaultArgs<ExtArgs> = {}>(args?: Subset<T, wellnessGoalDefaultArgs<ExtArgs>>): Prisma__wellnessGoalClient<$Result.GetResult<Prisma.$wellnessGoalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the wellnessGoalProgress model
-   */
-  interface wellnessGoalProgressFieldRefs {
-    readonly id: FieldRef<"wellnessGoalProgress", 'String'>
-    readonly goalId: FieldRef<"wellnessGoalProgress", 'String'>
-    readonly recordingDate: FieldRef<"wellnessGoalProgress", 'DateTime'>
-    readonly achievedValue: FieldRef<"wellnessGoalProgress", 'Int'>
-    readonly goalAchieved: FieldRef<"wellnessGoalProgress", 'Boolean'>
-    readonly createdAt: FieldRef<"wellnessGoalProgress", 'DateTime'>
-    readonly updatedAt: FieldRef<"wellnessGoalProgress", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * wellnessGoalProgress findUnique
-   */
-  export type wellnessGoalProgressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
-    /**
-     * Filter, which wellnessGoalProgress to fetch.
-     */
-    where: wellnessGoalProgressWhereUniqueInput
-  }
-
-  /**
-   * wellnessGoalProgress findUniqueOrThrow
-   */
-  export type wellnessGoalProgressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
-    /**
-     * Filter, which wellnessGoalProgress to fetch.
-     */
-    where: wellnessGoalProgressWhereUniqueInput
-  }
-
-  /**
-   * wellnessGoalProgress findFirst
-   */
-  export type wellnessGoalProgressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
-    /**
-     * Filter, which wellnessGoalProgress to fetch.
-     */
-    where?: wellnessGoalProgressWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of wellnessGoalProgresses to fetch.
-     */
-    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for wellnessGoalProgresses.
-     */
-    cursor?: wellnessGoalProgressWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` wellnessGoalProgresses from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` wellnessGoalProgresses.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of wellnessGoalProgresses.
-     */
-    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
-  }
-
-  /**
-   * wellnessGoalProgress findFirstOrThrow
-   */
-  export type wellnessGoalProgressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
-    /**
-     * Filter, which wellnessGoalProgress to fetch.
-     */
-    where?: wellnessGoalProgressWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of wellnessGoalProgresses to fetch.
-     */
-    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for wellnessGoalProgresses.
-     */
-    cursor?: wellnessGoalProgressWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` wellnessGoalProgresses from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` wellnessGoalProgresses.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of wellnessGoalProgresses.
-     */
-    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
-  }
-
-  /**
-   * wellnessGoalProgress findMany
-   */
-  export type wellnessGoalProgressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
-    /**
-     * Filter, which wellnessGoalProgresses to fetch.
-     */
-    where?: wellnessGoalProgressWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of wellnessGoalProgresses to fetch.
-     */
-    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing wellnessGoalProgresses.
-     */
-    cursor?: wellnessGoalProgressWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` wellnessGoalProgresses from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` wellnessGoalProgresses.
-     */
-    skip?: number
-    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
-  }
-
-  /**
-   * wellnessGoalProgress create
-   */
-  export type wellnessGoalProgressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
-    /**
-     * The data needed to create a wellnessGoalProgress.
-     */
-    data: XOR<wellnessGoalProgressCreateInput, wellnessGoalProgressUncheckedCreateInput>
-  }
-
-  /**
-   * wellnessGoalProgress createMany
-   */
-  export type wellnessGoalProgressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many wellnessGoalProgresses.
-     */
-    data: wellnessGoalProgressCreateManyInput | wellnessGoalProgressCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * wellnessGoalProgress createManyAndReturn
-   */
-  export type wellnessGoalProgressCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * The data used to create many wellnessGoalProgresses.
-     */
-    data: wellnessGoalProgressCreateManyInput | wellnessGoalProgressCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * wellnessGoalProgress update
-   */
-  export type wellnessGoalProgressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
-    /**
-     * The data needed to update a wellnessGoalProgress.
-     */
-    data: XOR<wellnessGoalProgressUpdateInput, wellnessGoalProgressUncheckedUpdateInput>
-    /**
-     * Choose, which wellnessGoalProgress to update.
-     */
-    where: wellnessGoalProgressWhereUniqueInput
-  }
-
-  /**
-   * wellnessGoalProgress updateMany
-   */
-  export type wellnessGoalProgressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update wellnessGoalProgresses.
-     */
-    data: XOR<wellnessGoalProgressUpdateManyMutationInput, wellnessGoalProgressUncheckedUpdateManyInput>
-    /**
-     * Filter which wellnessGoalProgresses to update
-     */
-    where?: wellnessGoalProgressWhereInput
-    /**
-     * Limit how many wellnessGoalProgresses to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * wellnessGoalProgress updateManyAndReturn
-   */
-  export type wellnessGoalProgressUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * The data used to update wellnessGoalProgresses.
-     */
-    data: XOR<wellnessGoalProgressUpdateManyMutationInput, wellnessGoalProgressUncheckedUpdateManyInput>
-    /**
-     * Filter which wellnessGoalProgresses to update
-     */
-    where?: wellnessGoalProgressWhereInput
-    /**
-     * Limit how many wellnessGoalProgresses to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * wellnessGoalProgress upsert
-   */
-  export type wellnessGoalProgressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
-    /**
-     * The filter to search for the wellnessGoalProgress to update in case it exists.
-     */
-    where: wellnessGoalProgressWhereUniqueInput
-    /**
-     * In case the wellnessGoalProgress found by the `where` argument doesn't exist, create a new wellnessGoalProgress with this data.
-     */
-    create: XOR<wellnessGoalProgressCreateInput, wellnessGoalProgressUncheckedCreateInput>
-    /**
-     * In case the wellnessGoalProgress was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<wellnessGoalProgressUpdateInput, wellnessGoalProgressUncheckedUpdateInput>
-  }
-
-  /**
-   * wellnessGoalProgress delete
-   */
-  export type wellnessGoalProgressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
-    /**
-     * Filter which wellnessGoalProgress to delete.
-     */
-    where: wellnessGoalProgressWhereUniqueInput
-  }
-
-  /**
-   * wellnessGoalProgress deleteMany
-   */
-  export type wellnessGoalProgressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which wellnessGoalProgresses to delete
-     */
-    where?: wellnessGoalProgressWhereInput
-    /**
-     * Limit how many wellnessGoalProgresses to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * wellnessGoalProgress without action
-   */
-  export type wellnessGoalProgressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the wellnessGoalProgress
-     */
-    select?: wellnessGoalProgressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the wellnessGoalProgress
-     */
-    omit?: wellnessGoalProgressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: wellnessGoalProgressInclude<ExtArgs> | null
   }
 
 
@@ -22377,7 +21235,7 @@ export namespace Prisma {
 
   export type HealthIndicatorGroupByOutputType = {
     id: string
-    userId: string | null
+    userId: string
     recordingDate: Date
     stepCount: number | null
     sleepDurationMinutes: number | null
@@ -22485,7 +21343,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      userId: string | null
+      userId: string
       recordingDate: Date
       stepCount: number | null
       sleepDurationMinutes: number | null
@@ -24482,12 +23340,12 @@ export namespace Prisma {
 
   export type HelpRequestAvgAggregateOutputType = {
     estimatedDuration: number | null
-    points_offered: number | null
+    pointsOffered: number | null
   }
 
   export type HelpRequestSumAggregateOutputType = {
     estimatedDuration: number | null
-    points_offered: number | null
+    pointsOffered: number | null
   }
 
   export type HelpRequestMinAggregateOutputType = {
@@ -24495,7 +23353,6 @@ export namespace Prisma {
     creatorId: string | null
     title: string | null
     description: string | null
-    creationDate: Date | null
     neededDate: Date | null
     estimatedDuration: number | null
     location: string | null
@@ -24504,7 +23361,7 @@ export namespace Prisma {
     recurring: boolean | null
     frequency: string | null
     status: string | null
-    points_offered: number | null
+    pointsOffered: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -24514,7 +23371,6 @@ export namespace Prisma {
     creatorId: string | null
     title: string | null
     description: string | null
-    creationDate: Date | null
     neededDate: Date | null
     estimatedDuration: number | null
     location: string | null
@@ -24523,7 +23379,7 @@ export namespace Prisma {
     recurring: boolean | null
     frequency: string | null
     status: string | null
-    points_offered: number | null
+    pointsOffered: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -24533,7 +23389,6 @@ export namespace Prisma {
     creatorId: number
     title: number
     description: number
-    creationDate: number
     neededDate: number
     estimatedDuration: number
     location: number
@@ -24542,7 +23397,7 @@ export namespace Prisma {
     recurring: number
     frequency: number
     status: number
-    points_offered: number
+    pointsOffered: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -24551,12 +23406,12 @@ export namespace Prisma {
 
   export type HelpRequestAvgAggregateInputType = {
     estimatedDuration?: true
-    points_offered?: true
+    pointsOffered?: true
   }
 
   export type HelpRequestSumAggregateInputType = {
     estimatedDuration?: true
-    points_offered?: true
+    pointsOffered?: true
   }
 
   export type HelpRequestMinAggregateInputType = {
@@ -24564,7 +23419,6 @@ export namespace Prisma {
     creatorId?: true
     title?: true
     description?: true
-    creationDate?: true
     neededDate?: true
     estimatedDuration?: true
     location?: true
@@ -24573,7 +23427,7 @@ export namespace Prisma {
     recurring?: true
     frequency?: true
     status?: true
-    points_offered?: true
+    pointsOffered?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -24583,7 +23437,6 @@ export namespace Prisma {
     creatorId?: true
     title?: true
     description?: true
-    creationDate?: true
     neededDate?: true
     estimatedDuration?: true
     location?: true
@@ -24592,7 +23445,7 @@ export namespace Prisma {
     recurring?: true
     frequency?: true
     status?: true
-    points_offered?: true
+    pointsOffered?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -24602,7 +23455,6 @@ export namespace Prisma {
     creatorId?: true
     title?: true
     description?: true
-    creationDate?: true
     neededDate?: true
     estimatedDuration?: true
     location?: true
@@ -24611,7 +23463,7 @@ export namespace Prisma {
     recurring?: true
     frequency?: true
     status?: true
-    points_offered?: true
+    pointsOffered?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -24708,16 +23560,15 @@ export namespace Prisma {
     creatorId: string
     title: string
     description: string | null
-    creationDate: Date
     neededDate: Date | null
     estimatedDuration: number | null
     location: string | null
     gpsCoordinates: string | null
-    categoryId: string
+    categoryId: string | null
     recurring: boolean | null
     frequency: string | null
     status: string | null
-    points_offered: number | null
+    pointsOffered: number | null
     createdAt: Date
     updatedAt: Date | null
     _count: HelpRequestCountAggregateOutputType | null
@@ -24746,7 +23597,6 @@ export namespace Prisma {
     creatorId?: boolean
     title?: boolean
     description?: boolean
-    creationDate?: boolean
     neededDate?: boolean
     estimatedDuration?: boolean
     location?: boolean
@@ -24755,7 +23605,7 @@ export namespace Prisma {
     recurring?: boolean
     frequency?: boolean
     status?: boolean
-    points_offered?: boolean
+    pointsOffered?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     helpOffer?: boolean | helpRequest$helpOfferArgs<ExtArgs>
@@ -24770,7 +23620,6 @@ export namespace Prisma {
     creatorId?: boolean
     title?: boolean
     description?: boolean
-    creationDate?: boolean
     neededDate?: boolean
     estimatedDuration?: boolean
     location?: boolean
@@ -24779,7 +23628,7 @@ export namespace Prisma {
     recurring?: boolean
     frequency?: boolean
     status?: boolean
-    points_offered?: boolean
+    pointsOffered?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -24791,7 +23640,6 @@ export namespace Prisma {
     creatorId?: boolean
     title?: boolean
     description?: boolean
-    creationDate?: boolean
     neededDate?: boolean
     estimatedDuration?: boolean
     location?: boolean
@@ -24800,7 +23648,7 @@ export namespace Prisma {
     recurring?: boolean
     frequency?: boolean
     status?: boolean
-    points_offered?: boolean
+    pointsOffered?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -24812,7 +23660,6 @@ export namespace Prisma {
     creatorId?: boolean
     title?: boolean
     description?: boolean
-    creationDate?: boolean
     neededDate?: boolean
     estimatedDuration?: boolean
     location?: boolean
@@ -24821,12 +23668,12 @@ export namespace Prisma {
     recurring?: boolean
     frequency?: boolean
     status?: boolean
-    points_offered?: boolean
+    pointsOffered?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type helpRequestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "creatorId" | "title" | "description" | "creationDate" | "neededDate" | "estimatedDuration" | "location" | "gpsCoordinates" | "categoryId" | "recurring" | "frequency" | "status" | "points_offered" | "createdAt" | "updatedAt", ExtArgs["result"]["helpRequest"]>
+  export type helpRequestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "creatorId" | "title" | "description" | "neededDate" | "estimatedDuration" | "location" | "gpsCoordinates" | "categoryId" | "recurring" | "frequency" | "status" | "pointsOffered" | "createdAt" | "updatedAt", ExtArgs["result"]["helpRequest"]>
   export type helpRequestInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     helpOffer?: boolean | helpRequest$helpOfferArgs<ExtArgs>
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -24856,16 +23703,15 @@ export namespace Prisma {
       creatorId: string
       title: string
       description: string | null
-      creationDate: Date
       neededDate: Date | null
       estimatedDuration: number | null
       location: string | null
       gpsCoordinates: string | null
-      categoryId: string
+      categoryId: string | null
       recurring: boolean | null
       frequency: string | null
       status: string | null
-      points_offered: number | null
+      pointsOffered: number | null
       createdAt: Date
       updatedAt: Date | null
     }, ExtArgs["result"]["helpRequest"]>
@@ -25299,7 +24145,6 @@ export namespace Prisma {
     readonly creatorId: FieldRef<"helpRequest", 'String'>
     readonly title: FieldRef<"helpRequest", 'String'>
     readonly description: FieldRef<"helpRequest", 'String'>
-    readonly creationDate: FieldRef<"helpRequest", 'DateTime'>
     readonly neededDate: FieldRef<"helpRequest", 'DateTime'>
     readonly estimatedDuration: FieldRef<"helpRequest", 'Int'>
     readonly location: FieldRef<"helpRequest", 'String'>
@@ -25308,7 +24153,7 @@ export namespace Prisma {
     readonly recurring: FieldRef<"helpRequest", 'Boolean'>
     readonly frequency: FieldRef<"helpRequest", 'String'>
     readonly status: FieldRef<"helpRequest", 'String'>
-    readonly points_offered: FieldRef<"helpRequest", 'Int'>
+    readonly pointsOffered: FieldRef<"helpRequest", 'Int'>
     readonly createdAt: FieldRef<"helpRequest", 'DateTime'>
     readonly updatedAt: FieldRef<"helpRequest", 'DateTime'>
   }
@@ -27003,7 +25848,7 @@ export namespace Prisma {
   export type MedicationReminderMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    medication_name: string | null
+    medicationName: string | null
     dosage: string | null
     morningReminderTime: Date | null
     noonReminderTime: Date | null
@@ -27013,7 +25858,7 @@ export namespace Prisma {
     instructions: string | null
     active: boolean | null
     startDate: Date | null
-    end_date: Date | null
+    endDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -27021,7 +25866,7 @@ export namespace Prisma {
   export type MedicationReminderMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    medication_name: string | null
+    medicationName: string | null
     dosage: string | null
     morningReminderTime: Date | null
     noonReminderTime: Date | null
@@ -27031,7 +25876,7 @@ export namespace Prisma {
     instructions: string | null
     active: boolean | null
     startDate: Date | null
-    end_date: Date | null
+    endDate: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -27039,7 +25884,7 @@ export namespace Prisma {
   export type MedicationReminderCountAggregateOutputType = {
     id: number
     userId: number
-    medication_name: number
+    medicationName: number
     dosage: number
     morningReminderTime: number
     noonReminderTime: number
@@ -27049,7 +25894,7 @@ export namespace Prisma {
     instructions: number
     active: number
     startDate: number
-    end_date: number
+    endDate: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -27059,7 +25904,7 @@ export namespace Prisma {
   export type MedicationReminderMinAggregateInputType = {
     id?: true
     userId?: true
-    medication_name?: true
+    medicationName?: true
     dosage?: true
     morningReminderTime?: true
     noonReminderTime?: true
@@ -27069,7 +25914,7 @@ export namespace Prisma {
     instructions?: true
     active?: true
     startDate?: true
-    end_date?: true
+    endDate?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -27077,7 +25922,7 @@ export namespace Prisma {
   export type MedicationReminderMaxAggregateInputType = {
     id?: true
     userId?: true
-    medication_name?: true
+    medicationName?: true
     dosage?: true
     morningReminderTime?: true
     noonReminderTime?: true
@@ -27087,7 +25932,7 @@ export namespace Prisma {
     instructions?: true
     active?: true
     startDate?: true
-    end_date?: true
+    endDate?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -27095,7 +25940,7 @@ export namespace Prisma {
   export type MedicationReminderCountAggregateInputType = {
     id?: true
     userId?: true
-    medication_name?: true
+    medicationName?: true
     dosage?: true
     morningReminderTime?: true
     noonReminderTime?: true
@@ -27105,7 +25950,7 @@ export namespace Prisma {
     instructions?: true
     active?: true
     startDate?: true
-    end_date?: true
+    endDate?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -27186,7 +26031,7 @@ export namespace Prisma {
   export type MedicationReminderGroupByOutputType = {
     id: string
     userId: string
-    medication_name: string
+    medicationName: string
     dosage: string | null
     morningReminderTime: Date | null
     noonReminderTime: Date | null
@@ -27196,7 +26041,7 @@ export namespace Prisma {
     instructions: string | null
     active: boolean | null
     startDate: Date | null
-    end_date: Date | null
+    endDate: Date | null
     createdAt: Date
     updatedAt: Date | null
     _count: MedicationReminderCountAggregateOutputType | null
@@ -27221,7 +26066,7 @@ export namespace Prisma {
   export type medicationReminderSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    medication_name?: boolean
+    medicationName?: boolean
     dosage?: boolean
     morningReminderTime?: boolean
     noonReminderTime?: boolean
@@ -27231,7 +26076,7 @@ export namespace Prisma {
     instructions?: boolean
     active?: boolean
     startDate?: boolean
-    end_date?: boolean
+    endDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -27240,7 +26085,7 @@ export namespace Prisma {
   export type medicationReminderSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    medication_name?: boolean
+    medicationName?: boolean
     dosage?: boolean
     morningReminderTime?: boolean
     noonReminderTime?: boolean
@@ -27250,7 +26095,7 @@ export namespace Prisma {
     instructions?: boolean
     active?: boolean
     startDate?: boolean
-    end_date?: boolean
+    endDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -27259,7 +26104,7 @@ export namespace Prisma {
   export type medicationReminderSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    medication_name?: boolean
+    medicationName?: boolean
     dosage?: boolean
     morningReminderTime?: boolean
     noonReminderTime?: boolean
@@ -27269,7 +26114,7 @@ export namespace Prisma {
     instructions?: boolean
     active?: boolean
     startDate?: boolean
-    end_date?: boolean
+    endDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -27278,7 +26123,7 @@ export namespace Prisma {
   export type medicationReminderSelectScalar = {
     id?: boolean
     userId?: boolean
-    medication_name?: boolean
+    medicationName?: boolean
     dosage?: boolean
     morningReminderTime?: boolean
     noonReminderTime?: boolean
@@ -27288,12 +26133,12 @@ export namespace Prisma {
     instructions?: boolean
     active?: boolean
     startDate?: boolean
-    end_date?: boolean
+    endDate?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type medicationReminderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "medication_name" | "dosage" | "morningReminderTime" | "noonReminderTime" | "eveningReminderTime" | "nightReminderTime" | "daysOfWeek" | "instructions" | "active" | "startDate" | "end_date" | "createdAt" | "updatedAt", ExtArgs["result"]["medicationReminder"]>
+  export type medicationReminderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "medicationName" | "dosage" | "morningReminderTime" | "noonReminderTime" | "eveningReminderTime" | "nightReminderTime" | "daysOfWeek" | "instructions" | "active" | "startDate" | "endDate" | "createdAt" | "updatedAt", ExtArgs["result"]["medicationReminder"]>
   export type medicationReminderInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | userDefaultArgs<ExtArgs>
   }
@@ -27312,7 +26157,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
-      medication_name: string
+      medicationName: string
       dosage: string | null
       morningReminderTime: Date | null
       noonReminderTime: Date | null
@@ -27322,7 +26167,7 @@ export namespace Prisma {
       instructions: string | null
       active: boolean | null
       startDate: Date | null
-      end_date: Date | null
+      endDate: Date | null
       createdAt: Date
       updatedAt: Date | null
     }, ExtArgs["result"]["medicationReminder"]>
@@ -27751,7 +26596,7 @@ export namespace Prisma {
   interface medicationReminderFieldRefs {
     readonly id: FieldRef<"medicationReminder", 'String'>
     readonly userId: FieldRef<"medicationReminder", 'String'>
-    readonly medication_name: FieldRef<"medicationReminder", 'String'>
+    readonly medicationName: FieldRef<"medicationReminder", 'String'>
     readonly dosage: FieldRef<"medicationReminder", 'String'>
     readonly morningReminderTime: FieldRef<"medicationReminder", 'DateTime'>
     readonly noonReminderTime: FieldRef<"medicationReminder", 'DateTime'>
@@ -27761,7 +26606,7 @@ export namespace Prisma {
     readonly instructions: FieldRef<"medicationReminder", 'String'>
     readonly active: FieldRef<"medicationReminder", 'Boolean'>
     readonly startDate: FieldRef<"medicationReminder", 'DateTime'>
-    readonly end_date: FieldRef<"medicationReminder", 'DateTime'>
+    readonly endDate: FieldRef<"medicationReminder", 'DateTime'>
     readonly createdAt: FieldRef<"medicationReminder", 'DateTime'>
     readonly updatedAt: FieldRef<"medicationReminder", 'DateTime'>
   }
@@ -29349,9 +28194,9 @@ export namespace Prisma {
     title: string | null
     description: string | null
     startDate: Date | null
-    end_date: Date | null
+    endDate: Date | null
     location: string | null
-    gps_coordinates: string | null
+    gpsCoordinates: string | null
     organizer: string | null
     contact: string | null
     officialLink: string | null
@@ -29364,9 +28209,9 @@ export namespace Prisma {
     title: string | null
     description: string | null
     startDate: Date | null
-    end_date: Date | null
+    endDate: Date | null
     location: string | null
-    gps_coordinates: string | null
+    gpsCoordinates: string | null
     organizer: string | null
     contact: string | null
     officialLink: string | null
@@ -29379,9 +28224,9 @@ export namespace Prisma {
     title: number
     description: number
     startDate: number
-    end_date: number
+    endDate: number
     location: number
-    gps_coordinates: number
+    gpsCoordinates: number
     organizer: number
     contact: number
     officialLink: number
@@ -29396,9 +28241,9 @@ export namespace Prisma {
     title?: true
     description?: true
     startDate?: true
-    end_date?: true
+    endDate?: true
     location?: true
-    gps_coordinates?: true
+    gpsCoordinates?: true
     organizer?: true
     contact?: true
     officialLink?: true
@@ -29411,9 +28256,9 @@ export namespace Prisma {
     title?: true
     description?: true
     startDate?: true
-    end_date?: true
+    endDate?: true
     location?: true
-    gps_coordinates?: true
+    gpsCoordinates?: true
     organizer?: true
     contact?: true
     officialLink?: true
@@ -29426,9 +28271,9 @@ export namespace Prisma {
     title?: true
     description?: true
     startDate?: true
-    end_date?: true
+    endDate?: true
     location?: true
-    gps_coordinates?: true
+    gpsCoordinates?: true
     organizer?: true
     contact?: true
     officialLink?: true
@@ -29514,9 +28359,9 @@ export namespace Prisma {
     title: string
     description: string | null
     startDate: Date
-    end_date: Date
+    endDate: Date
     location: string
-    gps_coordinates: string | null
+    gpsCoordinates: string | null
     organizer: string | null
     contact: string | null
     officialLink: string | null
@@ -29546,9 +28391,9 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     startDate?: boolean
-    end_date?: boolean
+    endDate?: boolean
     location?: boolean
-    gps_coordinates?: boolean
+    gpsCoordinates?: boolean
     organizer?: boolean
     contact?: boolean
     officialLink?: boolean
@@ -29561,9 +28406,9 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     startDate?: boolean
-    end_date?: boolean
+    endDate?: boolean
     location?: boolean
-    gps_coordinates?: boolean
+    gpsCoordinates?: boolean
     organizer?: boolean
     contact?: boolean
     officialLink?: boolean
@@ -29576,9 +28421,9 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     startDate?: boolean
-    end_date?: boolean
+    endDate?: boolean
     location?: boolean
-    gps_coordinates?: boolean
+    gpsCoordinates?: boolean
     organizer?: boolean
     contact?: boolean
     officialLink?: boolean
@@ -29591,9 +28436,9 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     startDate?: boolean
-    end_date?: boolean
+    endDate?: boolean
     location?: boolean
-    gps_coordinates?: boolean
+    gpsCoordinates?: boolean
     organizer?: boolean
     contact?: boolean
     officialLink?: boolean
@@ -29601,7 +28446,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type municipalEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "startDate" | "end_date" | "location" | "gps_coordinates" | "organizer" | "contact" | "officialLink" | "createdAt" | "updatedAt", ExtArgs["result"]["municipalEvent"]>
+  export type municipalEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "startDate" | "endDate" | "location" | "gpsCoordinates" | "organizer" | "contact" | "officialLink" | "createdAt" | "updatedAt", ExtArgs["result"]["municipalEvent"]>
 
   export type $municipalEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "municipalEvent"
@@ -29611,9 +28456,9 @@ export namespace Prisma {
       title: string
       description: string | null
       startDate: Date
-      end_date: Date
+      endDate: Date
       location: string
-      gps_coordinates: string | null
+      gpsCoordinates: string | null
       organizer: string | null
       contact: string | null
       officialLink: string | null
@@ -30046,9 +28891,9 @@ export namespace Prisma {
     readonly title: FieldRef<"municipalEvent", 'String'>
     readonly description: FieldRef<"municipalEvent", 'String'>
     readonly startDate: FieldRef<"municipalEvent", 'DateTime'>
-    readonly end_date: FieldRef<"municipalEvent", 'DateTime'>
+    readonly endDate: FieldRef<"municipalEvent", 'DateTime'>
     readonly location: FieldRef<"municipalEvent", 'String'>
-    readonly gps_coordinates: FieldRef<"municipalEvent", 'String'>
+    readonly gpsCoordinates: FieldRef<"municipalEvent", 'String'>
     readonly organizer: FieldRef<"municipalEvent", 'String'>
     readonly contact: FieldRef<"municipalEvent", 'String'>
     readonly officialLink: FieldRef<"municipalEvent", 'String'>
@@ -32840,7 +31685,7 @@ export namespace Prisma {
     id: string
     title: string
     description: string | null
-    categoryId: string
+    categoryId: string | null
     season: string
     image: string | null
     createdAt: Date
@@ -32873,7 +31718,7 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    nutritionalCategory?: boolean | nutritionalCategoryDefaultArgs<ExtArgs>
+    nutritionalCategory?: boolean | nutritionalAdvice$nutritionalCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["nutritionalAdvice"]>
 
   export type nutritionalAdviceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -32885,7 +31730,7 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    nutritionalCategory?: boolean | nutritionalCategoryDefaultArgs<ExtArgs>
+    nutritionalCategory?: boolean | nutritionalAdvice$nutritionalCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["nutritionalAdvice"]>
 
   export type nutritionalAdviceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -32897,7 +31742,7 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    nutritionalCategory?: boolean | nutritionalCategoryDefaultArgs<ExtArgs>
+    nutritionalCategory?: boolean | nutritionalAdvice$nutritionalCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["nutritionalAdvice"]>
 
   export type nutritionalAdviceSelectScalar = {
@@ -32913,25 +31758,25 @@ export namespace Prisma {
 
   export type nutritionalAdviceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "categoryId" | "season" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["nutritionalAdvice"]>
   export type nutritionalAdviceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    nutritionalCategory?: boolean | nutritionalCategoryDefaultArgs<ExtArgs>
+    nutritionalCategory?: boolean | nutritionalAdvice$nutritionalCategoryArgs<ExtArgs>
   }
   export type nutritionalAdviceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    nutritionalCategory?: boolean | nutritionalCategoryDefaultArgs<ExtArgs>
+    nutritionalCategory?: boolean | nutritionalAdvice$nutritionalCategoryArgs<ExtArgs>
   }
   export type nutritionalAdviceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    nutritionalCategory?: boolean | nutritionalCategoryDefaultArgs<ExtArgs>
+    nutritionalCategory?: boolean | nutritionalAdvice$nutritionalCategoryArgs<ExtArgs>
   }
 
   export type $nutritionalAdvicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "nutritionalAdvice"
     objects: {
-      nutritionalCategory: Prisma.$nutritionalCategoryPayload<ExtArgs>
+      nutritionalCategory: Prisma.$nutritionalCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       title: string
       description: string | null
-      categoryId: string
+      categoryId: string | null
       season: string
       image: string | null
       createdAt: Date
@@ -33330,7 +32175,7 @@ export namespace Prisma {
    */
   export interface Prisma__nutritionalAdviceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    nutritionalCategory<T extends nutritionalCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, nutritionalCategoryDefaultArgs<ExtArgs>>): Prisma__nutritionalCategoryClient<$Result.GetResult<Prisma.$nutritionalCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    nutritionalCategory<T extends nutritionalAdvice$nutritionalCategoryArgs<ExtArgs> = {}>(args?: Subset<T, nutritionalAdvice$nutritionalCategoryArgs<ExtArgs>>): Prisma__nutritionalCategoryClient<$Result.GetResult<Prisma.$nutritionalCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -33761,6 +32606,25 @@ export namespace Prisma {
      * Limit how many nutritionalAdvices to delete.
      */
     limit?: number
+  }
+
+  /**
+   * nutritionalAdvice.nutritionalCategory
+   */
+  export type nutritionalAdvice$nutritionalCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the nutritionalCategory
+     */
+    select?: nutritionalCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the nutritionalCategory
+     */
+    omit?: nutritionalCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: nutritionalCategoryInclude<ExtArgs> | null
+    where?: nutritionalCategoryWhereInput
   }
 
   /**
@@ -37183,7 +36047,7 @@ export namespace Prisma {
     title: string
     content: string | null
     type: string
-    categoryId: string
+    categoryId: string | null
     authorId: string
     adminValidated: boolean | null
     createdAt: Date
@@ -37218,7 +36082,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | resource$userArgs<ExtArgs>
-    resourceCategory?: boolean | resourceCategoryDefaultArgs<ExtArgs>
+    resourceCategory?: boolean | resource$resourceCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["resource"]>
 
   export type resourceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -37232,7 +36096,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | resource$userArgs<ExtArgs>
-    resourceCategory?: boolean | resourceCategoryDefaultArgs<ExtArgs>
+    resourceCategory?: boolean | resource$resourceCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["resource"]>
 
   export type resourceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -37246,7 +36110,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | resource$userArgs<ExtArgs>
-    resourceCategory?: boolean | resourceCategoryDefaultArgs<ExtArgs>
+    resourceCategory?: boolean | resource$resourceCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["resource"]>
 
   export type resourceSelectScalar = {
@@ -37264,29 +36128,29 @@ export namespace Prisma {
   export type resourceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "type" | "categoryId" | "authorId" | "adminValidated" | "createdAt" | "updatedAt", ExtArgs["result"]["resource"]>
   export type resourceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | resource$userArgs<ExtArgs>
-    resourceCategory?: boolean | resourceCategoryDefaultArgs<ExtArgs>
+    resourceCategory?: boolean | resource$resourceCategoryArgs<ExtArgs>
   }
   export type resourceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | resource$userArgs<ExtArgs>
-    resourceCategory?: boolean | resourceCategoryDefaultArgs<ExtArgs>
+    resourceCategory?: boolean | resource$resourceCategoryArgs<ExtArgs>
   }
   export type resourceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | resource$userArgs<ExtArgs>
-    resourceCategory?: boolean | resourceCategoryDefaultArgs<ExtArgs>
+    resourceCategory?: boolean | resource$resourceCategoryArgs<ExtArgs>
   }
 
   export type $resourcePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "resource"
     objects: {
       user: Prisma.$userPayload<ExtArgs> | null
-      resourceCategory: Prisma.$resourceCategoryPayload<ExtArgs>
+      resourceCategory: Prisma.$resourceCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       title: string
       content: string | null
       type: string
-      categoryId: string
+      categoryId: string | null
       authorId: string
       adminValidated: boolean | null
       createdAt: Date
@@ -37686,7 +36550,7 @@ export namespace Prisma {
   export interface Prisma__resourceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends resource$userArgs<ExtArgs> = {}>(args?: Subset<T, resource$userArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    resourceCategory<T extends resourceCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, resourceCategoryDefaultArgs<ExtArgs>>): Prisma__resourceCategoryClient<$Result.GetResult<Prisma.$resourceCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    resourceCategory<T extends resource$resourceCategoryArgs<ExtArgs> = {}>(args?: Subset<T, resource$resourceCategoryArgs<ExtArgs>>): Prisma__resourceCategoryClient<$Result.GetResult<Prisma.$resourceCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -38137,6 +37001,25 @@ export namespace Prisma {
      */
     include?: userInclude<ExtArgs> | null
     where?: userWhereInput
+  }
+
+  /**
+   * resource.resourceCategory
+   */
+  export type resource$resourceCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the resourceCategory
+     */
+    select?: resourceCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the resourceCategory
+     */
+    omit?: resourceCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: resourceCategoryInclude<ExtArgs> | null
+    where?: resourceCategoryWhereInput
   }
 
   /**
@@ -41739,7 +40622,7 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
-    categoryId: string
+    categoryId: string | null
     createdAt: Date
     updatedAt: Date | null
     _count: SkillCountAggregateOutputType | null
@@ -41768,7 +40651,7 @@ export namespace Prisma {
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    skillCategory?: boolean | skillCategoryDefaultArgs<ExtArgs>
+    skillCategory?: boolean | skill$skillCategoryArgs<ExtArgs>
     userSkill?: boolean | skill$userSkillArgs<ExtArgs>
     _count?: boolean | SkillCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["skill"]>
@@ -41780,7 +40663,7 @@ export namespace Prisma {
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    skillCategory?: boolean | skillCategoryDefaultArgs<ExtArgs>
+    skillCategory?: boolean | skill$skillCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["skill"]>
 
   export type skillSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -41790,7 +40673,7 @@ export namespace Prisma {
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    skillCategory?: boolean | skillCategoryDefaultArgs<ExtArgs>
+    skillCategory?: boolean | skill$skillCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["skill"]>
 
   export type skillSelectScalar = {
@@ -41804,28 +40687,28 @@ export namespace Prisma {
 
   export type skillOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["skill"]>
   export type skillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    skillCategory?: boolean | skillCategoryDefaultArgs<ExtArgs>
+    skillCategory?: boolean | skill$skillCategoryArgs<ExtArgs>
     userSkill?: boolean | skill$userSkillArgs<ExtArgs>
     _count?: boolean | SkillCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type skillIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    skillCategory?: boolean | skillCategoryDefaultArgs<ExtArgs>
+    skillCategory?: boolean | skill$skillCategoryArgs<ExtArgs>
   }
   export type skillIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    skillCategory?: boolean | skillCategoryDefaultArgs<ExtArgs>
+    skillCategory?: boolean | skill$skillCategoryArgs<ExtArgs>
   }
 
   export type $skillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "skill"
     objects: {
-      skillCategory: Prisma.$skillCategoryPayload<ExtArgs>
+      skillCategory: Prisma.$skillCategoryPayload<ExtArgs> | null
       userSkill: Prisma.$userSkillPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       description: string | null
-      categoryId: string
+      categoryId: string | null
       createdAt: Date
       updatedAt: Date | null
     }, ExtArgs["result"]["skill"]>
@@ -42222,7 +41105,7 @@ export namespace Prisma {
    */
   export interface Prisma__skillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    skillCategory<T extends skillCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, skillCategoryDefaultArgs<ExtArgs>>): Prisma__skillCategoryClient<$Result.GetResult<Prisma.$skillCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    skillCategory<T extends skill$skillCategoryArgs<ExtArgs> = {}>(args?: Subset<T, skill$skillCategoryArgs<ExtArgs>>): Prisma__skillCategoryClient<$Result.GetResult<Prisma.$skillCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     userSkill<T extends skill$userSkillArgs<ExtArgs> = {}>(args?: Subset<T, skill$userSkillArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$userSkillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -42652,6 +41535,25 @@ export namespace Prisma {
      * Limit how many skills to delete.
      */
     limit?: number
+  }
+
+  /**
+   * skill.skillCategory
+   */
+  export type skill$skillCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the skillCategory
+     */
+    select?: skillCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the skillCategory
+     */
+    omit?: skillCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: skillCategoryInclude<ExtArgs> | null
+    where?: skillCategoryWhereInput
   }
 
   /**
@@ -46114,7 +45016,7 @@ export namespace Prisma {
   export type UrbanIssueReportGroupByOutputType = {
     id: string
     userId: string
-    categoryId: string
+    categoryId: string | null
     description: string
     address: string
     gpsCoordinates: string | null
@@ -46155,7 +45057,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | urbanIssueReport$userArgs<ExtArgs>
-    issueCategory?: boolean | issueCategoryDefaultArgs<ExtArgs>
+    issueCategory?: boolean | urbanIssueReport$issueCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["urbanIssueReport"]>
 
   export type urbanIssueReportSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -46171,7 +45073,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | urbanIssueReport$userArgs<ExtArgs>
-    issueCategory?: boolean | issueCategoryDefaultArgs<ExtArgs>
+    issueCategory?: boolean | urbanIssueReport$issueCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["urbanIssueReport"]>
 
   export type urbanIssueReportSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -46187,7 +45089,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | urbanIssueReport$userArgs<ExtArgs>
-    issueCategory?: boolean | issueCategoryDefaultArgs<ExtArgs>
+    issueCategory?: boolean | urbanIssueReport$issueCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["urbanIssueReport"]>
 
   export type urbanIssueReportSelectScalar = {
@@ -46207,27 +45109,27 @@ export namespace Prisma {
   export type urbanIssueReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "categoryId" | "description" | "address" | "gpsCoordinates" | "reportDate" | "status" | "cityReference" | "createdAt" | "updatedAt", ExtArgs["result"]["urbanIssueReport"]>
   export type urbanIssueReportInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | urbanIssueReport$userArgs<ExtArgs>
-    issueCategory?: boolean | issueCategoryDefaultArgs<ExtArgs>
+    issueCategory?: boolean | urbanIssueReport$issueCategoryArgs<ExtArgs>
   }
   export type urbanIssueReportIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | urbanIssueReport$userArgs<ExtArgs>
-    issueCategory?: boolean | issueCategoryDefaultArgs<ExtArgs>
+    issueCategory?: boolean | urbanIssueReport$issueCategoryArgs<ExtArgs>
   }
   export type urbanIssueReportIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | urbanIssueReport$userArgs<ExtArgs>
-    issueCategory?: boolean | issueCategoryDefaultArgs<ExtArgs>
+    issueCategory?: boolean | urbanIssueReport$issueCategoryArgs<ExtArgs>
   }
 
   export type $urbanIssueReportPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "urbanIssueReport"
     objects: {
       user: Prisma.$userPayload<ExtArgs> | null
-      issueCategory: Prisma.$issueCategoryPayload<ExtArgs>
+      issueCategory: Prisma.$issueCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
-      categoryId: string
+      categoryId: string | null
       description: string
       address: string
       gpsCoordinates: string | null
@@ -46631,7 +45533,7 @@ export namespace Prisma {
   export interface Prisma__urbanIssueReportClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends urbanIssueReport$userArgs<ExtArgs> = {}>(args?: Subset<T, urbanIssueReport$userArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    issueCategory<T extends issueCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, issueCategoryDefaultArgs<ExtArgs>>): Prisma__issueCategoryClient<$Result.GetResult<Prisma.$issueCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    issueCategory<T extends urbanIssueReport$issueCategoryArgs<ExtArgs> = {}>(args?: Subset<T, urbanIssueReport$issueCategoryArgs<ExtArgs>>): Prisma__issueCategoryClient<$Result.GetResult<Prisma.$issueCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -47084,6 +45986,25 @@ export namespace Prisma {
      */
     include?: userInclude<ExtArgs> | null
     where?: userWhereInput
+  }
+
+  /**
+   * urbanIssueReport.issueCategory
+   */
+  export type urbanIssueReport$issueCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the issueCategory
+     */
+    select?: issueCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the issueCategory
+     */
+    omit?: issueCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: issueCategoryInclude<ExtArgs> | null
+    where?: issueCategoryWhereInput
   }
 
   /**
@@ -56216,7 +55137,7 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
-    categoryId: string
+    categoryId: string | null
     image: string | null
     level: number
     createdAt: Date
@@ -56251,7 +55172,7 @@ export namespace Prisma {
     level?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessBadge$wellnessCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["wellnessBadge"]>
 
   export type wellnessBadgeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -56263,7 +55184,7 @@ export namespace Prisma {
     level?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessBadge$wellnessCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["wellnessBadge"]>
 
   export type wellnessBadgeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -56275,7 +55196,7 @@ export namespace Prisma {
     level?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessBadge$wellnessCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["wellnessBadge"]>
 
   export type wellnessBadgeSelectScalar = {
@@ -56291,25 +55212,25 @@ export namespace Prisma {
 
   export type wellnessBadgeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "categoryId" | "image" | "level" | "createdAt" | "updatedAt", ExtArgs["result"]["wellnessBadge"]>
   export type wellnessBadgeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessBadge$wellnessCategoryArgs<ExtArgs>
   }
   export type wellnessBadgeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessBadge$wellnessCategoryArgs<ExtArgs>
   }
   export type wellnessBadgeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessBadge$wellnessCategoryArgs<ExtArgs>
   }
 
   export type $wellnessBadgePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "wellnessBadge"
     objects: {
-      wellnessCategory: Prisma.$wellnessCategoryPayload<ExtArgs>
+      wellnessCategory: Prisma.$wellnessCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       description: string | null
-      categoryId: string
+      categoryId: string | null
       image: string | null
       level: number
       createdAt: Date
@@ -56708,7 +55629,7 @@ export namespace Prisma {
    */
   export interface Prisma__wellnessBadgeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    wellnessCategory<T extends wellnessCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, wellnessCategoryDefaultArgs<ExtArgs>>): Prisma__wellnessCategoryClient<$Result.GetResult<Prisma.$wellnessCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    wellnessCategory<T extends wellnessBadge$wellnessCategoryArgs<ExtArgs> = {}>(args?: Subset<T, wellnessBadge$wellnessCategoryArgs<ExtArgs>>): Prisma__wellnessCategoryClient<$Result.GetResult<Prisma.$wellnessCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -57142,6 +56063,25 @@ export namespace Prisma {
   }
 
   /**
+   * wellnessBadge.wellnessCategory
+   */
+  export type wellnessBadge$wellnessCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessCategory
+     */
+    select?: wellnessCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessCategory
+     */
+    omit?: wellnessCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessCategoryInclude<ExtArgs> | null
+    where?: wellnessCategoryWhereInput
+  }
+
+  /**
    * wellnessBadge without action
    */
   export type wellnessBadgeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -57371,7 +56311,7 @@ export namespace Prisma {
     id: string
     userId: string
     title: string
-    categoryId: string
+    categoryId: string | null
     targetValue: number
     unit: string
     frequency: string
@@ -57416,7 +56356,7 @@ export namespace Prisma {
     updatedAt?: boolean
     wellnessGoalProgress?: boolean | wellnessGoal$wellnessGoalProgressArgs<ExtArgs>
     user?: boolean | wellnessGoal$userArgs<ExtArgs>
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessGoal$wellnessCategoryArgs<ExtArgs>
     _count?: boolean | WellnessGoalCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["wellnessGoal"]>
 
@@ -57434,7 +56374,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | wellnessGoal$userArgs<ExtArgs>
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessGoal$wellnessCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["wellnessGoal"]>
 
   export type wellnessGoalSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -57451,7 +56391,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | wellnessGoal$userArgs<ExtArgs>
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessGoal$wellnessCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["wellnessGoal"]>
 
   export type wellnessGoalSelectScalar = {
@@ -57473,16 +56413,16 @@ export namespace Prisma {
   export type wellnessGoalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     wellnessGoalProgress?: boolean | wellnessGoal$wellnessGoalProgressArgs<ExtArgs>
     user?: boolean | wellnessGoal$userArgs<ExtArgs>
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessGoal$wellnessCategoryArgs<ExtArgs>
     _count?: boolean | WellnessGoalCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type wellnessGoalIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | wellnessGoal$userArgs<ExtArgs>
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessGoal$wellnessCategoryArgs<ExtArgs>
   }
   export type wellnessGoalIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | wellnessGoal$userArgs<ExtArgs>
-    wellnessCategory?: boolean | wellnessCategoryDefaultArgs<ExtArgs>
+    wellnessCategory?: boolean | wellnessGoal$wellnessCategoryArgs<ExtArgs>
   }
 
   export type $wellnessGoalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -57490,13 +56430,13 @@ export namespace Prisma {
     objects: {
       wellnessGoalProgress: Prisma.$wellnessGoalProgressPayload<ExtArgs>[]
       user: Prisma.$userPayload<ExtArgs> | null
-      wellnessCategory: Prisma.$wellnessCategoryPayload<ExtArgs>
+      wellnessCategory: Prisma.$wellnessCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
       title: string
-      categoryId: string
+      categoryId: string | null
       targetValue: number
       unit: string
       frequency: string
@@ -57901,7 +56841,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     wellnessGoalProgress<T extends wellnessGoal$wellnessGoalProgressArgs<ExtArgs> = {}>(args?: Subset<T, wellnessGoal$wellnessGoalProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends wellnessGoal$userArgs<ExtArgs> = {}>(args?: Subset<T, wellnessGoal$userArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    wellnessCategory<T extends wellnessCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, wellnessCategoryDefaultArgs<ExtArgs>>): Prisma__wellnessCategoryClient<$Result.GetResult<Prisma.$wellnessCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    wellnessCategory<T extends wellnessGoal$wellnessCategoryArgs<ExtArgs> = {}>(args?: Subset<T, wellnessGoal$wellnessCategoryArgs<ExtArgs>>): Prisma__wellnessCategoryClient<$Result.GetResult<Prisma.$wellnessCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -58382,6 +57322,25 @@ export namespace Prisma {
   }
 
   /**
+   * wellnessGoal.wellnessCategory
+   */
+  export type wellnessGoal$wellnessCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessCategory
+     */
+    select?: wellnessCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessCategory
+     */
+    omit?: wellnessCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessCategoryInclude<ExtArgs> | null
+    where?: wellnessCategoryWhereInput
+  }
+
+  /**
    * wellnessGoal without action
    */
   export type wellnessGoalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -58397,6 +57356,1124 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: wellnessGoalInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model wellnessGoalProgress
+   */
+
+  export type AggregateWellnessGoalProgress = {
+    _count: WellnessGoalProgressCountAggregateOutputType | null
+    _avg: WellnessGoalProgressAvgAggregateOutputType | null
+    _sum: WellnessGoalProgressSumAggregateOutputType | null
+    _min: WellnessGoalProgressMinAggregateOutputType | null
+    _max: WellnessGoalProgressMaxAggregateOutputType | null
+  }
+
+  export type WellnessGoalProgressAvgAggregateOutputType = {
+    achievedValue: number | null
+  }
+
+  export type WellnessGoalProgressSumAggregateOutputType = {
+    achievedValue: number | null
+  }
+
+  export type WellnessGoalProgressMinAggregateOutputType = {
+    id: string | null
+    goalId: string | null
+    recordingDate: Date | null
+    achievedValue: number | null
+    goalAchieved: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WellnessGoalProgressMaxAggregateOutputType = {
+    id: string | null
+    goalId: string | null
+    recordingDate: Date | null
+    achievedValue: number | null
+    goalAchieved: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WellnessGoalProgressCountAggregateOutputType = {
+    id: number
+    goalId: number
+    recordingDate: number
+    achievedValue: number
+    goalAchieved: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type WellnessGoalProgressAvgAggregateInputType = {
+    achievedValue?: true
+  }
+
+  export type WellnessGoalProgressSumAggregateInputType = {
+    achievedValue?: true
+  }
+
+  export type WellnessGoalProgressMinAggregateInputType = {
+    id?: true
+    goalId?: true
+    recordingDate?: true
+    achievedValue?: true
+    goalAchieved?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WellnessGoalProgressMaxAggregateInputType = {
+    id?: true
+    goalId?: true
+    recordingDate?: true
+    achievedValue?: true
+    goalAchieved?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WellnessGoalProgressCountAggregateInputType = {
+    id?: true
+    goalId?: true
+    recordingDate?: true
+    achievedValue?: true
+    goalAchieved?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type WellnessGoalProgressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which wellnessGoalProgress to aggregate.
+     */
+    where?: wellnessGoalProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of wellnessGoalProgresses to fetch.
+     */
+    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: wellnessGoalProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` wellnessGoalProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` wellnessGoalProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned wellnessGoalProgresses
+    **/
+    _count?: true | WellnessGoalProgressCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WellnessGoalProgressAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WellnessGoalProgressSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WellnessGoalProgressMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WellnessGoalProgressMaxAggregateInputType
+  }
+
+  export type GetWellnessGoalProgressAggregateType<T extends WellnessGoalProgressAggregateArgs> = {
+        [P in keyof T & keyof AggregateWellnessGoalProgress]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWellnessGoalProgress[P]>
+      : GetScalarType<T[P], AggregateWellnessGoalProgress[P]>
+  }
+
+
+
+
+  export type wellnessGoalProgressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: wellnessGoalProgressWhereInput
+    orderBy?: wellnessGoalProgressOrderByWithAggregationInput | wellnessGoalProgressOrderByWithAggregationInput[]
+    by: WellnessGoalProgressScalarFieldEnum[] | WellnessGoalProgressScalarFieldEnum
+    having?: wellnessGoalProgressScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WellnessGoalProgressCountAggregateInputType | true
+    _avg?: WellnessGoalProgressAvgAggregateInputType
+    _sum?: WellnessGoalProgressSumAggregateInputType
+    _min?: WellnessGoalProgressMinAggregateInputType
+    _max?: WellnessGoalProgressMaxAggregateInputType
+  }
+
+  export type WellnessGoalProgressGroupByOutputType = {
+    id: string
+    goalId: string
+    recordingDate: Date
+    achievedValue: number
+    goalAchieved: boolean
+    createdAt: Date
+    updatedAt: Date | null
+    _count: WellnessGoalProgressCountAggregateOutputType | null
+    _avg: WellnessGoalProgressAvgAggregateOutputType | null
+    _sum: WellnessGoalProgressSumAggregateOutputType | null
+    _min: WellnessGoalProgressMinAggregateOutputType | null
+    _max: WellnessGoalProgressMaxAggregateOutputType | null
+  }
+
+  type GetWellnessGoalProgressGroupByPayload<T extends wellnessGoalProgressGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WellnessGoalProgressGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WellnessGoalProgressGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WellnessGoalProgressGroupByOutputType[P]>
+            : GetScalarType<T[P], WellnessGoalProgressGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type wellnessGoalProgressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    goalId?: boolean
+    recordingDate?: boolean
+    achievedValue?: boolean
+    goalAchieved?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["wellnessGoalProgress"]>
+
+  export type wellnessGoalProgressSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    goalId?: boolean
+    recordingDate?: boolean
+    achievedValue?: boolean
+    goalAchieved?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["wellnessGoalProgress"]>
+
+  export type wellnessGoalProgressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    goalId?: boolean
+    recordingDate?: boolean
+    achievedValue?: boolean
+    goalAchieved?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["wellnessGoalProgress"]>
+
+  export type wellnessGoalProgressSelectScalar = {
+    id?: boolean
+    goalId?: boolean
+    recordingDate?: boolean
+    achievedValue?: boolean
+    goalAchieved?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type wellnessGoalProgressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "goalId" | "recordingDate" | "achievedValue" | "goalAchieved" | "createdAt" | "updatedAt", ExtArgs["result"]["wellnessGoalProgress"]>
+  export type wellnessGoalProgressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
+  }
+  export type wellnessGoalProgressIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
+  }
+  export type wellnessGoalProgressIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    wellnessGoal?: boolean | wellnessGoalDefaultArgs<ExtArgs>
+  }
+
+  export type $wellnessGoalProgressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "wellnessGoalProgress"
+    objects: {
+      wellnessGoal: Prisma.$wellnessGoalPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      goalId: string
+      recordingDate: Date
+      achievedValue: number
+      goalAchieved: boolean
+      createdAt: Date
+      updatedAt: Date | null
+    }, ExtArgs["result"]["wellnessGoalProgress"]>
+    composites: {}
+  }
+
+  type wellnessGoalProgressGetPayload<S extends boolean | null | undefined | wellnessGoalProgressDefaultArgs> = $Result.GetResult<Prisma.$wellnessGoalProgressPayload, S>
+
+  type wellnessGoalProgressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<wellnessGoalProgressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WellnessGoalProgressCountAggregateInputType | true
+    }
+
+  export interface wellnessGoalProgressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['wellnessGoalProgress'], meta: { name: 'wellnessGoalProgress' } }
+    /**
+     * Find zero or one WellnessGoalProgress that matches the filter.
+     * @param {wellnessGoalProgressFindUniqueArgs} args - Arguments to find a WellnessGoalProgress
+     * @example
+     * // Get one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends wellnessGoalProgressFindUniqueArgs>(args: SelectSubset<T, wellnessGoalProgressFindUniqueArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one WellnessGoalProgress that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {wellnessGoalProgressFindUniqueOrThrowArgs} args - Arguments to find a WellnessGoalProgress
+     * @example
+     * // Get one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends wellnessGoalProgressFindUniqueOrThrowArgs>(args: SelectSubset<T, wellnessGoalProgressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WellnessGoalProgress that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {wellnessGoalProgressFindFirstArgs} args - Arguments to find a WellnessGoalProgress
+     * @example
+     * // Get one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends wellnessGoalProgressFindFirstArgs>(args?: SelectSubset<T, wellnessGoalProgressFindFirstArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WellnessGoalProgress that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {wellnessGoalProgressFindFirstOrThrowArgs} args - Arguments to find a WellnessGoalProgress
+     * @example
+     * // Get one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends wellnessGoalProgressFindFirstOrThrowArgs>(args?: SelectSubset<T, wellnessGoalProgressFindFirstOrThrowArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more WellnessGoalProgresses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {wellnessGoalProgressFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all WellnessGoalProgresses
+     * const wellnessGoalProgresses = await prisma.wellnessGoalProgress.findMany()
+     * 
+     * // Get first 10 WellnessGoalProgresses
+     * const wellnessGoalProgresses = await prisma.wellnessGoalProgress.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const wellnessGoalProgressWithIdOnly = await prisma.wellnessGoalProgress.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends wellnessGoalProgressFindManyArgs>(args?: SelectSubset<T, wellnessGoalProgressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a WellnessGoalProgress.
+     * @param {wellnessGoalProgressCreateArgs} args - Arguments to create a WellnessGoalProgress.
+     * @example
+     * // Create one WellnessGoalProgress
+     * const WellnessGoalProgress = await prisma.wellnessGoalProgress.create({
+     *   data: {
+     *     // ... data to create a WellnessGoalProgress
+     *   }
+     * })
+     * 
+     */
+    create<T extends wellnessGoalProgressCreateArgs>(args: SelectSubset<T, wellnessGoalProgressCreateArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many WellnessGoalProgresses.
+     * @param {wellnessGoalProgressCreateManyArgs} args - Arguments to create many WellnessGoalProgresses.
+     * @example
+     * // Create many WellnessGoalProgresses
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends wellnessGoalProgressCreateManyArgs>(args?: SelectSubset<T, wellnessGoalProgressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many WellnessGoalProgresses and returns the data saved in the database.
+     * @param {wellnessGoalProgressCreateManyAndReturnArgs} args - Arguments to create many WellnessGoalProgresses.
+     * @example
+     * // Create many WellnessGoalProgresses
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many WellnessGoalProgresses and only return the `id`
+     * const wellnessGoalProgressWithIdOnly = await prisma.wellnessGoalProgress.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends wellnessGoalProgressCreateManyAndReturnArgs>(args?: SelectSubset<T, wellnessGoalProgressCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a WellnessGoalProgress.
+     * @param {wellnessGoalProgressDeleteArgs} args - Arguments to delete one WellnessGoalProgress.
+     * @example
+     * // Delete one WellnessGoalProgress
+     * const WellnessGoalProgress = await prisma.wellnessGoalProgress.delete({
+     *   where: {
+     *     // ... filter to delete one WellnessGoalProgress
+     *   }
+     * })
+     * 
+     */
+    delete<T extends wellnessGoalProgressDeleteArgs>(args: SelectSubset<T, wellnessGoalProgressDeleteArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one WellnessGoalProgress.
+     * @param {wellnessGoalProgressUpdateArgs} args - Arguments to update one WellnessGoalProgress.
+     * @example
+     * // Update one WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends wellnessGoalProgressUpdateArgs>(args: SelectSubset<T, wellnessGoalProgressUpdateArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more WellnessGoalProgresses.
+     * @param {wellnessGoalProgressDeleteManyArgs} args - Arguments to filter WellnessGoalProgresses to delete.
+     * @example
+     * // Delete a few WellnessGoalProgresses
+     * const { count } = await prisma.wellnessGoalProgress.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends wellnessGoalProgressDeleteManyArgs>(args?: SelectSubset<T, wellnessGoalProgressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WellnessGoalProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {wellnessGoalProgressUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many WellnessGoalProgresses
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends wellnessGoalProgressUpdateManyArgs>(args: SelectSubset<T, wellnessGoalProgressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WellnessGoalProgresses and returns the data updated in the database.
+     * @param {wellnessGoalProgressUpdateManyAndReturnArgs} args - Arguments to update many WellnessGoalProgresses.
+     * @example
+     * // Update many WellnessGoalProgresses
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more WellnessGoalProgresses and only return the `id`
+     * const wellnessGoalProgressWithIdOnly = await prisma.wellnessGoalProgress.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends wellnessGoalProgressUpdateManyAndReturnArgs>(args: SelectSubset<T, wellnessGoalProgressUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one WellnessGoalProgress.
+     * @param {wellnessGoalProgressUpsertArgs} args - Arguments to update or create a WellnessGoalProgress.
+     * @example
+     * // Update or create a WellnessGoalProgress
+     * const wellnessGoalProgress = await prisma.wellnessGoalProgress.upsert({
+     *   create: {
+     *     // ... data to create a WellnessGoalProgress
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the WellnessGoalProgress we want to update
+     *   }
+     * })
+     */
+    upsert<T extends wellnessGoalProgressUpsertArgs>(args: SelectSubset<T, wellnessGoalProgressUpsertArgs<ExtArgs>>): Prisma__wellnessGoalProgressClient<$Result.GetResult<Prisma.$wellnessGoalProgressPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of WellnessGoalProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {wellnessGoalProgressCountArgs} args - Arguments to filter WellnessGoalProgresses to count.
+     * @example
+     * // Count the number of WellnessGoalProgresses
+     * const count = await prisma.wellnessGoalProgress.count({
+     *   where: {
+     *     // ... the filter for the WellnessGoalProgresses we want to count
+     *   }
+     * })
+    **/
+    count<T extends wellnessGoalProgressCountArgs>(
+      args?: Subset<T, wellnessGoalProgressCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WellnessGoalProgressCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a WellnessGoalProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WellnessGoalProgressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WellnessGoalProgressAggregateArgs>(args: Subset<T, WellnessGoalProgressAggregateArgs>): Prisma.PrismaPromise<GetWellnessGoalProgressAggregateType<T>>
+
+    /**
+     * Group by WellnessGoalProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {wellnessGoalProgressGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends wellnessGoalProgressGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: wellnessGoalProgressGroupByArgs['orderBy'] }
+        : { orderBy?: wellnessGoalProgressGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, wellnessGoalProgressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWellnessGoalProgressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the wellnessGoalProgress model
+   */
+  readonly fields: wellnessGoalProgressFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for wellnessGoalProgress.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__wellnessGoalProgressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    wellnessGoal<T extends wellnessGoalDefaultArgs<ExtArgs> = {}>(args?: Subset<T, wellnessGoalDefaultArgs<ExtArgs>>): Prisma__wellnessGoalClient<$Result.GetResult<Prisma.$wellnessGoalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the wellnessGoalProgress model
+   */
+  interface wellnessGoalProgressFieldRefs {
+    readonly id: FieldRef<"wellnessGoalProgress", 'String'>
+    readonly goalId: FieldRef<"wellnessGoalProgress", 'String'>
+    readonly recordingDate: FieldRef<"wellnessGoalProgress", 'DateTime'>
+    readonly achievedValue: FieldRef<"wellnessGoalProgress", 'Int'>
+    readonly goalAchieved: FieldRef<"wellnessGoalProgress", 'Boolean'>
+    readonly createdAt: FieldRef<"wellnessGoalProgress", 'DateTime'>
+    readonly updatedAt: FieldRef<"wellnessGoalProgress", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * wellnessGoalProgress findUnique
+   */
+  export type wellnessGoalProgressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which wellnessGoalProgress to fetch.
+     */
+    where: wellnessGoalProgressWhereUniqueInput
+  }
+
+  /**
+   * wellnessGoalProgress findUniqueOrThrow
+   */
+  export type wellnessGoalProgressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which wellnessGoalProgress to fetch.
+     */
+    where: wellnessGoalProgressWhereUniqueInput
+  }
+
+  /**
+   * wellnessGoalProgress findFirst
+   */
+  export type wellnessGoalProgressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which wellnessGoalProgress to fetch.
+     */
+    where?: wellnessGoalProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of wellnessGoalProgresses to fetch.
+     */
+    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for wellnessGoalProgresses.
+     */
+    cursor?: wellnessGoalProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` wellnessGoalProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` wellnessGoalProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of wellnessGoalProgresses.
+     */
+    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
+  }
+
+  /**
+   * wellnessGoalProgress findFirstOrThrow
+   */
+  export type wellnessGoalProgressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which wellnessGoalProgress to fetch.
+     */
+    where?: wellnessGoalProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of wellnessGoalProgresses to fetch.
+     */
+    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for wellnessGoalProgresses.
+     */
+    cursor?: wellnessGoalProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` wellnessGoalProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` wellnessGoalProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of wellnessGoalProgresses.
+     */
+    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
+  }
+
+  /**
+   * wellnessGoalProgress findMany
+   */
+  export type wellnessGoalProgressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which wellnessGoalProgresses to fetch.
+     */
+    where?: wellnessGoalProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of wellnessGoalProgresses to fetch.
+     */
+    orderBy?: wellnessGoalProgressOrderByWithRelationInput | wellnessGoalProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing wellnessGoalProgresses.
+     */
+    cursor?: wellnessGoalProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` wellnessGoalProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` wellnessGoalProgresses.
+     */
+    skip?: number
+    distinct?: WellnessGoalProgressScalarFieldEnum | WellnessGoalProgressScalarFieldEnum[]
+  }
+
+  /**
+   * wellnessGoalProgress create
+   */
+  export type wellnessGoalProgressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to create a wellnessGoalProgress.
+     */
+    data: XOR<wellnessGoalProgressCreateInput, wellnessGoalProgressUncheckedCreateInput>
+  }
+
+  /**
+   * wellnessGoalProgress createMany
+   */
+  export type wellnessGoalProgressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many wellnessGoalProgresses.
+     */
+    data: wellnessGoalProgressCreateManyInput | wellnessGoalProgressCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * wellnessGoalProgress createManyAndReturn
+   */
+  export type wellnessGoalProgressCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * The data used to create many wellnessGoalProgresses.
+     */
+    data: wellnessGoalProgressCreateManyInput | wellnessGoalProgressCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * wellnessGoalProgress update
+   */
+  export type wellnessGoalProgressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to update a wellnessGoalProgress.
+     */
+    data: XOR<wellnessGoalProgressUpdateInput, wellnessGoalProgressUncheckedUpdateInput>
+    /**
+     * Choose, which wellnessGoalProgress to update.
+     */
+    where: wellnessGoalProgressWhereUniqueInput
+  }
+
+  /**
+   * wellnessGoalProgress updateMany
+   */
+  export type wellnessGoalProgressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update wellnessGoalProgresses.
+     */
+    data: XOR<wellnessGoalProgressUpdateManyMutationInput, wellnessGoalProgressUncheckedUpdateManyInput>
+    /**
+     * Filter which wellnessGoalProgresses to update
+     */
+    where?: wellnessGoalProgressWhereInput
+    /**
+     * Limit how many wellnessGoalProgresses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * wellnessGoalProgress updateManyAndReturn
+   */
+  export type wellnessGoalProgressUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * The data used to update wellnessGoalProgresses.
+     */
+    data: XOR<wellnessGoalProgressUpdateManyMutationInput, wellnessGoalProgressUncheckedUpdateManyInput>
+    /**
+     * Filter which wellnessGoalProgresses to update
+     */
+    where?: wellnessGoalProgressWhereInput
+    /**
+     * Limit how many wellnessGoalProgresses to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * wellnessGoalProgress upsert
+   */
+  export type wellnessGoalProgressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    /**
+     * The filter to search for the wellnessGoalProgress to update in case it exists.
+     */
+    where: wellnessGoalProgressWhereUniqueInput
+    /**
+     * In case the wellnessGoalProgress found by the `where` argument doesn't exist, create a new wellnessGoalProgress with this data.
+     */
+    create: XOR<wellnessGoalProgressCreateInput, wellnessGoalProgressUncheckedCreateInput>
+    /**
+     * In case the wellnessGoalProgress was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<wellnessGoalProgressUpdateInput, wellnessGoalProgressUncheckedUpdateInput>
+  }
+
+  /**
+   * wellnessGoalProgress delete
+   */
+  export type wellnessGoalProgressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
+    /**
+     * Filter which wellnessGoalProgress to delete.
+     */
+    where: wellnessGoalProgressWhereUniqueInput
+  }
+
+  /**
+   * wellnessGoalProgress deleteMany
+   */
+  export type wellnessGoalProgressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which wellnessGoalProgresses to delete
+     */
+    where?: wellnessGoalProgressWhereInput
+    /**
+     * Limit how many wellnessGoalProgresses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * wellnessGoalProgress without action
+   */
+  export type wellnessGoalProgressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the wellnessGoalProgress
+     */
+    select?: wellnessGoalProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the wellnessGoalProgress
+     */
+    omit?: wellnessGoalProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: wellnessGoalProgressInclude<ExtArgs> | null
   }
 
 
@@ -64834,7 +64911,6 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
-    exerciseProgramId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -64843,7 +64919,6 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
-    exerciseProgramId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -64852,7 +64927,6 @@ export namespace Prisma {
     id: number
     name: number
     description: number
-    exerciseProgramId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -64863,7 +64937,6 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
-    exerciseProgramId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -64872,7 +64945,6 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
-    exerciseProgramId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -64881,7 +64953,6 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
-    exerciseProgramId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -64963,7 +65034,6 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
-    exerciseProgramId: string
     createdAt: Date
     updatedAt: Date | null
     _count: ProgramCategoryCountAggregateOutputType | null
@@ -64989,11 +65059,10 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
-    exerciseProgramId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     cognitiveExercise?: boolean | programCategory$cognitiveExerciseArgs<ExtArgs>
-    exerciseProgram?: boolean | exerciseProgramDefaultArgs<ExtArgs>
+    exerciseProgram?: boolean | programCategory$exerciseProgramArgs<ExtArgs>
     _count?: boolean | ProgramCategoryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["programCategory"]>
 
@@ -65001,55 +65070,45 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
-    exerciseProgramId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    exerciseProgram?: boolean | exerciseProgramDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["programCategory"]>
 
   export type programCategorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
-    exerciseProgramId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    exerciseProgram?: boolean | exerciseProgramDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["programCategory"]>
 
   export type programCategorySelectScalar = {
     id?: boolean
     name?: boolean
     description?: boolean
-    exerciseProgramId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type programCategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "exerciseProgramId" | "createdAt" | "updatedAt", ExtArgs["result"]["programCategory"]>
+  export type programCategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["programCategory"]>
   export type programCategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cognitiveExercise?: boolean | programCategory$cognitiveExerciseArgs<ExtArgs>
-    exerciseProgram?: boolean | exerciseProgramDefaultArgs<ExtArgs>
+    exerciseProgram?: boolean | programCategory$exerciseProgramArgs<ExtArgs>
     _count?: boolean | ProgramCategoryCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type programCategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    exerciseProgram?: boolean | exerciseProgramDefaultArgs<ExtArgs>
-  }
-  export type programCategoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    exerciseProgram?: boolean | exerciseProgramDefaultArgs<ExtArgs>
-  }
+  export type programCategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type programCategoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $programCategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "programCategory"
     objects: {
       cognitiveExercise: Prisma.$cognitiveExercisePayload<ExtArgs>[]
-      exerciseProgram: Prisma.$exerciseProgramPayload<ExtArgs>
+      exerciseProgram: Prisma.$exerciseProgramPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       description: string | null
-      exerciseProgramId: string
       createdAt: Date
       updatedAt: Date | null
     }, ExtArgs["result"]["programCategory"]>
@@ -65447,7 +65506,7 @@ export namespace Prisma {
   export interface Prisma__programCategoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     cognitiveExercise<T extends programCategory$cognitiveExerciseArgs<ExtArgs> = {}>(args?: Subset<T, programCategory$cognitiveExerciseArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$cognitiveExercisePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    exerciseProgram<T extends exerciseProgramDefaultArgs<ExtArgs> = {}>(args?: Subset<T, exerciseProgramDefaultArgs<ExtArgs>>): Prisma__exerciseProgramClient<$Result.GetResult<Prisma.$exerciseProgramPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    exerciseProgram<T extends programCategory$exerciseProgramArgs<ExtArgs> = {}>(args?: Subset<T, programCategory$exerciseProgramArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$exerciseProgramPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -65480,7 +65539,6 @@ export namespace Prisma {
     readonly id: FieldRef<"programCategory", 'String'>
     readonly name: FieldRef<"programCategory", 'String'>
     readonly description: FieldRef<"programCategory", 'String'>
-    readonly exerciseProgramId: FieldRef<"programCategory", 'String'>
     readonly createdAt: FieldRef<"programCategory", 'DateTime'>
     readonly updatedAt: FieldRef<"programCategory", 'DateTime'>
   }
@@ -65732,10 +65790,6 @@ export namespace Prisma {
      */
     data: programCategoryCreateManyInput | programCategoryCreateManyInput[]
     skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -65806,10 +65860,6 @@ export namespace Prisma {
      * Limit how many programCategories to update.
      */
     limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -65900,6 +65950,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CognitiveExerciseScalarFieldEnum | CognitiveExerciseScalarFieldEnum[]
+  }
+
+  /**
+   * programCategory.exerciseProgram
+   */
+  export type programCategory$exerciseProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the exerciseProgram
+     */
+    select?: exerciseProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the exerciseProgram
+     */
+    omit?: exerciseProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: exerciseProgramInclude<ExtArgs> | null
+    where?: exerciseProgramWhereInput
+    orderBy?: exerciseProgramOrderByWithRelationInput | exerciseProgramOrderByWithRelationInput[]
+    cursor?: exerciseProgramWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ExerciseProgramScalarFieldEnum | ExerciseProgramScalarFieldEnum[]
   }
 
   /**
@@ -71342,9 +71416,8 @@ export namespace Prisma {
   export const ActivityLogScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    action_type: 'action_type',
+    actionType: 'actionType',
     description: 'description',
-    actionDate: 'actionDate',
     ipAddress: 'ipAddress',
     device: 'device',
     createdAt: 'createdAt',
@@ -71416,7 +71489,6 @@ export namespace Prisma {
   export const ConversationScalarFieldEnum: {
     id: 'id',
     type: 'type',
-    creationDate: 'creationDate',
     title: 'title',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -71426,6 +71498,7 @@ export namespace Prisma {
 
 
   export const ConversationParticipantScalarFieldEnum: {
+    id: 'id',
     conversationId: 'conversationId',
     userId: 'userId',
     dateAdded: 'dateAdded',
@@ -71472,8 +71545,6 @@ export namespace Prisma {
     topicId: 'topicId',
     authorId: 'authorId',
     content: 'content',
-    creationDate: 'creationDate',
-    modificationDate: 'modificationDate',
     solutionMessage: 'solutionMessage',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -71487,7 +71558,6 @@ export namespace Prisma {
     categoryId: 'categoryId',
     authorId: 'authorId',
     title: 'title',
-    creationDate: 'creationDate',
     pinned: 'pinned',
     status: 'status',
     views: 'views',
@@ -71496,19 +71566,6 @@ export namespace Prisma {
   };
 
   export type ForumTopicScalarFieldEnum = (typeof ForumTopicScalarFieldEnum)[keyof typeof ForumTopicScalarFieldEnum]
-
-
-  export const WellnessGoalProgressScalarFieldEnum: {
-    id: 'id',
-    goalId: 'goalId',
-    recordingDate: 'recordingDate',
-    achievedValue: 'achievedValue',
-    goalAchieved: 'goalAchieved',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type WellnessGoalProgressScalarFieldEnum = (typeof WellnessGoalProgressScalarFieldEnum)[keyof typeof WellnessGoalProgressScalarFieldEnum]
 
 
   export const HealthIndicatorScalarFieldEnum: {
@@ -71547,7 +71604,6 @@ export namespace Prisma {
     creatorId: 'creatorId',
     title: 'title',
     description: 'description',
-    creationDate: 'creationDate',
     neededDate: 'neededDate',
     estimatedDuration: 'estimatedDuration',
     location: 'location',
@@ -71556,7 +71612,7 @@ export namespace Prisma {
     recurring: 'recurring',
     frequency: 'frequency',
     status: 'status',
-    points_offered: 'points_offered',
+    pointsOffered: 'pointsOffered',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -71585,7 +71641,7 @@ export namespace Prisma {
   export const MedicationReminderScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    medication_name: 'medication_name',
+    medicationName: 'medicationName',
     dosage: 'dosage',
     morningReminderTime: 'morningReminderTime',
     noonReminderTime: 'noonReminderTime',
@@ -71595,7 +71651,7 @@ export namespace Prisma {
     instructions: 'instructions',
     active: 'active',
     startDate: 'startDate',
-    end_date: 'end_date',
+    endDate: 'endDate',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -71623,9 +71679,9 @@ export namespace Prisma {
     title: 'title',
     description: 'description',
     startDate: 'startDate',
-    end_date: 'end_date',
+    endDate: 'endDate',
     location: 'location',
-    gps_coordinates: 'gps_coordinates',
+    gpsCoordinates: 'gpsCoordinates',
     organizer: 'organizer',
     contact: 'contact',
     officialLink: 'officialLink',
@@ -71995,6 +72051,19 @@ export namespace Prisma {
   export type WellnessGoalScalarFieldEnum = (typeof WellnessGoalScalarFieldEnum)[keyof typeof WellnessGoalScalarFieldEnum]
 
 
+  export const WellnessGoalProgressScalarFieldEnum: {
+    id: 'id',
+    goalId: 'goalId',
+    recordingDate: 'recordingDate',
+    achievedValue: 'achievedValue',
+    goalAchieved: 'goalAchieved',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type WellnessGoalProgressScalarFieldEnum = (typeof WellnessGoalProgressScalarFieldEnum)[keyof typeof WellnessGoalProgressScalarFieldEnum]
+
+
   export const ActivityCategoryScalarFieldEnum: {
     id: 'id',
     name: 'name',
@@ -72065,7 +72134,6 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     description: 'description',
-    exerciseProgramId: 'exerciseProgramId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -72398,9 +72466,8 @@ export namespace Prisma {
     NOT?: activityLogWhereInput | activityLogWhereInput[]
     id?: StringFilter<"activityLog"> | string
     userId?: StringNullableFilter<"activityLog"> | string | null
-    action_type?: StringNullableFilter<"activityLog"> | string | null
+    actionType?: StringNullableFilter<"activityLog"> | string | null
     description?: StringNullableFilter<"activityLog"> | string | null
-    actionDate?: DateTimeNullableFilter<"activityLog"> | Date | string | null
     ipAddress?: StringNullableFilter<"activityLog"> | string | null
     device?: StringNullableFilter<"activityLog"> | string | null
     createdAt?: DateTimeFilter<"activityLog"> | Date | string
@@ -72411,9 +72478,8 @@ export namespace Prisma {
   export type activityLogOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrderInput | SortOrder
-    action_type?: SortOrderInput | SortOrder
+    actionType?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
-    actionDate?: SortOrderInput | SortOrder
     ipAddress?: SortOrderInput | SortOrder
     device?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -72427,9 +72493,8 @@ export namespace Prisma {
     OR?: activityLogWhereInput[]
     NOT?: activityLogWhereInput | activityLogWhereInput[]
     userId?: StringNullableFilter<"activityLog"> | string | null
-    action_type?: StringNullableFilter<"activityLog"> | string | null
+    actionType?: StringNullableFilter<"activityLog"> | string | null
     description?: StringNullableFilter<"activityLog"> | string | null
-    actionDate?: DateTimeNullableFilter<"activityLog"> | Date | string | null
     ipAddress?: StringNullableFilter<"activityLog"> | string | null
     device?: StringNullableFilter<"activityLog"> | string | null
     createdAt?: DateTimeFilter<"activityLog"> | Date | string
@@ -72440,9 +72505,8 @@ export namespace Prisma {
   export type activityLogOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrderInput | SortOrder
-    action_type?: SortOrderInput | SortOrder
+    actionType?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
-    actionDate?: SortOrderInput | SortOrder
     ipAddress?: SortOrderInput | SortOrder
     device?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -72458,9 +72522,8 @@ export namespace Prisma {
     NOT?: activityLogScalarWhereWithAggregatesInput | activityLogScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"activityLog"> | string
     userId?: StringNullableWithAggregatesFilter<"activityLog"> | string | null
-    action_type?: StringNullableWithAggregatesFilter<"activityLog"> | string | null
+    actionType?: StringNullableWithAggregatesFilter<"activityLog"> | string | null
     description?: StringNullableWithAggregatesFilter<"activityLog"> | string | null
-    actionDate?: DateTimeNullableWithAggregatesFilter<"activityLog"> | Date | string | null
     ipAddress?: StringNullableWithAggregatesFilter<"activityLog"> | string | null
     device?: StringNullableWithAggregatesFilter<"activityLog"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"activityLog"> | Date | string
@@ -72546,49 +72609,49 @@ export namespace Prisma {
     NOT?: badgeWhereInput | badgeWhereInput[]
     id?: StringFilter<"badge"> | string
     name?: StringFilter<"badge"> | string
-    categoryId?: StringFilter<"badge"> | string
+    categoryId?: StringNullableFilter<"badge"> | string | null
     description?: StringNullableFilter<"badge"> | string | null
     icon?: StringNullableFilter<"badge"> | string | null
     level?: IntNullableFilter<"badge"> | number | null
     createdAt?: DateTimeFilter<"badge"> | Date | string
     updatedAt?: DateTimeNullableFilter<"badge"> | Date | string | null
-    badgeCategory?: XOR<BadgeCategoryScalarRelationFilter, badgeCategoryWhereInput>
-    userBadge?: UserBadgeListRelationFilter
+    userBadge?: XOR<UserBadgeNullableScalarRelationFilter, userBadgeWhereInput> | null
+    badgeCategory?: XOR<BadgeCategoryNullableScalarRelationFilter, badgeCategoryWhereInput> | null
   }
 
   export type badgeOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     icon?: SortOrderInput | SortOrder
     level?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
+    userBadge?: userBadgeOrderByWithRelationInput
     badgeCategory?: badgeCategoryOrderByWithRelationInput
-    userBadge?: userBadgeOrderByRelationAggregateInput
   }
 
   export type badgeWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    categoryId?: string
     AND?: badgeWhereInput | badgeWhereInput[]
     OR?: badgeWhereInput[]
     NOT?: badgeWhereInput | badgeWhereInput[]
     name?: StringFilter<"badge"> | string
-    categoryId?: StringFilter<"badge"> | string
     description?: StringNullableFilter<"badge"> | string | null
     icon?: StringNullableFilter<"badge"> | string | null
     level?: IntNullableFilter<"badge"> | number | null
     createdAt?: DateTimeFilter<"badge"> | Date | string
     updatedAt?: DateTimeNullableFilter<"badge"> | Date | string | null
-    badgeCategory?: XOR<BadgeCategoryScalarRelationFilter, badgeCategoryWhereInput>
-    userBadge?: UserBadgeListRelationFilter
-  }, "id">
+    userBadge?: XOR<UserBadgeNullableScalarRelationFilter, userBadgeWhereInput> | null
+    badgeCategory?: XOR<BadgeCategoryNullableScalarRelationFilter, badgeCategoryWhereInput> | null
+  }, "id" | "categoryId">
 
   export type badgeOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     icon?: SortOrderInput | SortOrder
     level?: SortOrderInput | SortOrder
@@ -72607,7 +72670,7 @@ export namespace Prisma {
     NOT?: badgeScalarWhereWithAggregatesInput | badgeScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"badge"> | string
     name?: StringWithAggregatesFilter<"badge"> | string
-    categoryId?: StringWithAggregatesFilter<"badge"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"badge"> | string | null
     description?: StringNullableWithAggregatesFilter<"badge"> | string | null
     icon?: StringNullableWithAggregatesFilter<"badge"> | string | null
     level?: IntNullableWithAggregatesFilter<"badge"> | number | null
@@ -72621,7 +72684,7 @@ export namespace Prisma {
     NOT?: cognitiveExerciseWhereInput | cognitiveExerciseWhereInput[]
     id?: StringFilter<"cognitiveExercise"> | string
     name?: StringFilter<"cognitiveExercise"> | string
-    categoryId?: StringFilter<"cognitiveExercise"> | string
+    categoryId?: StringNullableFilter<"cognitiveExercise"> | string | null
     difficultyLevel?: IntNullableFilter<"cognitiveExercise"> | number | null
     durationMinutes?: IntNullableFilter<"cognitiveExercise"> | number | null
     description?: StringNullableFilter<"cognitiveExercise"> | string | null
@@ -72629,7 +72692,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"cognitiveExercise"> | Date | string
     updatedAt?: DateTimeNullableFilter<"cognitiveExercise"> | Date | string | null
     programCategoryId?: StringNullableFilter<"cognitiveExercise"> | string | null
-    cognitiveCategory?: XOR<CognitiveCategoryScalarRelationFilter, cognitiveCategoryWhereInput>
+    cognitiveCategory?: XOR<CognitiveCategoryNullableScalarRelationFilter, cognitiveCategoryWhereInput> | null
     userActivity?: UserActivityListRelationFilter
     programCategory?: XOR<ProgramCategoryNullableScalarRelationFilter, programCategoryWhereInput> | null
   }
@@ -72637,7 +72700,7 @@ export namespace Prisma {
   export type cognitiveExerciseOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     difficultyLevel?: SortOrderInput | SortOrder
     durationMinutes?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
@@ -72656,7 +72719,7 @@ export namespace Prisma {
     OR?: cognitiveExerciseWhereInput[]
     NOT?: cognitiveExerciseWhereInput | cognitiveExerciseWhereInput[]
     name?: StringFilter<"cognitiveExercise"> | string
-    categoryId?: StringFilter<"cognitiveExercise"> | string
+    categoryId?: StringNullableFilter<"cognitiveExercise"> | string | null
     difficultyLevel?: IntNullableFilter<"cognitiveExercise"> | number | null
     durationMinutes?: IntNullableFilter<"cognitiveExercise"> | number | null
     description?: StringNullableFilter<"cognitiveExercise"> | string | null
@@ -72664,7 +72727,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"cognitiveExercise"> | Date | string
     updatedAt?: DateTimeNullableFilter<"cognitiveExercise"> | Date | string | null
     programCategoryId?: StringNullableFilter<"cognitiveExercise"> | string | null
-    cognitiveCategory?: XOR<CognitiveCategoryScalarRelationFilter, cognitiveCategoryWhereInput>
+    cognitiveCategory?: XOR<CognitiveCategoryNullableScalarRelationFilter, cognitiveCategoryWhereInput> | null
     userActivity?: UserActivityListRelationFilter
     programCategory?: XOR<ProgramCategoryNullableScalarRelationFilter, programCategoryWhereInput> | null
   }, "id">
@@ -72672,7 +72735,7 @@ export namespace Prisma {
   export type cognitiveExerciseOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     difficultyLevel?: SortOrderInput | SortOrder
     durationMinutes?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
@@ -72693,7 +72756,7 @@ export namespace Prisma {
     NOT?: cognitiveExerciseScalarWhereWithAggregatesInput | cognitiveExerciseScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"cognitiveExercise"> | string
     name?: StringWithAggregatesFilter<"cognitiveExercise"> | string
-    categoryId?: StringWithAggregatesFilter<"cognitiveExercise"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"cognitiveExercise"> | string | null
     difficultyLevel?: IntNullableWithAggregatesFilter<"cognitiveExercise"> | number | null
     durationMinutes?: IntNullableWithAggregatesFilter<"cognitiveExercise"> | number | null
     description?: StringNullableWithAggregatesFilter<"cognitiveExercise"> | string | null
@@ -72713,7 +72776,7 @@ export namespace Prisma {
     creatorId?: StringFilter<"collaborativeProject"> | string
     creationDate?: DateTimeFilter<"collaborativeProject"> | Date | string
     status?: StringNullableFilter<"collaborativeProject"> | string | null
-    categoryId?: StringFilter<"collaborativeProject"> | string
+    categoryId?: StringNullableFilter<"collaborativeProject"> | string | null
     createdAt?: DateTimeFilter<"collaborativeProject"> | Date | string
     updatedAt?: DateTimeNullableFilter<"collaborativeProject"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
@@ -72729,7 +72792,7 @@ export namespace Prisma {
     creatorId?: SortOrder
     creationDate?: SortOrder
     status?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     user?: userOrderByWithRelationInput
@@ -72748,7 +72811,7 @@ export namespace Prisma {
     creatorId?: StringFilter<"collaborativeProject"> | string
     creationDate?: DateTimeFilter<"collaborativeProject"> | Date | string
     status?: StringNullableFilter<"collaborativeProject"> | string | null
-    categoryId?: StringFilter<"collaborativeProject"> | string
+    categoryId?: StringNullableFilter<"collaborativeProject"> | string | null
     createdAt?: DateTimeFilter<"collaborativeProject"> | Date | string
     updatedAt?: DateTimeNullableFilter<"collaborativeProject"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
@@ -72764,7 +72827,7 @@ export namespace Prisma {
     creatorId?: SortOrder
     creationDate?: SortOrder
     status?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: collaborativeProjectCountOrderByAggregateInput
@@ -72782,7 +72845,7 @@ export namespace Prisma {
     creatorId?: StringWithAggregatesFilter<"collaborativeProject"> | string
     creationDate?: DateTimeWithAggregatesFilter<"collaborativeProject"> | Date | string
     status?: StringNullableWithAggregatesFilter<"collaborativeProject"> | string | null
-    categoryId?: StringWithAggregatesFilter<"collaborativeProject"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"collaborativeProject"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"collaborativeProject"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"collaborativeProject"> | Date | string | null
   }
@@ -72793,7 +72856,6 @@ export namespace Prisma {
     NOT?: conversationWhereInput | conversationWhereInput[]
     id?: StringFilter<"conversation"> | string
     type?: StringNullableFilter<"conversation"> | string | null
-    creationDate?: DateTimeNullableFilter<"conversation"> | Date | string | null
     title?: StringNullableFilter<"conversation"> | string | null
     createdAt?: DateTimeFilter<"conversation"> | Date | string
     updatedAt?: DateTimeNullableFilter<"conversation"> | Date | string | null
@@ -72805,7 +72867,6 @@ export namespace Prisma {
   export type conversationOrderByWithRelationInput = {
     id?: SortOrder
     type?: SortOrderInput | SortOrder
-    creationDate?: SortOrderInput | SortOrder
     title?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -72820,7 +72881,6 @@ export namespace Prisma {
     OR?: conversationWhereInput[]
     NOT?: conversationWhereInput | conversationWhereInput[]
     type?: StringNullableFilter<"conversation"> | string | null
-    creationDate?: DateTimeNullableFilter<"conversation"> | Date | string | null
     title?: StringNullableFilter<"conversation"> | string | null
     createdAt?: DateTimeFilter<"conversation"> | Date | string
     updatedAt?: DateTimeNullableFilter<"conversation"> | Date | string | null
@@ -72832,7 +72892,6 @@ export namespace Prisma {
   export type conversationOrderByWithAggregationInput = {
     id?: SortOrder
     type?: SortOrderInput | SortOrder
-    creationDate?: SortOrderInput | SortOrder
     title?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -72847,7 +72906,6 @@ export namespace Prisma {
     NOT?: conversationScalarWhereWithAggregatesInput | conversationScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"conversation"> | string
     type?: StringNullableWithAggregatesFilter<"conversation"> | string | null
-    creationDate?: DateTimeNullableWithAggregatesFilter<"conversation"> | Date | string | null
     title?: StringNullableWithAggregatesFilter<"conversation"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"conversation"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"conversation"> | Date | string | null
@@ -72857,6 +72915,7 @@ export namespace Prisma {
     AND?: conversationParticipantWhereInput | conversationParticipantWhereInput[]
     OR?: conversationParticipantWhereInput[]
     NOT?: conversationParticipantWhereInput | conversationParticipantWhereInput[]
+    id?: StringFilter<"conversationParticipant"> | string
     conversationId?: StringFilter<"conversationParticipant"> | string
     userId?: StringFilter<"conversationParticipant"> | string
     dateAdded?: DateTimeNullableFilter<"conversationParticipant"> | Date | string | null
@@ -72869,6 +72928,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantOrderByWithRelationInput = {
+    id?: SortOrder
     conversationId?: SortOrder
     userId?: SortOrder
     dateAdded?: SortOrderInput | SortOrder
@@ -72881,7 +72941,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantWhereUniqueInput = Prisma.AtLeast<{
-    conversationId_userId?: conversationParticipantConversationIdUserIdCompoundUniqueInput
+    id?: string
     AND?: conversationParticipantWhereInput | conversationParticipantWhereInput[]
     OR?: conversationParticipantWhereInput[]
     NOT?: conversationParticipantWhereInput | conversationParticipantWhereInput[]
@@ -72894,9 +72954,10 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"conversationParticipant"> | Date | string | null
     conversation?: XOR<ConversationScalarRelationFilter, conversationWhereInput>
     user?: XOR<UserScalarRelationFilter, userWhereInput>
-  }, "conversationId_userId">
+  }, "id">
 
   export type conversationParticipantOrderByWithAggregationInput = {
+    id?: SortOrder
     conversationId?: SortOrder
     userId?: SortOrder
     dateAdded?: SortOrderInput | SortOrder
@@ -72913,6 +72974,7 @@ export namespace Prisma {
     AND?: conversationParticipantScalarWhereWithAggregatesInput | conversationParticipantScalarWhereWithAggregatesInput[]
     OR?: conversationParticipantScalarWhereWithAggregatesInput[]
     NOT?: conversationParticipantScalarWhereWithAggregatesInput | conversationParticipantScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"conversationParticipant"> | string
     conversationId?: StringWithAggregatesFilter<"conversationParticipant"> | string
     userId?: StringWithAggregatesFilter<"conversationParticipant"> | string
     dateAdded?: DateTimeNullableWithAggregatesFilter<"conversationParticipant"> | Date | string | null
@@ -72928,32 +72990,32 @@ export namespace Prisma {
     NOT?: exerciseProgramWhereInput | exerciseProgramWhereInput[]
     id?: StringFilter<"exerciseProgram"> | string
     name?: StringFilter<"exerciseProgram"> | string
-    categoryId?: StringFilter<"exerciseProgram"> | string
+    categoryId?: StringNullableFilter<"exerciseProgram"> | string | null
     difficultyLevel?: IntNullableFilter<"exerciseProgram"> | number | null
-    adaptedForReducedMobility?: BoolFilter<"exerciseProgram"> | boolean
+    adaptedForReducedMobility?: BoolNullableFilter<"exerciseProgram"> | boolean | null
     durationMinutes?: IntNullableFilter<"exerciseProgram"> | number | null
     description?: StringNullableFilter<"exerciseProgram"> | string | null
     videoLink?: StringNullableFilter<"exerciseProgram"> | string | null
     image?: StringNullableFilter<"exerciseProgram"> | string | null
     createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
     updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
-    programCategory?: ProgramCategoryListRelationFilter
+    programCategory?: XOR<ProgramCategoryNullableScalarRelationFilter, programCategoryWhereInput> | null
     userActivity?: UserActivityListRelationFilter
   }
 
   export type exerciseProgramOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     difficultyLevel?: SortOrderInput | SortOrder
-    adaptedForReducedMobility?: SortOrder
+    adaptedForReducedMobility?: SortOrderInput | SortOrder
     durationMinutes?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     videoLink?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    programCategory?: programCategoryOrderByRelationAggregateInput
+    programCategory?: programCategoryOrderByWithRelationInput
     userActivity?: userActivityOrderByRelationAggregateInput
   }
 
@@ -72963,25 +73025,25 @@ export namespace Prisma {
     OR?: exerciseProgramWhereInput[]
     NOT?: exerciseProgramWhereInput | exerciseProgramWhereInput[]
     name?: StringFilter<"exerciseProgram"> | string
-    categoryId?: StringFilter<"exerciseProgram"> | string
+    categoryId?: StringNullableFilter<"exerciseProgram"> | string | null
     difficultyLevel?: IntNullableFilter<"exerciseProgram"> | number | null
-    adaptedForReducedMobility?: BoolFilter<"exerciseProgram"> | boolean
+    adaptedForReducedMobility?: BoolNullableFilter<"exerciseProgram"> | boolean | null
     durationMinutes?: IntNullableFilter<"exerciseProgram"> | number | null
     description?: StringNullableFilter<"exerciseProgram"> | string | null
     videoLink?: StringNullableFilter<"exerciseProgram"> | string | null
     image?: StringNullableFilter<"exerciseProgram"> | string | null
     createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
     updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
-    programCategory?: ProgramCategoryListRelationFilter
+    programCategory?: XOR<ProgramCategoryNullableScalarRelationFilter, programCategoryWhereInput> | null
     userActivity?: UserActivityListRelationFilter
   }, "id">
 
   export type exerciseProgramOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     difficultyLevel?: SortOrderInput | SortOrder
-    adaptedForReducedMobility?: SortOrder
+    adaptedForReducedMobility?: SortOrderInput | SortOrder
     durationMinutes?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     videoLink?: SortOrderInput | SortOrder
@@ -73001,9 +73063,9 @@ export namespace Prisma {
     NOT?: exerciseProgramScalarWhereWithAggregatesInput | exerciseProgramScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"exerciseProgram"> | string
     name?: StringWithAggregatesFilter<"exerciseProgram"> | string
-    categoryId?: StringWithAggregatesFilter<"exerciseProgram"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"exerciseProgram"> | string | null
     difficultyLevel?: IntNullableWithAggregatesFilter<"exerciseProgram"> | number | null
-    adaptedForReducedMobility?: BoolWithAggregatesFilter<"exerciseProgram"> | boolean
+    adaptedForReducedMobility?: BoolNullableWithAggregatesFilter<"exerciseProgram"> | boolean | null
     durationMinutes?: IntNullableWithAggregatesFilter<"exerciseProgram"> | number | null
     description?: StringNullableWithAggregatesFilter<"exerciseProgram"> | string | null
     videoLink?: StringNullableWithAggregatesFilter<"exerciseProgram"> | string | null
@@ -73019,7 +73081,7 @@ export namespace Prisma {
     id?: StringFilter<"forumCategory"> | string
     name?: StringFilter<"forumCategory"> | string
     description?: StringNullableFilter<"forumCategory"> | string | null
-    parentCategoryId?: StringFilter<"forumCategory"> | string
+    parentCategoryId?: StringNullableFilter<"forumCategory"> | string | null
     createdAt?: DateTimeFilter<"forumCategory"> | Date | string
     updatedAt?: DateTimeNullableFilter<"forumCategory"> | Date | string | null
     forumTopic?: ForumTopicListRelationFilter
@@ -73029,7 +73091,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    parentCategoryId?: SortOrder
+    parentCategoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     forumTopic?: forumTopicOrderByRelationAggregateInput
@@ -73042,7 +73104,7 @@ export namespace Prisma {
     NOT?: forumCategoryWhereInput | forumCategoryWhereInput[]
     name?: StringFilter<"forumCategory"> | string
     description?: StringNullableFilter<"forumCategory"> | string | null
-    parentCategoryId?: StringFilter<"forumCategory"> | string
+    parentCategoryId?: StringNullableFilter<"forumCategory"> | string | null
     createdAt?: DateTimeFilter<"forumCategory"> | Date | string
     updatedAt?: DateTimeNullableFilter<"forumCategory"> | Date | string | null
     forumTopic?: ForumTopicListRelationFilter
@@ -73052,7 +73114,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    parentCategoryId?: SortOrder
+    parentCategoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: forumCategoryCountOrderByAggregateInput
@@ -73067,7 +73129,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"forumCategory"> | string
     name?: StringWithAggregatesFilter<"forumCategory"> | string
     description?: StringNullableWithAggregatesFilter<"forumCategory"> | string | null
-    parentCategoryId?: StringWithAggregatesFilter<"forumCategory"> | string
+    parentCategoryId?: StringNullableWithAggregatesFilter<"forumCategory"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"forumCategory"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"forumCategory"> | Date | string | null
   }
@@ -73077,11 +73139,9 @@ export namespace Prisma {
     OR?: forumMessageWhereInput[]
     NOT?: forumMessageWhereInput | forumMessageWhereInput[]
     id?: StringFilter<"forumMessage"> | string
-    topicId?: StringNullableFilter<"forumMessage"> | string | null
-    authorId?: StringNullableFilter<"forumMessage"> | string | null
+    topicId?: StringFilter<"forumMessage"> | string
+    authorId?: StringFilter<"forumMessage"> | string
     content?: StringNullableFilter<"forumMessage"> | string | null
-    creationDate?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
-    modificationDate?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
     solutionMessage?: BoolNullableFilter<"forumMessage"> | boolean | null
     createdAt?: DateTimeFilter<"forumMessage"> | Date | string
     updatedAt?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
@@ -73091,11 +73151,9 @@ export namespace Prisma {
 
   export type forumMessageOrderByWithRelationInput = {
     id?: SortOrder
-    topicId?: SortOrderInput | SortOrder
-    authorId?: SortOrderInput | SortOrder
+    topicId?: SortOrder
+    authorId?: SortOrder
     content?: SortOrderInput | SortOrder
-    creationDate?: SortOrderInput | SortOrder
-    modificationDate?: SortOrderInput | SortOrder
     solutionMessage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -73108,11 +73166,9 @@ export namespace Prisma {
     AND?: forumMessageWhereInput | forumMessageWhereInput[]
     OR?: forumMessageWhereInput[]
     NOT?: forumMessageWhereInput | forumMessageWhereInput[]
-    topicId?: StringNullableFilter<"forumMessage"> | string | null
-    authorId?: StringNullableFilter<"forumMessage"> | string | null
+    topicId?: StringFilter<"forumMessage"> | string
+    authorId?: StringFilter<"forumMessage"> | string
     content?: StringNullableFilter<"forumMessage"> | string | null
-    creationDate?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
-    modificationDate?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
     solutionMessage?: BoolNullableFilter<"forumMessage"> | boolean | null
     createdAt?: DateTimeFilter<"forumMessage"> | Date | string
     updatedAt?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
@@ -73122,11 +73178,9 @@ export namespace Prisma {
 
   export type forumMessageOrderByWithAggregationInput = {
     id?: SortOrder
-    topicId?: SortOrderInput | SortOrder
-    authorId?: SortOrderInput | SortOrder
+    topicId?: SortOrder
+    authorId?: SortOrder
     content?: SortOrderInput | SortOrder
-    creationDate?: SortOrderInput | SortOrder
-    modificationDate?: SortOrderInput | SortOrder
     solutionMessage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -73140,11 +73194,9 @@ export namespace Prisma {
     OR?: forumMessageScalarWhereWithAggregatesInput[]
     NOT?: forumMessageScalarWhereWithAggregatesInput | forumMessageScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"forumMessage"> | string
-    topicId?: StringNullableWithAggregatesFilter<"forumMessage"> | string | null
-    authorId?: StringNullableWithAggregatesFilter<"forumMessage"> | string | null
+    topicId?: StringWithAggregatesFilter<"forumMessage"> | string
+    authorId?: StringWithAggregatesFilter<"forumMessage"> | string
     content?: StringNullableWithAggregatesFilter<"forumMessage"> | string | null
-    creationDate?: DateTimeNullableWithAggregatesFilter<"forumMessage"> | Date | string | null
-    modificationDate?: DateTimeNullableWithAggregatesFilter<"forumMessage"> | Date | string | null
     solutionMessage?: BoolNullableWithAggregatesFilter<"forumMessage"> | boolean | null
     createdAt?: DateTimeWithAggregatesFilter<"forumMessage"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"forumMessage"> | Date | string | null
@@ -73158,7 +73210,6 @@ export namespace Prisma {
     categoryId?: StringFilter<"forumTopic"> | string
     authorId?: StringFilter<"forumTopic"> | string
     title?: StringFilter<"forumTopic"> | string
-    creationDate?: DateTimeNullableFilter<"forumTopic"> | Date | string | null
     pinned?: BoolNullableFilter<"forumTopic"> | boolean | null
     status?: StringNullableFilter<"forumTopic"> | string | null
     views?: IntNullableFilter<"forumTopic"> | number | null
@@ -73166,7 +73217,7 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"forumTopic"> | Date | string | null
     forumMessage?: ForumMessageListRelationFilter
     user?: XOR<UserScalarRelationFilter, userWhereInput>
-    forumCategory?: XOR<ForumCategoryScalarRelationFilter, forumCategoryWhereInput>
+    forumCategory?: XOR<ForumCategoryNullableScalarRelationFilter, forumCategoryWhereInput> | null
   }
 
   export type forumTopicOrderByWithRelationInput = {
@@ -73174,7 +73225,6 @@ export namespace Prisma {
     categoryId?: SortOrder
     authorId?: SortOrder
     title?: SortOrder
-    creationDate?: SortOrderInput | SortOrder
     pinned?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
     views?: SortOrderInput | SortOrder
@@ -73193,7 +73243,6 @@ export namespace Prisma {
     categoryId?: StringFilter<"forumTopic"> | string
     authorId?: StringFilter<"forumTopic"> | string
     title?: StringFilter<"forumTopic"> | string
-    creationDate?: DateTimeNullableFilter<"forumTopic"> | Date | string | null
     pinned?: BoolNullableFilter<"forumTopic"> | boolean | null
     status?: StringNullableFilter<"forumTopic"> | string | null
     views?: IntNullableFilter<"forumTopic"> | number | null
@@ -73201,7 +73250,7 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"forumTopic"> | Date | string | null
     forumMessage?: ForumMessageListRelationFilter
     user?: XOR<UserScalarRelationFilter, userWhereInput>
-    forumCategory?: XOR<ForumCategoryScalarRelationFilter, forumCategoryWhereInput>
+    forumCategory?: XOR<ForumCategoryNullableScalarRelationFilter, forumCategoryWhereInput> | null
   }, "id">
 
   export type forumTopicOrderByWithAggregationInput = {
@@ -73209,7 +73258,6 @@ export namespace Prisma {
     categoryId?: SortOrder
     authorId?: SortOrder
     title?: SortOrder
-    creationDate?: SortOrderInput | SortOrder
     pinned?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
     views?: SortOrderInput | SortOrder
@@ -73230,7 +73278,6 @@ export namespace Prisma {
     categoryId?: StringWithAggregatesFilter<"forumTopic"> | string
     authorId?: StringWithAggregatesFilter<"forumTopic"> | string
     title?: StringWithAggregatesFilter<"forumTopic"> | string
-    creationDate?: DateTimeNullableWithAggregatesFilter<"forumTopic"> | Date | string | null
     pinned?: BoolNullableWithAggregatesFilter<"forumTopic"> | boolean | null
     status?: StringNullableWithAggregatesFilter<"forumTopic"> | string | null
     views?: IntNullableWithAggregatesFilter<"forumTopic"> | number | null
@@ -73238,79 +73285,12 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableWithAggregatesFilter<"forumTopic"> | Date | string | null
   }
 
-  export type wellnessGoalProgressWhereInput = {
-    AND?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
-    OR?: wellnessGoalProgressWhereInput[]
-    NOT?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
-    id?: StringFilter<"wellnessGoalProgress"> | string
-    goalId?: StringFilter<"wellnessGoalProgress"> | string
-    recordingDate?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
-    achievedValue?: IntFilter<"wellnessGoalProgress"> | number
-    goalAchieved?: BoolFilter<"wellnessGoalProgress"> | boolean
-    createdAt?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"wellnessGoalProgress"> | Date | string | null
-    wellnessGoal?: XOR<WellnessGoalScalarRelationFilter, wellnessGoalWhereInput>
-  }
-
-  export type wellnessGoalProgressOrderByWithRelationInput = {
-    id?: SortOrder
-    goalId?: SortOrder
-    recordingDate?: SortOrder
-    achievedValue?: SortOrder
-    goalAchieved?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrderInput | SortOrder
-    wellnessGoal?: wellnessGoalOrderByWithRelationInput
-  }
-
-  export type wellnessGoalProgressWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
-    OR?: wellnessGoalProgressWhereInput[]
-    NOT?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
-    goalId?: StringFilter<"wellnessGoalProgress"> | string
-    recordingDate?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
-    achievedValue?: IntFilter<"wellnessGoalProgress"> | number
-    goalAchieved?: BoolFilter<"wellnessGoalProgress"> | boolean
-    createdAt?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"wellnessGoalProgress"> | Date | string | null
-    wellnessGoal?: XOR<WellnessGoalScalarRelationFilter, wellnessGoalWhereInput>
-  }, "id">
-
-  export type wellnessGoalProgressOrderByWithAggregationInput = {
-    id?: SortOrder
-    goalId?: SortOrder
-    recordingDate?: SortOrder
-    achievedValue?: SortOrder
-    goalAchieved?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrderInput | SortOrder
-    _count?: wellnessGoalProgressCountOrderByAggregateInput
-    _avg?: wellnessGoalProgressAvgOrderByAggregateInput
-    _max?: wellnessGoalProgressMaxOrderByAggregateInput
-    _min?: wellnessGoalProgressMinOrderByAggregateInput
-    _sum?: wellnessGoalProgressSumOrderByAggregateInput
-  }
-
-  export type wellnessGoalProgressScalarWhereWithAggregatesInput = {
-    AND?: wellnessGoalProgressScalarWhereWithAggregatesInput | wellnessGoalProgressScalarWhereWithAggregatesInput[]
-    OR?: wellnessGoalProgressScalarWhereWithAggregatesInput[]
-    NOT?: wellnessGoalProgressScalarWhereWithAggregatesInput | wellnessGoalProgressScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"wellnessGoalProgress"> | string
-    goalId?: StringWithAggregatesFilter<"wellnessGoalProgress"> | string
-    recordingDate?: DateTimeWithAggregatesFilter<"wellnessGoalProgress"> | Date | string
-    achievedValue?: IntWithAggregatesFilter<"wellnessGoalProgress"> | number
-    goalAchieved?: BoolWithAggregatesFilter<"wellnessGoalProgress"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"wellnessGoalProgress"> | Date | string
-    updatedAt?: DateTimeNullableWithAggregatesFilter<"wellnessGoalProgress"> | Date | string | null
-  }
-
   export type healthIndicatorWhereInput = {
     AND?: healthIndicatorWhereInput | healthIndicatorWhereInput[]
     OR?: healthIndicatorWhereInput[]
     NOT?: healthIndicatorWhereInput | healthIndicatorWhereInput[]
     id?: StringFilter<"healthIndicator"> | string
-    userId?: StringNullableFilter<"healthIndicator"> | string | null
+    userId?: StringFilter<"healthIndicator"> | string
     recordingDate?: DateTimeFilter<"healthIndicator"> | Date | string
     stepCount?: IntNullableFilter<"healthIndicator"> | number | null
     sleepDurationMinutes?: IntNullableFilter<"healthIndicator"> | number | null
@@ -73325,7 +73305,7 @@ export namespace Prisma {
 
   export type healthIndicatorOrderByWithRelationInput = {
     id?: SortOrder
-    userId?: SortOrderInput | SortOrder
+    userId?: SortOrder
     recordingDate?: SortOrder
     stepCount?: SortOrderInput | SortOrder
     sleepDurationMinutes?: SortOrderInput | SortOrder
@@ -73343,7 +73323,7 @@ export namespace Prisma {
     AND?: healthIndicatorWhereInput | healthIndicatorWhereInput[]
     OR?: healthIndicatorWhereInput[]
     NOT?: healthIndicatorWhereInput | healthIndicatorWhereInput[]
-    userId?: StringNullableFilter<"healthIndicator"> | string | null
+    userId?: StringFilter<"healthIndicator"> | string
     recordingDate?: DateTimeFilter<"healthIndicator"> | Date | string
     stepCount?: IntNullableFilter<"healthIndicator"> | number | null
     sleepDurationMinutes?: IntNullableFilter<"healthIndicator"> | number | null
@@ -73358,7 +73338,7 @@ export namespace Prisma {
 
   export type healthIndicatorOrderByWithAggregationInput = {
     id?: SortOrder
-    userId?: SortOrderInput | SortOrder
+    userId?: SortOrder
     recordingDate?: SortOrder
     stepCount?: SortOrderInput | SortOrder
     sleepDurationMinutes?: SortOrderInput | SortOrder
@@ -73380,7 +73360,7 @@ export namespace Prisma {
     OR?: healthIndicatorScalarWhereWithAggregatesInput[]
     NOT?: healthIndicatorScalarWhereWithAggregatesInput | healthIndicatorScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"healthIndicator"> | string
-    userId?: StringNullableWithAggregatesFilter<"healthIndicator"> | string | null
+    userId?: StringWithAggregatesFilter<"healthIndicator"> | string
     recordingDate?: DateTimeWithAggregatesFilter<"healthIndicator"> | Date | string
     stepCount?: IntNullableWithAggregatesFilter<"healthIndicator"> | number | null
     sleepDurationMinutes?: IntNullableWithAggregatesFilter<"healthIndicator"> | number | null
@@ -73473,16 +73453,15 @@ export namespace Prisma {
     creatorId?: StringFilter<"helpRequest"> | string
     title?: StringFilter<"helpRequest"> | string
     description?: StringNullableFilter<"helpRequest"> | string | null
-    creationDate?: DateTimeFilter<"helpRequest"> | Date | string
     neededDate?: DateTimeNullableFilter<"helpRequest"> | Date | string | null
     estimatedDuration?: IntNullableFilter<"helpRequest"> | number | null
     location?: StringNullableFilter<"helpRequest"> | string | null
     gpsCoordinates?: StringNullableFilter<"helpRequest"> | string | null
-    categoryId?: StringFilter<"helpRequest"> | string
+    categoryId?: StringNullableFilter<"helpRequest"> | string | null
     recurring?: BoolNullableFilter<"helpRequest"> | boolean | null
     frequency?: StringNullableFilter<"helpRequest"> | string | null
     status?: StringNullableFilter<"helpRequest"> | string | null
-    points_offered?: IntNullableFilter<"helpRequest"> | number | null
+    pointsOffered?: IntNullableFilter<"helpRequest"> | number | null
     createdAt?: DateTimeFilter<"helpRequest"> | Date | string
     updatedAt?: DateTimeNullableFilter<"helpRequest"> | Date | string | null
     helpOffer?: HelpOfferListRelationFilter
@@ -73496,16 +73475,15 @@ export namespace Prisma {
     creatorId?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    creationDate?: SortOrder
     neededDate?: SortOrderInput | SortOrder
     estimatedDuration?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     recurring?: SortOrderInput | SortOrder
     frequency?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
-    points_offered?: SortOrderInput | SortOrder
+    pointsOffered?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     helpOffer?: helpOfferOrderByRelationAggregateInput
@@ -73522,16 +73500,15 @@ export namespace Prisma {
     creatorId?: StringFilter<"helpRequest"> | string
     title?: StringFilter<"helpRequest"> | string
     description?: StringNullableFilter<"helpRequest"> | string | null
-    creationDate?: DateTimeFilter<"helpRequest"> | Date | string
     neededDate?: DateTimeNullableFilter<"helpRequest"> | Date | string | null
     estimatedDuration?: IntNullableFilter<"helpRequest"> | number | null
     location?: StringNullableFilter<"helpRequest"> | string | null
     gpsCoordinates?: StringNullableFilter<"helpRequest"> | string | null
-    categoryId?: StringFilter<"helpRequest"> | string
+    categoryId?: StringNullableFilter<"helpRequest"> | string | null
     recurring?: BoolNullableFilter<"helpRequest"> | boolean | null
     frequency?: StringNullableFilter<"helpRequest"> | string | null
     status?: StringNullableFilter<"helpRequest"> | string | null
-    points_offered?: IntNullableFilter<"helpRequest"> | number | null
+    pointsOffered?: IntNullableFilter<"helpRequest"> | number | null
     createdAt?: DateTimeFilter<"helpRequest"> | Date | string
     updatedAt?: DateTimeNullableFilter<"helpRequest"> | Date | string | null
     helpOffer?: HelpOfferListRelationFilter
@@ -73545,16 +73522,15 @@ export namespace Prisma {
     creatorId?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    creationDate?: SortOrder
     neededDate?: SortOrderInput | SortOrder
     estimatedDuration?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     recurring?: SortOrderInput | SortOrder
     frequency?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
-    points_offered?: SortOrderInput | SortOrder
+    pointsOffered?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: helpRequestCountOrderByAggregateInput
@@ -73572,16 +73548,15 @@ export namespace Prisma {
     creatorId?: StringWithAggregatesFilter<"helpRequest"> | string
     title?: StringWithAggregatesFilter<"helpRequest"> | string
     description?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
-    creationDate?: DateTimeWithAggregatesFilter<"helpRequest"> | Date | string
     neededDate?: DateTimeNullableWithAggregatesFilter<"helpRequest"> | Date | string | null
     estimatedDuration?: IntNullableWithAggregatesFilter<"helpRequest"> | number | null
     location?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
     gpsCoordinates?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
-    categoryId?: StringWithAggregatesFilter<"helpRequest"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
     recurring?: BoolNullableWithAggregatesFilter<"helpRequest"> | boolean | null
     frequency?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
     status?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
-    points_offered?: IntNullableWithAggregatesFilter<"helpRequest"> | number | null
+    pointsOffered?: IntNullableWithAggregatesFilter<"helpRequest"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"helpRequest"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"helpRequest"> | Date | string | null
   }
@@ -73685,7 +73660,7 @@ export namespace Prisma {
     NOT?: medicationReminderWhereInput | medicationReminderWhereInput[]
     id?: StringFilter<"medicationReminder"> | string
     userId?: StringFilter<"medicationReminder"> | string
-    medication_name?: StringFilter<"medicationReminder"> | string
+    medicationName?: StringFilter<"medicationReminder"> | string
     dosage?: StringNullableFilter<"medicationReminder"> | string | null
     morningReminderTime?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
     noonReminderTime?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
@@ -73695,7 +73670,7 @@ export namespace Prisma {
     instructions?: StringNullableFilter<"medicationReminder"> | string | null
     active?: BoolNullableFilter<"medicationReminder"> | boolean | null
     startDate?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
-    end_date?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
+    endDate?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
     createdAt?: DateTimeFilter<"medicationReminder"> | Date | string
     updatedAt?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
     user?: XOR<UserScalarRelationFilter, userWhereInput>
@@ -73704,7 +73679,7 @@ export namespace Prisma {
   export type medicationReminderOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    medication_name?: SortOrder
+    medicationName?: SortOrder
     dosage?: SortOrderInput | SortOrder
     morningReminderTime?: SortOrderInput | SortOrder
     noonReminderTime?: SortOrderInput | SortOrder
@@ -73714,7 +73689,7 @@ export namespace Prisma {
     instructions?: SortOrderInput | SortOrder
     active?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
-    end_date?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     user?: userOrderByWithRelationInput
@@ -73726,7 +73701,7 @@ export namespace Prisma {
     OR?: medicationReminderWhereInput[]
     NOT?: medicationReminderWhereInput | medicationReminderWhereInput[]
     userId?: StringFilter<"medicationReminder"> | string
-    medication_name?: StringFilter<"medicationReminder"> | string
+    medicationName?: StringFilter<"medicationReminder"> | string
     dosage?: StringNullableFilter<"medicationReminder"> | string | null
     morningReminderTime?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
     noonReminderTime?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
@@ -73736,7 +73711,7 @@ export namespace Prisma {
     instructions?: StringNullableFilter<"medicationReminder"> | string | null
     active?: BoolNullableFilter<"medicationReminder"> | boolean | null
     startDate?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
-    end_date?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
+    endDate?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
     createdAt?: DateTimeFilter<"medicationReminder"> | Date | string
     updatedAt?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
     user?: XOR<UserScalarRelationFilter, userWhereInput>
@@ -73745,7 +73720,7 @@ export namespace Prisma {
   export type medicationReminderOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    medication_name?: SortOrder
+    medicationName?: SortOrder
     dosage?: SortOrderInput | SortOrder
     morningReminderTime?: SortOrderInput | SortOrder
     noonReminderTime?: SortOrderInput | SortOrder
@@ -73755,7 +73730,7 @@ export namespace Prisma {
     instructions?: SortOrderInput | SortOrder
     active?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
-    end_date?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: medicationReminderCountOrderByAggregateInput
@@ -73769,7 +73744,7 @@ export namespace Prisma {
     NOT?: medicationReminderScalarWhereWithAggregatesInput | medicationReminderScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"medicationReminder"> | string
     userId?: StringWithAggregatesFilter<"medicationReminder"> | string
-    medication_name?: StringWithAggregatesFilter<"medicationReminder"> | string
+    medicationName?: StringWithAggregatesFilter<"medicationReminder"> | string
     dosage?: StringNullableWithAggregatesFilter<"medicationReminder"> | string | null
     morningReminderTime?: DateTimeNullableWithAggregatesFilter<"medicationReminder"> | Date | string | null
     noonReminderTime?: DateTimeNullableWithAggregatesFilter<"medicationReminder"> | Date | string | null
@@ -73779,7 +73754,7 @@ export namespace Prisma {
     instructions?: StringNullableWithAggregatesFilter<"medicationReminder"> | string | null
     active?: BoolNullableWithAggregatesFilter<"medicationReminder"> | boolean | null
     startDate?: DateTimeNullableWithAggregatesFilter<"medicationReminder"> | Date | string | null
-    end_date?: DateTimeNullableWithAggregatesFilter<"medicationReminder"> | Date | string | null
+    endDate?: DateTimeNullableWithAggregatesFilter<"medicationReminder"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"medicationReminder"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"medicationReminder"> | Date | string | null
   }
@@ -73870,9 +73845,9 @@ export namespace Prisma {
     title?: StringFilter<"municipalEvent"> | string
     description?: StringNullableFilter<"municipalEvent"> | string | null
     startDate?: DateTimeFilter<"municipalEvent"> | Date | string
-    end_date?: DateTimeFilter<"municipalEvent"> | Date | string
+    endDate?: DateTimeFilter<"municipalEvent"> | Date | string
     location?: StringFilter<"municipalEvent"> | string
-    gps_coordinates?: StringNullableFilter<"municipalEvent"> | string | null
+    gpsCoordinates?: StringNullableFilter<"municipalEvent"> | string | null
     organizer?: StringNullableFilter<"municipalEvent"> | string | null
     contact?: StringNullableFilter<"municipalEvent"> | string | null
     officialLink?: StringNullableFilter<"municipalEvent"> | string | null
@@ -73885,9 +73860,9 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrderInput | SortOrder
     startDate?: SortOrder
-    end_date?: SortOrder
+    endDate?: SortOrder
     location?: SortOrder
-    gps_coordinates?: SortOrderInput | SortOrder
+    gpsCoordinates?: SortOrderInput | SortOrder
     organizer?: SortOrderInput | SortOrder
     contact?: SortOrderInput | SortOrder
     officialLink?: SortOrderInput | SortOrder
@@ -73903,9 +73878,9 @@ export namespace Prisma {
     title?: StringFilter<"municipalEvent"> | string
     description?: StringNullableFilter<"municipalEvent"> | string | null
     startDate?: DateTimeFilter<"municipalEvent"> | Date | string
-    end_date?: DateTimeFilter<"municipalEvent"> | Date | string
+    endDate?: DateTimeFilter<"municipalEvent"> | Date | string
     location?: StringFilter<"municipalEvent"> | string
-    gps_coordinates?: StringNullableFilter<"municipalEvent"> | string | null
+    gpsCoordinates?: StringNullableFilter<"municipalEvent"> | string | null
     organizer?: StringNullableFilter<"municipalEvent"> | string | null
     contact?: StringNullableFilter<"municipalEvent"> | string | null
     officialLink?: StringNullableFilter<"municipalEvent"> | string | null
@@ -73918,9 +73893,9 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrderInput | SortOrder
     startDate?: SortOrder
-    end_date?: SortOrder
+    endDate?: SortOrder
     location?: SortOrder
-    gps_coordinates?: SortOrderInput | SortOrder
+    gpsCoordinates?: SortOrderInput | SortOrder
     organizer?: SortOrderInput | SortOrder
     contact?: SortOrderInput | SortOrder
     officialLink?: SortOrderInput | SortOrder
@@ -73939,9 +73914,9 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"municipalEvent"> | string
     description?: StringNullableWithAggregatesFilter<"municipalEvent"> | string | null
     startDate?: DateTimeWithAggregatesFilter<"municipalEvent"> | Date | string
-    end_date?: DateTimeWithAggregatesFilter<"municipalEvent"> | Date | string
+    endDate?: DateTimeWithAggregatesFilter<"municipalEvent"> | Date | string
     location?: StringWithAggregatesFilter<"municipalEvent"> | string
-    gps_coordinates?: StringNullableWithAggregatesFilter<"municipalEvent"> | string | null
+    gpsCoordinates?: StringNullableWithAggregatesFilter<"municipalEvent"> | string | null
     organizer?: StringNullableWithAggregatesFilter<"municipalEvent"> | string | null
     contact?: StringNullableWithAggregatesFilter<"municipalEvent"> | string | null
     officialLink?: StringNullableWithAggregatesFilter<"municipalEvent"> | string | null
@@ -74116,19 +74091,19 @@ export namespace Prisma {
     id?: StringFilter<"nutritionalAdvice"> | string
     title?: StringFilter<"nutritionalAdvice"> | string
     description?: StringNullableFilter<"nutritionalAdvice"> | string | null
-    categoryId?: StringFilter<"nutritionalAdvice"> | string
+    categoryId?: StringNullableFilter<"nutritionalAdvice"> | string | null
     season?: StringFilter<"nutritionalAdvice"> | string
     image?: StringNullableFilter<"nutritionalAdvice"> | string | null
     createdAt?: DateTimeFilter<"nutritionalAdvice"> | Date | string
     updatedAt?: DateTimeNullableFilter<"nutritionalAdvice"> | Date | string | null
-    nutritionalCategory?: XOR<NutritionalCategoryScalarRelationFilter, nutritionalCategoryWhereInput>
+    nutritionalCategory?: XOR<NutritionalCategoryNullableScalarRelationFilter, nutritionalCategoryWhereInput> | null
   }
 
   export type nutritionalAdviceOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     season?: SortOrder
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -74143,19 +74118,19 @@ export namespace Prisma {
     NOT?: nutritionalAdviceWhereInput | nutritionalAdviceWhereInput[]
     title?: StringFilter<"nutritionalAdvice"> | string
     description?: StringNullableFilter<"nutritionalAdvice"> | string | null
-    categoryId?: StringFilter<"nutritionalAdvice"> | string
+    categoryId?: StringNullableFilter<"nutritionalAdvice"> | string | null
     season?: StringFilter<"nutritionalAdvice"> | string
     image?: StringNullableFilter<"nutritionalAdvice"> | string | null
     createdAt?: DateTimeFilter<"nutritionalAdvice"> | Date | string
     updatedAt?: DateTimeNullableFilter<"nutritionalAdvice"> | Date | string | null
-    nutritionalCategory?: XOR<NutritionalCategoryScalarRelationFilter, nutritionalCategoryWhereInput>
+    nutritionalCategory?: XOR<NutritionalCategoryNullableScalarRelationFilter, nutritionalCategoryWhereInput> | null
   }, "id">
 
   export type nutritionalAdviceOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     season?: SortOrder
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -74172,7 +74147,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"nutritionalAdvice"> | string
     title?: StringWithAggregatesFilter<"nutritionalAdvice"> | string
     description?: StringNullableWithAggregatesFilter<"nutritionalAdvice"> | string | null
-    categoryId?: StringWithAggregatesFilter<"nutritionalAdvice"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"nutritionalAdvice"> | string | null
     season?: StringWithAggregatesFilter<"nutritionalAdvice"> | string
     image?: StringNullableWithAggregatesFilter<"nutritionalAdvice"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"nutritionalAdvice"> | Date | string
@@ -74386,13 +74361,13 @@ export namespace Prisma {
     title?: StringFilter<"resource"> | string
     content?: StringNullableFilter<"resource"> | string | null
     type?: StringFilter<"resource"> | string
-    categoryId?: StringFilter<"resource"> | string
+    categoryId?: StringNullableFilter<"resource"> | string | null
     authorId?: StringFilter<"resource"> | string
     adminValidated?: BoolNullableFilter<"resource"> | boolean | null
     createdAt?: DateTimeFilter<"resource"> | Date | string
     updatedAt?: DateTimeNullableFilter<"resource"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
-    resourceCategory?: XOR<ResourceCategoryScalarRelationFilter, resourceCategoryWhereInput>
+    resourceCategory?: XOR<ResourceCategoryNullableScalarRelationFilter, resourceCategoryWhereInput> | null
   }
 
   export type resourceOrderByWithRelationInput = {
@@ -74400,7 +74375,7 @@ export namespace Prisma {
     title?: SortOrder
     content?: SortOrderInput | SortOrder
     type?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     authorId?: SortOrder
     adminValidated?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -74417,13 +74392,13 @@ export namespace Prisma {
     title?: StringFilter<"resource"> | string
     content?: StringNullableFilter<"resource"> | string | null
     type?: StringFilter<"resource"> | string
-    categoryId?: StringFilter<"resource"> | string
+    categoryId?: StringNullableFilter<"resource"> | string | null
     authorId?: StringFilter<"resource"> | string
     adminValidated?: BoolNullableFilter<"resource"> | boolean | null
     createdAt?: DateTimeFilter<"resource"> | Date | string
     updatedAt?: DateTimeNullableFilter<"resource"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
-    resourceCategory?: XOR<ResourceCategoryScalarRelationFilter, resourceCategoryWhereInput>
+    resourceCategory?: XOR<ResourceCategoryNullableScalarRelationFilter, resourceCategoryWhereInput> | null
   }, "id">
 
   export type resourceOrderByWithAggregationInput = {
@@ -74431,7 +74406,7 @@ export namespace Prisma {
     title?: SortOrder
     content?: SortOrderInput | SortOrder
     type?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     authorId?: SortOrder
     adminValidated?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -74449,7 +74424,7 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"resource"> | string
     content?: StringNullableWithAggregatesFilter<"resource"> | string | null
     type?: StringWithAggregatesFilter<"resource"> | string
-    categoryId?: StringWithAggregatesFilter<"resource"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"resource"> | string | null
     authorId?: StringWithAggregatesFilter<"resource"> | string
     adminValidated?: BoolNullableWithAggregatesFilter<"resource"> | boolean | null
     createdAt?: DateTimeWithAggregatesFilter<"resource"> | Date | string
@@ -74699,10 +74674,10 @@ export namespace Prisma {
     id?: StringFilter<"skill"> | string
     name?: StringFilter<"skill"> | string
     description?: StringNullableFilter<"skill"> | string | null
-    categoryId?: StringFilter<"skill"> | string
+    categoryId?: StringNullableFilter<"skill"> | string | null
     createdAt?: DateTimeFilter<"skill"> | Date | string
     updatedAt?: DateTimeNullableFilter<"skill"> | Date | string | null
-    skillCategory?: XOR<SkillCategoryScalarRelationFilter, skillCategoryWhereInput>
+    skillCategory?: XOR<SkillCategoryNullableScalarRelationFilter, skillCategoryWhereInput> | null
     userSkill?: UserSkillListRelationFilter
   }
 
@@ -74710,7 +74685,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     skillCategory?: skillCategoryOrderByWithRelationInput
@@ -74724,10 +74699,10 @@ export namespace Prisma {
     NOT?: skillWhereInput | skillWhereInput[]
     name?: StringFilter<"skill"> | string
     description?: StringNullableFilter<"skill"> | string | null
-    categoryId?: StringFilter<"skill"> | string
+    categoryId?: StringNullableFilter<"skill"> | string | null
     createdAt?: DateTimeFilter<"skill"> | Date | string
     updatedAt?: DateTimeNullableFilter<"skill"> | Date | string | null
-    skillCategory?: XOR<SkillCategoryScalarRelationFilter, skillCategoryWhereInput>
+    skillCategory?: XOR<SkillCategoryNullableScalarRelationFilter, skillCategoryWhereInput> | null
     userSkill?: UserSkillListRelationFilter
   }, "id">
 
@@ -74735,7 +74710,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: skillCountOrderByAggregateInput
@@ -74750,7 +74725,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"skill"> | string
     name?: StringWithAggregatesFilter<"skill"> | string
     description?: StringNullableWithAggregatesFilter<"skill"> | string | null
-    categoryId?: StringWithAggregatesFilter<"skill"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"skill"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"skill"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"skill"> | Date | string | null
   }
@@ -74978,7 +74953,7 @@ export namespace Prisma {
     NOT?: urbanIssueReportWhereInput | urbanIssueReportWhereInput[]
     id?: StringFilter<"urbanIssueReport"> | string
     userId?: StringFilter<"urbanIssueReport"> | string
-    categoryId?: StringFilter<"urbanIssueReport"> | string
+    categoryId?: StringNullableFilter<"urbanIssueReport"> | string | null
     description?: StringFilter<"urbanIssueReport"> | string
     address?: StringFilter<"urbanIssueReport"> | string
     gpsCoordinates?: StringNullableFilter<"urbanIssueReport"> | string | null
@@ -74988,13 +74963,13 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"urbanIssueReport"> | Date | string
     updatedAt?: DateTimeNullableFilter<"urbanIssueReport"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
-    issueCategory?: XOR<IssueCategoryScalarRelationFilter, issueCategoryWhereInput>
+    issueCategory?: XOR<IssueCategoryNullableScalarRelationFilter, issueCategoryWhereInput> | null
   }
 
   export type urbanIssueReportOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     description?: SortOrder
     address?: SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
@@ -75013,7 +74988,7 @@ export namespace Prisma {
     OR?: urbanIssueReportWhereInput[]
     NOT?: urbanIssueReportWhereInput | urbanIssueReportWhereInput[]
     userId?: StringFilter<"urbanIssueReport"> | string
-    categoryId?: StringFilter<"urbanIssueReport"> | string
+    categoryId?: StringNullableFilter<"urbanIssueReport"> | string | null
     description?: StringFilter<"urbanIssueReport"> | string
     address?: StringFilter<"urbanIssueReport"> | string
     gpsCoordinates?: StringNullableFilter<"urbanIssueReport"> | string | null
@@ -75023,13 +74998,13 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"urbanIssueReport"> | Date | string
     updatedAt?: DateTimeNullableFilter<"urbanIssueReport"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
-    issueCategory?: XOR<IssueCategoryScalarRelationFilter, issueCategoryWhereInput>
+    issueCategory?: XOR<IssueCategoryNullableScalarRelationFilter, issueCategoryWhereInput> | null
   }, "id">
 
   export type urbanIssueReportOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     description?: SortOrder
     address?: SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
@@ -75049,7 +75024,7 @@ export namespace Prisma {
     NOT?: urbanIssueReportScalarWhereWithAggregatesInput | urbanIssueReportScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"urbanIssueReport"> | string
     userId?: StringWithAggregatesFilter<"urbanIssueReport"> | string
-    categoryId?: StringWithAggregatesFilter<"urbanIssueReport"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"urbanIssueReport"> | string | null
     description?: StringWithAggregatesFilter<"urbanIssueReport"> | string
     address?: StringWithAggregatesFilter<"urbanIssueReport"> | string
     gpsCoordinates?: StringNullableWithAggregatesFilter<"urbanIssueReport"> | string | null
@@ -75393,18 +75368,18 @@ export namespace Prisma {
   }
 
   export type userBadgeWhereUniqueInput = Prisma.AtLeast<{
+    badgeId?: string
     userId_badgeId?: userBadgeUserIdBadgeIdCompoundUniqueInput
     AND?: userBadgeWhereInput | userBadgeWhereInput[]
     OR?: userBadgeWhereInput[]
     NOT?: userBadgeWhereInput | userBadgeWhereInput[]
     userId?: StringFilter<"userBadge"> | string
-    badgeId?: StringFilter<"userBadge"> | string
     achievementDate?: DateTimeFilter<"userBadge"> | Date | string
     createdAt?: DateTimeFilter<"userBadge"> | Date | string
     updatedAt?: DateTimeNullableFilter<"userBadge"> | Date | string | null
     badge?: XOR<BadgeScalarRelationFilter, badgeWhereInput>
     user?: XOR<UserScalarRelationFilter, userWhereInput>
-  }, "userId_badgeId">
+  }, "userId_badgeId" | "badgeId">
 
   export type userBadgeOrderByWithAggregationInput = {
     userId?: SortOrder
@@ -75726,19 +75701,19 @@ export namespace Prisma {
     id?: StringFilter<"wellnessBadge"> | string
     name?: StringFilter<"wellnessBadge"> | string
     description?: StringNullableFilter<"wellnessBadge"> | string | null
-    categoryId?: StringFilter<"wellnessBadge"> | string
+    categoryId?: StringNullableFilter<"wellnessBadge"> | string | null
     image?: StringNullableFilter<"wellnessBadge"> | string | null
     level?: IntFilter<"wellnessBadge"> | number
     createdAt?: DateTimeFilter<"wellnessBadge"> | Date | string
     updatedAt?: DateTimeNullableFilter<"wellnessBadge"> | Date | string | null
-    wellnessCategory?: XOR<WellnessCategoryScalarRelationFilter, wellnessCategoryWhereInput>
+    wellnessCategory?: XOR<WellnessCategoryNullableScalarRelationFilter, wellnessCategoryWhereInput> | null
   }
 
   export type wellnessBadgeOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     level?: SortOrder
     createdAt?: SortOrder
@@ -75753,19 +75728,19 @@ export namespace Prisma {
     NOT?: wellnessBadgeWhereInput | wellnessBadgeWhereInput[]
     name?: StringFilter<"wellnessBadge"> | string
     description?: StringNullableFilter<"wellnessBadge"> | string | null
-    categoryId?: StringFilter<"wellnessBadge"> | string
+    categoryId?: StringNullableFilter<"wellnessBadge"> | string | null
     image?: StringNullableFilter<"wellnessBadge"> | string | null
     level?: IntFilter<"wellnessBadge"> | number
     createdAt?: DateTimeFilter<"wellnessBadge"> | Date | string
     updatedAt?: DateTimeNullableFilter<"wellnessBadge"> | Date | string | null
-    wellnessCategory?: XOR<WellnessCategoryScalarRelationFilter, wellnessCategoryWhereInput>
+    wellnessCategory?: XOR<WellnessCategoryNullableScalarRelationFilter, wellnessCategoryWhereInput> | null
   }, "id">
 
   export type wellnessBadgeOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     level?: SortOrder
     createdAt?: SortOrder
@@ -75784,7 +75759,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"wellnessBadge"> | string
     name?: StringWithAggregatesFilter<"wellnessBadge"> | string
     description?: StringNullableWithAggregatesFilter<"wellnessBadge"> | string | null
-    categoryId?: StringWithAggregatesFilter<"wellnessBadge"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"wellnessBadge"> | string | null
     image?: StringNullableWithAggregatesFilter<"wellnessBadge"> | string | null
     level?: IntWithAggregatesFilter<"wellnessBadge"> | number
     createdAt?: DateTimeWithAggregatesFilter<"wellnessBadge"> | Date | string
@@ -75798,7 +75773,7 @@ export namespace Prisma {
     id?: StringFilter<"wellnessGoal"> | string
     userId?: StringFilter<"wellnessGoal"> | string
     title?: StringFilter<"wellnessGoal"> | string
-    categoryId?: StringFilter<"wellnessGoal"> | string
+    categoryId?: StringNullableFilter<"wellnessGoal"> | string | null
     targetValue?: IntFilter<"wellnessGoal"> | number
     unit?: StringFilter<"wellnessGoal"> | string
     frequency?: StringFilter<"wellnessGoal"> | string
@@ -75809,14 +75784,14 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"wellnessGoal"> | Date | string | null
     wellnessGoalProgress?: WellnessGoalProgressListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
-    wellnessCategory?: XOR<WellnessCategoryScalarRelationFilter, wellnessCategoryWhereInput>
+    wellnessCategory?: XOR<WellnessCategoryNullableScalarRelationFilter, wellnessCategoryWhereInput> | null
   }
 
   export type wellnessGoalOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     targetValue?: SortOrder
     unit?: SortOrder
     frequency?: SortOrder
@@ -75837,7 +75812,7 @@ export namespace Prisma {
     NOT?: wellnessGoalWhereInput | wellnessGoalWhereInput[]
     userId?: StringFilter<"wellnessGoal"> | string
     title?: StringFilter<"wellnessGoal"> | string
-    categoryId?: StringFilter<"wellnessGoal"> | string
+    categoryId?: StringNullableFilter<"wellnessGoal"> | string | null
     targetValue?: IntFilter<"wellnessGoal"> | number
     unit?: StringFilter<"wellnessGoal"> | string
     frequency?: StringFilter<"wellnessGoal"> | string
@@ -75848,14 +75823,14 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"wellnessGoal"> | Date | string | null
     wellnessGoalProgress?: WellnessGoalProgressListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, userWhereInput> | null
-    wellnessCategory?: XOR<WellnessCategoryScalarRelationFilter, wellnessCategoryWhereInput>
+    wellnessCategory?: XOR<WellnessCategoryNullableScalarRelationFilter, wellnessCategoryWhereInput> | null
   }, "id">
 
   export type wellnessGoalOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
-    categoryId?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
     targetValue?: SortOrder
     unit?: SortOrder
     frequency?: SortOrder
@@ -75878,7 +75853,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"wellnessGoal"> | string
     userId?: StringWithAggregatesFilter<"wellnessGoal"> | string
     title?: StringWithAggregatesFilter<"wellnessGoal"> | string
-    categoryId?: StringWithAggregatesFilter<"wellnessGoal"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"wellnessGoal"> | string | null
     targetValue?: IntWithAggregatesFilter<"wellnessGoal"> | number
     unit?: StringWithAggregatesFilter<"wellnessGoal"> | string
     frequency?: StringWithAggregatesFilter<"wellnessGoal"> | string
@@ -75887,6 +75862,73 @@ export namespace Prisma {
     active?: BoolWithAggregatesFilter<"wellnessGoal"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"wellnessGoal"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"wellnessGoal"> | Date | string | null
+  }
+
+  export type wellnessGoalProgressWhereInput = {
+    AND?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
+    OR?: wellnessGoalProgressWhereInput[]
+    NOT?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
+    id?: StringFilter<"wellnessGoalProgress"> | string
+    goalId?: StringFilter<"wellnessGoalProgress"> | string
+    recordingDate?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    achievedValue?: IntFilter<"wellnessGoalProgress"> | number
+    goalAchieved?: BoolFilter<"wellnessGoalProgress"> | boolean
+    createdAt?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"wellnessGoalProgress"> | Date | string | null
+    wellnessGoal?: XOR<WellnessGoalScalarRelationFilter, wellnessGoalWhereInput>
+  }
+
+  export type wellnessGoalProgressOrderByWithRelationInput = {
+    id?: SortOrder
+    goalId?: SortOrder
+    recordingDate?: SortOrder
+    achievedValue?: SortOrder
+    goalAchieved?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    wellnessGoal?: wellnessGoalOrderByWithRelationInput
+  }
+
+  export type wellnessGoalProgressWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
+    OR?: wellnessGoalProgressWhereInput[]
+    NOT?: wellnessGoalProgressWhereInput | wellnessGoalProgressWhereInput[]
+    goalId?: StringFilter<"wellnessGoalProgress"> | string
+    recordingDate?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    achievedValue?: IntFilter<"wellnessGoalProgress"> | number
+    goalAchieved?: BoolFilter<"wellnessGoalProgress"> | boolean
+    createdAt?: DateTimeFilter<"wellnessGoalProgress"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"wellnessGoalProgress"> | Date | string | null
+    wellnessGoal?: XOR<WellnessGoalScalarRelationFilter, wellnessGoalWhereInput>
+  }, "id">
+
+  export type wellnessGoalProgressOrderByWithAggregationInput = {
+    id?: SortOrder
+    goalId?: SortOrder
+    recordingDate?: SortOrder
+    achievedValue?: SortOrder
+    goalAchieved?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    _count?: wellnessGoalProgressCountOrderByAggregateInput
+    _avg?: wellnessGoalProgressAvgOrderByAggregateInput
+    _max?: wellnessGoalProgressMaxOrderByAggregateInput
+    _min?: wellnessGoalProgressMinOrderByAggregateInput
+    _sum?: wellnessGoalProgressSumOrderByAggregateInput
+  }
+
+  export type wellnessGoalProgressScalarWhereWithAggregatesInput = {
+    AND?: wellnessGoalProgressScalarWhereWithAggregatesInput | wellnessGoalProgressScalarWhereWithAggregatesInput[]
+    OR?: wellnessGoalProgressScalarWhereWithAggregatesInput[]
+    NOT?: wellnessGoalProgressScalarWhereWithAggregatesInput | wellnessGoalProgressScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"wellnessGoalProgress"> | string
+    goalId?: StringWithAggregatesFilter<"wellnessGoalProgress"> | string
+    recordingDate?: DateTimeWithAggregatesFilter<"wellnessGoalProgress"> | Date | string
+    achievedValue?: IntWithAggregatesFilter<"wellnessGoalProgress"> | number
+    goalAchieved?: BoolWithAggregatesFilter<"wellnessGoalProgress"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"wellnessGoalProgress"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"wellnessGoalProgress"> | Date | string | null
   }
 
   export type activityCategoryWhereInput = {
@@ -76226,22 +76268,20 @@ export namespace Prisma {
     id?: StringFilter<"programCategory"> | string
     name?: StringFilter<"programCategory"> | string
     description?: StringNullableFilter<"programCategory"> | string | null
-    exerciseProgramId?: StringFilter<"programCategory"> | string
     createdAt?: DateTimeFilter<"programCategory"> | Date | string
     updatedAt?: DateTimeNullableFilter<"programCategory"> | Date | string | null
     cognitiveExercise?: CognitiveExerciseListRelationFilter
-    exerciseProgram?: XOR<ExerciseProgramScalarRelationFilter, exerciseProgramWhereInput>
+    exerciseProgram?: ExerciseProgramListRelationFilter
   }
 
   export type programCategoryOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    exerciseProgramId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     cognitiveExercise?: cognitiveExerciseOrderByRelationAggregateInput
-    exerciseProgram?: exerciseProgramOrderByWithRelationInput
+    exerciseProgram?: exerciseProgramOrderByRelationAggregateInput
   }
 
   export type programCategoryWhereUniqueInput = Prisma.AtLeast<{
@@ -76251,18 +76291,16 @@ export namespace Prisma {
     NOT?: programCategoryWhereInput | programCategoryWhereInput[]
     name?: StringFilter<"programCategory"> | string
     description?: StringNullableFilter<"programCategory"> | string | null
-    exerciseProgramId?: StringFilter<"programCategory"> | string
     createdAt?: DateTimeFilter<"programCategory"> | Date | string
     updatedAt?: DateTimeNullableFilter<"programCategory"> | Date | string | null
     cognitiveExercise?: CognitiveExerciseListRelationFilter
-    exerciseProgram?: XOR<ExerciseProgramScalarRelationFilter, exerciseProgramWhereInput>
+    exerciseProgram?: ExerciseProgramListRelationFilter
   }, "id">
 
   export type programCategoryOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
-    exerciseProgramId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: programCategoryCountOrderByAggregateInput
@@ -76277,7 +76315,6 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"programCategory"> | string
     name?: StringWithAggregatesFilter<"programCategory"> | string
     description?: StringNullableWithAggregatesFilter<"programCategory"> | string | null
-    exerciseProgramId?: StringWithAggregatesFilter<"programCategory"> | string
     createdAt?: DateTimeWithAggregatesFilter<"programCategory"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"programCategory"> | Date | string | null
   }
@@ -76725,9 +76762,8 @@ export namespace Prisma {
 
   export type activityLogCreateInput = {
     id?: string
-    action_type?: string | null
+    actionType?: string | null
     description?: string | null
-    actionDate?: Date | string | null
     ipAddress?: string | null
     device?: string | null
     createdAt?: Date | string
@@ -76738,9 +76774,8 @@ export namespace Prisma {
   export type activityLogUncheckedCreateInput = {
     id?: string
     userId?: string | null
-    action_type?: string | null
+    actionType?: string | null
     description?: string | null
-    actionDate?: Date | string | null
     ipAddress?: string | null
     device?: string | null
     createdAt?: Date | string
@@ -76749,9 +76784,8 @@ export namespace Prisma {
 
   export type activityLogUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    action_type?: NullableStringFieldUpdateOperationsInput | string | null
+    actionType?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    actionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     device?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -76762,9 +76796,8 @@ export namespace Prisma {
   export type activityLogUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    action_type?: NullableStringFieldUpdateOperationsInput | string | null
+    actionType?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    actionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     device?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -76774,9 +76807,8 @@ export namespace Prisma {
   export type activityLogCreateManyInput = {
     id?: string
     userId?: string | null
-    action_type?: string | null
+    actionType?: string | null
     description?: string | null
-    actionDate?: Date | string | null
     ipAddress?: string | null
     device?: string | null
     createdAt?: Date | string
@@ -76785,9 +76817,8 @@ export namespace Prisma {
 
   export type activityLogUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    action_type?: NullableStringFieldUpdateOperationsInput | string | null
+    actionType?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    actionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     device?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -76797,9 +76828,8 @@ export namespace Prisma {
   export type activityLogUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    action_type?: NullableStringFieldUpdateOperationsInput | string | null
+    actionType?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    actionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     device?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -76889,20 +76919,20 @@ export namespace Prisma {
     level?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    badgeCategory: badgeCategoryCreateNestedOneWithoutBadgeInput
-    userBadge?: userBadgeCreateNestedManyWithoutBadgeInput
+    userBadge?: userBadgeCreateNestedOneWithoutBadgeInput
+    badgeCategory?: badgeCategoryCreateNestedOneWithoutBadgeInput
   }
 
   export type badgeUncheckedCreateInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     description?: string | null
     icon?: string | null
     level?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    userBadge?: userBadgeUncheckedCreateNestedManyWithoutBadgeInput
+    userBadge?: userBadgeUncheckedCreateNestedOneWithoutBadgeInput
   }
 
   export type badgeUpdateInput = {
@@ -76913,26 +76943,26 @@ export namespace Prisma {
     level?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    badgeCategory?: badgeCategoryUpdateOneRequiredWithoutBadgeNestedInput
-    userBadge?: userBadgeUpdateManyWithoutBadgeNestedInput
+    userBadge?: userBadgeUpdateOneWithoutBadgeNestedInput
+    badgeCategory?: badgeCategoryUpdateOneWithoutBadgeNestedInput
   }
 
   export type badgeUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     level?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userBadge?: userBadgeUncheckedUpdateManyWithoutBadgeNestedInput
+    userBadge?: userBadgeUncheckedUpdateOneWithoutBadgeNestedInput
   }
 
   export type badgeCreateManyInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     description?: string | null
     icon?: string | null
     level?: number | null
@@ -76953,7 +76983,7 @@ export namespace Prisma {
   export type badgeUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -76970,7 +77000,7 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    cognitiveCategory: cognitiveCategoryCreateNestedOneWithoutCognitiveExerciseInput
+    cognitiveCategory?: cognitiveCategoryCreateNestedOneWithoutCognitiveExerciseInput
     userActivity?: userActivityCreateNestedManyWithoutCognitiveExerciseInput
     programCategory?: programCategoryCreateNestedOneWithoutCognitiveExerciseInput
   }
@@ -76978,7 +77008,7 @@ export namespace Prisma {
   export type cognitiveExerciseUncheckedCreateInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     difficultyLevel?: number | null
     durationMinutes?: number | null
     description?: string | null
@@ -76998,7 +77028,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cognitiveCategory?: cognitiveCategoryUpdateOneRequiredWithoutCognitiveExerciseNestedInput
+    cognitiveCategory?: cognitiveCategoryUpdateOneWithoutCognitiveExerciseNestedInput
     userActivity?: userActivityUpdateManyWithoutCognitiveExerciseNestedInput
     programCategory?: programCategoryUpdateOneWithoutCognitiveExerciseNestedInput
   }
@@ -77006,7 +77036,7 @@ export namespace Prisma {
   export type cognitiveExerciseUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77020,7 +77050,7 @@ export namespace Prisma {
   export type cognitiveExerciseCreateManyInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     difficultyLevel?: number | null
     durationMinutes?: number | null
     description?: string | null
@@ -77044,7 +77074,7 @@ export namespace Prisma {
   export type cognitiveExerciseUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77075,7 +77105,7 @@ export namespace Prisma {
     creatorId: string
     creationDate?: Date | string
     status?: string | null
-    categoryId: string
+    categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     projectMember?: projectMemberUncheckedCreateNestedManyWithoutCollaborativeProjectInput
@@ -77103,7 +77133,7 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     projectMember?: projectMemberUncheckedUpdateManyWithoutCollaborativeProjectNestedInput
@@ -77117,7 +77147,7 @@ export namespace Prisma {
     creatorId: string
     creationDate?: Date | string
     status?: string | null
-    categoryId: string
+    categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -77139,7 +77169,7 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -77147,7 +77177,6 @@ export namespace Prisma {
   export type conversationCreateInput = {
     id?: string
     type?: string | null
-    creationDate?: Date | string | null
     title?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -77159,7 +77188,6 @@ export namespace Prisma {
   export type conversationUncheckedCreateInput = {
     id?: string
     type?: string | null
-    creationDate?: Date | string | null
     title?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -77171,7 +77199,6 @@ export namespace Prisma {
   export type conversationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77183,7 +77210,6 @@ export namespace Prisma {
   export type conversationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77195,7 +77221,6 @@ export namespace Prisma {
   export type conversationCreateManyInput = {
     id?: string
     type?: string | null
-    creationDate?: Date | string | null
     title?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -77204,7 +77229,6 @@ export namespace Prisma {
   export type conversationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77213,13 +77237,13 @@ export namespace Prisma {
   export type conversationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type conversationParticipantCreateInput = {
+    id?: string
     dateAdded?: Date | string | null
     administrator?: boolean | null
     lastAccess?: Date | string
@@ -77230,6 +77254,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUncheckedCreateInput = {
+    id?: string
     conversationId: string
     userId: string
     dateAdded?: Date | string | null
@@ -77240,6 +77265,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     lastAccess?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -77250,6 +77276,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     conversationId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77260,6 +77287,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantCreateManyInput = {
+    id?: string
     conversationId: string
     userId: string
     dateAdded?: Date | string | null
@@ -77270,6 +77298,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     lastAccess?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -77278,6 +77307,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
     conversationId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77290,73 +77320,69 @@ export namespace Prisma {
   export type exerciseProgramCreateInput = {
     id?: string
     name: string
-    categoryId: string
     difficultyLevel?: number | null
-    adaptedForReducedMobility: boolean
+    adaptedForReducedMobility?: boolean | null
     durationMinutes?: number | null
     description?: string | null
     videoLink?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategory?: programCategoryCreateNestedManyWithoutExerciseProgramInput
+    programCategory?: programCategoryCreateNestedOneWithoutExerciseProgramInput
     userActivity?: userActivityCreateNestedManyWithoutExerciseProgramInput
   }
 
   export type exerciseProgramUncheckedCreateInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     difficultyLevel?: number | null
-    adaptedForReducedMobility: boolean
+    adaptedForReducedMobility?: boolean | null
     durationMinutes?: number | null
     description?: string | null
     videoLink?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategory?: programCategoryUncheckedCreateNestedManyWithoutExerciseProgramInput
     userActivity?: userActivityUncheckedCreateNestedManyWithoutExerciseProgramInput
   }
 
   export type exerciseProgramUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: BoolFieldUpdateOperationsInput | boolean
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     videoLink?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategory?: programCategoryUpdateManyWithoutExerciseProgramNestedInput
+    programCategory?: programCategoryUpdateOneWithoutExerciseProgramNestedInput
     userActivity?: userActivityUpdateManyWithoutExerciseProgramNestedInput
   }
 
   export type exerciseProgramUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: BoolFieldUpdateOperationsInput | boolean
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     videoLink?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategory?: programCategoryUncheckedUpdateManyWithoutExerciseProgramNestedInput
     userActivity?: userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput
   }
 
   export type exerciseProgramCreateManyInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     difficultyLevel?: number | null
-    adaptedForReducedMobility: boolean
+    adaptedForReducedMobility?: boolean | null
     durationMinutes?: number | null
     description?: string | null
     videoLink?: string | null
@@ -77368,9 +77394,8 @@ export namespace Prisma {
   export type exerciseProgramUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: BoolFieldUpdateOperationsInput | boolean
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     videoLink?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77382,9 +77407,9 @@ export namespace Prisma {
   export type exerciseProgramUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: BoolFieldUpdateOperationsInput | boolean
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     videoLink?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77397,7 +77422,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parentCategoryId: string
+    parentCategoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     forumTopic?: forumTopicCreateNestedManyWithoutForumCategoryInput
@@ -77407,7 +77432,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parentCategoryId: string
+    parentCategoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     forumTopic?: forumTopicUncheckedCreateNestedManyWithoutForumCategoryInput
@@ -77417,7 +77442,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentCategoryId?: StringFieldUpdateOperationsInput | string
+    parentCategoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     forumTopic?: forumTopicUpdateManyWithoutForumCategoryNestedInput
@@ -77427,7 +77452,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentCategoryId?: StringFieldUpdateOperationsInput | string
+    parentCategoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     forumTopic?: forumTopicUncheckedUpdateManyWithoutForumCategoryNestedInput
@@ -77437,7 +77462,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parentCategoryId: string
+    parentCategoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -77446,7 +77471,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentCategoryId?: StringFieldUpdateOperationsInput | string
+    parentCategoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -77455,7 +77480,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentCategoryId?: StringFieldUpdateOperationsInput | string
+    parentCategoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -77463,8 +77488,6 @@ export namespace Prisma {
   export type forumMessageCreateInput = {
     id?: string
     content?: string | null
-    creationDate?: Date | string | null
-    modificationDate?: Date | string | null
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -77474,11 +77497,9 @@ export namespace Prisma {
 
   export type forumMessageUncheckedCreateInput = {
     id?: string
-    topicId?: string | null
-    authorId?: string | null
+    topicId: string
+    authorId: string
     content?: string | null
-    creationDate?: Date | string | null
-    modificationDate?: Date | string | null
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -77487,8 +77508,6 @@ export namespace Prisma {
   export type forumMessageUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77498,11 +77517,9 @@ export namespace Prisma {
 
   export type forumMessageUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    topicId?: NullableStringFieldUpdateOperationsInput | string | null
-    authorId?: NullableStringFieldUpdateOperationsInput | string | null
+    topicId?: StringFieldUpdateOperationsInput | string
+    authorId?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77510,11 +77527,9 @@ export namespace Prisma {
 
   export type forumMessageCreateManyInput = {
     id?: string
-    topicId?: string | null
-    authorId?: string | null
+    topicId: string
+    authorId: string
     content?: string | null
-    creationDate?: Date | string | null
-    modificationDate?: Date | string | null
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -77523,8 +77538,6 @@ export namespace Prisma {
   export type forumMessageUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77532,11 +77545,9 @@ export namespace Prisma {
 
   export type forumMessageUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    topicId?: NullableStringFieldUpdateOperationsInput | string | null
-    authorId?: NullableStringFieldUpdateOperationsInput | string | null
+    topicId?: StringFieldUpdateOperationsInput | string
+    authorId?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77545,7 +77556,6 @@ export namespace Prisma {
   export type forumTopicCreateInput = {
     id?: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
@@ -77553,7 +77563,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     forumMessage?: forumMessageCreateNestedManyWithoutForumTopicInput
     user: userCreateNestedOneWithoutForumTopicInput
-    forumCategory: forumCategoryCreateNestedOneWithoutForumTopicInput
+    forumCategory?: forumCategoryCreateNestedOneWithoutForumTopicInput
   }
 
   export type forumTopicUncheckedCreateInput = {
@@ -77561,7 +77571,6 @@ export namespace Prisma {
     categoryId: string
     authorId: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
@@ -77573,7 +77582,6 @@ export namespace Prisma {
   export type forumTopicUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
@@ -77581,7 +77589,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     forumMessage?: forumMessageUpdateManyWithoutForumTopicNestedInput
     user?: userUpdateOneRequiredWithoutForumTopicNestedInput
-    forumCategory?: forumCategoryUpdateOneRequiredWithoutForumTopicNestedInput
+    forumCategory?: forumCategoryUpdateOneWithoutForumTopicNestedInput
   }
 
   export type forumTopicUncheckedUpdateInput = {
@@ -77589,7 +77597,6 @@ export namespace Prisma {
     categoryId?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
@@ -77603,7 +77610,6 @@ export namespace Prisma {
     categoryId: string
     authorId: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
@@ -77614,7 +77620,6 @@ export namespace Prisma {
   export type forumTopicUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
@@ -77627,79 +77632,9 @@ export namespace Prisma {
     categoryId?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type wellnessGoalProgressCreateInput = {
-    id?: string
-    recordingDate: Date | string
-    achievedValue: number
-    goalAchieved: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    wellnessGoal: wellnessGoalCreateNestedOneWithoutWellnessGoalProgressInput
-  }
-
-  export type wellnessGoalProgressUncheckedCreateInput = {
-    id?: string
-    goalId: string
-    recordingDate: Date | string
-    achievedValue: number
-    goalAchieved: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
-  export type wellnessGoalProgressUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    achievedValue?: IntFieldUpdateOperationsInput | number
-    goalAchieved?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wellnessGoal?: wellnessGoalUpdateOneRequiredWithoutWellnessGoalProgressNestedInput
-  }
-
-  export type wellnessGoalProgressUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    goalId?: StringFieldUpdateOperationsInput | string
-    recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    achievedValue?: IntFieldUpdateOperationsInput | number
-    goalAchieved?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type wellnessGoalProgressCreateManyInput = {
-    id?: string
-    goalId: string
-    recordingDate: Date | string
-    achievedValue: number
-    goalAchieved: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
-  export type wellnessGoalProgressUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    achievedValue?: IntFieldUpdateOperationsInput | number
-    goalAchieved?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type wellnessGoalProgressUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    goalId?: StringFieldUpdateOperationsInput | string
-    recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    achievedValue?: IntFieldUpdateOperationsInput | number
-    goalAchieved?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -77720,7 +77655,7 @@ export namespace Prisma {
 
   export type healthIndicatorUncheckedCreateInput = {
     id?: string
-    userId?: string | null
+    userId: string
     recordingDate: Date | string
     stepCount?: number | null
     sleepDurationMinutes?: number | null
@@ -77748,7 +77683,7 @@ export namespace Prisma {
 
   export type healthIndicatorUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
     recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     stepCount?: NullableIntFieldUpdateOperationsInput | number | null
     sleepDurationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
@@ -77762,7 +77697,7 @@ export namespace Prisma {
 
   export type healthIndicatorCreateManyInput = {
     id?: string
-    userId?: string | null
+    userId: string
     recordingDate: Date | string
     stepCount?: number | null
     sleepDurationMinutes?: number | null
@@ -77789,7 +77724,7 @@ export namespace Prisma {
 
   export type healthIndicatorUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
     recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     stepCount?: NullableIntFieldUpdateOperationsInput | number | null
     sleepDurationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
@@ -77880,7 +77815,6 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
@@ -77888,7 +77822,7 @@ export namespace Prisma {
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     helpOffer?: helpOfferCreateNestedManyWithoutHelpRequestInput
@@ -77902,16 +77836,15 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     helpOffer?: helpOfferUncheckedCreateNestedManyWithoutHelpRequestInput
@@ -77922,7 +77855,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77930,7 +77862,7 @@ export namespace Prisma {
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     helpOffer?: helpOfferUpdateManyWithoutHelpRequestNestedInput
@@ -77944,16 +77876,15 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     helpOffer?: helpOfferUncheckedUpdateManyWithoutHelpRequestNestedInput
@@ -77965,16 +77896,15 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -77983,7 +77913,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -77991,7 +77920,7 @@ export namespace Prisma {
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -78001,16 +77930,15 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -78125,7 +78053,7 @@ export namespace Prisma {
 
   export type medicationReminderCreateInput = {
     id?: string
-    medication_name: string
+    medicationName: string
     dosage?: string | null
     morningReminderTime?: Date | string | null
     noonReminderTime?: Date | string | null
@@ -78135,7 +78063,7 @@ export namespace Prisma {
     instructions?: string | null
     active?: boolean | null
     startDate?: Date | string | null
-    end_date?: Date | string | null
+    endDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user: userCreateNestedOneWithoutMedicationReminderInput
@@ -78144,7 +78072,7 @@ export namespace Prisma {
   export type medicationReminderUncheckedCreateInput = {
     id?: string
     userId: string
-    medication_name: string
+    medicationName: string
     dosage?: string | null
     morningReminderTime?: Date | string | null
     noonReminderTime?: Date | string | null
@@ -78154,14 +78082,14 @@ export namespace Prisma {
     instructions?: string | null
     active?: boolean | null
     startDate?: Date | string | null
-    end_date?: Date | string | null
+    endDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
 
   export type medicationReminderUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    medication_name?: StringFieldUpdateOperationsInput | string
+    medicationName?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morningReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     noonReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78171,7 +78099,7 @@ export namespace Prisma {
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
     active?: NullableBoolFieldUpdateOperationsInput | boolean | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneRequiredWithoutMedicationReminderNestedInput
@@ -78180,7 +78108,7 @@ export namespace Prisma {
   export type medicationReminderUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    medication_name?: StringFieldUpdateOperationsInput | string
+    medicationName?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morningReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     noonReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78190,7 +78118,7 @@ export namespace Prisma {
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
     active?: NullableBoolFieldUpdateOperationsInput | boolean | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -78198,7 +78126,7 @@ export namespace Prisma {
   export type medicationReminderCreateManyInput = {
     id?: string
     userId: string
-    medication_name: string
+    medicationName: string
     dosage?: string | null
     morningReminderTime?: Date | string | null
     noonReminderTime?: Date | string | null
@@ -78208,14 +78136,14 @@ export namespace Prisma {
     instructions?: string | null
     active?: boolean | null
     startDate?: Date | string | null
-    end_date?: Date | string | null
+    endDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
 
   export type medicationReminderUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    medication_name?: StringFieldUpdateOperationsInput | string
+    medicationName?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morningReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     noonReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78225,7 +78153,7 @@ export namespace Prisma {
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
     active?: NullableBoolFieldUpdateOperationsInput | boolean | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -78233,7 +78161,7 @@ export namespace Prisma {
   export type medicationReminderUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    medication_name?: StringFieldUpdateOperationsInput | string
+    medicationName?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morningReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     noonReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78243,7 +78171,7 @@ export namespace Prisma {
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
     active?: NullableBoolFieldUpdateOperationsInput | boolean | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -78335,9 +78263,9 @@ export namespace Prisma {
     title: string
     description?: string | null
     startDate: Date | string
-    end_date: Date | string
+    endDate: Date | string
     location: string
-    gps_coordinates?: string | null
+    gpsCoordinates?: string | null
     organizer?: string | null
     contact?: string | null
     officialLink?: string | null
@@ -78350,9 +78278,9 @@ export namespace Prisma {
     title: string
     description?: string | null
     startDate: Date | string
-    end_date: Date | string
+    endDate: Date | string
     location: string
-    gps_coordinates?: string | null
+    gpsCoordinates?: string | null
     organizer?: string | null
     contact?: string | null
     officialLink?: string | null
@@ -78365,9 +78293,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     location?: StringFieldUpdateOperationsInput | string
-    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
+    gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
     officialLink?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78380,9 +78308,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     location?: StringFieldUpdateOperationsInput | string
-    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
+    gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
     officialLink?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78395,9 +78323,9 @@ export namespace Prisma {
     title: string
     description?: string | null
     startDate: Date | string
-    end_date: Date | string
+    endDate: Date | string
     location: string
-    gps_coordinates?: string | null
+    gpsCoordinates?: string | null
     organizer?: string | null
     contact?: string | null
     officialLink?: string | null
@@ -78410,9 +78338,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     location?: StringFieldUpdateOperationsInput | string
-    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
+    gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
     officialLink?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78425,9 +78353,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    end_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     location?: StringFieldUpdateOperationsInput | string
-    gps_coordinates?: NullableStringFieldUpdateOperationsInput | string | null
+    gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     organizer?: NullableStringFieldUpdateOperationsInput | string | null
     contact?: NullableStringFieldUpdateOperationsInput | string | null
     officialLink?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78623,14 +78551,14 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    nutritionalCategory: nutritionalCategoryCreateNestedOneWithoutNutritionalAdviceInput
+    nutritionalCategory?: nutritionalCategoryCreateNestedOneWithoutNutritionalAdviceInput
   }
 
   export type nutritionalAdviceUncheckedCreateInput = {
     id?: string
     title: string
     description?: string | null
-    categoryId: string
+    categoryId?: string | null
     season: string
     image?: string | null
     createdAt?: Date | string
@@ -78645,14 +78573,14 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    nutritionalCategory?: nutritionalCategoryUpdateOneRequiredWithoutNutritionalAdviceNestedInput
+    nutritionalCategory?: nutritionalCategoryUpdateOneWithoutNutritionalAdviceNestedInput
   }
 
   export type nutritionalAdviceUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     season?: StringFieldUpdateOperationsInput | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -78663,7 +78591,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    categoryId: string
+    categoryId?: string | null
     season: string
     image?: string | null
     createdAt?: Date | string
@@ -78684,7 +78612,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     season?: StringFieldUpdateOperationsInput | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -78906,7 +78834,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user?: userCreateNestedOneWithoutResourceInput
-    resourceCategory: resourceCategoryCreateNestedOneWithoutResourceInput
+    resourceCategory?: resourceCategoryCreateNestedOneWithoutResourceInput
   }
 
   export type resourceUncheckedCreateInput = {
@@ -78914,7 +78842,7 @@ export namespace Prisma {
     title: string
     content?: string | null
     type: string
-    categoryId: string
+    categoryId?: string | null
     authorId: string
     adminValidated?: boolean | null
     createdAt?: Date | string
@@ -78930,7 +78858,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutResourceNestedInput
-    resourceCategory?: resourceCategoryUpdateOneRequiredWithoutResourceNestedInput
+    resourceCategory?: resourceCategoryUpdateOneWithoutResourceNestedInput
   }
 
   export type resourceUncheckedUpdateInput = {
@@ -78938,7 +78866,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     authorId?: StringFieldUpdateOperationsInput | string
     adminValidated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -78950,7 +78878,7 @@ export namespace Prisma {
     title: string
     content?: string | null
     type: string
-    categoryId: string
+    categoryId?: string | null
     authorId: string
     adminValidated?: boolean | null
     createdAt?: Date | string
@@ -78972,7 +78900,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     authorId?: StringFieldUpdateOperationsInput | string
     adminValidated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -79237,7 +79165,7 @@ export namespace Prisma {
     description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    skillCategory: skillCategoryCreateNestedOneWithoutSkillInput
+    skillCategory?: skillCategoryCreateNestedOneWithoutSkillInput
     userSkill?: userSkillCreateNestedManyWithoutSkillInput
   }
 
@@ -79245,7 +79173,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    categoryId: string
+    categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     userSkill?: userSkillUncheckedCreateNestedManyWithoutSkillInput
@@ -79257,7 +79185,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    skillCategory?: skillCategoryUpdateOneRequiredWithoutSkillNestedInput
+    skillCategory?: skillCategoryUpdateOneWithoutSkillNestedInput
     userSkill?: userSkillUpdateManyWithoutSkillNestedInput
   }
 
@@ -79265,7 +79193,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     userSkill?: userSkillUncheckedUpdateManyWithoutSkillNestedInput
@@ -79275,7 +79203,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    categoryId: string
+    categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -79292,7 +79220,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -79543,13 +79471,13 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user?: userCreateNestedOneWithoutUrbanIssueReportInput
-    issueCategory: issueCategoryCreateNestedOneWithoutUrbanIssueReportInput
+    issueCategory?: issueCategoryCreateNestedOneWithoutUrbanIssueReportInput
   }
 
   export type urbanIssueReportUncheckedCreateInput = {
     id?: string
     userId: string
-    categoryId: string
+    categoryId?: string | null
     description: string
     address: string
     gpsCoordinates?: string | null
@@ -79571,13 +79499,13 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneWithoutUrbanIssueReportNestedInput
-    issueCategory?: issueCategoryUpdateOneRequiredWithoutUrbanIssueReportNestedInput
+    issueCategory?: issueCategoryUpdateOneWithoutUrbanIssueReportNestedInput
   }
 
   export type urbanIssueReportUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -79591,7 +79519,7 @@ export namespace Prisma {
   export type urbanIssueReportCreateManyInput = {
     id?: string
     userId: string
-    categoryId: string
+    categoryId?: string | null
     description: string
     address: string
     gpsCoordinates?: string | null
@@ -79617,7 +79545,7 @@ export namespace Prisma {
   export type urbanIssueReportUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -80364,14 +80292,14 @@ export namespace Prisma {
     level: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    wellnessCategory: wellnessCategoryCreateNestedOneWithoutWellnessBadgeInput
+    wellnessCategory?: wellnessCategoryCreateNestedOneWithoutWellnessBadgeInput
   }
 
   export type wellnessBadgeUncheckedCreateInput = {
     id?: string
     name: string
     description?: string | null
-    categoryId: string
+    categoryId?: string | null
     image?: string | null
     level: number
     createdAt?: Date | string
@@ -80386,14 +80314,14 @@ export namespace Prisma {
     level?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wellnessCategory?: wellnessCategoryUpdateOneRequiredWithoutWellnessBadgeNestedInput
+    wellnessCategory?: wellnessCategoryUpdateOneWithoutWellnessBadgeNestedInput
   }
 
   export type wellnessBadgeUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     level?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -80404,7 +80332,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    categoryId: string
+    categoryId?: string | null
     image?: string | null
     level: number
     createdAt?: Date | string
@@ -80425,7 +80353,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     level?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -80445,14 +80373,14 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     wellnessGoalProgress?: wellnessGoalProgressCreateNestedManyWithoutWellnessGoalInput
     user?: userCreateNestedOneWithoutWellnessGoalInput
-    wellnessCategory: wellnessCategoryCreateNestedOneWithoutWellnessGoalInput
+    wellnessCategory?: wellnessCategoryCreateNestedOneWithoutWellnessGoalInput
   }
 
   export type wellnessGoalUncheckedCreateInput = {
     id?: string
     userId: string
     title: string
-    categoryId: string
+    categoryId?: string | null
     targetValue: number
     unit: string
     frequency: string
@@ -80477,14 +80405,14 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wellnessGoalProgress?: wellnessGoalProgressUpdateManyWithoutWellnessGoalNestedInput
     user?: userUpdateOneWithoutWellnessGoalNestedInput
-    wellnessCategory?: wellnessCategoryUpdateOneRequiredWithoutWellnessGoalNestedInput
+    wellnessCategory?: wellnessCategoryUpdateOneWithoutWellnessGoalNestedInput
   }
 
   export type wellnessGoalUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     targetValue?: IntFieldUpdateOperationsInput | number
     unit?: StringFieldUpdateOperationsInput | string
     frequency?: StringFieldUpdateOperationsInput | string
@@ -80500,7 +80428,7 @@ export namespace Prisma {
     id?: string
     userId: string
     title: string
-    categoryId: string
+    categoryId?: string | null
     targetValue: number
     unit: string
     frequency: string
@@ -80528,13 +80456,82 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     targetValue?: IntFieldUpdateOperationsInput | number
     unit?: StringFieldUpdateOperationsInput | string
     frequency?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     active?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type wellnessGoalProgressCreateInput = {
+    id?: string
+    recordingDate: Date | string
+    achievedValue: number
+    goalAchieved: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    wellnessGoal: wellnessGoalCreateNestedOneWithoutWellnessGoalProgressInput
+  }
+
+  export type wellnessGoalProgressUncheckedCreateInput = {
+    id?: string
+    goalId: string
+    recordingDate: Date | string
+    achievedValue: number
+    goalAchieved: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type wellnessGoalProgressUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    achievedValue?: IntFieldUpdateOperationsInput | number
+    goalAchieved?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wellnessGoal?: wellnessGoalUpdateOneRequiredWithoutWellnessGoalProgressNestedInput
+  }
+
+  export type wellnessGoalProgressUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    goalId?: StringFieldUpdateOperationsInput | string
+    recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    achievedValue?: IntFieldUpdateOperationsInput | number
+    goalAchieved?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type wellnessGoalProgressCreateManyInput = {
+    id?: string
+    goalId: string
+    recordingDate: Date | string
+    achievedValue: number
+    goalAchieved: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type wellnessGoalProgressUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    achievedValue?: IntFieldUpdateOperationsInput | number
+    goalAchieved?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type wellnessGoalProgressUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    goalId?: StringFieldUpdateOperationsInput | string
+    recordingDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    achievedValue?: IntFieldUpdateOperationsInput | number
+    goalAchieved?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -80906,17 +80903,17 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutProgramCategoryInput
-    exerciseProgram: exerciseProgramCreateNestedOneWithoutProgramCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutProgramCategoryInput
   }
 
   export type programCategoryUncheckedCreateInput = {
     id?: string
     name: string
     description?: string | null
-    exerciseProgramId: string
     createdAt?: Date | string
     updatedAt?: Date | string | null
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutProgramCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutProgramCategoryInput
   }
 
   export type programCategoryUpdateInput = {
@@ -80926,24 +80923,23 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutProgramCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateOneRequiredWithoutProgramCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutProgramCategoryNestedInput
   }
 
   export type programCategoryUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    exerciseProgramId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutProgramCategoryNestedInput
   }
 
   export type programCategoryCreateManyInput = {
     id?: string
     name: string
     description?: string | null
-    exerciseProgramId: string
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -80960,7 +80956,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    exerciseProgramId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -81574,9 +81569,8 @@ export namespace Prisma {
   export type activityLogCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    action_type?: SortOrder
+    actionType?: SortOrder
     description?: SortOrder
-    actionDate?: SortOrder
     ipAddress?: SortOrder
     device?: SortOrder
     createdAt?: SortOrder
@@ -81586,9 +81580,8 @@ export namespace Prisma {
   export type activityLogMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    action_type?: SortOrder
+    actionType?: SortOrder
     description?: SortOrder
-    actionDate?: SortOrder
     ipAddress?: SortOrder
     device?: SortOrder
     createdAt?: SortOrder
@@ -81598,9 +81591,8 @@ export namespace Prisma {
   export type activityLogMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    action_type?: SortOrder
+    actionType?: SortOrder
     description?: SortOrder
-    actionDate?: SortOrder
     ipAddress?: SortOrder
     device?: SortOrder
     createdAt?: SortOrder
@@ -81650,19 +81642,14 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type BadgeCategoryScalarRelationFilter = {
-    is?: badgeCategoryWhereInput
-    isNot?: badgeCategoryWhereInput
+  export type UserBadgeNullableScalarRelationFilter = {
+    is?: userBadgeWhereInput | null
+    isNot?: userBadgeWhereInput | null
   }
 
-  export type UserBadgeListRelationFilter = {
-    every?: userBadgeWhereInput
-    some?: userBadgeWhereInput
-    none?: userBadgeWhereInput
-  }
-
-  export type userBadgeOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type BadgeCategoryNullableScalarRelationFilter = {
+    is?: badgeCategoryWhereInput | null
+    isNot?: badgeCategoryWhereInput | null
   }
 
   export type badgeCountOrderByAggregateInput = {
@@ -81706,9 +81693,9 @@ export namespace Prisma {
     level?: SortOrder
   }
 
-  export type CognitiveCategoryScalarRelationFilter = {
-    is?: cognitiveCategoryWhereInput
-    isNot?: cognitiveCategoryWhereInput
+  export type CognitiveCategoryNullableScalarRelationFilter = {
+    is?: cognitiveCategoryWhereInput | null
+    isNot?: cognitiveCategoryWhereInput | null
   }
 
   export type UserActivityListRelationFilter = {
@@ -81869,7 +81856,6 @@ export namespace Prisma {
   export type conversationCountOrderByAggregateInput = {
     id?: SortOrder
     type?: SortOrder
-    creationDate?: SortOrder
     title?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -81878,7 +81864,6 @@ export namespace Prisma {
   export type conversationMaxOrderByAggregateInput = {
     id?: SortOrder
     type?: SortOrder
-    creationDate?: SortOrder
     title?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -81887,7 +81872,6 @@ export namespace Prisma {
   export type conversationMinOrderByAggregateInput = {
     id?: SortOrder
     type?: SortOrder
-    creationDate?: SortOrder
     title?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -81898,12 +81882,8 @@ export namespace Prisma {
     isNot?: conversationWhereInput
   }
 
-  export type conversationParticipantConversationIdUserIdCompoundUniqueInput = {
-    conversationId: string
-    userId: string
-  }
-
   export type conversationParticipantCountOrderByAggregateInput = {
+    id?: SortOrder
     conversationId?: SortOrder
     userId?: SortOrder
     dateAdded?: SortOrder
@@ -81914,6 +81894,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantMaxOrderByAggregateInput = {
+    id?: SortOrder
     conversationId?: SortOrder
     userId?: SortOrder
     dateAdded?: SortOrder
@@ -81924,6 +81905,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantMinOrderByAggregateInput = {
+    id?: SortOrder
     conversationId?: SortOrder
     userId?: SortOrder
     dateAdded?: SortOrder
@@ -81931,16 +81913,6 @@ export namespace Prisma {
     lastAccess?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type ProgramCategoryListRelationFilter = {
-    every?: programCategoryWhereInput
-    some?: programCategoryWhereInput
-    none?: programCategoryWhereInput
-  }
-
-  export type programCategoryOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type exerciseProgramCountOrderByAggregateInput = {
@@ -82042,8 +82014,6 @@ export namespace Prisma {
     topicId?: SortOrder
     authorId?: SortOrder
     content?: SortOrder
-    creationDate?: SortOrder
-    modificationDate?: SortOrder
     solutionMessage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -82054,8 +82024,6 @@ export namespace Prisma {
     topicId?: SortOrder
     authorId?: SortOrder
     content?: SortOrder
-    creationDate?: SortOrder
-    modificationDate?: SortOrder
     solutionMessage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -82066,8 +82034,6 @@ export namespace Prisma {
     topicId?: SortOrder
     authorId?: SortOrder
     content?: SortOrder
-    creationDate?: SortOrder
-    modificationDate?: SortOrder
     solutionMessage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -82079,9 +82045,9 @@ export namespace Prisma {
     none?: forumMessageWhereInput
   }
 
-  export type ForumCategoryScalarRelationFilter = {
-    is?: forumCategoryWhereInput
-    isNot?: forumCategoryWhereInput
+  export type ForumCategoryNullableScalarRelationFilter = {
+    is?: forumCategoryWhereInput | null
+    isNot?: forumCategoryWhereInput | null
   }
 
   export type forumMessageOrderByRelationAggregateInput = {
@@ -82093,7 +82059,6 @@ export namespace Prisma {
     categoryId?: SortOrder
     authorId?: SortOrder
     title?: SortOrder
-    creationDate?: SortOrder
     pinned?: SortOrder
     status?: SortOrder
     views?: SortOrder
@@ -82110,7 +82075,6 @@ export namespace Prisma {
     categoryId?: SortOrder
     authorId?: SortOrder
     title?: SortOrder
-    creationDate?: SortOrder
     pinned?: SortOrder
     status?: SortOrder
     views?: SortOrder
@@ -82123,7 +82087,6 @@ export namespace Prisma {
     categoryId?: SortOrder
     authorId?: SortOrder
     title?: SortOrder
-    creationDate?: SortOrder
     pinned?: SortOrder
     status?: SortOrder
     views?: SortOrder
@@ -82133,76 +82096,6 @@ export namespace Prisma {
 
   export type forumTopicSumOrderByAggregateInput = {
     views?: SortOrder
-  }
-
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type WellnessGoalScalarRelationFilter = {
-    is?: wellnessGoalWhereInput
-    isNot?: wellnessGoalWhereInput
-  }
-
-  export type wellnessGoalProgressCountOrderByAggregateInput = {
-    id?: SortOrder
-    goalId?: SortOrder
-    recordingDate?: SortOrder
-    achievedValue?: SortOrder
-    goalAchieved?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type wellnessGoalProgressAvgOrderByAggregateInput = {
-    achievedValue?: SortOrder
-  }
-
-  export type wellnessGoalProgressMaxOrderByAggregateInput = {
-    id?: SortOrder
-    goalId?: SortOrder
-    recordingDate?: SortOrder
-    achievedValue?: SortOrder
-    goalAchieved?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type wellnessGoalProgressMinOrderByAggregateInput = {
-    id?: SortOrder
-    goalId?: SortOrder
-    recordingDate?: SortOrder
-    achievedValue?: SortOrder
-    goalAchieved?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type wellnessGoalProgressSumOrderByAggregateInput = {
-    achievedValue?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type healthIndicatorCountOrderByAggregateInput = {
@@ -82329,7 +82222,6 @@ export namespace Prisma {
     creatorId?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    creationDate?: SortOrder
     neededDate?: SortOrder
     estimatedDuration?: SortOrder
     location?: SortOrder
@@ -82338,14 +82230,14 @@ export namespace Prisma {
     recurring?: SortOrder
     frequency?: SortOrder
     status?: SortOrder
-    points_offered?: SortOrder
+    pointsOffered?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type helpRequestAvgOrderByAggregateInput = {
     estimatedDuration?: SortOrder
-    points_offered?: SortOrder
+    pointsOffered?: SortOrder
   }
 
   export type helpRequestMaxOrderByAggregateInput = {
@@ -82353,7 +82245,6 @@ export namespace Prisma {
     creatorId?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    creationDate?: SortOrder
     neededDate?: SortOrder
     estimatedDuration?: SortOrder
     location?: SortOrder
@@ -82362,7 +82253,7 @@ export namespace Prisma {
     recurring?: SortOrder
     frequency?: SortOrder
     status?: SortOrder
-    points_offered?: SortOrder
+    pointsOffered?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -82372,7 +82263,6 @@ export namespace Prisma {
     creatorId?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    creationDate?: SortOrder
     neededDate?: SortOrder
     estimatedDuration?: SortOrder
     location?: SortOrder
@@ -82381,14 +82271,14 @@ export namespace Prisma {
     recurring?: SortOrder
     frequency?: SortOrder
     status?: SortOrder
-    points_offered?: SortOrder
+    pointsOffered?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type helpRequestSumOrderByAggregateInput = {
     estimatedDuration?: SortOrder
-    points_offered?: SortOrder
+    pointsOffered?: SortOrder
   }
 
   export type ServiceCategoryNullableScalarRelationFilter = {
@@ -82454,7 +82344,7 @@ export namespace Prisma {
   export type medicationReminderCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    medication_name?: SortOrder
+    medicationName?: SortOrder
     dosage?: SortOrder
     morningReminderTime?: SortOrder
     noonReminderTime?: SortOrder
@@ -82464,7 +82354,7 @@ export namespace Prisma {
     instructions?: SortOrder
     active?: SortOrder
     startDate?: SortOrder
-    end_date?: SortOrder
+    endDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -82472,7 +82362,7 @@ export namespace Prisma {
   export type medicationReminderMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    medication_name?: SortOrder
+    medicationName?: SortOrder
     dosage?: SortOrder
     morningReminderTime?: SortOrder
     noonReminderTime?: SortOrder
@@ -82482,7 +82372,7 @@ export namespace Prisma {
     instructions?: SortOrder
     active?: SortOrder
     startDate?: SortOrder
-    end_date?: SortOrder
+    endDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -82490,7 +82380,7 @@ export namespace Prisma {
   export type medicationReminderMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    medication_name?: SortOrder
+    medicationName?: SortOrder
     dosage?: SortOrder
     morningReminderTime?: SortOrder
     noonReminderTime?: SortOrder
@@ -82500,7 +82390,7 @@ export namespace Prisma {
     instructions?: SortOrder
     active?: SortOrder
     startDate?: SortOrder
-    end_date?: SortOrder
+    endDate?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -82551,9 +82441,9 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     startDate?: SortOrder
-    end_date?: SortOrder
+    endDate?: SortOrder
     location?: SortOrder
-    gps_coordinates?: SortOrder
+    gpsCoordinates?: SortOrder
     organizer?: SortOrder
     contact?: SortOrder
     officialLink?: SortOrder
@@ -82566,9 +82456,9 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     startDate?: SortOrder
-    end_date?: SortOrder
+    endDate?: SortOrder
     location?: SortOrder
-    gps_coordinates?: SortOrder
+    gpsCoordinates?: SortOrder
     organizer?: SortOrder
     contact?: SortOrder
     officialLink?: SortOrder
@@ -82581,9 +82471,9 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     startDate?: SortOrder
-    end_date?: SortOrder
+    endDate?: SortOrder
     location?: SortOrder
-    gps_coordinates?: SortOrder
+    gpsCoordinates?: SortOrder
     organizer?: SortOrder
     contact?: SortOrder
     officialLink?: SortOrder
@@ -82669,9 +82559,9 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type NutritionalCategoryScalarRelationFilter = {
-    is?: nutritionalCategoryWhereInput
-    isNot?: nutritionalCategoryWhereInput
+  export type NutritionalCategoryNullableScalarRelationFilter = {
+    is?: nutritionalCategoryWhereInput | null
+    isNot?: nutritionalCategoryWhereInput | null
   }
 
   export type nutritionalAdviceCountOrderByAggregateInput = {
@@ -82859,9 +82749,9 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type ResourceCategoryScalarRelationFilter = {
-    is?: resourceCategoryWhereInput
-    isNot?: resourceCategoryWhereInput
+  export type ResourceCategoryNullableScalarRelationFilter = {
+    is?: resourceCategoryWhereInput | null
+    isNot?: resourceCategoryWhereInput | null
   }
 
   export type resourceCountOrderByAggregateInput = {
@@ -83050,9 +82940,9 @@ export namespace Prisma {
     rating?: SortOrder
   }
 
-  export type SkillCategoryScalarRelationFilter = {
-    is?: skillCategoryWhereInput
-    isNot?: skillCategoryWhereInput
+  export type SkillCategoryNullableScalarRelationFilter = {
+    is?: skillCategoryWhereInput | null
+    isNot?: skillCategoryWhereInput | null
   }
 
   export type UserSkillListRelationFilter = {
@@ -83207,9 +83097,9 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type IssueCategoryScalarRelationFilter = {
-    is?: issueCategoryWhereInput
-    isNot?: issueCategoryWhereInput
+  export type IssueCategoryNullableScalarRelationFilter = {
+    is?: issueCategoryWhereInput | null
+    isNot?: issueCategoryWhereInput | null
   }
 
   export type urbanIssueReportCountOrderByAggregateInput = {
@@ -83319,6 +83209,12 @@ export namespace Prisma {
     none?: urbanIssueReportWhereInput
   }
 
+  export type UserBadgeListRelationFilter = {
+    every?: userBadgeWhereInput
+    some?: userBadgeWhereInput
+    none?: userBadgeWhereInput
+  }
+
   export type UserDeviceListRelationFilter = {
     every?: userDeviceWhereInput
     some?: userDeviceWhereInput
@@ -83373,6 +83269,10 @@ export namespace Prisma {
   }
 
   export type urbanIssueReportOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type userBadgeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -83729,9 +83629,20 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type WellnessCategoryScalarRelationFilter = {
-    is?: wellnessCategoryWhereInput
-    isNot?: wellnessCategoryWhereInput
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type WellnessCategoryNullableScalarRelationFilter = {
+    is?: wellnessCategoryWhereInput | null
+    isNot?: wellnessCategoryWhereInput | null
   }
 
   export type wellnessBadgeCountOrderByAggregateInput = {
@@ -83773,6 +83684,22 @@ export namespace Prisma {
 
   export type wellnessBadgeSumOrderByAggregateInput = {
     level?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type WellnessGoalProgressListRelationFilter = {
@@ -83836,6 +83763,49 @@ export namespace Prisma {
 
   export type wellnessGoalSumOrderByAggregateInput = {
     targetValue?: SortOrder
+  }
+
+  export type WellnessGoalScalarRelationFilter = {
+    is?: wellnessGoalWhereInput
+    isNot?: wellnessGoalWhereInput
+  }
+
+  export type wellnessGoalProgressCountOrderByAggregateInput = {
+    id?: SortOrder
+    goalId?: SortOrder
+    recordingDate?: SortOrder
+    achievedValue?: SortOrder
+    goalAchieved?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type wellnessGoalProgressAvgOrderByAggregateInput = {
+    achievedValue?: SortOrder
+  }
+
+  export type wellnessGoalProgressMaxOrderByAggregateInput = {
+    id?: SortOrder
+    goalId?: SortOrder
+    recordingDate?: SortOrder
+    achievedValue?: SortOrder
+    goalAchieved?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type wellnessGoalProgressMinOrderByAggregateInput = {
+    id?: SortOrder
+    goalId?: SortOrder
+    recordingDate?: SortOrder
+    achievedValue?: SortOrder
+    goalAchieved?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type wellnessGoalProgressSumOrderByAggregateInput = {
+    achievedValue?: SortOrder
   }
 
   export type activityCategoryCountOrderByAggregateInput = {
@@ -84012,16 +83982,20 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type ExerciseProgramScalarRelationFilter = {
-    is?: exerciseProgramWhereInput
-    isNot?: exerciseProgramWhereInput
+  export type ExerciseProgramListRelationFilter = {
+    every?: exerciseProgramWhereInput
+    some?: exerciseProgramWhereInput
+    none?: exerciseProgramWhereInput
+  }
+
+  export type exerciseProgramOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type programCategoryCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
-    exerciseProgramId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -84030,7 +84004,6 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
-    exerciseProgramId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -84039,7 +84012,6 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
-    exerciseProgramId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -84352,60 +84324,52 @@ export namespace Prisma {
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutActivityRegistrationInput, userUpdateWithoutActivityRegistrationInput>, userUncheckedUpdateWithoutActivityRegistrationInput>
   }
 
+  export type userBadgeCreateNestedOneWithoutBadgeInput = {
+    create?: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput>
+    connectOrCreate?: userBadgeCreateOrConnectWithoutBadgeInput
+    connect?: userBadgeWhereUniqueInput
+  }
+
   export type badgeCategoryCreateNestedOneWithoutBadgeInput = {
     create?: XOR<badgeCategoryCreateWithoutBadgeInput, badgeCategoryUncheckedCreateWithoutBadgeInput>
     connectOrCreate?: badgeCategoryCreateOrConnectWithoutBadgeInput
     connect?: badgeCategoryWhereUniqueInput
   }
 
-  export type userBadgeCreateNestedManyWithoutBadgeInput = {
-    create?: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput> | userBadgeCreateWithoutBadgeInput[] | userBadgeUncheckedCreateWithoutBadgeInput[]
-    connectOrCreate?: userBadgeCreateOrConnectWithoutBadgeInput | userBadgeCreateOrConnectWithoutBadgeInput[]
-    createMany?: userBadgeCreateManyBadgeInputEnvelope
-    connect?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
+  export type userBadgeUncheckedCreateNestedOneWithoutBadgeInput = {
+    create?: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput>
+    connectOrCreate?: userBadgeCreateOrConnectWithoutBadgeInput
+    connect?: userBadgeWhereUniqueInput
   }
 
-  export type userBadgeUncheckedCreateNestedManyWithoutBadgeInput = {
-    create?: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput> | userBadgeCreateWithoutBadgeInput[] | userBadgeUncheckedCreateWithoutBadgeInput[]
-    connectOrCreate?: userBadgeCreateOrConnectWithoutBadgeInput | userBadgeCreateOrConnectWithoutBadgeInput[]
-    createMany?: userBadgeCreateManyBadgeInputEnvelope
-    connect?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
+  export type userBadgeUpdateOneWithoutBadgeNestedInput = {
+    create?: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput>
+    connectOrCreate?: userBadgeCreateOrConnectWithoutBadgeInput
+    upsert?: userBadgeUpsertWithoutBadgeInput
+    disconnect?: userBadgeWhereInput | boolean
+    delete?: userBadgeWhereInput | boolean
+    connect?: userBadgeWhereUniqueInput
+    update?: XOR<XOR<userBadgeUpdateToOneWithWhereWithoutBadgeInput, userBadgeUpdateWithoutBadgeInput>, userBadgeUncheckedUpdateWithoutBadgeInput>
   }
 
-  export type badgeCategoryUpdateOneRequiredWithoutBadgeNestedInput = {
+  export type badgeCategoryUpdateOneWithoutBadgeNestedInput = {
     create?: XOR<badgeCategoryCreateWithoutBadgeInput, badgeCategoryUncheckedCreateWithoutBadgeInput>
     connectOrCreate?: badgeCategoryCreateOrConnectWithoutBadgeInput
     upsert?: badgeCategoryUpsertWithoutBadgeInput
+    disconnect?: badgeCategoryWhereInput | boolean
+    delete?: badgeCategoryWhereInput | boolean
     connect?: badgeCategoryWhereUniqueInput
     update?: XOR<XOR<badgeCategoryUpdateToOneWithWhereWithoutBadgeInput, badgeCategoryUpdateWithoutBadgeInput>, badgeCategoryUncheckedUpdateWithoutBadgeInput>
   }
 
-  export type userBadgeUpdateManyWithoutBadgeNestedInput = {
-    create?: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput> | userBadgeCreateWithoutBadgeInput[] | userBadgeUncheckedCreateWithoutBadgeInput[]
-    connectOrCreate?: userBadgeCreateOrConnectWithoutBadgeInput | userBadgeCreateOrConnectWithoutBadgeInput[]
-    upsert?: userBadgeUpsertWithWhereUniqueWithoutBadgeInput | userBadgeUpsertWithWhereUniqueWithoutBadgeInput[]
-    createMany?: userBadgeCreateManyBadgeInputEnvelope
-    set?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
-    disconnect?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
-    delete?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
-    connect?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
-    update?: userBadgeUpdateWithWhereUniqueWithoutBadgeInput | userBadgeUpdateWithWhereUniqueWithoutBadgeInput[]
-    updateMany?: userBadgeUpdateManyWithWhereWithoutBadgeInput | userBadgeUpdateManyWithWhereWithoutBadgeInput[]
-    deleteMany?: userBadgeScalarWhereInput | userBadgeScalarWhereInput[]
-  }
-
-  export type userBadgeUncheckedUpdateManyWithoutBadgeNestedInput = {
-    create?: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput> | userBadgeCreateWithoutBadgeInput[] | userBadgeUncheckedCreateWithoutBadgeInput[]
-    connectOrCreate?: userBadgeCreateOrConnectWithoutBadgeInput | userBadgeCreateOrConnectWithoutBadgeInput[]
-    upsert?: userBadgeUpsertWithWhereUniqueWithoutBadgeInput | userBadgeUpsertWithWhereUniqueWithoutBadgeInput[]
-    createMany?: userBadgeCreateManyBadgeInputEnvelope
-    set?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
-    disconnect?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
-    delete?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
-    connect?: userBadgeWhereUniqueInput | userBadgeWhereUniqueInput[]
-    update?: userBadgeUpdateWithWhereUniqueWithoutBadgeInput | userBadgeUpdateWithWhereUniqueWithoutBadgeInput[]
-    updateMany?: userBadgeUpdateManyWithWhereWithoutBadgeInput | userBadgeUpdateManyWithWhereWithoutBadgeInput[]
-    deleteMany?: userBadgeScalarWhereInput | userBadgeScalarWhereInput[]
+  export type userBadgeUncheckedUpdateOneWithoutBadgeNestedInput = {
+    create?: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput>
+    connectOrCreate?: userBadgeCreateOrConnectWithoutBadgeInput
+    upsert?: userBadgeUpsertWithoutBadgeInput
+    disconnect?: userBadgeWhereInput | boolean
+    delete?: userBadgeWhereInput | boolean
+    connect?: userBadgeWhereUniqueInput
+    update?: XOR<XOR<userBadgeUpdateToOneWithWhereWithoutBadgeInput, userBadgeUpdateWithoutBadgeInput>, userBadgeUncheckedUpdateWithoutBadgeInput>
   }
 
   export type cognitiveCategoryCreateNestedOneWithoutCognitiveExerciseInput = {
@@ -84434,10 +84398,12 @@ export namespace Prisma {
     connect?: userActivityWhereUniqueInput | userActivityWhereUniqueInput[]
   }
 
-  export type cognitiveCategoryUpdateOneRequiredWithoutCognitiveExerciseNestedInput = {
+  export type cognitiveCategoryUpdateOneWithoutCognitiveExerciseNestedInput = {
     create?: XOR<cognitiveCategoryCreateWithoutCognitiveExerciseInput, cognitiveCategoryUncheckedCreateWithoutCognitiveExerciseInput>
     connectOrCreate?: cognitiveCategoryCreateOrConnectWithoutCognitiveExerciseInput
     upsert?: cognitiveCategoryUpsertWithoutCognitiveExerciseInput
+    disconnect?: cognitiveCategoryWhereInput | boolean
+    delete?: cognitiveCategoryWhereInput | boolean
     connect?: cognitiveCategoryWhereUniqueInput
     update?: XOR<XOR<cognitiveCategoryUpdateToOneWithWhereWithoutCognitiveExerciseInput, cognitiveCategoryUpdateWithoutCognitiveExerciseInput>, cognitiveCategoryUncheckedUpdateWithoutCognitiveExerciseInput>
   }
@@ -84750,11 +84716,10 @@ export namespace Prisma {
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutConversationParticipantInput, userUpdateWithoutConversationParticipantInput>, userUncheckedUpdateWithoutConversationParticipantInput>
   }
 
-  export type programCategoryCreateNestedManyWithoutExerciseProgramInput = {
-    create?: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput> | programCategoryCreateWithoutExerciseProgramInput[] | programCategoryUncheckedCreateWithoutExerciseProgramInput[]
-    connectOrCreate?: programCategoryCreateOrConnectWithoutExerciseProgramInput | programCategoryCreateOrConnectWithoutExerciseProgramInput[]
-    createMany?: programCategoryCreateManyExerciseProgramInputEnvelope
-    connect?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
+  export type programCategoryCreateNestedOneWithoutExerciseProgramInput = {
+    create?: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput>
+    connectOrCreate?: programCategoryCreateOrConnectWithoutExerciseProgramInput
+    connect?: programCategoryWhereUniqueInput
   }
 
   export type userActivityCreateNestedManyWithoutExerciseProgramInput = {
@@ -84764,13 +84729,6 @@ export namespace Prisma {
     connect?: userActivityWhereUniqueInput | userActivityWhereUniqueInput[]
   }
 
-  export type programCategoryUncheckedCreateNestedManyWithoutExerciseProgramInput = {
-    create?: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput> | programCategoryCreateWithoutExerciseProgramInput[] | programCategoryUncheckedCreateWithoutExerciseProgramInput[]
-    connectOrCreate?: programCategoryCreateOrConnectWithoutExerciseProgramInput | programCategoryCreateOrConnectWithoutExerciseProgramInput[]
-    createMany?: programCategoryCreateManyExerciseProgramInputEnvelope
-    connect?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
-  }
-
   export type userActivityUncheckedCreateNestedManyWithoutExerciseProgramInput = {
     create?: XOR<userActivityCreateWithoutExerciseProgramInput, userActivityUncheckedCreateWithoutExerciseProgramInput> | userActivityCreateWithoutExerciseProgramInput[] | userActivityUncheckedCreateWithoutExerciseProgramInput[]
     connectOrCreate?: userActivityCreateOrConnectWithoutExerciseProgramInput | userActivityCreateOrConnectWithoutExerciseProgramInput[]
@@ -84778,18 +84736,14 @@ export namespace Prisma {
     connect?: userActivityWhereUniqueInput | userActivityWhereUniqueInput[]
   }
 
-  export type programCategoryUpdateManyWithoutExerciseProgramNestedInput = {
-    create?: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput> | programCategoryCreateWithoutExerciseProgramInput[] | programCategoryUncheckedCreateWithoutExerciseProgramInput[]
-    connectOrCreate?: programCategoryCreateOrConnectWithoutExerciseProgramInput | programCategoryCreateOrConnectWithoutExerciseProgramInput[]
-    upsert?: programCategoryUpsertWithWhereUniqueWithoutExerciseProgramInput | programCategoryUpsertWithWhereUniqueWithoutExerciseProgramInput[]
-    createMany?: programCategoryCreateManyExerciseProgramInputEnvelope
-    set?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
-    disconnect?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
-    delete?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
-    connect?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
-    update?: programCategoryUpdateWithWhereUniqueWithoutExerciseProgramInput | programCategoryUpdateWithWhereUniqueWithoutExerciseProgramInput[]
-    updateMany?: programCategoryUpdateManyWithWhereWithoutExerciseProgramInput | programCategoryUpdateManyWithWhereWithoutExerciseProgramInput[]
-    deleteMany?: programCategoryScalarWhereInput | programCategoryScalarWhereInput[]
+  export type programCategoryUpdateOneWithoutExerciseProgramNestedInput = {
+    create?: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput>
+    connectOrCreate?: programCategoryCreateOrConnectWithoutExerciseProgramInput
+    upsert?: programCategoryUpsertWithoutExerciseProgramInput
+    disconnect?: programCategoryWhereInput | boolean
+    delete?: programCategoryWhereInput | boolean
+    connect?: programCategoryWhereUniqueInput
+    update?: XOR<XOR<programCategoryUpdateToOneWithWhereWithoutExerciseProgramInput, programCategoryUpdateWithoutExerciseProgramInput>, programCategoryUncheckedUpdateWithoutExerciseProgramInput>
   }
 
   export type userActivityUpdateManyWithoutExerciseProgramNestedInput = {
@@ -84804,20 +84758,6 @@ export namespace Prisma {
     update?: userActivityUpdateWithWhereUniqueWithoutExerciseProgramInput | userActivityUpdateWithWhereUniqueWithoutExerciseProgramInput[]
     updateMany?: userActivityUpdateManyWithWhereWithoutExerciseProgramInput | userActivityUpdateManyWithWhereWithoutExerciseProgramInput[]
     deleteMany?: userActivityScalarWhereInput | userActivityScalarWhereInput[]
-  }
-
-  export type programCategoryUncheckedUpdateManyWithoutExerciseProgramNestedInput = {
-    create?: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput> | programCategoryCreateWithoutExerciseProgramInput[] | programCategoryUncheckedCreateWithoutExerciseProgramInput[]
-    connectOrCreate?: programCategoryCreateOrConnectWithoutExerciseProgramInput | programCategoryCreateOrConnectWithoutExerciseProgramInput[]
-    upsert?: programCategoryUpsertWithWhereUniqueWithoutExerciseProgramInput | programCategoryUpsertWithWhereUniqueWithoutExerciseProgramInput[]
-    createMany?: programCategoryCreateManyExerciseProgramInputEnvelope
-    set?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
-    disconnect?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
-    delete?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
-    connect?: programCategoryWhereUniqueInput | programCategoryWhereUniqueInput[]
-    update?: programCategoryUpdateWithWhereUniqueWithoutExerciseProgramInput | programCategoryUpdateWithWhereUniqueWithoutExerciseProgramInput[]
-    updateMany?: programCategoryUpdateManyWithWhereWithoutExerciseProgramInput | programCategoryUpdateManyWithWhereWithoutExerciseProgramInput[]
-    deleteMany?: programCategoryScalarWhereInput | programCategoryScalarWhereInput[]
   }
 
   export type userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput = {
@@ -84956,10 +84896,12 @@ export namespace Prisma {
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutForumTopicInput, userUpdateWithoutForumTopicInput>, userUncheckedUpdateWithoutForumTopicInput>
   }
 
-  export type forumCategoryUpdateOneRequiredWithoutForumTopicNestedInput = {
+  export type forumCategoryUpdateOneWithoutForumTopicNestedInput = {
     create?: XOR<forumCategoryCreateWithoutForumTopicInput, forumCategoryUncheckedCreateWithoutForumTopicInput>
     connectOrCreate?: forumCategoryCreateOrConnectWithoutForumTopicInput
     upsert?: forumCategoryUpsertWithoutForumTopicInput
+    disconnect?: forumCategoryWhereInput | boolean
+    delete?: forumCategoryWhereInput | boolean
     connect?: forumCategoryWhereUniqueInput
     update?: XOR<XOR<forumCategoryUpdateToOneWithWhereWithoutForumTopicInput, forumCategoryUpdateWithoutForumTopicInput>, forumCategoryUncheckedUpdateWithoutForumTopicInput>
   }
@@ -84976,28 +84918,6 @@ export namespace Prisma {
     update?: forumMessageUpdateWithWhereUniqueWithoutForumTopicInput | forumMessageUpdateWithWhereUniqueWithoutForumTopicInput[]
     updateMany?: forumMessageUpdateManyWithWhereWithoutForumTopicInput | forumMessageUpdateManyWithWhereWithoutForumTopicInput[]
     deleteMany?: forumMessageScalarWhereInput | forumMessageScalarWhereInput[]
-  }
-
-  export type wellnessGoalCreateNestedOneWithoutWellnessGoalProgressInput = {
-    create?: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
-    connectOrCreate?: wellnessGoalCreateOrConnectWithoutWellnessGoalProgressInput
-    connect?: wellnessGoalWhereUniqueInput
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type wellnessGoalUpdateOneRequiredWithoutWellnessGoalProgressNestedInput = {
-    create?: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
-    connectOrCreate?: wellnessGoalCreateOrConnectWithoutWellnessGoalProgressInput
-    upsert?: wellnessGoalUpsertWithoutWellnessGoalProgressInput
-    connect?: wellnessGoalWhereUniqueInput
-    update?: XOR<XOR<wellnessGoalUpdateToOneWithWhereWithoutWellnessGoalProgressInput, wellnessGoalUpdateWithoutWellnessGoalProgressInput>, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
   }
 
   export type userCreateNestedOneWithoutHealthIndicatorInput = {
@@ -85298,10 +85218,12 @@ export namespace Prisma {
     connect?: nutritionalCategoryWhereUniqueInput
   }
 
-  export type nutritionalCategoryUpdateOneRequiredWithoutNutritionalAdviceNestedInput = {
+  export type nutritionalCategoryUpdateOneWithoutNutritionalAdviceNestedInput = {
     create?: XOR<nutritionalCategoryCreateWithoutNutritionalAdviceInput, nutritionalCategoryUncheckedCreateWithoutNutritionalAdviceInput>
     connectOrCreate?: nutritionalCategoryCreateOrConnectWithoutNutritionalAdviceInput
     upsert?: nutritionalCategoryUpsertWithoutNutritionalAdviceInput
+    disconnect?: nutritionalCategoryWhereInput | boolean
+    delete?: nutritionalCategoryWhereInput | boolean
     connect?: nutritionalCategoryWhereUniqueInput
     update?: XOR<XOR<nutritionalCategoryUpdateToOneWithWhereWithoutNutritionalAdviceInput, nutritionalCategoryUpdateWithoutNutritionalAdviceInput>, nutritionalCategoryUncheckedUpdateWithoutNutritionalAdviceInput>
   }
@@ -85388,10 +85310,12 @@ export namespace Prisma {
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutResourceInput, userUpdateWithoutResourceInput>, userUncheckedUpdateWithoutResourceInput>
   }
 
-  export type resourceCategoryUpdateOneRequiredWithoutResourceNestedInput = {
+  export type resourceCategoryUpdateOneWithoutResourceNestedInput = {
     create?: XOR<resourceCategoryCreateWithoutResourceInput, resourceCategoryUncheckedCreateWithoutResourceInput>
     connectOrCreate?: resourceCategoryCreateOrConnectWithoutResourceInput
     upsert?: resourceCategoryUpsertWithoutResourceInput
+    disconnect?: resourceCategoryWhereInput | boolean
+    delete?: resourceCategoryWhereInput | boolean
     connect?: resourceCategoryWhereUniqueInput
     update?: XOR<XOR<resourceCategoryUpdateToOneWithWhereWithoutResourceInput, resourceCategoryUpdateWithoutResourceInput>, resourceCategoryUncheckedUpdateWithoutResourceInput>
   }
@@ -85514,10 +85438,12 @@ export namespace Prisma {
     connect?: userSkillWhereUniqueInput | userSkillWhereUniqueInput[]
   }
 
-  export type skillCategoryUpdateOneRequiredWithoutSkillNestedInput = {
+  export type skillCategoryUpdateOneWithoutSkillNestedInput = {
     create?: XOR<skillCategoryCreateWithoutSkillInput, skillCategoryUncheckedCreateWithoutSkillInput>
     connectOrCreate?: skillCategoryCreateOrConnectWithoutSkillInput
     upsert?: skillCategoryUpsertWithoutSkillInput
+    disconnect?: skillCategoryWhereInput | boolean
+    delete?: skillCategoryWhereInput | boolean
     connect?: skillCategoryWhereUniqueInput
     update?: XOR<XOR<skillCategoryUpdateToOneWithWhereWithoutSkillInput, skillCategoryUpdateWithoutSkillInput>, skillCategoryUncheckedUpdateWithoutSkillInput>
   }
@@ -85614,10 +85540,12 @@ export namespace Prisma {
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutUrbanIssueReportInput, userUpdateWithoutUrbanIssueReportInput>, userUncheckedUpdateWithoutUrbanIssueReportInput>
   }
 
-  export type issueCategoryUpdateOneRequiredWithoutUrbanIssueReportNestedInput = {
+  export type issueCategoryUpdateOneWithoutUrbanIssueReportNestedInput = {
     create?: XOR<issueCategoryCreateWithoutUrbanIssueReportInput, issueCategoryUncheckedCreateWithoutUrbanIssueReportInput>
     connectOrCreate?: issueCategoryCreateOrConnectWithoutUrbanIssueReportInput
     upsert?: issueCategoryUpsertWithoutUrbanIssueReportInput
+    disconnect?: issueCategoryWhereInput | boolean
+    delete?: issueCategoryWhereInput | boolean
     connect?: issueCategoryWhereUniqueInput
     update?: XOR<XOR<issueCategoryUpdateToOneWithWhereWithoutUrbanIssueReportInput, issueCategoryUpdateWithoutUrbanIssueReportInput>, issueCategoryUncheckedUpdateWithoutUrbanIssueReportInput>
   }
@@ -86990,10 +86918,20 @@ export namespace Prisma {
     connect?: wellnessCategoryWhereUniqueInput
   }
 
-  export type wellnessCategoryUpdateOneRequiredWithoutWellnessBadgeNestedInput = {
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type wellnessCategoryUpdateOneWithoutWellnessBadgeNestedInput = {
     create?: XOR<wellnessCategoryCreateWithoutWellnessBadgeInput, wellnessCategoryUncheckedCreateWithoutWellnessBadgeInput>
     connectOrCreate?: wellnessCategoryCreateOrConnectWithoutWellnessBadgeInput
     upsert?: wellnessCategoryUpsertWithoutWellnessBadgeInput
+    disconnect?: wellnessCategoryWhereInput | boolean
+    delete?: wellnessCategoryWhereInput | boolean
     connect?: wellnessCategoryWhereUniqueInput
     update?: XOR<XOR<wellnessCategoryUpdateToOneWithWhereWithoutWellnessBadgeInput, wellnessCategoryUpdateWithoutWellnessBadgeInput>, wellnessCategoryUncheckedUpdateWithoutWellnessBadgeInput>
   }
@@ -87048,10 +86986,12 @@ export namespace Prisma {
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutWellnessGoalInput, userUpdateWithoutWellnessGoalInput>, userUncheckedUpdateWithoutWellnessGoalInput>
   }
 
-  export type wellnessCategoryUpdateOneRequiredWithoutWellnessGoalNestedInput = {
+  export type wellnessCategoryUpdateOneWithoutWellnessGoalNestedInput = {
     create?: XOR<wellnessCategoryCreateWithoutWellnessGoalInput, wellnessCategoryUncheckedCreateWithoutWellnessGoalInput>
     connectOrCreate?: wellnessCategoryCreateOrConnectWithoutWellnessGoalInput
     upsert?: wellnessCategoryUpsertWithoutWellnessGoalInput
+    disconnect?: wellnessCategoryWhereInput | boolean
+    delete?: wellnessCategoryWhereInput | boolean
     connect?: wellnessCategoryWhereUniqueInput
     update?: XOR<XOR<wellnessCategoryUpdateToOneWithWhereWithoutWellnessGoalInput, wellnessCategoryUpdateWithoutWellnessGoalInput>, wellnessCategoryUncheckedUpdateWithoutWellnessGoalInput>
   }
@@ -87068,6 +87008,20 @@ export namespace Prisma {
     update?: wellnessGoalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput | wellnessGoalProgressUpdateWithWhereUniqueWithoutWellnessGoalInput[]
     updateMany?: wellnessGoalProgressUpdateManyWithWhereWithoutWellnessGoalInput | wellnessGoalProgressUpdateManyWithWhereWithoutWellnessGoalInput[]
     deleteMany?: wellnessGoalProgressScalarWhereInput | wellnessGoalProgressScalarWhereInput[]
+  }
+
+  export type wellnessGoalCreateNestedOneWithoutWellnessGoalProgressInput = {
+    create?: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
+    connectOrCreate?: wellnessGoalCreateOrConnectWithoutWellnessGoalProgressInput
+    connect?: wellnessGoalWhereUniqueInput
+  }
+
+  export type wellnessGoalUpdateOneRequiredWithoutWellnessGoalProgressNestedInput = {
+    create?: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
+    connectOrCreate?: wellnessGoalCreateOrConnectWithoutWellnessGoalProgressInput
+    upsert?: wellnessGoalUpsertWithoutWellnessGoalProgressInput
+    connect?: wellnessGoalWhereUniqueInput
+    update?: XOR<XOR<wellnessGoalUpdateToOneWithWhereWithoutWellnessGoalProgressInput, wellnessGoalUpdateWithoutWellnessGoalProgressInput>, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
   }
 
   export type activityCreateNestedManyWithoutActivityCategoryInput = {
@@ -87329,10 +87283,11 @@ export namespace Prisma {
     connect?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
   }
 
-  export type exerciseProgramCreateNestedOneWithoutProgramCategoryInput = {
-    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput>
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput
-    connect?: exerciseProgramWhereUniqueInput
+  export type exerciseProgramCreateNestedManyWithoutProgramCategoryInput = {
+    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput> | exerciseProgramCreateWithoutProgramCategoryInput[] | exerciseProgramUncheckedCreateWithoutProgramCategoryInput[]
+    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput | exerciseProgramCreateOrConnectWithoutProgramCategoryInput[]
+    createMany?: exerciseProgramCreateManyProgramCategoryInputEnvelope
+    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
   }
 
   export type cognitiveExerciseUncheckedCreateNestedManyWithoutProgramCategoryInput = {
@@ -87340,6 +87295,13 @@ export namespace Prisma {
     connectOrCreate?: cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput | cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput[]
     createMany?: cognitiveExerciseCreateManyProgramCategoryInputEnvelope
     connect?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
+  }
+
+  export type exerciseProgramUncheckedCreateNestedManyWithoutProgramCategoryInput = {
+    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput> | exerciseProgramCreateWithoutProgramCategoryInput[] | exerciseProgramUncheckedCreateWithoutProgramCategoryInput[]
+    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput | exerciseProgramCreateOrConnectWithoutProgramCategoryInput[]
+    createMany?: exerciseProgramCreateManyProgramCategoryInputEnvelope
+    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
   }
 
   export type cognitiveExerciseUpdateManyWithoutProgramCategoryNestedInput = {
@@ -87356,12 +87318,18 @@ export namespace Prisma {
     deleteMany?: cognitiveExerciseScalarWhereInput | cognitiveExerciseScalarWhereInput[]
   }
 
-  export type exerciseProgramUpdateOneRequiredWithoutProgramCategoryNestedInput = {
-    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput>
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput
-    upsert?: exerciseProgramUpsertWithoutProgramCategoryInput
-    connect?: exerciseProgramWhereUniqueInput
-    update?: XOR<XOR<exerciseProgramUpdateToOneWithWhereWithoutProgramCategoryInput, exerciseProgramUpdateWithoutProgramCategoryInput>, exerciseProgramUncheckedUpdateWithoutProgramCategoryInput>
+  export type exerciseProgramUpdateManyWithoutProgramCategoryNestedInput = {
+    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput> | exerciseProgramCreateWithoutProgramCategoryInput[] | exerciseProgramUncheckedCreateWithoutProgramCategoryInput[]
+    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput | exerciseProgramCreateOrConnectWithoutProgramCategoryInput[]
+    upsert?: exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput | exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput[]
+    createMany?: exerciseProgramCreateManyProgramCategoryInputEnvelope
+    set?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    disconnect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    delete?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    update?: exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput | exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput[]
+    updateMany?: exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput | exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput[]
+    deleteMany?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
   }
 
   export type cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryNestedInput = {
@@ -87376,6 +87344,20 @@ export namespace Prisma {
     update?: cognitiveExerciseUpdateWithWhereUniqueWithoutProgramCategoryInput | cognitiveExerciseUpdateWithWhereUniqueWithoutProgramCategoryInput[]
     updateMany?: cognitiveExerciseUpdateManyWithWhereWithoutProgramCategoryInput | cognitiveExerciseUpdateManyWithWhereWithoutProgramCategoryInput[]
     deleteMany?: cognitiveExerciseScalarWhereInput | cognitiveExerciseScalarWhereInput[]
+  }
+
+  export type exerciseProgramUncheckedUpdateManyWithoutProgramCategoryNestedInput = {
+    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput> | exerciseProgramCreateWithoutProgramCategoryInput[] | exerciseProgramUncheckedCreateWithoutProgramCategoryInput[]
+    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput | exerciseProgramCreateOrConnectWithoutProgramCategoryInput[]
+    upsert?: exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput | exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput[]
+    createMany?: exerciseProgramCreateManyProgramCategoryInputEnvelope
+    set?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    disconnect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    delete?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    update?: exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput | exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput[]
+    updateMany?: exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput | exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput[]
+    deleteMany?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
   }
 
   export type collaborativeProjectCreateNestedManyWithoutProjectCategoryInput = {
@@ -87832,6 +87814,29 @@ export namespace Prisma {
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
@@ -87858,29 +87863,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
-  }
-  export type NestedJsonNullableFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonNullableFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
-
-  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type userCreateWithoutActivityInput = {
@@ -88759,6 +88741,25 @@ export namespace Prisma {
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutUserNestedInput
   }
 
+  export type userBadgeCreateWithoutBadgeInput = {
+    achievementDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    user: userCreateNestedOneWithoutUserBadgeInput
+  }
+
+  export type userBadgeUncheckedCreateWithoutBadgeInput = {
+    userId: string
+    achievementDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type userBadgeCreateOrConnectWithoutBadgeInput = {
+    where: userBadgeWhereUniqueInput
+    create: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput>
+  }
+
   export type badgeCategoryCreateWithoutBadgeInput = {
     id?: string
     name: string
@@ -88780,28 +88781,29 @@ export namespace Prisma {
     create: XOR<badgeCategoryCreateWithoutBadgeInput, badgeCategoryUncheckedCreateWithoutBadgeInput>
   }
 
-  export type userBadgeCreateWithoutBadgeInput = {
-    achievementDate: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    user: userCreateNestedOneWithoutUserBadgeInput
-  }
-
-  export type userBadgeUncheckedCreateWithoutBadgeInput = {
-    userId: string
-    achievementDate: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
-  export type userBadgeCreateOrConnectWithoutBadgeInput = {
-    where: userBadgeWhereUniqueInput
+  export type userBadgeUpsertWithoutBadgeInput = {
+    update: XOR<userBadgeUpdateWithoutBadgeInput, userBadgeUncheckedUpdateWithoutBadgeInput>
     create: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput>
+    where?: userBadgeWhereInput
   }
 
-  export type userBadgeCreateManyBadgeInputEnvelope = {
-    data: userBadgeCreateManyBadgeInput | userBadgeCreateManyBadgeInput[]
-    skipDuplicates?: boolean
+  export type userBadgeUpdateToOneWithWhereWithoutBadgeInput = {
+    where?: userBadgeWhereInput
+    data: XOR<userBadgeUpdateWithoutBadgeInput, userBadgeUncheckedUpdateWithoutBadgeInput>
+  }
+
+  export type userBadgeUpdateWithoutBadgeInput = {
+    achievementDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: userUpdateOneRequiredWithoutUserBadgeNestedInput
+  }
+
+  export type userBadgeUncheckedUpdateWithoutBadgeInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    achievementDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type badgeCategoryUpsertWithoutBadgeInput = {
@@ -88829,33 +88831,6 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type userBadgeUpsertWithWhereUniqueWithoutBadgeInput = {
-    where: userBadgeWhereUniqueInput
-    update: XOR<userBadgeUpdateWithoutBadgeInput, userBadgeUncheckedUpdateWithoutBadgeInput>
-    create: XOR<userBadgeCreateWithoutBadgeInput, userBadgeUncheckedCreateWithoutBadgeInput>
-  }
-
-  export type userBadgeUpdateWithWhereUniqueWithoutBadgeInput = {
-    where: userBadgeWhereUniqueInput
-    data: XOR<userBadgeUpdateWithoutBadgeInput, userBadgeUncheckedUpdateWithoutBadgeInput>
-  }
-
-  export type userBadgeUpdateManyWithWhereWithoutBadgeInput = {
-    where: userBadgeScalarWhereInput
-    data: XOR<userBadgeUpdateManyMutationInput, userBadgeUncheckedUpdateManyWithoutBadgeInput>
-  }
-
-  export type userBadgeScalarWhereInput = {
-    AND?: userBadgeScalarWhereInput | userBadgeScalarWhereInput[]
-    OR?: userBadgeScalarWhereInput[]
-    NOT?: userBadgeScalarWhereInput | userBadgeScalarWhereInput[]
-    userId?: StringFilter<"userBadge"> | string
-    badgeId?: StringFilter<"userBadge"> | string
-    achievementDate?: DateTimeFilter<"userBadge"> | Date | string
-    createdAt?: DateTimeFilter<"userBadge"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"userBadge"> | Date | string | null
   }
 
   export type cognitiveCategoryCreateWithoutCognitiveExerciseInput = {
@@ -88921,16 +88896,16 @@ export namespace Prisma {
     description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    exerciseProgram: exerciseProgramCreateNestedOneWithoutProgramCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutProgramCategoryInput
   }
 
   export type programCategoryUncheckedCreateWithoutCognitiveExerciseInput = {
     id?: string
     name: string
     description?: string | null
-    exerciseProgramId: string
     createdAt?: Date | string
     updatedAt?: Date | string | null
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutProgramCategoryInput
   }
 
   export type programCategoryCreateOrConnectWithoutCognitiveExerciseInput = {
@@ -89015,16 +88990,16 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    exerciseProgram?: exerciseProgramUpdateOneRequiredWithoutProgramCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutProgramCategoryNestedInput
   }
 
   export type programCategoryUncheckedUpdateWithoutCognitiveExerciseInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    exerciseProgramId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutProgramCategoryNestedInput
   }
 
   export type userCreateWithoutCollaborativeProjectInput = {
@@ -89416,6 +89391,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantCreateWithoutConversationInput = {
+    id?: string
     dateAdded?: Date | string | null
     administrator?: boolean | null
     lastAccess?: Date | string
@@ -89425,6 +89401,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUncheckedCreateWithoutConversationInput = {
+    id?: string
     userId: string
     dateAdded?: Date | string | null
     administrator?: boolean | null
@@ -89525,6 +89502,7 @@ export namespace Prisma {
     AND?: conversationParticipantScalarWhereInput | conversationParticipantScalarWhereInput[]
     OR?: conversationParticipantScalarWhereInput[]
     NOT?: conversationParticipantScalarWhereInput | conversationParticipantScalarWhereInput[]
+    id?: StringFilter<"conversationParticipant"> | string
     conversationId?: StringFilter<"conversationParticipant"> | string
     userId?: StringFilter<"conversationParticipant"> | string
     dateAdded?: DateTimeNullableFilter<"conversationParticipant"> | Date | string | null
@@ -89598,7 +89576,6 @@ export namespace Prisma {
   export type conversationCreateWithoutConversationParticipantInput = {
     id?: string
     type?: string | null
-    creationDate?: Date | string | null
     title?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -89609,7 +89586,6 @@ export namespace Prisma {
   export type conversationUncheckedCreateWithoutConversationParticipantInput = {
     id?: string
     type?: string | null
-    creationDate?: Date | string | null
     title?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -89743,7 +89719,6 @@ export namespace Prisma {
   export type conversationUpdateWithoutConversationParticipantInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -89754,7 +89729,6 @@ export namespace Prisma {
   export type conversationUncheckedUpdateWithoutConversationParticipantInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -89898,11 +89872,6 @@ export namespace Prisma {
     create: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput>
   }
 
-  export type programCategoryCreateManyExerciseProgramInputEnvelope = {
-    data: programCategoryCreateManyExerciseProgramInput | programCategoryCreateManyExerciseProgramInput[]
-    skipDuplicates?: boolean
-  }
-
   export type userActivityCreateWithoutExerciseProgramInput = {
     id?: string
     completionDate: Date | string
@@ -89939,32 +89908,33 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type programCategoryUpsertWithWhereUniqueWithoutExerciseProgramInput = {
-    where: programCategoryWhereUniqueInput
+  export type programCategoryUpsertWithoutExerciseProgramInput = {
     update: XOR<programCategoryUpdateWithoutExerciseProgramInput, programCategoryUncheckedUpdateWithoutExerciseProgramInput>
     create: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput>
+    where?: programCategoryWhereInput
   }
 
-  export type programCategoryUpdateWithWhereUniqueWithoutExerciseProgramInput = {
-    where: programCategoryWhereUniqueInput
+  export type programCategoryUpdateToOneWithWhereWithoutExerciseProgramInput = {
+    where?: programCategoryWhereInput
     data: XOR<programCategoryUpdateWithoutExerciseProgramInput, programCategoryUncheckedUpdateWithoutExerciseProgramInput>
   }
 
-  export type programCategoryUpdateManyWithWhereWithoutExerciseProgramInput = {
-    where: programCategoryScalarWhereInput
-    data: XOR<programCategoryUpdateManyMutationInput, programCategoryUncheckedUpdateManyWithoutExerciseProgramInput>
+  export type programCategoryUpdateWithoutExerciseProgramInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cognitiveExercise?: cognitiveExerciseUpdateManyWithoutProgramCategoryNestedInput
   }
 
-  export type programCategoryScalarWhereInput = {
-    AND?: programCategoryScalarWhereInput | programCategoryScalarWhereInput[]
-    OR?: programCategoryScalarWhereInput[]
-    NOT?: programCategoryScalarWhereInput | programCategoryScalarWhereInput[]
-    id?: StringFilter<"programCategory"> | string
-    name?: StringFilter<"programCategory"> | string
-    description?: StringNullableFilter<"programCategory"> | string | null
-    exerciseProgramId?: StringFilter<"programCategory"> | string
-    createdAt?: DateTimeFilter<"programCategory"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"programCategory"> | Date | string | null
+  export type programCategoryUncheckedUpdateWithoutExerciseProgramInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryNestedInput
   }
 
   export type userActivityUpsertWithWhereUniqueWithoutExerciseProgramInput = {
@@ -89986,7 +89956,6 @@ export namespace Prisma {
   export type forumTopicCreateWithoutForumCategoryInput = {
     id?: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
@@ -90000,7 +89969,6 @@ export namespace Prisma {
     id?: string
     authorId: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
@@ -90043,7 +90011,6 @@ export namespace Prisma {
     categoryId?: StringFilter<"forumTopic"> | string
     authorId?: StringFilter<"forumTopic"> | string
     title?: StringFilter<"forumTopic"> | string
-    creationDate?: DateTimeNullableFilter<"forumTopic"> | Date | string | null
     pinned?: BoolNullableFilter<"forumTopic"> | boolean | null
     status?: StringNullableFilter<"forumTopic"> | string | null
     views?: IntNullableFilter<"forumTopic"> | number | null
@@ -90161,14 +90128,13 @@ export namespace Prisma {
   export type forumTopicCreateWithoutForumMessageInput = {
     id?: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user: userCreateNestedOneWithoutForumTopicInput
-    forumCategory: forumCategoryCreateNestedOneWithoutForumTopicInput
+    forumCategory?: forumCategoryCreateNestedOneWithoutForumTopicInput
   }
 
   export type forumTopicUncheckedCreateWithoutForumMessageInput = {
@@ -90176,7 +90142,6 @@ export namespace Prisma {
     categoryId: string
     authorId: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
@@ -90316,14 +90281,13 @@ export namespace Prisma {
   export type forumTopicUpdateWithoutForumMessageInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneRequiredWithoutForumTopicNestedInput
-    forumCategory?: forumCategoryUpdateOneRequiredWithoutForumTopicNestedInput
+    forumCategory?: forumCategoryUpdateOneWithoutForumTopicNestedInput
   }
 
   export type forumTopicUncheckedUpdateWithoutForumMessageInput = {
@@ -90331,7 +90295,6 @@ export namespace Prisma {
     categoryId?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
@@ -90342,8 +90305,6 @@ export namespace Prisma {
   export type forumMessageCreateWithoutForumTopicInput = {
     id?: string
     content?: string | null
-    creationDate?: Date | string | null
-    modificationDate?: Date | string | null
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -90352,10 +90313,8 @@ export namespace Prisma {
 
   export type forumMessageUncheckedCreateWithoutForumTopicInput = {
     id?: string
-    authorId?: string | null
+    authorId: string
     content?: string | null
-    creationDate?: Date | string | null
-    modificationDate?: Date | string | null
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -90482,7 +90441,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parentCategoryId: string
+    parentCategoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -90491,7 +90450,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    parentCategoryId: string
+    parentCategoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -90522,11 +90481,9 @@ export namespace Prisma {
     OR?: forumMessageScalarWhereInput[]
     NOT?: forumMessageScalarWhereInput | forumMessageScalarWhereInput[]
     id?: StringFilter<"forumMessage"> | string
-    topicId?: StringNullableFilter<"forumMessage"> | string | null
-    authorId?: StringNullableFilter<"forumMessage"> | string | null
+    topicId?: StringFilter<"forumMessage"> | string
+    authorId?: StringFilter<"forumMessage"> | string
     content?: StringNullableFilter<"forumMessage"> | string | null
-    creationDate?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
-    modificationDate?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
     solutionMessage?: BoolNullableFilter<"forumMessage"> | boolean | null
     createdAt?: DateTimeFilter<"forumMessage"> | Date | string
     updatedAt?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
@@ -90660,7 +90617,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentCategoryId?: StringFieldUpdateOperationsInput | string
+    parentCategoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -90669,83 +90626,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentCategoryId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type wellnessGoalCreateWithoutWellnessGoalProgressInput = {
-    id?: string
-    title: string
-    targetValue: number
-    unit: string
-    frequency: string
-    startDate: Date | string
-    endDate: Date | string
-    active?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    user?: userCreateNestedOneWithoutWellnessGoalInput
-    wellnessCategory: wellnessCategoryCreateNestedOneWithoutWellnessGoalInput
-  }
-
-  export type wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput = {
-    id?: string
-    userId: string
-    title: string
-    categoryId: string
-    targetValue: number
-    unit: string
-    frequency: string
-    startDate: Date | string
-    endDate: Date | string
-    active?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
-  export type wellnessGoalCreateOrConnectWithoutWellnessGoalProgressInput = {
-    where: wellnessGoalWhereUniqueInput
-    create: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
-  }
-
-  export type wellnessGoalUpsertWithoutWellnessGoalProgressInput = {
-    update: XOR<wellnessGoalUpdateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
-    create: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
-    where?: wellnessGoalWhereInput
-  }
-
-  export type wellnessGoalUpdateToOneWithWhereWithoutWellnessGoalProgressInput = {
-    where?: wellnessGoalWhereInput
-    data: XOR<wellnessGoalUpdateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
-  }
-
-  export type wellnessGoalUpdateWithoutWellnessGoalProgressInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    targetValue?: IntFieldUpdateOperationsInput | number
-    unit?: StringFieldUpdateOperationsInput | string
-    frequency?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: userUpdateOneWithoutWellnessGoalNestedInput
-    wellnessCategory?: wellnessCategoryUpdateOneRequiredWithoutWellnessGoalNestedInput
-  }
-
-  export type wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
-    targetValue?: IntFieldUpdateOperationsInput | number
-    unit?: StringFieldUpdateOperationsInput | string
-    frequency?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    active?: BoolFieldUpdateOperationsInput | boolean
+    parentCategoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -91081,7 +90962,6 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
@@ -91089,7 +90969,7 @@ export namespace Prisma {
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user: userCreateNestedOneWithoutHelpRequestInput
@@ -91102,16 +90982,15 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     serviceCompleted?: serviceCompletedUncheckedCreateNestedManyWithoutHelpRequestInput
@@ -91250,7 +91129,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -91258,7 +91136,7 @@ export namespace Prisma {
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: userUpdateOneRequiredWithoutHelpRequestNestedInput
@@ -91271,16 +91149,15 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     serviceCompleted?: serviceCompletedUncheckedUpdateManyWithoutHelpRequestNestedInput
@@ -92014,7 +91891,6 @@ export namespace Prisma {
   export type conversationCreateWithoutMessageInput = {
     id?: string
     type?: string | null
-    creationDate?: Date | string | null
     title?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -92025,7 +91901,6 @@ export namespace Prisma {
   export type conversationUncheckedCreateWithoutMessageInput = {
     id?: string
     type?: string | null
-    creationDate?: Date | string | null
     title?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -92159,7 +92034,6 @@ export namespace Prisma {
   export type conversationUpdateWithoutMessageInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -92170,7 +92044,6 @@ export namespace Prisma {
   export type conversationUncheckedUpdateWithoutMessageInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -92799,7 +92672,7 @@ export namespace Prisma {
     creatorId: string
     creationDate?: Date | string
     status?: string | null
-    categoryId: string
+    categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     projectTask?: projectTaskUncheckedCreateNestedManyWithoutCollaborativeProjectInput
@@ -92948,7 +92821,7 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     projectTask?: projectTaskUncheckedUpdateManyWithoutCollaborativeProjectNestedInput
@@ -93194,7 +93067,7 @@ export namespace Prisma {
     creatorId: string
     creationDate?: Date | string
     status?: string | null
-    categoryId: string
+    categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     projectMember?: projectMemberUncheckedCreateNestedManyWithoutCollaborativeProjectInput
@@ -93349,7 +93222,7 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     projectMember?: projectMemberUncheckedUpdateManyWithoutCollaborativeProjectNestedInput
@@ -93788,7 +93661,6 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
@@ -93796,7 +93668,7 @@ export namespace Prisma {
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     helpOffer?: helpOfferCreateNestedManyWithoutHelpRequestInput
@@ -93809,16 +93681,15 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     helpOffer?: helpOfferUncheckedCreateNestedManyWithoutHelpRequestInput
@@ -93957,7 +93828,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -93965,7 +93835,7 @@ export namespace Prisma {
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     helpOffer?: helpOfferUpdateManyWithoutHelpRequestNestedInput
@@ -93978,16 +93848,15 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     helpOffer?: helpOfferUncheckedUpdateManyWithoutHelpRequestNestedInput
@@ -95214,9 +95083,8 @@ export namespace Prisma {
 
   export type activityLogCreateWithoutUserInput = {
     id?: string
-    action_type?: string | null
+    actionType?: string | null
     description?: string | null
-    actionDate?: Date | string | null
     ipAddress?: string | null
     device?: string | null
     createdAt?: Date | string
@@ -95225,9 +95093,8 @@ export namespace Prisma {
 
   export type activityLogUncheckedCreateWithoutUserInput = {
     id?: string
-    action_type?: string | null
+    actionType?: string | null
     description?: string | null
-    actionDate?: Date | string | null
     ipAddress?: string | null
     device?: string | null
     createdAt?: Date | string
@@ -95293,7 +95160,7 @@ export namespace Prisma {
     description?: string | null
     creationDate?: Date | string
     status?: string | null
-    categoryId: string
+    categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     projectMember?: projectMemberUncheckedCreateNestedManyWithoutCollaborativeProjectInput
@@ -95311,6 +95178,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantCreateWithoutUserInput = {
+    id?: string
     dateAdded?: Date | string | null
     administrator?: boolean | null
     lastAccess?: Date | string
@@ -95320,6 +95188,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUncheckedCreateWithoutUserInput = {
+    id?: string
     conversationId: string
     dateAdded?: Date | string | null
     administrator?: boolean | null
@@ -95341,8 +95210,6 @@ export namespace Prisma {
   export type forumMessageCreateWithoutUserInput = {
     id?: string
     content?: string | null
-    creationDate?: Date | string | null
-    modificationDate?: Date | string | null
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -95351,10 +95218,8 @@ export namespace Prisma {
 
   export type forumMessageUncheckedCreateWithoutUserInput = {
     id?: string
-    topicId?: string | null
+    topicId: string
     content?: string | null
-    creationDate?: Date | string | null
-    modificationDate?: Date | string | null
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -95373,21 +95238,19 @@ export namespace Prisma {
   export type forumTopicCreateWithoutUserInput = {
     id?: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     forumMessage?: forumMessageCreateNestedManyWithoutForumTopicInput
-    forumCategory: forumCategoryCreateNestedOneWithoutForumTopicInput
+    forumCategory?: forumCategoryCreateNestedOneWithoutForumTopicInput
   }
 
   export type forumTopicUncheckedCreateWithoutUserInput = {
     id?: string
     categoryId: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
@@ -95476,7 +95339,6 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
@@ -95484,7 +95346,7 @@ export namespace Prisma {
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     helpOffer?: helpOfferCreateNestedManyWithoutHelpRequestInput
@@ -95496,16 +95358,15 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     helpOffer?: helpOfferUncheckedCreateNestedManyWithoutHelpRequestInput
@@ -95524,7 +95385,7 @@ export namespace Prisma {
 
   export type medicationReminderCreateWithoutUserInput = {
     id?: string
-    medication_name: string
+    medicationName: string
     dosage?: string | null
     morningReminderTime?: Date | string | null
     noonReminderTime?: Date | string | null
@@ -95534,14 +95395,14 @@ export namespace Prisma {
     instructions?: string | null
     active?: boolean | null
     startDate?: Date | string | null
-    end_date?: Date | string | null
+    endDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
 
   export type medicationReminderUncheckedCreateWithoutUserInput = {
     id?: string
-    medication_name: string
+    medicationName: string
     dosage?: string | null
     morningReminderTime?: Date | string | null
     noonReminderTime?: Date | string | null
@@ -95551,7 +95412,7 @@ export namespace Prisma {
     instructions?: string | null
     active?: boolean | null
     startDate?: Date | string | null
-    end_date?: Date | string | null
+    endDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -95729,7 +95590,7 @@ export namespace Prisma {
     adminValidated?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    resourceCategory: resourceCategoryCreateNestedOneWithoutResourceInput
+    resourceCategory?: resourceCategoryCreateNestedOneWithoutResourceInput
   }
 
   export type resourceUncheckedCreateWithoutUserInput = {
@@ -95737,7 +95598,7 @@ export namespace Prisma {
     title: string
     content?: string | null
     type: string
-    categoryId: string
+    categoryId?: string | null
     adminValidated?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -95895,12 +95756,12 @@ export namespace Prisma {
     cityReference?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    issueCategory: issueCategoryCreateNestedOneWithoutUrbanIssueReportInput
+    issueCategory?: issueCategoryCreateNestedOneWithoutUrbanIssueReportInput
   }
 
   export type urbanIssueReportUncheckedCreateWithoutUserInput = {
     id?: string
-    categoryId: string
+    categoryId?: string | null
     description: string
     address: string
     gpsCoordinates?: string | null
@@ -96108,13 +95969,13 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     wellnessGoalProgress?: wellnessGoalProgressCreateNestedManyWithoutWellnessGoalInput
-    wellnessCategory: wellnessCategoryCreateNestedOneWithoutWellnessGoalInput
+    wellnessCategory?: wellnessCategoryCreateNestedOneWithoutWellnessGoalInput
   }
 
   export type wellnessGoalUncheckedCreateWithoutUserInput = {
     id?: string
     title: string
-    categoryId: string
+    categoryId?: string | null
     targetValue: number
     unit: string
     frequency: string
@@ -96200,9 +96061,8 @@ export namespace Prisma {
     NOT?: activityLogScalarWhereInput | activityLogScalarWhereInput[]
     id?: StringFilter<"activityLog"> | string
     userId?: StringNullableFilter<"activityLog"> | string | null
-    action_type?: StringNullableFilter<"activityLog"> | string | null
+    actionType?: StringNullableFilter<"activityLog"> | string | null
     description?: StringNullableFilter<"activityLog"> | string | null
-    actionDate?: DateTimeNullableFilter<"activityLog"> | Date | string | null
     ipAddress?: StringNullableFilter<"activityLog"> | string | null
     device?: StringNullableFilter<"activityLog"> | string | null
     createdAt?: DateTimeFilter<"activityLog"> | Date | string
@@ -96251,7 +96111,7 @@ export namespace Prisma {
     creatorId?: StringFilter<"collaborativeProject"> | string
     creationDate?: DateTimeFilter<"collaborativeProject"> | Date | string
     status?: StringNullableFilter<"collaborativeProject"> | string | null
-    categoryId?: StringFilter<"collaborativeProject"> | string
+    categoryId?: StringNullableFilter<"collaborativeProject"> | string | null
     createdAt?: DateTimeFilter<"collaborativeProject"> | Date | string
     updatedAt?: DateTimeNullableFilter<"collaborativeProject"> | Date | string | null
   }
@@ -96325,7 +96185,7 @@ export namespace Prisma {
     OR?: healthIndicatorScalarWhereInput[]
     NOT?: healthIndicatorScalarWhereInput | healthIndicatorScalarWhereInput[]
     id?: StringFilter<"healthIndicator"> | string
-    userId?: StringNullableFilter<"healthIndicator"> | string | null
+    userId?: StringFilter<"healthIndicator"> | string
     recordingDate?: DateTimeFilter<"healthIndicator"> | Date | string
     stepCount?: IntNullableFilter<"healthIndicator"> | number | null
     sleepDurationMinutes?: IntNullableFilter<"healthIndicator"> | number | null
@@ -96377,16 +96237,15 @@ export namespace Prisma {
     creatorId?: StringFilter<"helpRequest"> | string
     title?: StringFilter<"helpRequest"> | string
     description?: StringNullableFilter<"helpRequest"> | string | null
-    creationDate?: DateTimeFilter<"helpRequest"> | Date | string
     neededDate?: DateTimeNullableFilter<"helpRequest"> | Date | string | null
     estimatedDuration?: IntNullableFilter<"helpRequest"> | number | null
     location?: StringNullableFilter<"helpRequest"> | string | null
     gpsCoordinates?: StringNullableFilter<"helpRequest"> | string | null
-    categoryId?: StringFilter<"helpRequest"> | string
+    categoryId?: StringNullableFilter<"helpRequest"> | string | null
     recurring?: BoolNullableFilter<"helpRequest"> | boolean | null
     frequency?: StringNullableFilter<"helpRequest"> | string | null
     status?: StringNullableFilter<"helpRequest"> | string | null
-    points_offered?: IntNullableFilter<"helpRequest"> | number | null
+    pointsOffered?: IntNullableFilter<"helpRequest"> | number | null
     createdAt?: DateTimeFilter<"helpRequest"> | Date | string
     updatedAt?: DateTimeNullableFilter<"helpRequest"> | Date | string | null
   }
@@ -96413,7 +96272,7 @@ export namespace Prisma {
     NOT?: medicationReminderScalarWhereInput | medicationReminderScalarWhereInput[]
     id?: StringFilter<"medicationReminder"> | string
     userId?: StringFilter<"medicationReminder"> | string
-    medication_name?: StringFilter<"medicationReminder"> | string
+    medicationName?: StringFilter<"medicationReminder"> | string
     dosage?: StringNullableFilter<"medicationReminder"> | string | null
     morningReminderTime?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
     noonReminderTime?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
@@ -96423,7 +96282,7 @@ export namespace Prisma {
     instructions?: StringNullableFilter<"medicationReminder"> | string | null
     active?: BoolNullableFilter<"medicationReminder"> | boolean | null
     startDate?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
-    end_date?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
+    endDate?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
     createdAt?: DateTimeFilter<"medicationReminder"> | Date | string
     updatedAt?: DateTimeNullableFilter<"medicationReminder"> | Date | string | null
   }
@@ -96569,7 +96428,7 @@ export namespace Prisma {
     title?: StringFilter<"resource"> | string
     content?: StringNullableFilter<"resource"> | string | null
     type?: StringFilter<"resource"> | string
-    categoryId?: StringFilter<"resource"> | string
+    categoryId?: StringNullableFilter<"resource"> | string | null
     authorId?: StringFilter<"resource"> | string
     adminValidated?: BoolNullableFilter<"resource"> | boolean | null
     createdAt?: DateTimeFilter<"resource"> | Date | string
@@ -96681,7 +96540,7 @@ export namespace Prisma {
     NOT?: urbanIssueReportScalarWhereInput | urbanIssueReportScalarWhereInput[]
     id?: StringFilter<"urbanIssueReport"> | string
     userId?: StringFilter<"urbanIssueReport"> | string
-    categoryId?: StringFilter<"urbanIssueReport"> | string
+    categoryId?: StringNullableFilter<"urbanIssueReport"> | string | null
     description?: StringFilter<"urbanIssueReport"> | string
     address?: StringFilter<"urbanIssueReport"> | string
     gpsCoordinates?: StringNullableFilter<"urbanIssueReport"> | string | null
@@ -96722,6 +96581,17 @@ export namespace Prisma {
   export type userBadgeUpdateManyWithWhereWithoutUserInput = {
     where: userBadgeScalarWhereInput
     data: XOR<userBadgeUpdateManyMutationInput, userBadgeUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type userBadgeScalarWhereInput = {
+    AND?: userBadgeScalarWhereInput | userBadgeScalarWhereInput[]
+    OR?: userBadgeScalarWhereInput[]
+    NOT?: userBadgeScalarWhereInput | userBadgeScalarWhereInput[]
+    userId?: StringFilter<"userBadge"> | string
+    badgeId?: StringFilter<"userBadge"> | string
+    achievementDate?: DateTimeFilter<"userBadge"> | Date | string
+    createdAt?: DateTimeFilter<"userBadge"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"userBadge"> | Date | string | null
   }
 
   export type userDeviceUpsertWithWhereUniqueWithoutUserInput = {
@@ -96845,7 +96715,7 @@ export namespace Prisma {
     id?: StringFilter<"wellnessGoal"> | string
     userId?: StringFilter<"wellnessGoal"> | string
     title?: StringFilter<"wellnessGoal"> | string
-    categoryId?: StringFilter<"wellnessGoal"> | string
+    categoryId?: StringNullableFilter<"wellnessGoal"> | string | null
     targetValue?: IntFilter<"wellnessGoal"> | number
     unit?: StringFilter<"wellnessGoal"> | string
     frequency?: StringFilter<"wellnessGoal"> | string
@@ -96865,14 +96735,14 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    cognitiveCategory: cognitiveCategoryCreateNestedOneWithoutCognitiveExerciseInput
+    cognitiveCategory?: cognitiveCategoryCreateNestedOneWithoutCognitiveExerciseInput
     programCategory?: programCategoryCreateNestedOneWithoutCognitiveExerciseInput
   }
 
   export type cognitiveExerciseUncheckedCreateWithoutUserActivityInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     difficultyLevel?: number | null
     durationMinutes?: number | null
     description?: string | null
@@ -96890,31 +96760,29 @@ export namespace Prisma {
   export type exerciseProgramCreateWithoutUserActivityInput = {
     id?: string
     name: string
-    categoryId: string
     difficultyLevel?: number | null
-    adaptedForReducedMobility: boolean
+    adaptedForReducedMobility?: boolean | null
     durationMinutes?: number | null
     description?: string | null
     videoLink?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategory?: programCategoryCreateNestedManyWithoutExerciseProgramInput
+    programCategory?: programCategoryCreateNestedOneWithoutExerciseProgramInput
   }
 
   export type exerciseProgramUncheckedCreateWithoutUserActivityInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     difficultyLevel?: number | null
-    adaptedForReducedMobility: boolean
+    adaptedForReducedMobility?: boolean | null
     durationMinutes?: number | null
     description?: string | null
     videoLink?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategory?: programCategoryUncheckedCreateNestedManyWithoutExerciseProgramInput
   }
 
   export type exerciseProgramCreateOrConnectWithoutUserActivityInput = {
@@ -97049,14 +96917,14 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cognitiveCategory?: cognitiveCategoryUpdateOneRequiredWithoutCognitiveExerciseNestedInput
+    cognitiveCategory?: cognitiveCategoryUpdateOneWithoutCognitiveExerciseNestedInput
     programCategory?: programCategoryUpdateOneWithoutCognitiveExerciseNestedInput
   }
 
   export type cognitiveExerciseUncheckedUpdateWithoutUserActivityInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -97080,31 +96948,29 @@ export namespace Prisma {
   export type exerciseProgramUpdateWithoutUserActivityInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: BoolFieldUpdateOperationsInput | boolean
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     videoLink?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategory?: programCategoryUpdateManyWithoutExerciseProgramNestedInput
+    programCategory?: programCategoryUpdateOneWithoutExerciseProgramNestedInput
   }
 
   export type exerciseProgramUncheckedUpdateWithoutUserActivityInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: BoolFieldUpdateOperationsInput | boolean
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     videoLink?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategory?: programCategoryUncheckedUpdateManyWithoutExerciseProgramNestedInput
   }
 
   export type userUpsertWithoutUserActivityInput = {
@@ -97228,13 +97094,13 @@ export namespace Prisma {
     level?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    badgeCategory: badgeCategoryCreateNestedOneWithoutBadgeInput
+    badgeCategory?: badgeCategoryCreateNestedOneWithoutBadgeInput
   }
 
   export type badgeUncheckedCreateWithoutUserBadgeInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     description?: string | null
     icon?: string | null
     level?: number | null
@@ -97373,13 +97239,13 @@ export namespace Prisma {
     level?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    badgeCategory?: badgeCategoryUpdateOneRequiredWithoutBadgeNestedInput
+    badgeCategory?: badgeCategoryUpdateOneWithoutBadgeNestedInput
   }
 
   export type badgeUncheckedUpdateWithoutUserBadgeInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     level?: NullableIntFieldUpdateOperationsInput | number | null
@@ -97726,14 +97592,14 @@ export namespace Prisma {
     description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    skillCategory: skillCategoryCreateNestedOneWithoutSkillInput
+    skillCategory?: skillCategoryCreateNestedOneWithoutSkillInput
   }
 
   export type skillUncheckedCreateWithoutUserSkillInput = {
     id?: string
     name: string
     description?: string | null
-    categoryId: string
+    categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -97867,14 +97733,14 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    skillCategory?: skillCategoryUpdateOneRequiredWithoutSkillNestedInput
+    skillCategory?: skillCategoryUpdateOneWithoutSkillNestedInput
   }
 
   export type skillUncheckedUpdateWithoutUserSkillInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -98215,7 +98081,6 @@ export namespace Prisma {
   export type conversationCreateWithoutVideoCallInput = {
     id?: string
     type?: string | null
-    creationDate?: Date | string | null
     title?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -98226,7 +98091,6 @@ export namespace Prisma {
   export type conversationUncheckedCreateWithoutVideoCallInput = {
     id?: string
     type?: string | null
-    creationDate?: Date | string | null
     title?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -98360,7 +98224,6 @@ export namespace Prisma {
   export type conversationUpdateWithoutVideoCallInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -98371,7 +98234,6 @@ export namespace Prisma {
   export type conversationUncheckedUpdateWithoutVideoCallInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -98873,6 +98735,82 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutWellnessCategoryNestedInput
   }
 
+  export type wellnessGoalCreateWithoutWellnessGoalProgressInput = {
+    id?: string
+    title: string
+    targetValue: number
+    unit: string
+    frequency: string
+    startDate: Date | string
+    endDate: Date | string
+    active?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    user?: userCreateNestedOneWithoutWellnessGoalInput
+    wellnessCategory?: wellnessCategoryCreateNestedOneWithoutWellnessGoalInput
+  }
+
+  export type wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput = {
+    id?: string
+    userId: string
+    title: string
+    categoryId?: string | null
+    targetValue: number
+    unit: string
+    frequency: string
+    startDate: Date | string
+    endDate: Date | string
+    active?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type wellnessGoalCreateOrConnectWithoutWellnessGoalProgressInput = {
+    where: wellnessGoalWhereUniqueInput
+    create: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
+  }
+
+  export type wellnessGoalUpsertWithoutWellnessGoalProgressInput = {
+    update: XOR<wellnessGoalUpdateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
+    create: XOR<wellnessGoalCreateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedCreateWithoutWellnessGoalProgressInput>
+    where?: wellnessGoalWhereInput
+  }
+
+  export type wellnessGoalUpdateToOneWithWhereWithoutWellnessGoalProgressInput = {
+    where?: wellnessGoalWhereInput
+    data: XOR<wellnessGoalUpdateWithoutWellnessGoalProgressInput, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
+  }
+
+  export type wellnessGoalUpdateWithoutWellnessGoalProgressInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    targetValue?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    frequency?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: userUpdateOneWithoutWellnessGoalNestedInput
+    wellnessCategory?: wellnessCategoryUpdateOneWithoutWellnessGoalNestedInput
+  }
+
+  export type wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    targetValue?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    frequency?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type activityCreateWithoutActivityCategoryInput = {
     id?: string
     title: string
@@ -98953,7 +98891,7 @@ export namespace Prisma {
     level?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    userBadge?: userBadgeCreateNestedManyWithoutBadgeInput
+    userBadge?: userBadgeCreateNestedOneWithoutBadgeInput
   }
 
   export type badgeUncheckedCreateWithoutBadgeCategoryInput = {
@@ -98964,7 +98902,7 @@ export namespace Prisma {
     level?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    userBadge?: userBadgeUncheckedCreateNestedManyWithoutBadgeInput
+    userBadge?: userBadgeUncheckedCreateNestedOneWithoutBadgeInput
   }
 
   export type badgeCreateOrConnectWithoutBadgeCategoryInput = {
@@ -98999,7 +98937,7 @@ export namespace Prisma {
     NOT?: badgeScalarWhereInput | badgeScalarWhereInput[]
     id?: StringFilter<"badge"> | string
     name?: StringFilter<"badge"> | string
-    categoryId?: StringFilter<"badge"> | string
+    categoryId?: StringNullableFilter<"badge"> | string | null
     description?: StringNullableFilter<"badge"> | string | null
     icon?: StringNullableFilter<"badge"> | string | null
     level?: IntNullableFilter<"badge"> | number | null
@@ -99065,7 +99003,7 @@ export namespace Prisma {
     NOT?: cognitiveExerciseScalarWhereInput | cognitiveExerciseScalarWhereInput[]
     id?: StringFilter<"cognitiveExercise"> | string
     name?: StringFilter<"cognitiveExercise"> | string
-    categoryId?: StringFilter<"cognitiveExercise"> | string
+    categoryId?: StringNullableFilter<"cognitiveExercise"> | string | null
     difficultyLevel?: IntNullableFilter<"cognitiveExercise"> | number | null
     durationMinutes?: IntNullableFilter<"cognitiveExercise"> | number | null
     description?: StringNullableFilter<"cognitiveExercise"> | string | null
@@ -99079,7 +99017,6 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
@@ -99087,7 +99024,7 @@ export namespace Prisma {
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     helpOffer?: helpOfferCreateNestedManyWithoutHelpRequestInput
@@ -99100,7 +99037,6 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
@@ -99108,7 +99044,7 @@ export namespace Prisma {
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
     helpOffer?: helpOfferUncheckedCreateNestedManyWithoutHelpRequestInput
@@ -99246,7 +99182,7 @@ export namespace Prisma {
     id?: StringFilter<"nutritionalAdvice"> | string
     title?: StringFilter<"nutritionalAdvice"> | string
     description?: StringNullableFilter<"nutritionalAdvice"> | string | null
-    categoryId?: StringFilter<"nutritionalAdvice"> | string
+    categoryId?: StringNullableFilter<"nutritionalAdvice"> | string | null
     season?: StringFilter<"nutritionalAdvice"> | string
     image?: StringNullableFilter<"nutritionalAdvice"> | string | null
     createdAt?: DateTimeFilter<"nutritionalAdvice"> | Date | string
@@ -99262,14 +99198,14 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    cognitiveCategory: cognitiveCategoryCreateNestedOneWithoutCognitiveExerciseInput
+    cognitiveCategory?: cognitiveCategoryCreateNestedOneWithoutCognitiveExerciseInput
     userActivity?: userActivityCreateNestedManyWithoutCognitiveExerciseInput
   }
 
   export type cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     difficultyLevel?: number | null
     durationMinutes?: number | null
     description?: string | null
@@ -99292,9 +99228,8 @@ export namespace Prisma {
   export type exerciseProgramCreateWithoutProgramCategoryInput = {
     id?: string
     name: string
-    categoryId: string
     difficultyLevel?: number | null
-    adaptedForReducedMobility: boolean
+    adaptedForReducedMobility?: boolean | null
     durationMinutes?: number | null
     description?: string | null
     videoLink?: string | null
@@ -99307,9 +99242,8 @@ export namespace Prisma {
   export type exerciseProgramUncheckedCreateWithoutProgramCategoryInput = {
     id?: string
     name: string
-    categoryId: string
     difficultyLevel?: number | null
-    adaptedForReducedMobility: boolean
+    adaptedForReducedMobility?: boolean | null
     durationMinutes?: number | null
     description?: string | null
     videoLink?: string | null
@@ -99322,6 +99256,11 @@ export namespace Prisma {
   export type exerciseProgramCreateOrConnectWithoutProgramCategoryInput = {
     where: exerciseProgramWhereUniqueInput
     create: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput>
+  }
+
+  export type exerciseProgramCreateManyProgramCategoryInputEnvelope = {
+    data: exerciseProgramCreateManyProgramCategoryInput | exerciseProgramCreateManyProgramCategoryInput[]
+    skipDuplicates?: boolean
   }
 
   export type cognitiveExerciseUpsertWithWhereUniqueWithoutProgramCategoryInput = {
@@ -99340,45 +99279,37 @@ export namespace Prisma {
     data: XOR<cognitiveExerciseUpdateManyMutationInput, cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryInput>
   }
 
-  export type exerciseProgramUpsertWithoutProgramCategoryInput = {
+  export type exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput = {
+    where: exerciseProgramWhereUniqueInput
     update: XOR<exerciseProgramUpdateWithoutProgramCategoryInput, exerciseProgramUncheckedUpdateWithoutProgramCategoryInput>
     create: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput>
-    where?: exerciseProgramWhereInput
   }
 
-  export type exerciseProgramUpdateToOneWithWhereWithoutProgramCategoryInput = {
-    where?: exerciseProgramWhereInput
+  export type exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput = {
+    where: exerciseProgramWhereUniqueInput
     data: XOR<exerciseProgramUpdateWithoutProgramCategoryInput, exerciseProgramUncheckedUpdateWithoutProgramCategoryInput>
   }
 
-  export type exerciseProgramUpdateWithoutProgramCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: BoolFieldUpdateOperationsInput | boolean
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userActivity?: userActivityUpdateManyWithoutExerciseProgramNestedInput
+  export type exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput = {
+    where: exerciseProgramScalarWhereInput
+    data: XOR<exerciseProgramUpdateManyMutationInput, exerciseProgramUncheckedUpdateManyWithoutProgramCategoryInput>
   }
 
-  export type exerciseProgramUncheckedUpdateWithoutProgramCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: BoolFieldUpdateOperationsInput | boolean
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userActivity?: userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput
+  export type exerciseProgramScalarWhereInput = {
+    AND?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
+    OR?: exerciseProgramScalarWhereInput[]
+    NOT?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
+    id?: StringFilter<"exerciseProgram"> | string
+    name?: StringFilter<"exerciseProgram"> | string
+    categoryId?: StringNullableFilter<"exerciseProgram"> | string | null
+    difficultyLevel?: IntNullableFilter<"exerciseProgram"> | number | null
+    adaptedForReducedMobility?: BoolNullableFilter<"exerciseProgram"> | boolean | null
+    durationMinutes?: IntNullableFilter<"exerciseProgram"> | number | null
+    description?: StringNullableFilter<"exerciseProgram"> | string | null
+    videoLink?: StringNullableFilter<"exerciseProgram"> | string | null
+    image?: StringNullableFilter<"exerciseProgram"> | string | null
+    createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
   }
 
   export type collaborativeProjectCreateWithoutProjectCategoryInput = {
@@ -99606,7 +99537,7 @@ export namespace Prisma {
     id?: StringFilter<"skill"> | string
     name?: StringFilter<"skill"> | string
     description?: StringNullableFilter<"skill"> | string | null
-    categoryId?: StringFilter<"skill"> | string
+    categoryId?: StringNullableFilter<"skill"> | string | null
     createdAt?: DateTimeFilter<"skill"> | Date | string
     updatedAt?: DateTimeNullableFilter<"skill"> | Date | string | null
   }
@@ -99704,7 +99635,7 @@ export namespace Prisma {
     id?: StringFilter<"wellnessBadge"> | string
     name?: StringFilter<"wellnessBadge"> | string
     description?: StringNullableFilter<"wellnessBadge"> | string | null
-    categoryId?: StringFilter<"wellnessBadge"> | string
+    categoryId?: StringNullableFilter<"wellnessBadge"> | string | null
     image?: StringNullableFilter<"wellnessBadge"> | string | null
     level?: IntFilter<"wellnessBadge"> | number
     createdAt?: DateTimeFilter<"wellnessBadge"> | Date | string
@@ -99763,34 +99694,6 @@ export namespace Prisma {
     registrationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
     attendanceConfirmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type userBadgeCreateManyBadgeInput = {
-    userId: string
-    achievementDate: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
-  export type userBadgeUpdateWithoutBadgeInput = {
-    achievementDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    user?: userUpdateOneRequiredWithoutUserBadgeNestedInput
-  }
-
-  export type userBadgeUncheckedUpdateWithoutBadgeInput = {
-    userId?: StringFieldUpdateOperationsInput | string
-    achievementDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type userBadgeUncheckedUpdateManyWithoutBadgeInput = {
-    userId?: StringFieldUpdateOperationsInput | string
-    achievementDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -99928,6 +99831,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantCreateManyConversationInput = {
+    id?: string
     userId: string
     dateAdded?: Date | string | null
     administrator?: boolean | null
@@ -99958,6 +99862,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUpdateWithoutConversationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     lastAccess?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -99967,6 +99872,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUncheckedUpdateWithoutConversationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -99976,6 +99882,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUncheckedUpdateManyWithoutConversationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -100047,14 +99954,6 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type programCategoryCreateManyExerciseProgramInput = {
-    id?: string
-    name: string
-    description?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
   export type userActivityCreateManyExerciseProgramInput = {
     id?: string
     userId: string
@@ -100066,32 +99965,6 @@ export namespace Prisma {
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-  }
-
-  export type programCategoryUpdateWithoutExerciseProgramInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cognitiveExercise?: cognitiveExerciseUpdateManyWithoutProgramCategoryNestedInput
-  }
-
-  export type programCategoryUncheckedUpdateWithoutExerciseProgramInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryNestedInput
-  }
-
-  export type programCategoryUncheckedUpdateManyWithoutExerciseProgramInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type userActivityUpdateWithoutExerciseProgramInput = {
@@ -100137,7 +100010,6 @@ export namespace Prisma {
     id?: string
     authorId: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
@@ -100148,7 +100020,6 @@ export namespace Prisma {
   export type forumTopicUpdateWithoutForumCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
@@ -100162,7 +100033,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
@@ -100175,7 +100045,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
@@ -100185,10 +100054,8 @@ export namespace Prisma {
 
   export type forumMessageCreateManyForumTopicInput = {
     id?: string
-    authorId?: string | null
+    authorId: string
     content?: string | null
-    creationDate?: Date | string | null
-    modificationDate?: Date | string | null
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -100197,8 +100064,6 @@ export namespace Prisma {
   export type forumMessageUpdateWithoutForumTopicInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -100207,10 +100072,8 @@ export namespace Prisma {
 
   export type forumMessageUncheckedUpdateWithoutForumTopicInput = {
     id?: StringFieldUpdateOperationsInput | string
-    authorId?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -100218,10 +100081,8 @@ export namespace Prisma {
 
   export type forumMessageUncheckedUpdateManyWithoutForumTopicInput = {
     id?: StringFieldUpdateOperationsInput | string
-    authorId?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -100443,9 +100304,8 @@ export namespace Prisma {
 
   export type activityLogCreateManyUserInput = {
     id?: string
-    action_type?: string | null
+    actionType?: string | null
     description?: string | null
-    actionDate?: Date | string | null
     ipAddress?: string | null
     device?: string | null
     createdAt?: Date | string
@@ -100468,12 +100328,13 @@ export namespace Prisma {
     description?: string | null
     creationDate?: Date | string
     status?: string | null
-    categoryId: string
+    categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
 
   export type conversationParticipantCreateManyUserInput = {
+    id?: string
     conversationId: string
     dateAdded?: Date | string | null
     administrator?: boolean | null
@@ -100484,10 +100345,8 @@ export namespace Prisma {
 
   export type forumMessageCreateManyUserInput = {
     id?: string
-    topicId?: string | null
+    topicId: string
     content?: string | null
-    creationDate?: Date | string | null
-    modificationDate?: Date | string | null
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -100497,7 +100356,6 @@ export namespace Prisma {
     id?: string
     categoryId: string
     title: string
-    creationDate?: Date | string | null
     pinned?: boolean | null
     status?: string | null
     views?: number | null
@@ -100532,23 +100390,22 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId: string
+    categoryId?: string | null
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
 
   export type medicationReminderCreateManyUserInput = {
     id?: string
-    medication_name: string
+    medicationName: string
     dosage?: string | null
     morningReminderTime?: Date | string | null
     noonReminderTime?: Date | string | null
@@ -100558,7 +100415,7 @@ export namespace Prisma {
     instructions?: string | null
     active?: boolean | null
     startDate?: Date | string | null
-    end_date?: Date | string | null
+    endDate?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -100609,7 +100466,7 @@ export namespace Prisma {
     title: string
     content?: string | null
     type: string
-    categoryId: string
+    categoryId?: string | null
     adminValidated?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -100663,7 +100520,7 @@ export namespace Prisma {
 
   export type urbanIssueReportCreateManyUserInput = {
     id?: string
-    categoryId: string
+    categoryId?: string | null
     description: string
     address: string
     gpsCoordinates?: string | null
@@ -100725,7 +100582,7 @@ export namespace Prisma {
   export type wellnessGoalCreateManyUserInput = {
     id?: string
     title: string
-    categoryId: string
+    categoryId?: string | null
     targetValue: number
     unit: string
     frequency: string
@@ -100806,9 +100663,8 @@ export namespace Prisma {
 
   export type activityLogUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    action_type?: NullableStringFieldUpdateOperationsInput | string | null
+    actionType?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    actionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     device?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -100817,9 +100673,8 @@ export namespace Prisma {
 
   export type activityLogUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    action_type?: NullableStringFieldUpdateOperationsInput | string | null
+    actionType?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    actionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     device?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -100828,9 +100683,8 @@ export namespace Prisma {
 
   export type activityLogUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    action_type?: NullableStringFieldUpdateOperationsInput | string | null
+    actionType?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    actionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     device?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -100886,7 +100740,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     projectMember?: projectMemberUncheckedUpdateManyWithoutCollaborativeProjectNestedInput
@@ -100899,12 +100753,13 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type conversationParticipantUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
     lastAccess?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -100914,6 +100769,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     conversationId?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -100923,6 +100779,7 @@ export namespace Prisma {
   }
 
   export type conversationParticipantUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     conversationId?: StringFieldUpdateOperationsInput | string
     dateAdded?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     administrator?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -100934,8 +100791,6 @@ export namespace Prisma {
   export type forumMessageUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -100944,10 +100799,8 @@ export namespace Prisma {
 
   export type forumMessageUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    topicId?: NullableStringFieldUpdateOperationsInput | string | null
+    topicId?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -100955,10 +100808,8 @@ export namespace Prisma {
 
   export type forumMessageUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    topicId?: NullableStringFieldUpdateOperationsInput | string | null
+    topicId?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    modificationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -100967,21 +100818,19 @@ export namespace Prisma {
   export type forumTopicUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     forumMessage?: forumMessageUpdateManyWithoutForumTopicNestedInput
-    forumCategory?: forumCategoryUpdateOneRequiredWithoutForumTopicNestedInput
+    forumCategory?: forumCategoryUpdateOneWithoutForumTopicNestedInput
   }
 
   export type forumTopicUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
@@ -100994,7 +100843,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    creationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pinned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     views?: NullableIntFieldUpdateOperationsInput | number | null
@@ -101075,7 +100923,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101083,7 +100930,7 @@ export namespace Prisma {
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     helpOffer?: helpOfferUpdateManyWithoutHelpRequestNestedInput
@@ -101095,16 +100942,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     helpOffer?: helpOfferUncheckedUpdateManyWithoutHelpRequestNestedInput
@@ -101115,23 +100961,22 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type medicationReminderUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    medication_name?: StringFieldUpdateOperationsInput | string
+    medicationName?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morningReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     noonReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -101141,14 +100986,14 @@ export namespace Prisma {
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
     active?: NullableBoolFieldUpdateOperationsInput | boolean | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type medicationReminderUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    medication_name?: StringFieldUpdateOperationsInput | string
+    medicationName?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morningReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     noonReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -101158,14 +101003,14 @@ export namespace Prisma {
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
     active?: NullableBoolFieldUpdateOperationsInput | boolean | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type medicationReminderUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    medication_name?: StringFieldUpdateOperationsInput | string
+    medicationName?: StringFieldUpdateOperationsInput | string
     dosage?: NullableStringFieldUpdateOperationsInput | string | null
     morningReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     noonReminderTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -101175,7 +101020,7 @@ export namespace Prisma {
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
     active?: NullableBoolFieldUpdateOperationsInput | boolean | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -101311,7 +101156,7 @@ export namespace Prisma {
     adminValidated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    resourceCategory?: resourceCategoryUpdateOneRequiredWithoutResourceNestedInput
+    resourceCategory?: resourceCategoryUpdateOneWithoutResourceNestedInput
   }
 
   export type resourceUncheckedUpdateWithoutUserInput = {
@@ -101319,7 +101164,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     adminValidated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -101330,7 +101175,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     adminValidated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -101484,12 +101329,12 @@ export namespace Prisma {
     cityReference?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    issueCategory?: issueCategoryUpdateOneRequiredWithoutUrbanIssueReportNestedInput
+    issueCategory?: issueCategoryUpdateOneWithoutUrbanIssueReportNestedInput
   }
 
   export type urbanIssueReportUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101502,7 +101347,7 @@ export namespace Prisma {
 
   export type urbanIssueReportUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101669,13 +101514,13 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wellnessGoalProgress?: wellnessGoalProgressUpdateManyWithoutWellnessGoalNestedInput
-    wellnessCategory?: wellnessCategoryUpdateOneRequiredWithoutWellnessGoalNestedInput
+    wellnessCategory?: wellnessCategoryUpdateOneWithoutWellnessGoalNestedInput
   }
 
   export type wellnessGoalUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     targetValue?: IntFieldUpdateOperationsInput | number
     unit?: StringFieldUpdateOperationsInput | string
     frequency?: StringFieldUpdateOperationsInput | string
@@ -101690,7 +101535,7 @@ export namespace Prisma {
   export type wellnessGoalUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     targetValue?: IntFieldUpdateOperationsInput | number
     unit?: StringFieldUpdateOperationsInput | string
     frequency?: StringFieldUpdateOperationsInput | string
@@ -101845,7 +101690,7 @@ export namespace Prisma {
     level?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userBadge?: userBadgeUpdateManyWithoutBadgeNestedInput
+    userBadge?: userBadgeUpdateOneWithoutBadgeNestedInput
   }
 
   export type badgeUncheckedUpdateWithoutBadgeCategoryInput = {
@@ -101856,7 +101701,7 @@ export namespace Prisma {
     level?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userBadge?: userBadgeUncheckedUpdateManyWithoutBadgeNestedInput
+    userBadge?: userBadgeUncheckedUpdateOneWithoutBadgeNestedInput
   }
 
   export type badgeUncheckedUpdateManyWithoutBadgeCategoryInput = {
@@ -101924,7 +101769,6 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    creationDate?: Date | string
     neededDate?: Date | string | null
     estimatedDuration?: number | null
     location?: string | null
@@ -101932,7 +101776,7 @@ export namespace Prisma {
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
-    points_offered?: number | null
+    pointsOffered?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -101941,7 +101785,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101949,7 +101792,7 @@ export namespace Prisma {
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     helpOffer?: helpOfferUpdateManyWithoutHelpRequestNestedInput
@@ -101962,7 +101805,6 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101970,7 +101812,7 @@ export namespace Prisma {
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     helpOffer?: helpOfferUncheckedUpdateManyWithoutHelpRequestNestedInput
@@ -101982,7 +101824,6 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101990,7 +101831,7 @@ export namespace Prisma {
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
-    points_offered?: NullableIntFieldUpdateOperationsInput | number | null
+    pointsOffered?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -102090,10 +101931,23 @@ export namespace Prisma {
   export type cognitiveExerciseCreateManyProgramCategoryInput = {
     id?: string
     name: string
-    categoryId: string
+    categoryId?: string | null
     difficultyLevel?: number | null
     durationMinutes?: number | null
     description?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type exerciseProgramCreateManyProgramCategoryInput = {
+    id?: string
+    name: string
+    difficultyLevel?: number | null
+    adaptedForReducedMobility?: boolean | null
+    durationMinutes?: number | null
+    description?: string | null
+    videoLink?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -102108,14 +101962,14 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cognitiveCategory?: cognitiveCategoryUpdateOneRequiredWithoutCognitiveExerciseNestedInput
+    cognitiveCategory?: cognitiveCategoryUpdateOneWithoutCognitiveExerciseNestedInput
     userActivity?: userActivityUpdateManyWithoutCognitiveExerciseNestedInput
   }
 
   export type cognitiveExerciseUncheckedUpdateWithoutProgramCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -102128,10 +101982,51 @@ export namespace Prisma {
   export type cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    categoryId?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
     durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type exerciseProgramUpdateWithoutProgramCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    userActivity?: userActivityUpdateManyWithoutExerciseProgramNestedInput
+  }
+
+  export type exerciseProgramUncheckedUpdateWithoutProgramCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    userActivity?: userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput
+  }
+
+  export type exerciseProgramUncheckedUpdateManyWithoutProgramCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

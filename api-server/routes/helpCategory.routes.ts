@@ -24,7 +24,7 @@ const router = Router();
  * @swagger
  * /api/help-categories:
  *   post:
- *     summary: Créer une nouvelle catégorie de badge
+ *     summary: Créer une nouvelle catégorie d'aide
  *     tags: [Help Categories]
  *     requestBody:
  *       required: true

@@ -11,22 +11,22 @@ datasource db {
 model activity {
   id                    String                 @id @default(cuid())
   creatorId             String?                @map("creator_id")
-  title                 String                 @db.VarChar(255)
+  title                 String                 @db.Text
   description           String?
   startDate             DateTime               @map("start_date") @db.Timestamp(6)
   endDate               DateTime?              @map("end_date") @db.Timestamp(6)
-  location              String?                @db.VarChar(255)
+  location              String?                @db.Text
   gpsCoordinates        String?                @map("gps_coordinates")
   maxSpots              Int?                   @map("max_spots")
   categoryId            String?                @map("category_id")
   recurring             Boolean?               @default(false)
-  frequency             String?                @db.VarChar(100)
+  frequency             String?                @db.Text
   reducedMobilityAccess Boolean                @default(false) @map("reduced_mobility_access")
   difficultyLevel       Int?                   @map("difficulty_level")
   cost                  Float?
-  status                String?                @db.VarChar(50)
-  weatherRequirements   String?                @map("weather_requirements") @db.VarChar(255)
-  transportOptions      String?                @map("transport_options") @db.VarChar(255)
+  status                String?                @db.Text
+  weatherRequirements   String?                @map("weather_requirements") @db.Text
+  transportOptions      String?                @map("transport_options") @db.Text
   createdAt             DateTime               @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt             DateTime?              @map("updated_at") @db.Timestamp(6)
   user                  user?                  @relation(fields: [creatorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -36,12 +36,11 @@ model activity {
 
 model activityLog {
   id          String    @id @default(cuid())
-  userId      String?   @map("userId")
-  action_type String?   @db.VarChar
+  userId      String?   @map("user_id")
+  actionType  String?   @map("action_type") @db.Text
   description String?
-  actionDate  DateTime? @map("action_date") @db.Timestamp(6)
-  ipAddress   String?   @map("ip_address") @db.VarChar
-  device      String?   @db.VarChar
+  ipAddress   String?   @map("ip_address") @db.Text
+  device      String?   @db.Text
   createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt   DateTime? @map("updated_at") @db.Timestamp(6)
   user        user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -54,7 +53,7 @@ model activityRegistration {
   activityId          String    @map("activity_id")
   userId              String    @map("user_id")
   registrationDate    DateTime  @map("registration_date") @db.Timestamp(6)
-  status              String?   @db.VarChar(50)
+  status              String?   @db.Text
   attendanceConfirmed Boolean?  @default(false) @map("attendance_confirmed")
   createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt           DateTime? @map("updated_at") @db.Timestamp(6)
@@ -65,31 +64,31 @@ model activityRegistration {
 }
 
 model badge {
-  id            String        @id @default(cuid())
-  name          String        @db.VarChar(255)
-  categoryId    String        @map("category_id")
-  description   String?       @db.VarChar(255)
-  icon          String?       @db.VarChar(255)
+  id            String         @id @default(cuid())
+  name          String         @db.Text
+  categoryId    String?        @unique @map("category_id")
+  description   String?        @db.Text
+  icon          String?        @db.Text
   level         Int?
-  createdAt     DateTime      @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt     DateTime?     @map("updated_at") @db.Timestamp(6)
-  badgeCategory badgeCategory @relation(fields: [categoryId], references: [id])
-  userBadge     userBadge[]
+  createdAt     DateTime       @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt     DateTime?      @map("updated_at") @db.Timestamp(6)
+  userBadge     userBadge?
+  badgeCategory badgeCategory? @relation(fields: [categoryId], references: [id])
 }
 
 model cognitiveExercise {
-  id                String            @id @default(cuid())
-  name              String            @db.VarChar(255)
-  categoryId        String            @map("category_id") // Mémoire, concentration, raisonnement, logique, langage, calcul mental, observation, culture générale
-  difficultyLevel   Int?              @map("difficulty_level")
-  durationMinutes   Int?              @map("duration_minutes")
+  id                String             @id @default(cuid())
+  name              String             @db.Text
+  categoryId        String?            @map("category_id") // Mémoire, concentration, raisonnement, logique, langage, calcul mental, observation, culture générale
+  difficultyLevel   Int?               @map("difficulty_level")
+  durationMinutes   Int?               @map("duration_minutes")
   description       String?
-  image             String?           @db.VarChar(255)
-  createdAt         DateTime          @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt         DateTime?         @map("updated_at") @db.Timestamp(6)
-  cognitiveCategory cognitiveCategory @relation(fields: [categoryId], references: [id])
+  image             String?            @db.Text
+  createdAt         DateTime           @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt         DateTime?          @map("updated_at") @db.Timestamp(6)
+  cognitiveCategory cognitiveCategory? @relation(fields: [categoryId], references: [id])
   userActivity      userActivity[]
-  programCategory   programCategory?  @relation(fields: [programCategoryId], references: [id])
+  programCategory   programCategory?   @relation(fields: [programCategoryId], references: [id])
   programCategoryId String?
 
   @@map("cognitive_exercise")
@@ -97,12 +96,12 @@ model cognitiveExercise {
 
 model collaborativeProject {
   id              String           @id @default(cuid())
-  title           String           @db.VarChar(255)
+  title           String           @db.Text
   description     String?
   creatorId       String           @map("creator_id")
   creationDate    DateTime         @default(now()) @map("creation_date") @db.Timestamp(6)
-  status          String?          @db.VarChar(50)
-  categoryId      String           @map("category_id") @db.VarChar(100)
+  status          String?          @db.Text
+  categoryId      String?          @map("category_id") @db.Text
   createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt       DateTime?        @map("updated_at") @db.Timestamp(6)
   user            user?            @relation(fields: [creatorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -115,9 +114,8 @@ model collaborativeProject {
 
 model conversation {
   id                      String                    @id @default(cuid())
-  type                    String?                   @db.VarChar(255)
-  creationDate            DateTime?                 @map("creation_date") @db.Timestamp(6)
-  title                   String?                   @db.VarChar(255)
+  type                    String?                   @db.Text
+  title                   String?                   @db.Text
   createdAt               DateTime                  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt               DateTime?                 @map("updated_at") @db.Timestamp(6)
   conversationParticipant conversationParticipant[]
@@ -126,6 +124,7 @@ model conversation {
 }
 
 model conversationParticipant {
+  id             String       @id @default(cuid())
   conversationId String       @map("conversation_id")
   userId         String       @map("user_id")
   dateAdded      DateTime?    @map("date_added") @db.Timestamptz(6)
@@ -136,24 +135,23 @@ model conversationParticipant {
   conversation   conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   user           user         @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
-  @@id([conversationId, userId])
   @@map("conversation_participant")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model exerciseProgram {
-  id                        String            @id @default(cuid())
-  name                      String            @db.VarChar(255)
-  categoryId                String            @map("category_id")
-  difficultyLevel           Int?              @map("difficulty_level")
-  adaptedForReducedMobility Boolean           @map("adapted_for_reduced_mobility")
-  durationMinutes           Int?              @map("duration_minutes")
+  id                        String           @id @default(cuid())
+  name                      String           @db.Text
+  categoryId                String?          @map("category_id")
+  difficultyLevel           Int?             @map("difficulty_level")
+  adaptedForReducedMobility Boolean?         @map("adapted_for_reduced_mobility")
+  durationMinutes           Int?             @map("duration_minutes")
   description               String?
-  videoLink                 String?           @map("video_link") @db.VarChar(255)
-  image                     String?           @db.VarChar(255)
-  createdAt                 DateTime          @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt                 DateTime?         @map("updated_at") @db.Timestamp(6)
-  programCategory           programCategory[]
+  videoLink                 String?          @map("video_link") @db.Text
+  image                     String?          @db.Text
+  createdAt                 DateTime         @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt                 DateTime?        @map("updated_at") @db.Timestamp(6)
+  programCategory           programCategory? @relation(fields: [categoryId], references: [id])
   userActivity              userActivity[]
 
   @@map("exercise_program")
@@ -161,9 +159,9 @@ model exerciseProgram {
 
 model forumCategory {
   id               String       @id @default(cuid())
-  name             String       @db.VarChar(255)
-  description      String?      @db.VarChar(255)
-  parentCategoryId String       @map("parent_category_id")
+  name             String       @db.Text
+  description      String?      @db.Text
+  parentCategoryId String?      @map("parent_category_id")
   createdAt        DateTime     @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt        DateTime?    @map("updated_at") @db.Timestamp(6)
   forumTopic       forumTopic[]
@@ -172,17 +170,15 @@ model forumCategory {
 }
 
 model forumMessage {
-  id               String      @id @default(cuid())
-  topicId          String?     @map("topic_id")
-  authorId         String?     @map("author_id")
-  content          String?
-  creationDate     DateTime?   @map("creation_date") @db.Timestamp(6)
-  modificationDate DateTime?   @map("modification_date") @db.Timestamp(6)
-  solutionMessage  Boolean?    @map("solution_message")
-  createdAt        DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt        DateTime?   @map("updated_at") @db.Timestamp(6)
-  user             user?       @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  forumTopic       forumTopic? @relation(fields: [topicId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id              String      @id @default(cuid())
+  topicId         String      @map("topic_id")
+  authorId        String      @map("author_id")
+  content         String?
+  solutionMessage Boolean?    @map("solution_message")
+  createdAt       DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt       DateTime?   @map("updated_at") @db.Timestamp(6)
+  user            user?       @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  forumTopic      forumTopic? @relation(fields: [topicId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("forum_message")
 }
@@ -191,43 +187,29 @@ model forumTopic {
   id            String         @id @default(cuid())
   categoryId    String         @map("category_id")
   authorId      String         @map("author_id")
-  title         String         @db.VarChar(255)
-  creationDate  DateTime?      @default(now()) @map("creation_date") @db.Timestamp(6)
+  title         String         @db.Text
   pinned        Boolean?       @default(false)
-  status        String?        @db.VarChar(50)
+  status        String?        @db.Text
   views         Int?           @default(0)
   createdAt     DateTime       @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt     DateTime?      @map("updated_at") @db.Timestamp(6)
   forumMessage  forumMessage[]
   user          user           @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  forumCategory forumCategory  @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  forumCategory forumCategory? @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@map("forum_topic")
-}
-
-model wellnessGoalProgress {
-  id            String       @id @default(cuid())
-  goalId        String       @map("goal_id")
-  recordingDate DateTime     @map("recording_date") @db.Date
-  achievedValue Int          @map("achieved_value")
-  goalAchieved  Boolean      @map("goal_achieved")
-  createdAt     DateTime     @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt     DateTime?    @map("updated_at") @db.Timestamp(6)
-  wellnessGoal  wellnessGoal @relation(fields: [goalId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-
-  @@map("wellness_goal_progress")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model healthIndicator {
   id                   String    @id @default(cuid())
-  userId               String?   @map("user_id")
+  userId               String    @map("user_id")
   recordingDate        DateTime  @map("recording_date") @db.Date
   stepCount            Int?      @map("step_count")
   sleepDurationMinutes Int?      @map("sleep_duration_minutes")
   sleepQuality         Int?      @map("sleep_quality")
   weight               Float?
-  mood                 String?   @db.VarChar(10)
+  mood                 String?   @db.Text
   notes                String?
   createdAt            DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt            DateTime? @map("updated_at") @db.Timestamp(6)
@@ -242,7 +224,7 @@ model helpOffer {
   helperId    String      @map("helper_id")
   offerDate   DateTime    @map("offer_date") @db.Timestamp(6)
   message     String?
-  status      String?     @db.VarChar(50)
+  status      String?     @db.Text
   createdAt   DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt   DateTime?   @map("updated_at") @db.Timestamp(6)
   user        user        @relation(fields: [helperId], references: [id], onDelete: Cascade, onUpdate: NoAction)
@@ -254,18 +236,17 @@ model helpOffer {
 model helpRequest {
   id                String             @id @default(cuid())
   creatorId         String             @map("creator_id")
-  title             String             @db.VarChar(255)
+  title             String             @db.Text
   description       String?
-  creationDate      DateTime           @default(now()) @map("creation_date") @db.Timestamp(6)
   neededDate        DateTime?          @map("needed_date") @db.Timestamp(6)
   estimatedDuration Int?               @map("estimated_duration")
-  location          String?            @db.VarChar(255)
+  location          String?            @db.Text
   gpsCoordinates    String?            @map("gps_coordinates")
-  categoryId        String             @map("category_id")
+  categoryId        String?            @map("category_id")
   recurring         Boolean?           @default(false)
-  frequency         String?            @db.VarChar(50)
-  status            String?            @db.VarChar(50)
-  points_offered    Int?               @default(0)
+  frequency         String?            @db.Text
+  status            String?            @db.Text
+  pointsOffered     Int?               @default(0) @map("points_offered")
   createdAt         DateTime           @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt         DateTime?          @map("updated_at") @db.Timestamp(6)
   helpOffer         helpOffer[]
@@ -278,14 +259,14 @@ model helpRequest {
 
 model localService {
   id              String           @id @default(cuid())
-  name            String?          @db.VarChar(255)
-  categoryId      String?          @map("category_id") @db.VarChar(255)
-  address         String?          @db.VarChar(255)
+  name            String?          @db.Text
+  categoryId      String?          @map("category_id") @db.Text
+  address         String?          @db.Text
   gpsCoordinates  String?          @map("gps_coordinates")
-  phone           String?          @db.VarChar(20)
-  website         String?          @db.VarChar(255)
+  phone           String?          @db.Text
+  website         String?          @db.Text
   description     String?
-  hours           String?          @db.VarChar(100)
+  hours           String?          @db.Text
   seniorFriendly  Boolean?         @map("senior_friendly")
   createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt       DateTime?        @map("updated_at") @db.Timestamp(6)
@@ -298,17 +279,17 @@ model localService {
 model medicationReminder {
   id                  String    @id @default(cuid())
   userId              String    @map("user_id")
-  medication_name     String    @db.VarChar(255)
-  dosage              String?   @db.VarChar(100)
+  medicationName      String    @map("medication_name") @db.Text
+  dosage              String?   @db.Text
   morningReminderTime DateTime? @map("morning_reminder_time") @db.Time(6)
   noonReminderTime    DateTime? @map("noon_reminder_time") @db.Time(6)
   eveningReminderTime DateTime? @map("evening_reminder_time") @db.Time(6)
   nightReminderTime   DateTime? @map("night_reminder_time") @db.Time(6)
-  daysOfWeek          String?   @map("days_of_week") @db.VarChar(50)
+  daysOfWeek          String?   @map("days_of_week") @db.Text
   instructions        String?
   active              Boolean?  @default(true)
   startDate           DateTime? @map("start_date") @db.Timestamp(6)
-  end_date            DateTime? @db.Timestamp(6)
+  endDate             DateTime? @map("end_date") @db.Timestamp(6)
   createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt           DateTime? @map("updated_at") @db.Timestamp(6)
   user                user      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
@@ -322,8 +303,8 @@ model message {
   senderId       String        @map("sender_id")
   content        String
   sendDate       DateTime      @map("send_date") @db.Timestamp(6)
-  type           String?       @db.VarChar(50)
-  read           Boolean?
+  type           String?       @db.Text
+  read           Boolean?      @default(false)
   createdAt      DateTime      @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt      DateTime?     @map("updated_at") @db.Timestamp(6)
   conversation   conversation? @relation(fields: [conversationId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -331,18 +312,18 @@ model message {
 }
 
 model municipalEvent {
-  id              String    @id @default(cuid())
-  title           String    @db.VarChar(255)
-  description     String?
-  startDate       DateTime  @map("start_date") @db.Timestamp(6)
-  end_date        DateTime  @db.Timestamp(6)
-  location        String    @db.VarChar(255)
-  gps_coordinates String?
-  organizer       String?   @db.VarChar(255)
-  contact         String?   @db.VarChar(255)
-  officialLink    String?   @map("official_link") @db.VarChar(255)
-  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt       DateTime? @map("updated_at") @db.Timestamp(6)
+  id             String    @id @default(cuid())
+  title          String    @db.Text
+  description    String?
+  startDate      DateTime  @map("start_date") @db.Timestamp(6)
+  endDate        DateTime  @map("end_date") @db.Timestamp(6)
+  location       String    @db.Text
+  gpsCoordinates String?   @map("gps_coordinates")
+  organizer      String?   @db.Text
+  contact        String?   @db.Text
+  officialLink   String?   @map("official_link") @db.Text
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt      DateTime? @map("updated_at") @db.Timestamp(6)
 
   @@map("municipal_event")
 }
@@ -350,10 +331,10 @@ model municipalEvent {
 model notification {
   id         String    @id @default(cuid())
   userId     String    @map("user_id")
-  type       String    @db.VarChar(50)
+  type       String    @db.Text
   content    String
   read       Boolean?
-  actionLink String?   @map("action_link") @db.VarChar(255)
+  actionLink String?   @map("action_link") @db.Text
   createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt  DateTime? @map("updated_at") @db.Timestamp(6)
   user       user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -379,15 +360,15 @@ model notificationPreferences {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model nutritionalAdvice {
-  id                  String              @id @default(cuid())
-  title               String              @db.VarChar(255)
+  id                  String               @id @default(cuid())
+  title               String               @db.Text
   description         String?
-  categoryId          String              @map("category_id")
-  season              String              @db.VarChar(50)
-  image               String?             @db.VarChar(255)
-  createdAt           DateTime            @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt           DateTime?           @map("updated_at") @db.Timestamp(6)
-  nutritionalCategory nutritionalCategory @relation(fields: [categoryId], references: [id])
+  categoryId          String?              @map("category_id")
+  season              String               @db.Text
+  image               String?              @db.Text
+  createdAt           DateTime             @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt           DateTime?            @map("updated_at") @db.Timestamp(6)
+  nutritionalCategory nutritionalCategory? @relation(fields: [categoryId], references: [id])
 
   @@map("nutritional_advice")
 }
@@ -405,8 +386,8 @@ model offlineUser {
 model projectMember {
   projectId            String               @map("project_id")
   userId               String               @map("user_id")
-  role                 String               @db.VarChar(100)
-  join_date            DateTime             @db.Timestamp(6)
+  role                 String               @db.Text
+  joinDate             DateTime             @map("join_date") @db.Timestamp(6)
   createdAt            DateTime             @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt            DateTime?            @map("updated_at") @db.Timestamp(6)
   collaborativeProject collaborativeProject @relation(fields: [projectId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -419,11 +400,11 @@ model projectMember {
 model projectTask {
   id                   String                @id @default(cuid())
   projectId            String                @map("project_id")
-  title                String                @db.VarChar(255)
+  title                String                @db.Text
   description          String?
   creationDate         DateTime              @map("creation_date") @db.Timestamp(6)
   dueDate              DateTime?             @map("due_date") @db.Timestamp(6)
-  status               String?               @db.VarChar(50)
+  status               String?               @db.Text
   assigneeId           String?               @map("assignee_id")
   createdAt            DateTime              @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt            DateTime?             @map("updated_at") @db.Timestamp(6)
@@ -434,26 +415,26 @@ model projectTask {
 }
 
 model resource {
-  id               String           @id @default(cuid())
-  title            String           @db.VarChar(255)
+  id               String            @id @default(cuid())
+  title            String            @db.Text
   content          String?
-  type             String           @db.VarChar(100)
-  categoryId       String           @map("category_id")
-  authorId         String           @map("author_id")
-  adminValidated   Boolean?         @default(false) @map("admin_validated")
-  createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt        DateTime?        @map("updated_at") @db.Timestamp(6)
-  user             user?            @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  resourceCategory resourceCategory @relation(fields: [categoryId], references: [id])
+  type             String            @db.Text
+  categoryId       String?           @map("category_id")
+  authorId         String            @map("author_id")
+  adminValidated   Boolean?          @default(false) @map("admin_validated")
+  createdAt        DateTime          @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt        DateTime?         @map("updated_at") @db.Timestamp(6)
+  user             user?             @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  resourceCategory resourceCategory? @relation(fields: [categoryId], references: [id])
 }
 
 model satisfactionSurvey {
   id             String           @id @default(cuid())
-  title          String           @db.VarChar(255)
+  title          String           @db.Text
   description    String?
   startDate      DateTime?        @map("start_date") @db.Timestamp(6)
   endDate        DateTime?        @map("end_date") @db.Timestamp(6)
-  active         Boolean?         @default(true)
+  active         Boolean?         @default(false)
   createdAt      DateTime         @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt      DateTime?        @map("updated_at") @db.Timestamp(6)
   surveyResponse surveyResponse[]
@@ -463,20 +444,20 @@ model satisfactionSurvey {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model serviceCompleted {
-  id               String      @id @default(cuid())
-  requestId        String      @map("request_id")
-  helperId         String      @map("helper_id")
-  completion_date  DateTime    @db.Timestamp(6)
-  actual_duration  Int?
-  creator_comment  String?
-  helper_comment   String?
-  creator_rating   Int?
-  helper_rating    Int?
-  points_exchanged Int?
-  createdAt        DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt        DateTime?   @map("updated_at") @db.Timestamp(6)
-  user             user        @relation(fields: [helperId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  helpRequest      helpRequest @relation(fields: [requestId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id              String      @id @default(cuid())
+  requestId       String      @map("request_id")
+  helperId        String      @map("helper_id")
+  completionDate  DateTime    @map("completion_date") @db.Timestamp(6)
+  actualDuration  Int?        @map("actual_duration")
+  creatorComment  String?     @map("creator_comment")
+  helperComment   String?     @map("helper_comment")
+  creatorRating   Int?        @map("creator_rating")
+  helperRating    Int?        @map("helper_rating")
+  pointsExchanged Int?        @map("points_exchanged")
+  createdAt       DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt       DateTime?   @map("updated_at") @db.Timestamp(6)
+  user            user        @relation(fields: [helperId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  helpRequest     helpRequest @relation(fields: [requestId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@map("service_completed")
 }
@@ -497,13 +478,13 @@ model serviceRating {
 }
 
 model skill {
-  id            String        @id @default(cuid())
-  name          String        @db.VarChar(255)
-  description   String?       @db.VarChar(500)
-  categoryId    String        @map("ca")
-  createdAt     DateTime      @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt     DateTime?     @map("updated_at") @db.Timestamp(6)
-  skillCategory skillCategory @relation(fields: [categoryId], references: [id])
+  id            String         @id @default(cuid())
+  name          String         @db.Text
+  description   String?        @db.Text
+  categoryId    String?        @map("category_id")
+  createdAt     DateTime       @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt     DateTime?      @map("updated_at") @db.Timestamp(6)
+  skillCategory skillCategory? @relation(fields: [categoryId], references: [id])
   userSkill     userSkill[]
 }
 
@@ -522,12 +503,12 @@ model surveyResponse {
 }
 
 model trustCircle {
-  userId       String    @map("user_id")
-  contactId    String    @map("contact_id")
-  dateAdded    DateTime  @map("date_added") @db.Date
-  access_level String    @db.VarChar
-  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt    DateTime? @map("updated_at") @db.Timestamp(6)
+  userId      String    @map("user_id")
+  contactId   String    @map("contact_id")
+  dateAdded   DateTime  @map("date_added") @db.Date
+  accessLevel String    @map("access_level") @db.Text
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt   DateTime? @map("updated_at") @db.Timestamp(6)
 
   @@id([userId, contactId])
   @@map("trust_circle")
@@ -537,11 +518,11 @@ model trustCircle {
 model trustedContact {
   id                      String    @id @default(cuid())
   userId                  String    @map("user_id")
-  lastName                String    @map("last_name") @db.VarChar(255)
-  firstName               String    @map("first_name") @db.VarChar(255)
-  email                   String?   @unique @db.VarChar(255)
-  phone                   String    @db.VarChar(20)
-  relationship            String?   @db.VarChar(50)
+  firstName               String    @map("first_name") @db.Text
+  lastName                String    @map("last_name") @db.Text
+  email                   String?   @unique @db.Text
+  phone                   String    @db.Text
+  relationship            String?   @db.Text
   shareMedications        Boolean   @default(false) @map("share_medications")
   shareHealthIndicators   Boolean   @default(false) @map("share_health_indicators")
   shareWellnessActivities Boolean   @default(false) @map("share_wellness_activities")
@@ -554,19 +535,19 @@ model trustedContact {
 }
 
 model urbanIssueReport {
-  id             String        @id @default(cuid())
-  userId         String        @map("user_id")
-  categoryId     String        @map("category_id")
+  id             String         @id @default(cuid())
+  userId         String         @map("user_id")
+  categoryId     String?        @map("category_id")
   description    String
-  address        String        @db.VarChar(255)
-  gpsCoordinates String?       @map("gps_coordinates")
-  reportDate     DateTime      @map("report_date") @db.Timestamp(6)
-  status         String?       @db.VarChar(255)
-  cityReference  String?       @map("city_reference") @db.VarChar(255)
-  createdAt      DateTime      @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt      DateTime?     @map("updated_at") @db.Timestamp(6)
-  user           user?         @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  issueCategory  issueCategory @relation(fields: [categoryId], references: [id])
+  address        String         @db.Text
+  gpsCoordinates String?        @map("gps_coordinates")
+  reportDate     DateTime       @map("report_date") @db.Timestamp(6)
+  status         String?        @db.Text
+  cityReference  String?        @map("city_reference") @db.Text
+  createdAt      DateTime       @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt      DateTime?      @map("updated_at") @db.Timestamp(6)
+  user           user?          @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  issueCategory  issueCategory? @relation(fields: [categoryId], references: [id])
 
   @@map("urban_issue_report")
 }
@@ -574,23 +555,23 @@ model urbanIssueReport {
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model user {
   id                      String                    @id @default(cuid())
-  email                   String                    @unique @db.VarChar(255)
-  passwordHash            String                    @map("password_hash") @db.VarChar(255)
-  firstName               String?                   @map("first_name") @db.VarChar(100)
-  lastName                String?                   @map("last_name") @db.VarChar(100)
+  email                   String                    @unique @db.Text
+  passwordHash            String                    @map("password_hash") @db.Text
+  firstName               String?                   @map("first_name") @db.Text
+  lastName                String?                   @map("last_name") @db.Text
   birthDate               DateTime?                 @map("birth_date") @db.Date
-  address                 String?                   @db.VarChar(255)
+  address                 String?                   @db.Text
   gpsCoordinates          String?                   @map("gps_coordinates")
-  phone                   String?                   @db.VarChar(20)
-  profilePicture          String?                   @map("profile_picture") @db.VarChar(255)
+  phone                   String?                   @db.Text
+  profilePicture          String?                   @map("profile_picture") @db.Text
   registrationDate        DateTime                  @default(now()) @map("registration_date") @db.Timestamp(6)
   accountVerified         Boolean                   @default(false) @map("account_verified")
-  interfacePreferences    String?                   @map("interface_preferences") @db.VarChar(255)
+  interfacePreferences    String?                   @map("interface_preferences") @db.Text
   twoFactorAuthentication Boolean                   @default(false) @map("two_factor_authentication")
   helpPoints              Int?                      @default(0) @map("help_points")
   reducedMobility         Boolean?                  @default(false) @map("reduced_mobility")
-  activityLevel           String?                   @map("activity_level") @db.VarChar(20)
-  status                  String?                   @default("active") @db.VarChar(50)
+  activityLevel           String?                   @default("active") @map("activity_level") @db.Text
+  status                  String?                   @default("active") @db.Text
   createdAt               DateTime                  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt               DateTime?                 @map("updated_at") @db.Timestamp(6)
   activity                activity[]
@@ -646,7 +627,7 @@ model userActivity {
 
 model userBadge {
   userId          String    @map("user_id")
-  badgeId         String    @map("badge_id")
+  badgeId         String    @unique @map("badge_id")
   achievementDate DateTime  @map("achievement_date") @db.Timestamp(6)
   createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt       DateTime? @map("updated_at") @db.Timestamp(6)
@@ -660,10 +641,10 @@ model userBadge {
 model userDevice {
   id                String    @id @default(cuid())
   userId            String    @map("user_id")
-  deviceType        String    @map("device_type") @db.VarChar
-  deviceName        String?   @map("device_name") @db.VarChar
-  operatingSystem   String?   @map("operating_system") @db.VarChar
-  notificationToken String    @map("notification_token") @db.VarChar
+  deviceType        String    @map("device_type") @db.Text
+  deviceName        String?   @map("device_name") @db.Text
+  operatingSystem   String?   @map("operating_system") @db.Text
+  notificationToken String    @map("notification_token") @db.Text
   lastConnection    DateTime  @map("last_connection") @db.Timestamp(6)
   createdAt         DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt         DateTime? @map("updated_at") @db.Timestamp(6)
@@ -707,7 +688,7 @@ model videoCall {
   initiatorId    String        @map("initiator_id")
   startDate      DateTime      @map("start_date") @db.Timestamp(6)
   endDate        DateTime      @map("end_date") @db.Timestamp(6)
-  status         String        @db.VarChar(50)
+  status         String        @db.Text
   createdAt      DateTime      @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt      DateTime?     @map("updated_at") @db.Timestamp(6)
   conversation   conversation? @relation(fields: [conversationId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -717,15 +698,15 @@ model videoCall {
 }
 
 model wellnessBadge {
-  id               String           @id @default(cuid())
-  name             String           @db.VarChar(255)
+  id               String            @id @default(cuid())
+  name             String            @db.Text
   description      String?
-  categoryId       String           @map("category_id")
-  image            String?          @db.VarChar(255)
+  categoryId       String?           @map("category_id")
+  image            String?           @db.Text
   level            Int
-  createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt        DateTime?        @map("updated_at") @db.Timestamp(6)
-  wellnessCategory wellnessCategory @relation(fields: [categoryId], references: [id])
+  createdAt        DateTime          @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt        DateTime?         @map("updated_at") @db.Timestamp(6)
+  wellnessCategory wellnessCategory? @relation(fields: [categoryId], references: [id])
 
   @@map("wellness_badge")
 }
@@ -733,21 +714,34 @@ model wellnessBadge {
 model wellnessGoal {
   id                   String                 @id @default(cuid())
   userId               String                 @map("user_id")
-  title                String                 @db.VarChar(255)
-  categoryId           String                 @map("category_id")
+  title                String                 @db.Text
+  categoryId           String?                @map("category_id")
   targetValue          Int                    @map("target_value")
-  unit                 String                 @db.VarChar(50)
-  frequency            String                 @db.VarChar(50)
+  unit                 String                 @db.Text
+  frequency            String                 @db.Text
   startDate            DateTime               @map("start_date") @db.Date
   endDate              DateTime               @map("end_date") @db.Date
-  active               Boolean                @default(true)
+  active               Boolean                @default(false)
   createdAt            DateTime               @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt            DateTime?              @map("updated_at") @db.Timestamp(6)
   wellnessGoalProgress wellnessGoalProgress[]
   user                 user?                  @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  wellnessCategory     wellnessCategory       @relation(fields: [categoryId], references: [id])
+  wellnessCategory     wellnessCategory?      @relation(fields: [categoryId], references: [id])
 
   @@map("wellness_goal")
+}
+
+model wellnessGoalProgress {
+  id            String       @id @default(cuid())
+  goalId        String       @map("goal_id")
+  recordingDate DateTime     @map("recording_date") @db.Date
+  achievedValue Int          @map("achieved_value")
+  goalAchieved  Boolean      @default(false) @map("goal_achieved")
+  createdAt     DateTime     @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt     DateTime?    @map("updated_at") @db.Timestamp(6)
+  wellnessGoal  wellnessGoal @relation(fields: [goalId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("wellness_goal_progress")
 }
 
 // Gestion des catégories diverses et variées
@@ -821,11 +815,10 @@ model programCategory {
   id                String              @id @default(cuid())
   name              String              @db.Text
   description       String?             @db.Text
-  exerciseProgramId String              @map("exercise_program_id")
   createdAt         DateTime            @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt         DateTime?           @map("updated_at") @db.Timestamp(6)
   cognitiveExercise cognitiveExercise[]
-  exerciseProgram   exerciseProgram     @relation(fields: [exerciseProgramId], references: [id])
+  exerciseProgram   exerciseProgram[]
 
   @@map("program_category")
 }

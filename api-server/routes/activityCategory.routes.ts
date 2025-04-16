@@ -24,7 +24,7 @@ const router = Router();
  * @swagger
  * /api/activity-categories:
  *   post:
- *     summary: Créer une nouvelle catégorie
+ *     summary: Créer une nouvelle catégorie d'activités
  *     tags: [Activity Categories]
  *     requestBody:
  *       required: true

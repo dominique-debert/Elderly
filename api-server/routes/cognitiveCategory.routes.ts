@@ -24,7 +24,7 @@ const router = Router();
  * @swagger
  * /api/cognitive-categories:
  *   post:
- *     summary: Créer une nouvelle catégorie de badge
+ *     summary: Créer une nouvelle catégorie d'exercice cognitifs
  *     tags: [Cognitive Categories]
  *     requestBody:
  *       required: true
