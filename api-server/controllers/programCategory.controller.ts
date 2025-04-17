@@ -112,11 +112,7 @@ export const deleteProgramCategory = async (
       throw createHttpError(404, 'Catégorie non trouvée');
     }
 
-<<<<<<< HEAD
-    await prisma.activityCategory.delete({
-=======
     await prisma.projectCategory.delete({
->>>>>>> c1326ef (API: Adding Joi validators)
       where: { id }
     });
 

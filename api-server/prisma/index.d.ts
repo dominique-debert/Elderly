@@ -80471,11 +80471,7 @@ export namespace Prisma {
     id?: string
     recordingDate: Date | string
     achievedValue: number
-<<<<<<< HEAD
-    goalAchieved: boolean
-=======
     goalAchieved?: boolean
->>>>>>> c1326ef (API: Adding Joi validators)
     createdAt?: Date | string
     updatedAt?: Date | string | null
     wellnessGoal: wellnessGoalCreateNestedOneWithoutWellnessGoalProgressInput
@@ -80486,11 +80482,7 @@ export namespace Prisma {
     goalId: string
     recordingDate: Date | string
     achievedValue: number
-<<<<<<< HEAD
-    goalAchieved: boolean
-=======
     goalAchieved?: boolean
->>>>>>> c1326ef (API: Adding Joi validators)
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -80520,11 +80512,7 @@ export namespace Prisma {
     goalId: string
     recordingDate: Date | string
     achievedValue: number
-<<<<<<< HEAD
-    goalAchieved: boolean
-=======
     goalAchieved?: boolean
->>>>>>> c1326ef (API: Adding Joi validators)
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }

@@ -14,8 +14,4 @@ export const idParamWellnessGoalProgressSchema = Joi.object({
 // goalId        String       @map("goal_id")
 // recordingDate DateTime     @map("recording_date") @db.Date
 // achievedValue Int          @map("achieved_value")
-<<<<<<< HEAD
 // goalAchieved  Boolean      @default(false) @map("goal_achieved")
-=======
-// goalAchieved  Boolean      @default(false) @map("goal_achieved")
->>>>>>> c1326ef (API: Adding Joi validators)
