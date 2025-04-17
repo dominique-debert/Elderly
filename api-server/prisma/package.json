@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "prisma-client-fe3600aaa28120a99d798afb9bbe45333eb4d22ca10ecac54682edc131181a84",
-=======
   "name": "prisma-client-987ca4f94b616130c69c420a780c50bbb59930afe92df7ce51fec5d7a1cee749",
->>>>>>> c1326ef (API: Adding Joi validators)
   "main": "index.js",
   "types": "index.d.ts",
   "browser": "index-browser.js",
