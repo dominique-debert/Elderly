@@ -22,10 +22,10 @@ import skillCategoriesRouter from '@/routes/skillCategory.routes'
 import wellnessCategoriesRouter from '@/routes/serviceCategory.routes'
 import authRouter from '@/routes/auth.routes';
 import { authenticate } from '@/middlewares/auth';
-
 import errorHandler from '@/middlewares/errorHandler';
 import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
 import userRouter from '@/routes/user.routes';
+import currentSession from '@/middlewares/session';
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
@@ -44,6 +44,9 @@ app.use('/api/auth', authRouter);
 
 // Middleware d'auth global pour le reste
 app.use(authenticate);
+
+// On intègre ça dans une session
+app.use(currentSession)
 
 // Catégories
 app.use('/api/activity-categories', activityCategoriesRouter);
@@ -81,3 +84,5 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
   console.log(`API Documentation available at http://localhost:${PORT}/api-docs`);
 });
+
+
