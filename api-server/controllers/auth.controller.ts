@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import argon2 from 'argon2';
-import {PrismaClient} from '../prisma/client';
-import { generateToken } from '../utils/jwt';
-import { createHttpError } from '../utils/httpError';
+import {PrismaClient} from '@/prisma/client';
+import { generateToken } from '@/utils/jwt';
+import { createHttpError } from '@/utils/httpError';
 
 const prisma = new PrismaClient();
 
