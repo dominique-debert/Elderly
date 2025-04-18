@@ -552,7 +552,6 @@ model urbanIssueReport {
   @@map("urban_issue_report")
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model user {
   id                      String                    @id @default(cuid())
   email                   String                    @unique @db.Text

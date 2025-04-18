@@ -20,6 +20,8 @@ import resourceCategoriesRouter from '@/routes/resourceCategory.routes'
 import serviceCategoriesRouter from '@/routes/serviceCategory.routes'
 import skillCategoriesRouter from '@/routes/skillCategory.routes'
 import wellnessCategoriesRouter from '@/routes/serviceCategory.routes'
+import authRouter from '@/routes/auth.routes';
+import { authenticate } from '@/middlewares/auth';
 
 import errorHandler from '@/middlewares/errorHandler';
 import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
@@ -36,6 +38,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Routes
+
+// Authentification
+app.use('/api/auth', authRouter);
+
+// Middleware d'auth global pour le reste
+app.use(authenticate);
+
 // Catégories
 app.use('/api/activity-categories', activityCategoriesRouter);
 app.use('/api/badge-categories', badgeCategoriesRouter);

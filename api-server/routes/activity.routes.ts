@@ -19,8 +19,10 @@ const router = Router();
  *   post:
  *     summary: Créer une nouvelle activité
  *     description: Crée une nouvelle activité avec les données fournies
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Activities]
-  *     requestBody:
+ *     requestBody:
  *       required: true
  *       content:
  *         application/json:
@@ -81,6 +83,8 @@ router.post('/', validate(activitySchema), errorHandler, createActivity);
  *   get:
  *     summary: Récupérer toutes les activités
  *     description: Renvoie une liste d'activités
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Activities]
  *     responses:
  *       200:
@@ -105,6 +109,8 @@ router.get('/', errorHandler, getAllActivities);
  *   get:
  *     summary: Récupérer une activité par son ID
  *     description: Renvoie une activité basée sur son ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Activities]
  *     parameters:
  *       - in: path
