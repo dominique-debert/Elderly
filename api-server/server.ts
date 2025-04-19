@@ -28,6 +28,7 @@ import helpOffersRouter from '@/routes/helpOffer.routes'
 import helpRequestsRouter from '@/routes/helpRequest.routes'
 import messageRouter from '@/routes/message.routes';
 import municipalEventRouter from '@/routes/municipalEvent.routes';
+import notificationRouter from '@/routes/notification.routes';
 import issueCategoriesRouter from '@/routes/issueCategory.routes'
 import nutritionalCategoriesRouter from '@/routes/nutritionalCategory.routes'
 import programCategoriesRouter from '@/routes/programCategory.routes'
@@ -86,7 +87,9 @@ app.use('/api/help-offers', helpOffersRouter);
 app.use('/api/help-requests', helpRequestsRouter);
 app.use('/api/local-services', localServiceRouter);
 app.use('/api/messages', messageRouter);
+app.use('/api/medication-reminders', medicationReminderRouter);
 app.use('/api/municipal-events', municipalEventRouter);
+app.use('/api/notifications', notificationRouter);
 app.use('/api/nutrition-advices', nutritionalAdviceRouter); 
 app.use('/api/users', userRouter);
 app.use('/api/skills', skillRouter);
