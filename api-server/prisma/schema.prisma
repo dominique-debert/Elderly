@@ -363,8 +363,8 @@ model nutritionalAdvice {
   id                  String               @id @default(cuid())
   title               String               @db.Text
   description         String?
-  categoryId          String?              @map("category_id")
-  season              String               @db.Text
+  categoryId          String               @map("category_id")
+  season              String?              @db.Text
   image               String?              @db.Text
   createdAt           DateTime             @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt           DateTime?            @map("updated_at") @db.Timestamp(6)

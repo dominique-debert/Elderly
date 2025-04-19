@@ -24823,8 +24823,8 @@ export namespace Prisma {
 
   export type LocalServiceGroupByOutputType = {
     id: string
-    name: string | null
-    categoryId: string | null
+    name: string
+    categoryId: string
     address: string | null
     gpsCoordinates: string | null
     phone: string | null
@@ -24939,8 +24939,8 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string | null
-      categoryId: string | null
+      name: string
+      categoryId: string
       address: string | null
       gpsCoordinates: string | null
       phone: string | null
@@ -25605,7 +25605,7 @@ export namespace Prisma {
     /**
      * The data needed to create a localService.
      */
-    data?: XOR<localServiceCreateInput, localServiceUncheckedCreateInput>
+    data: XOR<localServiceCreateInput, localServiceUncheckedCreateInput>
   }
 
   /**
@@ -31694,8 +31694,8 @@ export namespace Prisma {
     id: string
     title: string
     description: string | null
-    categoryId: string | null
-    season: string
+    categoryId: string
+    season: string | null
     image: string | null
     createdAt: Date
     updatedAt: Date | null
@@ -31785,8 +31785,8 @@ export namespace Prisma {
       id: string
       title: string
       description: string | null
-      categoryId: string | null
-      season: string
+      categoryId: string
+      season: string | null
       image: string | null
       createdAt: Date
       updatedAt: Date | null
@@ -73712,8 +73712,8 @@ export namespace Prisma {
     OR?: localServiceWhereInput[]
     NOT?: localServiceWhereInput | localServiceWhereInput[]
     id?: StringFilter<"localService"> | string
-    name?: StringNullableFilter<"localService"> | string | null
-    categoryId?: StringNullableFilter<"localService"> | string | null
+    name?: StringFilter<"localService"> | string
+    categoryId?: StringFilter<"localService"> | string
     address?: StringNullableFilter<"localService"> | string | null
     gpsCoordinates?: StringNullableFilter<"localService"> | string | null
     phone?: StringNullableFilter<"localService"> | string | null
@@ -73729,8 +73729,8 @@ export namespace Prisma {
 
   export type localServiceOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
-    categoryId?: SortOrderInput | SortOrder
+    name?: SortOrder
+    categoryId?: SortOrder
     address?: SortOrderInput | SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
     phone?: SortOrderInput | SortOrder
@@ -73749,8 +73749,8 @@ export namespace Prisma {
     AND?: localServiceWhereInput | localServiceWhereInput[]
     OR?: localServiceWhereInput[]
     NOT?: localServiceWhereInput | localServiceWhereInput[]
-    name?: StringNullableFilter<"localService"> | string | null
-    categoryId?: StringNullableFilter<"localService"> | string | null
+    name?: StringFilter<"localService"> | string
+    categoryId?: StringFilter<"localService"> | string
     address?: StringNullableFilter<"localService"> | string | null
     gpsCoordinates?: StringNullableFilter<"localService"> | string | null
     phone?: StringNullableFilter<"localService"> | string | null
@@ -73766,8 +73766,8 @@ export namespace Prisma {
 
   export type localServiceOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
-    categoryId?: SortOrderInput | SortOrder
+    name?: SortOrder
+    categoryId?: SortOrder
     address?: SortOrderInput | SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
     phone?: SortOrderInput | SortOrder
@@ -73787,8 +73787,8 @@ export namespace Prisma {
     OR?: localServiceScalarWhereWithAggregatesInput[]
     NOT?: localServiceScalarWhereWithAggregatesInput | localServiceScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"localService"> | string
-    name?: StringNullableWithAggregatesFilter<"localService"> | string | null
-    categoryId?: StringNullableWithAggregatesFilter<"localService"> | string | null
+    name?: StringWithAggregatesFilter<"localService"> | string
+    categoryId?: StringWithAggregatesFilter<"localService"> | string
     address?: StringNullableWithAggregatesFilter<"localService"> | string | null
     gpsCoordinates?: StringNullableWithAggregatesFilter<"localService"> | string | null
     phone?: StringNullableWithAggregatesFilter<"localService"> | string | null
@@ -74237,8 +74237,8 @@ export namespace Prisma {
     id?: StringFilter<"nutritionalAdvice"> | string
     title?: StringFilter<"nutritionalAdvice"> | string
     description?: StringNullableFilter<"nutritionalAdvice"> | string | null
-    categoryId?: StringNullableFilter<"nutritionalAdvice"> | string | null
-    season?: StringFilter<"nutritionalAdvice"> | string
+    categoryId?: StringFilter<"nutritionalAdvice"> | string
+    season?: StringNullableFilter<"nutritionalAdvice"> | string | null
     image?: StringNullableFilter<"nutritionalAdvice"> | string | null
     createdAt?: DateTimeFilter<"nutritionalAdvice"> | Date | string
     updatedAt?: DateTimeNullableFilter<"nutritionalAdvice"> | Date | string | null
@@ -74249,8 +74249,8 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    categoryId?: SortOrderInput | SortOrder
-    season?: SortOrder
+    categoryId?: SortOrder
+    season?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -74264,8 +74264,8 @@ export namespace Prisma {
     NOT?: nutritionalAdviceWhereInput | nutritionalAdviceWhereInput[]
     title?: StringFilter<"nutritionalAdvice"> | string
     description?: StringNullableFilter<"nutritionalAdvice"> | string | null
-    categoryId?: StringNullableFilter<"nutritionalAdvice"> | string | null
-    season?: StringFilter<"nutritionalAdvice"> | string
+    categoryId?: StringFilter<"nutritionalAdvice"> | string
+    season?: StringNullableFilter<"nutritionalAdvice"> | string | null
     image?: StringNullableFilter<"nutritionalAdvice"> | string | null
     createdAt?: DateTimeFilter<"nutritionalAdvice"> | Date | string
     updatedAt?: DateTimeNullableFilter<"nutritionalAdvice"> | Date | string | null
@@ -74276,8 +74276,8 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    categoryId?: SortOrderInput | SortOrder
-    season?: SortOrder
+    categoryId?: SortOrder
+    season?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -74293,8 +74293,8 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"nutritionalAdvice"> | string
     title?: StringWithAggregatesFilter<"nutritionalAdvice"> | string
     description?: StringNullableWithAggregatesFilter<"nutritionalAdvice"> | string | null
-    categoryId?: StringNullableWithAggregatesFilter<"nutritionalAdvice"> | string | null
-    season?: StringWithAggregatesFilter<"nutritionalAdvice"> | string
+    categoryId?: StringWithAggregatesFilter<"nutritionalAdvice"> | string
+    season?: StringNullableWithAggregatesFilter<"nutritionalAdvice"> | string | null
     image?: StringNullableWithAggregatesFilter<"nutritionalAdvice"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"nutritionalAdvice"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"nutritionalAdvice"> | Date | string | null
@@ -78112,7 +78112,7 @@ export namespace Prisma {
 
   export type localServiceCreateInput = {
     id?: string
-    name?: string | null
+    name: string
     address?: string | null
     gpsCoordinates?: string | null
     phone?: string | null
@@ -78128,8 +78128,8 @@ export namespace Prisma {
 
   export type localServiceUncheckedCreateInput = {
     id?: string
-    name?: string | null
-    categoryId?: string | null
+    name: string
+    categoryId: string
     address?: string | null
     gpsCoordinates?: string | null
     phone?: string | null
@@ -78144,7 +78144,7 @@ export namespace Prisma {
 
   export type localServiceUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78160,8 +78160,8 @@ export namespace Prisma {
 
   export type localServiceUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    categoryId?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78176,8 +78176,8 @@ export namespace Prisma {
 
   export type localServiceCreateManyInput = {
     id?: string
-    name?: string | null
-    categoryId?: string | null
+    name: string
+    categoryId: string
     address?: string | null
     gpsCoordinates?: string | null
     phone?: string | null
@@ -78191,7 +78191,7 @@ export namespace Prisma {
 
   export type localServiceUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78205,8 +78205,8 @@ export namespace Prisma {
 
   export type localServiceUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    categoryId?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78714,7 +78714,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    season: string
+    season?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -78725,8 +78725,8 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    categoryId?: string | null
-    season: string
+    categoryId: string
+    season?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -78736,7 +78736,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    season?: StringFieldUpdateOperationsInput | string
+    season?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78747,8 +78747,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
-    season?: StringFieldUpdateOperationsInput | string
+    categoryId?: StringFieldUpdateOperationsInput | string
+    season?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78758,8 +78758,8 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    categoryId?: string | null
-    season: string
+    categoryId: string
+    season?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -78769,7 +78769,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    season?: StringFieldUpdateOperationsInput | string
+    season?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -78779,8 +78779,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
-    season?: StringFieldUpdateOperationsInput | string
+    categoryId?: StringFieldUpdateOperationsInput | string
+    season?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -94428,7 +94428,7 @@ export namespace Prisma {
 
   export type localServiceCreateWithoutServiceRatingInput = {
     id?: string
-    name?: string | null
+    name: string
     address?: string | null
     gpsCoordinates?: string | null
     phone?: string | null
@@ -94443,8 +94443,8 @@ export namespace Prisma {
 
   export type localServiceUncheckedCreateWithoutServiceRatingInput = {
     id?: string
-    name?: string | null
-    categoryId?: string | null
+    name: string
+    categoryId: string
     address?: string | null
     gpsCoordinates?: string | null
     phone?: string | null
@@ -94583,7 +94583,7 @@ export namespace Prisma {
 
   export type localServiceUpdateWithoutServiceRatingInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -94598,8 +94598,8 @@ export namespace Prisma {
 
   export type localServiceUncheckedUpdateWithoutServiceRatingInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    categoryId?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -99801,7 +99801,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    season: string
+    season?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -99811,7 +99811,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    season: string
+    season?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -99850,8 +99850,8 @@ export namespace Prisma {
     id?: StringFilter<"nutritionalAdvice"> | string
     title?: StringFilter<"nutritionalAdvice"> | string
     description?: StringNullableFilter<"nutritionalAdvice"> | string | null
-    categoryId?: StringNullableFilter<"nutritionalAdvice"> | string | null
-    season?: StringFilter<"nutritionalAdvice"> | string
+    categoryId?: StringFilter<"nutritionalAdvice"> | string
+    season?: StringNullableFilter<"nutritionalAdvice"> | string | null
     image?: StringNullableFilter<"nutritionalAdvice"> | string | null
     createdAt?: DateTimeFilter<"nutritionalAdvice"> | Date | string
     updatedAt?: DateTimeNullableFilter<"nutritionalAdvice"> | Date | string | null
@@ -100082,7 +100082,7 @@ export namespace Prisma {
 
   export type localServiceCreateWithoutServiceCategoryInput = {
     id?: string
-    name?: string | null
+    name: string
     address?: string | null
     gpsCoordinates?: string | null
     phone?: string | null
@@ -100097,7 +100097,7 @@ export namespace Prisma {
 
   export type localServiceUncheckedCreateWithoutServiceCategoryInput = {
     id?: string
-    name?: string | null
+    name: string
     address?: string | null
     gpsCoordinates?: string | null
     phone?: string | null
@@ -100141,8 +100141,8 @@ export namespace Prisma {
     OR?: localServiceScalarWhereInput[]
     NOT?: localServiceScalarWhereInput | localServiceScalarWhereInput[]
     id?: StringFilter<"localService"> | string
-    name?: StringNullableFilter<"localService"> | string | null
-    categoryId?: StringNullableFilter<"localService"> | string | null
+    name?: StringFilter<"localService"> | string
+    categoryId?: StringFilter<"localService"> | string
     address?: StringNullableFilter<"localService"> | string | null
     gpsCoordinates?: StringNullableFilter<"localService"> | string | null
     phone?: StringNullableFilter<"localService"> | string | null
@@ -102600,7 +102600,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    season: string
+    season?: string | null
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -102610,7 +102610,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    season?: StringFieldUpdateOperationsInput | string
+    season?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -102620,7 +102620,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    season?: StringFieldUpdateOperationsInput | string
+    season?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -102630,7 +102630,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    season?: StringFieldUpdateOperationsInput | string
+    season?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -102834,7 +102834,7 @@ export namespace Prisma {
 
   export type localServiceCreateManyServiceCategoryInput = {
     id?: string
-    name?: string | null
+    name: string
     address?: string | null
     gpsCoordinates?: string | null
     phone?: string | null
@@ -102848,7 +102848,7 @@ export namespace Prisma {
 
   export type localServiceUpdateWithoutServiceCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -102863,7 +102863,7 @@ export namespace Prisma {
 
   export type localServiceUncheckedUpdateWithoutServiceCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -102878,7 +102878,7 @@ export namespace Prisma {
 
   export type localServiceUncheckedUpdateManyWithoutServiceCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
