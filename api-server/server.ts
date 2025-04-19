@@ -21,6 +21,7 @@ import conversationRouter from '@/routes/conversation.routes'
 import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
 import forumCategoryRouter from '@/routes/forumCategory.routes';
 import forumMessageRouter from '@/routes/forumMessage.routes';
+import healthIndicatorRouter from '@/routes/healthIndicator.routes';
 import helpCategoriesRouter from '@/routes/helpCategory.routes'
 import issueCategoriesRouter from '@/routes/issueCategory.routes'
 import nutritionalCategoriesRouter from '@/routes/nutritionalCategory.routes'
@@ -75,6 +76,7 @@ app.use('/api/cognitive-exercises', cognitiveExerciseRouter);
 app.use('/api/conversations', conversationRouter);
 app.use('/api/exercise-programs', exerciseProgramRoutes);
 app.use('/api/forum-messages', forumMessageRouter);
+app.use('/api/health-indicators', healthIndicatorRouter);
 app.use('/api/local-services', localServiceRouter);
 app.use('/api/nutrition-advices', nutritionalAdviceRouter); // Correction de l'URL (supprimé un slash en trop)
 app.use('/api/users', userRouter);

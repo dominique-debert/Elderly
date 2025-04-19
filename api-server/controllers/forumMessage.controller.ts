@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client.js';
 import { createHttpError } from '@/utils/httpError.js';
 import IForumMessage from '@/@types/data/forums/IForumMessage';
-import { idParamForumMessageSchema } from '@/schemas/validation/forumMessage.schema';
 
 const prisma = new PrismaClient();
 
