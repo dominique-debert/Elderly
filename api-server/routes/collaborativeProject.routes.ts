@@ -128,7 +128,7 @@ router.put(
  * @swagger
  * /api/collaborative-projects/{id}:
  *   delete:
- *     summary: Supprime un exercice
+ *     summary: Supprime un projet
  *     tags: [Collaborative projects]
  *     parameters:
  *       - in: path
@@ -137,12 +137,12 @@ router.put(
  *         schema:
  *           type: string
  *           format: cuid
- *         description: ID de l'exercice à supprimer
+ *         description: ID du projet à supprimer
  *     responses:
  *       204:
  *         description: Supprimé avec succès
  *       404:
- *         description: Exercice non trouvé
+ *         description: Projet non trouvé
  */
 router.delete(
   '/:id',
