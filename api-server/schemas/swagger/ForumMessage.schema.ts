@@ -6,6 +6,9 @@
  *       type: object
  *       required:
  *         - id
+ *         - topicId
+ *         - authorId
+ *         - content
  *       properties:
  *         id:
  *           type: string
@@ -47,38 +50,4 @@
  *         solutionMessage: true
  *         createdAt: "2025-04-15T09:30:00Z"
  *         updatedAt: "2025-04-16T12:00:00Z"
- *         
- *     createForumMessage:
- *       type: object
- *       required:
- *         - content
- *       properties:
- *         topicId:
- *           type: string
- *         authorId:
- *           type: string
- *         content:
- *           type: string
- *         solutionMessage:
- *           type: boolean
- *       example:
- *         topicId: "cltopic123"
- *         authorId: "cluser456"
- *         content: "Je pense que la solution pourrait être celle-ci..."
- *         solutionMessage: false
- *
- *     updateForumMessage:
- *       type: object
- *       properties:
- *         topicId:
- *           type: string
- *         authorId:
- *           type: string
- *         content:
- *           type: string
- *         solutionMessage:
- *           type: boolean
- *       example:
- *         content: "Mise à jour de la réponse avec plus de détails."
- *         solutionMessage: true
- */
+  */

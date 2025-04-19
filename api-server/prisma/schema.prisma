@@ -173,7 +173,7 @@ model forumMessage {
   id              String      @id @default(cuid())
   topicId         String      @map("topic_id")
   authorId        String      @map("author_id")
-  content         String?
+  content         String
   solutionMessage Boolean?    @map("solution_message")
   createdAt       DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt       DateTime?   @map("updated_at") @db.Timestamp(6)

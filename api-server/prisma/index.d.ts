@@ -18847,7 +18847,7 @@ export namespace Prisma {
     id: string
     topicId: string
     authorId: string
-    content: string | null
+    content: string
     solutionMessage: boolean | null
     createdAt: Date
     updatedAt: Date | null
@@ -18940,7 +18940,7 @@ export namespace Prisma {
       id: string
       topicId: string
       authorId: string
-      content: string | null
+      content: string
       solutionMessage: boolean | null
       createdAt: Date
       updatedAt: Date | null
@@ -73287,7 +73287,7 @@ export namespace Prisma {
     id?: StringFilter<"forumMessage"> | string
     topicId?: StringFilter<"forumMessage"> | string
     authorId?: StringFilter<"forumMessage"> | string
-    content?: StringNullableFilter<"forumMessage"> | string | null
+    content?: StringFilter<"forumMessage"> | string
     solutionMessage?: BoolNullableFilter<"forumMessage"> | boolean | null
     createdAt?: DateTimeFilter<"forumMessage"> | Date | string
     updatedAt?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
@@ -73299,7 +73299,7 @@ export namespace Prisma {
     id?: SortOrder
     topicId?: SortOrder
     authorId?: SortOrder
-    content?: SortOrderInput | SortOrder
+    content?: SortOrder
     solutionMessage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -73314,7 +73314,7 @@ export namespace Prisma {
     NOT?: forumMessageWhereInput | forumMessageWhereInput[]
     topicId?: StringFilter<"forumMessage"> | string
     authorId?: StringFilter<"forumMessage"> | string
-    content?: StringNullableFilter<"forumMessage"> | string | null
+    content?: StringFilter<"forumMessage"> | string
     solutionMessage?: BoolNullableFilter<"forumMessage"> | boolean | null
     createdAt?: DateTimeFilter<"forumMessage"> | Date | string
     updatedAt?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
@@ -73326,7 +73326,7 @@ export namespace Prisma {
     id?: SortOrder
     topicId?: SortOrder
     authorId?: SortOrder
-    content?: SortOrderInput | SortOrder
+    content?: SortOrder
     solutionMessage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -73342,7 +73342,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"forumMessage"> | string
     topicId?: StringWithAggregatesFilter<"forumMessage"> | string
     authorId?: StringWithAggregatesFilter<"forumMessage"> | string
-    content?: StringNullableWithAggregatesFilter<"forumMessage"> | string | null
+    content?: StringWithAggregatesFilter<"forumMessage"> | string
     solutionMessage?: BoolNullableWithAggregatesFilter<"forumMessage"> | boolean | null
     createdAt?: DateTimeWithAggregatesFilter<"forumMessage"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"forumMessage"> | Date | string | null
@@ -77654,7 +77654,7 @@ export namespace Prisma {
 
   export type forumMessageCreateInput = {
     id?: string
-    content?: string | null
+    content: string
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -77666,7 +77666,7 @@ export namespace Prisma {
     id?: string
     topicId: string
     authorId: string
-    content?: string | null
+    content: string
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -77674,7 +77674,7 @@ export namespace Prisma {
 
   export type forumMessageUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77686,7 +77686,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     topicId?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77696,7 +77696,7 @@ export namespace Prisma {
     id?: string
     topicId: string
     authorId: string
-    content?: string | null
+    content: string
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -77704,7 +77704,7 @@ export namespace Prisma {
 
   export type forumMessageUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -77714,7 +77714,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     topicId?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -90596,7 +90596,7 @@ export namespace Prisma {
 
   export type forumMessageCreateWithoutForumTopicInput = {
     id?: string
-    content?: string | null
+    content: string
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -90606,7 +90606,7 @@ export namespace Prisma {
   export type forumMessageUncheckedCreateWithoutForumTopicInput = {
     id?: string
     authorId: string
-    content?: string | null
+    content: string
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -90777,7 +90777,7 @@ export namespace Prisma {
     id?: StringFilter<"forumMessage"> | string
     topicId?: StringFilter<"forumMessage"> | string
     authorId?: StringFilter<"forumMessage"> | string
-    content?: StringNullableFilter<"forumMessage"> | string | null
+    content?: StringFilter<"forumMessage"> | string
     solutionMessage?: BoolNullableFilter<"forumMessage"> | boolean | null
     createdAt?: DateTimeFilter<"forumMessage"> | Date | string
     updatedAt?: DateTimeNullableFilter<"forumMessage"> | Date | string | null
@@ -95789,7 +95789,7 @@ export namespace Prisma {
 
   export type forumMessageCreateWithoutUserInput = {
     id?: string
-    content?: string | null
+    content: string
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -95799,7 +95799,7 @@ export namespace Prisma {
   export type forumMessageUncheckedCreateWithoutUserInput = {
     id?: string
     topicId: string
-    content?: string | null
+    content: string
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -100723,7 +100723,7 @@ export namespace Prisma {
   export type forumMessageCreateManyForumTopicInput = {
     id?: string
     authorId: string
-    content?: string | null
+    content: string
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -100731,7 +100731,7 @@ export namespace Prisma {
 
   export type forumMessageUpdateWithoutForumTopicInput = {
     id?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -100741,7 +100741,7 @@ export namespace Prisma {
   export type forumMessageUncheckedUpdateWithoutForumTopicInput = {
     id?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -100750,7 +100750,7 @@ export namespace Prisma {
   export type forumMessageUncheckedUpdateManyWithoutForumTopicInput = {
     id?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -101014,7 +101014,7 @@ export namespace Prisma {
   export type forumMessageCreateManyUserInput = {
     id?: string
     topicId: string
-    content?: string | null
+    content: string
     solutionMessage?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -101468,7 +101468,7 @@ export namespace Prisma {
 
   export type forumMessageUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -101478,7 +101478,7 @@ export namespace Prisma {
   export type forumMessageUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     topicId?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -101487,7 +101487,7 @@ export namespace Prisma {
   export type forumMessageUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     topicId?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
     solutionMessage?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

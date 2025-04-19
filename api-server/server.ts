@@ -20,6 +20,7 @@ import cognitiveCategoriesRouter from '@/routes/cognitiveCategory.routes'
 import conversationRouter from '@/routes/conversation.routes'
 import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
 import forumCategoryRouter from '@/routes/forumCategory.routes';
+import forumMessageRouter from '@/routes/forumMessage.routes';
 import helpCategoriesRouter from '@/routes/helpCategory.routes'
 import issueCategoriesRouter from '@/routes/issueCategory.routes'
 import nutritionalCategoriesRouter from '@/routes/nutritionalCategory.routes'
@@ -31,7 +32,6 @@ import skillRouter from '@/routes/skill.routes';
 import skillCategoriesRouter from '@/routes/skillCategory.routes'
 import userRouter from '@/routes/user.routes';
 import wellnessCategoriesRouter from '@/routes/serviceCategory.routes'
-
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
@@ -58,6 +58,7 @@ app.use(currentSession)
 app.use('/api/activity-categories', activityCategoriesRouter);
 app.use('/api/badge-categories', badgeCategoriesRouter);
 app.use('/api/cognitive-categories', cognitiveCategoriesRouter);
+app.use('/api/forum-categories', forumCategoryRouter);
 app.use('/api/help-categories', helpCategoriesRouter);
 app.use('/api/issue-categories', issueCategoriesRouter);
 app.use('/api/nutritional-categories', nutritionalCategoriesRouter);
@@ -73,7 +74,7 @@ app.use('/api/badges', badgeRouter);
 app.use('/api/cognitive-exercises', cognitiveExerciseRouter);
 app.use('/api/conversations', conversationRouter);
 app.use('/api/exercise-programs', exerciseProgramRoutes);
-app.use('/api/forum-categories', forumCategoryRouter);
+app.use('/api/forum-messages', forumMessageRouter);
 app.use('/api/local-services', localServiceRouter);
 app.use('/api/nutrition-advices', nutritionalAdviceRouter); // Correction de l'URL (supprimé un slash en trop)
 app.use('/api/users', userRouter);
