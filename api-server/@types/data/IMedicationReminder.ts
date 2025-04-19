@@ -1,23 +1,17 @@
-import Joi from 'joi';
-
-export const medicationReminderSchema = Joi.object({
-  userId: Joi.string().required(),
-  medicationName: Joi.string().required(),
-  dosage: Joi.string().allow(null, ''),
-  morningReminderTime: Joi.date(),
-  noonReminderTime: Joi.date(),
-  eveningReminderTime: Joi.date(),
-  nightReminderTime: Joi.date(),
-  daysOfWeek: Joi.string().allow(null, ''),
-  instructions: Joi.string().allow(null, ''),
-  active: Joi.boolean().default(true),
-  startDate: Joi.date(),
-  endDate: Joi.date(),
-});
-
-export const idParamMedicationReminderSchema = Joi.object({
-  id: Joi.string().required()
-});
+export default interface IMedicationReminder {
+  userId: string;
+  medicationName: string;
+  dosage?: string;
+  morningReminderTime?: Date;
+  noonReminderTime?: Date;
+  eveningReminderTime?: Date;
+  nightReminderTime?: Date;
+  daysOfWeek?: string;
+  instructions?: string;
+  active?: boolean;
+  startDate?: Date;
+  endDate?: Date;
+}
 
 // userId              String    @map("user_id")
 // medicationName      String    @map("medication_name") @db.Text

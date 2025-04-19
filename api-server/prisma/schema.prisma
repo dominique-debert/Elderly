@@ -259,8 +259,8 @@ model helpRequest {
 
 model localService {
   id              String           @id @default(cuid())
-  name            String?          @db.Text
-  categoryId      String?          @map("category_id") @db.Text
+  name            String           @db.Text
+  categoryId      String           @map("category_id") @db.Text
   address         String?          @db.Text
   gpsCoordinates  String?          @map("gps_coordinates")
   phone           String?          @db.Text

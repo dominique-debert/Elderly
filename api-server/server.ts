@@ -12,6 +12,7 @@ import authRouter from '@/routes/auth.routes';
 import badgeRouter from '@/routes/badge.routes';
 import cognitiveExerciseRouter from '@/routes/cognitiveExercise.routes';
 import localServiceRouter from '@/routes/localService.routes';
+import medicationReminderRouter from '@/routes/medicationReminder.routes';
 import nutritionalAdviceRouter from '@/routes/nutritionalAdvice.routes';
 import activityRouter from '@/routes/activity.routes'
 import activityCategoriesRouter from '@/routes/activityCategory.routes'
@@ -82,7 +83,8 @@ app.use('/api/health-indicators', healthIndicatorRouter);
 app.use('/api/help-offers', helpOffersRouter);
 app.use('/api/help-requests', helpRequestsRouter);
 app.use('/api/local-services', localServiceRouter);
-app.use('/api/nutrition-advices', nutritionalAdviceRouter); // Correction de l'URL (supprimé un slash en trop)
+app.use('/api/medication-reminders', medicationReminderRouter);
+app.use('/api/nutrition-advices', nutritionalAdviceRouter); 
 app.use('/api/users', userRouter);
 app.use('/api/skills', skillRouter);
 
