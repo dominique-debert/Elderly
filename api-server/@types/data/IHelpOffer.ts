@@ -1,7 +1,7 @@
 export default interface help_offer {
-  request_id: string
-  helper_id: string
-  offer_date: Date
+  requestId: string
+  helperId: string
+  offerDate: Date
   message?: string
   status?: string
 }
