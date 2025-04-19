@@ -1,8 +1,8 @@
 export default interface IMessage {
-  conversation_id: string
-  sender_id: string
+  conversationId: string
+  senderId: string
   content: string
-  send_date: Date
-  type?: string
-  read?: boolean 
+  sendDate: Date
+  type?: string // enum: text, image, audio, video, file
+  read?: boolean
 }

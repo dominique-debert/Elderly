@@ -1,4 +1,5 @@
 export default interface IMedicationReminder {
+  id?: string;
   userId: string;
   medicationName: string;
   dosage?: string;
@@ -11,6 +12,8 @@ export default interface IMedicationReminder {
   active?: boolean;
   startDate?: Date;
   endDate?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // userId              String    @map("user_id")
@@ -25,3 +28,5 @@ export default interface IMedicationReminder {
 // active              Boolean?  @default(true)
 // startDate           DateTime? @map("start_date") @db.Timestamp(6)
 // endDate             DateTime? @map("end_date") @db.Timestamp(6)
+// createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+// updatedAt           DateTime? @map("updated_at") @db.Timestamp(6)
