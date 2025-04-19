@@ -1,18 +1,34 @@
 import { NextFunction, Request, Response } from 'express';
+import { PrismaClient } from '@prisma/client';
 import argon2 from 'argon2';
-import {PrismaClient} from '@/prisma/client';
-import { generateToken } from '@/utils/jwt';
 import { createHttpError } from '@/utils/httpError';
+import { generateToken } from '@/utils/jwt';
+import { signUpSchema, signInSchema } from '@/schemas/validation/auth.schema';
 
 const prisma = new PrismaClient();
 
-export const signup = async (req: Request, res: Response, next: NextFunction) => {
+const accessTokenExpiry = process.env.JWT_EXPIRES_IN || '15m';
+const refreshTokenExpiryDays = parseInt((process.env.REFRESH_TOKEN_EXPIRES_IN || '7d').replace(/\D/g, '')) || 7;
+
+const signToken = (userId: string, type: 'access' | 'refresh') => {
   try {
-    // Validation des données d'entrée
-    const { email, password, firstName, lastName } = req.body;
+    const expiresIn = type === 'access' ? accessTokenExpiry : `${refreshTokenExpiryDays}d`;
+    return generateToken({ userId }, expiresIn);
+  } catch (error) {
+    console.error(`Error generating ${type} token:`, error);
+    throw new Error(`Failed to generate ${type} token`);
+  }
+};
+
+export const signUp = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { error } = signUpSchema.validate(req.body);
+    if (error) throw createHttpError(400, 'Invalid data', error.details);
     
-    const existingUser = await prisma.user.findUnique({ where: { email } });
-    if (existingUser) throw createHttpError(409, 'Email déjà utilisé');
+    const { email, password } = req.body;
+    
+    const existing = await prisma.user.findUnique({ where: { email } });
+    if (existing) throw createHttpError(409, 'Email already in use');
     
     const passwordHash = await argon2.hash(password);
     
@@ -20,39 +36,74 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
       data: {
         email,
         passwordHash,
-        firstName,
-        lastName
-      }
+      },
     });
     
-    const token = generateToken({ userId: user.id });
-    res.status(201).json({ token });
+    const accessToken = signToken(user.id, 'access');
+    const refreshToken = signToken(user.id, 'refresh');
+    
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + refreshTokenExpiryDays);
+    
+    await prisma.session.create({
+      data: {
+        refreshToken,
+        userId: user.id,
+        expiresAt,
+        ipAddress: req.ip,
+        userAgent: req.headers['user-agent'],
+      },
+    });
+    
+    res.status(201).json({ accessToken, refreshToken });
   } catch (error) {
-    next(error);
-  };
-}
-
-export const login = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const { email, password } = req.body;
-    
-    const user = await prisma.user.findUnique({ where: { email } });
-    if (!user) throw createHttpError(404, 'Utilisateur inconnu');
-    
-    const valid = await argon2.verify(user.passwordHash, password);
-    if (!valid) throw createHttpError(401, 'Accès refusé');
-    
-    const token = generateToken({ userId: user.id });
-    res.json({ token });
-  }
-  catch (error) {
     next(error);
   }
 };
 
-export const logout = async (_req: Request, res: Response) => {
-  // Le logout côté JWT est généralement géré côté client (en supprimant le token).
-  // Optionnellement, tu peux implémenter une blacklist côté serveur.
-  res.json({ message: 'Logged out successfully' });
-  
+export const signIn = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { error } = signInSchema.validate(req.body);
+    if (error) throw createHttpError(400, 'Invalid data', error.details);
+    
+    const { email, password } = req.body;
+    
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user || !(await argon2.verify(user.passwordHash, password))) {
+      throw createHttpError(401, 'Invalid credentials');
+    }
+    
+    const accessToken = signToken(user.id, 'access');
+    const refreshToken = signToken(user.id, 'refresh');
+    
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + refreshTokenExpiryDays);
+    
+    await prisma.session.create({
+      data: {
+        refreshToken,
+        userId: user.id,
+        expiresAt,
+        ipAddress: req.ip,
+        userAgent: req.headers['user-agent'],
+      },
+    });
+    
+    res.json({ accessToken, refreshToken });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const logout = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { refreshToken } = req.body;
+    if (!refreshToken) throw createHttpError(400, 'Refresh token required');
+    
+    await prisma.session.deleteMany({ where: { refreshToken } });
+    
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
 };

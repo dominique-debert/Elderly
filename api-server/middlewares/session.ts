@@ -1,4 +1,3 @@
-// middlewares/session.ts
 import session from 'express-session';
 import dotenv from 'dotenv';
 

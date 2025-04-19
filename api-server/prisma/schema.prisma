@@ -373,16 +373,6 @@ model nutritionalAdvice {
   @@map("nutritional_advice")
 }
 
-model offlineUser {
-  userId     String    @id @map("user_id")
-  cachedData Json?     @map("cached_data") @db.Json
-  lastSync   DateTime? @map("last_sync") @db.Timestamp(6)
-  createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt  DateTime? @map("updated_at") @db.Timestamp(6)
-
-  @@map("offline_user")
-}
-
 model projectMember {
   projectId            String               @map("project_id")
   userId               String               @map("user_id")
@@ -440,6 +430,20 @@ model satisfactionSurvey {
   surveyResponse surveyResponse[]
 
   @@map("satisfaction_survey")
+}
+
+model session {
+  id           String   @id @default(cuid())
+  refreshToken String   @unique
+  userId       String
+  user         user     @relation(fields: [userId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  expiresAt    DateTime
+  userAgent    String?
+  ipAddress    String?
+
+  @@index([refreshToken])
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
@@ -602,6 +606,7 @@ model user {
   userStatistics          userStatistics?
   videoCall               videoCall[]
   wellnessGoal            wellnessGoal[]
+  session                 session[]
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.

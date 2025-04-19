@@ -402,14 +402,6 @@ exports.Prisma.NutritionalAdviceScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.OfflineUserScalarFieldEnum = {
-  userId: 'userId',
-  cachedData: 'cachedData',
-  lastSync: 'lastSync',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
 exports.Prisma.ProjectMemberScalarFieldEnum = {
   projectId: 'projectId',
   userId: 'userId',
@@ -453,6 +445,17 @@ exports.Prisma.SatisfactionSurveyScalarFieldEnum = {
   active: 'active',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SessionScalarFieldEnum = {
+  id: 'id',
+  refreshToken: 'refreshToken',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  expiresAt: 'expiresAt',
+  userAgent: 'userAgent',
+  ipAddress: 'ipAddress'
 };
 
 exports.Prisma.ServiceCompletedScalarFieldEnum = {
@@ -808,11 +811,11 @@ exports.Prisma.ModelName = {
   notification: 'notification',
   notificationPreferences: 'notificationPreferences',
   nutritionalAdvice: 'nutritionalAdvice',
-  offlineUser: 'offlineUser',
   projectMember: 'projectMember',
   projectTask: 'projectTask',
   resource: 'resource',
   satisfactionSurvey: 'satisfactionSurvey',
+  session: 'session',
   serviceCompleted: 'serviceCompleted',
   serviceRating: 'serviceRating',
   skill: 'skill',

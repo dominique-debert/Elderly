@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { signup, login, logout } from '@/controllers/auth.controller';
+import { signUp, signIn, logout } from '@/controllers/auth.controller';
 import { validate } from '@/middlewares/validate';
-import { signupSchema, loginSchema } from '@/schemas/validation/auth.schema';
+import { signUpSchema, signInSchema } from '@/schemas/validation/auth.schema';
 import errorHandler from '@/middlewares/errorHandler';
 
 const router = Router();
@@ -47,7 +47,7 @@ const router = Router();
 
 /**
  * @swagger
- * /auth/login:
+ * /auth/signin:
  *   post:
  *     summary: Connecter un utilisateur
  *     tags: [Auth]
@@ -88,8 +88,8 @@ const router = Router();
  *         description: Déconnexion réussie
  */
 
-router.post('/signup', validate(signupSchema), errorHandler, signup);
-router.post('/login', validate(loginSchema), errorHandler, login);
+router.post('/signup', validate(signUpSchema), errorHandler, signUp);
+router.post('/login', validate(signInSchema), errorHandler, signIn);
 router.post('/logout', errorHandler, logout);
 
 export default router;

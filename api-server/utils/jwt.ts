@@ -1,10 +1,13 @@
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET || '';
 
-export function generateToken(payload: object): string {
-  console.log('JWT_SECRET', JWT_SECRET);
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
+export function generateToken(payload: object, expiresIn?: string): string {
+  // Create options object with expiresIn only if it's provided
+  const options: jwt.SignOptions = expiresIn ? { expiresIn: expiresIn as jwt.SignOptions['expiresIn'] } : {};
+  
+  // Pass the options object (which might be empty but never undefined)
+  return jwt.sign(payload, JWT_SECRET, options);
 }
 
 export function verifyToken(token: string) {
