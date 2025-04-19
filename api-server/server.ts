@@ -24,6 +24,7 @@ import forumMessageRouter from '@/routes/forumMessage.routes';
 import healthIndicatorRouter from '@/routes/healthIndicator.routes';
 import helpCategoriesRouter from '@/routes/helpCategory.routes'
 import helpOffersRouter from '@/routes/helpOffer.routes'
+import helpRequestsRouter from '@/routes/helpRequest.routes'
 import issueCategoriesRouter from '@/routes/issueCategory.routes'
 import nutritionalCategoriesRouter from '@/routes/nutritionalCategory.routes'
 import programCategoriesRouter from '@/routes/programCategory.routes'
@@ -79,6 +80,7 @@ app.use('/api/exercise-programs', exerciseProgramRoutes);
 app.use('/api/forum-messages', forumMessageRouter);
 app.use('/api/health-indicators', healthIndicatorRouter);
 app.use('/api/help-offers', helpOffersRouter);
+app.use('/api/help-requests', helpRequestsRouter);
 app.use('/api/local-services', localServiceRouter);
 app.use('/api/nutrition-advices', nutritionalAdviceRouter); // Correction de l'URL (supprimé un slash en trop)
 app.use('/api/users', userRouter);

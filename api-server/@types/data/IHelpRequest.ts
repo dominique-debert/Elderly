@@ -1,14 +1,14 @@
 export default interface IHelpRequest {
-  creator_id: string
+  creatorId: string
   title: string
   description?: string
-  creation_date: Date
-  estimated_duration: number
+  neededDate: Date
+  estimatedDuration: number
   location?: string
-  gps_coordinates?: string
-  category: string
-  reccuring?: boolean
+  gpsCoordinates?: string
+  categoryId: string
+  recurring?: boolean
   frequency?: string
   status?: string
-  points_offered?: number
+  pointsOffered?: number
 }

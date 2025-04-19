@@ -23569,11 +23569,11 @@ export namespace Prisma {
     creatorId: string
     title: string
     description: string | null
-    neededDate: Date | null
+    neededDate: Date
     estimatedDuration: number | null
     location: string | null
     gpsCoordinates: string | null
-    categoryId: string | null
+    categoryId: string
     recurring: boolean | null
     frequency: string | null
     status: string | null
@@ -23712,11 +23712,11 @@ export namespace Prisma {
       creatorId: string
       title: string
       description: string | null
-      neededDate: Date | null
+      neededDate: Date
       estimatedDuration: number | null
       location: string | null
       gpsCoordinates: string | null
-      categoryId: string | null
+      categoryId: string
       recurring: boolean | null
       frequency: string | null
       status: string | null
@@ -73599,11 +73599,11 @@ export namespace Prisma {
     creatorId?: StringFilter<"helpRequest"> | string
     title?: StringFilter<"helpRequest"> | string
     description?: StringNullableFilter<"helpRequest"> | string | null
-    neededDate?: DateTimeNullableFilter<"helpRequest"> | Date | string | null
+    neededDate?: DateTimeFilter<"helpRequest"> | Date | string
     estimatedDuration?: IntNullableFilter<"helpRequest"> | number | null
     location?: StringNullableFilter<"helpRequest"> | string | null
     gpsCoordinates?: StringNullableFilter<"helpRequest"> | string | null
-    categoryId?: StringNullableFilter<"helpRequest"> | string | null
+    categoryId?: StringFilter<"helpRequest"> | string
     recurring?: BoolNullableFilter<"helpRequest"> | boolean | null
     frequency?: StringNullableFilter<"helpRequest"> | string | null
     status?: StringNullableFilter<"helpRequest"> | string | null
@@ -73621,11 +73621,11 @@ export namespace Prisma {
     creatorId?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    neededDate?: SortOrderInput | SortOrder
+    neededDate?: SortOrder
     estimatedDuration?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
-    categoryId?: SortOrderInput | SortOrder
+    categoryId?: SortOrder
     recurring?: SortOrderInput | SortOrder
     frequency?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
@@ -73646,11 +73646,11 @@ export namespace Prisma {
     creatorId?: StringFilter<"helpRequest"> | string
     title?: StringFilter<"helpRequest"> | string
     description?: StringNullableFilter<"helpRequest"> | string | null
-    neededDate?: DateTimeNullableFilter<"helpRequest"> | Date | string | null
+    neededDate?: DateTimeFilter<"helpRequest"> | Date | string
     estimatedDuration?: IntNullableFilter<"helpRequest"> | number | null
     location?: StringNullableFilter<"helpRequest"> | string | null
     gpsCoordinates?: StringNullableFilter<"helpRequest"> | string | null
-    categoryId?: StringNullableFilter<"helpRequest"> | string | null
+    categoryId?: StringFilter<"helpRequest"> | string
     recurring?: BoolNullableFilter<"helpRequest"> | boolean | null
     frequency?: StringNullableFilter<"helpRequest"> | string | null
     status?: StringNullableFilter<"helpRequest"> | string | null
@@ -73668,11 +73668,11 @@ export namespace Prisma {
     creatorId?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    neededDate?: SortOrderInput | SortOrder
+    neededDate?: SortOrder
     estimatedDuration?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
     gpsCoordinates?: SortOrderInput | SortOrder
-    categoryId?: SortOrderInput | SortOrder
+    categoryId?: SortOrder
     recurring?: SortOrderInput | SortOrder
     frequency?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
@@ -73694,11 +73694,11 @@ export namespace Prisma {
     creatorId?: StringWithAggregatesFilter<"helpRequest"> | string
     title?: StringWithAggregatesFilter<"helpRequest"> | string
     description?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
-    neededDate?: DateTimeNullableWithAggregatesFilter<"helpRequest"> | Date | string | null
+    neededDate?: DateTimeWithAggregatesFilter<"helpRequest"> | Date | string
     estimatedDuration?: IntNullableWithAggregatesFilter<"helpRequest"> | number | null
     location?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
     gpsCoordinates?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
-    categoryId?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
+    categoryId?: StringWithAggregatesFilter<"helpRequest"> | string
     recurring?: BoolNullableWithAggregatesFilter<"helpRequest"> | boolean | null
     frequency?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
     status?: StringNullableWithAggregatesFilter<"helpRequest"> | string | null
@@ -77982,7 +77982,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
@@ -78003,11 +78003,11 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId?: string | null
+    categoryId: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -78022,7 +78022,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78043,11 +78043,11 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78063,11 +78063,11 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId?: string | null
+    categoryId: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -78080,7 +78080,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -78097,11 +78097,11 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -91264,7 +91264,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
@@ -91284,11 +91284,11 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId?: string | null
+    categoryId: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -91433,7 +91433,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -91453,11 +91453,11 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -94223,7 +94223,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
@@ -94243,11 +94243,11 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId?: string | null
+    categoryId: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -94392,7 +94392,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -94412,11 +94412,11 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -95919,7 +95919,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
@@ -95938,11 +95938,11 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId?: string | null
+    categoryId: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -96847,11 +96847,11 @@ export namespace Prisma {
     creatorId?: StringFilter<"helpRequest"> | string
     title?: StringFilter<"helpRequest"> | string
     description?: StringNullableFilter<"helpRequest"> | string | null
-    neededDate?: DateTimeNullableFilter<"helpRequest"> | Date | string | null
+    neededDate?: DateTimeFilter<"helpRequest"> | Date | string
     estimatedDuration?: IntNullableFilter<"helpRequest"> | number | null
     location?: StringNullableFilter<"helpRequest"> | string | null
     gpsCoordinates?: StringNullableFilter<"helpRequest"> | string | null
-    categoryId?: StringNullableFilter<"helpRequest"> | string | null
+    categoryId?: StringFilter<"helpRequest"> | string
     recurring?: BoolNullableFilter<"helpRequest"> | boolean | null
     frequency?: StringNullableFilter<"helpRequest"> | string | null
     status?: StringNullableFilter<"helpRequest"> | string | null
@@ -99685,7 +99685,7 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
@@ -99705,7 +99705,7 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
@@ -101058,11 +101058,11 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
-    categoryId?: string | null
+    categoryId: string
     recurring?: boolean | null
     frequency?: string | null
     status?: string | null
@@ -101601,7 +101601,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101620,11 +101620,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -101639,11 +101639,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
-    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: StringFieldUpdateOperationsInput | string
     recurring?: NullableBoolFieldUpdateOperationsInput | boolean | null
     frequency?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
@@ -102477,7 +102477,7 @@ export namespace Prisma {
     creatorId: string
     title: string
     description?: string | null
-    neededDate?: Date | string | null
+    neededDate: Date | string
     estimatedDuration?: number | null
     location?: string | null
     gpsCoordinates?: string | null
@@ -102493,7 +102493,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -102513,7 +102513,7 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null
@@ -102532,7 +102532,7 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    neededDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    neededDate?: DateTimeFieldUpdateOperationsInput | Date | string
     estimatedDuration?: NullableIntFieldUpdateOperationsInput | number | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
     gpsCoordinates?: NullableStringFieldUpdateOperationsInput | string | null

@@ -238,11 +238,11 @@ model helpRequest {
   creatorId         String             @map("creator_id")
   title             String             @db.Text
   description       String?
-  neededDate        DateTime?          @map("needed_date") @db.Timestamp(6)
+  neededDate        DateTime           @map("needed_date") @db.Timestamp(6)
   estimatedDuration Int?               @map("estimated_duration")
   location          String?            @db.Text
   gpsCoordinates    String?            @map("gps_coordinates")
-  categoryId        String?            @map("category_id")
+  categoryId        String             @map("category_id")
   recurring         Boolean?           @default(false)
   frequency         String?            @db.Text
   status            String?            @db.Text

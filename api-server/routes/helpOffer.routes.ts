@@ -80,7 +80,7 @@ router.get('/', errorHandler, getAllHelpOffers);
  *         schema:
  *           type: string
  *           format: cuid
- *         description: ID de la catégorie
+ *         description: ID de l'offre
  *     responses:
  *       200:
  *         description: Offre trouvée
@@ -107,7 +107,7 @@ router.get('/:id', validate(idParamHelpOfferSchema, 'params'), errorHandler, get
  *         required: true
  *         schema:
  *           type: string
- *         description: ID de la catégorie
+ *         description: ID de l'offre
  *     requestBody:
  *       required: true
  *       content:
@@ -146,7 +146,7 @@ router.put('/:id', validate(idParamHelpOfferSchema, 'params'), errorHandler, upd
  *         required: true
  *         schema:
  *           type: string
- *         description: ID de la catégorie
+ *         description: ID de l'offre
  *     responses:
  *       200:
  *         description: Offre supprimée
