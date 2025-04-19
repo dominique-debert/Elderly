@@ -374,6 +374,7 @@ model nutritionalAdvice {
 }
 
 model projectMember {
+  id                   String               @id @default(cuid())
   projectId            String               @map("project_id")
   userId               String               @map("user_id")
   role                 String               @db.Text
@@ -383,7 +384,6 @@ model projectMember {
   collaborativeProject collaborativeProject @relation(fields: [projectId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   user                 user                 @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
-  @@id([projectId, userId])
   @@map("project_member")
 }
 

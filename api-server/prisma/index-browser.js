@@ -403,6 +403,7 @@ exports.Prisma.NutritionalAdviceScalarFieldEnum = {
 };
 
 exports.Prisma.ProjectMemberScalarFieldEnum = {
+  id: 'id',
   projectId: 'projectId',
   userId: 'userId',
   role: 'role',

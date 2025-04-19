@@ -1,6 +1,9 @@
 export default interface IProjectMember {
-  project_id: string
-  user_id: string
+  id?: string
+  projectId: string
+  userId: string
   role: string
-  join_date: Date
+  joinDate: Date
+  createdAt?: Date
+  updatedAt?: Date
 }

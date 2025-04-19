@@ -34,6 +34,7 @@ import issueCategoriesRouter from '@/routes/issueCategory.routes'
 import nutritionalCategoriesRouter from '@/routes/nutritionalCategory.routes'
 import programCategoriesRouter from '@/routes/programCategory.routes'
 import projectCategoriesRouter from '@/routes/projectCategory.routes'
+import projectMemberRouter from '@/routes/projectMember.routes'
 import resourceCategoriesRouter from '@/routes/resourceCategory.routes'
 import serviceCategoriesRouter from '@/routes/serviceCategory.routes'
 import skillRouter from '@/routes/skill.routes';
@@ -93,6 +94,7 @@ app.use('/api/municipal-events', municipalEventRouter);
 app.use('/api/notifications', notificationRouter);
 app.use('/api/notification-preferences', notificationPreferencesRouter);
 app.use('/api/nutrition-advices', nutritionalAdviceRouter); 
+app.use('/api/project-members', projectMemberRouter);
 app.use('/api/users', userRouter);
 app.use('/api/skills', skillRouter);
 

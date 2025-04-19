@@ -32666,6 +32666,7 @@ export namespace Prisma {
   }
 
   export type ProjectMemberMinAggregateOutputType = {
+    id: string | null
     projectId: string | null
     userId: string | null
     role: string | null
@@ -32675,6 +32676,7 @@ export namespace Prisma {
   }
 
   export type ProjectMemberMaxAggregateOutputType = {
+    id: string | null
     projectId: string | null
     userId: string | null
     role: string | null
@@ -32684,6 +32686,7 @@ export namespace Prisma {
   }
 
   export type ProjectMemberCountAggregateOutputType = {
+    id: number
     projectId: number
     userId: number
     role: number
@@ -32695,6 +32698,7 @@ export namespace Prisma {
 
 
   export type ProjectMemberMinAggregateInputType = {
+    id?: true
     projectId?: true
     userId?: true
     role?: true
@@ -32704,6 +32708,7 @@ export namespace Prisma {
   }
 
   export type ProjectMemberMaxAggregateInputType = {
+    id?: true
     projectId?: true
     userId?: true
     role?: true
@@ -32713,6 +32718,7 @@ export namespace Prisma {
   }
 
   export type ProjectMemberCountAggregateInputType = {
+    id?: true
     projectId?: true
     userId?: true
     role?: true
@@ -32795,6 +32801,7 @@ export namespace Prisma {
   }
 
   export type ProjectMemberGroupByOutputType = {
+    id: string
     projectId: string
     userId: string
     role: string
@@ -32821,6 +32828,7 @@ export namespace Prisma {
 
 
   export type projectMemberSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     projectId?: boolean
     userId?: boolean
     role?: boolean
@@ -32832,6 +32840,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["projectMember"]>
 
   export type projectMemberSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     projectId?: boolean
     userId?: boolean
     role?: boolean
@@ -32843,6 +32852,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["projectMember"]>
 
   export type projectMemberSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     projectId?: boolean
     userId?: boolean
     role?: boolean
@@ -32854,6 +32864,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["projectMember"]>
 
   export type projectMemberSelectScalar = {
+    id?: boolean
     projectId?: boolean
     userId?: boolean
     role?: boolean
@@ -32862,7 +32873,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type projectMemberOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"projectId" | "userId" | "role" | "joinDate" | "createdAt" | "updatedAt", ExtArgs["result"]["projectMember"]>
+  export type projectMemberOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "userId" | "role" | "joinDate" | "createdAt" | "updatedAt", ExtArgs["result"]["projectMember"]>
   export type projectMemberInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     collaborativeProject?: boolean | collaborativeProjectDefaultArgs<ExtArgs>
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -32883,6 +32894,7 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
+      id: string
       projectId: string
       userId: string
       role: string
@@ -32972,8 +32984,8 @@ export namespace Prisma {
      * // Get first 10 ProjectMembers
      * const projectMembers = await prisma.projectMember.findMany({ take: 10 })
      * 
-     * // Only select the `projectId`
-     * const projectMemberWithProjectIdOnly = await prisma.projectMember.findMany({ select: { projectId: true } })
+     * // Only select the `id`
+     * const projectMemberWithIdOnly = await prisma.projectMember.findMany({ select: { id: true } })
      * 
      */
     findMany<T extends projectMemberFindManyArgs>(args?: SelectSubset<T, projectMemberFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$projectMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -33017,9 +33029,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many ProjectMembers and only return the `projectId`
-     * const projectMemberWithProjectIdOnly = await prisma.projectMember.createManyAndReturn({
-     *   select: { projectId: true },
+     * // Create many ProjectMembers and only return the `id`
+     * const projectMemberWithIdOnly = await prisma.projectMember.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -33108,9 +33120,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more ProjectMembers and only return the `projectId`
-     * const projectMemberWithProjectIdOnly = await prisma.projectMember.updateManyAndReturn({
-     *   select: { projectId: true },
+     * // Update zero or more ProjectMembers and only return the `id`
+     * const projectMemberWithIdOnly = await prisma.projectMember.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -33314,6 +33326,7 @@ export namespace Prisma {
    * Fields of the projectMember model
    */
   interface projectMemberFieldRefs {
+    readonly id: FieldRef<"projectMember", 'String'>
     readonly projectId: FieldRef<"projectMember", 'String'>
     readonly userId: FieldRef<"projectMember", 'String'>
     readonly role: FieldRef<"projectMember", 'String'>
@@ -71882,6 +71895,7 @@ export namespace Prisma {
 
 
   export const ProjectMemberScalarFieldEnum: {
+    id: 'id',
     projectId: 'projectId',
     userId: 'userId',
     role: 'role',
@@ -74304,6 +74318,7 @@ export namespace Prisma {
     AND?: projectMemberWhereInput | projectMemberWhereInput[]
     OR?: projectMemberWhereInput[]
     NOT?: projectMemberWhereInput | projectMemberWhereInput[]
+    id?: StringFilter<"projectMember"> | string
     projectId?: StringFilter<"projectMember"> | string
     userId?: StringFilter<"projectMember"> | string
     role?: StringFilter<"projectMember"> | string
@@ -74315,6 +74330,7 @@ export namespace Prisma {
   }
 
   export type projectMemberOrderByWithRelationInput = {
+    id?: SortOrder
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
@@ -74326,7 +74342,7 @@ export namespace Prisma {
   }
 
   export type projectMemberWhereUniqueInput = Prisma.AtLeast<{
-    projectId_userId?: projectMemberProjectIdUserIdCompoundUniqueInput
+    id?: string
     AND?: projectMemberWhereInput | projectMemberWhereInput[]
     OR?: projectMemberWhereInput[]
     NOT?: projectMemberWhereInput | projectMemberWhereInput[]
@@ -74338,9 +74354,10 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"projectMember"> | Date | string | null
     collaborativeProject?: XOR<CollaborativeProjectScalarRelationFilter, collaborativeProjectWhereInput>
     user?: XOR<UserScalarRelationFilter, userWhereInput>
-  }, "projectId_userId">
+  }, "id">
 
   export type projectMemberOrderByWithAggregationInput = {
+    id?: SortOrder
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
@@ -74356,6 +74373,7 @@ export namespace Prisma {
     AND?: projectMemberScalarWhereWithAggregatesInput | projectMemberScalarWhereWithAggregatesInput[]
     OR?: projectMemberScalarWhereWithAggregatesInput[]
     NOT?: projectMemberScalarWhereWithAggregatesInput | projectMemberScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"projectMember"> | string
     projectId?: StringWithAggregatesFilter<"projectMember"> | string
     userId?: StringWithAggregatesFilter<"projectMember"> | string
     role?: StringWithAggregatesFilter<"projectMember"> | string
@@ -78787,6 +78805,7 @@ export namespace Prisma {
   }
 
   export type projectMemberCreateInput = {
+    id?: string
     role: string
     joinDate: Date | string
     createdAt?: Date | string
@@ -78796,6 +78815,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUncheckedCreateInput = {
+    id?: string
     projectId: string
     userId: string
     role: string
@@ -78805,6 +78825,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -78814,6 +78835,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
@@ -78823,6 +78845,7 @@ export namespace Prisma {
   }
 
   export type projectMemberCreateManyInput = {
+    id?: string
     projectId: string
     userId: string
     role: string
@@ -78832,6 +78855,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -78839,6 +78863,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
@@ -82793,12 +82818,8 @@ export namespace Prisma {
     isNot?: collaborativeProjectWhereInput
   }
 
-  export type projectMemberProjectIdUserIdCompoundUniqueInput = {
-    projectId: string
-    userId: string
-  }
-
   export type projectMemberCountOrderByAggregateInput = {
+    id?: SortOrder
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
@@ -82808,6 +82829,7 @@ export namespace Prisma {
   }
 
   export type projectMemberMaxOrderByAggregateInput = {
+    id?: SortOrder
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
@@ -82817,6 +82839,7 @@ export namespace Prisma {
   }
 
   export type projectMemberMinOrderByAggregateInput = {
+    id?: SortOrder
     projectId?: SortOrder
     userId?: SortOrder
     role?: SortOrder
@@ -89413,6 +89436,7 @@ export namespace Prisma {
   }
 
   export type projectMemberCreateWithoutCollaborativeProjectInput = {
+    id?: string
     role: string
     joinDate: Date | string
     createdAt?: Date | string
@@ -89421,6 +89445,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUncheckedCreateWithoutCollaborativeProjectInput = {
+    id?: string
     userId: string
     role: string
     joinDate: Date | string
@@ -89634,6 +89659,7 @@ export namespace Prisma {
     AND?: projectMemberScalarWhereInput | projectMemberScalarWhereInput[]
     OR?: projectMemberScalarWhereInput[]
     NOT?: projectMemberScalarWhereInput | projectMemberScalarWhereInput[]
+    id?: StringFilter<"projectMember"> | string
     projectId?: StringFilter<"projectMember"> | string
     userId?: StringFilter<"projectMember"> | string
     role?: StringFilter<"projectMember"> | string
@@ -96103,6 +96129,7 @@ export namespace Prisma {
   }
 
   export type projectMemberCreateWithoutUserInput = {
+    id?: string
     role: string
     joinDate: Date | string
     createdAt?: Date | string
@@ -96111,6 +96138,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUncheckedCreateWithoutUserInput = {
+    id?: string
     projectId: string
     role: string
     joinDate: Date | string
@@ -100419,6 +100447,7 @@ export namespace Prisma {
   }
 
   export type projectMemberCreateManyCollaborativeProjectInput = {
+    id?: string
     userId: string
     role: string
     joinDate: Date | string
@@ -100439,6 +100468,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUpdateWithoutCollaborativeProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -100447,6 +100477,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUncheckedUpdateWithoutCollaborativeProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -100455,6 +100486,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUncheckedUpdateManyWithoutCollaborativeProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -101110,6 +101142,7 @@ export namespace Prisma {
   }
 
   export type projectMemberCreateManyUserInput = {
+    id?: string
     projectId: string
     role: string
     joinDate: Date | string
@@ -101767,6 +101800,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -101775,6 +101809,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -101783,6 +101818,7 @@ export namespace Prisma {
   }
 
   export type projectMemberUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     joinDate?: DateTimeFieldUpdateOperationsInput | Date | string
