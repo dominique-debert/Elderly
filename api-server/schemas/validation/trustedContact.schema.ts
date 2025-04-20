@@ -17,9 +17,10 @@ export const idParamTrustedContactSchema = Joi.object({
   id: Joi.string().required()
 });
 
+// id                      String    @id @default(cuid())
 // userId                  String    @map("user_id")
-// lastName                String    @map("last_name") @db.Text
 // firstName               String    @map("first_name") @db.Text
+// lastName                String    @map("last_name") @db.Text
 // email                   String?   @unique @db.Text
 // phone                   String    @db.Text
 // relationship            String?   @db.Text
