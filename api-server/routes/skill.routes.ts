@@ -15,7 +15,7 @@ import {
   updateSkill,
   deleteSkill
 }
-from '@/controllers/skill.controller';
+from '@/controllers/index.controller';
 
 const skillRouter = Router();
 /**

@@ -5,7 +5,7 @@ import {
   getMunicipalEventById,
   updateMunicipalEvent,
   deleteMunicipalEvent
-} from '@/controllers/municipalEvent.controller';
+} from '@/controllers/index.controller';
 
 import {
   municipalEventSchema,

@@ -5,7 +5,7 @@ import {
   getVideoCallById,
   updateVideoCall,
   deleteVideoCall
-} from '@/controllers/videoCall.controller';
+} from '@/controllers/index.controller';
 
 import { videoCallSchema, idParamVideoCallSchema } from '@/schemas/validation/videoCall.schema';
 import errorHandler from '@/middlewares/errorHandler';

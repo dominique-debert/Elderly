@@ -6,7 +6,7 @@ import {
   getActivityRegistrationById,
   updateActivityRegistration,
   deleteActivityRegistration
-} from '@/controllers/activities/activityRegistration.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

@@ -5,7 +5,7 @@ import {
   getProjectCategoryById,
   updateProjectCategory,
   deleteProjectCategory
-} from '@/controllers/projectCategory.controller';
+} from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
 import errorHandler from '@/middlewares/errorHandler';

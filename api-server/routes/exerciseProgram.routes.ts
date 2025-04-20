@@ -13,7 +13,7 @@ import {
   createExerciseProgram,
   updateExerciseProgram,
   deleteExerciseProgram
-} from '@/controllers/exerciseProgram.controller';
+} from '@/controllers/index.controller';
 
 const exerciseProgramRouter = Router();
 

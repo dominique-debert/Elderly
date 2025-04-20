@@ -5,7 +5,7 @@ import {
   getHelpOfferById,
   updateHelpOffer,
   deleteHelpOffer
-} from '@/controllers/helpOffer.controller';
+} from '@/controllers/index.controller';
 
 import {
   helpOfferSchema,

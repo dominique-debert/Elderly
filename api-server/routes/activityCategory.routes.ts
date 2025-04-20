@@ -5,7 +5,7 @@ import {
   getActivityCategoryById,
   updateActivityCategory,
   deleteActivityCategory
-} from '@/controllers/activities/activityCategory.controller';
+} from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
 import errorHandler from '@/middlewares/errorHandler';

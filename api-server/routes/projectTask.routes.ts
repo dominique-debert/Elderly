@@ -5,7 +5,7 @@ import {
   getProjectTaskById,
   updateProjectTask,
   deleteProjectTask
-} from '@/controllers/projectTask.controller';
+} from '@/controllers/index.controller';
 
 import { projectTaskSchema, idParamProjectTaskSchema } from '@/schemas/validation/projectTask.schema';
 import errorHandler from '@/middlewares/errorHandler';

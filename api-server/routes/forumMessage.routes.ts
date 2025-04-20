@@ -13,7 +13,7 @@ import {
   getForumMessageById,
   updateForumMessage,
   deleteForumMessage
-} from '@/controllers/forumMessage.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

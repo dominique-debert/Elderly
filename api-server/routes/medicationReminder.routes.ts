@@ -5,7 +5,7 @@ import {
   getMedicationReminderById,
   updateMedicationReminder,
   deleteMedicationReminder
-} from '@/controllers/medicationReminder.controller';
+} from '@/controllers/index.controller';
 
 import {
   medicationReminderSchema,

@@ -5,7 +5,7 @@ import {
   getNotificationPreferencesById,
   updateNotificationPreferences,
   deleteNotificationPreferences
-} from '@/controllers/notificationPreferences.controller';
+} from '@/controllers/index.controller';
 
 import {
   notificationPreferencesSchema,

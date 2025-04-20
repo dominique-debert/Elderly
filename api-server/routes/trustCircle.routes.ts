@@ -5,7 +5,7 @@ import {
   getTrustCircleById,
   updateTrustCircle,
   deleteTrustCircle
-} from '@/controllers/trustCircle.controller';
+} from '@/controllers/index.controller';
 
 import { trustCircleSchema, idParamTrustCircleSchema } from '@/schemas/validation/trustCircle.schema';
 import errorHandler from '@/middlewares/errorHandler';

@@ -10,7 +10,7 @@ import {
   getBadgeById,
   updateBadge,
   deleteBadge
-} from '@/controllers/badge.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

@@ -5,7 +5,7 @@ import {
   getResourceById,
   updateResource,
   deleteResource
-} from '@/controllers/resource.controller';
+} from '@/controllers/index.controller';
 
 import { resourceSchema, idParamResourceSchema } from '@/schemas/validation/resource.schema';
 import errorHandler from '@/middlewares/errorHandler';

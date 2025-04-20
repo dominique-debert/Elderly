@@ -5,7 +5,7 @@ import {
   getNotificationById,
   updateNotification,
   deleteNotification
-} from '@/controllers/notification.controller';
+} from '@/controllers/index.controller';
 
 import {
   notificationSchema,

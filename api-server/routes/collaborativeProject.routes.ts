@@ -13,7 +13,7 @@ import {
   getCollaborativeProjectById,
   updateCollaborativeProject,
   deleteCollaborativeProject
-} from '@/controllers/collaborativeProject.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

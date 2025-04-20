@@ -5,7 +5,7 @@ import {
   getHelpRequestById,
   updateHelpRequest,
   deleteHelpRequest
-} from '@/controllers/helpRequest.controller';
+} from '@/controllers/index.controller';
 
 import {
   helpRequestSchema,

@@ -5,7 +5,7 @@ import {
   getUserActivityById,
   updateUserActivity,
   deleteUserActivity
-} from '@/controllers/userActivity.controller';
+} from '@/controllers/index.controller';
 
 import { userActivitySchema, idParamUserActivitySchema } from '@/schemas/validation/userActivity.schema';
 import errorHandler from '@/middlewares/errorHandler';

@@ -14,7 +14,7 @@ import {
   updateUser,
   deleteUser
 } 
-from '@/controllers/user.controller';
+from '@/controllers/index.controller';
 
 const userRouter = Router();
 

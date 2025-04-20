@@ -13,7 +13,7 @@ import {
   getWellnessBadgeById,
   updateWellnessBadge,
   deleteWellnessBadge,
-} from '@/controllers/wellnessBadge.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

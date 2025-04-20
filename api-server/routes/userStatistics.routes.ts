@@ -5,7 +5,7 @@ import {
   getUserStatisticsById,
   updateUserStatistics,
   deleteUserStatistics
-} from '@/controllers/userStatistics.controller';
+} from '@/controllers/index.controller';
 
 import { userStatisticsSchema, idParamUserStatisticsSchema } from '@/schemas/validation/userStatistics.schema';
 import errorHandler from '@/middlewares/errorHandler';

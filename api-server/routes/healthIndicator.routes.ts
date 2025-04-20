@@ -13,7 +13,7 @@ import {
   getHealthIndicatorById,
   updateHealthIndicator,
   deleteHealthIndicator
-} from '@/controllers/healthIndicator.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

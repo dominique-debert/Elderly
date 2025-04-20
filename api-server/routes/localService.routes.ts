@@ -13,7 +13,7 @@ import {
   getLocalServiceById,
   updateLocalService,
   deleteLocalService
-} from '@/controllers/localService.controller.js';
+} from '@/controllers/index.controller.js';
 
 const localServiceRouter = Router();
 

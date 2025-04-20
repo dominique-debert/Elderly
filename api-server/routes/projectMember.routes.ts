@@ -5,7 +5,7 @@ import {
   getProjectMemberById,
   updateProjectMember,
   deleteProjectMember
-} from '@/controllers/projectMember.controller';
+} from '@/controllers/index.controller';
 
 import { projectMemberSchema, idParamProjectMemberSchema } from '@/schemas/validation/projectMember.schema';
 import errorHandler from '@/middlewares/errorHandler';

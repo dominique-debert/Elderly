@@ -5,7 +5,7 @@ import {
   getUserDeviceById,
   updateUserDevice,
   deleteUserDevice
-} from '@/controllers/userDevice.controller';
+} from '@/controllers/index.controller';
 
 import { userDeviceSchema, idParamUserDeviceSchema } from '@/schemas/validation/userDevice.schema';
 import errorHandler from '@/middlewares/errorHandler';

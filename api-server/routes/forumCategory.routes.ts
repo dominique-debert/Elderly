@@ -13,7 +13,7 @@ import {
   getForumCategoryById,
   updateForumCategory,
   deleteForumCategory
-} from '@/controllers/forumCategory.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

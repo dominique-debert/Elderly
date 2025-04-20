@@ -5,7 +5,7 @@ import {
   getUrbanIssueReportById,
   updateUrbanIssueReport,
   deleteUrbanIssueReport
-} from '@/controllers/urbanIssueReport.controller';
+} from '@/controllers/index.controller';
 
 import { urbanIssueReportSchema, idParamUrbanIssueReportSchema } from '@/schemas/validation/urbanIssueReport.schema';
 import errorHandler from '@/middlewares/errorHandler';

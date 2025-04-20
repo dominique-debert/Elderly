@@ -5,7 +5,7 @@ import {
   getActivityLogById,
   updateActivityLog,
   deleteActivityLog
-} from '@/controllers/activities/activityLog.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

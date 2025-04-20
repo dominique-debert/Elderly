@@ -13,7 +13,7 @@ import {
   getConversationParticipantById,
   updateConversationParticipant,
   deleteConversationParticipant
-} from '@/controllers/conversationParticipant.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

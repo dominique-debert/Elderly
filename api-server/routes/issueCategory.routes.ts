@@ -5,7 +5,7 @@ import {
   getIssueCategoryById,
   updateIssueCategory,
   deleteIssueCategory
-} from '@/controllers/issueCategory.controller';
+} from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
 import errorHandler from '@/middlewares/errorHandler';

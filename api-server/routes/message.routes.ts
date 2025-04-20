@@ -5,7 +5,7 @@ import {
   getMessageById,
   updateMessage,
   deleteMessage
-} from '@/controllers/message.controller';
+} from '@/controllers/index.controller';
 
 import {
   messageSchema,

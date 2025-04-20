@@ -13,7 +13,7 @@ import {
   getCognitiveExerciseById,
   updateCognitiveExercise,
   deleteCognitiveExercise
-} from '@/controllers/cognitiveExercise.controller';
+} from '@/controllers/index.controller';
 
 const router = Router();
 

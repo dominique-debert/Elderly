@@ -5,7 +5,7 @@ import {
   getSatisfactionSurveyById,
   updateSatisfactionSurvey,
   deleteSatisfactionSurvey
-} from '@/controllers/satisfactionSurvey.controller';
+} from '@/controllers/index.controller';
 
 import { satisfactionSurveySchema, idParamSatisfactionSurveySchema } from '@/schemas/validation/satisfactionSurvey.schema';
 import errorHandler from '@/middlewares/errorHandler';

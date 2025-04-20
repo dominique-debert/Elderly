@@ -5,7 +5,7 @@ import {
   getSkillCategoryById,
   updateSkillCategory,
   deleteSkillCategory
-} from '@/controllers/skillCategory.controller';
+} from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
 import errorHandler from '@/middlewares/errorHandler';

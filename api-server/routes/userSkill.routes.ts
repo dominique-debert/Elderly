@@ -5,7 +5,7 @@ import {
   getUserSkillById,
   updateUserSkill,
   deleteUserSkill
-} from '@/controllers/userSkill.controller';
+} from '@/controllers/index.controller';
 
 import { userSkillSchema, idParamUserSkillSchema } from '@/schemas/validation/userSkill.schema';
 import errorHandler from '@/middlewares/errorHandler';

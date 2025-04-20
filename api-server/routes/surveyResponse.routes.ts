@@ -5,7 +5,7 @@ import {
   getSurveyResponseById,
   updateSurveyResponse,
   deleteSurveyResponse
-} from '@/controllers/surveyResponse.controller';
+} from '@/controllers/index.controller';
 
 import { surveyResponseSchema, idParamSurveyResponseSchema } from '@/schemas/validation/surveyResponse.schema';
 import errorHandler from '@/middlewares/errorHandler';

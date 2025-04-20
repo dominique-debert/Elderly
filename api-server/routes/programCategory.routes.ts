@@ -5,7 +5,7 @@ import {
   getProgramCategoryById,
   updateProgramCategory,
   deleteProgramCategory
-} from '@/controllers/programCategory.controller';
+} from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
 import errorHandler from '@/middlewares/errorHandler';
