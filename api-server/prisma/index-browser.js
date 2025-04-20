@@ -505,6 +505,7 @@ exports.Prisma.SurveyResponseScalarFieldEnum = {
 };
 
 exports.Prisma.TrustCircleScalarFieldEnum = {
+  id: 'id',
   userId: 'userId',
   contactId: 'contactId',
   dateAdded: 'dateAdded',

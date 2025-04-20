@@ -508,6 +508,7 @@ model surveyResponse {
 }
 
 model trustCircle {
+  id          String    @id @default(cuid())
   userId      String    @map("user_id")
   contactId   String    @map("contact_id")
   dateAdded   DateTime  @map("date_added") @db.Date
@@ -515,7 +516,6 @@ model trustCircle {
   createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt   DateTime? @map("updated_at") @db.Timestamp(6)
 
-  @@id([userId, contactId])
   @@map("trust_circle")
 }
 
