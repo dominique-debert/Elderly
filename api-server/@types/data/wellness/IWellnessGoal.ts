@@ -1,5 +1,5 @@
 export default interface IWellnessGoal {
-  id: string
+  id?: string
   userId: string
   title: string
   categoryId: string
@@ -9,12 +9,14 @@ export default interface IWellnessGoal {
   startDate: Date
   endDate: Date
   active: boolean
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 // id                   String                 @id @default(cuid())
 // userId               String                 @map("user_id")
 // title                String                 @db.Text
-// categoryId           String?                @map("category_id")
+// categoryId           String                 @map("category_id")
 // targetValue          Int                    @map("target_value")
 // unit                 String                 @db.Text
 // frequency            String                 @db.Text

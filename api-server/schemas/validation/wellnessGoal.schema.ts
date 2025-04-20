@@ -4,7 +4,7 @@ export const wellnessGoalSchema = Joi.object({
   id: Joi.string(),
   userId: Joi.string().required(),
   title: Joi.string().required(),
-  categoryId: Joi.string(),
+  categoryId: Joi.string().required(),
   targetValue: Joi.number().required(),
   unit: Joi.string().required(),
   frequency: Joi.string().required(),
@@ -20,7 +20,7 @@ export const idParamWellnessGoalSchema = Joi.object({
 // id                   String                 @id @default(cuid())
 // userId               String                 @map("user_id")
 // title                String                 @db.Text
-// categoryId           String?                @map("category_id")
+// categoryId           String                 @map("category_id")
 // targetValue          Int                    @map("target_value")
 // unit                 String                 @db.Text
 // frequency            String                 @db.Text

@@ -721,7 +721,7 @@ model wellnessGoal {
   id                   String                 @id @default(cuid())
   userId               String                 @map("user_id")
   title                String                 @db.Text
-  categoryId           String?                @map("category_id")
+  categoryId           String                 @map("category_id")
   targetValue          Int                    @map("target_value")
   unit                 String                 @db.Text
   frequency            String                 @db.Text
