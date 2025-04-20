@@ -7,6 +7,7 @@ import {
   createActivity,
   getAllActivities,
   getActivityById,
+  getActivityWithCategory,
   updateActivity,
   deleteActivity
 } from '@/controllers/activities/activity.controller';
@@ -24,45 +25,6 @@ const router = Router();
  *     tags: [Activities]
  *     requestBody:
  *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *                 maxLength: 255
- *               description:
- *                 type: string
- *               startDate:
- *                 type: string
- *                 format: date
- *               endDate:
- *                 type: string
- *                 format: date
- *               location:
- *                 type: string
- *               gpsCoordinates:
- *                 type: string
- *               maxSpots:
- *                 type: integer
- *               categoryId:
- *                 type: string
- *               recurring:
- *                 type: boolean
- *               frequency:
- *                 type: string
- *               reducedMobilityAccess:
- *                 type: boolean
- *               cost:
- *                 type: number
- *                 format: float
- *               status:
- *                 type: string
- *               weatherRequirements:
- *                 type: string
- *               transportOptions:
- *                 type: string
  *     responses:
  *       201:
  *         description: activité créée avec succès
@@ -122,7 +84,7 @@ router.get('/', errorHandler, getAllActivities);
  *         description: ID de l'activité à récupérer
  *     responses:
  *       200:
- *         description: Activité récupéré avec succès
+ *         description: Activité récupérée avec succès
  *         content:
  *           application/json:
  *             schema:
@@ -133,6 +95,37 @@ router.get('/', errorHandler, getAllActivities);
  *         description: Erreur serveur
  */
 router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getActivityById);
+
+/**
+ * @swagger
+ * /api/activities/{id}:
+ *   get:
+ *     summary: Récupérer une activité et sa catégorie par son ID
+ *     description: Renvoie une activité basée sur son ID
+ *     security:
+ *       - bearerAuth: []
+ *     tags: [Activities]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: cuid
+ *         description: ID de l'activité à récupérer
+ *     responses:
+ *       200:
+ *         description: Activité récupérée avec succès
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Activity'
+ *       404:
+ *         description: Activité non trouvée
+ *       500:
+ *         description: Erreur serveur
+ */
+router.get('/:id/with-category', validate(idParamActivitySchema, 'params'), errorHandler, getActivityById);
 
 /**
  * @swagger
