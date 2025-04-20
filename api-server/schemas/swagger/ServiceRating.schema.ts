@@ -2,16 +2,22 @@
  * @swagger
  * components:
  *   schemas:
- *     serviceRating:
+ *     ServiceRating:
  *       type: object
  *       required:
  *         - serviceId
  *         - userId
+ *         - rating
  *       properties:
+ *         id:
+ *           type: string
+ *           format: cuid
  *         serviceId:
  *           type: string
+ *           format: cuid
  *         userId:
  *           type: string
+ *           format: cuid
  *         rating:
  *           type: integer
  *         comment:
@@ -26,6 +32,7 @@
  *           type: string
  *           format: date-time
  *       example:
+ *         id: "clv2a8abc0001abc123def789"
  *         serviceId: "srv001"
  *         userId: "usr001"
  *         rating: 4
@@ -33,49 +40,5 @@
  *         ratingDate: "2025-04-16T10:00:00Z"
  *         createdAt: "2025-04-16T10:00:00Z"
  *         updatedAt: "2025-04-16T10:00:00Z"
- *     createServiceRating:
- *       type: object
- *       required:
- *         - serviceId
- *         - userId
- *       properties:
- *         serviceId:
- *           type: string
- *         userId:
- *           type: string
- *         rating:
- *           type: integer
- *         comment:
- *           type: string
- *         ratingDate:
- *           type: string
- *           format: date-time
- *       example:
- *         serviceId: "srv001"
- *         userId: "usr001"
- *         rating: 5
- *         comment: "Excellente qualité de service !"
- *         ratingDate: "2025-04-16T10:00:00Z"
- *     updateServiceRating:
- *       type: object
- *       properties:
- *         serviceId:
- *           type: string
- *         userId:
- *           type: string
- *         rating:
- *           type: integer
- *         comment:
- *           type: string
- *         ratingDate:
- *           type: string
- *           format: date-time
- *       example:
- *         serviceId: "srv001"
- *         userId: "usr001"
- *         rating: 3
- *         comment: "Service bon, mais l'attente était longue."
- *         ratingDate: "2025-04-16T10:00:00Z"
  */
 
-export {};

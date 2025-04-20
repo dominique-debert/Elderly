@@ -475,6 +475,7 @@ exports.Prisma.ServiceCompletedScalarFieldEnum = {
 };
 
 exports.Prisma.ServiceRatingScalarFieldEnum = {
+  id: 'id',
   serviceId: 'serviceId',
   userId: 'userId',
   rating: 'rating',

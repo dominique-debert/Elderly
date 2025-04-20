@@ -39502,6 +39502,7 @@ export namespace Prisma {
   }
 
   export type ServiceRatingMinAggregateOutputType = {
+    id: string | null
     serviceId: string | null
     userId: string | null
     rating: number | null
@@ -39512,6 +39513,7 @@ export namespace Prisma {
   }
 
   export type ServiceRatingMaxAggregateOutputType = {
+    id: string | null
     serviceId: string | null
     userId: string | null
     rating: number | null
@@ -39522,6 +39524,7 @@ export namespace Prisma {
   }
 
   export type ServiceRatingCountAggregateOutputType = {
+    id: number
     serviceId: number
     userId: number
     rating: number
@@ -39542,6 +39545,7 @@ export namespace Prisma {
   }
 
   export type ServiceRatingMinAggregateInputType = {
+    id?: true
     serviceId?: true
     userId?: true
     rating?: true
@@ -39552,6 +39556,7 @@ export namespace Prisma {
   }
 
   export type ServiceRatingMaxAggregateInputType = {
+    id?: true
     serviceId?: true
     userId?: true
     rating?: true
@@ -39562,6 +39567,7 @@ export namespace Prisma {
   }
 
   export type ServiceRatingCountAggregateInputType = {
+    id?: true
     serviceId?: true
     userId?: true
     rating?: true
@@ -39659,9 +39665,10 @@ export namespace Prisma {
   }
 
   export type ServiceRatingGroupByOutputType = {
+    id: string
     serviceId: string
     userId: string
-    rating: number | null
+    rating: number
     comment: string | null
     ratingDate: Date | null
     createdAt: Date
@@ -39688,6 +39695,7 @@ export namespace Prisma {
 
 
   export type serviceRatingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     serviceId?: boolean
     userId?: boolean
     rating?: boolean
@@ -39700,6 +39708,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["serviceRating"]>
 
   export type serviceRatingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     serviceId?: boolean
     userId?: boolean
     rating?: boolean
@@ -39712,6 +39721,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["serviceRating"]>
 
   export type serviceRatingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     serviceId?: boolean
     userId?: boolean
     rating?: boolean
@@ -39724,6 +39734,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["serviceRating"]>
 
   export type serviceRatingSelectScalar = {
+    id?: boolean
     serviceId?: boolean
     userId?: boolean
     rating?: boolean
@@ -39733,7 +39744,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type serviceRatingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"serviceId" | "userId" | "rating" | "comment" | "ratingDate" | "createdAt" | "updatedAt", ExtArgs["result"]["serviceRating"]>
+  export type serviceRatingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "serviceId" | "userId" | "rating" | "comment" | "ratingDate" | "createdAt" | "updatedAt", ExtArgs["result"]["serviceRating"]>
   export type serviceRatingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     localService?: boolean | localServiceDefaultArgs<ExtArgs>
     user?: boolean | userDefaultArgs<ExtArgs>
@@ -39754,9 +39765,10 @@ export namespace Prisma {
       user: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
+      id: string
       serviceId: string
       userId: string
-      rating: number | null
+      rating: number
       comment: string | null
       ratingDate: Date | null
       createdAt: Date
@@ -39844,8 +39856,8 @@ export namespace Prisma {
      * // Get first 10 ServiceRatings
      * const serviceRatings = await prisma.serviceRating.findMany({ take: 10 })
      * 
-     * // Only select the `serviceId`
-     * const serviceRatingWithServiceIdOnly = await prisma.serviceRating.findMany({ select: { serviceId: true } })
+     * // Only select the `id`
+     * const serviceRatingWithIdOnly = await prisma.serviceRating.findMany({ select: { id: true } })
      * 
      */
     findMany<T extends serviceRatingFindManyArgs>(args?: SelectSubset<T, serviceRatingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$serviceRatingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -39889,9 +39901,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many ServiceRatings and only return the `serviceId`
-     * const serviceRatingWithServiceIdOnly = await prisma.serviceRating.createManyAndReturn({
-     *   select: { serviceId: true },
+     * // Create many ServiceRatings and only return the `id`
+     * const serviceRatingWithIdOnly = await prisma.serviceRating.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -39980,9 +39992,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more ServiceRatings and only return the `serviceId`
-     * const serviceRatingWithServiceIdOnly = await prisma.serviceRating.updateManyAndReturn({
-     *   select: { serviceId: true },
+     * // Update zero or more ServiceRatings and only return the `id`
+     * const serviceRatingWithIdOnly = await prisma.serviceRating.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -40186,6 +40198,7 @@ export namespace Prisma {
    * Fields of the serviceRating model
    */
   interface serviceRatingFieldRefs {
+    readonly id: FieldRef<"serviceRating", 'String'>
     readonly serviceId: FieldRef<"serviceRating", 'String'>
     readonly userId: FieldRef<"serviceRating", 'String'>
     readonly rating: FieldRef<"serviceRating", 'Int'>
@@ -71985,6 +71998,7 @@ export namespace Prisma {
 
 
   export const ServiceRatingScalarFieldEnum: {
+    id: 'id',
     serviceId: 'serviceId',
     userId: 'userId',
     rating: 'rating',
@@ -74782,9 +74796,10 @@ export namespace Prisma {
     AND?: serviceRatingWhereInput | serviceRatingWhereInput[]
     OR?: serviceRatingWhereInput[]
     NOT?: serviceRatingWhereInput | serviceRatingWhereInput[]
+    id?: StringFilter<"serviceRating"> | string
     serviceId?: StringFilter<"serviceRating"> | string
     userId?: StringFilter<"serviceRating"> | string
-    rating?: IntNullableFilter<"serviceRating"> | number | null
+    rating?: IntFilter<"serviceRating"> | number
     comment?: StringNullableFilter<"serviceRating"> | string | null
     ratingDate?: DateTimeNullableFilter<"serviceRating"> | Date | string | null
     createdAt?: DateTimeFilter<"serviceRating"> | Date | string
@@ -74794,9 +74809,10 @@ export namespace Prisma {
   }
 
   export type serviceRatingOrderByWithRelationInput = {
+    id?: SortOrder
     serviceId?: SortOrder
     userId?: SortOrder
-    rating?: SortOrderInput | SortOrder
+    rating?: SortOrder
     comment?: SortOrderInput | SortOrder
     ratingDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -74806,25 +74822,26 @@ export namespace Prisma {
   }
 
   export type serviceRatingWhereUniqueInput = Prisma.AtLeast<{
-    serviceId_userId?: serviceRatingServiceIdUserIdCompoundUniqueInput
+    id?: string
     AND?: serviceRatingWhereInput | serviceRatingWhereInput[]
     OR?: serviceRatingWhereInput[]
     NOT?: serviceRatingWhereInput | serviceRatingWhereInput[]
     serviceId?: StringFilter<"serviceRating"> | string
     userId?: StringFilter<"serviceRating"> | string
-    rating?: IntNullableFilter<"serviceRating"> | number | null
+    rating?: IntFilter<"serviceRating"> | number
     comment?: StringNullableFilter<"serviceRating"> | string | null
     ratingDate?: DateTimeNullableFilter<"serviceRating"> | Date | string | null
     createdAt?: DateTimeFilter<"serviceRating"> | Date | string
     updatedAt?: DateTimeNullableFilter<"serviceRating"> | Date | string | null
     localService?: XOR<LocalServiceScalarRelationFilter, localServiceWhereInput>
     user?: XOR<UserScalarRelationFilter, userWhereInput>
-  }, "serviceId_userId">
+  }, "id">
 
   export type serviceRatingOrderByWithAggregationInput = {
+    id?: SortOrder
     serviceId?: SortOrder
     userId?: SortOrder
-    rating?: SortOrderInput | SortOrder
+    rating?: SortOrder
     comment?: SortOrderInput | SortOrder
     ratingDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -74840,9 +74857,10 @@ export namespace Prisma {
     AND?: serviceRatingScalarWhereWithAggregatesInput | serviceRatingScalarWhereWithAggregatesInput[]
     OR?: serviceRatingScalarWhereWithAggregatesInput[]
     NOT?: serviceRatingScalarWhereWithAggregatesInput | serviceRatingScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"serviceRating"> | string
     serviceId?: StringWithAggregatesFilter<"serviceRating"> | string
     userId?: StringWithAggregatesFilter<"serviceRating"> | string
-    rating?: IntNullableWithAggregatesFilter<"serviceRating"> | number | null
+    rating?: IntWithAggregatesFilter<"serviceRating"> | number
     comment?: StringNullableWithAggregatesFilter<"serviceRating"> | string | null
     ratingDate?: DateTimeNullableWithAggregatesFilter<"serviceRating"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"serviceRating"> | Date | string
@@ -79304,7 +79322,8 @@ export namespace Prisma {
   }
 
   export type serviceRatingCreateInput = {
-    rating?: number | null
+    id?: string
+    rating: number
     comment?: string | null
     ratingDate?: Date | string | null
     createdAt?: Date | string
@@ -79314,9 +79333,10 @@ export namespace Prisma {
   }
 
   export type serviceRatingUncheckedCreateInput = {
+    id?: string
     serviceId: string
     userId: string
-    rating?: number | null
+    rating: number
     comment?: string | null
     ratingDate?: Date | string | null
     createdAt?: Date | string
@@ -79324,7 +79344,8 @@ export namespace Prisma {
   }
 
   export type serviceRatingUpdateInput = {
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -79334,9 +79355,10 @@ export namespace Prisma {
   }
 
   export type serviceRatingUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     serviceId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -79344,9 +79366,10 @@ export namespace Prisma {
   }
 
   export type serviceRatingCreateManyInput = {
+    id?: string
     serviceId: string
     userId: string
-    rating?: number | null
+    rating: number
     comment?: string | null
     ratingDate?: Date | string | null
     createdAt?: Date | string
@@ -79354,7 +79377,8 @@ export namespace Prisma {
   }
 
   export type serviceRatingUpdateManyMutationInput = {
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -79362,9 +79386,10 @@ export namespace Prisma {
   }
 
   export type serviceRatingUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
     serviceId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -83068,17 +83093,24 @@ export namespace Prisma {
     pointsExchanged?: SortOrder
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
   export type LocalServiceScalarRelationFilter = {
     is?: localServiceWhereInput
     isNot?: localServiceWhereInput
   }
 
-  export type serviceRatingServiceIdUserIdCompoundUniqueInput = {
-    serviceId: string
-    userId: string
-  }
-
   export type serviceRatingCountOrderByAggregateInput = {
+    id?: SortOrder
     serviceId?: SortOrder
     userId?: SortOrder
     rating?: SortOrder
@@ -83093,6 +83125,7 @@ export namespace Prisma {
   }
 
   export type serviceRatingMaxOrderByAggregateInput = {
+    id?: SortOrder
     serviceId?: SortOrder
     userId?: SortOrder
     rating?: SortOrder
@@ -83103,6 +83136,7 @@ export namespace Prisma {
   }
 
   export type serviceRatingMinOrderByAggregateInput = {
+    id?: SortOrder
     serviceId?: SortOrder
     userId?: SortOrder
     rating?: SortOrder
@@ -83114,6 +83148,22 @@ export namespace Prisma {
 
   export type serviceRatingSumOrderByAggregateInput = {
     rating?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type SkillCategoryNullableScalarRelationFilter = {
@@ -83864,17 +83914,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type WellnessCategoryNullableScalarRelationFilter = {
     is?: wellnessCategoryWhereInput | null
     isNot?: wellnessCategoryWhereInput | null
@@ -83919,22 +83958,6 @@ export namespace Prisma {
 
   export type wellnessBadgeSumOrderByAggregateInput = {
     level?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type WellnessGoalProgressListRelationFilter = {
@@ -85651,6 +85674,14 @@ export namespace Prisma {
     connect?: userWhereUniqueInput
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type localServiceUpdateOneRequiredWithoutServiceRatingNestedInput = {
     create?: XOR<localServiceCreateWithoutServiceRatingInput, localServiceUncheckedCreateWithoutServiceRatingInput>
     connectOrCreate?: localServiceCreateOrConnectWithoutServiceRatingInput
@@ -87209,14 +87240,6 @@ export namespace Prisma {
     connect?: wellnessCategoryWhereUniqueInput
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type wellnessCategoryUpdateOneWithoutWellnessBadgeNestedInput = {
     create?: XOR<wellnessCategoryCreateWithoutWellnessBadgeInput, wellnessCategoryUncheckedCreateWithoutWellnessBadgeInput>
     connectOrCreate?: wellnessCategoryCreateOrConnectWithoutWellnessBadgeInput
@@ -88105,29 +88128,6 @@ export namespace Prisma {
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
-  export type NestedJsonNullableFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonNullableFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
-
-  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
@@ -88154,6 +88154,29 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type userCreateWithoutActivityInput = {
@@ -91919,7 +91942,8 @@ export namespace Prisma {
   }
 
   export type serviceRatingCreateWithoutLocalServiceInput = {
-    rating?: number | null
+    id?: string
+    rating: number
     comment?: string | null
     ratingDate?: Date | string | null
     createdAt?: Date | string
@@ -91928,8 +91952,9 @@ export namespace Prisma {
   }
 
   export type serviceRatingUncheckedCreateWithoutLocalServiceInput = {
+    id?: string
     userId: string
-    rating?: number | null
+    rating: number
     comment?: string | null
     ratingDate?: Date | string | null
     createdAt?: Date | string
@@ -91993,9 +92018,10 @@ export namespace Prisma {
     AND?: serviceRatingScalarWhereInput | serviceRatingScalarWhereInput[]
     OR?: serviceRatingScalarWhereInput[]
     NOT?: serviceRatingScalarWhereInput | serviceRatingScalarWhereInput[]
+    id?: StringFilter<"serviceRating"> | string
     serviceId?: StringFilter<"serviceRating"> | string
     userId?: StringFilter<"serviceRating"> | string
-    rating?: IntNullableFilter<"serviceRating"> | number | null
+    rating?: IntFilter<"serviceRating"> | number
     comment?: StringNullableFilter<"serviceRating"> | string | null
     ratingDate?: DateTimeNullableFilter<"serviceRating"> | Date | string | null
     createdAt?: DateTimeFilter<"serviceRating"> | Date | string
@@ -96261,7 +96287,8 @@ export namespace Prisma {
   }
 
   export type serviceRatingCreateWithoutUserInput = {
-    rating?: number | null
+    id?: string
+    rating: number
     comment?: string | null
     ratingDate?: Date | string | null
     createdAt?: Date | string
@@ -96270,8 +96297,9 @@ export namespace Prisma {
   }
 
   export type serviceRatingUncheckedCreateWithoutUserInput = {
+    id?: string
     serviceId: string
-    rating?: number | null
+    rating: number
     comment?: string | null
     ratingDate?: Date | string | null
     createdAt?: Date | string
@@ -100885,8 +100913,9 @@ export namespace Prisma {
   }
 
   export type serviceRatingCreateManyLocalServiceInput = {
+    id?: string
     userId: string
-    rating?: number | null
+    rating: number
     comment?: string | null
     ratingDate?: Date | string | null
     createdAt?: Date | string
@@ -100894,7 +100923,8 @@ export namespace Prisma {
   }
 
   export type serviceRatingUpdateWithoutLocalServiceInput = {
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -100903,8 +100933,9 @@ export namespace Prisma {
   }
 
   export type serviceRatingUncheckedUpdateWithoutLocalServiceInput = {
+    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -100912,8 +100943,9 @@ export namespace Prisma {
   }
 
   export type serviceRatingUncheckedUpdateManyWithoutLocalServiceInput = {
+    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -101188,8 +101220,9 @@ export namespace Prisma {
   }
 
   export type serviceRatingCreateManyUserInput = {
+    id?: string
     serviceId: string
-    rating?: number | null
+    rating: number
     comment?: string | null
     ratingDate?: Date | string | null
     createdAt?: Date | string
@@ -101938,7 +101971,8 @@ export namespace Prisma {
   }
 
   export type serviceRatingUpdateWithoutUserInput = {
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    id?: StringFieldUpdateOperationsInput | string
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -101947,8 +101981,9 @@ export namespace Prisma {
   }
 
   export type serviceRatingUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     serviceId?: StringFieldUpdateOperationsInput | string
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -101956,8 +101991,9 @@ export namespace Prisma {
   }
 
   export type serviceRatingUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
     serviceId?: StringFieldUpdateOperationsInput | string
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     ratingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string

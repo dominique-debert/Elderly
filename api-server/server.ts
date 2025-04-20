@@ -41,6 +41,7 @@ import resourceCategoriesRouter from '@/routes/resourceCategory.routes'
 import satisfactionSurveyRouter from '@/routes/satisfactionSurvey.routes';
 import serviceCompletedRouter from '@/routes/serviceCompleted.routes';
 import serviceCategoriesRouter from '@/routes/serviceCategory.routes'
+import serviceRatingRouter from '@/routes/serviceRating.routes';
 import skillRouter from '@/routes/skill.routes';
 import skillCategoriesRouter from '@/routes/skillCategory.routes'
 import userRouter from '@/routes/user.routes';
@@ -102,6 +103,7 @@ app.use('/api/project-members', projectMemberRouter);
 app.use('/api/project-tasks', projectTaskRouter);
 app.use('/api/resources', resourceRouter);
 app.use('/api/service-completed', serviceCompletedRouter);
+app.use('/api/service-rating', serviceRatingRouter);
 app.use('/api/satisfaction-surveys', satisfactionSurveyRouter);
 app.use('/api/users', userRouter);
 app.use('/api/skills', skillRouter);
