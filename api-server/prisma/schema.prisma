@@ -660,6 +660,7 @@ model userDevice {
 }
 
 model userSkill {
+  id        String    @id @default(cuid())
   userId    String    @map("user_id")
   skillId   String    @map("skill_id")
   level     Int?
@@ -668,7 +669,6 @@ model userSkill {
   skill     skill     @relation(fields: [skillId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   user      user      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
-  @@id([userId, skillId])
   @@map("user_skill")
 }
 

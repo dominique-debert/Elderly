@@ -604,6 +604,7 @@ exports.Prisma.UserDeviceScalarFieldEnum = {
 };
 
 exports.Prisma.UserSkillScalarFieldEnum = {
+  id: 'id',
   userId: 'userId',
   skillId: 'skillId',
   level: 'level',

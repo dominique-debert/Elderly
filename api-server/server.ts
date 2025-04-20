@@ -52,6 +52,7 @@ import userRouter from '@/routes/user.routes';
 import userActivityRouter from '@/routes/userActivity.routes';
 import userBadgeRouter from '@/routes/userBadge.routes';
 import userDeviceRouter from '@/routes/userDevice.routes';
+import userSkillRouter from '@/routes/userSkill.routes';
 import wellnessCategoriesRouter from '@/routes/serviceCategory.routes'
 
 const app: Application = express();
@@ -120,6 +121,7 @@ app.use('/api/users', userRouter);
 app.use('/api/user-activities', userActivityRouter);
 app.use('/api/user-badges', userBadgeRouter);
 app.use('/api/user-devices', userDeviceRouter);
+app.use('/api/user-skills', userSkillRouter);
 app.use('/api/skills', skillRouter);
 
 // Error handling middleware
