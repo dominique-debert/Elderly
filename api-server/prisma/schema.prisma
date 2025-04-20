@@ -542,7 +542,7 @@ model trustedContact {
 model urbanIssueReport {
   id             String         @id @default(cuid())
   userId         String         @map("user_id")
-  categoryId     String?        @map("category_id")
+  categoryId     String         @map("category_id")
   description    String
   address        String         @db.Text
   gpsCoordinates String?        @map("gps_coordinates")

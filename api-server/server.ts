@@ -47,6 +47,7 @@ import skillCategoriesRouter from '@/routes/skillCategory.routes'
 import surveyResponseRouter from '@/routes/surveyResponse.routes';
 import trustCircleRouter from '@/routes/trustCircle.routes';
 import trustedContactRouter from '@/routes/trustedContact.routes';
+import urbanIssueReportRouter from '@/routes/urbanIssueReport.routes';
 import userRouter from '@/routes/user.routes';
 import wellnessCategoriesRouter from '@/routes/serviceCategory.routes'
 
@@ -111,6 +112,7 @@ app.use('/api/satisfaction-surveys', satisfactionSurveyRouter);
 app.use('/api/survey-response', surveyResponseRouter);
 app.use('/api/trust-circle', trustCircleRouter);
 app.use('/api/trusted-contacts', trustedContactRouter);
+app.use('/api/urban-issue-reports', urbanIssueReportRouter);
 app.use('/api/users', userRouter);
 app.use('/api/skills', skillRouter);
 
