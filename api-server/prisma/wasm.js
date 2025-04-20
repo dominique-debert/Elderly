@@ -495,10 +495,11 @@ exports.Prisma.SkillScalarFieldEnum = {
 };
 
 exports.Prisma.SurveyResponseScalarFieldEnum = {
+  id: 'id',
   surveyId: 'surveyId',
   userId: 'userId',
   responses: 'responses',
-  response_date: 'response_date',
+  responseDate: 'responseDate',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
