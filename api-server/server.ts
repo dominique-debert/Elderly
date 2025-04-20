@@ -36,6 +36,7 @@ import programCategoriesRouter from '@/routes/programCategory.routes'
 import projectCategoriesRouter from '@/routes/projectCategory.routes'
 import projectMemberRouter from '@/routes/projectMember.routes'
 import projectTaskRouter from '@/routes/projectTask.routes'
+import resourceRouter from '@/routes/resource.routes'
 import resourceCategoriesRouter from '@/routes/resourceCategory.routes'
 import serviceCategoriesRouter from '@/routes/serviceCategory.routes'
 import skillRouter from '@/routes/skill.routes';
@@ -97,6 +98,7 @@ app.use('/api/notification-preferences', notificationPreferencesRouter);
 app.use('/api/nutrition-advices', nutritionalAdviceRouter); 
 app.use('/api/project-members', projectMemberRouter);
 app.use('/api/project-tasks', projectTaskRouter);
+app.use('/api/resources', resourceRouter);
 app.use('/api/users', userRouter);
 app.use('/api/skills', skillRouter);
 
