@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import { activitySchema, idParamActivitySchema } from '@/schemas/validation/activity.schema';
+import { activitySchema, idParamActivitySchema, activityWithCategorySchema } from '@/schemas/validation/activity.schema';
 import errorHandler from '@/middlewares/errorHandler';
 
 import {
@@ -8,6 +8,7 @@ import {
   getAllActivities,
   getActivityById,
   getActivityWithCategory,
+  getActivityWithRegistration,
   updateActivity,
   deleteActivity
 } from '@/controllers/activities/activity.controller';
@@ -119,13 +120,43 @@ router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getA
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Activity'
+ *               $ref: '#/components/schemas/ActivityWithCategory'
  *       404:
  *         description: Activité non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id/with-category', validate(idParamActivitySchema, 'params'), errorHandler, getActivityById);
+router.get('/:id/with-category', validate(idParamActivitySchema, 'params'), errorHandler, getActivityWithCategory);
+/**
+ * @swagger
+ * /api/activities/{id}:
+ *   get:
+ *     summary: Récupérer une activité et sa catégorie par son ID
+ *     description: Renvoie une activité basée sur son ID
+ *     security:
+ *       - bearerAuth: []
+ *     tags: [Activities]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: cuid
+ *         description: ID de l'activité à récupérer
+ *     responses:
+ *       200:
+ *         description: Activité récupérée avec succès
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ActivityWithCategory'
+ *       404:
+ *         description: Activité non trouvée
+ *       500:
+ *         description: Erreur serveur
+ */
+router.get('/:id/with-registration', validate(idParamActivitySchema, 'params'), errorHandler, getActivityWithRegistration);
 
 /**
  * @swagger

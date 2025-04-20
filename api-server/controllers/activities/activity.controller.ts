@@ -1,8 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
-import { PrismaClient } from '@/prisma/client.js'
+import { PrismaClient } from '../../prisma/client.js'
 import { createHttpError } from '@/utils/httpError.js'
 import IActivity from '@/@types/data/activities/IActivity'
-import cuid from 'cuid'
 
 const prisma = new PrismaClient()
 
@@ -62,6 +61,35 @@ export const getActivityById = async (
 };
 
 export const getActivityWithCategory = async (
+  req: Request<{ id: string }>,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { id } = req.params;
+    
+    const activity = await prisma.activity.findUnique({
+      where: { id },
+      include: {
+        activityCategory: {
+          include: {
+            activity: true
+          }
+        },
+      }
+    });
+    
+    if (!activity) {
+      throw createHttpError(404, 'Activité non trouvée');
+    }
+    
+    res.status(200).json(activity);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getActivityWithRegistration = async (
   req: Request<{ id: string }>,
   res: Response,
   next: NextFunction

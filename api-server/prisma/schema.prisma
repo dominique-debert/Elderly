@@ -31,7 +31,7 @@ model activity {
   updatedAt             DateTime?              @map("updated_at") @db.Timestamp(6)
   user                  user?                  @relation(fields: [creatorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   activityCategory      activityCategory?      @relation(fields: [categoryId], references: [id])
-  activity_registration activityRegistration[]
+  activityRegistration  activityRegistration[]
 }
 
 model activityLog {

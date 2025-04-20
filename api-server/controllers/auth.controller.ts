@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '../prisma/client';
 import argon2 from 'argon2';
 import { createHttpError } from '@/utils/httpError';
 import { generateToken } from '@/utils/jwt';

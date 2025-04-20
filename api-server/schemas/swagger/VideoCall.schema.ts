@@ -42,5 +42,4 @@
  *         status: "completed"
  *         createdAt: "2025-04-16T10:00:00Z"
  *         updatedAt: "2025-04-16T10:30:00Z"
- *         status: "completed"
  */
