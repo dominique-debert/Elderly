@@ -14,6 +14,7 @@ export const idParamProjectTaskSchema = Joi.object({
   id: Joi.string().required()
 });
 
+// id                   String                @id @default(cuid())
 // projectId            String                @map("project_id")
 // title                String                @db.Text
 // description          String?
@@ -21,3 +22,4 @@ export const idParamProjectTaskSchema = Joi.object({
 // dueDate              DateTime?             @map("due_date") @db.Timestamp(6)
 // status               String?               @db.Text
 // assigneeId           String?               @map("assignee_id")
+// createdAt            DateTime              @default(now()) @map("created_at") @db.Timestamp(6)
