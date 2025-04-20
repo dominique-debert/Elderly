@@ -54,7 +54,9 @@ import userBadgeRouter from '@/routes/userBadge.routes';
 import userDeviceRouter from '@/routes/userDevice.routes';
 import userSkillRouter from '@/routes/userSkill.routes';
 import userStatisticsRouter from '@/routes/userStatistics.routes';
-import wellnessCategoriesRouter from '@/routes/serviceCategory.routes'
+import videoCallRouter from '@/routes/videoCall.routes';
+import wellnessCategoriesRouter from '@/routes/wellnessCategory.routes'
+import wellnessGoalRouter from '@/routes/wellnessGoal.routes';
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
@@ -114,6 +116,7 @@ app.use('/api/resources', resourceRouter);
 app.use('/api/service-completed', serviceCompletedRouter);
 app.use('/api/service-rating', serviceRatingRouter);
 app.use('/api/satisfaction-surveys', satisfactionSurveyRouter);
+app.use('/api/skills', skillRouter);
 app.use('/api/survey-response', surveyResponseRouter);
 app.use('/api/trust-circle', trustCircleRouter);
 app.use('/api/trusted-contacts', trustedContactRouter);
@@ -124,7 +127,8 @@ app.use('/api/user-badges', userBadgeRouter);
 app.use('/api/user-devices', userDeviceRouter);
 app.use('/api/user-skills', userSkillRouter);
 app.use('/api/user-statistics', userStatisticsRouter);
-app.use('/api/skills', skillRouter);
+app.use('/api/video-calls', videoCallRouter);
+app.use('/api/wellness-goals', wellnessGoalRouter);
 
 // Error handling middleware
 app.use(errorHandler);
