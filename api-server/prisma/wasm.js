@@ -170,7 +170,8 @@ exports.Prisma.BadgeScalarFieldEnum = {
   icon: 'icon',
   level: 'level',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  userBadgeId: 'userBadgeId'
 };
 
 exports.Prisma.CognitiveExerciseScalarFieldEnum = {
@@ -582,6 +583,7 @@ exports.Prisma.UserActivityScalarFieldEnum = {
 };
 
 exports.Prisma.UserBadgeScalarFieldEnum = {
+  id: 'id',
   userId: 'userId',
   badgeId: 'badgeId',
   achievementDate: 'achievementDate',
@@ -605,7 +607,7 @@ exports.Prisma.UserSkillScalarFieldEnum = {
   userId: 'userId',
   skillId: 'skillId',
   level: 'level',
-  created_at: 'created_at',
+  createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 

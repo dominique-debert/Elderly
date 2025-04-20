@@ -50,6 +50,7 @@ import trustedContactRouter from '@/routes/trustedContact.routes';
 import urbanIssueReportRouter from '@/routes/urbanIssueReport.routes';
 import userRouter from '@/routes/user.routes';
 import userActivityRouter from '@/routes/userActivity.routes';
+import userBadgeRouter from '@/routes/userBadge.routes';
 import wellnessCategoriesRouter from '@/routes/serviceCategory.routes'
 
 const app: Application = express();
@@ -116,6 +117,7 @@ app.use('/api/trusted-contacts', trustedContactRouter);
 app.use('/api/urban-issue-reports', urbanIssueReportRouter);
 app.use('/api/users', userRouter);
 app.use('/api/user-activities', userActivityRouter);
+app.use('/api/user-badges', userBadgeRouter);
 app.use('/api/skills', skillRouter);
 
 // Error handling middleware
