@@ -3,13 +3,18 @@ import swaggerUi from 'swagger-ui-express';
 import { swaggerSpecs } from '@/config/swagger';
 import errorHandler from '@/middlewares/errorHandler';
 import routes from '@/routes/index.routes';
+import cors from 'cors';
+
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
 
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors({ origin: 'http://localhost:5173' }));  // Assure-toi que le port correspond à ton front-end
 
 // Swagger setup
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
