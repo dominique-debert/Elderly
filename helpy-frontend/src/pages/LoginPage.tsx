@@ -31,7 +31,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="h-screen flex items-center justify-center font-display">
       <form onSubmit={handleSubmit(onSubmit)} className="card w-96 p-6 bg-base-100 shadow-xl space-y-4">
         <h2 className="text-xl font-bold">Connexion</h2>
 

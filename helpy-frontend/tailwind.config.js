@@ -9,7 +9,7 @@ export default {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ['tropical', 'corporate', 'valentine'],
+    themes: ['tropical', 'corporate', 'valentine', 'cmyk', 'pastel'],
   },
 
 };

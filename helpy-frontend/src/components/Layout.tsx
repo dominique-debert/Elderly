@@ -18,7 +18,7 @@ const Layout = () => {
             Helpy
           </Link>
           <div className="space-x-2">
-            <Link to="/login" className="btn btn-outline btn-sm">Connexion</Link>
+            <Link to="/login" className="btn btn-outline btn-sm font-display">Connexion</Link>
             <Link to="/profile" className="btn btn-outline btn-sm">Profil</Link>
             <button onClick={handleLogout} className="btn btn-error btn-sm">Déconnexion</button>
           </div>
