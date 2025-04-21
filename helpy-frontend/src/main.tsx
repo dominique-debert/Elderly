@@ -13,8 +13,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <AuthProvider> {/* Envelopper l'app avec le AuthProvider */}
-          <App />
+        <AuthProvider>
+          <div data-theme="tropical">
+            <App />
+          </div>
           <Toaster position="top-right" />
         </AuthProvider>
       </BrowserRouter>
