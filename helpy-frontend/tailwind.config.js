@@ -1,5 +1,5 @@
 // tailwind.config.js
-import daisyui from 'daisyui/src/daisyui.js';
+import daisyui from 'daisyui';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -9,7 +9,7 @@ export default {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ['tropical'],
+    themes: ['tropical', 'corporate', 'valentine'],
   },
 
 };
