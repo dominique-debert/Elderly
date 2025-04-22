@@ -5,18 +5,33 @@ import toast from 'react-hot-toast';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
 interface User {
+  email: string;
   firstName: string;
   lastName: string;
   avatar?: string;
-  email: string;
+  birthdate: string;
 }
 
 interface AuthState {
   accessToken: string | null;
   isAuthenticated: boolean;
-  user: User | null; 
-  login: (email: string, password: string, navigate: ReturnType<typeof useNavigate>) => Promise<void>;
-  signup: (email: string, password: string, navigate: ReturnType<typeof useNavigate>) => Promise<void>;
+  user: User | null;
+  login: (
+    email: string,
+    password: string,
+    navigate: ReturnType<typeof useNavigate>
+  ) => Promise<void>;
+  signup: (
+    userData: {
+      email: string;
+      password: string;
+      firstName: string;
+      lastName: string;
+      avatar?: string;
+      birthdate: string;
+    },
+    navigate: ReturnType<typeof useNavigate>
+  ) => Promise<void>;
   logout: (navigate: ReturnType<typeof useNavigate>) => void;
 }
 
@@ -25,15 +40,23 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       accessToken: null,
       isAuthenticated: false,
-      user: JSON.parse(localStorage.getItem('user') || 'null'), // Récupérer l'utilisateur depuis localStorage au démarrage
+      user: null,
 
       login: async (email, password, navigate) => {
         try {
           const data = await loginUser({ email, password });
-          const userData = { firstName: data.firstName, lastName: data.lastName, avatar: data.avatar, email: data.email };
-          localStorage.setItem('user', JSON.stringify(userData)); 
           localStorage.setItem('refreshToken', data.refreshToken);
-          set({ accessToken: data.accessToken, isAuthenticated: true, user: userData });
+          set({
+            accessToken: data.accessToken,
+            isAuthenticated: true,
+            user: {
+              email: data.email,
+              firstName: data.firstName,
+              lastName: data.lastName,
+              avatar: data.avatar,
+              birthdate: data.birthDate,
+            },
+          });
           toast.success('Connexion réussie');
           navigate('/');
         } catch (error) {
@@ -41,13 +64,21 @@ export const useAuthStore = create<AuthState>()(
         }
       },
 
-      signup: async (email, password, navigate) => {
+      signup: async (userData, navigate) => {
         try {
-          const data = await signupUser({ email, password });
-          const userData = { firstName: data.firstName, lastName: data.lastName, avatar: data.avatar, email: data.email };
-          localStorage.setItem('user', JSON.stringify(userData)); 
+          const data = await signupUser(userData);
           localStorage.setItem('refreshToken', data.refreshToken);
-          set({ accessToken: data.accessToken, isAuthenticated: true, user: userData });
+          set({
+            accessToken: data.accessToken,
+            isAuthenticated: true,
+            user: {
+              email: data.email,
+              firstName: data.firstName,
+              lastName: data.lastName,
+              avatar: data.avatar,
+              birthdate: data.birthDate,
+            },
+          });
           toast.success('Inscription réussie');
           navigate('/');
         } catch (error) {
@@ -57,7 +88,6 @@ export const useAuthStore = create<AuthState>()(
 
       logout: (navigate) => {
         localStorage.removeItem('refreshToken');
-        localStorage.removeItem('user'); 
         set({ accessToken: null, isAuthenticated: false, user: null });
         toast.success('Déconnexion réussie');
         navigate('/login');
@@ -66,20 +96,31 @@ export const useAuthStore = create<AuthState>()(
     {
       name: 'auth-storage',
       storage: createJSONStorage(() => localStorage),
-      partialize: (state) => ({ accessToken: state.accessToken, isAuthenticated: state.isAuthenticated, user: state.user }),
+      partialize: (state) => ({
+        accessToken: state.accessToken,
+        isAuthenticated: state.isAuthenticated,
+        user: state.user,
+      }),
     }
   )
 );
 
 export const useAuth = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, login, signup, logout, user } = useAuthStore();
+  const { isAuthenticated, user, login, signup, logout } = useAuthStore();
 
   return {
     isAuthenticated,
+    user,
     login: (email: string, password: string) => login(email, password, navigate),
-    signup: (email: string, password: string) => signup(email, password, navigate),
+    signup: (userData: {
+      email: string;
+      password: string;
+      firstName: string;
+      lastName: string;
+      avatar?: string;
+      birthdate: string;
+    }) => signup(userData, navigate),
     logout: () => logout(navigate),
-    user, 
   };
 };

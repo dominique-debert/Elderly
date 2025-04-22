@@ -1,6 +1,7 @@
 import api from './api';
 
 interface AuthResponse {
+  birthDate: string;
   firstName: string;
   lastName: string;
   avatar: string;
@@ -9,7 +10,7 @@ interface AuthResponse {
   refreshToken: string;
 }
 
-export const loginUser = async (data: { email: string; password: string }) => {
+export const loginUser = async (data: { email: string; password: string }): Promise<AuthResponse> => {
   const response = await api.post('/auth/login', data);
   return response.data;
 };

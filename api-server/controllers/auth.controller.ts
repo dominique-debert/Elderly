@@ -24,27 +24,31 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
   try {
     const { error } = signUpSchema.validate(req.body);
     if (error) throw createHttpError(400, 'Invalid data', error.details);
-    
-    const { email, password } = req.body;
-    
+
+    const { email, password, firstName, lastName, avatar, birthDate } = req.body;
+
     const existing = await prisma.user.findUnique({ where: { email } });
     if (existing) throw createHttpError(409, 'Email already in use');
-    
+
     const passwordHash = await argon2.hash(password);
-    
+
     const user = await prisma.user.create({
       data: {
         email,
         passwordHash,
+        firstName,
+        lastName,
+        profilePicture: avatar,
+        birthDate: birthDate,
       },
     });
-    
+
     const accessToken = signToken(user.id, 'access');
     const refreshToken = signToken(user.id, 'refresh');
-    
+
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + refreshTokenExpiryDays);
-    
+
     await prisma.session.create({
       data: {
         refreshToken,
@@ -54,9 +58,20 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
         userAgent: req.headers['user-agent'],
       },
     });
-    
-    res.status(201).json({ accessToken, refreshToken, expiresIn: accessTokenExpiry,firstname:user.firstName,lastname:user.lastName, email: user.email });
 
+    res.status(201).json({
+      accessToken,
+      refreshToken,
+      expiresIn: accessTokenExpiry,
+      user: {
+        id: user.id,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        avatar: user.profilePicture,
+        birthDate: user.birthDate,
+      },
+    });
   } catch (error) {
     next(error);
   }

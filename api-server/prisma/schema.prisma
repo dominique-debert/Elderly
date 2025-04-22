@@ -564,7 +564,7 @@ model user {
   passwordHash            String                    @map("password_hash") @db.Text
   firstName               String?                   @map("first_name") @db.Text
   lastName                String?                   @map("last_name") @db.Text
-  birthDate               DateTime?                 @map("birth_date") @db.Date
+  birthDate               String?                   @map("birth_date") @db.Text
   address                 String?                   @db.Text
   gpsCoordinates          String?                   @map("gps_coordinates")
   phone                   String?                   @db.Text
