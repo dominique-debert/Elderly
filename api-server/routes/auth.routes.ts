@@ -47,7 +47,7 @@ const router = Router();
 
 /**
  * @swagger
- * /auth/signin:
+ * /auth/login:
  *   post:
  *     summary: Connecter un utilisateur
  *     tags: [Auth]

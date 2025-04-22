@@ -1,6 +1,10 @@
 import api from './api';
 
 interface AuthResponse {
+  firstName: string;
+  lastName: string;
+  avatar: string;
+  email: string;
   accessToken: string;
   refreshToken: string;
 }

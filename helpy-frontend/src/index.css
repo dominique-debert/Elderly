@@ -4,6 +4,46 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root {
+  --font-display: 'Fira Sans', sans-serif;
+  --color-primary: #E61E5A !important;
+}
+
 * {
-  font-family: 'Fira Sans', sans-serif !important;
+  font-family: var(--font-display) !important;
+}
+
+.bg-primary, .btn-primary {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: white !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.btn-outline {
+  background-color: white !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+}
+
+.input, .input-bordered {
+  background-color: white !important;
+}
+
+.link, .link:hover {
+  color: var(--color-primary) !important;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
 }
