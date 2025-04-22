@@ -47,3 +47,11 @@
 .text-primary {
   color: var(--color-primary) !important;
 }
+
+.border-primary {
+  border-color: var(--color-primary) !important;
+}
+
+.ring-primary {
+  border-color: var(--color-primary) !important;  
+}

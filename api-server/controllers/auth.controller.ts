@@ -38,7 +38,7 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
         passwordHash,
         firstName,
         lastName,
-        profilePicture: avatar,
+        avatar,
         birthDate: birthDate,
       },
     });
@@ -68,7 +68,7 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
         email: user.email,
         firstName: user.firstName,
         lastName: user.lastName,
-        avatar: user.profilePicture,
+        avatar: user.avatar,
         birthDate: user.birthDate,
       },
     });
@@ -104,7 +104,7 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
         userAgent: req.headers['user-agent'],
       },
     });
-    
+    console.log(user.avatar)
     // Retourner les informations du profil avec les tokens
     res.json({
       accessToken,
@@ -113,7 +113,7 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-      profilePicture: user.profilePicture,
+      avatar: user.avatar,
       birthDate: user.birthDate,
     });
   } catch (error) {

@@ -568,7 +568,7 @@ model user {
   address                 String?                   @db.Text
   gpsCoordinates          String?                   @map("gps_coordinates")
   phone                   String?                   @db.Text
-  profilePicture          String?                   @map("profile_picture") @db.Text
+  avatar                  String?                   @map("avatar") @db.Text
   registrationDate        DateTime                  @default(now()) @map("registration_date") @db.Timestamp(6)
   accountVerified         Boolean                   @default(false) @map("account_verified")
   interfacePreferences    String?                   @map("interface_preferences") @db.Text
