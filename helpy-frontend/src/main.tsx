@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import App from './App';
 import './index.css';
-import { AuthProvider } from './context/AuthContext'; // Importer le AuthProvider
+import { AuthProvider } from './context/authContext'; // Importer le AuthProvider
 
 const queryClient = new QueryClient();
 

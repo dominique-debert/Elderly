@@ -1,14 +1,9 @@
-import toast from 'react-hot-toast';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../store/auth'; // ou le bon chemin
 
 const Layout = () => {
+  const { isAuthenticated, logout } = useAuthStore();
   const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem('accessToken'); // Supprimer le token
-    toast.success('Déconnexion réussie');
-    navigate('/login'); // Rediriger vers la page de connexion
-  };
 
   return (
     <div className="min-h-screen bg-base-200">
@@ -18,9 +13,17 @@ const Layout = () => {
             Helpy
           </Link>
           <div className="space-x-2">
-            <Link to="/login" className="btn btn-outline btn-sm font-display">Connexion</Link>
-            <Link to="/profile" className="btn btn-outline btn-sm">Profil</Link>
-            <button onClick={handleLogout} className="btn btn-error btn-sm">Déconnexion</button>
+            {!isAuthenticated && (
+              <Link to="/login" className="btn btn-outline btn-sm font-display">
+                Connexion
+              </Link>
+            )}
+            {isAuthenticated && (
+              <>
+                <Link to="/profile" className="btn btn-outline btn-sm">Profil</Link>
+                <button onClick={() => logout(navigate)} className="btn btn-error btn-sm">Déconnexion</button>
+              </>
+            )}
           </div>
         </div>
       </div>

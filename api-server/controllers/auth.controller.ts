@@ -55,7 +55,8 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
       },
     });
     
-    res.status(201).json({ accessToken, refreshToken });
+    res.status(201).json({ accessToken, refreshToken, expiresIn: accessTokenExpiry });
+
   } catch (error) {
     next(error);
   }
@@ -89,7 +90,7 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
       },
     });
     
-    res.json({ accessToken, refreshToken });
+    res.json({ accessToken, refreshToken, expiresIn: accessTokenExpiry });
   } catch (error) {
     next(error);
   }
