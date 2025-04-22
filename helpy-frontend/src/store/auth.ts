@@ -53,14 +53,14 @@ export const useAuthStore = create<AuthState>()(
               email: data.email,
               firstName: data.firstName,
               lastName: data.lastName,
-              avatar: data.avatar,
-              birthdate: data.birthDate,
+              avatar: data.avatar, // Assurez-vous que l'avatar est bien renvoyé par l'API
+              birthdate: data.birthDate, // Assurez-vous que la date de naissance est bien renvoyée
             },
           });
           toast.success('Connexion réussie');
           navigate('/');
         } catch (error) {
-          toast.error("Erreur lors de la connexion" + error);
+          toast.error("Erreur lors de la connexion: " + error);
         }
       },
 
@@ -82,7 +82,7 @@ export const useAuthStore = create<AuthState>()(
           toast.success('Inscription réussie');
           navigate('/');
         } catch (error) {
-          toast.error("Erreur lors de l'inscription" + error);
+          toast.error("Erreur lors de l'inscription: " + error);
         }
       },
 

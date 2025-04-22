@@ -105,11 +105,22 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
       },
     });
     
-    res.json({ accessToken, refreshToken, expiresIn: accessTokenExpiry,firstname:user.firstName,lastname:user.lastName, email: user.email });
+    // Retourner les informations du profil avec les tokens
+    res.json({
+      accessToken,
+      refreshToken,
+      expiresIn: accessTokenExpiry,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      profilePicture: user.profilePicture,
+      birthDate: user.birthDate,
+    });
   } catch (error) {
     next(error);
   }
 };
+
 
 export const logout = async (req: Request, res: Response, next: NextFunction) => {
   try {
