@@ -1,4 +1,5 @@
 import { useAuthStore } from '../store/auth';
+import { formatDate } from '../utils/formatDate';
 
 const ProfilePage = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -22,7 +23,7 @@ const dateNaissance = user?.birthDate
           <h1 className="text-2xl font-semibold text-primary">{user.firstName} {user.lastName}</h1>
           <p>Bienvenue sur votre profil</p>
           <p>Email: {user.email}</p>
-          <p>Date de naissance: {dateNaissance ? dateNaissance : 'Non disponible'}</p>
+          <p>Date de naissance: {dateNaissance ? formatDate(dateNaissance) : 'Non disponible'}</p>
         </>
       ) : (
         <p>Les informations de profil sont introuvables.</p>
