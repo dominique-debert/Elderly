@@ -9,7 +9,7 @@ interface User {
   firstName: string;
   lastName: string;
   avatar?: string;
-  birthdate: string;
+  birthDate: Date;
   isAdmin: boolean;
 }
 
@@ -29,7 +29,7 @@ interface AuthState {
       firstName: string;
       lastName: string;
       avatar?: string;
-      birthdate: string;
+      birthDate: Date;
       isAdmin: boolean;
     },
     navigate: ReturnType<typeof useNavigate>
@@ -56,7 +56,7 @@ export const useAuthStore = create<AuthState>()(
               firstName: data.firstName,
               lastName: data.lastName,
               avatar: data.avatar, // Assurez-vous que l'avatar est bien renvoyé par l'API
-              birthdate: data.birthDate, // Assurez-vous que la date de naissance est bien renvoyée
+              birthDate: data.birthDate, // Assurez-vous que la date de naissance est bien renvoyée
               isAdmin: data.isAdmin,
             },
           });
@@ -79,7 +79,7 @@ export const useAuthStore = create<AuthState>()(
               firstName: data.firstName,
               lastName: data.lastName,
               avatar: data.avatar,
-              birthdate: data.birthDate,
+              birthDate: data.birthDate,
               isAdmin: data.isAdmin,
             },
           });
@@ -123,7 +123,7 @@ export const useAuth = () => {
       firstName: string;
       lastName: string;
       avatar?: string;
-      birthdate: string;
+      birthDate: Date;
       isAdmin: boolean;
     }) => signup(userData, navigate),
     logout: () => logout(navigate),

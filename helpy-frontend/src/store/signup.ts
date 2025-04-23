@@ -5,13 +5,13 @@ interface SignupFormState {
   password: string;
   firstName: string;
   lastName: string;
-  birthDate: string;
+  birthDate: Date;
   isAdmin: boolean;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
   setFirstName: (firstName: string) => void;
   setLastName: (lastName: string) => void;
-  setBirthDate: (birthDate: string) => void;
+  setBirthDate: (birthDate: Date) => void;
   setIsAdmin: (isAdmin: boolean) => void;
 }
 
@@ -20,7 +20,7 @@ export const useSignupStore = create<SignupFormState>((set) => ({
   password: '',
   firstName: '',
   lastName: '',
-  birthDate: '',
+  birthDate: new Date(),
   isAdmin: false,
   setEmail: (email) => set({ email }),
   setPassword: (password) => set({ password }),

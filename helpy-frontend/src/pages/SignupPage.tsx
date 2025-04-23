@@ -11,7 +11,7 @@ const SignupPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const avatar = ''; // Initialize avatar with a default value or fetch it dynamically
-    await signup({ email, password, firstName, lastName, birthdate: birthDate, avatar, isAdmin }, navigate);
+    await signup({ email, password, firstName, lastName, birthdate: new Date(birthDate), avatar, isAdmin }, navigate);
   };
 
   return (
@@ -58,8 +58,8 @@ const SignupPage = () => {
             type="date"
             placeholder="Date de naissance"
             className="input input-bordered w-full rounded-md bg-white"
-            value={birthDate}
-            onChange={(e) => setBirthDate(e.target.value)}
+            value={birthDate.toISOString().split('T')[0]}
+            onChange={(e) => setBirthDate(new Date(e.target.value))}
             required
           />
             <label className="label justify-normal text-start">

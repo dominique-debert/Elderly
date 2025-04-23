@@ -2,7 +2,7 @@ import api from './api';
 
 interface AuthResponse {
   isAdmin: boolean;
-  birthDate: string;
+  birthDate: Date;
   firstName: string;
   lastName: string;
   avatar: string;
