@@ -20,6 +20,7 @@ const Sidebar = () => {
               <Icon path={mdiViewDashboardOutline}
                 title="Tableau de bord"
                 size={1}
+                className="text-primary"
               />
             </Link>
           </button>
@@ -76,7 +77,7 @@ const Sidebar = () => {
             
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow-md">
               <li><a>Tes préférences</a></li>
               <li><hr /></li>
               <li>
