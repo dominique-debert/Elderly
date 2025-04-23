@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <div className="font-display" data-theme="pastel">
             <App />
           </div>
-          <Toaster position="top-right" />
+          <Toaster position="bottom-right" />
         </AuthProvider>
       </BrowserRouter>
     </QueryClientProvider>
