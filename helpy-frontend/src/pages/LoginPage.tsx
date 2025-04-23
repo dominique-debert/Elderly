@@ -19,7 +19,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex justify-end items-center w-screen h-screen bg-[url(/src/images/background.png)] bg-cover">
+    <div className="flex justify-end items-center w-screen h-screen bg-[url(/images/background.png)] bg-cover">
       <div className="card w-100 h-100 bg-base-100 shadow-xl mr-20 py-20 px-10 bg-opacity-85">
         <h2 className="text-3xl font-bold text-left text-primary mb-8">Se connecter</h2>
         <form onSubmit={handleSubmit} className="space-y-4">

@@ -8,14 +8,11 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="profile-container p-10">
+    <div className="profile-container p-10 w-full h-100">
       {user ? (
         <>
           <h1 className="text-2xl font-semibold text-primary">{user.firstName} {user.lastName}</h1>
           <p>Bienvenue sur votre profil</p>
-          {/* {user.avatar && <img src={user.avatar} alt="Avatar" className="avatar w-24 h-24 rounded-full" />}
-          <p>Email: {user.email}</p>
-          <p>Date de naissance: {user.birthdate}</p> */}
         </>
       ) : (
         <p>Les informations de profil sont introuvables.</p>

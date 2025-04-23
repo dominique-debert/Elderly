@@ -1,13 +1,97 @@
+import Icon from '@mdi/react';
+import { mdiAccount, mdiBottleTonicPlusOutline, mdiForumOutline, mdiHeadHeartOutline, mdiHeartOutline, mdiHomeOutline } from '@mdi/js';
+import { useAuthStore } from '../store/auth'; 
+import { Link, useNavigate } from 'react-router-dom';
+
 const Sidebar = () => {
+  const { isAuthenticated, logout } = useAuthStore();
+  const navigate = useNavigate();
+
   return (
-    <div className="drawer-side">
-      <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-      <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-        {/* Sidebar content here */}
-        <li><a>Sidebar Item 1</a></li>
-        <li><a>Sidebar Item 2</a></li>
-      </ul>
-    </div>
+    <aside className="w-20 mb-4 bg-white border-r border-gray-200 m-4 rounded-md">
+      <div className="h-full flex flex-col items-center py-4">
+        <div className="p-2">
+          <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />
+        </div>
+
+        <nav className="flex-1 w-full px-2 space-y-2 mt-6">
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+            <Icon path={mdiHomeOutline}
+              title="Accueil"
+              size={1}
+            />
+          </button>
+          
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+            <Icon path={mdiAccount}
+              title="Profil"
+              size={1}
+            />
+          </button>
+          
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+            <Icon path={mdiBottleTonicPlusOutline}
+              title="Profil"
+              size={1}
+            />
+          </button>
+          
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+            <Icon path={mdiHeartOutline}
+              title="Profil"
+              size={1}
+            />
+          </button>
+          
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+            <Icon path={mdiHeadHeartOutline}
+              title="Profil"
+              size={1}
+            />
+          </button>
+          
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+            <Icon path={mdiForumOutline}
+              title="Profil"
+              size={1}
+            />
+          </button>
+
+        </nav>
+
+        {isAuthenticated && (
+          <>
+            <div className="flex gap-2">
+              <div className="dropdown dropdown-right dropdown-top">
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                  <div className="w-24 rounded-full">
+                    <img
+                      alt="avatar"
+                      src={useAuthStore.getState().user?.avatar || '/images/default-avatar.svg'}
+                      />
+                  </div>
+                </div>
+                
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                  <li>
+                    <Link to="/profile" className="justify-between">
+                      Ton profil
+                    </Link>
+                  </li>
+                  <li><a>Tes préférences</a></li>
+                  <li><hr /></li>
+                  <li>
+                    <Link to="/login" onClick={() => logout(navigate)}>Se déconnecter</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </aside>
   );
 };
 
