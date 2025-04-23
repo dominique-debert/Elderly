@@ -11,7 +11,7 @@ const SignupPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const avatar = ''; // Initialize avatar with a default value or fetch it dynamically
-    await signup({ email, password, firstName, lastName, birthdate: new Date(birthDate), avatar, isAdmin }, navigate);
+    await signup({ email, password, firstName, lastName, birthDate: new Date(birthDate), avatar, isAdmin }, navigate);
   };
 
   return (
