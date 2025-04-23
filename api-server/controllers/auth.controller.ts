@@ -25,7 +25,7 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
     const { error } = signUpSchema.validate(req.body);
     if (error) throw createHttpError(400, 'Invalid data', error.details);
 
-    const { email, password, firstName, lastName, avatar, birthDate } = req.body;
+    const { email, password, firstName, lastName, avatar, birthDate, isAdmin } = req.body;
 
     const existing = await prisma.user.findUnique({ where: { email } });
     if (existing) throw createHttpError(409, 'Email already in use');
@@ -39,7 +39,8 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
         firstName,
         lastName,
         avatar,
-        birthDate: birthDate,
+        birthDate,
+        isAdmin,
       },
     });
 
@@ -70,6 +71,7 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
         lastName: user.lastName,
         avatar: user.avatar,
         birthDate: user.birthDate,
+        isAdmin: user.isAdmin,
       },
     });
   } catch (error) {
@@ -104,7 +106,7 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
         userAgent: req.headers['user-agent'],
       },
     });
-    console.log(user.avatar)
+
     // Retourner les informations du profil avec les tokens
     res.json({
       accessToken,
@@ -115,6 +117,7 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
       email: user.email,
       avatar: user.avatar,
       birthDate: user.birthDate,
+      isAdmin: user.isAdmin,
     });
   } catch (error) {
     next(error);

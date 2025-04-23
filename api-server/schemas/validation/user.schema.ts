@@ -18,6 +18,7 @@ export const userSchema = Joi.object({
   reducedMobility: Joi.boolean().default(false),
   activityLevel: Joi.string().allow('', null).default('active'),
   status: Joi.string().allow('', null).default('active'),
+  isAdmin: Joi.boolean().default(false),
 });
 
 export const idParamUserSchema = Joi.object({

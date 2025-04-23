@@ -19,4 +19,5 @@ export default interface IUser {
   emergency_contact_name: string;
   emergency_contact_phone: string;
   status: string;
+  isAdmin: boolean;
 }

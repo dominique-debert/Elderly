@@ -564,6 +564,7 @@ exports.Prisma.UserScalarFieldEnum = {
   reducedMobility: 'reducedMobility',
   activityLevel: 'activityLevel',
   status: 'status',
+  isAdmin: 'isAdmin',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

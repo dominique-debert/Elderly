@@ -10,6 +10,7 @@ interface User {
   lastName: string;
   avatar?: string;
   birthdate: string;
+  isAdmin: boolean;
 }
 
 interface AuthState {
@@ -29,6 +30,7 @@ interface AuthState {
       lastName: string;
       avatar?: string;
       birthdate: string;
+      isAdmin: boolean;
     },
     navigate: ReturnType<typeof useNavigate>
   ) => Promise<void>;
@@ -55,6 +57,7 @@ export const useAuthStore = create<AuthState>()(
               lastName: data.lastName,
               avatar: data.avatar, // Assurez-vous que l'avatar est bien renvoyé par l'API
               birthdate: data.birthDate, // Assurez-vous que la date de naissance est bien renvoyée
+              isAdmin: data.isAdmin,
             },
           });
           toast.success('Connexion réussie');
@@ -77,6 +80,7 @@ export const useAuthStore = create<AuthState>()(
               lastName: data.lastName,
               avatar: data.avatar,
               birthdate: data.birthDate,
+              isAdmin: data.isAdmin,
             },
           });
           toast.success('Inscription réussie');
@@ -120,6 +124,7 @@ export const useAuth = () => {
       lastName: string;
       avatar?: string;
       birthdate: string;
+      isAdmin: boolean;
     }) => signup(userData, navigate),
     logout: () => logout(navigate),
   };

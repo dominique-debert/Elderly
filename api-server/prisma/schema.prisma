@@ -564,7 +564,7 @@ model user {
   passwordHash            String                    @map("password_hash") @db.Text
   firstName               String?                   @map("first_name") @db.Text
   lastName                String?                   @map("last_name") @db.Text
-  birthDate               String?                   @map("birth_date") @db.Text
+  birthDate               DateTime?                 @map("birth_date") @db.Date
   address                 String?                   @db.Text
   gpsCoordinates          String?                   @map("gps_coordinates")
   phone                   String?                   @db.Text
@@ -577,6 +577,7 @@ model user {
   reducedMobility         Boolean?                  @default(false) @map("reduced_mobility")
   activityLevel           String?                   @default("active") @map("activity_level") @db.Text
   status                  String?                   @default("active") @db.Text
+  isAdmin                 Boolean?                  @default(false) @map("is_admin")
   createdAt               DateTime                  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt               DateTime?                 @map("updated_at") @db.Timestamp(6)
   activity                activity[]

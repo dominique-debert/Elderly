@@ -4,18 +4,21 @@ import { useAuthStore } from '../store/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
-  const { email, password, firstName, lastName, birthDate, setEmail, setPassword, setFirstName, setLastName, setBirthDate } = useSignupStore();
+  const { email, password, firstName, lastName, birthDate, isAdmin, setEmail, setPassword, setFirstName, setLastName, setBirthDate, setIsAdmin } = useSignupStore();
   const { signup } = useAuthStore();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await signup({ email, password, firstName, lastName, birthdate: birthDate }, navigate);
+    const avatar = ''; // Initialize avatar with a default value or fetch it dynamically
+    await signup({ email, password, firstName, lastName, birthdate: birthDate, avatar, isAdmin }, navigate);
   };
 
   return (
-    <div className="flex justify-center items-right h-screen">
-      <div className="card w-97 bg-base-100 shadow-xl p-8 bg-[url('/images/background.png')]">
+    <div className='container'>
+
+    <div className="flex justify-end items-center w-screen h-screen bg-[url(/images/background.png)] bg-cover">
+      <div className="card w-96 h-100 bg-base-100 shadow-xl mr-20 py-20 px-10 bg-opacity-85">
         <h2 className="text-2xl font-bold mb-4 text-left text-primary">S'inscrire</h2>
         <p className="text-left text-sm mb-4">Inscrivez-vous gratuitement pour accéder à nos services.</p>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -59,6 +62,10 @@ const SignupPage = () => {
             onChange={(e) => setBirthDate(e.target.value)}
             required
           />
+            <label className="label justify-normal text-start">
+              <input type="checkbox" onChange={(e) => setIsAdmin(e.target.checked)} checked={isAdmin} className="checkbox checkbox-primary rounded-md mr-3" />
+              Administrateur
+            </label>
           <div className="flex justify-center items-center">
             <button type="submit" className="btn btn-primary w-60 rounded-md">S'inscrire</button>
           </div>
@@ -69,6 +76,8 @@ const SignupPage = () => {
         </p>
       </div>
     </div>
+    </div>
+
   );
 };
 

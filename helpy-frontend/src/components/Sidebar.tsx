@@ -4,7 +4,7 @@ import { useAuthStore } from '../store/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
-  const { isAuthenticated, logout } = useAuthStore();
+  const { logout } = useAuthStore();
   const navigate = useNavigate();
 
   return (
@@ -59,37 +59,33 @@ const Sidebar = () => {
 
         </nav>
 
-        {isAuthenticated && (
-          <>
-            <div className="flex gap-2">
-              <div className="dropdown dropdown-right dropdown-top">
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                  <div className="w-24 rounded-full">
-                    <img
-                      alt="avatar"
-                      src={useAuthStore.getState().user?.avatar || '/images/default-avatar.svg'}
-                      />
-                  </div>
-                </div>
-                
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                  <li>
-                    <Link to="/profile" className="justify-between">
-                      Ton profil
-                    </Link>
-                  </li>
-                  <li><a>Tes préférences</a></li>
-                  <li><hr /></li>
-                  <li>
-                    <Link to="/login" onClick={() => logout(navigate)}>Se déconnecter</Link>
-                  </li>
-                </ul>
+        <div className="flex gap-2">
+          <div className="dropdown dropdown-right dropdown-top">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-24 rounded-full">
+                <img
+                  alt="avatar"
+                  src={useAuthStore.getState().user?.avatar || '/images/default-avatar.svg'}
+                  />
               </div>
             </div>
-          </>
-        )}
+            
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+              <li>
+                <Link to="/profile" className="justify-between">
+                  Ton profil
+                </Link>
+              </li>
+              <li><a>Tes préférences</a></li>
+              <li><hr /></li>
+              <li>
+                <Link to="/login" onClick={() => logout(navigate)}>Se déconnecter</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </aside>
   );
