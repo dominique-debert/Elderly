@@ -1,3 +1,4 @@
+ 
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/auth';
 
@@ -8,7 +9,8 @@ export const useAuth = () => {
   return {
     isAuthenticated,
     login: (email: string, password: string) => login(email, password, navigate),
-    signup: (email: string, password: string) => signup(email, password, navigate),
+    signup: (email: string, password: string, firstName: string, lastName: string, birthDate: Date, isAdmin: boolean, avatar?: string) => 
+      signup({ email, password, firstName, lastName, birthDate, isAdmin, avatar }, navigate),
     logout: () => logout(navigate),
   };
 };

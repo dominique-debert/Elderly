@@ -22,12 +22,14 @@ const Sidebar = () => {
             />
           </button>
           
+          <Link to="/profile" className="justify-between">
           <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
             <Icon path={mdiAccount}
               title="Profil"
               size={1}
-            />
+              />
           </button>
+          </Link>
           
           <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
             <Icon path={mdiBottleTonicPlusOutline}
@@ -65,7 +67,7 @@ const Sidebar = () => {
               <div className="w-24 rounded-full">
                 <img
                   alt="avatar"
-                  src={useAuthStore.getState().user?.avatar || '/images/default-avatar.svg'}
+                  src={`/images/${useAuthStore.getState().user?.avatar || 'default-avatar.svg'}`}
                   />
               </div>
             </div>
@@ -73,11 +75,6 @@ const Sidebar = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li>
-                <Link to="/profile" className="justify-between">
-                  Ton profil
-                </Link>
-              </li>
               <li><a>Tes préférences</a></li>
               <li><hr /></li>
               <li>
