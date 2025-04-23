@@ -1,5 +1,5 @@
 import Icon from '@mdi/react';
-import { mdiAccount, mdiBottleTonicPlusOutline, mdiForumOutline, mdiHeadHeartOutline, mdiHeartOutline, mdiHomeOutline } from '@mdi/js';
+import { mdiAccount, mdiBottleTonicPlusOutline, mdiForumOutline, mdiHeadHeartOutline, mdiHeartOutline, mdiViewDashboardOutline } from '@mdi/js';
 import { useAuthStore } from '../store/auth'; 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -8,18 +8,20 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
-    <aside className="w-20 mb-4 bg-white border-r border-gray-200 m-4 rounded-md">
+    <aside className="w-20 mb-4 bg-white border-r border-gray-200 m-4 rounded-md no-scrollbar">
       <div className="h-full flex flex-col items-center py-4">
         <div className="p-2">
           <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />
         </div>
 
         <nav className="flex-1 w-full px-2 space-y-2 mt-6">
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
-            <Icon path={mdiHomeOutline}
-              title="Accueil"
-              size={1}
-            />
+          <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+            <Link to={"/"}>
+              <Icon path={mdiViewDashboardOutline}
+                title="Tableau de bord"
+                size={1}
+              />
+            </Link>
           </button>
           
           <Link to="/profile" className="justify-between">

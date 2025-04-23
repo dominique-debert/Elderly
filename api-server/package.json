@@ -8,7 +8,7 @@
     "dev": "node --import=tsx --watch server.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "gen:api": "openapi-typescript http://localhost:5000/api-docs.json --output ./front-web/src/types/api.d.ts",
+    "gen:api": "openapi-typescript http://localhost:3000/api-docs.json --output ../helpy-frontend/src/@types/api.d.ts",
     "generate-token": "node --import=tsx scripts/generateToken.ts"
   },
   "keywords": [],

@@ -1,3 +1,4 @@
+
 import { refreshToken } from '../services/token';
 import axiosInstance from '../services/axios';
 
@@ -23,7 +24,8 @@ api.interceptors.response.use(
       try {
         const newAccessToken = await refreshToken();
         error.config.headers['Authorization'] = `Bearer ${newAccessToken}`;
-        return api(error.config); // Réessayer la requête originale avec le nouveau token
+        // Réessayer la requête originale avec le nouveau token
+        return api(error.config); 
       } catch (err) {
         // Si le refresh token échoue, on doit déconnecter l'utilisateur
         localStorage.removeItem('accessToken');

@@ -86,7 +86,7 @@
  *         address: 123 Rue de l'Exemple, Paris
  *         gps_coordinates: null
  *         phone: +33123456789
- *         profile_picture: /uploads/profiles/1.jpg
+ *         profile_picture: /images/1.jpg
  *         registration_date: 2023-01-01T12:00:00.000Z
  *         account_verified: true
  *         interface_preferences: '{"theme":"dark","notifications":true}'
