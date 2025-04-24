@@ -1,7 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import { useAuthStore } from '../store/auth';
-import { mdiCogOutline } from '@mdi/js';
+import { mdiBellOutline, mdiCogOutline } from '@mdi/js';
 import Icon from '@mdi/react';
 
 const Layout = () => {
@@ -15,11 +15,17 @@ const Layout = () => {
             Helpy
           </Link>
 
-          {user?.isAdmin && (
-            <Link to="/profile" className="btn btn-ghost text-primary hover:bg-primary/30 rounded-xl">
-              <Icon path={mdiCogOutline} size={1} />
+          <div className='flex space-x-0'>
+            <Link to="/profile" className="btn btn-ghost text-gray-400 hover:bg-primary/30 rounded-lg">
+              <Icon path={mdiBellOutline} size={1} />
             </Link>
-          )}
+
+            {user?.isAdmin && (
+              <Link to="/profile" className="btn btn-ghost text-gray-400 hover:bg-primary/30 rounded-lg">
+                <Icon path={mdiCogOutline} size={1} />
+              </Link>
+            )}
+          </div>
         </div>
       </div>
 

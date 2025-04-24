@@ -21,7 +21,7 @@ const HomePage = () => {
         </div>
         <div className="card w-1/3 bg-base-100 shadow-lg border border-gray-200">
           <div className="card-body text-primary">
-            <h2 className="card-title">Médicaments</h2>
+            <h2 className="card-title">Forum</h2>
             <p></p>
           </div>
         </div>
@@ -35,11 +35,11 @@ const HomePage = () => {
       <div className="flex flex-row space-x-4">
         {user ? (
           <>
-            <div className="card w-1/3 bg-base-100 shadow-lg border border-gray-200">
+            <div className="card w-1/3 bg-base-100 shadow-lg border border-gray-200 flex">
               <figure className="relative rounded-xl shadow-lg">
-                <img src={`/images/${user.avatar}`} alt="Admin" />
-                  <div className="p-0 absolute card w-4/5 backdrop-blur-md bottom-0 m-4 z-30">
-                    <div className="card-body">
+                <img src={`/images/${user.avatar}`} alt="Photo utilisateur" />
+                  <div className="p-0 absolute card w-4/5 backdrop-blur-md bottom-0 m-4 z-30 bg-primary/30">
+                    <div className="card-body p-4 w-2/3">
                       <h2 className="text-2xl mb-3 card-title text-white">{user.firstName} {user.lastName}</h2>
                       <div className="text-white flex align-middle items-center text-center">
                         <Icon path={mdiEmailOutline}
@@ -78,6 +78,7 @@ const HomePage = () => {
       <div className="flex flex-row space-x-4 mt-4">
         <div className="card w-full bg-base-100 shadow-lg border border-gray-200">
           <div className="card-body">
+            <h2 className="card-title text-primary">Médicaments</h2>
           </div>
         </div>
       </div>
