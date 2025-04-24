@@ -8,13 +8,13 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
-    <aside className="w-20 mb-4 bg-white border-r border-gray-200 m-4 rounded-md no-scrollbar">
-      <div className="h-full flex flex-col items-center py-4">
+    <aside className="w-20 mb-4 border border-gray-200 m-4 rounded-xl">
+      <div className="h-full flex flex-col items-center py-4 bg-gradient-to-br from-pink-50 to-white">
+
         <div className="p-2">
           <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />
         </div>
-
-        <nav className="flex-1 w-full px-2 space-y-2 mt-6">
+        <nav className="flex-1 w-full px-2 space-y-2 mt-6 rounded-xl">
           <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
             <Link to={"/"}>
               <Icon path={mdiViewDashboardOutline}
@@ -64,7 +64,8 @@ const Sidebar = () => {
 
         </nav>
 
-        <div className="flex gap-2">
+        <div className="flex flex-row gap-2">
+
           <div className="dropdown dropdown-right dropdown-top">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-24 rounded-full">

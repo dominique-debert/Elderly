@@ -1,25 +1,30 @@
 import { Link, Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import { useAuth } from '../hooks/useAuth';
+import { useAuthStore } from '../store/auth';
+import { mdiCogOutline } from '@mdi/js';
+import Icon from '@mdi/react';
 
 const Layout = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuthStore();
 
   return (
     <div className="no-scrollbar overflow-x-hidden overflow-y-hidden bg-gradient-to-br from-white to-pink-50">
       <div className="navbar bg-white shadow-lg">
-        <div className="flex-1 align-middle items-center">
+        <div className="flex justify-between w-full items-center">
           <Link to="/" className="btn btn-ghost text-2xl text-primary">
             Helpy
           </Link>
+
+          {user?.isAdmin && (
+            <Link to="/profile" className="btn btn-ghost text-primary hover:bg-gray-50">
+              <Icon path={mdiCogOutline} size={1} />
+            </Link>
+          )}
         </div>
-        
       </div>
 
       <main className="min-h-[calc(100vh-64px)] flex flex-direction-column">
-        {isAuthenticated && (
-          <Sidebar />
-        )}
+        {isAuthenticated && <Sidebar />}
         <Outlet />
       </main>
     </div>
