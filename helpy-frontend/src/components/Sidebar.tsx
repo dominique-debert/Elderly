@@ -15,7 +15,7 @@ const Sidebar = () => {
           <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />
         </div>
         <nav className="flex-1 w-full px-2 space-y-2 mt-6 rounded-xl">
-          <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+          <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Link to={"/"}>
               <Icon path={mdiViewDashboardOutline}
                 title="Tableau de bord"
@@ -26,7 +26,7 @@ const Sidebar = () => {
           </button>
           
           <Link to="/profile" className="justify-between">
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Icon path={mdiAccount}
               title="Profil"
               size={1}
@@ -34,28 +34,28 @@ const Sidebar = () => {
           </button>
           </Link>
           
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Icon path={mdiBottleTonicPlusOutline}
               title="Profil"
               size={1}
             />
           </button>
           
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Icon path={mdiHeartOutline}
               title="Profil"
               size={1}
             />
           </button>
           
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Icon path={mdiHeadHeartOutline}
               title="Profil"
               size={1}
             />
           </button>
           
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-gray-50">
+          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Icon path={mdiForumOutline}
               title="Profil"
               size={1}

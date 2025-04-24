@@ -11,12 +11,12 @@ const Layout = () => {
     <div className="no-scrollbar overflow-x-hidden overflow-y-hidden bg-gradient-to-br from-white to-pink-50">
       <div className="navbar bg-white shadow-lg">
         <div className="flex justify-between w-full items-center">
-          <Link to="/" className="btn btn-ghost text-2xl text-primary">
+          <Link to="/" className="btn btn-ghost text-2xl text-primary hover:bg-primary/30 rounded-xl">
             Helpy
           </Link>
 
           {user?.isAdmin && (
-            <Link to="/profile" className="btn btn-ghost text-primary hover:bg-gray-50">
+            <Link to="/profile" className="btn btn-ghost text-primary hover:bg-primary/30 rounded-xl">
               <Icon path={mdiCogOutline} size={1} />
             </Link>
           )}
