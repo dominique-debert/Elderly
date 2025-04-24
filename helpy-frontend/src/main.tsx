@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <AuthProvider>
-          <div className="font-display" data-theme="pastel">
+          <div className="font-display" data-theme="cmyk">
             <App />
           </div>
           <Toaster position="bottom-right" />
