@@ -12,7 +12,7 @@ return (
     <figure className="relative rounded-xl shadow-lg">
       {user && <img src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
       <div className="grid grid-cols-3 bottom-0 left-0 gap-4 absolute content-center mx-14">
-        <div className="p-0 w-full card backdrop-blur-md m-4 z-30 bg-primary/20 col-0 col-span-2">
+        <div className="p-0 w-full card backdrop-blur-md m-4 z-30 bg-primary/10 col-0 col-span-2">
           <div className="card-body p-4">
             {user && (
               <h2 className="text-2xl mb-3 card-title text-white">{user.firstName} {user.lastName}</h2>
@@ -38,11 +38,11 @@ return (
               </div> */}
           </div>
         </div>
-        <div className="p-0 card w-full backdrop-blur-md m-4 z-30 bg-primary/20 col-2">
+        <div className="p-0 card w-full backdrop-blur-md m-4 z-30 bg-primary/10 col-2">
           <div className="card-body p-4">
             <div className="text-white flex flex-col mx-auto gap-4">
               <img src="/images/expert.png" className="w-20 align-middle" alt="" />
-              <h2 className="card-title text-2xl w-full text-center text-white">Expert</h2>
+              <h2 className="card-title text-2xl w-full text-center text-yellow-200">Expert</h2>
             </div>
           </div>
         </div>

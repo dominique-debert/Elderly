@@ -18,71 +18,71 @@
 
 :root {
   --font-display: 'Fira Sans', sans-serif;
-  --color-primary: rgba(230, 30, 90, 1) !important;
+  --color-primary: rgba(230, 30, 90, 1);
 }
 
 * {
-  font-family: var(--font-display) !important;
+  font-family: var(--font-display);
 }
 
 .bg-primary, .btn-primary {
-  background-color: var(--color-primary) !important;
-  color: white !important;
+  background-color: var(--color-primary);
+  color: white;
 }
 
 .btn-primary:hover {
-  background-color: white !important;
-  color: var(--color-primary) !important;
-  border-color: var(--color-primary) !important;
+  background-color: white;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .btn-outline {
-  background-color: white !important;
-  color: var(--color-primary) !important;
-  border-color: var(--color-primary) !important;
+  background-color: white;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .btn-outline:hover {
-  background-color: var(--color-primary) !important;
-  color: white !important;
+  background-color: var(--color-primary);
+  color: white;
 }
 
 .input, .input-bordered {
-  background-color: white !important;
+  background-color: white;
 }
 
 .link, .link:hover {
-  color: var(--color-primary) !important;
+  color: var(--color-primary);
 }
 
 .text-primary {
-  color: var(--color-primary) !important;
+  color: var(--color-primary);
 }
 
 .border-primary {
-  border-color: var(--color-primary) !important;
+  border-color: var(--color-primary);
 }
 
 .ring-primary {
-  border-color: var(--color-primary) !important;  
+  border-color: var(--color-primary);  
 }
 
 .checkbox-primary, .checkbox-primary:not(checked) {
-  --chkfg: white !important;
-  --chkbx: var(--color-primary) !important;
-  border: 1px solid var(--color-primary) !important;
+  --chkfg: white;
+  --chkbx: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
 .checkbox-primary:checked {
-  --chkbg: var(--color-primary) !important;
+  --chkbg: var(--color-primary);
 }
 
 .btn-active {
-  background-color: rgba(230, 30, 90, .1) !important;  
+  background-color: rgba(230, 30, 90, .1);  
 }
 
 .white {
-  color: white !important;
+  color: white;
 }
 
 .backdrop-blur-md {
