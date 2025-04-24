@@ -8,8 +8,8 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
-    <aside className="w-20 mb-4 border border-gray-200 m-4 rounded-xl">
-      <div className="h-full flex flex-col items-center py-4 bg-gradient-to-br from-pink-50 to-white">
+    <aside className="w-20 mb-4 m-4">
+      <div className="h-full flex flex-col items-center py-4 rounded-xl shadow-xl border border-gray-200 bg-base-100">
 
         <div className="p-2">
           <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />

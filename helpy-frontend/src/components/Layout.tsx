@@ -8,7 +8,7 @@ const Layout = () => {
   const { isAuthenticated, user } = useAuthStore();
 
   return (
-    <div className="no-scrollbar overflow-x-hidden overflow-y-hidden bg-gradient-to-br from-white to-pink-50">
+    <div className="no-scrollbar overflow-x-hidden overflow-y-hidden bg-100">
       <div className="navbar bg-white shadow-lg">
         <div className="flex justify-between w-full items-center">
           <Link to="/" className="btn btn-ghost text-2xl text-primary hover:bg-primary/30 rounded-xl">
