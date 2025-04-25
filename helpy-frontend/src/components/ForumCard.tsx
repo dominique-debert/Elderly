@@ -1,7 +1,7 @@
 const ForumCard = () => {
 
 return (
-    <div className="card mb-4 w-full bg-base-100 shadow-lg border border-gray-200">
+    <div className="card mt-4 mb-4 w-full bg-base-100 shadow-lg border border-gray-200">
       <div className="card-body">
         <h2 className="card-title text-primary">Derniers sujets dans le forum</h2>
 
