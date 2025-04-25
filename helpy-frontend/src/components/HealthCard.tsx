@@ -1,7 +1,7 @@
 const HealthCard = () => {
 
 return (
-    <div className="card mb-4 bg-base-100 shadow-lg border border-gray-200">
+    <div className="card md:mb-4 w-full lg:mt-0 bg-base-100 shadow-lg border border-gray-200">
       <div className="card-body">
         <h2 className="card-title text-primary">Santé</h2>
         <div className="stats">

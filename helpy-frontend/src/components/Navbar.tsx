@@ -13,7 +13,7 @@ const Navbar = () => {
           Helpy
         </Link>
 
-        <div className='flex space-x-2 xs:block md:hidden'>
+        <div className='flex space-x-2 xs:block lg:hidden'>
             <Link to={"/"}>
           <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
               <Icon path={mdiViewDashboardOutline}
