@@ -12,4 +12,13 @@ export default defineConfig({
       'react-hot-toast'
     ],
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://192.168.1.195:3000/api',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });

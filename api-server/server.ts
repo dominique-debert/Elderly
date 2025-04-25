@@ -14,7 +14,12 @@ const PORT: number = parseInt(process.env.PORT || '3000', 10);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors({ origin: 'http://localhost:5173' }));  // Assure-toi que le port correspond à ton front-end
+app.use(cors({
+  origin: '*', // ⚠️ Autorise tous les domaines. À restreindre en prod.
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+}));
 
 // Swagger setup
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
@@ -32,8 +37,8 @@ app.get('/', (req: Request, res: Response) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-  console.log(`API Documentation available at http://localhost:${PORT}/api-docs`);
+  console.log(`Server running on http://192.168.1.195:${PORT}`);
+  console.log(`API Documentation available at http://192.168.1.195:${PORT}/api-docs`);
 });
 
 export default app;
