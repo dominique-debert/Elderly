@@ -1,7 +1,7 @@
 const ServiceCard = () => {
 
 return (
-    <div className="card mb-4 bg-base-100 shadow-lg border border-gray-200">
+    <div className="card bg-base-100 shadow-lg border border-gray-200">
       <div className="card-body">
         <h2 className="card-title text-primary">Services</h2>
         <div className="stats">

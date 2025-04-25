@@ -14,14 +14,7 @@ const HomePage = () => {
   }
 
   return (
-    <div className="pr-5 pt-5 pl-2 pb-10 w-full">
-      {/* <div className="flex sm:flex-auto md:flex-column space-x-4 mb-4"> */}
-        <ActivityCard />
-        <HealthCard />
-        <ServiceCard />
-      {/* </div> */}
-
-      {/* <div className="flex sm:flex-auto md:flex-row space-x-4"> */}
+    <div className="flex flex-col space-y-4 m-4 w-full">
         {user ? (
           <>
             <UserCard />
@@ -29,9 +22,14 @@ const HomePage = () => {
         ) : (
           <p>Les informations de profil sont introuvables.</p>
         )}
+      <div className="lg:flex lg:flex-auto lg:flex-column w-full">
+        <ActivityCard />
+        <HealthCard />
+        <ServiceCard />
+      </div>
+
         <ForumCard />
 
-      {/* </div> */}
       <MedicationCard />
     </div>
   );

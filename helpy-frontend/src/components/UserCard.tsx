@@ -8,7 +8,7 @@ const UserCard = () => {
   const { user } = useAuthStore();
 
 return (
-  <div className="card mb-4 bg-base-100 shadow-lg border border-gray-200">
+  <div className="card bg-base-100 shadow-lg border border-gray-200">
     <figure className="relative rounded-xl shadow-lg">
       {user && <img src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
       <div className="grid grid-cols-3 w-full bottom-0 left-0 gap-4 absolute content-center">
