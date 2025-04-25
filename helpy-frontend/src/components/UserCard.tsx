@@ -8,11 +8,11 @@ const UserCard = () => {
   const { user } = useAuthStore();
 
 return (
-  <div className="card bg-base-100 shadow-lg border border-gray-200">
+  <div className="card mb-4 bg-base-100 shadow-lg border border-gray-200">
     <figure className="relative rounded-xl shadow-lg">
       {user && <img src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
-      <div className="grid grid-cols-3 bottom-0 left-0 gap-4 absolute content-center mx-14">
-        <div className="p-0 w-full card backdrop-blur-md m-4 z-30 bg-primary/10 col-0 col-span-2">
+      <div className="grid grid-cols-3 w-full bottom-0 left-0 gap-4 absolute content-center">
+        <div className="p-0 w-full card backdrop-blur-md z-30 bg-primary/10 col-0 col-span-2">
           <div className="card-body p-4">
             {user && (
               <h2 className="text-2xl mb-3 card-title text-white">{user.firstName} {user.lastName}</h2>
@@ -31,14 +31,14 @@ return (
                 size={1}
                 className="text-gray-300"
                 />
-              <span className="ml-2 mt-2">{user && user.birthDate ? formatDate(user.birthDate) : 'Non disponible'}</span>
+              <span className="ml-2 mt-1">{user && user.birthDate ? formatDate(user.birthDate) : 'Non disponible'}</span>
             </div>
             {/* <div className="card-actions justify-end">
               <button className="btn btn-primary">Learn now!</button>
               </div> */}
           </div>
         </div>
-        <div className="p-0 card w-full backdrop-blur-md m-4 z-30 bg-primary/10 col-2">
+        <div className="p-0 card w-full backdrop-blur-md z-30 bg-primary/10 col-2">
           <div className="card-body p-4">
             <div className="text-white flex flex-col mx-auto gap-4">
               <img src="/images/expert.png" className="w-20 align-middle" alt="" />

@@ -1,50 +1,7 @@
-import React from "react";
-import Icon from '@mdi/react';
-import { mdiClockAlertOutline } from "@mdi/js";
-
-type MedicationEvent = {
-  timeOfDay: "Matin" | "Midi" | "Soir" | "Nuit";
-  time: string;
-  name: string;
-  dose?: string;
-};
-
-const timeOfDayOrder = ["Matin", "Midi", "Soir", "Nuit"];
-
-const mockEvents: MedicationEvent[] = [
-  {
-    timeOfDay: "Matin",
-    time: "08:00",
-    name: "Doliprane",
-    dose: "500mg",
-  },
-  {
-    timeOfDay: "Midi",
-    time: "12:30",
-    name: "Vitamine D",
-    dose: "1000 UI",
-  },
-  {
-    timeOfDay: "Soir",
-    time: "20:00",
-    name: "Ibuprofène",
-    dose: "400mg",
-  },
-  {
-    timeOfDay: "Nuit",
-    time: "23:00",
-    name: "Mélatonine",
-    dose: "3mg",
-  },
-];
-
 const MedicationCard: React.FC = () => {
-  const sortedEvents = [...mockEvents].sort(
-    (a, b) => timeOfDayOrder.indexOf(a.timeOfDay) - timeOfDayOrder.indexOf(b.timeOfDay)
-  );
 
   return (
-    <div className="flex flex-row space-x-4 mt-4 w-full">
+    <div className="flex flex-row space-x-4 w-full">
       <div className="card w-full bg-base-100 shadow-lg border border-gray-200">
         <div className="w-full max-w-xl mx-auto p-4">
           <h2 className="text-2xl font-bold mb-6 text-center text-primary">Prise de médicaments</h2>

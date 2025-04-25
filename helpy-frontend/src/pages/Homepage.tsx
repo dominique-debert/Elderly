@@ -15,13 +15,13 @@ const HomePage = () => {
 
   return (
     <div className="pr-5 pt-5 pl-2 pb-10 w-full">
-      <div className="flex space-x-4 mb-4">
+      {/* <div className="flex sm:flex-auto md:flex-column space-x-4 mb-4"> */}
         <ActivityCard />
         <HealthCard />
         <ServiceCard />
-      </div>
+      {/* </div> */}
 
-      <div className="flex flex-row space-x-4">
+      {/* <div className="flex sm:flex-auto md:flex-row space-x-4"> */}
         {user ? (
           <>
             <UserCard />
@@ -31,7 +31,7 @@ const HomePage = () => {
         )}
         <ForumCard />
 
-      </div>
+      {/* </div> */}
       <MedicationCard />
     </div>
   );
