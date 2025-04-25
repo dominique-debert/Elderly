@@ -11,7 +11,7 @@ return (
   <div className="card w-full bg-base-100 shadow-lg border border-gray-200">
     <figure className="relative rounded-xl shadow-lg">
       {user && <img className="w-full" src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
-      <div className="grid grid-cols-3 my-4 bottom-0 gap-4 absolute  right-[25%] w-100">
+      <div className="grid grid-cols-3 my-4 bottom-0 gap-4 absolute xs:w-full">
         <div className="p-4 card backdrop-blur-md z-30 bg-primary/10 col-0 col-span-2">
           <div className="card-body p-4">
             {user && (
