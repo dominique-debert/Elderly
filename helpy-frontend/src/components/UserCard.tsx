@@ -10,7 +10,7 @@ const UserCard = () => {
 return (
   <div className="card bg-base-100 shadow-lg border border-gray-200">
     <figure className="relative rounded-xl shadow-lg">
-      {user && <img src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
+      {user && <img className="w-full" src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
       <div className="grid grid-cols-3 w-full bottom-0 left-0 gap-4 absolute content-center">
         <div className="p-0 w-full card backdrop-blur-md z-30 bg-primary/10 col-0 col-span-2">
           <div className="card-body p-4">
