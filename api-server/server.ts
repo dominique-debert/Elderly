@@ -15,10 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: '*', // ⚠️ Autorise tous les domaines. À restreindre en prod.
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: '*',
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
 }));
 
 // Swagger setup

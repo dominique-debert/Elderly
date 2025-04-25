@@ -57,6 +57,7 @@ import categoryIndexRouter from './categoryIndex.routes';
 
 const router = Router();
 
+
 // Public routes
 router.use('/auth', authRouter);
 
@@ -64,7 +65,19 @@ router.use('/auth', authRouter);
 router.use(authenticate);
 router.use(currentSession);
 
-// Categories routes
+router.use('/activity-categories', activityCategoriesRouter);
+router.use('/badge-categories', badgeCategoriesRouter);
+router.use('/cognitive-categories', cognitiveCategoriesRouter);
+router.use('/forum-categories', forumCategoryRouter);
+router.use('/help-categories', helpCategoriesRouter);
+router.use('/issue-categories', issueCategoriesRouter);
+router.use('/nutritional-categories', nutritionalCategoriesRouter);
+router.use('/program-categories', programCategoriesRouter);
+router.use('/project-categories', projectCategoriesRouter);
+router.use('/resource-categories', resourceCategoriesRouter);
+router.use('/service-categories', serviceCategoriesRouter); 
+router.use('/skill-categories', skillCategoriesRouter);
+router.use('/wellness-categories', wellnessCategoriesRouter);
 router.use('/categories', categoryIndexRouter);
 
 // Feature routes
