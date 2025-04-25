@@ -8,14 +8,16 @@ const UserCard = () => {
   const { user } = useAuthStore();
 
 return (
-  <div className="card bg-base-100 shadow-lg border border-gray-200">
+  <div className="card w-full bg-base-100 shadow-lg border border-gray-200">
     <figure className="relative rounded-xl shadow-lg">
       {user && <img className="w-full" src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
-      <div className="grid grid-cols-3 w-full bottom-0 left-0 gap-4 absolute content-center">
-        <div className="p-0 w-full card backdrop-blur-md z-30 bg-primary/10 col-0 col-span-2">
+      <div className="grid grid-cols-3 my-4 bottom-0 gap-4 absolute  right-[25%] w-100">
+        <div className="p-4 card backdrop-blur-md z-30 bg-primary/10 col-0 col-span-2">
           <div className="card-body p-4">
             {user && (
-              <h2 className="text-2xl mb-3 card-title text-white">{user.firstName} {user.lastName}</h2>
+              <h2 className="text-2xl mb-3 card-title text-white">
+                {user.firstName} {user.lastName}
+              </h2>
             )}
             <div className="text-white flex align-middle">
               <Icon path={mdiEmailOutline}
@@ -38,10 +40,10 @@ return (
               </div> */}
           </div>
         </div>
-        <div className="p-0 card w-full backdrop-blur-md z-30 bg-primary/10 col-2">
+        <div className="p-4 card w-full backdrop-blur-md z-30 bg-primary/10 col-2">
           <div className="card-body p-4">
             <div className="text-white flex flex-col mx-auto gap-4">
-              <img src="/images/expert.png" className="w-20 align-middle" alt="" />
+              <img src="/images/expert.png" className="w-16 align-middle" alt="" />
               <h2 className="card-title text-2xl w-full text-center text-yellow-200">Expert</h2>
             </div>
           </div>
