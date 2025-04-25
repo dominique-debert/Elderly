@@ -69,7 +69,7 @@ const Navbar = () => {
             </Link>
           )}
           {user?.isAdmin && (
-            <Link to="/profile" className="btn btn-ghost text-gray-400 hover:bg-primary/30 rounded-lg">
+            <Link to="/activity-categories" className="btn btn-ghost text-gray-400 hover:bg-primary/30 rounded-lg">
               <Icon path={mdiCogOutline} size={1} />
             </Link>
           )}
