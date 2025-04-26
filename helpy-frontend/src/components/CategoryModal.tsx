@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useCategoryModalStore from '../store/categoryModalStore';
+import { useCategoryModalStore } from '../stores/categoryModalStore';
 import { createActivityCategory } from '../services/activityCategory';
 import { useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
@@ -12,12 +12,14 @@ const CategoryModal = () => {
 
   const handleSubmit = async () => {
     try {
-      await createActivityCategory({ name, description });
-      await queryClient.invalidateQueries(['activityCategories']);
-      toast.success('Catégorie créée avec succès ! 🎉');
-      close();
-      setName('');
-      setDescription('');
+      const category = await createActivityCategory({ name, description });
+      if (category) {
+        await queryClient.invalidateQueries({ queryKey: ['activityCategories'] });
+        toast.success('Catégorie créée avec succès ! 🎉');
+        close();
+        setName('');
+        setDescription('');
+      }
     } catch (error) {
       console.error(error);
       toast.error('Erreur lors de la création de la catégorie ❌');

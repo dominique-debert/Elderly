@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { mdiAccount, mdiBellOutline, mdiBottleTonicPlusOutline, mdiCogOutline, mdiForumOutline, mdiHeadHeartOutline, mdiHeartOutline, mdiViewDashboardOutline } from '@mdi/js';
 import Icon from '@mdi/react';
-import { useAuthStore } from '../store/auth';
+import { useAuthStore } from '../stores/auth';
 
 const Navbar = () => {
   const { user, isAuthenticated } = useAuthStore();

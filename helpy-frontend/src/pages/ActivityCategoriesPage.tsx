@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchActivityCategories } from '../services/activityCategory';
-import { useAuthStore } from '../store/auth';
-import useCategoryModalStore from '../store/categoryModalStore';
+import { useAuthStore } from '../stores/auth';
+import { useCategoryModalStore } from '../stores/categoryModalStore';
 import CategoryModal from '../components/CategoryModal';
-import ICategory from '../@types/ICategory';
+import type { ICategory } from '../@types/ICategory';
 import Icon from '@mdi/react';
 import { mdiDotsVertical, mdiPlus } from '@mdi/js';
 

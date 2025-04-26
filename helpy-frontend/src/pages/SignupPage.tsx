@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSignupStore } from '../store/signup';
-import { useAuthStore } from '../store/auth';
+import { useSignupStore } from '../stores/signup';
+import { useAuthStore } from '../stores/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {

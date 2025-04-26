@@ -1,4 +1,4 @@
-import { useAuthStore } from "../store/auth";
+import { useAuthStore } from "../stores/auth";
 import ActivityCard from "../components/ActivityCard";
 import ForumCard from "../components/ForumCard";
 import HealthCard from "../components/HealthCard";

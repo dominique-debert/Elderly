@@ -1,7 +1,7 @@
 import { mdiCakeVariantOutline, mdiEmailOutline } from "@mdi/js";
 import { formatDate } from "../utils/formatDate";
 import Icon from '@mdi/react';
-import { useAuthStore } from "../store/auth";
+import { useAuthStore } from "../stores/auth";
 
 const UserCard = () => {
   

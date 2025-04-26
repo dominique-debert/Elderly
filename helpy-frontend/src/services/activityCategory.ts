@@ -1,5 +1,5 @@
 import api from './api';
-import ICategory from '../@types/ICategory';
+import type { ICategory } from '../@types/ICategory';
 
 export const fetchActivityCategories = async (): Promise<ICategory[]> =>  {
 const storedAuth = localStorage.getItem('auth-storage');

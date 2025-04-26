@@ -1,6 +1,6 @@
 import Icon from '@mdi/react';
 import { mdiAccount, mdiBottleTonicPlusOutline, mdiForumOutline, mdiHeadHeartOutline, mdiHeartOutline, mdiViewDashboardOutline } from '@mdi/js';
-import { useAuthStore } from '../store/auth'; 
+import { useAuthStore } from '../stores/auth'; 
 import { Link, useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {

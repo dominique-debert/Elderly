@@ -1,4 +1,4 @@
-import { useAuthStore } from '../store/auth';
+import { useAuthStore } from '../stores/auth';
 import { formatDate } from '../utils/formatDate';
 
 const ProfilePage = () => {
