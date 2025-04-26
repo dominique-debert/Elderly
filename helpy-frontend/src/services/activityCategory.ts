@@ -9,18 +9,13 @@ const accessToken = storedAuth ? JSON.parse(storedAuth).state.accessToken : null
     throw new Error('Token manquant');
   }
 
-  const { data } = await api.get(`/activity-categories`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-
+  const { data } = await api.get(`/activity-categories`);
   return data.categories;
 };
 
-export const createActivityCategory = async (data: { name: string; description?: string }) => {
-  const response = await api.post('/activity-categories', data);
-  return response.data;
+export const createActivityCategory = async (category: { name: string; description?: string }) => {
+  const { ...data } = await api.post('/activity-categories', category);
+  return data;
 };
 
 export const updateActivityCategory = async (id: string, data: { name: string; description?: string }) => {

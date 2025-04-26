@@ -1,45 +1,65 @@
-import { useState, useEffect } from 'react';
-import ICategory from '../@types/ICategory';
+import { useState } from 'react';
+import useCategoryModalStore from '../store/categoryModalStore';
+import { createActivityCategory } from '../services/activityCategory';
+import { useQueryClient } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
-interface CategoryModalProps {
-  category?: ICategory | null;
-  onSave: (data: { name: string; description?: string }) => void;
-  onClose: () => void;
-}
-
-const CategoryModal = ({ category, onSave, onClose }: CategoryModalProps) => {
+const CategoryModal = () => {
+  const { isOpen, close } = useCategoryModalStore();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const queryClient = useQueryClient();
 
-  useEffect(() => {
-    if (category) {
-      setName(category.name);
-      setDescription(category.description || '');
-    } else {
+  const handleSubmit = async () => {
+    try {
+      await createActivityCategory({ name, description });
+      await queryClient.invalidateQueries(['activityCategories']);
+      toast.success('Catégorie créée avec succès ! 🎉');
+      close();
       setName('');
       setDescription('');
+    } catch (error) {
+      console.error(error);
+      toast.error('Erreur lors de la création de la catégorie ❌');
     }
-  }, [category]);
-
-  const handleSubmit = () => {
-    onSave({ name, description });
   };
 
+  if (!isOpen) return null;
+
   return (
-    <div className="modal modal-open">
-      <div className="modal-box">
-        <h3 className="font-bold text-lg">{category ? 'Modifier' : 'Ajouter'} une catégorie</h3>
-        <div className="form-control mt-4">
-          <label className="label">Nom</label>
-          <input className="input input-bordered" value={name} onChange={(e) => setName(e.target.value)} />
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-4">Ajouter une catégorie</h2>
+        <div className="form-control mb-4">
+          <label className="label">
+            <span className="label-text">Nom</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Nom de la catégorie"
+            className="input input-bordered"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
-        <div className="form-control mt-4">
-          <label className="label">Description</label>
-          <textarea className="textarea textarea-bordered" value={description} onChange={(e) => setDescription(e.target.value)} />
+        <div className="form-control mb-4">
+          <label className="label">
+            <span className="label-text">Description</span>
+          </label>
+          <textarea
+            placeholder="Description"
+            className="textarea textarea-bordered"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
         </div>
-        <div className="modal-action">
-          <button className="btn" onClick={onClose}>Annuler</button>
-          <button className="btn btn-primary" onClick={handleSubmit}>Enregistrer</button>
+        <div className="flex justify-end gap-4">
+          <button onClick={close} className="btn btn-ghost">
+            Annuler
+          </button>
+          <button onClick={handleSubmit} className="btn btn-primary">
+            Créer
+          </button>
         </div>
       </div>
     </div>
