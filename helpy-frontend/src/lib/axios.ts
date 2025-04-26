@@ -8,23 +8,40 @@ const api = axios.create({
 // Intercepteur de requête pour ajouter le token dans les headers
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('accessToken');
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
+    const storedAuth = localStorage.getItem('auth-storage');
+    const accessToken = storedAuth ? JSON.parse(storedAuth).state.accessToken : null;
+    if (accessToken) {
+      config.headers['Authorization'] = `Bearer ${accessToken}`;
     }
-    console.log('Headers de la requête:', config.headers); // Log des headers
     return config;
   },
   (error) => Promise.reject(error)
 );
 
 // Optionnel : Intercepteur de réponse pour gérer les erreurs, par exemple pour le refresh token
+import { refreshAccessToken } from '../services/auth'; 
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    // gestion des erreurs ici
+    const originalRequest = error.config;
+    if (error.response && error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+
+      try {
+        const newAccessToken = await refreshAccessToken();
+
+        originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
+
+        return api(originalRequest);
+      } catch (refreshError) {
+        localStorage.removeItem('auth-storage');
+        window.location.href = '/login';
+        return Promise.reject(refreshError);
+      }
+    }
     return Promise.reject(error);
   }
 );
+
 
 export default api;
