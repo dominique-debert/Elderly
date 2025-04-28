@@ -1,6 +1,6 @@
 export default interface ILocalService {
   name: string;
-  categoryId: string;
+  categoryId: number;
   address?: string;
   gpsCoordinates?: string;
   phone?: string;
@@ -11,7 +11,7 @@ export default interface ILocalService {
 }
 
 // name            String          @db.Text
-// categoryId      String          @map("category_id") @db.Text
+// categoryId      Int             @map("category_id")
 // address         String?          @db.Text
 // gpsCoordinates  String?          @map("gps_coordinates")
 // phone           String?          @db.Text

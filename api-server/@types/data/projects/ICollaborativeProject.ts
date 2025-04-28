@@ -4,5 +4,5 @@ export default interface ICollaborativeProject {
   creatorId: string
   creationDate: Date
   status?: string
-  categoryId: string
+  categoryId: number
 }

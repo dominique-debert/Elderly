@@ -1,5 +1,5 @@
 export default interface ISkill {
   name: string;
-  categoryId: string;
+  categoryId: number;
   description?: string;
 }

@@ -6,7 +6,7 @@ export default interface IHelpRequest {
   estimatedDuration: number
   location?: string
   gpsCoordinates?: string
-  categoryId: string
+  categoryId: number
   recurring?: boolean
   frequency?: string
   status?: string

@@ -6,7 +6,7 @@
     location?: string
     gpsCoordinates?: string
     maxSpots?: number
-    categoryId: string
+    categoryId: number
     recurring?: boolean
     frequency?: string
     reducedMobilityAccess?: boolean

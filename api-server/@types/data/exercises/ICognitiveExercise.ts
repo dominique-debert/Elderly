@@ -1,6 +1,6 @@
 export default interface ICognitiveExercise {
   name: string;
-  categoryId: string;
+  categoryId: number;
   difficultyLevel: number;
   durationMinutes: number;
   description?: string;

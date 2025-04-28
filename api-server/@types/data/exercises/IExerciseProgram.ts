@@ -1,6 +1,6 @@
 export default interface IExerciseProgram {
   name: string;
-  categoryId: string;
+  categoryId: number;
   difficultyLevel: number;
   adaptedForReducedMobility: boolean;
   durationMinutes: number;

@@ -2,7 +2,7 @@ export default interface INutritionalAdvice {
   id?: string;
   title: string;
   description?: string;
-  categoryId: string;
+  categoryId: number;
   season?: string;
   image?: string;
   createdAt?: Date;

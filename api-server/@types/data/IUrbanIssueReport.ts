@@ -1,6 +1,6 @@
 export default interface IUrbanIssueReport {
   userId: string
-  categoryId: string
+  categoryId: number
   description: string
   address: string
   gpsCoordinates?: string
