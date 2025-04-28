@@ -23,7 +23,7 @@
  *           type: string
  *           maxLength: 255
  *         categoryId:
- *           type: string
+ *           type: integer
  *         targetValue:
  *           type: integer
  *         unit:
@@ -50,7 +50,7 @@
  *         id: "clv2a8abc0001abc123def456"
  *         userId: "user123"
  *         title: "Atteindre 10 000 pas par jour"
- *         categoryId: "category001"
+ *         categoryId: 1
  *         targetValue: 10000
  *         unit: "steps"
  *         frequency: "daily"

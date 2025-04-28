@@ -33,7 +33,7 @@
  *         gpsCoordinates:
  *           type: string
  *         categoryId:
- *           type: string
+ *           type: integer
  *         recurring:
  *           type: boolean
  *         frequency:
@@ -60,7 +60,7 @@
  *         estimatedDuration: 180
  *         location: "15 rue des Lilas, Paris"
  *         gpsCoordinates: "48.8566,2.3522"
- *         categoryId: "cat001"
+ *         categoryId: 1
  *         recurring: false
  *         frequency: null
  *         status: "Ouvert"
@@ -93,7 +93,7 @@
  *         gpsCoordinates:
  *           type: string
  *         categoryId:
- *           type: string
+ *           type: integer
  *         recurring:
  *           type: boolean
  *         frequency:
@@ -112,7 +112,7 @@
  *         estimatedDuration: 120
  *         location: "25 avenue des Fleurs, Lyon"
  *         gpsCoordinates: "45.7640,4.8357"
- *         categoryId: "cat002"
+ *         categoryId: 2
  *         recurring: true
  *         frequency: "Hebdomadaire"
  *         status: "Ouvert"
@@ -139,7 +139,7 @@
  *         gpsCoordinates:
  *           type: string
  *         categoryId:
- *           type: string
+ *           type: integer
  *         recurring:
  *           type: boolean
  *         frequency:

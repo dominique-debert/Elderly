@@ -34,7 +34,7 @@
  *         maxSpots:
  *           type: integer
  *         categoryId:
- *           type: string
+ *           type: integer
  *         recurring:
  *           type: boolean
  *         frequency:
@@ -58,7 +58,7 @@
  *         location: "Maison de quartier - Salle 3"
  *         gpsCoordinates: "48.8566, 2.3522"
  *         maxSpots: 12
- *         categoryId: "cat001"
+ *         categoryId: 1
  *         recurring: false
  *         frequency: null
  *         reducedMobilityAccess: true
@@ -75,8 +75,7 @@
  *               type: object
  *               properties:
  *                 id:
- *                   type: string
- *                   format: cuid
+ *                   type: integer
  *                 name:
  *                   type: string
  *                 description:
@@ -94,7 +93,7 @@
  *         location: "Maison de quartier - Salle 3"
  *         gpsCoordinates: "48.8566, 2.3522"
  *         maxSpots: 12
- *         categoryId: "cat001"
+ *         categoryId: 1
  *         recurring: false
  *         frequency: null
  *         reducedMobilityAccess: true
@@ -102,10 +101,5 @@
  *         status: "active"
  *         weatherRequirements: "Aucune"
  *         transportOptions: "Bus 42, Métro Ligne 7"
- *         activityCategory:
- *           id: "cat001"
- *           name: "Arts créatifs"
- *           description: "Activités artistiques et créatives"
- *           activity: []
  */
 

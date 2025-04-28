@@ -17,7 +17,7 @@
  *         userId:
  *           type: string
  *         categoryId:
- *           type: string
+ *           type: integer
  *         description:
  *           type: string
  *         address:
@@ -43,7 +43,7 @@
  *       example:
  *         id: "clv2a8abc0001abc123def789"
  *         userId: "usr123"
- *         categoryId: "cat001"
+ *         categoryId: 1
  *         description: "Problème de chaussée défectueuse"
  *         address: "123 Rue Principale"
  *         gpsCoordinates: "48.8566, 2.3522"
@@ -64,7 +64,7 @@
  *         userId:
  *           type: string
  *         categoryId:
- *           type: string
+ *           type: integer
  *         description:
  *           type: string
  *         address:
@@ -83,7 +83,7 @@
  *           maxLength: 255
  *       example:
  *         userId: "usr123"
- *         categoryId: "cat001"
+ *         categoryId: 1
  *         description: "Problème de chaussée défectueuse"
  *         address: "123 Rue Principale"
  *         gpsCoordinates: "48.8566, 2.3522"
@@ -96,7 +96,7 @@
  *         userId:
  *           type: string
  *         categoryId:
- *           type: string
+ *           type: integer
  *         description:
  *           type: string
  *         address:
@@ -115,7 +115,7 @@
  *           maxLength: 255
  *       example:
  *         userId: "usr456"
- *         categoryId: "cat002"
+ *         categoryId: 2
  *         description: "Problème d'éclairage public défectueux"
  *         address: "456 Avenue des Champs"
  *         gpsCoordinates: "48.8606, 2.3276"

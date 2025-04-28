@@ -21,7 +21,7 @@
  *           type: string
  *           maxLength: 100
  *         categoryId:
- *           type: string
+ *           type: integer
  *         authorId:
  *           type: string
  *         adminValidated:
@@ -37,7 +37,7 @@
  *         title: "Introduction à Node.js"
  *         content: "Un article détaillant les bases de Node.js"
  *         type: "article"
- *         categoryId: "cat001"
+ *         categoryId: 1
  *         authorId: "auth001"
  *         adminValidated: true
  *         createdAt: "2025-04-15T09:00:00Z"

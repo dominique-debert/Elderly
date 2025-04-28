@@ -29,7 +29,7 @@
  *           maxLength: 50
  *           description: Statut du projet (ex: actif, terminé)
  *         categoryId:
- *           type: string
+ *           type: integer
  *           description: Identifiant de la catégorie du projet
  *       required:
  *         - id

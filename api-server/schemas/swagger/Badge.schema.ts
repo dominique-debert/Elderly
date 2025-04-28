@@ -19,7 +19,7 @@
  *           type: string
  *           description: Chemin de l'icône du badge
  *         categoryId:
- *           type: string
+ *           type: integer
  *           description: Id de la catégorie du badge
  *         level:
  *           type: integer
@@ -28,6 +28,6 @@
  *         name: Expert
  *         description: Badge pour les utilisateurs experts
  *         icon: expert.png
- *         categoryId: cm9k1mt8m0000tbda72ibub78
+ *         categoryId: 1
  *         level: 3
  */
