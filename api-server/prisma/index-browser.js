@@ -229,7 +229,8 @@ exports.Prisma.ExerciseProgramScalarFieldEnum = {
   videoLink: 'videoLink',
   image: 'image',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  programCategoryId: 'programCategoryId'
 };
 
 exports.Prisma.ForumCategoryScalarFieldEnum = {
@@ -673,100 +674,22 @@ exports.Prisma.WellnessGoalProgressScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.ActivityCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.BadgeCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.CognitiveCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.HelpCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.IssueCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.NutritionalCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
 exports.Prisma.ProgramCategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  description: 'description'
 };
 
-exports.Prisma.ProjectCategoryScalarFieldEnum = {
+exports.Prisma.CategoryTypeScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
+exports.Prisma.CategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.ResourceCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.ServiceCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.SkillCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.WellnessCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  typeId: 'typeId'
 };
 
 exports.Prisma.SortOrder = {
@@ -841,18 +764,9 @@ exports.Prisma.ModelName = {
   wellnessBadge: 'wellnessBadge',
   wellnessGoal: 'wellnessGoal',
   wellnessGoalProgress: 'wellnessGoalProgress',
-  activityCategory: 'activityCategory',
-  badgeCategory: 'badgeCategory',
-  cognitiveCategory: 'cognitiveCategory',
-  helpCategory: 'helpCategory',
-  issueCategory: 'issueCategory',
-  nutritionalCategory: 'nutritionalCategory',
   programCategory: 'programCategory',
-  projectCategory: 'projectCategory',
-  resourceCategory: 'resourceCategory',
-  serviceCategory: 'serviceCategory',
-  skillCategory: 'skillCategory',
-  wellnessCategory: 'wellnessCategory'
+  categoryType: 'categoryType',
+  category: 'category'
 };
 
 /**
