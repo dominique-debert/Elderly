@@ -14,14 +14,21 @@ const PORT: number = parseInt(process.env.PORT || '3000', 10);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Configuration de CORS
-const corsOptions = {
-  origin: 'http://localhost:5173', 
-  credentials: true, // Si tu utilises des cookies
-};
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://192.168.1.25:5173",
+];
 
-app.use(cors(corsOptions));
-
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
 
 // Swagger setup
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
@@ -39,8 +46,11 @@ app.get('/', (req: Request, res: Response) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on http://192.168.1.195:${PORT}`);
-  console.log(`API Documentation available at http://192.168.1.195:${PORT}/api-docs`);
+  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`API Documentation available at http://localhost:${PORT}/api-docs`);
 });
 
 export default app;
+
+
+
