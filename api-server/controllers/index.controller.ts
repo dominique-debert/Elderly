@@ -2,19 +2,19 @@
 export * from './auth.controller';
 
 // Categories
-export * from './activities/activityCategory.controller';
-export * from './badgeCategory.controller';
-export * from './cognitiveCategory.controller';
-export * from './forumCategory.controller';
-export * from './helpCategory.controller';
-export * from './issueCategory.controller';
-export * from './nutritionalCategory.controller';
-export * from './programCategory.controller';
-export * from './projectCategory.controller';
-export * from './resourceCategory.controller';
-export * from './serviceCategory.controller';
-export * from './skillCategory.controller';
-export * from './wellnessCategory.controller';
+export * from './categories/activityCategory.controller';
+export * from './categories/badgeCategory.controller';
+export * from './categories/cognitiveCategory.controller';
+export * from './categories/forumCategory.controller';
+export * from './categories/helpCategory.controller';
+export * from './categories/issueCategory.controller';
+export * from './categories/nutritionalCategory.controller';
+export * from './categories/programCategory.controller';
+export * from './categories/projectCategory.controller';
+export * from './categories/resourceCategory.controller';
+export * from './categories/serviceCategory.controller';
+export * from './categories/skillCategory.controller';
+export * from './categories/wellnessCategory.controller';
 
 // Features
 export * from './activities/activity.controller';

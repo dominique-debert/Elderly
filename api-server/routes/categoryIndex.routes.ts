@@ -11,7 +11,6 @@ const categoryMappings: Record<string, keyof import("@prisma/client").PrismaClie
   help: "helpCategory",
   issue: "issueCategory",
   nutritional: "nutritionalCategory",
-  program: "programCategory",
   project: "projectCategory",
   resource: "resourceCategory",
   service: "serviceCategory",

@@ -1,0 +1,141 @@
+import { Request, Response, NextFunction } from 'express';
+import { PrismaClient } from '@/prisma/client';
+import { createHttpError } from '@/utils/httpError';
+import { CategoryType } from '@/@types/data/categories/ECategory';
+import ICategory from '@/@types/data/categories/ICategory';
+
+const prisma = new PrismaClient();
+
+/**
+* @swagger
+* tags:
+*   name: Service Categories
+*   description: API pour gérer les catégories de services
+*/
+
+// TOUTES LES CATÉGORIES DE SERVICES
+export const fetchAllServiceCategories = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const serviceCategories = await prisma.category.findMany({
+      where: {
+        typeId: CategoryType.SERVICE
+      },
+      orderBy: {
+        name: 'asc'
+      }
+    });
+
+    res.status(200).json({ serviceCategories });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// CATÉGORIE DE SERVICE PAR ID
+export const fetchServiceCategoryById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { id } = req.params;
+
+  try {
+    const serviceCategory = await prisma.category.findUnique({
+      where: {
+        id: Number(id),
+        typeId: CategoryType.SERVICE }
+    });
+
+    if (!serviceCategory) {
+      throw createHttpError(404, 'Catégorie non trouvée');
+    }
+
+    res.status(200).json(serviceCategory);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// CRÉER UNE CATÉGORIE DE SERVICE
+export const createServiceCategory = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const categoryToCreate = await prisma.category.create({
+      data: req.body
+    });
+    res.status(201).json(categoryToCreate);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateServiceCategory = async (
+  req: Request<{ id: string }, ICategory>,
+  res: Response,
+  next: NextFunction
+) => {
+  const { id } = req.params;
+
+  try {
+    const category = await prisma.category.findUnique({
+      where: {
+        id: Number(id),
+        typeId: CategoryType.SERVICE }
+    });
+
+    if (!category) {
+      throw createHttpError(404, 'Catégorie non trouvée');
+    }
+
+    const categoryToUpdate = await prisma.category.update({
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
+      where: {
+        id: Number(id),
+        typeId: CategoryType.SERVICE }
+    });
+
+    res.status(200).json(categoryToUpdate);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteServiceCategory = async (
+  req: Request<{ id: string }>,
+  res: Response,
+  next: NextFunction
+) => {
+  const { id } = req.params;
+
+  try {
+    const category = await prisma.category.findUnique({
+      where: {
+        id: Number(id),
+        typeId: CategoryType.SERVICE }
+    });
+
+    if (!category) {
+      throw createHttpError(404, 'Catégorie non trouvée');
+    }
+
+    await prisma.category.delete({
+      where: {
+        id: Number(id),
+        typeId: CategoryType.SERVICE }
+    });
+
+    res.status(200).json({ message: 'Catégorie supprimée avec succès' });
+  } catch (error) {
+    next(error);
+  }
+};
