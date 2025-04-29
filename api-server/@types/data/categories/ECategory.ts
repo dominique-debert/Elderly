@@ -3,7 +3,7 @@ export enum CategoryType {
   BADGE = 2,
   COGNITIVE = 3,
   HELP = 4,
-  ISSUE = 5,
+  URBAN_ISSUE = 5,
   NUTRITIONAL = 6,
   PROGRAM = 7,
   PROJECT = 8,

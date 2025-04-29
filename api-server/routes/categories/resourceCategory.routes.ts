@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createWellnessCategory,
-  getAllWellnessCategories,
-  getWellnessCategoryById,
-  updateWellnessCategory,
-  deleteWellnessCategory
+  createResourceCategory,
+  fetchAllResourceCategories,
+  fetchResourceCategoryById,
+  updateResourceCategory,
+  deleteResourceCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
@@ -16,16 +16,16 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Wellness Categories
- *   description: Gestion des catégories de bien-être
+ *   name: Resource Categories
+ *   description: Gestion des catégories pour les ressources
  */
 
 /**
  * @swagger
- * /api/wellness-categories:
+ * /api/categories/resources:
  *   post:
- *     summary: Créer une nouvelle catégorie de compétences
- *     tags: [Wellness Categories]
+ *     summary: Créer une nouvelle catégorie de ressource
+ *     tags: [Resource Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -34,32 +34,36 @@ const router = Router();
  *             type: object
  *             required:
  *               - name
+ *               - typeId
  *             properties:
  *               name:
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Bien-être mental"
- *               description: "Catégorie pour les activités liées au bien-être mental"
+ *               name: "Ressources éducatives"
+ *               description: "Catégorie pour les ressources éducatives"
+ *               typeId: 9
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/WellnessCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createWellnessCategory);
+router.post('/', validate(categorySchema), errorHandler, createResourceCategory);
 
 /**
  * @swagger
- * /api/wellness-categories:
+ * /api/categories/resources:
  *   get:
  *     summary: Récupérer toutes les catégories de ressources
- *     tags: [Wellness Categories]
+ *     tags: [Resource Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -71,18 +75,18 @@ router.post('/', validate(categorySchema), errorHandler, createWellnessCategory)
  *                 categories:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/WellnessCategory'
+ *                     $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllWellnessCategories);
+router.get('/', errorHandler, fetchAllResourceCategories);
 
 /**
  * @swagger
- * /api/wellness-categories/{id}:
+ * /api/categories/resources/{id}:
  *   get:
  *     summary: Récupérer une catégorie par ID
- *     tags: [Wellness Categories]
+ *     tags: [Resource Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,20 +101,20 @@ router.get('/', errorHandler, getAllWellnessCategories);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/WellnessCategory'
+ *               $ref: '#/components/schemas/Category'
  *       404:
  *         description: Catégorie non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getWellnessCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchResourceCategoryById);
 
 /**
  * @swagger
- * /api/wellness-categories/{id}:
+ * /api/categories/resources/{id}:
  *   put:
  *     summary: Mettre à jour une catégorie
- *     tags: [Wellness Categories]
+ *     tags: [Resource Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -129,27 +133,30 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getW
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Bien-être mental"
- *               description: "Catégorie pour les activités liées au bien-être mental"
+ *               name: "Ressources éducatives"
+ *               description: "Catégorie pour les ressources éducatives"
+ *               typeId: 9
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/WellnessCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateWellnessCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateResourceCategory);
 
 /**
  * @swagger
- * /api/wellness-categories/{id}:
+ * /api/categories/resources/{id}:
  *   delete:
  *     summary: Supprimer une catégorie
- *     tags: [Wellness Categories]
+ *     tags: [Resource Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,6 +170,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteWellnessCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteResourceCategory);
 
 export default router;

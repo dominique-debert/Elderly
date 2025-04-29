@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createNutritionalCategory,
-  getAllNutritionalCategories,
-  getNutritionalCategoryById,
-  updateNutritionalCategory,
-  deleteNutritionalCategory
+  createUrbanIssueCategory,
+  fetchAllUrbanIssueCategories,
+  fetchUrbanIssueCategoryById,
+  updateUrbanIssueCategory,
+  deleteUrbanIssueCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
@@ -16,16 +16,16 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Nutritional Categories
- *   description: Gestion des catégories pour les conseils nutritionnels
+ *   name: Urban Issue Categories
+ *   description: Gestion des catégories de problèmes urbains
  */
 
 /**
  * @swagger
- * /api/nutritional-categories:
+ * /api/categories/urban-issues:
  *   post:
- *     summary: Créer une nouvelle catégorie de conseils nutritionnels
- *     tags: [Nutritional Categories]
+ *     summary: Créer une nouvelle catégorie de problèmes urbains
+ *     tags: [Urban Issue Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -34,32 +34,36 @@ const router = Router();
  *             type: object
  *             required:
  *               - name
+ *               - typeId
  *             properties:
  *               name:
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Régime végétarien"
- *               description: "Catégorie pour les conseils nutritionnels adaptés aux régimes végétariens"
+ *               name: "Propreté urbaine"
+ *               description: "Catégorie pour les problèmes liés à la propreté urbaine"
+ *               typeId: 5
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/NutritionalCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createNutritionalCategory);
+router.post('/', validate(categorySchema), errorHandler, createUrbanIssueCategory);
 
 /**
  * @swagger
- * /api/nutritional-categories:
+ * /api/categories/urban-issues:
  *   get:
- *     summary: Récupérer toutes les catégories d'exercices cognitifs
- *     tags: [Nutritional Categories]
+ *     summary: Récupérer toutes les catégories de problèmes urbains
+ *     tags: [Urban Issue Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -71,18 +75,18 @@ router.post('/', validate(categorySchema), errorHandler, createNutritionalCatego
  *                 categories:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/NutritionalCategory'
+ *                     $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllNutritionalCategories);
+router.get('/', errorHandler, fetchAllUrbanIssueCategories);
 
 /**
  * @swagger
- * /api/nutritional-categories/{id}:
+ * /api/categories/urban-issues/{id}:
  *   get:
  *     summary: Récupérer une catégorie par ID
- *     tags: [Nutritional Categories]
+ *     tags: [Issue Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,20 +101,20 @@ router.get('/', errorHandler, getAllNutritionalCategories);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/NutritionalCategory'
+ *               $ref: '#/components/schemas/Category'
  *       404:
  *         description: Catégorie non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getNutritionalCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchUrbanIssueCategoryById);
 
 /**
  * @swagger
- * /api/nutritional-categories/{id}:
+ * /api/categories/urban-issues/{id}:
  *   put:
  *     summary: Mettre à jour une catégorie
- *     tags: [Nutritional Categories]
+ *     tags: [Issue Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -129,27 +133,30 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getN
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Régime végétarien"
- *               description: "Catégorie pour les conseils nutritionnels adaptés aux régimes végétariens"
+ *               name: "Propreté urbaine"
+ *               description: "Catégorie pour les problèmes liés à la propreté urbaine"
+ *               typeId: 5
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/NutritionalCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateNutritionalCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateUrbanIssueCategory);
 
 /**
  * @swagger
- * /api/nutritional-categories/{id}:
+ * /api/categories/urban-issues/{id}:
  *   delete:
  *     summary: Supprimer une catégorie
- *     tags: [Nutritional Categories]
+ *     tags: [Issue Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,6 +170,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteNutritionalCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteUrbanIssueCategory);
 
 export default router;

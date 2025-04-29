@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createProjectCategory,
-  getAllProjectCategories,
-  getProjectCategoryById,
-  updateProjectCategory,
-  deleteProjectCategory
+  createProgramCategory,
+  fetchAllProgramCategories,
+  fetchProgramCategoryById,
+  updateProgramCategory,
+  deleteProgramCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
@@ -17,15 +17,15 @@ const router = Router();
  * @swagger
  * tags:
  *   name: Program Categories
- *   description: Gestion des catégories pour les projets
+ *   description: Gestion des catégories pour les programmes de remise en forme
  */
 
 /**
  * @swagger
- * /api/project-categories:
+ * /api/categories/programs:
  *   post:
- *     summary: Créer une nouvelle catégorie de projet
- *     tags: [Project Categories]
+ *     summary: Créer une nouvelle catégorie de programme
+ *     tags: [Program Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -34,32 +34,36 @@ const router = Router();
  *             type: object
  *             required:
  *               - name
+ *               - typeId
  *             properties:
  *               name:
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Aménagement urbain"
- *               description: "Catégorie pour les projets d'aménagement urbain"
+ *               name: "Programme de remise en forme"
+ *               description: "Catégorie pour les programmes d'activités"
+ *               typeId: 7
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ProjectCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createProjectCategory);
+router.post('/', validate(categorySchema), errorHandler, createProgramCategory);
 
 /**
  * @swagger
- * /api/project-categories:
+ * /api/categories/programs:
  *   get:
- *     summary: Récupérer toutes les catégories de projets
- *     tags: [Project Categories]
+ *     summary: Récupérer toutes les catégories de programmes
+ *     tags: [Program Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -71,18 +75,18 @@ router.post('/', validate(categorySchema), errorHandler, createProjectCategory);
  *                 categories:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/ProjectCategory'
+ *                     $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllProjectCategories);
+router.get('/', errorHandler, fetchAllProgramCategories);
 
 /**
  * @swagger
- * /api/project-categories/{id}:
+ * /api/categories/programs/{id}:
  *   get:
- *     summary: Récupérer une catégorie par ID
- *     tags: [Project Categories]
+ *     summary: Récupérer une catégorie de programme par ID
+ *     tags: [Program Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,20 +101,20 @@ router.get('/', errorHandler, getAllProjectCategories);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ProjectCategory'
+ *               $ref: '#/components/schemas/Category'
  *       404:
  *         description: Catégorie non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getProjectCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchProgramCategoryById);
 
 /**
  * @swagger
- * /api/project-categories/{id}:
+ * /api/categories/programs/{id}:
  *   put:
- *     summary: Mettre à jour une catégorie
- *     tags: [Project Categories]
+ *     summary: Mettre à jour une catégorie de programme
+ *     tags: [Program Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -129,27 +133,30 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getP
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Aménagement urbain"
- *               description: "Catégorie pour les projets d'aménagement urbain"
+ *               name: "Régime végétarien"
+ *               description: "Catégorie pour les conseils nutritionnels adaptés aux régimes végétariens"
+ *               typeId: 7
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ProjectCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateProjectCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateProgramCategory);
 
 /**
  * @swagger
- * /api/project-categories/{id}:
+ * /api/categories/programs/{id}:
  *   delete:
- *     summary: Supprimer une catégorie
- *     tags: [Project Categories]
+ *     summary: Supprimer une catégorie de programme
+ *     tags: [Program Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,6 +170,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteProjectCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteProgramCategory);
 
 export default router;

@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createCognitiveCategory,
-  getAllCognitiveCategories,
-  getCognitiveCategoryById,
-  updateCognitiveCategory,
-  deleteCognitiveCategory
+  createNutritionalCategory,
+  fetchAllNutritionalCategories,
+  fetchNutritionalCategoryById,
+  updateNutritionalCategory,
+  deleteNutritionalCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
@@ -16,16 +16,16 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Cognitive Categories
- *   description: Gestion des catégories d'exercices cognitifs
+ *   name: Nutritional Categories
+ *   description: Gestion des catégories pour les conseils nutritionnels
  */
 
 /**
  * @swagger
- * /api/cognitive-categories:
+ * /api/categories/nutritional:
  *   post:
- *     summary: Créer une nouvelle catégorie d'exercice cognitifs
- *     tags: [Cognitive Categories]
+ *     summary: Créer une nouvelle catégorie de conseils nutritionnels
+ *     tags: [Nutritional Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -34,32 +34,36 @@ const router = Router();
  *             type: object
  *             required:
  *               - name
+ *               - typeId
  *             properties:
  *               name:
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Mémoire"
- *               description: "Exercice cognitifs de la mémoire"
+ *               name: "Régime végétarien"
+ *               description: "Catégorie pour les conseils nutritionnels adaptés aux régimes végétariens"
+ *               typeId: 6
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/CognitiveCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createCognitiveCategory);
+router.post('/', validate(categorySchema), errorHandler, createNutritionalCategory);
 
 /**
  * @swagger
- * /api/cognitive-categories:
+ * /api/categories/nutritional:
  *   get:
- *     summary: Récupérer toutes les catégories d'exercices cognitifs
- *     tags: [Cognitive Categories]
+ *     summary: Récupérer toutes les catégories de conseils nutritionnels
+ *     tags: [Nutritional Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -71,18 +75,18 @@ router.post('/', validate(categorySchema), errorHandler, createCognitiveCategory
  *                 categories:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/CognitiveCategory'
+ *                     $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllCognitiveCategories);
+router.get('/', errorHandler, fetchAllNutritionalCategories);
 
 /**
  * @swagger
- * /api/cognitive-categories/{id}:
+ * /api/categories/nutritional/{id}:
  *   get:
- *     summary: Récupérer une catégorie par ID
- *     tags: [Cognitive Categories]
+ *     summary: Récupérer une catégorie de conseils nutritionnels par ID
+ *     tags: [Nutritional Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,20 +101,20 @@ router.get('/', errorHandler, getAllCognitiveCategories);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/CognitiveCategory'
+ *               $ref: '#/components/schemas/Category'
  *       404:
  *         description: Catégorie non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getCognitiveCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchNutritionalCategoryById);
 
 /**
  * @swagger
- * /api/cognitive-categories/{id}:
+ * /api/categories/nutritional/{id}:
  *   put:
- *     summary: Mettre à jour une catégorie
- *     tags: [Cognitive Categories]
+ *     summary: Mettre à jour une catégorie de conseils nutritionnels
+ *     tags: [Nutritional Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -129,27 +133,30 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getC
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Mémoire"
- *               description: "Exercice cognitifs de la mémoire"
+ *               name: "Régime végétarien"
+ *               description: "Catégorie pour les conseils nutritionnels adaptés aux régimes végétariens"
+ *               typeId: 6
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/CognitiveCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateCognitiveCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateNutritionalCategory);
 
 /**
  * @swagger
- * /api/cognitive-categories/{id}:
+ * /api/categories/nutritional/{id}:
  *   delete:
- *     summary: Supprimer une catégorie
- *     tags: [Cognitive Categories]
+ *     summary: Supprimer une catégorie de conseils nutritionnels
+ *     tags: [Nutritional Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,6 +170,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteCognitiveCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteNutritionalCategory);
 
 export default router;

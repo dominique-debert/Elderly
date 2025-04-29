@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createServiceCategory,
-  getAllServiceCategories,
-  getServiceCategoryById,
-  updateServiceCategory,
-  deleteServiceCategory
+  createHelpCategory,
+  fetchAllHelpCategories,
+  fetchHelpCategoryById,
+  updateHelpCategory,
+  deleteHelpCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
@@ -16,16 +16,16 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Service Categories
- *   description: Gestion des catégories pour les services
+ *   name: Help Categories
+ *   description: Gestion des catégories d'aide
  */
 
 /**
  * @swagger
- * /api/service-categories:
+ * /api/categories/help:
  *   post:
- *     summary: Créer une nouvelle catégorie de service
- *     tags: [Service Categories]
+ *     summary: Créer une nouvelle catégorie d'aide
+ *     tags: [Help Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -34,32 +34,36 @@ const router = Router();
  *             type: object
  *             required:
  *               - name
+ *               - typeId
  *             properties:
  *               name:
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Services de santé"
- *               description: "Catégorie pour les services liés à la santé"
+ *               name: "Aide à domicile"
+ *               description: "Catégorie pour les services d'aide à domicile"
+ *               typeId: 4
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ServiceCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createServiceCategory);
+router.post('/', validate(categorySchema), errorHandler, createHelpCategory);
 
 /**
  * @swagger
- * /api/service-categories:
+ * /api/categories/help:
  *   get:
- *     summary: Récupérer toutes les catégories de ressources
- *     tags: [Service Categories]
+ *     summary: Récupérer toutes les catégories d'aide
+ *     tags: [Help Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -71,18 +75,18 @@ router.post('/', validate(categorySchema), errorHandler, createServiceCategory);
  *                 categories:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/ServiceCategory'
+ *                     $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllServiceCategories);
+router.get('/', errorHandler, fetchAllHelpCategories);
 
 /**
  * @swagger
- * /api/service-categories/{id}:
+ * /api/categories/help/{id}:
  *   get:
- *     summary: Récupérer une catégorie par ID
- *     tags: [Service Categories]
+ *     summary: Récupérer une catégorie d'aide par ID
+ *     tags: [Help Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,20 +101,20 @@ router.get('/', errorHandler, getAllServiceCategories);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ServiceCategory'
+ *               $ref: '#/components/schemas/Category'
  *       404:
  *         description: Catégorie non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getServiceCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchHelpCategoryById);
 
 /**
  * @swagger
- * /api/service-categories/{id}:
+ * /api/categories/help/{id}:
  *   put:
- *     summary: Mettre à jour une catégorie
- *     tags: [Service Categories]
+ *     summary: Mettre à jour une catégorie d'aide
+ *     tags: [Help Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -129,27 +133,30 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getS
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Services de santé"
- *               description: "Catégorie pour les services liés à la santé"
+ *               name: "Aide à domicile"
+ *               description: "Catégorie pour les services d'aide à domicile"
+ *               typeId: 4
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ServiceCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateServiceCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateHelpCategory);
 
 /**
  * @swagger
- * /api/service-categories/{id}:
+ * /api/categories/help/{id}:
  *   delete:
- *     summary: Supprimer une catégorie
- *     tags: [Service Categories]
+ *     summary: Supprimer une catégorie d'aide
+ *     tags: [Help Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,6 +170,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteServiceCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteHelpCategory);
 
 export default router;

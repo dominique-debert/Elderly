@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createBadgeCategory,
-  getAllBadgeCategories,
-  getBadgeCategoryById,
-  updateBadgeCategory,
-  deleteBadgeCategory
+  createProjectCategory,
+  fetchAllProjectCategories,
+  fetchProjectCategoryById,
+  updateProjectCategory,
+  deleteProjectCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
@@ -16,16 +16,16 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Badge Categories
- *   description: Gestion des catégories d'activités
+ *   name: Program Categories
+ *   description: Gestion des catégories pour les projets
  */
 
 /**
  * @swagger
- * /api/badge-categories:
+ * /api/categories/projects:
  *   post:
- *     summary: Créer une nouvelle catégorie de badge
- *     tags: [Badge Categories]
+ *     summary: Créer une nouvelle catégorie de projet
+ *     tags: [Project Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -34,32 +34,36 @@ const router = Router();
  *             type: object
  *             required:
  *               - name
+ *               - typeId
  *             properties:
  *               name:
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Expert"
- *               description: "Badge Expert"
+ *               name: "Aménagement urbain"
+ *               description: "Catégorie pour les projets d'aménagement urbain"
+ *               typeId: 8
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/BadgeCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createBadgeCategory);
+router.post('/', validate(categorySchema), errorHandler, createProjectCategory);
 
 /**
  * @swagger
- * /api/badge-categories:
+ * /api/categories/projects:
  *   get:
- *     summary: Récupérer toutes les catégories de badges
- *     tags: [Badge Categories]
+ *     summary: Récupérer toutes les catégories de projets
+ *     tags: [Project Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -71,18 +75,18 @@ router.post('/', validate(categorySchema), errorHandler, createBadgeCategory);
  *                 categories:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/BadgeCategory'
+ *                     $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllBadgeCategories);
+router.get('/', errorHandler, fetchAllProjectCategories);
 
 /**
  * @swagger
- * /api/badge-categories/{id}:
+ * /api/categories/projects/{id}:
  *   get:
- *     summary: Récupérer une catégorie par ID
- *     tags: [Badge Categories]
+ *     summary: Récupérer une catégorie de projet par ID
+ *     tags: [Project Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,20 +101,20 @@ router.get('/', errorHandler, getAllBadgeCategories);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/BadgeCategory'
+ *               $ref: '#/components/schemas/Category'
  *       404:
  *         description: Catégorie non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getBadgeCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchProjectCategoryById);
 
 /**
  * @swagger
- * /api/badge-categories/{id}:
+ * /api/categories/projects/{id}:
  *   put:
- *     summary: Mettre à jour une catégorie
- *     tags: [Badge Categories]
+ *     summary: Mettre à jour une catégorie de projet
+ *     tags: [Project Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -129,27 +133,30 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getB
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Sports"
- *               description: "Catégorie pour les experts"
+ *               name: "Aménagement urbain"
+ *               description: "Catégorie pour les projets d'aménagement urbain"
+ *               typeId: 8
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/BadgeCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateBadgeCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateProjectCategory);
 
 /**
  * @swagger
- * /api/badge-categories/{id}:
+ * /api/categories/projects/{id}:
  *   delete:
- *     summary: Supprimer une catégorie
- *     tags: [Badge Categories]
+ *     summary: Supprimer une catégorie de projet
+ *     tags: [Project Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,6 +170,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteBadgeCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteProjectCategory);
 
 export default router;

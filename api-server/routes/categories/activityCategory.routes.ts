@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createResourceCategory,
-  getAllResourceCategories,
-  getResourceCategoryById,
-  updateResourceCategory,
-  deleteResourceCategory
+  createActivityCategory,
+  fetchAllActivityCategories,
+  fetchActivityCategoryById,
+  updateActivityCategory,
+  deleteActivityCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
@@ -16,16 +16,16 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Resource Categories
- *   description: Gestion des catégories pour les ressources
+ *   name: Activity Categories
+ *   description: Gestion des catégories d'activités
  */
 
 /**
  * @swagger
- * /api/resource-categories:
+ * /api/categories/activities:
  *   post:
- *     summary: Créer une nouvelle catégorie de ressource
- *     tags: [Resource Categories]
+ *     summary: Créer une nouvelle catégorie d'activités
+ *     tags: [Activity Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -34,32 +34,36 @@ const router = Router();
  *             type: object
  *             required:
  *               - name
+ *               - typeId
  *             properties:
  *               name:
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Ressources éducatives"
- *               description: "Catégorie pour les ressources éducatives"
+ *               name: "Sport"
+ *               description: "Tout ce qui touche au sport"
+ *               typeId: 1
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ResourceCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createResourceCategory);
+router.post('/', validate(categorySchema), errorHandler, createActivityCategory);
 
 /**
  * @swagger
- * /api/resource-categories:
+ * /api/categories/activities:
  *   get:
- *     summary: Récupérer toutes les catégories de ressources
- *     tags: [Resource Categories]
+ *     summary: Récupérer toutes les catégories d'activités
+ *     tags: [Activity Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -71,18 +75,18 @@ router.post('/', validate(categorySchema), errorHandler, createResourceCategory)
  *                 categories:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/ResourceCategory'
+ *                     $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllResourceCategories);
+router.get('/', errorHandler, fetchAllActivityCategories);
 
 /**
  * @swagger
- * /api/resource-categories/{id}:
+ * /api/categories/activities/{id}:
  *   get:
- *     summary: Récupérer une catégorie par ID
- *     tags: [Resource Categories]
+ *     summary: Récupérer une catégorie d'activité par ID
+ *     tags: [Activity Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,20 +101,20 @@ router.get('/', errorHandler, getAllResourceCategories);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ResourceCategory'
+ *               $ref: '#/components/schemas/Category'
  *       404:
  *         description: Catégorie non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getResourceCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchActivityCategoryById);
 
 /**
  * @swagger
- * /api/resource-categories/{id}:
+ * /api/categories/activities/{id}:
  *   put:
- *     summary: Mettre à jour une catégorie
- *     tags: [Resource Categories]
+ *     summary: Mettre à jour une catégorie d'activité
+ *     tags: [Activity Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -129,27 +133,30 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getR
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Ressources éducatives"
- *               description: "Catégorie pour les ressources éducatives"
+ *               name: "Sports"
+ *               description: "Catégorie pour les activités sportives"
+ *               typeId: 1
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ResourceCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateResourceCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateActivityCategory);
 
 /**
  * @swagger
- * /api/resource-categories/{id}:
+ * /api/categories/activities/{id}:
  *   delete:
- *     summary: Supprimer une catégorie
- *     tags: [Resource Categories]
+ *     summary: Supprimer une catégorie d'activité
+ *     tags: [Activity Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,6 +170,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteResourceCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteActivityCategory);
 
 export default router;

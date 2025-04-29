@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createSkillCategory,
-  getAllSkillCategories,
-  getSkillCategoryById,
-  updateSkillCategory,
-  deleteSkillCategory
+  createCognitiveCategory,
+  fetchAllCognitiveCategories,
+  fetchCognitiveCategoryById,
+  updateCognitiveCategory,
+  deleteCognitiveCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
@@ -16,16 +16,16 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Skill Categories
- *   description: Gestion des catégories pour les compétences
+ *   name: Cognitive Categories
+ *   description: Gestion des catégories d'exercices cognitifs
  */
 
 /**
  * @swagger
- * /api/skill-categories:
+ * /api/categories/cognitive:
  *   post:
- *     summary: Créer une nouvelle catégorie de compétences
- *     tags: [Skill Categories]
+ *     summary: Créer une nouvelle catégorie d'exercice cognitifs
+ *     tags: [Cognitive Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -34,32 +34,36 @@ const router = Router();
  *             type: object
  *             required:
  *               - name
+ *               - typeId
  *             properties:
  *               name:
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Compétences en informatique"
- *               description: "Catégorie pour les compétences liées à l'informatique"
+ *               name: "Mémoire"
+ *               description: "Exercice cognitifs de la mémoire"
+ *               typeId: 3
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/SkillCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createSkillCategory);
+router.post('/', validate(categorySchema), errorHandler, createCognitiveCategory);
 
 /**
  * @swagger
- * /api/skill-categories:
+ * /api/categories/cognitive:
  *   get:
- *     summary: Récupérer toutes les catégories de ressources
- *     tags: [Skill Categories]
+ *     summary: Récupérer toutes les catégories d'exercices cognitifs
+ *     tags: [Cognitive Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -71,18 +75,18 @@ router.post('/', validate(categorySchema), errorHandler, createSkillCategory);
  *                 categories:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/SkillCategory'
+ *                     $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllSkillCategories);
+router.get('/', errorHandler, fetchAllCognitiveCategories);
 
 /**
  * @swagger
- * /api/skill-categories/{id}:
+ * /api/categories/cognitive/{id}:
  *   get:
- *     summary: Récupérer une catégorie par ID
- *     tags: [Skill Categories]
+ *     summary: Récupérer une catégorie d'exercice cognitif par ID
+ *     tags: [Cognitive Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,20 +101,20 @@ router.get('/', errorHandler, getAllSkillCategories);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/SkillCategory'
+ *               $ref: '#/components/schemas/Category'
  *       404:
  *         description: Catégorie non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getSkillCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchCognitiveCategoryById);
 
 /**
  * @swagger
- * /api/skill-categories/{id}:
+ * /api/categories/cognitive/{id}:
  *   put:
- *     summary: Mettre à jour une catégorie
- *     tags: [Skill Categories]
+ *     summary: Mettre à jour une catégorie d'exercice cognitif
+ *     tags: [Cognitive Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -129,27 +133,30 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getS
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Compétences en informatique"
- *               description: "Catégorie pour les compétences en informatique"
+ *               name: "Mémoire"
+ *               description: "Exercice cognitifs de la mémoire"
+ *               typeId: 3
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/SkillCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateSkillCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateCognitiveCategory);
 
 /**
  * @swagger
- * /api/skill-categories/{id}:
+ * /api/categories/cognitive/{id}:
  *   delete:
- *     summary: Supprimer une catégorie
- *     tags: [Skill Categories]
+ *     summary: Supprimer une catégorie d'exercice cognitif
+ *     tags: [Cognitive Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,6 +170,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteSkillCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteCognitiveCategory);
 
 export default router;

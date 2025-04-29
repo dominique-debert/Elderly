@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createProgramCategory,
-  getAllProgramCategories,
-  getProgramCategoryById,
-  updateProgramCategory,
-  deleteProgramCategory
+  createServiceCategory,
+  fetchAllServiceCategories,
+  fetchServiceCategoryById,
+  updateServiceCategory,
+  deleteServiceCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
@@ -16,16 +16,16 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Program Categories
- *   description: Gestion des catégories pour les programmes de remise en forme
+ *   name: Service Categories
+ *   description: Gestion des catégories pour les services
  */
 
 /**
  * @swagger
- * /api/program-categories:
+ * /api/categories/services:
  *   post:
- *     summary: Créer une nouvelle catégorie de programme
- *     tags: [Program Categories]
+ *     summary: Créer une nouvelle catégorie de service
+ *     tags: [Service Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -34,32 +34,36 @@ const router = Router();
  *             type: object
  *             required:
  *               - name
+ *               - typeId
  *             properties:
  *               name:
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Programme de remise en forme"
- *               description: "Catégorie pour les programmes d'activités"
+ *               name: "Services de santé"
+ *               description: "Catégorie pour les services liés à la santé"
+ *               typeId: 10
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ProgramCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createProgramCategory);
+router.post('/', validate(categorySchema), errorHandler, createServiceCategory);
 
 /**
  * @swagger
- * /api/program-categories:
+ * /api/categories/services:
  *   get:
- *     summary: Récupérer toutes les catégories d'exercices cognitifs
- *     tags: [Program Categories]
+ *     summary: Récupérer toutes les catégories de services
+ *     tags: [Service Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -71,18 +75,18 @@ router.post('/', validate(categorySchema), errorHandler, createProgramCategory);
  *                 categories:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/ProgramCategory'
+ *                     $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllProgramCategories);
+router.get('/', errorHandler, fetchAllServiceCategories);
 
 /**
  * @swagger
- * /api/program-categories/{id}:
+ * /api/categories/services/{id}:
  *   get:
  *     summary: Récupérer une catégorie par ID
- *     tags: [Program Categories]
+ *     tags: [Service Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,20 +101,20 @@ router.get('/', errorHandler, getAllProgramCategories);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ProgramCategory'
+ *               $ref: '#/components/schemas/Category'
  *       404:
  *         description: Catégorie non trouvée
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getProgramCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchServiceCategoryById);
 
 /**
  * @swagger
- * /api/program-categories/{id}:
+ * /api/categories/services/{id}:
  *   put:
  *     summary: Mettre à jour une catégorie
- *     tags: [Program Categories]
+ *     tags: [Service Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -129,27 +133,30 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, getP
  *                 type: string
  *               description:
  *                 type: string
+ *               typeId:
+ *                 type: integer
  *             example:
- *               name: "Régime végétarien"
- *               description: "Catégorie pour les conseils nutritionnels adaptés aux régimes végétariens"
+ *               name: "Services de santé"
+ *               description: "Catégorie pour les services liés à la santé"
+ *               typeId: 10
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ProgramCategory'
+ *               $ref: '#/components/schemas/Category'
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateProgramCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateServiceCategory);
 
 /**
  * @swagger
- * /api/program-categories/{id}:
+ * /api/categories/services/{id}:
  *   delete:
  *     summary: Supprimer une catégorie
- *     tags: [Program Categories]
+ *     tags: [Service Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,6 +170,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteProgramCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteServiceCategory);
 
 export default router;

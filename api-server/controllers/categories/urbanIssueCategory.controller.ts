@@ -9,34 +9,34 @@ const prisma = new PrismaClient();
 /**
 * @swagger
 * tags:
-*   name: Urban Issues Categories
+*   name: Urban Issue Categories
 *   description: API pour gérer les catégories de problèmes urbains
 */
 
 // TOUTES LES CATÉGORIES DE PROBLÈMES URBAINS
-export const fetchAllIssueCategories = async (
+export const fetchAllUrbanIssueCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const issueCategories = await prisma.category.findMany({
+    const urbanIssueCategories = await prisma.category.findMany({
       where: {
-        typeId: CategoryType.ISSUE
+        typeId: CategoryType.URBAN_ISSUE
       },
       orderBy: {
         name: 'asc'
       }
     });
 
-    res.status(200).json({ issueCategories });
+    res.status(200).json({ urbanIssueCategories });
   } catch (error) {
     next(error);
   }
 };
 
 // CATÉGORIE DE PROBLÈME URBAIN PAR ID
-export const fetchIssueCategoryById = async (
+export const fetchUrbanIssueCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -44,24 +44,24 @@ export const fetchIssueCategoryById = async (
   const { id } = req.params;
 
   try {
-    const issueCategory = await prisma.category.findUnique({
+    const urbanIssueCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.ISSUE }
+        typeId: CategoryType.URBAN_ISSUE }
     });
 
-    if (!issueCategory) {
+    if (!urbanIssueCategory) {
       throw createHttpError(404, 'Catégorie non trouvée');
     }
 
-    res.status(200).json(issueCategory);
+    res.status(200).json(urbanIssueCategory);
   } catch (error) {
     next(error);
   }
 };
 
 // CRÉER UNE CATÉGORIE DE PROBLÈME URBAIN
-export const createIssueCategory = async (
+export const createUrbanIssueCategory = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -76,7 +76,7 @@ export const createIssueCategory = async (
   }
 };
 
-export const updateIssueCategory = async (
+export const updateUrbanIssueCategory = async (
   req: Request<{ id: string }, ICategory>,
   res: Response,
   next: NextFunction
@@ -87,7 +87,7 @@ export const updateIssueCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.ISSUE }
+        typeId: CategoryType.URBAN_ISSUE }
     });
 
     if (!category) {
@@ -101,7 +101,7 @@ export const updateIssueCategory = async (
       },
       where: {
         id: Number(id),
-        typeId: CategoryType.ISSUE }
+        typeId: CategoryType.URBAN_ISSUE }
     });
 
     res.status(200).json(categoryToUpdate);
@@ -110,7 +110,7 @@ export const updateIssueCategory = async (
   }
 };
 
-export const deleteIssueCategory = async (
+export const deleteUrbanIssueCategory = async (
   req: Request<{ id: string }>,
   res: Response,
   next: NextFunction
@@ -121,7 +121,7 @@ export const deleteIssueCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.ISSUE }
+        typeId: CategoryType.URBAN_ISSUE }
     });
 
     if (!category) {
@@ -131,7 +131,7 @@ export const deleteIssueCategory = async (
     await prisma.category.delete({
       where: {
         id: Number(id),
-        typeId: CategoryType.ISSUE }
+        typeId: CategoryType.URBAN_ISSUE }
     });
 
     res.status(200).json({ message: 'Catégorie supprimée avec succès' });
