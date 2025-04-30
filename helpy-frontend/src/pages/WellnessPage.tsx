@@ -1,6 +1,6 @@
 import AIAssistantCard from "../components/AIAssistantCard";
 import HealthGoalsCard from "../components/HealthGoalsCard";
-import MoodCard from "../components/GeneralMetricsCard";
+import GeneralMetricsCard from "../components/GeneralMetricsCard";
 import MedicationPlanning from "../components/MedicationPlanning";
 import { useAuthStore } from "../stores/auth";
 import { Navigate } from "react-router-dom";
@@ -16,7 +16,7 @@ const WellnessPage = () => {
     <div className="flex flex-col m-4 lg:ml-0 w-full">
       <div className="lg:flex lg:flex-column w-full lg:space-x-4">
         <AIAssistantCard />
-        <MoodCard />
+        <GeneralMetricsCard />
         <HealthGoalsCard />
       </div>
       <div className="lg:flex lg:flex-column w-full lg:space-x-4">
