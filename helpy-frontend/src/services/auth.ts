@@ -6,7 +6,7 @@ export const loginUser = async (data: { email: string; password: string }): Prom
   return response.data;
 };
 
-export const signupUser = async (data: { email: string; password: string, accessToken: string, refreshToken: string, firstName: string, lastName: string, birthDate: Date, isAdmin: boolean, avatar?: string }): Promise<AuthResponse> => {
+export const signupUser = async (data: { email: string; password: string, accessToken: string, refreshToken: string, firstName: string, lastName: string, birthDate: Date, isAdmin: boolean, avatar?: string }): Promise<IAuthResponse> => {
   const response = await api.post('/auth/signup', data);
   return response.data;
 };
