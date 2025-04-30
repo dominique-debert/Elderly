@@ -1,22 +1,12 @@
-import api from './api';
+import api from '../lib/axios';
+import type { IAuthResponse } from '../@types/IAuthResponse';
 
-interface AuthResponse {
-  isAdmin: boolean;
-  birthDate: Date;
-  firstName: string;
-  lastName: string;
-  avatar: string;
-  email: string;
-  accessToken: string;
-  refreshToken: string;
-}
-
-export const loginUser = async (data: { email: string; password: string }): Promise<AuthResponse> => {
+export const loginUser = async (data: { email: string; password: string }): Promise<IAuthResponse> => {
   const response = await api.post('/auth/login', data);
   return response.data;
 };
 
-export const signupUser = async (data: { email: string; password: string }): Promise<AuthResponse> => {
+export const signupUser = async (data: { email: string; password: string, accessToken: string, refreshToken: string, firstName: string, lastName: string, birthDate: Date, isAdmin: boolean, avatar?: string }): Promise<AuthResponse> => {
   const response = await api.post('/auth/signup', data);
   return response.data;
 };
@@ -25,8 +15,7 @@ export const signupUser = async (data: { email: string; password: string }): Pro
  * ➡️ Fonction pour utiliser le refreshToken stocké dans localStorage et demander un nouvel accessToken
  */
 export const refreshAccessToken = async (): Promise<string> => {
-  const storedAuth = localStorage.getItem('auth-storage');
-  const refreshToken = storedAuth ? JSON.parse(storedAuth).state.refreshToken : null;
+  const refreshToken = localStorage.getItem('refreshToken');
 
   if (!refreshToken) {
     throw new Error('No refresh token available');
@@ -37,12 +26,7 @@ export const refreshAccessToken = async (): Promise<string> => {
   const newAccessToken = response.data.accessToken;
 
   // Mettre à jour dans localStorage
-  const updatedAuth = storedAuth ? JSON.parse(storedAuth) : null;
-  if (!updatedAuth) {
-    throw new Error('Invalid stored authentication data');
-  }
-  updatedAuth.state.accessToken = newAccessToken;
-  localStorage.setItem('auth-storage', JSON.stringify(updatedAuth));
+  localStorage.setItem('accessToken', newAccessToken);
 
   return newAccessToken;
 };
