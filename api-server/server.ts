@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
-import { swaggerSpecs } from '@/config/swagger';
+import swaggerSpec from '@/config/swagger';
 import errorHandler from '@/middlewares/errorHandler';
 import routes from '@/routes/index.routes';
 import cors from 'cors';
@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
   "http://localhost:5173",
+  "http://localhost:3000",
   "http://192.168.1.195:5173",
 ];
 
@@ -31,7 +32,7 @@ app.use(cors({
 }));
 
 // Swagger setup
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Routes
 app.use('/api', routes);

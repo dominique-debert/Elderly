@@ -2,6 +2,8 @@
 import { Router } from 'express';
 import { authenticate } from '@/middlewares/auth';
 import currentSession from '@/middlewares/session';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from '@/config/swagger';
 
 // Import all routers
 import authRouter from './auth.routes';
@@ -61,6 +63,7 @@ const router = Router();
 
 // Public routes
 router.use('/auth', authRouter);
+router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Apply authentication middleware for protected routes
 router.use(authenticate);

@@ -29,7 +29,7 @@ const userRouter = Router();
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UserInput'
+ *             $ref: '#/components/schemas/User'
  *     responses:
  *       201:
  *         description: Utilisateur créé avec succès
@@ -99,7 +99,7 @@ userRouter.get('/:id', validate(idParamUserSchema, 'params'), errorHandler, getU
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UserInput'
+ *             $ref: '#/components/schemas/User'
  *     responses:
  *       200:
  *         description: Utilisateur mis à jour avec succès

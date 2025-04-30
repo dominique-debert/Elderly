@@ -5,8 +5,8 @@ export const signUpSchema = Joi.object({
   password: Joi.string().min(6).required(),
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
-  avatar: Joi.string().uri().optional(),
-  birthdate: Joi.date().iso().required(), // par exemple au format YYYY-MM-DD
+  avatar: Joi.string().uri().allow('', null).optional(),
+  birthDate: Joi.date().iso().required(), // par exemple au format YYYY-MM-DD
   isAdmin: Joi.boolean().default(false),
 });
 

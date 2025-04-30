@@ -72,8 +72,10 @@ const options: SwaggerOptions = {
 
   apis: [
     './routes/**/*.ts',
-    './schemas/swagger/**/*.ts',
+    './schemas/swagger/**/*.ts'
   ],
 };
 
-export const swaggerSpecs = swaggerJsdoc(options);
+const swaggerSpecs = swaggerJsdoc(options);
+
+export default swaggerSpecs;

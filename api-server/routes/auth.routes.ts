@@ -14,7 +14,7 @@ const router = Router();
 
 /**
  * @swagger
- * /auth/signup:
+ * /api/auth/signup:
  *   post:
  *     summary: Créer un nouvel utilisateur
  *     tags: [Auth]
@@ -47,7 +47,7 @@ const router = Router();
 
 /**
  * @swagger
- * /auth/login:
+ * /api/auth/login:
  *   post:
  *     summary: Connecter un utilisateur
  *     tags: [Auth]
@@ -78,7 +78,7 @@ const router = Router();
 
 /**
  * @swagger
- * /auth/logout:
+ * /api/auth/logout:
  *   post:
  *     summary: Déconnecter un utilisateur
  *     description: Déconnecte un utilisateur
