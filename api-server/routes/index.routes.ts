@@ -66,19 +66,19 @@ router.use('/auth', authRouter);
 router.use(authenticate);
 router.use(currentSession);
 
-router.use('/activities/categories', activityCategoriesRouter);
-router.use('/badges/categories', badgeCategoriesRouter);
-router.use('/cognitive-exercises/categories', cognitiveCategoriesRouter);
-router.use('/forum-messages/categories', forumCategoryRouter);
-router.use('/help-requests/categories', helpCategoriesRouter);
-router.use('/urban-issue-reports/categories', issueCategoriesRouter);
-router.use('/nutrition-advices/categories', nutritionalCategoriesRouter);
-router.use('/exercise-programs/categories', programCategoriesRouter);
-router.use('/project-members/categories', projectCategoriesRouter);
-router.use('/resources/categories', resourceCategoriesRouter);
-router.use('/services/categories', serviceCategoriesRouter); 
-router.use('/skills/categories', skillCategoriesRouter);
-router.use('/wellness-goals/categories', wellnessCategoriesRouter);
+router.use('/categories/activities', activityCategoriesRouter);
+router.use('/categories/badges', badgeCategoriesRouter);
+router.use('/categories/cognitive', cognitiveCategoriesRouter);
+router.use('/categories/forum', forumCategoryRouter);
+router.use('/categories/help', helpCategoriesRouter);
+router.use('/categories/urban-issues', issueCategoriesRouter);
+router.use('/categories/nutritional', nutritionalCategoriesRouter);
+router.use('/categories/programs', programCategoriesRouter);
+router.use('/categories/projects', projectCategoriesRouter);
+router.use('/categories/resources', resourceCategoriesRouter);
+router.use('/categories/services', serviceCategoriesRouter); 
+router.use('/categories/skills', skillCategoriesRouter);
+router.use('/categories/wellness', wellnessCategoriesRouter);
 
 // Feature routes
 router.use('/activities', activityRouter);

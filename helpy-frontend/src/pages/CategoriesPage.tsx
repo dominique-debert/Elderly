@@ -6,8 +6,9 @@ import CategoryModal from '../components/CategoryModal';
 import type { ICategory } from '../@types/ICategory';
 import Icon from '@mdi/react';
 import { mdiDotsVertical, mdiPlus } from '@mdi/js';
+import { Navigate } from 'react-router-dom';
 
-const ActivityCategoriesPage = () => {
+const CategoriesPage = () => {
   const { isAuthenticated } = useAuthStore();
   const { open: openModal } = useCategoryModalStore();
 
@@ -17,17 +18,16 @@ const ActivityCategoriesPage = () => {
   });
 
   if (!isAuthenticated) {
-    return <div className="text-center mt-10">Vous devez être connecté pour voir votre profil.</div>;
+    return <Navigate to="/login" />;
   }
 
   if (isLoading) return <div className="text-center mt-10">Chargement...</div>;
   if (isError) return <div className="text-center text-red-500 mt-10">Erreur lors du chargement.</div>;
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
-      {/* Header */}
+    <div className="flex flex-col m-6 lg:ml-0 xs:ml-4 w-full">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Catégories d'activités</h1>
+        <h1 className="text-2xl font-semibold text-primary">Catégories d'activités</h1>
         <button onClick={openModal} className="btn btn-primary gap-2">
           <Icon path={mdiPlus} size={1} />
           Ajouter
@@ -41,7 +41,7 @@ const ActivityCategoriesPage = () => {
             <div className="card-body relative">
               {/* Bouton dots vertical */}
               <div className="absolute top-2 right-2">
-                <button className="btn btn-ghost btn-xs">
+                <button className="btn btn-ghost btn-xs btn-secondary">
                   <Icon path={mdiDotsVertical} size={1} />
                 </button>
               </div>
@@ -59,4 +59,4 @@ const ActivityCategoriesPage = () => {
   );
 };
 
-export default ActivityCategoriesPage;
+export default CategoriesPage;

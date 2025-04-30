@@ -7,9 +7,8 @@ import {
   getActivityById,
   updateActivity,
   deleteActivity,
-  getActivityWithCategory,
-  getActivityWithRegistration
 } from '@/controllers/index.controller';
+
 import { 
   activitySchema,
   idParamActivitySchema 
@@ -51,68 +50,6 @@ router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getA
  *         description: Erreur serveur
  */
 router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getActivityById);
-
-/**
- * @swagger
- * /api/activities/{id}/with-category:
- *   get:
- *     summary: Récupérer une activité et sa catégorie par son ID
- *     description: Renvoie une activité basée sur son ID
- *     security:
- *       - bearerAuth: []
- *     tags: [Activities]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *           format: cuid
- *         description: ID de l'activité à récupérer
- *     responses:
- *       200:
- *         description: Activité récupérée avec succès
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Activity'
- *       404:
- *         description: Activité non trouvée
- *       500:
- *         description: Erreur serveur
- */
-router.get('/:id/with-category', validate(idParamActivitySchema, 'params'), errorHandler, getActivityWithCategory);
-
-/**
- * @swagger
- * /api/activities/{id}/with-registration:
- *   get:
- *     summary: Récupérer une activité et sa catégorie par son ID
- *     description: Renvoie une activité basée sur son ID
- *     security:
- *       - bearerAuth: []
- *     tags: [Activities]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *           format: cuid
- *         description: ID de l'activité à récupérer
- *     responses:
- *       200:
- *         description: Activité récupérée avec succès
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ActivityWithRegistration'
- *       404:
- *         description: Activité non trouvée
- *       500:
- *         description: Erreur serveur
- */
-router.get('/:id/with-registration', validate(idParamActivitySchema, 'params'), errorHandler, getActivityWithRegistration);
 
 /**
  * @swagger

@@ -1,11 +1,12 @@
 import { useAuthStore } from '../stores/auth';
 import { formatDate } from '../utils/formatDate';
+import { Navigate } from 'react-router-dom';
 
 const ProfilePage = () => {
   const { user, isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
-    return <div>Vous devez être connecté pour voir votre profil.</div>;
+    return <Navigate to="/login" />;
   }
 
   return (

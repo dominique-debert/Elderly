@@ -5,12 +5,13 @@ import HealthCard from "../components/HealthCard";
 import UserCard from "../components/UserCard";
 import ServiceCard from "../components/ServiceCard";
 import MedicationCard from "../components/MedicationCard";
+import { Navigate } from "react-router-dom";
 
 const HomePage = () => {
   const { user, isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
-    return <div>Vous devez être connecté pour voir votre profil.</div>;
+    return <Navigate to="/login" />;
   }
 
   return (

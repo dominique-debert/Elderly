@@ -30,7 +30,6 @@ interface SwaggerOptions {
     }>;
   };
   apis: string[];
-  
 }
 
 const options: SwaggerOptions = {
@@ -72,9 +71,9 @@ const options: SwaggerOptions = {
   },
 
   apis: [
-    './routes/*',
-    './schemas/swagger/*',
-  ], // Path to the API routes with JSDoc comments
+    './routes/**/*.ts',
+    './schemas/swagger/**/*.ts',
+  ],
 };
 
 export const swaggerSpecs = swaggerJsdoc(options);

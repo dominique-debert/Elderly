@@ -19,7 +19,12 @@ export const createResource = async (
 
   try {
     const resource = await prisma.resource.create({
-      data: req.body
+      data: {
+        ...req.body,
+        category: {
+          connect: { id: parseInt(req.body.category) }
+        }
+      }
     });
     res.status(201).json(resource);
   } catch (error) {
@@ -85,7 +90,10 @@ export const updateResource = async (
     const updatedResource = await prisma.resource.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        category: {
+          connect: { id: parseInt(req.body.category) } 
+        }
       },
       where: { id }
     });
