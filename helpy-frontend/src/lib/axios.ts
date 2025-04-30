@@ -1,15 +1,16 @@
 import axios from 'axios';
+import { refreshAccessToken } from '../services/auth';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api', // ou l'URL de ton API
-  withCredentials: true, // si tu utilises des cookies
+  baseURL: 'http://localhost:3000/api',
 });
 
 // Intercepteur de requête pour ajouter le token dans les headers
 api.interceptors.request.use(
   (config) => {
-    const storedAuth = localStorage.getItem('auth-storage');
-    const accessToken = storedAuth ? JSON.parse(storedAuth).state.accessToken : null;
+    const accessToken = localStorage.getItem('accessToken');
+    console.log(accessToken);
+    console.log(config);
     if (accessToken) {
       config.headers['Authorization'] = `Bearer ${accessToken}`;
     }
@@ -19,7 +20,6 @@ api.interceptors.request.use(
 );
 
 // Optionnel : Intercepteur de réponse pour gérer les erreurs, par exemple pour le refresh token
-import { refreshAccessToken } from '../services/auth'; 
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -34,7 +34,7 @@ api.interceptors.response.use(
 
         return api(originalRequest);
       } catch (refreshError) {
-        localStorage.removeItem('auth-storage');
+        localStorage.removeItem('accessToken');
         window.location.href = '/login';
         return Promise.reject(refreshError);
       }
@@ -42,6 +42,5 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
 
 export default api;

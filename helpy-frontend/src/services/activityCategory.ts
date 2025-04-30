@@ -1,29 +1,41 @@
-import api from './api';
+import api from '../lib/axios';
 import type { ICategory } from '../@types/ICategory';
 
 export const fetchActivityCategories = async (): Promise<ICategory[]> =>  {
-const storedAuth = localStorage.getItem('auth-storage');
-const accessToken = storedAuth ? JSON.parse(storedAuth).state.accessToken : null;
+  const accessToken = localStorage.getItem('accessToken');
 
-  if (!accessToken) {
-    throw new Error('Token manquant');
-  }
-
-  const { data } = await api.get(`/categories/activities`);
+  const { data } = await api.get(`/categories/activities`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
   return data.activityCategories;
 };
 
 export const createActivityCategory = async (category: { name: string; description?: string }) => {
-  const { ...data } = await api.post('/categories/activities', category);
+  const { data } = await api.post('/categories/activities', category, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+    },
+  });
+  console.log(data);
   return data;
 };
 
 export const updateActivityCategory = async (id: string, data: { name: string; description?: string }) => {
-  const response = await api.patch(`/categories/activities/${id}`, data);
+  const response = await api.patch(`/categories/activities/${id}`, data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+    },
+  });
   return response.data;
 };
 
 export const deleteActivityCategory = async (id: string) => {
-  const response = await api.delete(`/categories/activities/${id}`);
+  const response = await api.delete(`/categories/activities/${id}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+    },
+  });
   return response.data;
 };

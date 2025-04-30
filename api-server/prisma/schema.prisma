@@ -786,6 +786,8 @@ model categoryType {
   id         Int        @id @default(autoincrement())
   name       String     @unique
   categories category[]
+
+  @@map("category_type")
 }
 
 model category {
@@ -809,4 +811,5 @@ model category {
   exerciseProgram      exerciseProgram[]
 
   @@index([typeId])
+  @@map("category")
 }

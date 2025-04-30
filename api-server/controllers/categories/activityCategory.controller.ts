@@ -3,6 +3,7 @@ import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError.js';
 import { CategoryType } from '@/@types/data/categories/ECategory';
 import ICategory from '@/@types/data/categories/ICategory';
+import { activityCategorySchema } from '@/schemas/validation/activityCategory.schema';
 
 const prisma = new PrismaClient();
 
@@ -28,7 +29,7 @@ export const fetchAllActivityCategories = async (
         name: 'asc'
       }
     });
-
+    
     res.status(200).json({ activityCategories });
   } catch (error) {
     next(error);
@@ -42,100 +43,108 @@ export const fetchActivityCategoryById = async (
   next: NextFunction
 ) => {
   const { id } = req.params;
-
+  
   try {
     const activityCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
         typeId: CategoryType.ACTIVITY }
-    });
-
-    if (!activityCategory) {
-      throw createHttpError(404, 'Catégorie non trouvée');
+      });
+      
+      if (!activityCategory) {
+        throw createHttpError(404, 'Catégorie non trouvée');
+      }
+      
+      res.status(200).json(activityCategory);
+    } catch (error) {
+      next(error);
     }
-
-    res.status(200).json(activityCategory);
-  } catch (error) {
-    next(error);
-  }
-};
-
-// CRÉER UNE CATÉGORIE D'ACTIVITÉ
+  };
+  
+  // CRÉER UNE CATÉGORIE D'ACTIVITÉ
 export const createActivityCategory = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
+    const { name, description } = req.body;
+
     const categoryToCreate = await prisma.category.create({
-      data: req.body
+      data: {
+        name,
+        description,
+        typeId: CategoryType.ACTIVITY, // 👈 Clé étrangère correcte ici
+      }
     });
+
     res.status(201).json(categoryToCreate);
   } catch (error) {
     next(error);
   }
 };
-
-export const updateActivityCategory = async (
-  req: Request<{ id: string }, ICategory>,
-  res: Response,
-  next: NextFunction
-) => {
-  const { id } = req.params;
-
-  try {
-    const category = await prisma.category.findUnique({
-      where: {
-        id: Number(id),
-        typeId: CategoryType.ACTIVITY }
-    });
-
-    if (!category) {
-      throw createHttpError(404, 'Catégorie non trouvée');
-    }
-
-    const categoryToUpdate = await prisma.category.update({
-      data: {
-        ...req.body,
-        updatedAt: new Date()
-      },
-      where: {
-        id: Number(id),
-        typeId: CategoryType.ACTIVITY }
-    });
-
-    res.status(200).json(categoryToUpdate);
-  } catch (error) {
-    next(error);
-  }
-};
-
-export const deleteActivityCategory = async (
-  req: Request<{ id: string }>,
-  res: Response,
-  next: NextFunction
-) => {
-  const { id } = req.params;
-
-  try {
-    const category = await prisma.category.findUnique({
-      where: {
-        id: Number(id),
-        typeId: CategoryType.ACTIVITY }
-    });
-
-    if (!category) {
-      throw createHttpError(404, 'Catégorie non trouvée');
-    }
-
-    await prisma.category.delete({
-      where: {
-        id: Number(id),
-        typeId: CategoryType.ACTIVITY }
-    });
-
-    res.status(200).json({ message: 'Catégorie supprimée avec succès' });
-  } catch (error) {
-    next(error);
-  }
-};
+  
+  export const updateActivityCategory = async (
+    req: Request<{ id: string }, ICategory>,
+    res: Response,
+    next: NextFunction
+  ) => {
+    const { id } = req.params;
+    
+    try {
+      const category = await prisma.category.findUnique({
+        where: {
+          id: Number(id),
+          typeId: CategoryType.ACTIVITY }
+        });
+        
+        if (!category) {
+          throw createHttpError(404, 'Catégorie non trouvée');
+        }
+        
+        const categoryToUpdate = await prisma.category.update({
+          data: {
+            ...req.body,
+            updatedAt: new Date()
+          },
+          where: {
+            id: Number(id),
+            typeId: CategoryType.ACTIVITY }
+          });
+          
+          res.status(200).json(categoryToUpdate);
+        } catch (error) {
+          next(error);
+        }
+      };
+      
+      export const deleteActivityCategory = async (
+        req: Request<{ id: string }>,
+        res: Response,
+        next: NextFunction
+      ) => {
+        const { id } = req.params;
+        
+        try {
+          const category = await prisma.category.findUnique({
+            where: {
+              id: Number(id),
+              typeId: CategoryType.ACTIVITY }
+            });
+            
+            if (!category) {
+              throw createHttpError(404, 'Catégorie non trouvée');
+            }
+            
+            await prisma.category.delete({
+              where: {
+                id: Number(id),
+                typeId: CategoryType.ACTIVITY }
+              });
+              
+              res.status(200).json({ message: 'Catégorie supprimée avec succès' });
+            } catch (error) {
+              next(error);
+            }
+          };
+          
