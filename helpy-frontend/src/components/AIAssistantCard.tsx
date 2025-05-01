@@ -6,19 +6,19 @@ const AIAssistantCard = () => {
 return (
   <>
     <div className="flex flex-col p-4 w-full">
-      <h2 className="font-light">ICI: Assistant IA</h2>
+      <h2 className="font-light">ICI: Assistant IA</h2> 
       <div className="card w-full">
         <figure className="rounded-xl relative no-border w-full h-full">
           <img src="/images/brain.png" alt="brain" className="w-full" /> 
           <div className="absolute">
-            <div className="bg-pink-200 border-4 border-white opacity-85 text-black rounded-full text-md font-normal cursor-pointer">
-              <p className="text-center text-pretty font-normal pl-9 pr-9 pt-9 pb-20">Tell me how<br/>do you feel
+            <div className="bg-pink-200 border-8 border-white opacity-80 text-black rounded-full text-md font-normal cursor-pointer">
+              <div className="text-center text-pretty font-normal pl-12 pr-12 pt-9 pb-20">Exprimez<br/>vous
                 <Icon path={mdiMicrophoneOutline}
-                  title="Speak"
+                  title="Parler"
                   size={2}
-                  className="text-white absolute p-2 left-[59px] top-24 mt-1 btn-circle bg-indigo-950 hover:bg-indigo-400"
+                  className="text-white absolute p-2 top-[100px] left-[67px] mt-1 btn-circle bg-indigo-950 hover:bg-indigo-400"
                 />
-              </p>
+              </div>
             </div>
           </div>
         </figure>
