@@ -6,7 +6,7 @@ return (
       <div className="flex flex-col w-full h-full">
         <h2 className="card-title mt-4 mb-4">Mesures générales</h2>
 
-        <div className="grid grid-cols-3 grid-rows-2 lg:gap-8 md:gap-4 h-full">
+        <div className="grid grid-cols-3 grid-rows-2 gap-4 h-full">
           {[
             { id: 1, bg: "bg-pink-50", className: "row-span-2" },
             { id: 2, bg: "bg-indigo-50" },
