@@ -2,8 +2,8 @@ const HealthGoalsCard = () => {
 
 return (
   <>
-    <div className="card w-full bg-base-100 ml-4 pr-4 lg:mb-4 mt-8 mr-8">
-      <div className="flex flex-col w-full h-full">
+    <div className="flex flex-col w-full h-full">
+      <div className="card w-full h-full bg-base-100 ml-4 pr-4 lg:mb-4 mt-4 mr-8">
         <h2 className="card-title mt-4 mb-4">Objectifs de santé</h2>
 
         <div className="grid grid-cols-2 grid-rows-2 lg:gap-8 md:gap-4 h-full">
