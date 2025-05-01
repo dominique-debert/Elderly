@@ -6,7 +6,6 @@ const AIAssistantCard = () => {
 return (
   <>
     <div className="flex flex-col p-4 w-full">
-      <h2 className="font-light">ICI: Assistant IA</h2> 
       <div className="card w-full">
         <figure className="rounded-xl relative no-border w-full h-full">
           <img src="/images/brain.png" alt="brain" className="w-full" /> 

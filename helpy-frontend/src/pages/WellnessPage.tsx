@@ -15,19 +15,19 @@ const WellnessPage = () => {
   }
 
   return (
-    <div className="flex flex-col m-4 lg:ml-0 w-full">
-      <div className="lg:flex lg:flex-column w-full lg:space-x-4">
+    <div className="flex flex-col m-4 lg:ml-0 w-full space-y-8">
+      <div className="flex flex-col lg:flex-row w-full lg:space-x-4">
         <AIAssistantCard />
         <GeneralMetricsCard />
         <HealthGoalsCard />
       </div>
-      <div className="lg:flex lg:flex-column w-full lg:space-x-4">
-      </div>
-      <div className="lg:flex lg:flex-column w-full lg:space-x-4">
+      
+      <div className="flex flex-col lg:flex-row w-full lg:space-x-4">
         <ActivityGoals />
         <MealPlan />
       </div>
-      <div className="lg:flex lg:flex-column w-full lg:space-x-4">
+
+      <div className="flex flex-col lg:flex-row w-full lg:space-x-4">
         <MedicationPlanning />
       </div>
     </div>

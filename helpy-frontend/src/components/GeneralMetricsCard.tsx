@@ -2,41 +2,25 @@ const GeneralMetricsCard = () => {
 
 return (
   <>
-    <div className="card w-full bg-base-100 border border-gray-200 m-4">
-      <div className="flex flex-col pl-8 pr-8 pt-4 pb-8 w-full h-full">
+    <div className="card w-full bg-base-100 ml-4 pr-4 lg:mb-4 mt-8">
+      <div className="flex flex-col w-full h-full">
         <h2 className="card-title mt-4 mb-4">Mesures générales</h2>
-        <div className="grid grid-cols-3 grid-rows-2 gap-4 h-full">
-          <div className="row-span-2">
-            <div className="card bg-pink-50 text-neutral-content shadow h-full">
-              <div className="card-body">
-                <h2 className="card-title self-center">1</h2>
-              </div>
-            </div>
-          </div>
 
-          <div>
-            <div className="card bg-indigo-50 text-neutral-content shadow h-full">
-              <div className="card-body">
-                <h2 className="card-title self-center">2</h2>
+        <div className="grid grid-cols-3 grid-rows-2 lg:gap-8 md:gap-4 h-full">
+          {[
+            { id: 1, bg: "bg-pink-50", className: "row-span-2" },
+            { id: 2, bg: "bg-indigo-50" },
+            { id: 3, bg: "bg-yellow-50" },
+            { id: 4, bg: "bg-blue-50", className: "col-span-2" },
+          ].map(({ id, bg, className }) => (
+            <div key={id} className={className}>
+              <div className={`card ${bg} text-neutral-content h-full`}>
+                <div className="card-body">
+                  <h2 className="card-title self-center">{id}</h2>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div>
-            <div className="card bg-yellow-50 text-neutral-content shadow h-full">
-              <div className="card-body">
-                <h2 className="card-title self-center">3</h2>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-span-2">
-            <div className="card bg-blue-50 text-neutral-content shadow h-full">
-              <div className="card-body">
-                <h2 className="card-title self-center">4</h2>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
