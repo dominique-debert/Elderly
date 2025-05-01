@@ -4,6 +4,8 @@ import GeneralMetricsCard from "../components/GeneralMetricsCard";
 import MedicationPlanning from "../components/MedicationPlanning";
 import { useAuthStore } from "../stores/auth";
 import { Navigate } from "react-router-dom";
+import ActivityGoals from "../components/ActivityGoals";
+import MealPlan from "../components/MealPlan";
 
 const WellnessPage = () => {
   const { isAuthenticated } = useAuthStore();
@@ -20,6 +22,10 @@ const WellnessPage = () => {
         <HealthGoalsCard />
       </div>
       <div className="lg:flex lg:flex-column w-full lg:space-x-4">
+      </div>
+      <div className="lg:flex lg:flex-column w-full lg:space-x-4">
+        <ActivityGoals />
+        <MealPlan />
       </div>
       <div className="lg:flex lg:flex-column w-full lg:space-x-4">
         <MedicationPlanning />
