@@ -1,7 +1,7 @@
 const MedicationCard: React.FC = () => {
 
   return (
-    <div className="card w-full bg-base-100 shadow-lg border border-gray-200">
+    <div className="card w-full bg-base-100 border border-gray-200">
       <div className="w-full max-w-xl mx-auto p-4">
         <h2 className="text-2xl font-bold mb-6 text-center text-primary">Prise de médicaments</h2>
         <ul className="timeline timeline-vertical lg:timeline-horizontal">
