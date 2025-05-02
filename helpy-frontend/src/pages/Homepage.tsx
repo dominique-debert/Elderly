@@ -16,9 +16,9 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="lg:flex lg:flex-col w-full lg:space-x-4">
+      <div className="flex flex-col lg:flex-col w-full space-y-4 lg:space-x-4">
         
-        <div className="lg:flex lg:flex-row w-full lg:space-x-4 m-4">
+        <div className="lg:flex lg:flex-row w-full lg:space-y-4">
           {user ? (
             <>
               <UserCard />
@@ -40,7 +40,7 @@ const HomePage = () => {
           <MedicationCard />
         </div>
       </div>
-        </>
+    </>
   );
 };
 

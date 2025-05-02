@@ -1,7 +1,7 @@
 const ActivityCard = () => {
 
 return (
-    <div className="card mb-4 w-full bg-base-100 border border-gray-200">
+    <div className="card ml-4 mr-4 mb-4 bg-base-100 border border-gray-200">
       <div className="card-body">
         <h2 className="card-title text-primary">Activité</h2>
         <div className="stats">
