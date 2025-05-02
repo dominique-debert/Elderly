@@ -16,9 +16,9 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="flex flex-col lg:flex-col w-full space-y-4 lg:space-x-4">
+      <div className="flex flex-col w-full gap-4">
         
-        <div className="lg:flex lg:flex-row w-full lg:space-y-4">
+        <div className="lg:flex lg:flex-row gap-4 mt-4">
           {user ? (
             <>
               <UserCard />
@@ -29,14 +29,14 @@ const HomePage = () => {
           <ForumCard />
         </div>
         
-        <div className="lg:flex lg:flex-row w-full lg:space-x-4">
+        <div className="lg:flex lg:flex-row gap-4">
           <ActivityCard />
           <HealthCard />
           <ServiceCard />
         </div>
 
 
-        <div className="lg:flex lg:flex-row w-full lg:space-x-4">
+        <div className="lg:flex lg:flex-row">
           <MedicationCard />
         </div>
       </div>

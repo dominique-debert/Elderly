@@ -88,3 +88,7 @@
 .backdrop-blur-md {
   --tw-backdrop-blur: blur(14px);
 }
+
+.m-none {
+  margin: 0 !important;
+}
