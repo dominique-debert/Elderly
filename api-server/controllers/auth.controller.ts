@@ -87,8 +87,13 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
     const { email, password } = req.body;
     
     const user = await prisma.user.findUnique({ where: { email } });
-    if (!user || !(await argon2.verify(user.passwordHash, password))) {
-      throw createHttpError(401, 'Invalid credentials');
+
+    if (!user) {
+        throw createHttpError(401, 'Utilisateur inconnu !');
+    }
+
+    if (!(await argon2.verify(user.passwordHash, password))) {
+      throw createHttpError(401, 'Mot de passe incorrect !');
     }
     
     const accessToken = signToken(user.id, 'access');
