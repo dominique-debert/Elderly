@@ -17,7 +17,7 @@ const SignupPage = () => {
   return (
     <div className='container'>
 
-    <div className="flex justify-end items-center w-screen h-screen bg-[url(/images/background.png)] bg-cover">
+    <div className="flex justify-end items-center w-screen h-screen bg-[url(/images/background.webp)] bg-cover">
       <div className="card w-96 h-100 bg-base-100 shadow-xl mr-20 py-20 px-10 bg-opacity-85">
         <h2 className="text-2xl font-bold mb-4 text-left text-primary">S'inscrire</h2>
         <p className="text-left text-sm mb-4">Inscrivez-vous gratuitement pour accéder à nos services.</p>
