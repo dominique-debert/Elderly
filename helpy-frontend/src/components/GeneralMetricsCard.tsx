@@ -1,8 +1,15 @@
+import { motion } from "framer-motion";
+
 const GeneralMetricsCard = () => {
 
 return (
   <>
-    <div className="card w-full bg-base-100 ml-4 pr-4 lg:mb-4 mt-4">
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="card w-full bg-base-100 ml-4 pr-4 lg:mb-4 mt-4"
+    >
       <div className="flex flex-col w-full h-full">
         <h2 className="card-title mt-4 mb-4">Mesures générales</h2>
 
@@ -23,7 +30,7 @@ return (
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   </>
   );
 };

@@ -2,13 +2,20 @@ import { mdiCakeVariantOutline, mdiEmailOutline } from "@mdi/js";
 import { formatDate } from "../utils/formatDate";
 import Icon from '@mdi/react';
 import { useAuthStore } from "../stores/auth";
+import { motion } from "framer-motion";
 
 const UserCard = () => {
   
   const { user } = useAuthStore();
 
 return (
-  <div className="card self-center lg:w-1/2 bg-base-100 border border-gray-200">
+ 
+    <motion.div
+      className="card self-center lg:w-1/2 bg-base-100 border border-gray-200"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
     <figure className="relative rounded-xl">
       {user && <img className="w-full" src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
       <div className="grid grid-cols-3 my-4 bottom-0 gap-4 absolute xs:w-full">
@@ -50,7 +57,7 @@ return (
         </div>
       </div>
     </figure>
-  </div>  
+  </motion.div>  
   );
 };
 

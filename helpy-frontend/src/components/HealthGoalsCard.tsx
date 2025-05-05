@@ -1,8 +1,15 @@
+import { motion } from "framer-motion";
+
 const HealthGoalsCard = () => {
 
 return (
   <>
-    <div className="flex flex-col w-full h-full">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}    
+      className="flex flex-col w-full h-full"
+    >
       <div className="card w-full h-full bg-base-100 ml-4 pr-4 lg:mb-4 mt-4 mr-8">
         <h2 className="card-title mt-4 mb-4">Objectifs de santé</h2>
 
@@ -21,7 +28,7 @@ return (
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   </>
   );
 };

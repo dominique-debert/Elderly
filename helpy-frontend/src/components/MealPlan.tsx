@@ -1,8 +1,15 @@
+import { motion } from "framer-motion";
+
 const MealPlan = () => {
 
 return (
   <>
-    <div className="flex flex-col w-full h-full mr-4 mt-8">
+    <motion.div
+      initial={{ opacity: 0, y: -150 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}    
+      className="flex flex-col w-full h-full mr-4 mt-8"
+    >
       <div className="card bg-base-100 h-full ml-4">
         <h2 className="card-title mb-4">Planification des repas</h2>
 
@@ -24,7 +31,7 @@ return (
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   </>  
   );
 };

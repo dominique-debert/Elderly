@@ -1,7 +1,14 @@
+import { motion } from "framer-motion";
+
 const ActivityCard = () => {
 
 return (
-    <div className="card lg:w-full bg-base-100 border border-gray-200">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="card lg:w-full bg-base-100 border border-gray-200"
+    >            
       <div className="card-body">
         <h2 className="card-title text-primary">Activité</h2>
         <div className="stats">
@@ -25,7 +32,7 @@ return (
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

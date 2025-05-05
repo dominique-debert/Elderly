@@ -1,7 +1,14 @@
+import { motion } from "framer-motion";
+
 const ForumCard = () => {
 
 return (
-    <div className="card border w-full bg-base-100">
+    <motion.div
+      className="card border w-full bg-base-100"
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+    >        
       <div className="card-body">
         <h2 className="card-title text-primary">Derniers sujets dans le forum</h2>
 
@@ -159,7 +166,7 @@ return (
         </div>
 
       </div>
-    </div>
+    </motion.div>
   );
 };
 
