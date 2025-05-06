@@ -283,10 +283,11 @@ exports.Prisma.HealthIndicatorScalarFieldEnum = {
 
 exports.Prisma.MoodScalarFieldEnum = {
   id: 'id',
-  nom: 'nom',
+  name: 'name',
   description: 'description',
   valence: 'valence',
-  intensite: 'intensite',
+  intensity: 'intensity',
+  color: 'color',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

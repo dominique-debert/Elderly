@@ -21477,40 +21477,43 @@ export namespace Prisma {
 
   export type MoodAvgAggregateOutputType = {
     id: number | null
-    intensite: number | null
+    intensity: number | null
   }
 
   export type MoodSumAggregateOutputType = {
     id: number | null
-    intensite: number | null
+    intensity: number | null
   }
 
   export type MoodMinAggregateOutputType = {
     id: number | null
-    nom: string | null
+    name: string | null
     description: string | null
     valence: $Enums.Valence | null
-    intensite: number | null
+    intensity: number | null
+    color: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type MoodMaxAggregateOutputType = {
     id: number | null
-    nom: string | null
+    name: string | null
     description: string | null
     valence: $Enums.Valence | null
-    intensite: number | null
+    intensity: number | null
+    color: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type MoodCountAggregateOutputType = {
     id: number
-    nom: number
+    name: number
     description: number
     valence: number
-    intensite: number
+    intensity: number
+    color: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -21519,40 +21522,43 @@ export namespace Prisma {
 
   export type MoodAvgAggregateInputType = {
     id?: true
-    intensite?: true
+    intensity?: true
   }
 
   export type MoodSumAggregateInputType = {
     id?: true
-    intensite?: true
+    intensity?: true
   }
 
   export type MoodMinAggregateInputType = {
     id?: true
-    nom?: true
+    name?: true
     description?: true
     valence?: true
-    intensite?: true
+    intensity?: true
+    color?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type MoodMaxAggregateInputType = {
     id?: true
-    nom?: true
+    name?: true
     description?: true
     valence?: true
-    intensite?: true
+    intensity?: true
+    color?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type MoodCountAggregateInputType = {
     id?: true
-    nom?: true
+    name?: true
     description?: true
     valence?: true
-    intensite?: true
+    intensity?: true
+    color?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -21646,10 +21652,11 @@ export namespace Prisma {
 
   export type MoodGroupByOutputType = {
     id: number
-    nom: string
+    name: string
     description: string | null
     valence: $Enums.Valence
-    intensite: number
+    intensity: number
+    color: string
     createdAt: Date
     updatedAt: Date
     _count: MoodCountAggregateOutputType | null
@@ -21675,10 +21682,11 @@ export namespace Prisma {
 
   export type moodSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    nom?: boolean
+    name?: boolean
     description?: boolean
     valence?: boolean
-    intensite?: boolean
+    intensity?: boolean
+    color?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     healthIndicator?: boolean | mood$healthIndicatorArgs<ExtArgs>
@@ -21687,35 +21695,38 @@ export namespace Prisma {
 
   export type moodSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    nom?: boolean
+    name?: boolean
     description?: boolean
     valence?: boolean
-    intensite?: boolean
+    intensity?: boolean
+    color?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["mood"]>
 
   export type moodSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    nom?: boolean
+    name?: boolean
     description?: boolean
     valence?: boolean
-    intensite?: boolean
+    intensity?: boolean
+    color?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["mood"]>
 
   export type moodSelectScalar = {
     id?: boolean
-    nom?: boolean
+    name?: boolean
     description?: boolean
     valence?: boolean
-    intensite?: boolean
+    intensity?: boolean
+    color?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type moodOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nom" | "description" | "valence" | "intensite" | "createdAt" | "updatedAt", ExtArgs["result"]["mood"]>
+  export type moodOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "valence" | "intensity" | "color" | "createdAt" | "updatedAt", ExtArgs["result"]["mood"]>
   export type moodInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     healthIndicator?: boolean | mood$healthIndicatorArgs<ExtArgs>
     _count?: boolean | MoodCountOutputTypeDefaultArgs<ExtArgs>
@@ -21730,10 +21741,11 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      nom: string
+      name: string
       description: string | null
       valence: $Enums.Valence
-      intensite: number
+      intensity: number
+      color: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["mood"]>
@@ -22161,10 +22173,11 @@ export namespace Prisma {
    */
   interface moodFieldRefs {
     readonly id: FieldRef<"mood", 'Int'>
-    readonly nom: FieldRef<"mood", 'String'>
+    readonly name: FieldRef<"mood", 'String'>
     readonly description: FieldRef<"mood", 'String'>
     readonly valence: FieldRef<"mood", 'Valence'>
-    readonly intensite: FieldRef<"mood", 'Int'>
+    readonly intensity: FieldRef<"mood", 'Int'>
+    readonly color: FieldRef<"mood", 'String'>
     readonly createdAt: FieldRef<"mood", 'DateTime'>
     readonly updatedAt: FieldRef<"mood", 'DateTime'>
   }
@@ -62961,10 +62974,11 @@ export namespace Prisma {
 
   export const MoodScalarFieldEnum: {
     id: 'id',
-    nom: 'nom',
+    name: 'name',
     description: 'description',
     valence: 'valence',
-    intensite: 'intensite',
+    intensity: 'intensity',
+    color: 'color',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -64701,10 +64715,11 @@ export namespace Prisma {
     OR?: moodWhereInput[]
     NOT?: moodWhereInput | moodWhereInput[]
     id?: IntFilter<"mood"> | number
-    nom?: StringFilter<"mood"> | string
+    name?: StringFilter<"mood"> | string
     description?: StringNullableFilter<"mood"> | string | null
     valence?: EnumValenceFilter<"mood"> | $Enums.Valence
-    intensite?: IntFilter<"mood"> | number
+    intensity?: IntFilter<"mood"> | number
+    color?: StringFilter<"mood"> | string
     createdAt?: DateTimeFilter<"mood"> | Date | string
     updatedAt?: DateTimeFilter<"mood"> | Date | string
     healthIndicator?: HealthIndicatorListRelationFilter
@@ -64712,10 +64727,11 @@ export namespace Prisma {
 
   export type moodOrderByWithRelationInput = {
     id?: SortOrder
-    nom?: SortOrder
+    name?: SortOrder
     description?: SortOrderInput | SortOrder
     valence?: SortOrder
-    intensite?: SortOrder
+    intensity?: SortOrder
+    color?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     healthIndicator?: healthIndicatorOrderByRelationAggregateInput
@@ -64723,24 +64739,26 @@ export namespace Prisma {
 
   export type moodWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    nom?: string
+    name?: string
     AND?: moodWhereInput | moodWhereInput[]
     OR?: moodWhereInput[]
     NOT?: moodWhereInput | moodWhereInput[]
     description?: StringNullableFilter<"mood"> | string | null
     valence?: EnumValenceFilter<"mood"> | $Enums.Valence
-    intensite?: IntFilter<"mood"> | number
+    intensity?: IntFilter<"mood"> | number
+    color?: StringFilter<"mood"> | string
     createdAt?: DateTimeFilter<"mood"> | Date | string
     updatedAt?: DateTimeFilter<"mood"> | Date | string
     healthIndicator?: HealthIndicatorListRelationFilter
-  }, "id" | "nom">
+  }, "id" | "name">
 
   export type moodOrderByWithAggregationInput = {
     id?: SortOrder
-    nom?: SortOrder
+    name?: SortOrder
     description?: SortOrderInput | SortOrder
     valence?: SortOrder
-    intensite?: SortOrder
+    intensity?: SortOrder
+    color?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: moodCountOrderByAggregateInput
@@ -64755,10 +64773,11 @@ export namespace Prisma {
     OR?: moodScalarWhereWithAggregatesInput[]
     NOT?: moodScalarWhereWithAggregatesInput | moodScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"mood"> | number
-    nom?: StringWithAggregatesFilter<"mood"> | string
+    name?: StringWithAggregatesFilter<"mood"> | string
     description?: StringNullableWithAggregatesFilter<"mood"> | string | null
     valence?: EnumValenceWithAggregatesFilter<"mood"> | $Enums.Valence
-    intensite?: IntWithAggregatesFilter<"mood"> | number
+    intensity?: IntWithAggregatesFilter<"mood"> | number
+    color?: StringWithAggregatesFilter<"mood"> | string
     createdAt?: DateTimeWithAggregatesFilter<"mood"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"mood"> | Date | string
   }
@@ -68712,10 +68731,11 @@ export namespace Prisma {
   }
 
   export type moodCreateInput = {
-    nom: string
+    name?: string
     description?: string | null
     valence: $Enums.Valence
-    intensite: number
+    intensity?: number
+    color?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     healthIndicator?: healthIndicatorCreateNestedManyWithoutMoodInput
@@ -68723,20 +68743,22 @@ export namespace Prisma {
 
   export type moodUncheckedCreateInput = {
     id?: number
-    nom: string
+    name?: string
     description?: string | null
     valence: $Enums.Valence
-    intensite: number
+    intensity?: number
+    color?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     healthIndicator?: healthIndicatorUncheckedCreateNestedManyWithoutMoodInput
   }
 
   export type moodUpdateInput = {
-    nom?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     valence?: EnumValenceFieldUpdateOperationsInput | $Enums.Valence
-    intensite?: IntFieldUpdateOperationsInput | number
+    intensity?: IntFieldUpdateOperationsInput | number
+    color?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     healthIndicator?: healthIndicatorUpdateManyWithoutMoodNestedInput
@@ -68744,10 +68766,11 @@ export namespace Prisma {
 
   export type moodUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    nom?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     valence?: EnumValenceFieldUpdateOperationsInput | $Enums.Valence
-    intensite?: IntFieldUpdateOperationsInput | number
+    intensity?: IntFieldUpdateOperationsInput | number
+    color?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     healthIndicator?: healthIndicatorUncheckedUpdateManyWithoutMoodNestedInput
@@ -68755,29 +68778,32 @@ export namespace Prisma {
 
   export type moodCreateManyInput = {
     id?: number
-    nom: string
+    name?: string
     description?: string | null
     valence: $Enums.Valence
-    intensite: number
+    intensity?: number
+    color?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type moodUpdateManyMutationInput = {
-    nom?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     valence?: EnumValenceFieldUpdateOperationsInput | $Enums.Valence
-    intensite?: IntFieldUpdateOperationsInput | number
+    intensity?: IntFieldUpdateOperationsInput | number
+    color?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type moodUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    nom?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     valence?: EnumValenceFieldUpdateOperationsInput | $Enums.Valence
-    intensite?: IntFieldUpdateOperationsInput | number
+    intensity?: IntFieldUpdateOperationsInput | number
+    color?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -72799,42 +72825,45 @@ export namespace Prisma {
 
   export type moodCountOrderByAggregateInput = {
     id?: SortOrder
-    nom?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     valence?: SortOrder
-    intensite?: SortOrder
+    intensity?: SortOrder
+    color?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type moodAvgOrderByAggregateInput = {
     id?: SortOrder
-    intensite?: SortOrder
+    intensity?: SortOrder
   }
 
   export type moodMaxOrderByAggregateInput = {
     id?: SortOrder
-    nom?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     valence?: SortOrder
-    intensite?: SortOrder
+    intensity?: SortOrder
+    color?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type moodMinOrderByAggregateInput = {
     id?: SortOrder
-    nom?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     valence?: SortOrder
-    intensite?: SortOrder
+    intensity?: SortOrder
+    color?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type moodSumOrderByAggregateInput = {
     id?: SortOrder
-    intensite?: SortOrder
+    intensity?: SortOrder
   }
 
   export type EnumValenceWithAggregatesFilter<$PrismaModel = never> = {
@@ -81761,20 +81790,22 @@ export namespace Prisma {
   }
 
   export type moodCreateWithoutHealthIndicatorInput = {
-    nom: string
+    name?: string
     description?: string | null
     valence: $Enums.Valence
-    intensite: number
+    intensity?: number
+    color?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type moodUncheckedCreateWithoutHealthIndicatorInput = {
     id?: number
-    nom: string
+    name?: string
     description?: string | null
     valence: $Enums.Valence
-    intensite: number
+    intensity?: number
+    color?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -81913,20 +81944,22 @@ export namespace Prisma {
   }
 
   export type moodUpdateWithoutHealthIndicatorInput = {
-    nom?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     valence?: EnumValenceFieldUpdateOperationsInput | $Enums.Valence
-    intensite?: IntFieldUpdateOperationsInput | number
+    intensity?: IntFieldUpdateOperationsInput | number
+    color?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type moodUncheckedUpdateWithoutHealthIndicatorInput = {
     id?: IntFieldUpdateOperationsInput | number
-    nom?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     valence?: EnumValenceFieldUpdateOperationsInput | $Enums.Valence
-    intensite?: IntFieldUpdateOperationsInput | number
+    intensity?: IntFieldUpdateOperationsInput | number
+    color?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

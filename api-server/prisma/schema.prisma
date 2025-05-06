@@ -233,10 +233,11 @@ model healthIndicator {
 /// On met l'humeur ici car en liaison avec l'indicateur de santé
 model mood {
   id              Int               @id @default(autoincrement())
-  nom             String            @unique
+  name            String            @unique @default("")
   description     String?
   valence         Valence
-  intensite       Int // Échelle de 1 à 5
+  intensity       Int               @default(0) // Échelle de 1 à 5
+  color           String            @default("") // Couleur associée (hex)
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
   healthIndicator healthIndicator[]
