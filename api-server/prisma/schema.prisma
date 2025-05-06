@@ -220,13 +220,32 @@ model healthIndicator {
   sleepDurationMinutes Int?      @map("sleep_duration_minutes")
   sleepQuality         Int?      @map("sleep_quality")
   weight               Float?
-  mood                 String?   @db.Text
+  moodId               Int?      @map("mood_category_id")
   notes                String?
   createdAt            DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt            DateTime? @map("updated_at") @db.Timestamp(6)
   user                 user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  mood                 mood?     @relation(fields: [moodId], references: [id])
 
   @@map("health_indicator")
+}
+
+/// On met l'humeur ici car en liaison avec l'indicateur de santé
+model mood {
+  id              Int               @id @default(autoincrement())
+  nom             String            @unique
+  description     String?
+  valence         Valence
+  intensite       Int // Échelle de 1 à 5
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  healthIndicator healthIndicator[]
+}
+
+enum Valence {
+  positive
+  negative
+  neutre
 }
 
 model helpOffer {

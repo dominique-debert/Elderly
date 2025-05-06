@@ -5,6 +5,6 @@ export default interface IHealthIndicator {
   sleepDurationMinutes?: number
   sleepQuality?: number
   weight?: number
-  mood?: string
+  categoryId?: number
   notes?: string
 }
