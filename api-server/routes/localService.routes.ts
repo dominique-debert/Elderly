@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler.js';
 import {
   localServiceSchema,
   idParamLocalServiceSchema }
-from '@/schemas/validators/localService.schema.js';
+from '../validators/localService.validator.js';
 
 import {
   createLocalService,

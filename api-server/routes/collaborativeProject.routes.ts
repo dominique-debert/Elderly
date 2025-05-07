@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler';
 import {
   projectSchema,
   idParamProjectSchema
-} from '@/schemas/validators/collaborativeProject.schema';
+} from '../validators/collaborativeProject.validator';
 
 import {
   createCollaborativeProject,

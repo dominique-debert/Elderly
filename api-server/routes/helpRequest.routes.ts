@@ -10,7 +10,7 @@ import {
 import {
   helpRequestSchema,
   idParamHelpRequestSchema
-} from '@/schemas/validators/helpRequest.schema';
+} from '../validators/helpRequest.validator';
 
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';

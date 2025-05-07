@@ -12,7 +12,7 @@ import {
 import { 
   activitySchema,
   idParamActivitySchema 
-} from '@/schemas/validators/activity.schema';
+} from '../validators/activity.validator';
 
 const router = Router();
 

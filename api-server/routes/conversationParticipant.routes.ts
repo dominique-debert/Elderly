@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler';
 import {
   conversationParticipantSchema,
   idParamConversationParticipantSchema
-} from '@/schemas/validators/conversationParticipant.schema';
+} from '../validators/conversationParticipant.validator';
 
 import {
   createConversationParticipant,

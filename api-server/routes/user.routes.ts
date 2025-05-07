@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler';
 import {
   userSchema,
   idParamUserSchema
-} from '@/schemas/validators/user.schema';
+} from '../validators/user.validator';
 
 import {
   createUser,

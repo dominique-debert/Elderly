@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler';
 import {
   exerciseProgramSchema,
   idParamExerciseProgramSchema
-} from '@/schemas/validators/exerciseProgram.schema';
+} from '../validators/exerciseProgram.validator';
 
 import {
   getAllExercisePrograms,

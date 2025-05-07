@@ -7,7 +7,7 @@ import {
   deleteWellnessGoal
 } from '@/controllers/index.controller';
 
-import { wellnessGoalSchema, idParamWellnessGoalSchema } from '@/schemas/validators/wellnessGoal.schema';
+import { wellnessGoalSchema, idParamWellnessGoalSchema } from '../validators/wellnessGoal.validator';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

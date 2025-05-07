@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler';
 import {
   healthIndicatorSchema,
   idParamHealthIndicatorSchema
-} from '@/schemas/validators/healthIndicator.schema';
+} from '../validators/healthIndicator.validator';
 
 import {
   createHealthIndicator,

@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler';
 import {
   forumCategorySchema,
   idParamForumCategorySchema
-} from '@/schemas/validators/forumCategory.schema';
+} from '../../validators/forumCategory.validator';
 
 import {
   createForumCategory,

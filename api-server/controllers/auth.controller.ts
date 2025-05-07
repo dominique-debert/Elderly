@@ -3,7 +3,7 @@ import { PrismaClient } from '../prisma/client';
 import argon2 from 'argon2';
 import { createHttpError } from '@/utils/httpError';
 import { generateToken } from '@/utils/jwt';
-import { signUpSchema, signInSchema } from '@/schemas/validators/auth.schema';
+import { signUpSchema, signInSchema } from '../validators/auth.validator';
 
 const prisma = new PrismaClient();
 

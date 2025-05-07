@@ -7,7 +7,7 @@ import {
   deleteUserBadge
 } from '@/controllers/index.controller';
 
-import { userBadgeSchema, idParamUserBadgeSchema } from '@/schemas/validators/userBadge.schema';
+import { userBadgeSchema, idParamUserBadgeSchema } from '../validators/userBadge.validator';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

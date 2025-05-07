@@ -7,7 +7,7 @@ import {
   deleteUserSkill
 } from '@/controllers/index.controller';
 
-import { userSkillSchema, idParamUserSkillSchema } from '@/schemas/validators/userSkill.schema';
+import { userSkillSchema, idParamUserSkillSchema } from '../validators/userSkill.validator';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

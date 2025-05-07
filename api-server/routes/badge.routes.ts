@@ -1,7 +1,7 @@
 // routes/badgeRoutes.ts
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import { badgeSchema, idParamSchema } from '@/schemas/validators/badge.schema';
+import { badgeSchema, idParamSchema } from '../validators/badge.validator';
 import errorHandler from '@/middlewares/errorHandler';
 
 import {

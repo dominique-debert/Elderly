@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler.js';
 import { 
   nutritionalAdviceSchema,
   idParamNutritionalAdviceSchema
-} from '@/schemas/validators/nutritionalAdvice.schema.js';
+} from '../validators/nutritionalAdvice.validator.js';
 
 import {
   createNutritionalAdvice,

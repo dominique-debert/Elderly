@@ -7,7 +7,7 @@ import {
   deleteTrustedContact
 } from '@/controllers/index.controller';
 
-import { trustedContactSchema, idParamTrustedContactSchema } from '@/schemas/validators/trustedContact.schema';
+import { trustedContactSchema, idParamTrustedContactSchema } from '../validators/trustedContact.validator';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

@@ -7,7 +7,7 @@ export const healthIndicatorSchema = Joi.object({
   sleepDurationMinutes: Joi.number().default(0),
   sleepQuality: Joi.number().default(0),
   weight: Joi.number().precision(2).default(0),
-  mood: Joi.string().allow(null, ''),
+  moodId: Joi.number().required(),
   notes: Joi.string().allow(null, ''),
 });
 
