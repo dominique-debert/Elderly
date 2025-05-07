@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js'; // ou '@/prisma/client' si tu utilises des alias
-import IMessage from '@/@types/data/conversations/IMessage.js';
+import { createHttpError } from '@/utils/httpError';
+import { PrismaClient } from '@/prisma/client'
+import IMessage from '@/@types/data/conversations/IMessage';
 
 const prisma = new PrismaClient();
 

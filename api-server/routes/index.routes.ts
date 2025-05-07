@@ -42,6 +42,7 @@ import userSkillRouter from './userSkill.routes';
 import userStatisticsRouter from './userStatistics.routes';
 import videoCallRouter from './videoCall.routes';
 import wellnessGoalRouter from './wellnessGoal.routes';
+import moodRouter from './mood.routes';
 
 // Import all categories routers
 import activityCategoriesRouter from './categories/activityCategory.routes';
@@ -95,6 +96,7 @@ router.use('/help-offers', helpOffersRouter);
 router.use('/help-requests', helpRequestsRouter);
 router.use('/local-services', localServiceRouter);
 router.use('/messages', messageRouter);
+router.use('/moods', moodRouter);
 router.use('/medication-reminders', medicationReminderRouter);
 router.use('/municipal-events', municipalEventRouter);
 router.use('/notifications', notificationRouter);

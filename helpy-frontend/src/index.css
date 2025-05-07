@@ -4,7 +4,7 @@ layer(base);
 @import 'tailwindcss';
 @config '../tailwind.config.js';
 @plugin "daisyui" {
-  themes: cmyk --default, abyss --prefersdark, cupcake, dracula;
+  themes: cmyk --default;
 }
 
 @layer base {
@@ -17,6 +17,9 @@ layer(base);
     --color-primary: rgba(230, 30, 90, 1);
     --text-primary: rgba(230, 30, 90, 1) !important;
     --font-display: 'Fira Sans', sans-serif;
+    --menu-active-bg: rgba(230, 30, 90, 1);
+    --menu-active-fg: white;
+    --menu-hover: rgba(230, 30, 90, 1);
   }
 }
 

@@ -15,6 +15,7 @@ export * from './categories/resourceCategory.controller';
 export * from './categories/serviceCategory.controller';
 export * from './categories/skillCategory.controller';
 export * from './categories/wellnessCategory.controller';
+export * from './mood.controller';
 
 // Features
 export * from './activities/activity.controller';
