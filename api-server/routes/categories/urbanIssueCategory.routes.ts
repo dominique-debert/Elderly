@@ -7,7 +7,7 @@ import {
   deleteUrbanIssueCategory
 } from '@/controllers/index.controller';
 
-import { categorySchema, idParamCategorySchema } from '@/schemas/validation/category.schema';
+import { categorySchema, idParamCategorySchema } from '@/schemas/validators/category.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

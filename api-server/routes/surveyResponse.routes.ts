@@ -7,7 +7,7 @@ import {
   deleteSurveyResponse
 } from '@/controllers/index.controller';
 
-import { surveyResponseSchema, idParamSurveyResponseSchema } from '@/schemas/validation/surveyResponse.schema';
+import { surveyResponseSchema, idParamSurveyResponseSchema } from '@/schemas/validators/surveyResponse.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

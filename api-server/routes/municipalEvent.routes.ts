@@ -10,7 +10,7 @@ import {
 import {
   municipalEventSchema,
   idParamMunicipalEventSchema
-} from '@/schemas/validation/municipalEvent.schema';
+} from '@/schemas/validators/municipalEvent.schema';
 
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';

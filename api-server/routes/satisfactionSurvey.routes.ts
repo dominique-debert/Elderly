@@ -7,7 +7,7 @@ import {
   deleteSatisfactionSurvey
 } from '@/controllers/index.controller';
 
-import { satisfactionSurveySchema, idParamSatisfactionSurveySchema } from '@/schemas/validation/satisfactionSurvey.schema';
+import { satisfactionSurveySchema, idParamSatisfactionSurveySchema } from '@/schemas/validators/satisfactionSurvey.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

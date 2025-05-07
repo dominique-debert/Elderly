@@ -7,7 +7,7 @@ import {
   deleteProjectMember
 } from '@/controllers/index.controller';
 
-import { projectMemberSchema, idParamProjectMemberSchema } from '@/schemas/validation/projectMember.schema';
+import { projectMemberSchema, idParamProjectMemberSchema } from '@/schemas/validators/projectMember.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

@@ -7,7 +7,7 @@ import {
   deleteServiceCompleted
 } from '@/controllers/index.controller';
 
-import { serviceCompletedSchema, idParamServiceCompletedSchema } from '@/schemas/validation/serviceCompleted.schema';
+import { serviceCompletedSchema, idParamServiceCompletedSchema } from '@/schemas/validators/serviceCompleted.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

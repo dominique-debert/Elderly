@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler';
 import {
   forumMessageSchema,
   idParamForumMessageSchema
-} from '@/schemas/validation/forumMessage.schema';
+} from '@/schemas/validators/forumMessage.schema';
 
 import {
   createForumMessage,

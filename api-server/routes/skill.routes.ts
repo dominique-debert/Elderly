@@ -6,7 +6,7 @@ import {
   skillSchema,
   idParamSkillSchema
 }
-from '@/schemas/validation/skill.schema'
+from '@/schemas/validators/skill.schema'
 
 import { 
   createSkill,

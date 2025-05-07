@@ -10,7 +10,7 @@ import {
 import {
   messageSchema,
   idParamMessageSchema
-} from '@/schemas/validation/message.schema';
+} from '@/schemas/validators/message.schema';
 
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';

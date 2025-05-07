@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler';
 import {
   cognitiveExerciseSchema,
   idParamCognitiveExerciseSchema
-} from '@/schemas/validation/cognitiveExercise.schema';
+} from '@/schemas/validators/cognitiveExercise.schema';
 
 import {
   createCognitiveExercise,

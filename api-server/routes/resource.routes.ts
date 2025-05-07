@@ -7,7 +7,7 @@ import {
   deleteResource
 } from '@/controllers/index.controller';
 
-import { resourceSchema, idParamResourceSchema } from '@/schemas/validation/resource.schema';
+import { resourceSchema, idParamResourceSchema } from '@/schemas/validators/resource.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

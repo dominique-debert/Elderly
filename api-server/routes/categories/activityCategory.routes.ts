@@ -7,7 +7,7 @@ import {
   deleteActivityCategory
 } from '@/controllers/index.controller';
 
-import { activityCategorySchema } from '@/schemas/validation/activityCategory.schema';
+import { activityCategorySchema } from '@/schemas/validators/activityCategory.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

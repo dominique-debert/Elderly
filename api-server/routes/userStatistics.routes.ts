@@ -7,7 +7,7 @@ import {
   deleteUserStatistics
 } from '@/controllers/index.controller';
 
-import { userStatisticsSchema, idParamUserStatisticsSchema } from '@/schemas/validation/userStatistics.schema';
+import { userStatisticsSchema, idParamUserStatisticsSchema } from '@/schemas/validators/userStatistics.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

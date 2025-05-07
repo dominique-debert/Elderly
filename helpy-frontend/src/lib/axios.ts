@@ -2,7 +2,7 @@ import axios from 'axios';
 import { refreshAccessToken } from '../services/auth';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'http://192.168.1.195:3000/api',
 });
 
 // Intercepteur de requête pour ajouter le token dans les headers

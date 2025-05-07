@@ -10,7 +10,7 @@ import {
 import {
   medicationReminderSchema,
   idParamMedicationReminderSchema
-} from '@/schemas/validation/medicationReminder.schema';
+} from '@/schemas/validators/medicationReminder.schema';
 
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';

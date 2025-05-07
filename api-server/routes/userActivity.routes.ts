@@ -7,7 +7,7 @@ import {
   deleteUserActivity
 } from '@/controllers/index.controller';
 
-import { userActivitySchema, idParamUserActivitySchema } from '@/schemas/validation/userActivity.schema';
+import { userActivitySchema, idParamUserActivitySchema } from '@/schemas/validators/userActivity.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

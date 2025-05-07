@@ -7,7 +7,7 @@ import {
   deleteVideoCall
 } from '@/controllers/index.controller';
 
-import { videoCallSchema, idParamVideoCallSchema } from '@/schemas/validation/videoCall.schema';
+import { videoCallSchema, idParamVideoCallSchema } from '@/schemas/validators/videoCall.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

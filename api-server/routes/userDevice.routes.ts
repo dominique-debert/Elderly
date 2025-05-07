@@ -7,7 +7,7 @@ import {
   deleteUserDevice
 } from '@/controllers/index.controller';
 
-import { userDeviceSchema, idParamUserDeviceSchema } from '@/schemas/validation/userDevice.schema';
+import { userDeviceSchema, idParamUserDeviceSchema } from '@/schemas/validators/userDevice.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

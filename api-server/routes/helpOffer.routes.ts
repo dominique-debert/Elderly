@@ -10,7 +10,7 @@ import {
 import {
   helpOfferSchema,
   idParamHelpOfferSchema
-} from '@/schemas/validation/helpOffer.schema';
+} from '@/schemas/validators/helpOffer.schema';
 
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';

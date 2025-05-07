@@ -7,7 +7,7 @@ import {
   deleteTrustCircle
 } from '@/controllers/index.controller';
 
-import { trustCircleSchema, idParamTrustCircleSchema } from '@/schemas/validation/trustCircle.schema';
+import { trustCircleSchema, idParamTrustCircleSchema } from '@/schemas/validators/trustCircle.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

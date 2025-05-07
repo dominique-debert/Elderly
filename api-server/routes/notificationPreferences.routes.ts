@@ -10,7 +10,7 @@ import {
 import {
   notificationPreferencesSchema,
   idParamNotificationPreferencesSchema
-} from '@/schemas/validation/notificationPreferences.schema';
+} from '@/schemas/validators/notificationPreferences.schema';
 
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';

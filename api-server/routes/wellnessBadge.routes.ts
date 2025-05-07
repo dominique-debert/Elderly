@@ -5,7 +5,7 @@ import errorHandler from '@/middlewares/errorHandler';
 import {
   wellnessBadgeSchema,
   idParamWellnessBadgeSchema 
-} from '@/schemas/validation/wellnessBadge.schema';
+} from '@/schemas/validators/wellnessBadge.schema';
 
 import {
   createWellnessBadge,

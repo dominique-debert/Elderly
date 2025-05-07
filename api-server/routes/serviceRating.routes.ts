@@ -7,7 +7,7 @@ import {
   deleteServiceRating
 } from '@/controllers/index.controller';
 
-import { serviceRatingSchema, idParamServiceRatingSchema } from '@/schemas/validation/serviceRating.schema';
+import { serviceRatingSchema, idParamServiceRatingSchema } from '@/schemas/validators/serviceRating.schema';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

@@ -3,7 +3,7 @@ import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError.js';
 import { CategoryType } from '@/@types/data/categories/ECategory';
 import ICategory from '@/@types/data/categories/ICategory';
-import { activityCategorySchema } from '@/schemas/validation/activityCategory.schema';
+import { activityCategorySchema } from '@/schemas/validators/activityCategory.schema';
 
 const prisma = new PrismaClient();
 
