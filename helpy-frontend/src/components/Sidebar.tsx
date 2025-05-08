@@ -14,9 +14,10 @@ const Sidebar = () => {
       initial={{ opacity: 0.5, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-20 mb-4 m-4 hidden lg:block">
+      className="w-20 m-4 lg:block"
+      >
 
-      <div className="h-full flex flex-col items-center py-4 rounded-xl shadow-xl border border-gray-200 bg-base-100">
+      <div className="h-full fixed w-20 top-20 flex flex-col items-center py-4 rounded-xl shadow-xl border border-gray-200 bg-base-100" style={{ height: '95vh' }}>
 
         <div className="flex flex-row gap-2">
 
