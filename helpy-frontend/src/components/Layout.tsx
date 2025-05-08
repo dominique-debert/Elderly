@@ -7,13 +7,16 @@ const Layout = () => {
   const { isAuthenticated } = useAuthStore();
 
   return (
-    <div className="overflow-x-hidden overflow-y-hidden bg-100 md:overflow-y-auto">
+    <div className="h-dvh w-full overflow-hidden bg-100">
+      <Navbar />
 
-     <Navbar />
-      <main className="flex flex-direction-column h-dvh">
+      <div className="pt-[4rem] flex h-full"> {/* 4rem = hauteur de la navbar */}
         {isAuthenticated && <Sidebar />}
-        <Outlet />
-      </main>
+
+        <main className="flex-1 overflow-y-auto p-4">
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 };

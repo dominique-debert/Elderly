@@ -9,8 +9,8 @@ const Navbar = () => {
   return (
     <header className="header-area">
 
-    <div className="navbar fixed top-0 z-50 mb-2 bg-base-100 shadow-sm transition-all duration-300 md:border md:border-b-gray-200 border-r-0 border-l-0 border-t-0">
-      <div className="flex justify-between w-full items-center">
+      <div className="navbar fixed top-0 z-50 h-16 w-full bg-base-100 shadow-sm border-b border-gray-200">
+        <div className="flex justify-between w-full items-center">
 
         <Link to="/" className="btn btn-ghost text-2xl text-primary hover:bg-primary/30 rounded-xl">
           <div className="p-2">

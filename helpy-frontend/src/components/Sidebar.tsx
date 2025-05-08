@@ -2,7 +2,6 @@ import Icon from '@mdi/react';
 import { mdiBottleTonicPlusOutline, mdiForumOutline, mdiHeadHeartOutline, mdiHeartOutline, mdiViewDashboardOutline } from '@mdi/js';
 import { useAuthStore } from '../stores/auth'; 
 import { Link, useNavigate } from 'react-router-dom';
-import { motion } from "framer-motion";
 
 const Sidebar = () => {
   const { logout } = useAuthStore();
@@ -10,14 +9,11 @@ const Sidebar = () => {
 
   return (
     
-    <motion.aside
-      initial={{ opacity: 0.5, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5 }}
-      className="w-20 m-4 lg:block"
+    <aside
+      className="w-20 mr-2 lg:block"
       >
 
-      <div className="h-full fixed w-20 top-20 flex flex-col items-center py-4 rounded-xl shadow-xl border border-gray-200 bg-base-100" style={{ height: '95vh' }}>
+      <div className="fixed top-16 left-0 w-20 h-[calc(100vh-4rem)] bg-base-100 border-r shadow-md flex flex-col items-center py-4">
 
         <div className="flex flex-row gap-2">
 
@@ -88,7 +84,7 @@ const Sidebar = () => {
         </nav>
 
       </div>
-    </motion.aside>
+    </aside>
   );
 };
 
