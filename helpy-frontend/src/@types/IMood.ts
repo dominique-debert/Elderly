@@ -11,4 +11,5 @@ export interface IMood {
   valence: EValence;
   intensity: number;
   color: string;
+  createdAt: Date;
 };

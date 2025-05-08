@@ -10,10 +10,10 @@ const Sidebar = () => {
   return (
     
     <aside
-      className="w-20 mr-2 lg:block"
+      className="hidden w-20 mr-2 lg:block"
       >
 
-      <div className="fixed top-16 left-0 w-20 h-[calc(100vh-4rem)] bg-base-100 border-r shadow-md flex flex-col items-center py-4">
+      <div className="fixed top-16 left-0 w-20 h-[calc(100vh-4rem)] bg-base-100 border-r flex flex-col items-center py-4">
 
         <div className="flex flex-row gap-2">
 

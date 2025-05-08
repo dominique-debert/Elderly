@@ -1,6 +1,4 @@
 import { IMood } from '../@types/IMood';
-import Icon from '@mdi/react';
-import { mdiCircle } from '@mdi/js';
 import { motion } from "framer-motion";
 import { getRandomInt } from '../utils/randomInt';
 
