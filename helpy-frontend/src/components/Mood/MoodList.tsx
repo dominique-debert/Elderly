@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { fetchMoods } from '../../services/mood.service'
-import { MoodCard } from './MoodCard';
+import { fetchMoods } from '../../services/mood.service';
 import { MoodListView } from './MoodListView';
-import { MoodListTable } from './MoodListTable';
+import { MoodTableView } from './MoodTableView';
 import { MoodListSwitcher } from './MoodListSwitcher';
+import { MoodCardView } from './MoodCardView';
+
+type Mode = 'card' | 'list' | 'table';
 
 export default function MoodList() {
-  const [mode, setMode] = useState<'card' | 'list' | 'table'>('card');
+  const [mode, setMode] = useState<Mode>(() => {
+    // Lecture initiale du localStorage
+    const savedMode = localStorage.getItem('moodViewMode');
+    return (savedMode as Mode) || 'card';
+  });
+
+  // Sauvegarde du mode dans localStorage à chaque changement
+  useEffect(() => {
+    localStorage.setItem('moodViewMode', mode);
+  }, [mode]);
 
   const { data: moods, isLoading, isError } = useQuery({
     queryKey: ['mood'],
@@ -20,15 +31,9 @@ export default function MoodList() {
   return (
     <div className="w-full relative">
       <MoodListSwitcher mode={mode} setMode={setMode} />
-
-      {mode === 'card' && (
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
-          {moods?.map((mood) => <MoodCard key={mood.id} mood={mood} />)}
-        </div>
-      )}
-
+      {mode === 'card' && <MoodCardView moods={moods || []} />}
       {mode === 'list' && <MoodListView moods={moods || []} />}
-      {mode === 'table' && <MoodListTable moods={moods || []} />}
+      {mode === 'table' && <MoodTableView moods={moods || []} />}
     </div>
   );
 }

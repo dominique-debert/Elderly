@@ -4,7 +4,7 @@ import {IMood} from '../../@types/IMood'
 
 export function MoodListView({ moods }: { moods: IMood[] }) {
   return (
-    <ul className="space-y-2 mt-20">
+    <ul className="space-y-2 mt-10">
       {moods?.map((mood) => (
       <li key={mood.id} className="p-4 rounded shadow-md" style={{ borderLeft: `4px solid ${mood.color}`}}>
         <div className='flex gap-15'>

@@ -1,9 +1,9 @@
 import { IMood } from '../../@types/IMood'
 import MoodTableRow from "./MoodTableRow";
 
-export function MoodListTable({ moods }: { moods: IMood[] }) {   
+export function MoodTableView({ moods }: { moods: IMood[] }) {   
   return (
-  <table className="table w-full table-zebra">
+  <table className="table w-full table-zebra mt-10">
     <thead className='text-semibold'>
       <tr>
         <th>Titre</th>
