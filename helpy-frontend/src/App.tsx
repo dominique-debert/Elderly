@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import Layout from './components/Layout';
 import WellnessPage from './pages/WellnessPage';
 import AdminPage from './pages/AdminPage';
+import './App.css'
 
 const App = () => {
   return (

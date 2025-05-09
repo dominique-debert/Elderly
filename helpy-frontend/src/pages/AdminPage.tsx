@@ -18,11 +18,11 @@ const AdminPage = () => {
       {user && user.isAdmin ? (
         <>
           {/* Sticky header + menu */}
-          <div className="bg-white sticky top-0 z-30 pb-4 pt-4">
+          <div className="bg-base sticky top-0 z-30 pb-4 pt-4">
             <h2 className="text-2xl font-semibold text-gray-500 border-b border-gray-200 mb-4">
               Administration
             </h2>
-            <ul className="menu bg-white lg:menu-horizontal rounded-box p-0">
+            <ul className="menu bg-base lg:menu-horizontal rounded-box p-0">
               {[
                 { id: 'moods', label: 'Humeurs', icon: mdiHeartSettingsOutline },
                 { id: 'activities', label: 'Activités' },
