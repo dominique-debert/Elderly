@@ -3,7 +3,7 @@ import { useAuthStore } from '../stores/auth';
 import { Navigate } from 'react-router-dom';
 import Icon from '@mdi/react';
 import { mdiHeartSettingsOutline } from '@mdi/js';
-import MoodList from '../components/MoodList';
+import MoodList from '../components/Mood/MoodList';
 
 const AdminPage = () => {
   const { user, isAuthenticated } = useAuthStore();

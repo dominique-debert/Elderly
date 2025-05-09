@@ -1,12 +1,12 @@
-import { IMood } from '../@types/IMood';
+import { IMood } from '../../@types/IMood';
 import { motion } from "framer-motion";
-import { getRandomInt } from '../utils/randomInt';
+import { getRandomInt } from '../../utils/randomInt';
 
 type MoodCardProps = {
   mood: IMood;
 };
 
-export default function MoodCard({ mood }: MoodCardProps) {
+export function MoodCard({ mood }: MoodCardProps) {
 
   return (
     <motion.div
