@@ -1,10 +1,28 @@
 import { Link } from 'react-router-dom';
-import { mdiAccount, mdiBellOutline, mdiBottleTonicPlusOutline, mdiCogOutline, mdiForumOutline, mdiHeadHeartOutline, mdiHeartOutline, mdiViewDashboardOutline } from '@mdi/js';
+import { mdiAccount, mdiBellOutline, mdiBottleTonicPlusOutline, mdiCogOutline, mdiForumOutline, mdiHeadHeartOutline, mdiHeartOutline, mdiMoonWaxingCrescent, mdiViewDashboardOutline, mdiWeatherSunny } from '@mdi/js';
 import Icon from '@mdi/react';
 import { useAuthStore } from '../stores/auth';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const { user, isAuthenticated } = useAuthStore();
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "cmyk"
+  );
+
+  const handleToggle = (e: { target: { checked: boolean; }; }) => {
+    if (e.target.checked) setTheme("night");
+    else setTheme("cmyk");
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme || "cmyk");
+    const localTheme = localStorage.getItem("theme");
+    const htmlElement = document.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("data-theme", localTheme || 'cmyk');
+    }
+  }, [theme]);
 
   return (
     <header className="header-area">
@@ -20,15 +38,15 @@ const Navbar = () => {
         </Link>
 
         <div className='flex space-x-2 xs:block lg:hidden'>
-            <Link to={"/"}>
-          <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-              <Icon path={mdiViewDashboardOutline}
-                title="Tableau de bord"
-                size={1}
-                className="text-primary"
-              />
-          </button>
-            </Link>
+          <Link to={"/"}>
+            <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
+                <Icon path={mdiViewDashboardOutline}
+                  title="Tableau de bord"
+                  size={1}
+                  className="text-primary"
+                />
+            </button>
+          </Link>
           
           <Link to="/profile" className="justify-between">
           <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
@@ -68,11 +86,29 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className='flex space-x-0'>
+        <div className='flex items-center gap-4'>
           {isAuthenticated && (
+            <>
+            <label className="toggle text-base-content mr-4">
+              <input
+                type="checkbox"
+                className="theme-controller"
+                onChange={handleToggle}
+                checked={theme === "night"}
+              />
+                <Icon
+                  path={mdiWeatherSunny}
+                  size={.7}
+                />
+                <Icon
+                  path={mdiMoonWaxingCrescent}
+                  size={.7}
+                />
+            </label>
             <Link to="/profile" className="btn btn-ghost text-gray-400 hover:bg-primary/30 rounded-lg">
               <Icon path={mdiBellOutline} size={1} />
             </Link>
+            </>
           )}
           {user?.isAdmin && (
             <Link to="/admin-page" className="btn btn-ghost text-gray-400 hover:bg-primary/30 rounded-lg">
