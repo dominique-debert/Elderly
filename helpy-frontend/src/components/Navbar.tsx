@@ -11,7 +11,7 @@ const Navbar = () => {
   );
 
   const handleToggle = (e: { target: { checked: boolean; }; }) => {
-    if (e.target.checked) setTheme("night");
+    if (e.target.checked) setTheme("dim");
     else setTheme("cmyk");
   };
 
@@ -92,9 +92,8 @@ const Navbar = () => {
             <label className="toggle text-base-content mr-4">
               <input
                 type="checkbox"
-                className="theme-controller"
                 onChange={handleToggle}
-                checked={theme === "night"}
+                checked={theme === "dim"}
               />
                 <Icon
                   path={mdiWeatherSunny}

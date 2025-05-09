@@ -14,11 +14,11 @@ const AdminPage = () => {
   }
 
   return (
-    <div className="w-full h-full px-4 pb-4 overflow-y-auto">
+    <div className="w-full h-full px-4 pb-4 overflow-y-auto no-scrollbar">
       {user && user.isAdmin ? (
         <>
           {/* Sticky header + menu */}
-          <div className="bg-base sticky top-0 z-30 pb-4 pt-4">
+          <div className="bg-base-100 sticky top-0 z-30 pb-4 pt-4">
             <h2 className="text-2xl font-semibold text-gray-500 border-b border-gray-200 mb-4">
               Administration
             </h2>

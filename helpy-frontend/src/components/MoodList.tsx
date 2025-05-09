@@ -18,24 +18,24 @@ export default function MoodList() {
 
   return (
     <div className="w-full">
-      <div className="flex justify-end mb-4 gap-2">
+      <div className="flex justify-end mb-4 join sticky top-2 z-40">
         <button
           onClick={() => setMode('card')}
-          className={`btn btn-sm ${mode === 'card' ? 'btn-primary' : 'btn-outline'}`}
+          className={`btn btn-sm join-item ${mode === 'card' ? 'btn-primary' : 'btn-outline'}`}
         >
-          <Icon path={mdiViewGrid} size={1} />
+          <Icon path={mdiViewGrid} size={.7} />
         </button>
         <button
           onClick={() => setMode('list')}
-          className={`btn btn-sm ${mode === 'list' ? 'btn-primary' : 'btn-outline'}`}
+          className={`btn btn-sm join-item ${mode === 'list' ? 'btn-primary' : 'btn-outline'}`}
         >
-          <Icon path={mdiViewList} size={1} />
+          <Icon path={mdiViewList} size={.7} />
         </button>
         <button
           onClick={() => setMode('table')}
-          className={`btn btn-sm ${mode === 'table' ? 'btn-primary' : 'btn-outline'}`}
+          className={`btn btn-sm join-item ${mode === 'table' ? 'btn-primary' : 'btn-outline'}`}
         >
-          <Icon path={mdiTable} size={1} />
+          <Icon path={mdiTable} size={.7} />
         </button>
       </div>
 

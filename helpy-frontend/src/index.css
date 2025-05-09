@@ -12,8 +12,8 @@ layer(base);
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
     --color-primary: rgba(230, 30, 90, 1);
+    --color-base-content: rgba(230, 30, 90, 1);
     --text-primary: rgba(230, 30, 90, 1) !important;
     --font-display: 'Fira Sans', sans-serif;
     --menu-active-bg: rgba(230, 30, 90, 1);
@@ -35,6 +35,7 @@ layer(base);
 * {
   font-family: var(--font-display);
 }
+
 
 .bg-primary, .btn-primary {
   background-color: var(--color-primary);
