@@ -1,11 +1,14 @@
-// src/components/MoodListItem.tsx
 import type { IMood } from '../../@types/IMood';
 import Icon from '@mdi/react';
 import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
 
 export default function MoodListItem({ mood }: { mood: IMood }) {
   return (
-    <li key={mood.id} className="p-4 rounded shadow-md" style={{ borderLeft: `4px solid ${mood.color}`}}>
+    <li
+      key={mood.id}
+      className="p-4 rounded shadow-md"
+      style={{ borderLeft: `4px solid ${mood.color}`}}
+      >
       <div className='flex gap-15'>
         <span className='w-48'>
           {mood.name}
