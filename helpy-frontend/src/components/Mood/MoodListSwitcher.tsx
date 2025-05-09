@@ -1,10 +1,12 @@
 import Icon from '@mdi/react';
 import { mdiViewGrid, mdiViewList, mdiTable } from '@mdi/js';
-import { useMoodDisplayStore } from '../../stores/Mood/useMoodDisplayStore'
 
-export function MoodListSwitcher() {
-  const { mode, setMode } = useMoodDisplayStore();
+type Props = {
+  mode: 'card' | 'list' | 'table';
+  setMode: (mode: 'card' | 'list' | 'table') => void;
+};
 
+export function MoodListSwitcher({ mode, setMode }: Props) {
   return (
     <div className="flex justify-end mb-4 join sticky top-2 z-40">
       <button

@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { updateActivityCategory } from '../services/activityCategory';
+import { updateActivityCategory } from '../services/activityCategory.service';
 import { useCategoryStore } from '../stores/categoryStore';
 import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
-import { loginUser, signupUser } from '../services/auth';
+import { loginUser, signupUser } from '../services/auth.service';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 

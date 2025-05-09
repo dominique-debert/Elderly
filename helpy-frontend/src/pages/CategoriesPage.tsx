@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchActivityCategories } from '../services/activityCategory';
+import { fetchActivityCategories } from '../services/activityCategory.service';
 import { useAuthStore } from '../stores/auth';
 import { useCategoryModalStore } from '../stores/categoryModalStore';
 import CategoryModal from '../components/CategoryModal';
