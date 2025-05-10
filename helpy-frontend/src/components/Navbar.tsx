@@ -3,6 +3,9 @@ import { mdiAccount, mdiBellOutline, mdiBottleTonicPlusOutline, mdiCogOutline, m
 import Icon from '@mdi/react';
 import { useAuthStore } from '../stores/auth';
 import { useEffect, useState } from 'react';
+import { fetchNotificationsByUserId } from '../services/notifications.service';
+import { useQuery } from '@tanstack/react-query';
+import { INotification } from '../@types/INotification';
 
 const Navbar = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -23,6 +26,14 @@ const Navbar = () => {
       htmlElement.setAttribute("data-theme", localTheme || 'cmyk');
     }
   }, [theme]);
+
+  const { data: notifications, isLoading, isError } = useQuery({
+    queryFn: ({ queryKey }) => fetchNotificationsByUserId(queryKey[1] as string),
+    queryKey: ['notifications', user?.id || ''],
+  });
+          
+  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
+  if (isError) return <div className="text-center mt-10 text-red-500">Erreur de chargement</div>;
 
   return (
     <header className="header-area">
@@ -104,14 +115,29 @@ const Navbar = () => {
                   size={.7}
                 />
             </label>
-            <Link to="/profile" className="btn btn-ghost text-gray-400 hover:bg-primary/30 rounded-lg">
-              <Icon path={mdiBellOutline} size={1} />
-            </Link>
+
+            <div className="dropdown dropdown-left">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <Icon path={mdiBellOutline} size={1.3} />
+              <span className='absolute text-[9px] p-1 pl-[6px] pr-[6px] text-white avatar bg-red-800 rounded-xl right-0 bottom-0'>
+                {notifications?.length}
+              </span>
+            </div>
+            
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow-md">
+              {notifications?.map((notification: INotification) => (
+                <li key={notification?.id}>{ notification?.content }</li>
+              ))}
+            </ul>
+            
+          </div>
             </>
           )}
           {user?.isAdmin && (
-            <Link to="/admin-page" className="btn btn-ghost text-gray-400 hover:bg-primary/30 rounded-lg">
-              <Icon path={mdiCogOutline} size={1} />
+            <Link to="/admin-page" className="btn btn-ghost btn-circle avatar">
+              <Icon path={mdiCogOutline} size={1.3} />
             </Link>
           )}
         </div>

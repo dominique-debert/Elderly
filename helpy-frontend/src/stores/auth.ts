@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 interface User {
+  id: string;
   email: string;
   firstName: string;
   lastName: string;

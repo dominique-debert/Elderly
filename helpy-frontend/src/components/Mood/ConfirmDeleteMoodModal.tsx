@@ -1,5 +1,5 @@
 import type { IMood } from '../../@types/IMood';
-import { deleteMood } from '../../services/mood.service'; // à créer si ce n'est pas fait
+import { deleteMood } from '../../services/moods.service'; // à créer si ce n'est pas fait
 import { toast } from 'react-hot-toast';
 
 type ConfirmDeleteMoodModalProps = {

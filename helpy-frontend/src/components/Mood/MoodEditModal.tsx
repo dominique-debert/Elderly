@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { IMood } from '../../@types/IMood';
-import { updateMood } from '../../services/mood.service';
+import { updateMood } from '../../services/moods.service';
 import { toast } from 'react-hot-toast';
 import { EValence } from '../../@types/IMood';
 
@@ -114,7 +114,7 @@ export function MoodEditModal({ mood, onClose, onUpdated }: MoodEditModalProps) 
             <div className='flex items-center'>
               <label className="text-sm mr-4" htmlFor="color">Couleur</label>
               <input
-                className='cursor-pointer'
+                className='cursor-pointer rounded-lg border border-base-300'
                 type="color"
                 name="color"
                 value={form.color}

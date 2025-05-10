@@ -2,6 +2,7 @@ import { Router } from 'express';
 import {
   createNotification,
   getAllNotifications,
+  getAllNotificationsByUserId,
   getNotificationById,
   updateNotification,
   deleteNotification
@@ -66,6 +67,29 @@ router.post('/', validate(notificationSchema), errorHandler, createNotification)
  *         description: Erreur serveur
  */
 router.get('/', errorHandler, getAllNotifications);
+
+/**
+ * @swagger
+ * /api/notifications{userId}:
+ *   get:
+ *     summary: Récupérer toutes les notifications d'un utilisateur
+ *     tags: [Notifications]
+ *     responses:
+ *       200:
+ *         description: Liste des notifications récupérée avec succès
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 notifications:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Notification'
+ *       500:
+ *         description: Erreur serveur
+ */
+router.get('/:userId', errorHandler, getAllNotificationsByUserId);
 
 /**
  * @swagger

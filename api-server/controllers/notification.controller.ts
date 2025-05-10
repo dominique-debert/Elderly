@@ -44,6 +44,27 @@ export const getAllNotifications = async (
   }
 };
 
+export const getAllNotificationsByUserId = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const notifications = await prisma.notification.findMany({
+      orderBy: {
+        createdAt: 'asc'
+      },
+      where: {
+        userId: typeof req.query.userId === 'string' ? req.query.userId : undefined
+      }
+    });
+    console.log(notifications);
+    res.status(200).json({ notifications });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const getNotificationById = async (
   req: Request<{ id: string }>,
   res: Response,
