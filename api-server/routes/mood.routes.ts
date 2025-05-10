@@ -20,7 +20,7 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Humeurs
+ *   name: Moods
  *   description: Gestion des humeurs
  */
 
@@ -49,7 +49,7 @@ router.post('/', validate(moodSchema), errorHandler, createMood);
  * /api/moods:
  *   get:
  *     summary: Récupérer toutes les humeurs
- *     tags: [Humeurs]
+ *     tags: [Moods]
  *     responses:
  *       200:
  *         description: Liste des humeurs récupérée avec succès
@@ -65,7 +65,7 @@ router.post('/', validate(moodSchema), errorHandler, createMood);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllMoods);
+router.get('/', getAllMoods);
 
 /**
  * @swagger
@@ -89,7 +89,7 @@ router.get('/', errorHandler, getAllMoods);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamMoodSchema, 'params'), errorHandler, getMoodById);
+router.get('/:id', validate(idParamMoodSchema, 'params'), getMoodById);
 
 /**
  * @swagger
@@ -114,7 +114,7 @@ router.get('/:id', validate(idParamMoodSchema, 'params'), errorHandler, getMoodB
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamMoodSchema, 'params'), errorHandler, updateMood);
+router.put('/:id', validate(idParamMoodSchema, 'params'), updateMood);
 
 /**
  * @swagger

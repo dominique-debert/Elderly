@@ -13,8 +13,8 @@ layer(base);
   ::backdrop,
   ::file-selector-button {
     --color-primary: rgba(230, 30, 90, 1);
-    --color-base-content: rgba(230, 30, 90, 1);
-    --text-primary: rgba(230, 30, 90, 1) !important;
+    /* --color-base-content: rgba(230, 30, 90, 1); */
+    /* --text-primary: rgba(230, 30, 90, 1) !important; */
     --font-display: 'Fira Sans', sans-serif;
     --menu-active-bg: rgba(230, 30, 90, 1);
     --menu-active-fg: white;
@@ -36,8 +36,7 @@ layer(base);
   font-family: var(--font-display);
 }
 
-
-.bg-primary, .btn-primary {
+.btn-primary {
   background-color: var(--color-primary);
   color: white;
 }
@@ -57,6 +56,8 @@ layer(base);
   background-color: var(--color-primary);
   color: white;
 }
+
+/* 
 
 .input, .input-bordered {
   background-color: white;
@@ -94,7 +95,7 @@ layer(base);
 
 .white {
   color: white;
-}
+} */
 
 .backdrop-blur-md {
   --tw-backdrop-blur: blur(14px);

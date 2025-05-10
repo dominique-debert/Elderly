@@ -15,7 +15,6 @@ export * from './categories/resourceCategory.controller';
 export * from './categories/serviceCategory.controller';
 export * from './categories/skillCategory.controller';
 export * from './categories/wellnessCategory.controller';
-export * from './mood.controller';
 
 // Features
 export * from './activities/activity.controller';
@@ -34,6 +33,7 @@ export * from './helpRequest.controller';
 export * from './localService.controller';
 export * from './medicationReminder.controller';
 export * from './message.controller';
+export * from './mood.controller';
 export * from './municipalEvent.controller';
 export * from './notification.controller';
 export * from './notificationPreferences.controller';

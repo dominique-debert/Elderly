@@ -21,7 +21,7 @@ export default function MoodList() {
   }, [mode]);
 
   const { data: moods, isLoading, isError } = useQuery({
-    queryKey: ['mood'],
+    queryKey: ['moods'],
     queryFn: fetchMoods,
   });
 

@@ -1,4 +1,4 @@
-enum EValence {
+export enum EValence {
   Positive = 'Positive',
   Neutral = 'Neutral',
   Negative = 'Negative',
