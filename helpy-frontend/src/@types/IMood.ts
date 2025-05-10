@@ -1,7 +1,7 @@
 export enum EValence {
-  Positive = 'Positive',
-  Neutral = 'Neutral',
-  Negative = 'Negative',
+  Positive = 'positive',
+  Neutral = 'neutre',
+  Negative = 'negative',
 }
 
 export interface IMood {

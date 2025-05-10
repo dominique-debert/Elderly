@@ -7,8 +7,8 @@ import { MoodEditModal } from './MoodEditModal';
 
 export default function MoodTableRow({ mood }: { mood: IMood }) {
 
-    const [isEditOpen, setIsEditOpen] = useState(false);
-    const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 
   return (
     <>
@@ -30,7 +30,7 @@ export default function MoodTableRow({ mood }: { mood: IMood }) {
       </td>
       <td className='text-center w-0'>
         <button className='btn btn-ghost' onClick={() => setIsConfirmDeleteOpen(true)}>
-          <Icon path={mdiDeleteOutline} size={0.8} className='text-red-600' />
+          <Icon path={mdiDeleteOutline} size={0.8} className='text-red-500' />
         </button>
       </td>
     </tr>

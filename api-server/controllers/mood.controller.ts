@@ -35,7 +35,7 @@ export const getAllMoods = async (
   try {
     const moods = await prisma.mood.findMany({
       orderBy: {
-        name: 'desc'
+        name: 'asc'
       }
     });
     res.status(200).json({ moods });

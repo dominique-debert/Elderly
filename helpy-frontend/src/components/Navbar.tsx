@@ -49,12 +49,12 @@ const Navbar = () => {
           </Link>
           
           <Link to="/profile" className="justify-between">
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-            <Icon path={mdiAccount}
-              title="Profil"
-              size={1}
-              />
-          </button>
+            <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
+              <Icon path={mdiAccount}
+                title="Profil"
+                size={1}
+                />
+            </button>
           </Link>
           
           <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
@@ -117,7 +117,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-    </header>
+  </header>
 
   );
 };

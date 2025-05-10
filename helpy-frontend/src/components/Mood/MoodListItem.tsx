@@ -50,7 +50,7 @@ export default function MoodListItem({ mood }: { mood: IMood }) {
               setIsConfirmDeleteOpen(true);
             }}
           >
-            <Icon path={mdiDeleteOutline} size={0.8} className="text-red-600" />
+            <Icon path={mdiDeleteOutline} size={0.8} className="text-red-500" />
           </button>
         </div>
       </li>

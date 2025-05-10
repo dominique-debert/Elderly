@@ -81,8 +81,9 @@ export function MoodEditModal({ mood, onClose, onUpdated }: MoodEditModalProps) 
                   name="valence"
                   id={val}
                   className="peer hidden"
-                  checked={form.valence === val}
-                  onChange={() => handleValenceChange(val)}
+                  value={val} // Ajouté : Pour que la valeur soit bien envoyée
+                  checked={form.valence === val} // Vérification si la valeur est égale à l'état
+                  onChange={() => handleValenceChange(val)} // Mise à jour de l'état
                 />
                 <label
                   htmlFor={val}
@@ -93,28 +94,35 @@ export function MoodEditModal({ mood, onClose, onUpdated }: MoodEditModalProps) 
               </div>
             ))}
           </div>
+          
+          <div className="flex justify-between items-center gap-4 mt-4 w-full">
 
-          <label className="text-sm -mb-2 mt-4" htmlFor="intensity">Intensité</label>
-          <input
-            type="number"
-            name="intensity"
-            value={form.intensity}
-            onChange={handleChange}
-            className="input input-bordered w-fit"
-            placeholder="Intensité"
-            min={1}
-            max={5}
-            required
-          />
-
-          <label className="text-sm -mb-2 mt-4" htmlFor="color">Couleur</label>
-          <input
-            type="color"
-            name="color"
-            value={form.color}
-            onChange={handleChange}
-            className="input input-bordered w-32 h-10"
-          />
+            <div>
+              <label className="text-sm mr-4" htmlFor="intensity">Intensité</label>
+              <input
+                type="number"
+                name="intensity"
+                value={form.intensity}
+                onChange={handleChange}
+                className="input input-bordered w-fit"
+                placeholder="Intensité"
+                min={1}
+                max={5}
+                required
+                />
+            </div>
+            <div className='flex items-center'>
+              <label className="text-sm mr-4" htmlFor="color">Couleur</label>
+              <input
+                className='cursor-pointer'
+                type="color"
+                name="color"
+                value={form.color}
+                onChange={handleChange}
+                required
+                />
+            </div>
+          </div>  
 
           <div className="modal-action">
             <button type="submit" className="btn btn-primary">Enregistrer</button>
