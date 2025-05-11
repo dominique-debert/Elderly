@@ -42,7 +42,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(moodSchema), errorHandler, createMood);
+router.post('/', validate(moodSchema), createMood);
 
 /**
  * @swagger
@@ -133,6 +133,6 @@ router.put('/:id', validate(idParamMoodSchema, 'params'), updateMood);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamMoodSchema, 'params'), errorHandler, deleteMood);
+router.delete('/:id', validate(idParamMoodSchema, 'params'), deleteMood);
 
 export default router;

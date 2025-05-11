@@ -11,16 +11,19 @@ export const fetchMoods = async (): Promise<IMood[]> => {
   return data.moods;
 };
 
-export const createMood = async (category: {
-  name: string;
-  description?: string;
+export const createMood = async (
+  mood: {
+    name: string;
+    description?: string;
+    valence: EValence;
+    intensity: number;
+    color?: string;
 }) => {
-  const { data } = await api.post('/moods', category, {
+  const { data } = await api.post('/moods', mood, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
     },
   });
-  console.log(data);
   return data;
 };
 

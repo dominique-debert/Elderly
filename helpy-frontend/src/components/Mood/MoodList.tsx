@@ -30,7 +30,9 @@ export default function MoodList() {
 
   return (
     <div className="w-full relative">
-      <MoodListSwitcher mode={mode} setMode={setMode} />
+      {moods && moods.length > 0 && (
+        <MoodListSwitcher mode={mode} setMode={setMode} mood={moods[0]} />
+      )}
       {mode === 'card' && <MoodCardView moods={moods || []} />}
       {mode === 'list' && <MoodListView moods={moods || []} />}
       {mode === 'table' && <MoodTableView moods={moods || []} />}
