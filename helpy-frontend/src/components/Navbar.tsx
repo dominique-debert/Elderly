@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import { mdiAccount, mdiBellOutline, mdiBottleTonicPlusOutline, mdiCogOutline, mdiForumOutline, mdiHeadHeartOutline, mdiHeartOutline, mdiMoonWaxingCrescent, mdiViewDashboardOutline, mdiWeatherSunny } from '@mdi/js';
 import Icon from '@mdi/react';
 import { useAuthStore } from '../stores/auth';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { fetchNotificationsByUserId } from '../services/notifications.service';
 import { useQuery } from '@tanstack/react-query';
-import { INotification } from '../@types/INotification';
+import NotificationList from './Notifications/NotificationList';
 
 const Navbar = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -17,6 +17,9 @@ const Navbar = () => {
     if (e.target.checked) setTheme("dim");
     else setTheme("cmyk");
   };
+
+  const [isNotifOpen, setIsNotifOpen] = useState(false);
+  const notifRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     localStorage.setItem("theme", theme || "cmyk");
@@ -31,7 +34,7 @@ const Navbar = () => {
     queryFn: ({ queryKey }) => fetchNotificationsByUserId(queryKey[1] as string),
     queryKey: ['notifications', user?.id || ''],
   });
-          
+
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
   if (isError) return <div className="text-center mt-10 text-red-500">Erreur de chargement</div>;
 
@@ -116,22 +119,20 @@ const Navbar = () => {
                 />
             </label>
 
-            <div className="dropdown dropdown-left">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+            <div className="relative" ref={notifRef}>
+            <button role="button" className="btn btn-ghost btn-circle avatar"
+              onClick={() => setIsNotifOpen(!isNotifOpen)}
+            >
               <Icon path={mdiBellOutline} size={1.3} />
-              <span className='absolute text-[9px] p-1 pl-[6px] pr-[6px] text-white avatar bg-red-800 rounded-xl right-0 bottom-0'>
-                {notifications?.length}
-              </span>
-            </div>
-            
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow-md">
-              {notifications?.map((notification: INotification) => (
-                <li key={notification?.id}>{ notification?.content }</li>
-              ))}
-            </ul>
-            
+              { notifications && notifications.length > 0 && (
+                <span className='absolute p-1.5 text-white avatar border-2 bg-orange-600 rounded-xl right-1 bottom-1'/>
+              )}
+            </button>
+            { isNotifOpen && (
+              <div className="absolute right-0 mt-2">
+                <NotificationList notifications={notifications || []}/>
+              </div>
+            )}      
           </div>
             </>
           )}
