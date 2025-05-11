@@ -3,15 +3,13 @@ import { mdiViewGrid, mdiViewList, mdiTable, mdiPlus } from '@mdi/js';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { MoodCreateModal } from './MoodCreateModal';
-import { IMood } from '../../@types/IMood';
 
 type Props = {
   mode: 'card' | 'list' | 'table';
   setMode: (mode: 'card' | 'list' | 'table') => void;
-  mood: IMood;
 };
 
-export function MoodListSwitcher({ mode, setMode, mood }: Props) {
+export function MoodListSwitcher({ mode, setMode }: Props) {
   
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const queryClient = useQueryClient();
@@ -54,7 +52,6 @@ export function MoodListSwitcher({ mode, setMode, mood }: Props) {
       </div>
           {isCreateOpen && (
             <MoodCreateModal
-              mood={mood}
               onClose={() => setIsCreateOpen(false)}
               onCreated={handleCreated}
             />
