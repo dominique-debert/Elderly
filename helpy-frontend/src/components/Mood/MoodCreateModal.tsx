@@ -48,9 +48,11 @@ export function MoodCreateModal({ onClose, onCreated }: MoodCreateModalProps) {
   return (
     <dialog className="modal modal-open">
       <div className="modal-box">
-        <h3 className="font-bold text-lg">Modifier l'humeur</h3>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
+        <h3 className="border-b border-base-300 font-medium text-xl">Créer une nouvelle humeur</h3>
+        <form method="dialog" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
 
+          <button className="btn btn-sm btn-circle btn-ghost absolute right-4 top-5" onClick={onClose}>✕</button>
+          
           <label className="text-sm -mb-2 mt-4" htmlFor="name">Nom</label>
           <input
             type="text"

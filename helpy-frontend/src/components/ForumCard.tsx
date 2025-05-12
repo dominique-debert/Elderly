@@ -4,7 +4,7 @@ const ForumCard = () => {
 
 return (
     <motion.div
-      className="card border w-full bg-base-100"
+      className="card border border-base-200 w-full bg-base-100"
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}

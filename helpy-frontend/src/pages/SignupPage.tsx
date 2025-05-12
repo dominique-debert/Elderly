@@ -18,7 +18,7 @@ const SignupPage = () => {
     <div className='container'>
 
     <div className="flex justify-end items-center w-screen h-screen bg-[url(/images/background.webp)] bg-cover">
-      <div className="card w-96 h-100 bg-base-100 shadow-xl mr-20 py-20 px-10 bg-opacity-85">
+      <div className="card w-96 h-150 bg-base-100 shadow-xl mr-20 py-10 px-10 bg-opacity-85">
         <h2 className="text-2xl font-bold mb-4 text-left text-primary">S'inscrire</h2>
         <p className="text-left text-sm mb-4">Inscrivez-vous gratuitement pour accéder à nos services.</p>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -63,7 +63,7 @@ const SignupPage = () => {
             required
           />
             <label className="label justify-normal text-start">
-              <input type="checkbox" onChange={(e) => setIsAdmin(e.target.checked)} checked={isAdmin} className="checkbox checkbox-primary rounded-md mr-3" />
+              <input type="checkbox" onChange={(e) => setIsAdmin(e.target.checked)} checked={isAdmin} className="checkbox checkbox-primary rounded-md mr-3" defaultChecked={true} />
               Administrateur
             </label>
           <div className="flex justify-center items-center">

@@ -8,12 +8,12 @@ const Layout = () => {
 
   return (
     <div className="h-dvh w-full overflow-hidden bg-100">
-      <Navbar />
+      {isAuthenticated && <Navbar />}
 
-      <div className="pt-[4rem] flex h-full"> {/* 4rem = hauteur de la navbar */}
+      <div className="flex h-full"> {/* 4rem = hauteur de la navbar */}
         {isAuthenticated && <Sidebar />}
 
-        <main className="flex-1 overflow-y-auto p-4 no-scrollbar">
+        <main className="flex-1 overflow-y-auto no-scrollbar mt-16 ml-2 mr-4">
           <Outlet />
         </main>
       </div>

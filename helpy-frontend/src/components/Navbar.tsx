@@ -38,6 +38,7 @@ const Navbar = () => {
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
   if (isError) return <div className="text-center mt-10 text-red-500">Erreur de chargement</div>;
 
+  if (!isAuthenticated) return null;
   return (
     <header className="header-area">
 
@@ -101,7 +102,6 @@ const Navbar = () => {
         </div>
 
         <div className='flex items-center gap-4'>
-          {isAuthenticated && (
             <>
             <label className="toggle text-base-content mr-4">
               <input
@@ -135,7 +135,6 @@ const Navbar = () => {
             )}      
           </div>
             </>
-          )}
           {user?.isAdmin && (
             <Link to="/admin-page" className="btn btn-ghost btn-circle avatar">
               <Icon path={mdiCogOutline} size={1.3} />
@@ -145,7 +144,6 @@ const Navbar = () => {
       </div>
     </div>
   </header>
-
   );
 };
 
