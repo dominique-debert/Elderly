@@ -1,23 +1,24 @@
-import { IMood } from '../../@types/IMood'
+import { IMood } from '@/@types/IMood'
+import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
 import MoodTableRow from "./MoodTableRow";
 
 export function MoodTableView({ moods }: { moods: IMood[] }) {   
   return (
-  <table className="table w-full table-zebra mt-10">
-    <thead className='text-semibold'>
-      <tr>
-        <th>Titre</th>
-        <th>Description</th>
-        <th>Valence</th>
-        <th className='text-center'>Intensité</th>
-        <th className='text-center'>Date de création</th>
-      </tr>
-    </thead>
-    <tbody>
-      {moods?.map((mood) => (
-        <MoodTableRow key={mood.id} mood={mood}/>
-      ))}
-    </tbody>
-  </table>
+    <Table className="table w-full table-zebra mt-10">
+      <TableHeader className='text-semibold'>
+        <TableRow>
+          <TableHead>Titre</TableHead>
+          <TableHead>Description</TableHead>
+          <TableHead>Valence</TableHead>
+          <TableHead className='text-center'>Intensité</TableHead>
+          <TableHead className='text-center'>Date de création</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {moods?.map((mood) => (
+          <MoodTableRow key={mood.id} mood={mood}/>
+        ))}
+      </TableBody>
+    </Table>
   );
 }

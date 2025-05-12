@@ -1,16 +1,20 @@
-import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 const HealthCard = () => {
 
 return (
-  <motion.div
-    initial={{ opacity: 0, x: -50 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.5 }}
-    className="card lg:w-full bg-base-100 border border-gray-200"
+  <Card
+    className="lg:w-full bg-base-100 border border-base-200"
   >
-    <div className="card-body">
-      <h2 className="card-title text-primary">Santé</h2>
+    <CardHeader>
+      <CardTitle className="text-primary text-2xl">Santé</CardTitle>
+    </CardHeader>
+    <CardContent>
       <div className="stats">
         <div className="stat">
           <div className="stat-figure text-secondary">
@@ -25,8 +29,8 @@ return (
           <div className="stat-desc text-secondary">31 tasks remaining</div>
         </div>
       </div>
-    </div>
-  </motion.div>
+    </CardContent>
+  </Card>
   );
 };
 

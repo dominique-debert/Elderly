@@ -11,7 +11,7 @@ const UserCard = () => {
 return (
  
     <motion.div
-      className="card self-center lg:w-1/2 bg-base-100 border border-gray-200"
+      className="card self-center lg:w-1/2 bg-base-100 border border-base-200"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

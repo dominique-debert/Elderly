@@ -41,45 +41,47 @@ const Sidebar = () => {
         </div>
 
         <nav className="flex-1 w-full px-2 space-y-2 mt-6 rounded-xl">
-          <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-            <Link to={"/"}>
-              <Icon path={mdiViewDashboardOutline}
-                title="Tableau de bord"
-                size={1}
-                className="text-primary"
-              />
-            </Link>
-          </button>
-          
-          <Link to={"/wellness"}>
-            <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-              <Icon path={mdiHeartOutline}
-                title="Suivi du bien-être"
-                size={1}
-              />
-            </button>
+          <Link
+            to="/"
+            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30"
+            data-tip="Tableau de bord">
+            <Icon
+              path={mdiViewDashboardOutline}
+              size={1}
+              className="text-primary"
+            />
           </Link>
           
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
+          <Link to={"/wellness"}
+            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30"
+            data-tip="Bien-être"
+            >
+            <Icon path={mdiHeartOutline}
+              title="Suivi du bien-être"
+              size={1}
+            />
+          </Link>
+          
+          <Link to={"/medications"} className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Icon path={mdiBottleTonicPlusOutline}
               title="Suivi des traitements"
               size={1}
             />
-          </button>
+          </Link>
           
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
+          <Link to={"/objectives"} className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Icon path={mdiHeadHeartOutline}
               title="Suivi des objectifs"
               size={1}
             />
-          </button>
+          </Link>
           
-          <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
+          <Link to={"/forum"} className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Icon path={mdiForumOutline}
               title="Forum"
               size={1}
             />
-          </button>
+          </Link>
 
         </nav>
 
