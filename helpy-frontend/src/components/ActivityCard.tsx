@@ -1,16 +1,21 @@
-import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
 
 const ActivityCard = () => {
 
-return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="card lg:w-full bg-base-100 border border-gray-200"
+  return (
+    <Card
+      className="lg:w-full bg-base-100 border border-gray-200"
     >            
-      <div className="card-body">
-        <h2 className="card-title text-primary">Activité</h2>
+      <CardContent>
+        <CardHeader>
+          <CardTitle className="text-2xl text-primary">Activité</CardTitle>
+        </CardHeader>
         <div className="stats">
           <div className="stat">
             <div className="stat-figure text-primary">
@@ -31,8 +36,8 @@ return (
             <div className="stat-desc">21% more than last month</div>
           </div>
         </div>
-      </div>
-    </motion.div>
+      </CardContent>
+    </Card>
   );
 };
 

@@ -1,11 +1,12 @@
-import AIAssistantCard from "../components/AIAssistantCard";
-import HealthGoalsCard from "../components/HealthGoalsCard";
-import GeneralMetricsCard from "../components/GeneralMetricsCard";
-import MedicationPlanning from "../components/MedicationPlanning";
-import { useAuthStore } from "../stores/auth";
 import { Navigate } from "react-router-dom";
-import ActivityGoals from "../components/ActivityGoals";
-import MealPlan from "../components/MealPlan";
+import { useAuthStore } from "@/stores/auth";
+
+import ActivityGoals from "@/components/ActivityGoals";
+import AIAssistantCard from "@/components/AIAssistantCard";
+import GeneralMetricsCard from "@/components/GeneralMetricsCard";
+import HealthGoalsCard from "@/components/HealthGoalsCard";
+import MealPlan from "@/components/MealPlan";
+import MedicationPlanning from "@/components/MedicationPlanning";
 
 const WellnessPage = () => {
   const { isAuthenticated } = useAuthStore();
