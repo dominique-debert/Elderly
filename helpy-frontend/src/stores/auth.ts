@@ -3,42 +3,9 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import { loginUser, signupUser } from '../services/auth.service';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import type { IAuthState } from '@/@types/IAuthState';
 
-interface User {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  avatar?: string;
-  birthDate: Date;
-  isAdmin: boolean;
-}
-
-interface AuthState {
-  accessToken: string | null;
-  isAuthenticated: boolean;
-  user: User | null;
-  login: (
-    email: string,
-    password: string,
-    navigate: ReturnType<typeof useNavigate>
-  ) => Promise<void>;
-  signup: (
-    userData: {
-      email: string;
-      password: string;
-      firstName: string;
-      lastName: string;
-      avatar?: string;
-      birthDate: Date;
-      isAdmin: boolean;
-    },
-    navigate: ReturnType<typeof useNavigate>
-  ) => Promise<void>;
-  logout: (navigate: ReturnType<typeof useNavigate>) => void;
-}
-
-export const useAuthStore = create<AuthState>()(
+export const useAuthStore = create<IAuthState>()(
   persist(
     (set) => ({
       accessToken: localStorage.getItem('accessToken'), // On récupère le token du localStorage
