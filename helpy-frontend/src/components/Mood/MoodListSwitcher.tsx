@@ -50,12 +50,12 @@ export function MoodListSwitcher({ mode, setMode }: Props) {
           <Icon path={mdiTable} size={1} />
         </button>
       </div>
-          {isCreateOpen && (
-            <MoodCreateModal
-              onClose={() => setIsCreateOpen(false)}
-              onCreated={handleCreated}
-            />
-          )}
+      {isCreateOpen && (
+        <MoodCreateModal
+          onClose={() => setIsCreateOpen(false)}
+          onCreated={handleCreated}
+        />
+      )}
     </>
   );
 }
