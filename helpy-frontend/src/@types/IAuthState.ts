@@ -9,7 +9,7 @@ export interface IAuthState {
     email: string,
     password: string,
     navigate: ReturnType<typeof useNavigate>
-  ) => Promise<void>;
+  ) => Promise<IUser>;
   signup: (
     userData: {
       email: string;
@@ -19,8 +19,6 @@ export interface IAuthState {
       avatar?: string;
       birthDate: Date;
       isAdmin: boolean;
-      accessToken: string;
-      refreshToken: string;
     },
     navigate: ReturnType<typeof useNavigate>
   ) => Promise<void>;

@@ -18,22 +18,28 @@ export const useAuthStore = create<IAuthState>()(
           localStorage.setItem('accessToken', data.accessToken); // Stocke l'accessToken dans localStorage
           localStorage.setItem('refreshToken', data.refreshToken); // Stocke le refreshToken également
 
+          const user = {
+            email: data.email,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            avatar: data.avatar,
+            birthDate: data.birthDate,
+            isAdmin: data.isAdmin,
+            longitude: data.longitude,
+            latitude: data.latitude,
+          };
+
           set({
             accessToken: data.accessToken,
             isAuthenticated: true,
-            user: {
-              email: data.email,
-              firstName: data.firstName,
-              lastName: data.lastName,
-              avatar: data.avatar,
-              birthDate: data.birthDate,
-              isAdmin: data.isAdmin,
-            },
+            user,
           });
           toast.success('Connexion réussie');
           navigate('/');
+          return user;
         } catch (error) {
           toast.error('Erreur lors de la connexion: ' + error);
+          throw error;
         }
       },
 
@@ -90,7 +96,15 @@ export const useAuth = () => {
     isAuthenticated,
     user,
     login: (email: string, password: string) => login(email, password, navigate),
-    signup: (userData: { email: string; password: string; firstName: string; lastName: string; avatar?: string; birthDate: Date; isAdmin: boolean }) => signup(userData, navigate),
+    signup: (
+      userData: {
+        email: string;
+         password: string;
+         firstName: string;
+         lastName: string;
+         avatar?: string;
+         birthDate: Date;
+         isAdmin: boolean }) => signup(userData, navigate),
     logout: () => logout(navigate),
   };
 };

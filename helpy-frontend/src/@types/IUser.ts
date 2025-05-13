@@ -4,5 +4,7 @@ export interface IUser {
   lastName: string;
   avatar?: string;
   birthDate: Date;
+  latitude?: string;
+  longitude?: string;
   isAdmin: boolean;
 }

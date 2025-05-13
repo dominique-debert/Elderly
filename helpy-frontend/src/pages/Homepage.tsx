@@ -6,6 +6,7 @@ import UserCard from "../components/UserCard";
 import ServiceCard from "../components/ServiceCard";
 import MedicationCard from "../components/MedicationCard";
 import { Navigate } from "react-router-dom";
+import { MeteoWidget } from "@/components/MeteoWidget";
 
 const HomePage = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -22,6 +23,7 @@ const HomePage = () => {
           {user ? (
             <>
               <UserCard />
+              <MeteoWidget/>
             </>
           ) : (
             <p>Les informations de profil sont introuvables.</p>

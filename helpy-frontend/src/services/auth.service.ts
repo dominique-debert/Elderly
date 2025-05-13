@@ -1,12 +1,12 @@
-import api from '../lib/axios';
-import type { IAuthResponse } from '../@types/IAuthResponse';
+import api from '@/lib/axios';
+import type { IAuthResponse } from '@/@types/IAuthResponse';
 
 export const loginUser = async (data: { email: string; password: string }): Promise<IAuthResponse> => {
   const response = await api.post('/auth/login', data);
   return response.data;
 };
 
-export const signupUser = async (data: { email: string; password: string, accessToken: string, refreshToken: string, firstName: string, lastName: string, birthDate: Date, isAdmin: boolean, avatar?: string }): Promise<IAuthResponse> => {
+export const signupUser = async (data: { email: string; password: string, firstName: string, lastName: string, birthDate: Date, isAdmin: boolean, avatar?: string }): Promise<IAuthResponse> => {
   const response = await api.post('/auth/signup', data);
   return response.data;
 };

@@ -1,13 +1,16 @@
-import { useMeteo } from '../hooks/useMeteo';
+import { useAuthStore } from '@/stores/auth';
+import { useWeather } from '../hooks/useWeather';
 
-interface MeteoWidgetProps {
-  lat: number;
-  lon: number;
-}
 
-export const MeteoWidget = ({ lat, lon }: MeteoWidgetProps) => {
-  const { data, isLoading, isError } = useMeteo(lat, lon);
+export const MeteoWidget = () => {
+  const {user} = useAuthStore();
+  const lat = user?.latitude;
+  const lon = user?.longitude;
 
+  const shouldFetch = lat !== undefined && lon !== undefined;
+  const { data, isLoading, isError } = useWeather();
+
+  if (!shouldFetch) return <div className="text-sm text-red-500">Coordonnées manquantes</div>;
   if (isLoading) return <div className="text-sm">Chargement météo...</div>;
   if (isError || !data) return <div className="text-sm text-red-500">Erreur météo</div>;
 

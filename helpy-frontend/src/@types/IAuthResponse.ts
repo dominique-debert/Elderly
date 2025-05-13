@@ -6,6 +6,8 @@ export interface IAuthResponse {
   lastName: string;
   avatar?: string;
   email: string;
+  latitude: string;
+  longitude: string;
   accessToken: string;
   refreshToken: string;
 }

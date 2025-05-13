@@ -41,6 +41,7 @@ import userDeviceRouter from './userDevice.routes';
 import userSkillRouter from './userSkill.routes';
 import userStatisticsRouter from './userStatistics.routes';
 import videoCallRouter from './videoCall.routes';
+import weatherRouter from './weather.routes';
 import wellnessGoalRouter from './wellnessGoal.routes';
 import moodRouter from './mood.routes';
 
@@ -120,6 +121,7 @@ router.use('/user-devices', userDeviceRouter);
 router.use('/user-skills', userSkillRouter);
 router.use('/user-statistics', userStatisticsRouter);
 router.use('/video-calls', videoCallRouter);
+router.use('/weather', weatherRouter);
 router.use('/wellness-goals', wellnessGoalRouter);
 
 export default router;

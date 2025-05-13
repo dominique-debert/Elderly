@@ -121,6 +121,8 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
       lastName: user.lastName,
       email: user.email,
       avatar: user.avatar,
+      latitude: user.latitude,
+      longitude: user.longitude,
       birthDate: user.birthDate,
       isAdmin: user.isAdmin,
     });
