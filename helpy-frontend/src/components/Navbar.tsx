@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchNotificationsByUserId } from '../services/notifications.service';
 import { useQuery } from '@tanstack/react-query';
 import NotificationList from './Notifications/NotificationList';
-import { Button } from './ui/button';
 
 const Navbar = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -55,12 +54,12 @@ const Navbar = () => {
 
           <div className='flex space-x-2 xs:block lg:hidden'>
             <Link to={"/"}>
-              <Button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
+              <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
                 <Icon path={mdiViewDashboardOutline}
                   size={1}
                   className="text-primary"
                 />
-              </Button>
+              </button>
             </Link>
             
             <Link to="/profile" className="justify-between">

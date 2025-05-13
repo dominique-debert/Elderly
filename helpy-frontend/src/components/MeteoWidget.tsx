@@ -1,13 +1,13 @@
 import { useAuthStore } from '@/stores/auth';
-import { useWeather } from '../hooks/useWeather';
-
+import { useWeather } from '@/hooks/useWeather';
+import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 
 export const MeteoWidget = () => {
-  const {user} = useAuthStore();
-  const lat = user?.latitude;
-  const lon = user?.longitude;
+  const { user } = useAuthStore();
+  const latitude = user?.latitude;
+  const longitude = user?.longitude;
 
-  const shouldFetch = lat !== undefined && lon !== undefined;
+  const shouldFetch = latitude !== undefined && longitude !== undefined;
   const { data, isLoading, isError } = useWeather();
 
   if (!shouldFetch) return <div className="text-sm text-red-500">Coordonnées manquantes</div>;
@@ -15,12 +15,18 @@ export const MeteoWidget = () => {
   if (isError || !data) return <div className="text-sm text-red-500">Erreur météo</div>;
 
   return (
-    <div className="p-4 rounded-lg shadow bg-base-200 w-fit flex items-center space-x-4">
-      <span className="text-3xl">{data.icone}</span>
-      <div>
-        <div className="font-bold">{data.temperature}°C</div>
-        <div className="text-sm">Vent : {data.vent} km/h</div>
-      </div>
-    </div>
+
+    <Card
+     className="lg:w-1/3 bg-base-100 border border-base-200 xs:mt-4">
+      <CardHeader>
+        <CardTitle className="text-primary text-xl text-right">{ data.city }</CardTitle>
+      </CardHeader>
+      <CardContent>
+          <div className="stat-figure text-gray-600 text-2xl lg:mt-4 text-right">{data.icone} {data.description}</div>
+          <div className="stat-figure text-3xl text-right mt-4">
+            {data.temperature}°C
+          </div>
+      </CardContent>
+    </Card>
   );
 };
