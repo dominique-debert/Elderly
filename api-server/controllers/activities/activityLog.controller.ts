@@ -1,4 +1,4 @@
-import { PrismaClient } from "../../prisma/client";
+import { PrismaClient } from "@/prisma/client";
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import IActivityLog from "@/@types/data/activities/IActivityLog";

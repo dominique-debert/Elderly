@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '../prisma/client.js';
+import { PrismaClient } from '@/prisma/client.js';
 import createHttpError from 'http-errors';
 import ISkill from '@/@types/data/ISkill.js';
 

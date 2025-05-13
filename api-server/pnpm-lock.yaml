@@ -75,6 +75,9 @@ importers:
       '@types/express-session':
         specifier: ^1.18.1
         version: 1.18.1
+      '@types/http-errors':
+        specifier: ^2.0.4
+        version: 2.0.4
       '@types/jsonwebtoken':
         specifier: ^9.0.9
         version: 9.0.9

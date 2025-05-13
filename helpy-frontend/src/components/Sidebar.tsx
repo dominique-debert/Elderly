@@ -31,7 +31,6 @@ const Sidebar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow-md">
               <li><a>Tes préférences</a></li>
-              <li><hr /></li>
               <li>
                 <Link to="/login" onClick={() => logout(navigate)}>Se déconnecter</Link>
               </li>
@@ -62,9 +61,10 @@ const Sidebar = () => {
             />
           </Link>
           
-          <Link to={"/medications"} className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
+          <Link to={"/medications"} className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
             <Icon path={mdiBottleTonicPlusOutline}
-              title="Suivi des traitements"
+              data-tip="Bien-être"
+              title="Suivi du bien-être"
               size={1}
             />
           </Link>

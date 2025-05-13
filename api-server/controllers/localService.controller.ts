@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import createHttpError from 'http-errors';
-import { PrismaClient } from '../prisma/client.js'; // ou '@/prisma/client' si tu utilises des alias
+import { PrismaClient } from '@/prisma/client.js'; // ou '@/prisma/client' si tu utilises des alias
 import ILocalService from '@/@types/data/ILocalService.js';
 
 const prisma = new PrismaClient();

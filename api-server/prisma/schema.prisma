@@ -608,7 +608,8 @@ model user {
   lastName                String?                   @map("last_name") @db.Text
   birthDate               DateTime?                 @map("birth_date") @db.Date
   address                 String?                   @db.Text
-  gpsCoordinates          String?                   @map("gps_coordinates")
+  latitude                String?                   @map("latitude")
+  longitude               String?                   @map("longitude")
   phone                   String?                   @db.Text
   avatar                  String?                   @map("avatar") @db.Text
   registrationDate        DateTime                  @default(now()) @map("registration_date") @db.Timestamp(6)
