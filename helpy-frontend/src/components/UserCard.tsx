@@ -11,13 +11,13 @@ const UserCard = () => {
 return (
  
     <motion.div
-      className="card self-center lg:w-1/2 bg-base-100 border border-base-200 h-full"
+      className="card self-center bg-base-100 border border-base-200 w-2/3"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5 }} 
     >
     <figure className="relative rounded-xl h-full">
-      {user && <img className="w-full" src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
+      {user && <img src={`/images/${user.avatar}`} alt="Photo utilisateur" />}
       <div className="grid grid-cols-3 my-4 bottom-0 gap-4 absolute w-100">
         <div className="p-4 w-full h-full card backdrop-blur-md z-30 bg-primary/10 col-span-2">
           <div className="card-body p-4">

@@ -7,6 +7,20 @@ export function mapWeatherCodeToIcon(code: number): string {
   if (code >= 61 && code <= 67) return '/images/weather/67.png';
   if (code >= 71 && code <= 77) return '/images/weather/77.png';
   if (code >= 80 && code <= 86) return '/images/weather/86.png';
+  if (code >= 95 && code <= 99) return '/images/weather/86.png';
+  return '❓';
+}
+
+export function mapWeatherCodeToBackground(code: number): string {
+  if (code === 0) return '/images/weather/0.jpg';
+  if (code === 1 || code === 2) return '/images/weather/2.jpg';
+  if (code === 3) return '/images/weather/3.jpg';
+  if (code >= 45 && code <= 48) return '/images/weather/48.jpg';
+  if (code >= 51 && code <= 57) return '/images/weather/57.jpg';
+  if (code >= 61 && code <= 67) return '/images/weather/67.jpg';
+  if (code >= 71 && code <= 77) return '/images/weather/77.jpg';
+  if (code >= 80 && code <= 86) return '/images/weather/86.jpg';
+  if (code >= 95 && code <= 99) return '/images/weather/99.jpg';
   return '❓';
 }
 

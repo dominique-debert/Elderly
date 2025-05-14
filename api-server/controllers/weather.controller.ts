@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import axios from 'axios';
-import { mapWeatherCodeToIcon, mapWeatherCodeToLabel } from '@/utils/weatherIcons';
+import { mapWeatherCodeToIcon, mapWeatherCodeToLabel, mapWeatherCodeToBackground } from '@/utils/weatherIcons';
 import { getCityFromCoordinates } from '@/utils/getCityFromCoordinates';
 
 export const getWeather = async (req: Request, res: Response) => {
@@ -33,13 +33,15 @@ export const getWeather = async (req: Request, res: Response) => {
       temperature_min: daily.temperature_2m_min[i],
       code: daily.weathercode[i],
       icone: mapWeatherCodeToIcon(daily.weathercode[i]),
+      background: mapWeatherCodeToBackground(daily.weathercode[i]),
       description: mapWeatherCodeToLabel(daily.weathercode[i]),
     }));
-
+    
     return res.json({
       temperature: current.temperature,
       vent: current.windspeed,
       code: current.weathercode,
+      background: mapWeatherCodeToBackground(current.weathercode),
       icone: mapWeatherCodeToIcon(current.weathercode),
       description: mapWeatherCodeToLabel(current.weathercode),
       city,

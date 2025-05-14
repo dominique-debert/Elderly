@@ -22,10 +22,12 @@ export const MeteoWidget = () => {
   if (isError) return <div className="text-sm text-red-500">Erreur météo</div>;
 
   return (
-    <Card className="lg:w-2/3 bg-base-100 border border-base-200 xs:mt-4">
+    <Card
+      style={{ backgroundImage: `url(${data?.background})`, backgroundSize: "cover", backgroundColor: "rgba(255,255,255,0.3)", backgroundBlendMode: "lighten" }}
+      className="lg:w-2/3 bg-base-100 border border-base-200 xs:mt-4">
       <CardHeader>
-        <CardTitle className="text-primary text-xl text-right">
-          {isLoading ? <Skeleton className="h-6 w-24 ml-auto" /> : data.city}
+        <CardTitle className="text-2xl text-center text-gray-600">
+          {isLoading ? <Skeleton className="h-6 w-24 ml-auto" /> : data?.city}
         </CardTitle>
       </CardHeader>
 
@@ -48,13 +50,11 @@ export const MeteoWidget = () => {
           </>
         ) : (
           <>
-            <div className="text-right">
-              <div className="flex flex-col justify-end items-center gap-2 text-gray-600 text-lg">
-                <img className="w-[72px] mb-4" src={data.icone} alt={data.description} />
-                <p className='w-full text-center mb-3'>{data.description}</p>
-              </div>
-              <div className="text-3xl font-semibold mt-2 text-center">{data.temperature}°C</div>
+            <div className="flex flex-col justify-end items-center gap-2 text-gray-600 text-lg">
+              {renderIcon(data.icone)}
+              <p className='w-full text-center mb-3'>{data.description}</p>
             </div>
+            <div className="text-3xl font-semibold mt-2 text-center">{data.temperature}°C</div>
 
             <div className="divider mt-4 mb-2" />
 
@@ -63,20 +63,20 @@ export const MeteoWidget = () => {
                 date: string;
                 icone: string;
                 description: string;
+                background: string;
                 temperature_max: number;
                 temperature_min: number;
               }, i: number) => (
-                <div key={i} className={`p-4 rounded-lg bg-base-100 ${i === 0 ? 'bg-blue-100' : ''}`}>
+                <div style={{ backgroundImage: `url(${day.background})`, backgroundSize: "cover", backgroundColor: "rgba(255,255,255,0.6)", backgroundBlendMode: "lighten" }} key={i} className={`p-4 rounded-lg bg-base-100 ${i === 0 ? 'bg-blue-100' : ''}`}>
                   <div className="font-semibold mb-2">
                     {new Date(day.date).toLocaleDateString('fr-FR', { weekday: 'long' })}
                   </div>
                   <div className='flex flex-col justify-center items-center gap-4 text-xs text-gray-700'>
-                    {/* {renderIcon(day.icone)} */}
-                    <img className="w-[54px]" src={day.icone} alt={day.description} />
+                    {renderIcon(day.icone)}
                     <p className="mb-2">{day.description}</p>
                   </div>
                   <div className="mt-1 text-sm">
-                    <div className='text-gray-600'>Min: {day.temperature_min}°</div>
+                    <div className='text-gray-700'>Min: {day.temperature_min}°</div>
                     <div className="font-semibold">Max: {day.temperature_max}°</div>
                   </div>
                 </div>
