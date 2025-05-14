@@ -22,7 +22,7 @@ export const MeteoWidget = () => {
   if (isError) return <div className="text-sm text-red-500">Erreur météo</div>;
 
   return (
-    <Card className="lg:w-1/3 bg-base-100 border border-base-200 xs:mt-4">
+    <Card className="lg:w-2/3 bg-base-100 border border-base-200 xs:mt-4">
       <CardHeader>
         <CardTitle className="text-primary text-xl text-right">
           {isLoading ? <Skeleton className="h-6 w-24 ml-auto" /> : data.city}
@@ -49,10 +49,11 @@ export const MeteoWidget = () => {
         ) : (
           <>
             <div className="text-right">
-              <div className="flex justify-end items-center gap-2 text-gray-600 text-lg">
-                {renderIcon(data.icone)} {data.description}
+              <div className="flex flex-col justify-end items-center gap-2 text-gray-600 text-lg">
+                <img className="w-[72px] mb-4" src={data.icone} alt={data.description} />
+                <p className='w-full text-center mb-3'>{data.description}</p>
               </div>
-              <div className="text-3xl font-semibold mt-2">{data.temperature}°C</div>
+              <div className="text-3xl font-semibold mt-2 text-center">{data.temperature}°C</div>
             </div>
 
             <div className="divider mt-4 mb-2" />
@@ -65,17 +66,18 @@ export const MeteoWidget = () => {
                 temperature_max: number;
                 temperature_min: number;
               }, i: number) => (
-                <div key={i} className="p-2 rounded-lg bg-base-200">
-                  <div className="font-semibold">
-                    {new Date(day.date).toLocaleDateString('fr-FR', { weekday: 'short' })}
+                <div key={i} className={`p-4 rounded-lg bg-base-100 ${i === 0 ? 'bg-blue-100' : ''}`}>
+                  <div className="font-semibold mb-2">
+                    {new Date(day.date).toLocaleDateString('fr-FR', { weekday: 'long' })}
                   </div>
-                  <div className="flex justify-center items-center gap-1 text-xs text-gray-500">
-                    {renderIcon(day.icone)}
-                    {day.description}
+                  <div className='flex flex-col justify-center items-center gap-4 text-xs text-gray-700'>
+                    {/* {renderIcon(day.icone)} */}
+                    <img className="w-[54px]" src={day.icone} alt={day.description} />
+                    <p className="mb-2">{day.description}</p>
                   </div>
                   <div className="mt-1 text-sm">
-                    <span className="text-primary font-bold">{day.temperature_max}°</span>
-                    <span className="text-gray-500"> / {day.temperature_min}°</span>
+                    <div className='text-gray-600'>Min: {day.temperature_min}°</div>
+                    <div className="font-semibold">Max: {day.temperature_max}°</div>
                   </div>
                 </div>
               ))}
