@@ -1,0 +1,18 @@
+import { Request, Response, NextFunction } from 'express';
+import { PrismaClient } from '@/prisma/client';
+import { createHttpError } from '@/utils/httpError';
+
+const prisma = new PrismaClient();
+
+export const getAllMenuItems = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const menuItems = await prisma.menuItem.findMany();
+    res.status(200).json({ menuItems });
+  } catch (error) {
+    next(error);
+  }
+};

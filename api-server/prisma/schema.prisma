@@ -333,6 +333,13 @@ model medicationReminder {
   @@map("medication_reminder")
 }
 
+model menuItem {
+  id    String  @id @default(cuid())
+  label String
+  icon  String?
+  key   String  @default("undefined")
+}
+
 model message {
   id             String        @id @default(cuid())
   conversationId String        @map("conversation_id")

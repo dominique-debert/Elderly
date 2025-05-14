@@ -354,6 +354,13 @@ exports.Prisma.MedicationReminderScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.MenuItemScalarFieldEnum = {
+  id: 'id',
+  label: 'label',
+  icon: 'icon',
+  key: 'key'
+};
+
 exports.Prisma.MessageScalarFieldEnum = {
   id: 'id',
   conversationId: 'conversationId',
@@ -757,6 +764,7 @@ exports.Prisma.ModelName = {
   helpRequest: 'helpRequest',
   localService: 'localService',
   medicationReminder: 'medicationReminder',
+  menuItem: 'menuItem',
   message: 'message',
   municipalEvent: 'municipalEvent',
   notification: 'notification',

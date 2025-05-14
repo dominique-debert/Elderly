@@ -18,6 +18,7 @@ import helpOffersRouter from './helpOffer.routes';
 import helpRequestsRouter from './helpRequest.routes';
 import localServiceRouter from './localService.routes';
 import medicationReminderRouter from './medicationReminder.routes';
+import menuItemRouter from './menuItem.routes';
 import messageRouter from './message.routes';
 import municipalEventRouter from './municipalEvent.routes';
 import notificationRouter from './notification.routes';
@@ -62,7 +63,6 @@ import wellnessCategoriesRouter from './categories/wellnessCategory.routes';
 
 const router = Router();
 
-
 // Public routes
 router.use('/auth', authRouter);
 router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -99,6 +99,7 @@ router.use('/local-services', localServiceRouter);
 router.use('/messages', messageRouter);
 router.use('/moods', moodRouter);
 router.use('/medication-reminders', medicationReminderRouter);
+router.use('/menu-items', menuItemRouter);
 router.use('/municipal-events', municipalEventRouter);
 router.use('/notifications', notificationRouter);
 router.use('/notification-preferences', notificationPreferencesRouter);

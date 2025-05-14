@@ -58,7 +58,6 @@ export const getAllNotificationsByUserId = async (
         userId: typeof req.query.userId === 'string' ? req.query.userId : undefined
       }
     });
-    console.log(notifications);
     res.status(200).json({ notifications });
   } catch (error) {
     next(error);

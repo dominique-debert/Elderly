@@ -1,12 +1,17 @@
 import { useState } from 'react';
-import { useAuthStore } from '../stores/auth';
+import { useAuthStore } from '@/stores/auth';
 import { Navigate } from 'react-router-dom';
-import MoodList from '../components/Mood/MoodList';
+import MoodList from '@/components/Mood/MoodList'; 
 import AdminTabBar from '@/components/AdminTabBar';
+
+// Composants pour chaque section de la page
+// import ActivityList from '@/components/Activity/ActivityList';
+// import BadgeList from '@/components/Badge/BadgeList';
+// import CognitiveList from '@/components/Cognitive/CognitiveList';
 
 const AdminPage = () => {
   const { user, isAuthenticated } = useAuthStore();
-  const [activeTab, setActiveTab] = useState<'moods' | 'activities' | 'badges' | 'cognitive' | 'forum' | 'help' | 'nutritional' | 'program' | 'project' | 'resource' | 'service' | 'skill' | 'wellness' | null>('moods');
+  const [activeTab, setActiveTab] = useState<'mood' | 'activity' | 'badge' | 'cognitive' | 'forum' | 'help' | 'nutritional' | 'program' | 'project' | 'resource' | 'service' | 'skill' | 'wellness' | null>('mood');
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
@@ -20,12 +25,12 @@ const AdminPage = () => {
             <h2 className="text-2xl font-semibold text-primary border-b border-base-200 mb-4">
               Administration
             </h2>
-            <AdminTabBar activeTab={activeTab} setActiveTab={setActiveTab}/>
+            <AdminTabBar activeTab={activeTab} setActiveTab={setActiveTab} />
           </div>
 
-          {/* Content */}
+          {/* Contenu dynamique basé sur l'onglet actif */}
           <div className="pt-2">
-            {activeTab === 'moods' && <MoodList />}
+            {activeTab === 'mood' && <MoodList />}
           </div>
         </>
       ) : (

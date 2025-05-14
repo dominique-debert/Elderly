@@ -29,7 +29,6 @@ export function MoodCreateModal({ onClose, onCreated }: MoodCreateModalProps) {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    console.log('Form submitted with:', form);
     e.preventDefault();
     try {
       await createMood(form);

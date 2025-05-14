@@ -32,6 +32,7 @@ export * from './helpOffer.controller';
 export * from './helpRequest.controller';
 export * from './localService.controller';
 export * from './medicationReminder.controller';
+export * from './menuItem.controller';
 export * from './message.controller';
 export * from './mood.controller';
 export * from './municipalEvent.controller';

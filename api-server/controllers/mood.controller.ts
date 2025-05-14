@@ -16,7 +16,6 @@ export const createMood = async (
   res: Response,
   next: NextFunction
 ) => {
-  console.log(req.body);
   try {
     const newMood = await prisma.mood.create({
       data: req.body
