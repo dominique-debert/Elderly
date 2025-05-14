@@ -8,7 +8,7 @@ import { MoodCardView } from './MoodCardView';
 
 type Mode = 'card' | 'list' | 'table';
 
-export default function MoodList() {
+export const MoodList = () => {
   const [mode, setMode] = useState<Mode>(() => {
     // Lecture initiale du localStorage
     const savedMode = localStorage.getItem('moodViewMode');

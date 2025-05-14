@@ -1,4 +1,4 @@
-export enum ITabKey {
+export enum ETabKey {
   Mood = 'mood',
   Activity = 'activity',
   Badge = 'badge',

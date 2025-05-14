@@ -1,16 +1,25 @@
 import { useState } from 'react';
 import { useAuthStore } from '@/stores/auth';
 import { Navigate } from 'react-router-dom';
-import MoodList from '@/components/Mood/MoodList'; 
-import AdminTabBar from '@/components/AdminTabBar';
-import ActivityList from '@/components/Activity/ActivityList';
-import { ITabKey } from '@/@types/ITabKey';
+import { MoodList } from '@/components/Mood/MoodList'; 
+import { AdminTabBar } from '@/components/AdminTabBar';
+import { ActivityList } from '@/components/Activity/ActivityList';
+import { ETabKey } from '@/@types/ETabKey';
+import { HelpList } from '@/components/Help/HelpList';
+import { BadgeList } from '@/components/Badge/BadgeList';
+import { WellnessList } from '@/components/Wellness/WellnessList';
+import { CognitiveList } from '@/components/Cognitive/CognitiveList';
+import { SkillList } from '@/components/Skill/SkillList';
+import { ForumList } from '@/components/Forum/ForumList';
+import { NutritionalList } from '@/components/Nutrition/NutritionalList';
+import { ProgramList } from '@/components/Program/ProgramList';
+import { ProjectList } from '@/components/Project/ProjectList';
+import { ResourceList } from '@/components/Resource/ResourceList';
+import { ServiceList } from '@/components/Service/ServiceList';
 
 const AdminPage = () => {
   const { user, isAuthenticated } = useAuthStore();
-
-  // Utilisation de l'enum pour le state
-  const [activeTab, setActiveTab] = useState<ITabKey | null>(ITabKey.Mood);
+  const [activeTab, setActiveTab] = useState<ETabKey | null>(ETabKey.Mood);
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
@@ -19,10 +28,32 @@ const AdminPage = () => {
   const renderContent = () => {
     if (!activeTab) return null;
     switch (activeTab) {
-      case ITabKey.Mood:
-        return <MoodList />;
-      case ITabKey.Activity:
+      case ETabKey.Activity:
         return <ActivityList />;
+      case ETabKey.Help:
+        return <HelpList />;
+      case ETabKey.Badge:
+        return <BadgeList />;
+      case ETabKey.Wellness:
+        return <WellnessList />;
+      case ETabKey.Cognitive:
+        return <CognitiveList />;
+      case ETabKey.Skill:
+        return <SkillList />;
+      case ETabKey.Forum:
+        return <ForumList />;
+      case ETabKey.Mood:
+        return <MoodList />;
+      case ETabKey.Nutritional:
+        return <NutritionalList />;
+      case ETabKey.Program:
+        return <ProgramList />;
+      case ETabKey.Project:
+        return <ProjectList />;
+      case ETabKey.Resource:
+        return <ResourceList />;
+      case ETabKey.Service:
+        return <ServiceList />;
       default:
         return null;
     }

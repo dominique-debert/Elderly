@@ -4,28 +4,32 @@ import { Dispatch, SetStateAction } from 'react';
 import { fetchMenuItems } from '@/services/menuItem.service';
 import { useQuery } from '@tanstack/react-query';
 import { iconMap } from '@/constants/iconMap';
-import { ITabKey } from '@/@types/ITabKey';
+import { ETabKey } from '@/@types/ETabKey';
 
 type AdminTabProps = {
-  activeTab: ITabKey | null;
-  setActiveTab: Dispatch<SetStateAction<ITabKey | null>>;
+  activeTab: ETabKey | null;
+  setActiveTab: Dispatch<SetStateAction<ETabKey | null>>;
 };
 
-function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
+export const AdminTabBar: React.FC<AdminTabProps> = ({ activeTab, setActiveTab }) => {
   const { data: menuItems, isLoading, isError } = useQuery({
     queryKey: ['menuItems'],
     queryFn: fetchMenuItems,
   });
 
-  // Définir le premier onglet comme actif par défaut
   useEffect(() => {
     if (menuItems && menuItems.length > 0 && !activeTab) {
-      setActiveTab(menuItems[0].key as ITabKey);
+      setActiveTab(menuItems[0].key as ETabKey);
     }
   }, [menuItems, activeTab, setActiveTab]);
 
-  if (isLoading) return <div className="text-sm text-gray-500">Chargement...</div>;
-  if (isError) return <div className="text-sm text-red-500">Erreur lors du chargement du menu</div>;
+  if (isLoading) {
+    return <div className="text-sm text-gray-500">Chargement...</div>;
+  }
+
+  if (isError) {
+    return <div className="text-sm text-red-500">Erreur lors du chargement du menu</div>;
+  }
 
   return (
     <ul className="menu bg-base-100 lg:menu-horizontal rounded-box p-0">
@@ -33,7 +37,7 @@ function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
         <li key={id}>
           <button
             type="button"
-            onClick={() => setActiveTab(key as ITabKey)}
+            onClick={() => setActiveTab(key as ETabKey)}
             className={`btn btn-ghost w-full justify-start ${
               activeTab === key ? 'bg-primary text-white' : ''
             }`}
@@ -48,6 +52,5 @@ function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
       ))}
     </ul>
   );
-}
+};
 
-export default AdminTabBar;
