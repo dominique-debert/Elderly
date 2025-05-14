@@ -4,25 +4,11 @@ import { Dispatch, SetStateAction } from 'react';
 import { fetchMenuItems } from '@/services/menuItem.service';
 import { useQuery } from '@tanstack/react-query';
 import { iconMap } from '@/constants/iconMap';
-
-type TabKey =
-  | 'mood'
-  | 'activity'
-  | 'badge'
-  | 'cognitive'
-  | 'forum'
-  | 'help'
-  | 'nutritional'
-  | 'program'
-  | 'project'
-  | 'resource'
-  | 'service'
-  | 'skill'
-  | 'wellness';
+import { ITabKey } from '@/@types/ITabKey';
 
 type AdminTabProps = {
-  activeTab: TabKey | null;
-  setActiveTab: Dispatch<SetStateAction<TabKey | null>>;
+  activeTab: ITabKey | null;
+  setActiveTab: Dispatch<SetStateAction<ITabKey | null>>;
 };
 
 function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
@@ -34,7 +20,7 @@ function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
   // Définir le premier onglet comme actif par défaut
   useEffect(() => {
     if (menuItems && menuItems.length > 0 && !activeTab) {
-      setActiveTab(menuItems[0].key as TabKey);
+      setActiveTab(menuItems[0].key as ITabKey);
     }
   }, [menuItems, activeTab, setActiveTab]);
 
@@ -47,7 +33,7 @@ function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
         <li key={id}>
           <button
             type="button"
-            onClick={() => setActiveTab(key as TabKey)}
+            onClick={() => setActiveTab(key as ITabKey)}
             className={`btn btn-ghost w-full justify-start ${
               activeTab === key ? 'bg-primary text-white' : ''
             }`}

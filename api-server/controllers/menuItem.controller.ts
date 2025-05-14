@@ -10,7 +10,9 @@ export const getAllMenuItems = async (
   next: NextFunction
 ) => {
   try {
-    const menuItems = await prisma.menuItem.findMany();
+    const menuItems = await prisma.menuItem.findMany({
+      orderBy: { label: 'asc' },
+    });
     res.status(200).json({ menuItems });
   } catch (error) {
     next(error);

@@ -1,7 +1,7 @@
 import {
   mdiHeartSettingsOutline,
   mdiRunFast,
-  mdiBadgeAccountOutline,
+  mdiMedalOutline,
   mdiBrain,
   mdiForumOutline,
   mdiHelpCircleOutline,
@@ -17,7 +17,7 @@ import {
 export const iconMap: Record<string, string> = {
   mdiHeartSettingsOutline,         // Humeurs
   mdiRunFast,                      // Activités
-  mdiBadgeAccountOutline,          // Badges
+  mdiMedalOutline,          // Badges
   mdiBrain,                        // Cognition
   mdiForumOutline,                 // Forum
   mdiHelpCircleOutline,            // Aide

@@ -1,0 +1,15 @@
+export enum ITabKey {
+  Mood = 'mood',
+  Activity = 'activity',
+  Badge = 'badge',
+  Cognitive = 'cognitive',
+  Forum = 'forum',
+  Help = 'help',
+  Nutritional = 'nutritional',
+  Program = 'program',
+  Project = 'project',
+  Resource = 'resource',
+  Service = 'service',
+  Skill = 'skill',
+  Wellness = 'wellness',
+}

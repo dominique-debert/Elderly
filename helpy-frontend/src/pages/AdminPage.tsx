@@ -3,19 +3,30 @@ import { useAuthStore } from '@/stores/auth';
 import { Navigate } from 'react-router-dom';
 import MoodList from '@/components/Mood/MoodList'; 
 import AdminTabBar from '@/components/AdminTabBar';
-
-// Composants pour chaque section de la page
-// import ActivityList from '@/components/Activity/ActivityList';
-// import BadgeList from '@/components/Badge/BadgeList';
-// import CognitiveList from '@/components/Cognitive/CognitiveList';
+import ActivityList from '@/components/Activity/ActivityList';
+import { ITabKey } from '@/@types/ITabKey';
 
 const AdminPage = () => {
   const { user, isAuthenticated } = useAuthStore();
-  const [activeTab, setActiveTab] = useState<'mood' | 'activity' | 'badge' | 'cognitive' | 'forum' | 'help' | 'nutritional' | 'program' | 'project' | 'resource' | 'service' | 'skill' | 'wellness' | null>('mood');
+
+  // Utilisation de l'enum pour le state
+  const [activeTab, setActiveTab] = useState<ITabKey | null>(ITabKey.Mood);
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
+
+  const renderContent = () => {
+    if (!activeTab) return null;
+    switch (activeTab) {
+      case ITabKey.Mood:
+        return <MoodList />;
+      case ITabKey.Activity:
+        return <ActivityList />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="w-full h-full px-4 pb-4 overflow-y-auto no-scrollbar">
@@ -28,9 +39,8 @@ const AdminPage = () => {
             <AdminTabBar activeTab={activeTab} setActiveTab={setActiveTab} />
           </div>
 
-          {/* Contenu dynamique basé sur l'onglet actif */}
           <div className="pt-2">
-            {activeTab === 'mood' && <MoodList />}
+            {renderContent()}
           </div>
         </>
       ) : (
