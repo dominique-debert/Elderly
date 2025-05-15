@@ -3,6 +3,7 @@ import { PrismaClient } from '@/prisma/client';
 const prisma = new PrismaClient();
 
 async function seedCategoryTypes() {
+  await prisma.categoryType.deleteMany();
   await prisma.categoryType.createMany({
     data: [
       { id: 1, name: 'ACTIVITY' },

@@ -803,14 +803,24 @@ model categoryType {
   @@map("category_type")
 }
 
+model categoryChapter {
+  id                 Int        @id @default(autoincrement())
+  chapterId          Int        @unique @map("chapter_id")
+  chapterName        String     @unique @map("chapter_name")
+  chapterDescription String?    @map("chapter_description")
+  category           category[]
+
+  @@map("category_chapter")
+}
+
 model category {
   id                   Int                    @id @default(autoincrement())
-  name                 String
+  categoryName         String                 @map("category_name")
   description          String?
-  typeId               Int
-  type                 categoryType           @relation(fields: [typeId], references: [id])
+  typeId               Int                    @map("type_id")
+  chapterId            Int                    @map("chapter_id")
   activity             activity[]
-  badge                badge?
+  badge                badge[]
   cognitiveExercise    cognitiveExercise[]
   collaborativeProject collaborativeProject[]
   helpRequest          helpRequest[]
@@ -823,6 +833,6 @@ model category {
   wellnessGoal         wellnessGoal[]
   exerciseProgram      exerciseProgram[]
 
-  @@index([typeId])
-  @@map("category")
+  categoryType    categoryType    @relation(fields: [typeId], references: [id])
+  categoryChapter categoryChapter @relation(fields: [chapterId], references: [chapterId])
 }

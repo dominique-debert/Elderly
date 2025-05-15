@@ -9,6 +9,7 @@ export const fetchActivityCategories = async (): Promise<ICategory[]> =>  {
       Authorization: `Bearer ${accessToken}`,
     },
   });
+  console.log(data.activityCategories)
   return data.activityCategories;
 };
 

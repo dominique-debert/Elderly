@@ -1,7 +1,9 @@
 export interface ICategory {
   id?: string;
-  name: string;
-  description?: string;
+  categoryName: string;
   typeId: number;
+  chapterId: number;
+  chapterName: string;
+  chapterDescription: string;
 }
 

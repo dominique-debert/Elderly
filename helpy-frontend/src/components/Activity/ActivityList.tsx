@@ -35,7 +35,13 @@ export const ActivityList = () => {
         <div> 
           { activityCategories.map((activityCategory) => (
             // <MoodCard key={mood.id} mood={mood} />
-            <div key={activityCategory.id}>{activityCategory.id}</div>
+            <>
+            <div key={activityCategory.id}>
+              {activityCategory.id}. {activityCategory.categoryName}
+              {activityCategory.chapterName}
+            </div>
+            <br />
+            </>
           ))}
         </div>
       ) : (

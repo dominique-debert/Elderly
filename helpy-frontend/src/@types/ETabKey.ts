@@ -1,10 +1,10 @@
 export enum ETabKey {
-  Mood = 'mood',
   Activity = 'activity',
   Badge = 'badge',
   Cognitive = 'cognitive',
   Forum = 'forum',
   Help = 'help',
+  Mood = 'mood',
   Nutritional = 'nutritional',
   Program = 'program',
   Project = 'project',

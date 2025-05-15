@@ -3,24 +3,8 @@ import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError.js';
 import { CategoryType } from '@/@types/data/categories/ECategory';
 import ICategory from '@/@types/data/categories/ICategory';
-import { activityCategorySchema } from '../../validators/activityCategory.validator';
 
 const prisma = new PrismaClient();
-
-// { id: 1, name: 'ACTIVITY' },
-// { id: 2, name: 'BADGE' },
-// { id: 3, name: 'COGNITIVE' },
-// { id: 4, name: 'FORUM' },
-// { id: 5, name: 'HELP' },
-// { id: 6, name: 'NUTRITIONAL' },
-// { id: 7, name: 'PROGRAM' },
-// { id: 8, name: 'PROJECT' },
-// { id: 9, name: 'RESOURCE' },
-// { id: 10, name: 'SERVICE' },
-// { id: 11, name: 'SKILL' },
-// { id: 12, name: 'URBAN_ISSUE' },
-// { id: 13, name: 'WELLNESS' },
-
 
 /**
 * @swagger
@@ -41,7 +25,20 @@ export const fetchAllActivityCategories = async (
         typeId: CategoryType.ACTIVITY
       },
       orderBy: {
-        name: 'asc'
+        categoryName: 'asc'
+      },
+      include: {
+        categoryType: {
+          select: {
+            name: true,
+          }
+        },
+        categoryChapter: {
+          select: {
+            chapterName: true,
+            chapterDescription: true
+          }
+        }
       }
     });
     
@@ -77,27 +74,27 @@ export const fetchActivityCategoryById = async (
   };
   
   // CRÉER UNE CATÉGORIE D'ACTIVITÉ
-export const createActivityCategory = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const { name, description } = req.body;
-
-    const categoryToCreate = await prisma.category.create({
-      data: {
-        name,
-        description,
-        typeId: CategoryType.ACTIVITY, // 👈 Clé étrangère correcte ici
-      }
-    });
-
-    res.status(201).json(categoryToCreate);
-  } catch (error) {
-    next(error);
-  }
-};
+  // export const createActivityCategory = async (
+  //   req: Request,
+  //   res: Response,
+  //   next: NextFunction
+  // ) => {
+  //   try {
+  //     const { name, description } = req.body;
+  
+  //     const categoryToCreate = await prisma.category.create({
+  //       data: {
+  //         categoryName,
+  //         description,
+  //         typeId: CategoryType.ACTIVITY,
+  //       }
+  //     });
+  
+  //     res.status(201).json(categoryToCreate);
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // };
   
   export const updateActivityCategory = async (
     req: Request<{ id: string }, ICategory>,

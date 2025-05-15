@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {
-  createActivityCategory,
+  // createActivityCategory,
   fetchAllActivityCategories,
   fetchActivityCategoryById,
   updateActivityCategory,
@@ -56,7 +56,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(activityCategorySchema), errorHandler, createActivityCategory);
+// router.post('/', validate(activityCategorySchema), errorHandler, createActivityCategory);
 
 /**
  * @swagger

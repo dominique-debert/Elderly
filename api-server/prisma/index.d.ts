@@ -249,6 +249,11 @@ export type wellnessGoalProgress = $Result.DefaultSelection<Prisma.$wellnessGoal
  */
 export type categoryType = $Result.DefaultSelection<Prisma.$categoryTypePayload>
 /**
+ * Model categoryChapter
+ * 
+ */
+export type categoryChapter = $Result.DefaultSelection<Prisma.$categoryChapterPayload>
+/**
  * Model category
  * 
  */
@@ -868,6 +873,16 @@ export class PrismaClient<
   get categoryType(): Prisma.categoryTypeDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.categoryChapter`: Exposes CRUD operations for the **categoryChapter** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CategoryChapters
+    * const categoryChapters = await prisma.categoryChapter.findMany()
+    * ```
+    */
+  get categoryChapter(): Prisma.categoryChapterDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.category`: Exposes CRUD operations for the **category** model.
     * Example usage:
     * ```ts
@@ -1363,6 +1378,7 @@ export namespace Prisma {
     wellnessGoal: 'wellnessGoal',
     wellnessGoalProgress: 'wellnessGoalProgress',
     categoryType: 'categoryType',
+    categoryChapter: 'categoryChapter',
     category: 'category'
   };
 
@@ -1382,7 +1398,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "healthIndicator" | "mood" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "menuItem" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "session" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "wellnessGoalProgress" | "categoryType" | "category"
+      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "healthIndicator" | "mood" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "menuItem" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "session" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "wellnessGoalProgress" | "categoryType" | "categoryChapter" | "category"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4864,6 +4880,80 @@ export namespace Prisma {
           }
         }
       }
+      categoryChapter: {
+        payload: Prisma.$categoryChapterPayload<ExtArgs>
+        fields: Prisma.categoryChapterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.categoryChapterFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.categoryChapterFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload>
+          }
+          findFirst: {
+            args: Prisma.categoryChapterFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.categoryChapterFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload>
+          }
+          findMany: {
+            args: Prisma.categoryChapterFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload>[]
+          }
+          create: {
+            args: Prisma.categoryChapterCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload>
+          }
+          createMany: {
+            args: Prisma.categoryChapterCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.categoryChapterCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload>[]
+          }
+          delete: {
+            args: Prisma.categoryChapterDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload>
+          }
+          update: {
+            args: Prisma.categoryChapterUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload>
+          }
+          deleteMany: {
+            args: Prisma.categoryChapterDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.categoryChapterUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.categoryChapterUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload>[]
+          }
+          upsert: {
+            args: Prisma.categoryChapterUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$categoryChapterPayload>
+          }
+          aggregate: {
+            args: Prisma.CategoryChapterAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCategoryChapter>
+          }
+          groupBy: {
+            args: Prisma.categoryChapterGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CategoryChapterGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.categoryChapterCountArgs<ExtArgs>
+            result: $Utils.Optional<CategoryChapterCountAggregateOutputType> | number
+          }
+        }
+      }
       category: {
         payload: Prisma.$categoryPayload<ExtArgs>
         fields: Prisma.categoryFieldRefs
@@ -5069,6 +5159,7 @@ export namespace Prisma {
     wellnessGoal?: wellnessGoalOmit
     wellnessGoalProgress?: wellnessGoalProgressOmit
     categoryType?: categoryTypeOmit
+    categoryChapter?: categoryChapterOmit
     category?: categoryOmit
   }
 
@@ -5935,11 +6026,43 @@ export namespace Prisma {
 
 
   /**
+   * Count Type CategoryChapterCountOutputType
+   */
+
+  export type CategoryChapterCountOutputType = {
+    category: number
+  }
+
+  export type CategoryChapterCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | CategoryChapterCountOutputTypeCountCategoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CategoryChapterCountOutputType without action
+   */
+  export type CategoryChapterCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CategoryChapterCountOutputType
+     */
+    select?: CategoryChapterCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CategoryChapterCountOutputType without action
+   */
+  export type CategoryChapterCountOutputTypeCountCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: categoryWhereInput
+  }
+
+
+  /**
    * Count Type CategoryCountOutputType
    */
 
   export type CategoryCountOutputType = {
     activity: number
+    badge: number
     cognitiveExercise: number
     collaborativeProject: number
     helpRequest: number
@@ -5955,6 +6078,7 @@ export namespace Prisma {
 
   export type CategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     activity?: boolean | CategoryCountOutputTypeCountActivityArgs
+    badge?: boolean | CategoryCountOutputTypeCountBadgeArgs
     cognitiveExercise?: boolean | CategoryCountOutputTypeCountCognitiveExerciseArgs
     collaborativeProject?: boolean | CategoryCountOutputTypeCountCollaborativeProjectArgs
     helpRequest?: boolean | CategoryCountOutputTypeCountHelpRequestArgs
@@ -5984,6 +6108,13 @@ export namespace Prisma {
    */
   export type CategoryCountOutputTypeCountActivityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: activityWhereInput
+  }
+
+  /**
+   * CategoryCountOutputType without action
+   */
+  export type CategoryCountOutputTypeCountBadgeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: badgeWhereInput
   }
 
   /**
@@ -61076,6 +61207,1101 @@ export namespace Prisma {
 
 
   /**
+   * Model categoryChapter
+   */
+
+  export type AggregateCategoryChapter = {
+    _count: CategoryChapterCountAggregateOutputType | null
+    _avg: CategoryChapterAvgAggregateOutputType | null
+    _sum: CategoryChapterSumAggregateOutputType | null
+    _min: CategoryChapterMinAggregateOutputType | null
+    _max: CategoryChapterMaxAggregateOutputType | null
+  }
+
+  export type CategoryChapterAvgAggregateOutputType = {
+    id: number | null
+    chapterId: number | null
+  }
+
+  export type CategoryChapterSumAggregateOutputType = {
+    id: number | null
+    chapterId: number | null
+  }
+
+  export type CategoryChapterMinAggregateOutputType = {
+    id: number | null
+    chapterId: number | null
+    chapterName: string | null
+    chapterDescription: string | null
+  }
+
+  export type CategoryChapterMaxAggregateOutputType = {
+    id: number | null
+    chapterId: number | null
+    chapterName: string | null
+    chapterDescription: string | null
+  }
+
+  export type CategoryChapterCountAggregateOutputType = {
+    id: number
+    chapterId: number
+    chapterName: number
+    chapterDescription: number
+    _all: number
+  }
+
+
+  export type CategoryChapterAvgAggregateInputType = {
+    id?: true
+    chapterId?: true
+  }
+
+  export type CategoryChapterSumAggregateInputType = {
+    id?: true
+    chapterId?: true
+  }
+
+  export type CategoryChapterMinAggregateInputType = {
+    id?: true
+    chapterId?: true
+    chapterName?: true
+    chapterDescription?: true
+  }
+
+  export type CategoryChapterMaxAggregateInputType = {
+    id?: true
+    chapterId?: true
+    chapterName?: true
+    chapterDescription?: true
+  }
+
+  export type CategoryChapterCountAggregateInputType = {
+    id?: true
+    chapterId?: true
+    chapterName?: true
+    chapterDescription?: true
+    _all?: true
+  }
+
+  export type CategoryChapterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which categoryChapter to aggregate.
+     */
+    where?: categoryChapterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of categoryChapters to fetch.
+     */
+    orderBy?: categoryChapterOrderByWithRelationInput | categoryChapterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: categoryChapterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` categoryChapters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` categoryChapters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned categoryChapters
+    **/
+    _count?: true | CategoryChapterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CategoryChapterAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CategoryChapterSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CategoryChapterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CategoryChapterMaxAggregateInputType
+  }
+
+  export type GetCategoryChapterAggregateType<T extends CategoryChapterAggregateArgs> = {
+        [P in keyof T & keyof AggregateCategoryChapter]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCategoryChapter[P]>
+      : GetScalarType<T[P], AggregateCategoryChapter[P]>
+  }
+
+
+
+
+  export type categoryChapterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: categoryChapterWhereInput
+    orderBy?: categoryChapterOrderByWithAggregationInput | categoryChapterOrderByWithAggregationInput[]
+    by: CategoryChapterScalarFieldEnum[] | CategoryChapterScalarFieldEnum
+    having?: categoryChapterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CategoryChapterCountAggregateInputType | true
+    _avg?: CategoryChapterAvgAggregateInputType
+    _sum?: CategoryChapterSumAggregateInputType
+    _min?: CategoryChapterMinAggregateInputType
+    _max?: CategoryChapterMaxAggregateInputType
+  }
+
+  export type CategoryChapterGroupByOutputType = {
+    id: number
+    chapterId: number
+    chapterName: string
+    chapterDescription: string | null
+    _count: CategoryChapterCountAggregateOutputType | null
+    _avg: CategoryChapterAvgAggregateOutputType | null
+    _sum: CategoryChapterSumAggregateOutputType | null
+    _min: CategoryChapterMinAggregateOutputType | null
+    _max: CategoryChapterMaxAggregateOutputType | null
+  }
+
+  type GetCategoryChapterGroupByPayload<T extends categoryChapterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CategoryChapterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CategoryChapterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CategoryChapterGroupByOutputType[P]>
+            : GetScalarType<T[P], CategoryChapterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type categoryChapterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    chapterId?: boolean
+    chapterName?: boolean
+    chapterDescription?: boolean
+    category?: boolean | categoryChapter$categoryArgs<ExtArgs>
+    _count?: boolean | CategoryChapterCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["categoryChapter"]>
+
+  export type categoryChapterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    chapterId?: boolean
+    chapterName?: boolean
+    chapterDescription?: boolean
+  }, ExtArgs["result"]["categoryChapter"]>
+
+  export type categoryChapterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    chapterId?: boolean
+    chapterName?: boolean
+    chapterDescription?: boolean
+  }, ExtArgs["result"]["categoryChapter"]>
+
+  export type categoryChapterSelectScalar = {
+    id?: boolean
+    chapterId?: boolean
+    chapterName?: boolean
+    chapterDescription?: boolean
+  }
+
+  export type categoryChapterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "chapterId" | "chapterName" | "chapterDescription", ExtArgs["result"]["categoryChapter"]>
+  export type categoryChapterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | categoryChapter$categoryArgs<ExtArgs>
+    _count?: boolean | CategoryChapterCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type categoryChapterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type categoryChapterIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $categoryChapterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "categoryChapter"
+    objects: {
+      category: Prisma.$categoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      chapterId: number
+      chapterName: string
+      chapterDescription: string | null
+    }, ExtArgs["result"]["categoryChapter"]>
+    composites: {}
+  }
+
+  type categoryChapterGetPayload<S extends boolean | null | undefined | categoryChapterDefaultArgs> = $Result.GetResult<Prisma.$categoryChapterPayload, S>
+
+  type categoryChapterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<categoryChapterFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CategoryChapterCountAggregateInputType | true
+    }
+
+  export interface categoryChapterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['categoryChapter'], meta: { name: 'categoryChapter' } }
+    /**
+     * Find zero or one CategoryChapter that matches the filter.
+     * @param {categoryChapterFindUniqueArgs} args - Arguments to find a CategoryChapter
+     * @example
+     * // Get one CategoryChapter
+     * const categoryChapter = await prisma.categoryChapter.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends categoryChapterFindUniqueArgs>(args: SelectSubset<T, categoryChapterFindUniqueArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CategoryChapter that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {categoryChapterFindUniqueOrThrowArgs} args - Arguments to find a CategoryChapter
+     * @example
+     * // Get one CategoryChapter
+     * const categoryChapter = await prisma.categoryChapter.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends categoryChapterFindUniqueOrThrowArgs>(args: SelectSubset<T, categoryChapterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CategoryChapter that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {categoryChapterFindFirstArgs} args - Arguments to find a CategoryChapter
+     * @example
+     * // Get one CategoryChapter
+     * const categoryChapter = await prisma.categoryChapter.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends categoryChapterFindFirstArgs>(args?: SelectSubset<T, categoryChapterFindFirstArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CategoryChapter that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {categoryChapterFindFirstOrThrowArgs} args - Arguments to find a CategoryChapter
+     * @example
+     * // Get one CategoryChapter
+     * const categoryChapter = await prisma.categoryChapter.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends categoryChapterFindFirstOrThrowArgs>(args?: SelectSubset<T, categoryChapterFindFirstOrThrowArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CategoryChapters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {categoryChapterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CategoryChapters
+     * const categoryChapters = await prisma.categoryChapter.findMany()
+     * 
+     * // Get first 10 CategoryChapters
+     * const categoryChapters = await prisma.categoryChapter.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const categoryChapterWithIdOnly = await prisma.categoryChapter.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends categoryChapterFindManyArgs>(args?: SelectSubset<T, categoryChapterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CategoryChapter.
+     * @param {categoryChapterCreateArgs} args - Arguments to create a CategoryChapter.
+     * @example
+     * // Create one CategoryChapter
+     * const CategoryChapter = await prisma.categoryChapter.create({
+     *   data: {
+     *     // ... data to create a CategoryChapter
+     *   }
+     * })
+     * 
+     */
+    create<T extends categoryChapterCreateArgs>(args: SelectSubset<T, categoryChapterCreateArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CategoryChapters.
+     * @param {categoryChapterCreateManyArgs} args - Arguments to create many CategoryChapters.
+     * @example
+     * // Create many CategoryChapters
+     * const categoryChapter = await prisma.categoryChapter.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends categoryChapterCreateManyArgs>(args?: SelectSubset<T, categoryChapterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CategoryChapters and returns the data saved in the database.
+     * @param {categoryChapterCreateManyAndReturnArgs} args - Arguments to create many CategoryChapters.
+     * @example
+     * // Create many CategoryChapters
+     * const categoryChapter = await prisma.categoryChapter.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CategoryChapters and only return the `id`
+     * const categoryChapterWithIdOnly = await prisma.categoryChapter.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends categoryChapterCreateManyAndReturnArgs>(args?: SelectSubset<T, categoryChapterCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CategoryChapter.
+     * @param {categoryChapterDeleteArgs} args - Arguments to delete one CategoryChapter.
+     * @example
+     * // Delete one CategoryChapter
+     * const CategoryChapter = await prisma.categoryChapter.delete({
+     *   where: {
+     *     // ... filter to delete one CategoryChapter
+     *   }
+     * })
+     * 
+     */
+    delete<T extends categoryChapterDeleteArgs>(args: SelectSubset<T, categoryChapterDeleteArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CategoryChapter.
+     * @param {categoryChapterUpdateArgs} args - Arguments to update one CategoryChapter.
+     * @example
+     * // Update one CategoryChapter
+     * const categoryChapter = await prisma.categoryChapter.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends categoryChapterUpdateArgs>(args: SelectSubset<T, categoryChapterUpdateArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CategoryChapters.
+     * @param {categoryChapterDeleteManyArgs} args - Arguments to filter CategoryChapters to delete.
+     * @example
+     * // Delete a few CategoryChapters
+     * const { count } = await prisma.categoryChapter.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends categoryChapterDeleteManyArgs>(args?: SelectSubset<T, categoryChapterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CategoryChapters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {categoryChapterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CategoryChapters
+     * const categoryChapter = await prisma.categoryChapter.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends categoryChapterUpdateManyArgs>(args: SelectSubset<T, categoryChapterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CategoryChapters and returns the data updated in the database.
+     * @param {categoryChapterUpdateManyAndReturnArgs} args - Arguments to update many CategoryChapters.
+     * @example
+     * // Update many CategoryChapters
+     * const categoryChapter = await prisma.categoryChapter.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CategoryChapters and only return the `id`
+     * const categoryChapterWithIdOnly = await prisma.categoryChapter.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends categoryChapterUpdateManyAndReturnArgs>(args: SelectSubset<T, categoryChapterUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CategoryChapter.
+     * @param {categoryChapterUpsertArgs} args - Arguments to update or create a CategoryChapter.
+     * @example
+     * // Update or create a CategoryChapter
+     * const categoryChapter = await prisma.categoryChapter.upsert({
+     *   create: {
+     *     // ... data to create a CategoryChapter
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CategoryChapter we want to update
+     *   }
+     * })
+     */
+    upsert<T extends categoryChapterUpsertArgs>(args: SelectSubset<T, categoryChapterUpsertArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CategoryChapters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {categoryChapterCountArgs} args - Arguments to filter CategoryChapters to count.
+     * @example
+     * // Count the number of CategoryChapters
+     * const count = await prisma.categoryChapter.count({
+     *   where: {
+     *     // ... the filter for the CategoryChapters we want to count
+     *   }
+     * })
+    **/
+    count<T extends categoryChapterCountArgs>(
+      args?: Subset<T, categoryChapterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CategoryChapterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CategoryChapter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CategoryChapterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CategoryChapterAggregateArgs>(args: Subset<T, CategoryChapterAggregateArgs>): Prisma.PrismaPromise<GetCategoryChapterAggregateType<T>>
+
+    /**
+     * Group by CategoryChapter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {categoryChapterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends categoryChapterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: categoryChapterGroupByArgs['orderBy'] }
+        : { orderBy?: categoryChapterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, categoryChapterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCategoryChapterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the categoryChapter model
+   */
+  readonly fields: categoryChapterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for categoryChapter.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__categoryChapterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    category<T extends categoryChapter$categoryArgs<ExtArgs> = {}>(args?: Subset<T, categoryChapter$categoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the categoryChapter model
+   */
+  interface categoryChapterFieldRefs {
+    readonly id: FieldRef<"categoryChapter", 'Int'>
+    readonly chapterId: FieldRef<"categoryChapter", 'Int'>
+    readonly chapterName: FieldRef<"categoryChapter", 'String'>
+    readonly chapterDescription: FieldRef<"categoryChapter", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * categoryChapter findUnique
+   */
+  export type categoryChapterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+    /**
+     * Filter, which categoryChapter to fetch.
+     */
+    where: categoryChapterWhereUniqueInput
+  }
+
+  /**
+   * categoryChapter findUniqueOrThrow
+   */
+  export type categoryChapterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+    /**
+     * Filter, which categoryChapter to fetch.
+     */
+    where: categoryChapterWhereUniqueInput
+  }
+
+  /**
+   * categoryChapter findFirst
+   */
+  export type categoryChapterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+    /**
+     * Filter, which categoryChapter to fetch.
+     */
+    where?: categoryChapterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of categoryChapters to fetch.
+     */
+    orderBy?: categoryChapterOrderByWithRelationInput | categoryChapterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for categoryChapters.
+     */
+    cursor?: categoryChapterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` categoryChapters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` categoryChapters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of categoryChapters.
+     */
+    distinct?: CategoryChapterScalarFieldEnum | CategoryChapterScalarFieldEnum[]
+  }
+
+  /**
+   * categoryChapter findFirstOrThrow
+   */
+  export type categoryChapterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+    /**
+     * Filter, which categoryChapter to fetch.
+     */
+    where?: categoryChapterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of categoryChapters to fetch.
+     */
+    orderBy?: categoryChapterOrderByWithRelationInput | categoryChapterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for categoryChapters.
+     */
+    cursor?: categoryChapterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` categoryChapters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` categoryChapters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of categoryChapters.
+     */
+    distinct?: CategoryChapterScalarFieldEnum | CategoryChapterScalarFieldEnum[]
+  }
+
+  /**
+   * categoryChapter findMany
+   */
+  export type categoryChapterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+    /**
+     * Filter, which categoryChapters to fetch.
+     */
+    where?: categoryChapterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of categoryChapters to fetch.
+     */
+    orderBy?: categoryChapterOrderByWithRelationInput | categoryChapterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing categoryChapters.
+     */
+    cursor?: categoryChapterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` categoryChapters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` categoryChapters.
+     */
+    skip?: number
+    distinct?: CategoryChapterScalarFieldEnum | CategoryChapterScalarFieldEnum[]
+  }
+
+  /**
+   * categoryChapter create
+   */
+  export type categoryChapterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+    /**
+     * The data needed to create a categoryChapter.
+     */
+    data: XOR<categoryChapterCreateInput, categoryChapterUncheckedCreateInput>
+  }
+
+  /**
+   * categoryChapter createMany
+   */
+  export type categoryChapterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many categoryChapters.
+     */
+    data: categoryChapterCreateManyInput | categoryChapterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * categoryChapter createManyAndReturn
+   */
+  export type categoryChapterCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * The data used to create many categoryChapters.
+     */
+    data: categoryChapterCreateManyInput | categoryChapterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * categoryChapter update
+   */
+  export type categoryChapterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+    /**
+     * The data needed to update a categoryChapter.
+     */
+    data: XOR<categoryChapterUpdateInput, categoryChapterUncheckedUpdateInput>
+    /**
+     * Choose, which categoryChapter to update.
+     */
+    where: categoryChapterWhereUniqueInput
+  }
+
+  /**
+   * categoryChapter updateMany
+   */
+  export type categoryChapterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update categoryChapters.
+     */
+    data: XOR<categoryChapterUpdateManyMutationInput, categoryChapterUncheckedUpdateManyInput>
+    /**
+     * Filter which categoryChapters to update
+     */
+    where?: categoryChapterWhereInput
+    /**
+     * Limit how many categoryChapters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * categoryChapter updateManyAndReturn
+   */
+  export type categoryChapterUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * The data used to update categoryChapters.
+     */
+    data: XOR<categoryChapterUpdateManyMutationInput, categoryChapterUncheckedUpdateManyInput>
+    /**
+     * Filter which categoryChapters to update
+     */
+    where?: categoryChapterWhereInput
+    /**
+     * Limit how many categoryChapters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * categoryChapter upsert
+   */
+  export type categoryChapterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+    /**
+     * The filter to search for the categoryChapter to update in case it exists.
+     */
+    where: categoryChapterWhereUniqueInput
+    /**
+     * In case the categoryChapter found by the `where` argument doesn't exist, create a new categoryChapter with this data.
+     */
+    create: XOR<categoryChapterCreateInput, categoryChapterUncheckedCreateInput>
+    /**
+     * In case the categoryChapter was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<categoryChapterUpdateInput, categoryChapterUncheckedUpdateInput>
+  }
+
+  /**
+   * categoryChapter delete
+   */
+  export type categoryChapterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+    /**
+     * Filter which categoryChapter to delete.
+     */
+    where: categoryChapterWhereUniqueInput
+  }
+
+  /**
+   * categoryChapter deleteMany
+   */
+  export type categoryChapterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which categoryChapters to delete
+     */
+    where?: categoryChapterWhereInput
+    /**
+     * Limit how many categoryChapters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * categoryChapter.category
+   */
+  export type categoryChapter$categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the category
+     */
+    select?: categorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the category
+     */
+    omit?: categoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryInclude<ExtArgs> | null
+    where?: categoryWhereInput
+    orderBy?: categoryOrderByWithRelationInput | categoryOrderByWithRelationInput[]
+    cursor?: categoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
+  }
+
+  /**
+   * categoryChapter without action
+   */
+  export type categoryChapterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categoryChapter
+     */
+    select?: categoryChapterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categoryChapter
+     */
+    omit?: categoryChapterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoryChapterInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model category
    */
 
@@ -61090,32 +62316,37 @@ export namespace Prisma {
   export type CategoryAvgAggregateOutputType = {
     id: number | null
     typeId: number | null
+    chapterId: number | null
   }
 
   export type CategorySumAggregateOutputType = {
     id: number | null
     typeId: number | null
+    chapterId: number | null
   }
 
   export type CategoryMinAggregateOutputType = {
     id: number | null
-    name: string | null
+    categoryName: string | null
     description: string | null
     typeId: number | null
+    chapterId: number | null
   }
 
   export type CategoryMaxAggregateOutputType = {
     id: number | null
-    name: string | null
+    categoryName: string | null
     description: string | null
     typeId: number | null
+    chapterId: number | null
   }
 
   export type CategoryCountAggregateOutputType = {
     id: number
-    name: number
+    categoryName: number
     description: number
     typeId: number
+    chapterId: number
     _all: number
   }
 
@@ -61123,32 +62354,37 @@ export namespace Prisma {
   export type CategoryAvgAggregateInputType = {
     id?: true
     typeId?: true
+    chapterId?: true
   }
 
   export type CategorySumAggregateInputType = {
     id?: true
     typeId?: true
+    chapterId?: true
   }
 
   export type CategoryMinAggregateInputType = {
     id?: true
-    name?: true
+    categoryName?: true
     description?: true
     typeId?: true
+    chapterId?: true
   }
 
   export type CategoryMaxAggregateInputType = {
     id?: true
-    name?: true
+    categoryName?: true
     description?: true
     typeId?: true
+    chapterId?: true
   }
 
   export type CategoryCountAggregateInputType = {
     id?: true
-    name?: true
+    categoryName?: true
     description?: true
     typeId?: true
+    chapterId?: true
     _all?: true
   }
 
@@ -61240,9 +62476,10 @@ export namespace Prisma {
 
   export type CategoryGroupByOutputType = {
     id: number
-    name: string
+    categoryName: string
     description: string | null
     typeId: number
+    chapterId: number
     _count: CategoryCountAggregateOutputType | null
     _avg: CategoryAvgAggregateOutputType | null
     _sum: CategorySumAggregateOutputType | null
@@ -61266,10 +62503,10 @@ export namespace Prisma {
 
   export type categorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
+    categoryName?: boolean
     description?: boolean
     typeId?: boolean
-    type?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    chapterId?: boolean
     activity?: boolean | category$activityArgs<ExtArgs>
     badge?: boolean | category$badgeArgs<ExtArgs>
     cognitiveExercise?: boolean | category$cognitiveExerciseArgs<ExtArgs>
@@ -61283,35 +62520,41 @@ export namespace Prisma {
     wellnessBadge?: boolean | category$wellnessBadgeArgs<ExtArgs>
     wellnessGoal?: boolean | category$wellnessGoalArgs<ExtArgs>
     exerciseProgram?: boolean | category$exerciseProgramArgs<ExtArgs>
+    categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["category"]>
 
   export type categorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
+    categoryName?: boolean
     description?: boolean
     typeId?: boolean
-    type?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    chapterId?: boolean
+    categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["category"]>
 
   export type categorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
+    categoryName?: boolean
     description?: boolean
     typeId?: boolean
-    type?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    chapterId?: boolean
+    categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["category"]>
 
   export type categorySelectScalar = {
     id?: boolean
-    name?: boolean
+    categoryName?: boolean
     description?: boolean
     typeId?: boolean
+    chapterId?: boolean
   }
 
-  export type categoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "typeId", ExtArgs["result"]["category"]>
+  export type categoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "categoryName" | "description" | "typeId" | "chapterId", ExtArgs["result"]["category"]>
   export type categoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    type?: boolean | categoryTypeDefaultArgs<ExtArgs>
     activity?: boolean | category$activityArgs<ExtArgs>
     badge?: boolean | category$badgeArgs<ExtArgs>
     cognitiveExercise?: boolean | category$cognitiveExerciseArgs<ExtArgs>
@@ -61325,21 +62568,24 @@ export namespace Prisma {
     wellnessBadge?: boolean | category$wellnessBadgeArgs<ExtArgs>
     wellnessGoal?: boolean | category$wellnessGoalArgs<ExtArgs>
     exerciseProgram?: boolean | category$exerciseProgramArgs<ExtArgs>
+    categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type categoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    type?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
   }
   export type categoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    type?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
+    categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
   }
 
   export type $categoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "category"
     objects: {
-      type: Prisma.$categoryTypePayload<ExtArgs>
       activity: Prisma.$activityPayload<ExtArgs>[]
-      badge: Prisma.$badgePayload<ExtArgs> | null
+      badge: Prisma.$badgePayload<ExtArgs>[]
       cognitiveExercise: Prisma.$cognitiveExercisePayload<ExtArgs>[]
       collaborativeProject: Prisma.$collaborativeProjectPayload<ExtArgs>[]
       helpRequest: Prisma.$helpRequestPayload<ExtArgs>[]
@@ -61351,12 +62597,15 @@ export namespace Prisma {
       wellnessBadge: Prisma.$wellnessBadgePayload<ExtArgs>[]
       wellnessGoal: Prisma.$wellnessGoalPayload<ExtArgs>[]
       exerciseProgram: Prisma.$exerciseProgramPayload<ExtArgs>[]
+      categoryType: Prisma.$categoryTypePayload<ExtArgs>
+      categoryChapter: Prisma.$categoryChapterPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      name: string
+      categoryName: string
       description: string | null
       typeId: number
+      chapterId: number
     }, ExtArgs["result"]["category"]>
     composites: {}
   }
@@ -61751,9 +63000,8 @@ export namespace Prisma {
    */
   export interface Prisma__categoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    type<T extends categoryTypeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, categoryTypeDefaultArgs<ExtArgs>>): Prisma__categoryTypeClient<$Result.GetResult<Prisma.$categoryTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     activity<T extends category$activityArgs<ExtArgs> = {}>(args?: Subset<T, category$activityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$activityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    badge<T extends category$badgeArgs<ExtArgs> = {}>(args?: Subset<T, category$badgeArgs<ExtArgs>>): Prisma__badgeClient<$Result.GetResult<Prisma.$badgePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    badge<T extends category$badgeArgs<ExtArgs> = {}>(args?: Subset<T, category$badgeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$badgePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     cognitiveExercise<T extends category$cognitiveExerciseArgs<ExtArgs> = {}>(args?: Subset<T, category$cognitiveExerciseArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$cognitiveExercisePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     collaborativeProject<T extends category$collaborativeProjectArgs<ExtArgs> = {}>(args?: Subset<T, category$collaborativeProjectArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$collaborativeProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     helpRequest<T extends category$helpRequestArgs<ExtArgs> = {}>(args?: Subset<T, category$helpRequestArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$helpRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -61765,6 +63013,8 @@ export namespace Prisma {
     wellnessBadge<T extends category$wellnessBadgeArgs<ExtArgs> = {}>(args?: Subset<T, category$wellnessBadgeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessBadgePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     wellnessGoal<T extends category$wellnessGoalArgs<ExtArgs> = {}>(args?: Subset<T, category$wellnessGoalArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     exerciseProgram<T extends category$exerciseProgramArgs<ExtArgs> = {}>(args?: Subset<T, category$exerciseProgramArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$exerciseProgramPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    categoryType<T extends categoryTypeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, categoryTypeDefaultArgs<ExtArgs>>): Prisma__categoryTypeClient<$Result.GetResult<Prisma.$categoryTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    categoryChapter<T extends categoryChapterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, categoryChapterDefaultArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -61795,9 +63045,10 @@ export namespace Prisma {
    */
   interface categoryFieldRefs {
     readonly id: FieldRef<"category", 'Int'>
-    readonly name: FieldRef<"category", 'String'>
+    readonly categoryName: FieldRef<"category", 'String'>
     readonly description: FieldRef<"category", 'String'>
     readonly typeId: FieldRef<"category", 'Int'>
+    readonly chapterId: FieldRef<"category", 'Int'>
   }
     
 
@@ -62234,6 +63485,11 @@ export namespace Prisma {
      */
     include?: badgeInclude<ExtArgs> | null
     where?: badgeWhereInput
+    orderBy?: badgeOrderByWithRelationInput | badgeOrderByWithRelationInput[]
+    cursor?: badgeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BadgeScalarFieldEnum | BadgeScalarFieldEnum[]
   }
 
   /**
@@ -63253,11 +64509,22 @@ export namespace Prisma {
   export type CategoryTypeScalarFieldEnum = (typeof CategoryTypeScalarFieldEnum)[keyof typeof CategoryTypeScalarFieldEnum]
 
 
+  export const CategoryChapterScalarFieldEnum: {
+    id: 'id',
+    chapterId: 'chapterId',
+    chapterName: 'chapterName',
+    chapterDescription: 'chapterDescription'
+  };
+
+  export type CategoryChapterScalarFieldEnum = (typeof CategoryChapterScalarFieldEnum)[keyof typeof CategoryChapterScalarFieldEnum]
+
+
   export const CategoryScalarFieldEnum: {
     id: 'id',
-    name: 'name',
+    categoryName: 'categoryName',
     description: 'description',
-    typeId: 'typeId'
+    typeId: 'typeId',
+    chapterId: 'chapterId'
   };
 
   export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
@@ -67240,17 +68507,69 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"categoryType"> | string
   }
 
+  export type categoryChapterWhereInput = {
+    AND?: categoryChapterWhereInput | categoryChapterWhereInput[]
+    OR?: categoryChapterWhereInput[]
+    NOT?: categoryChapterWhereInput | categoryChapterWhereInput[]
+    id?: IntFilter<"categoryChapter"> | number
+    chapterId?: IntFilter<"categoryChapter"> | number
+    chapterName?: StringFilter<"categoryChapter"> | string
+    chapterDescription?: StringNullableFilter<"categoryChapter"> | string | null
+    category?: CategoryListRelationFilter
+  }
+
+  export type categoryChapterOrderByWithRelationInput = {
+    id?: SortOrder
+    chapterId?: SortOrder
+    chapterName?: SortOrder
+    chapterDescription?: SortOrderInput | SortOrder
+    category?: categoryOrderByRelationAggregateInput
+  }
+
+  export type categoryChapterWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    chapterId?: number
+    chapterName?: string
+    AND?: categoryChapterWhereInput | categoryChapterWhereInput[]
+    OR?: categoryChapterWhereInput[]
+    NOT?: categoryChapterWhereInput | categoryChapterWhereInput[]
+    chapterDescription?: StringNullableFilter<"categoryChapter"> | string | null
+    category?: CategoryListRelationFilter
+  }, "id" | "chapterId" | "chapterName">
+
+  export type categoryChapterOrderByWithAggregationInput = {
+    id?: SortOrder
+    chapterId?: SortOrder
+    chapterName?: SortOrder
+    chapterDescription?: SortOrderInput | SortOrder
+    _count?: categoryChapterCountOrderByAggregateInput
+    _avg?: categoryChapterAvgOrderByAggregateInput
+    _max?: categoryChapterMaxOrderByAggregateInput
+    _min?: categoryChapterMinOrderByAggregateInput
+    _sum?: categoryChapterSumOrderByAggregateInput
+  }
+
+  export type categoryChapterScalarWhereWithAggregatesInput = {
+    AND?: categoryChapterScalarWhereWithAggregatesInput | categoryChapterScalarWhereWithAggregatesInput[]
+    OR?: categoryChapterScalarWhereWithAggregatesInput[]
+    NOT?: categoryChapterScalarWhereWithAggregatesInput | categoryChapterScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"categoryChapter"> | number
+    chapterId?: IntWithAggregatesFilter<"categoryChapter"> | number
+    chapterName?: StringWithAggregatesFilter<"categoryChapter"> | string
+    chapterDescription?: StringNullableWithAggregatesFilter<"categoryChapter"> | string | null
+  }
+
   export type categoryWhereInput = {
     AND?: categoryWhereInput | categoryWhereInput[]
     OR?: categoryWhereInput[]
     NOT?: categoryWhereInput | categoryWhereInput[]
     id?: IntFilter<"category"> | number
-    name?: StringFilter<"category"> | string
+    categoryName?: StringFilter<"category"> | string
     description?: StringNullableFilter<"category"> | string | null
     typeId?: IntFilter<"category"> | number
-    type?: XOR<CategoryTypeScalarRelationFilter, categoryTypeWhereInput>
+    chapterId?: IntFilter<"category"> | number
     activity?: ActivityListRelationFilter
-    badge?: XOR<BadgeNullableScalarRelationFilter, badgeWhereInput> | null
+    badge?: BadgeListRelationFilter
     cognitiveExercise?: CognitiveExerciseListRelationFilter
     collaborativeProject?: CollaborativeProjectListRelationFilter
     helpRequest?: HelpRequestListRelationFilter
@@ -67262,16 +68581,18 @@ export namespace Prisma {
     wellnessBadge?: WellnessBadgeListRelationFilter
     wellnessGoal?: WellnessGoalListRelationFilter
     exerciseProgram?: ExerciseProgramListRelationFilter
+    categoryType?: XOR<CategoryTypeScalarRelationFilter, categoryTypeWhereInput>
+    categoryChapter?: XOR<CategoryChapterScalarRelationFilter, categoryChapterWhereInput>
   }
 
   export type categoryOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
+    categoryName?: SortOrder
     description?: SortOrderInput | SortOrder
     typeId?: SortOrder
-    type?: categoryTypeOrderByWithRelationInput
+    chapterId?: SortOrder
     activity?: activityOrderByRelationAggregateInput
-    badge?: badgeOrderByWithRelationInput
+    badge?: badgeOrderByRelationAggregateInput
     cognitiveExercise?: cognitiveExerciseOrderByRelationAggregateInput
     collaborativeProject?: collaborativeProjectOrderByRelationAggregateInput
     helpRequest?: helpRequestOrderByRelationAggregateInput
@@ -67283,6 +68604,8 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeOrderByRelationAggregateInput
     wellnessGoal?: wellnessGoalOrderByRelationAggregateInput
     exerciseProgram?: exerciseProgramOrderByRelationAggregateInput
+    categoryType?: categoryTypeOrderByWithRelationInput
+    categoryChapter?: categoryChapterOrderByWithRelationInput
   }
 
   export type categoryWhereUniqueInput = Prisma.AtLeast<{
@@ -67290,12 +68613,12 @@ export namespace Prisma {
     AND?: categoryWhereInput | categoryWhereInput[]
     OR?: categoryWhereInput[]
     NOT?: categoryWhereInput | categoryWhereInput[]
-    name?: StringFilter<"category"> | string
+    categoryName?: StringFilter<"category"> | string
     description?: StringNullableFilter<"category"> | string | null
     typeId?: IntFilter<"category"> | number
-    type?: XOR<CategoryTypeScalarRelationFilter, categoryTypeWhereInput>
+    chapterId?: IntFilter<"category"> | number
     activity?: ActivityListRelationFilter
-    badge?: XOR<BadgeNullableScalarRelationFilter, badgeWhereInput> | null
+    badge?: BadgeListRelationFilter
     cognitiveExercise?: CognitiveExerciseListRelationFilter
     collaborativeProject?: CollaborativeProjectListRelationFilter
     helpRequest?: HelpRequestListRelationFilter
@@ -67307,13 +68630,16 @@ export namespace Prisma {
     wellnessBadge?: WellnessBadgeListRelationFilter
     wellnessGoal?: WellnessGoalListRelationFilter
     exerciseProgram?: ExerciseProgramListRelationFilter
+    categoryType?: XOR<CategoryTypeScalarRelationFilter, categoryTypeWhereInput>
+    categoryChapter?: XOR<CategoryChapterScalarRelationFilter, categoryChapterWhereInput>
   }, "id">
 
   export type categoryOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
+    categoryName?: SortOrder
     description?: SortOrderInput | SortOrder
     typeId?: SortOrder
+    chapterId?: SortOrder
     _count?: categoryCountOrderByAggregateInput
     _avg?: categoryAvgOrderByAggregateInput
     _max?: categoryMaxOrderByAggregateInput
@@ -67326,9 +68652,10 @@ export namespace Prisma {
     OR?: categoryScalarWhereWithAggregatesInput[]
     NOT?: categoryScalarWhereWithAggregatesInput | categoryScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"category"> | number
-    name?: StringWithAggregatesFilter<"category"> | string
+    categoryName?: StringWithAggregatesFilter<"category"> | string
     description?: StringNullableWithAggregatesFilter<"category"> | string | null
     typeId?: IntWithAggregatesFilter<"category"> | number
+    chapterId?: IntWithAggregatesFilter<"category"> | number
   }
 
   export type activityCreateInput = {
@@ -71479,24 +72806,24 @@ export namespace Prisma {
 
   export type categoryTypeCreateInput = {
     name: string
-    categories?: categoryCreateNestedManyWithoutTypeInput
+    categories?: categoryCreateNestedManyWithoutCategoryTypeInput
   }
 
   export type categoryTypeUncheckedCreateInput = {
     id?: number
     name: string
-    categories?: categoryUncheckedCreateNestedManyWithoutTypeInput
+    categories?: categoryUncheckedCreateNestedManyWithoutCategoryTypeInput
   }
 
   export type categoryTypeUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    categories?: categoryUpdateManyWithoutTypeNestedInput
+    categories?: categoryUpdateManyWithoutCategoryTypeNestedInput
   }
 
   export type categoryTypeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    categories?: categoryUncheckedUpdateManyWithoutTypeNestedInput
+    categories?: categoryUncheckedUpdateManyWithoutCategoryTypeNestedInput
   }
 
   export type categoryTypeCreateManyInput = {
@@ -71513,12 +72840,61 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
+  export type categoryChapterCreateInput = {
+    chapterId: number
+    chapterName: string
+    chapterDescription?: string | null
+    category?: categoryCreateNestedManyWithoutCategoryChapterInput
+  }
+
+  export type categoryChapterUncheckedCreateInput = {
+    id?: number
+    chapterId: number
+    chapterName: string
+    chapterDescription?: string | null
+    category?: categoryUncheckedCreateNestedManyWithoutCategoryChapterInput
+  }
+
+  export type categoryChapterUpdateInput = {
+    chapterId?: IntFieldUpdateOperationsInput | number
+    chapterName?: StringFieldUpdateOperationsInput | string
+    chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: categoryUpdateManyWithoutCategoryChapterNestedInput
+  }
+
+  export type categoryChapterUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
+    chapterName?: StringFieldUpdateOperationsInput | string
+    chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: categoryUncheckedUpdateManyWithoutCategoryChapterNestedInput
+  }
+
+  export type categoryChapterCreateManyInput = {
+    id?: number
+    chapterId: number
+    chapterName: string
+    chapterDescription?: string | null
+  }
+
+  export type categoryChapterUpdateManyMutationInput = {
+    chapterId?: IntFieldUpdateOperationsInput | number
+    chapterName?: StringFieldUpdateOperationsInput | string
+    chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type categoryChapterUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
+    chapterName?: StringFieldUpdateOperationsInput | string
+    chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type categoryCreateInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -71530,15 +72906,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -71553,11 +72932,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -71569,15 +72947,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -71593,21 +72974,23 @@ export namespace Prisma {
 
   export type categoryCreateManyInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
   }
 
   export type categoryUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type categoryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -74307,14 +75690,35 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type CategoryTypeScalarRelationFilter = {
-    is?: categoryTypeWhereInput
-    isNot?: categoryTypeWhereInput
+  export type categoryChapterCountOrderByAggregateInput = {
+    id?: SortOrder
+    chapterId?: SortOrder
+    chapterName?: SortOrder
+    chapterDescription?: SortOrder
   }
 
-  export type BadgeNullableScalarRelationFilter = {
-    is?: badgeWhereInput | null
-    isNot?: badgeWhereInput | null
+  export type categoryChapterAvgOrderByAggregateInput = {
+    id?: SortOrder
+    chapterId?: SortOrder
+  }
+
+  export type categoryChapterMaxOrderByAggregateInput = {
+    id?: SortOrder
+    chapterId?: SortOrder
+    chapterName?: SortOrder
+    chapterDescription?: SortOrder
+  }
+
+  export type categoryChapterMinOrderByAggregateInput = {
+    id?: SortOrder
+    chapterId?: SortOrder
+    chapterName?: SortOrder
+    chapterDescription?: SortOrder
+  }
+
+  export type categoryChapterSumOrderByAggregateInput = {
+    id?: SortOrder
+    chapterId?: SortOrder
   }
 
   export type CognitiveExerciseListRelationFilter = {
@@ -74353,6 +75757,16 @@ export namespace Prisma {
     none?: exerciseProgramWhereInput
   }
 
+  export type CategoryTypeScalarRelationFilter = {
+    is?: categoryTypeWhereInput
+    isNot?: categoryTypeWhereInput
+  }
+
+  export type CategoryChapterScalarRelationFilter = {
+    is?: categoryChapterWhereInput
+    isNot?: categoryChapterWhereInput
+  }
+
   export type cognitiveExerciseOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -74379,33 +75793,38 @@ export namespace Prisma {
 
   export type categoryCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
+    categoryName?: SortOrder
     description?: SortOrder
     typeId?: SortOrder
+    chapterId?: SortOrder
   }
 
   export type categoryAvgOrderByAggregateInput = {
     id?: SortOrder
     typeId?: SortOrder
+    chapterId?: SortOrder
   }
 
   export type categoryMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
+    categoryName?: SortOrder
     description?: SortOrder
     typeId?: SortOrder
+    chapterId?: SortOrder
   }
 
   export type categoryMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
+    categoryName?: SortOrder
     description?: SortOrder
     typeId?: SortOrder
+    chapterId?: SortOrder
   }
 
   export type categorySumOrderByAggregateInput = {
     id?: SortOrder
     typeId?: SortOrder
+    chapterId?: SortOrder
   }
 
   export type userCreateNestedOneWithoutActivityInput = {
@@ -77356,52 +78775,88 @@ export namespace Prisma {
     update?: XOR<XOR<wellnessGoalUpdateToOneWithWhereWithoutWellnessGoalProgressInput, wellnessGoalUpdateWithoutWellnessGoalProgressInput>, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
   }
 
-  export type categoryCreateNestedManyWithoutTypeInput = {
-    create?: XOR<categoryCreateWithoutTypeInput, categoryUncheckedCreateWithoutTypeInput> | categoryCreateWithoutTypeInput[] | categoryUncheckedCreateWithoutTypeInput[]
-    connectOrCreate?: categoryCreateOrConnectWithoutTypeInput | categoryCreateOrConnectWithoutTypeInput[]
-    createMany?: categoryCreateManyTypeInputEnvelope
+  export type categoryCreateNestedManyWithoutCategoryTypeInput = {
+    create?: XOR<categoryCreateWithoutCategoryTypeInput, categoryUncheckedCreateWithoutCategoryTypeInput> | categoryCreateWithoutCategoryTypeInput[] | categoryUncheckedCreateWithoutCategoryTypeInput[]
+    connectOrCreate?: categoryCreateOrConnectWithoutCategoryTypeInput | categoryCreateOrConnectWithoutCategoryTypeInput[]
+    createMany?: categoryCreateManyCategoryTypeInputEnvelope
     connect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
   }
 
-  export type categoryUncheckedCreateNestedManyWithoutTypeInput = {
-    create?: XOR<categoryCreateWithoutTypeInput, categoryUncheckedCreateWithoutTypeInput> | categoryCreateWithoutTypeInput[] | categoryUncheckedCreateWithoutTypeInput[]
-    connectOrCreate?: categoryCreateOrConnectWithoutTypeInput | categoryCreateOrConnectWithoutTypeInput[]
-    createMany?: categoryCreateManyTypeInputEnvelope
+  export type categoryUncheckedCreateNestedManyWithoutCategoryTypeInput = {
+    create?: XOR<categoryCreateWithoutCategoryTypeInput, categoryUncheckedCreateWithoutCategoryTypeInput> | categoryCreateWithoutCategoryTypeInput[] | categoryUncheckedCreateWithoutCategoryTypeInput[]
+    connectOrCreate?: categoryCreateOrConnectWithoutCategoryTypeInput | categoryCreateOrConnectWithoutCategoryTypeInput[]
+    createMany?: categoryCreateManyCategoryTypeInputEnvelope
     connect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
   }
 
-  export type categoryUpdateManyWithoutTypeNestedInput = {
-    create?: XOR<categoryCreateWithoutTypeInput, categoryUncheckedCreateWithoutTypeInput> | categoryCreateWithoutTypeInput[] | categoryUncheckedCreateWithoutTypeInput[]
-    connectOrCreate?: categoryCreateOrConnectWithoutTypeInput | categoryCreateOrConnectWithoutTypeInput[]
-    upsert?: categoryUpsertWithWhereUniqueWithoutTypeInput | categoryUpsertWithWhereUniqueWithoutTypeInput[]
-    createMany?: categoryCreateManyTypeInputEnvelope
+  export type categoryUpdateManyWithoutCategoryTypeNestedInput = {
+    create?: XOR<categoryCreateWithoutCategoryTypeInput, categoryUncheckedCreateWithoutCategoryTypeInput> | categoryCreateWithoutCategoryTypeInput[] | categoryUncheckedCreateWithoutCategoryTypeInput[]
+    connectOrCreate?: categoryCreateOrConnectWithoutCategoryTypeInput | categoryCreateOrConnectWithoutCategoryTypeInput[]
+    upsert?: categoryUpsertWithWhereUniqueWithoutCategoryTypeInput | categoryUpsertWithWhereUniqueWithoutCategoryTypeInput[]
+    createMany?: categoryCreateManyCategoryTypeInputEnvelope
     set?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
     disconnect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
     delete?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
     connect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
-    update?: categoryUpdateWithWhereUniqueWithoutTypeInput | categoryUpdateWithWhereUniqueWithoutTypeInput[]
-    updateMany?: categoryUpdateManyWithWhereWithoutTypeInput | categoryUpdateManyWithWhereWithoutTypeInput[]
+    update?: categoryUpdateWithWhereUniqueWithoutCategoryTypeInput | categoryUpdateWithWhereUniqueWithoutCategoryTypeInput[]
+    updateMany?: categoryUpdateManyWithWhereWithoutCategoryTypeInput | categoryUpdateManyWithWhereWithoutCategoryTypeInput[]
     deleteMany?: categoryScalarWhereInput | categoryScalarWhereInput[]
   }
 
-  export type categoryUncheckedUpdateManyWithoutTypeNestedInput = {
-    create?: XOR<categoryCreateWithoutTypeInput, categoryUncheckedCreateWithoutTypeInput> | categoryCreateWithoutTypeInput[] | categoryUncheckedCreateWithoutTypeInput[]
-    connectOrCreate?: categoryCreateOrConnectWithoutTypeInput | categoryCreateOrConnectWithoutTypeInput[]
-    upsert?: categoryUpsertWithWhereUniqueWithoutTypeInput | categoryUpsertWithWhereUniqueWithoutTypeInput[]
-    createMany?: categoryCreateManyTypeInputEnvelope
+  export type categoryUncheckedUpdateManyWithoutCategoryTypeNestedInput = {
+    create?: XOR<categoryCreateWithoutCategoryTypeInput, categoryUncheckedCreateWithoutCategoryTypeInput> | categoryCreateWithoutCategoryTypeInput[] | categoryUncheckedCreateWithoutCategoryTypeInput[]
+    connectOrCreate?: categoryCreateOrConnectWithoutCategoryTypeInput | categoryCreateOrConnectWithoutCategoryTypeInput[]
+    upsert?: categoryUpsertWithWhereUniqueWithoutCategoryTypeInput | categoryUpsertWithWhereUniqueWithoutCategoryTypeInput[]
+    createMany?: categoryCreateManyCategoryTypeInputEnvelope
     set?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
     disconnect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
     delete?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
     connect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
-    update?: categoryUpdateWithWhereUniqueWithoutTypeInput | categoryUpdateWithWhereUniqueWithoutTypeInput[]
-    updateMany?: categoryUpdateManyWithWhereWithoutTypeInput | categoryUpdateManyWithWhereWithoutTypeInput[]
+    update?: categoryUpdateWithWhereUniqueWithoutCategoryTypeInput | categoryUpdateWithWhereUniqueWithoutCategoryTypeInput[]
+    updateMany?: categoryUpdateManyWithWhereWithoutCategoryTypeInput | categoryUpdateManyWithWhereWithoutCategoryTypeInput[]
     deleteMany?: categoryScalarWhereInput | categoryScalarWhereInput[]
   }
 
-  export type categoryTypeCreateNestedOneWithoutCategoriesInput = {
-    create?: XOR<categoryTypeCreateWithoutCategoriesInput, categoryTypeUncheckedCreateWithoutCategoriesInput>
-    connectOrCreate?: categoryTypeCreateOrConnectWithoutCategoriesInput
-    connect?: categoryTypeWhereUniqueInput
+  export type categoryCreateNestedManyWithoutCategoryChapterInput = {
+    create?: XOR<categoryCreateWithoutCategoryChapterInput, categoryUncheckedCreateWithoutCategoryChapterInput> | categoryCreateWithoutCategoryChapterInput[] | categoryUncheckedCreateWithoutCategoryChapterInput[]
+    connectOrCreate?: categoryCreateOrConnectWithoutCategoryChapterInput | categoryCreateOrConnectWithoutCategoryChapterInput[]
+    createMany?: categoryCreateManyCategoryChapterInputEnvelope
+    connect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+  }
+
+  export type categoryUncheckedCreateNestedManyWithoutCategoryChapterInput = {
+    create?: XOR<categoryCreateWithoutCategoryChapterInput, categoryUncheckedCreateWithoutCategoryChapterInput> | categoryCreateWithoutCategoryChapterInput[] | categoryUncheckedCreateWithoutCategoryChapterInput[]
+    connectOrCreate?: categoryCreateOrConnectWithoutCategoryChapterInput | categoryCreateOrConnectWithoutCategoryChapterInput[]
+    createMany?: categoryCreateManyCategoryChapterInputEnvelope
+    connect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+  }
+
+  export type categoryUpdateManyWithoutCategoryChapterNestedInput = {
+    create?: XOR<categoryCreateWithoutCategoryChapterInput, categoryUncheckedCreateWithoutCategoryChapterInput> | categoryCreateWithoutCategoryChapterInput[] | categoryUncheckedCreateWithoutCategoryChapterInput[]
+    connectOrCreate?: categoryCreateOrConnectWithoutCategoryChapterInput | categoryCreateOrConnectWithoutCategoryChapterInput[]
+    upsert?: categoryUpsertWithWhereUniqueWithoutCategoryChapterInput | categoryUpsertWithWhereUniqueWithoutCategoryChapterInput[]
+    createMany?: categoryCreateManyCategoryChapterInputEnvelope
+    set?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+    disconnect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+    delete?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+    connect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+    update?: categoryUpdateWithWhereUniqueWithoutCategoryChapterInput | categoryUpdateWithWhereUniqueWithoutCategoryChapterInput[]
+    updateMany?: categoryUpdateManyWithWhereWithoutCategoryChapterInput | categoryUpdateManyWithWhereWithoutCategoryChapterInput[]
+    deleteMany?: categoryScalarWhereInput | categoryScalarWhereInput[]
+  }
+
+  export type categoryUncheckedUpdateManyWithoutCategoryChapterNestedInput = {
+    create?: XOR<categoryCreateWithoutCategoryChapterInput, categoryUncheckedCreateWithoutCategoryChapterInput> | categoryCreateWithoutCategoryChapterInput[] | categoryUncheckedCreateWithoutCategoryChapterInput[]
+    connectOrCreate?: categoryCreateOrConnectWithoutCategoryChapterInput | categoryCreateOrConnectWithoutCategoryChapterInput[]
+    upsert?: categoryUpsertWithWhereUniqueWithoutCategoryChapterInput | categoryUpsertWithWhereUniqueWithoutCategoryChapterInput[]
+    createMany?: categoryCreateManyCategoryChapterInputEnvelope
+    set?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+    disconnect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+    delete?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+    connect?: categoryWhereUniqueInput | categoryWhereUniqueInput[]
+    update?: categoryUpdateWithWhereUniqueWithoutCategoryChapterInput | categoryUpdateWithWhereUniqueWithoutCategoryChapterInput[]
+    updateMany?: categoryUpdateManyWithWhereWithoutCategoryChapterInput | categoryUpdateManyWithWhereWithoutCategoryChapterInput[]
+    deleteMany?: categoryScalarWhereInput | categoryScalarWhereInput[]
   }
 
   export type activityCreateNestedManyWithoutCategoryInput = {
@@ -77411,10 +78866,11 @@ export namespace Prisma {
     connect?: activityWhereUniqueInput | activityWhereUniqueInput[]
   }
 
-  export type badgeCreateNestedOneWithoutCategoryInput = {
-    create?: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput>
-    connectOrCreate?: badgeCreateOrConnectWithoutCategoryInput
-    connect?: badgeWhereUniqueInput
+  export type badgeCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput> | badgeCreateWithoutCategoryInput[] | badgeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: badgeCreateOrConnectWithoutCategoryInput | badgeCreateOrConnectWithoutCategoryInput[]
+    createMany?: badgeCreateManyCategoryInputEnvelope
+    connect?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
   }
 
   export type cognitiveExerciseCreateNestedManyWithoutCategoryInput = {
@@ -77494,6 +78950,18 @@ export namespace Prisma {
     connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
   }
 
+  export type categoryTypeCreateNestedOneWithoutCategoriesInput = {
+    create?: XOR<categoryTypeCreateWithoutCategoriesInput, categoryTypeUncheckedCreateWithoutCategoriesInput>
+    connectOrCreate?: categoryTypeCreateOrConnectWithoutCategoriesInput
+    connect?: categoryTypeWhereUniqueInput
+  }
+
+  export type categoryChapterCreateNestedOneWithoutCategoryInput = {
+    create?: XOR<categoryChapterCreateWithoutCategoryInput, categoryChapterUncheckedCreateWithoutCategoryInput>
+    connectOrCreate?: categoryChapterCreateOrConnectWithoutCategoryInput
+    connect?: categoryChapterWhereUniqueInput
+  }
+
   export type activityUncheckedCreateNestedManyWithoutCategoryInput = {
     create?: XOR<activityCreateWithoutCategoryInput, activityUncheckedCreateWithoutCategoryInput> | activityCreateWithoutCategoryInput[] | activityUncheckedCreateWithoutCategoryInput[]
     connectOrCreate?: activityCreateOrConnectWithoutCategoryInput | activityCreateOrConnectWithoutCategoryInput[]
@@ -77501,10 +78969,11 @@ export namespace Prisma {
     connect?: activityWhereUniqueInput | activityWhereUniqueInput[]
   }
 
-  export type badgeUncheckedCreateNestedOneWithoutCategoryInput = {
-    create?: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput>
-    connectOrCreate?: badgeCreateOrConnectWithoutCategoryInput
-    connect?: badgeWhereUniqueInput
+  export type badgeUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput> | badgeCreateWithoutCategoryInput[] | badgeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: badgeCreateOrConnectWithoutCategoryInput | badgeCreateOrConnectWithoutCategoryInput[]
+    createMany?: badgeCreateManyCategoryInputEnvelope
+    connect?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
   }
 
   export type cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput = {
@@ -77584,14 +79053,6 @@ export namespace Prisma {
     connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
   }
 
-  export type categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput = {
-    create?: XOR<categoryTypeCreateWithoutCategoriesInput, categoryTypeUncheckedCreateWithoutCategoriesInput>
-    connectOrCreate?: categoryTypeCreateOrConnectWithoutCategoriesInput
-    upsert?: categoryTypeUpsertWithoutCategoriesInput
-    connect?: categoryTypeWhereUniqueInput
-    update?: XOR<XOR<categoryTypeUpdateToOneWithWhereWithoutCategoriesInput, categoryTypeUpdateWithoutCategoriesInput>, categoryTypeUncheckedUpdateWithoutCategoriesInput>
-  }
-
   export type activityUpdateManyWithoutCategoryNestedInput = {
     create?: XOR<activityCreateWithoutCategoryInput, activityUncheckedCreateWithoutCategoryInput> | activityCreateWithoutCategoryInput[] | activityUncheckedCreateWithoutCategoryInput[]
     connectOrCreate?: activityCreateOrConnectWithoutCategoryInput | activityCreateOrConnectWithoutCategoryInput[]
@@ -77606,14 +79067,18 @@ export namespace Prisma {
     deleteMany?: activityScalarWhereInput | activityScalarWhereInput[]
   }
 
-  export type badgeUpdateOneWithoutCategoryNestedInput = {
-    create?: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput>
-    connectOrCreate?: badgeCreateOrConnectWithoutCategoryInput
-    upsert?: badgeUpsertWithoutCategoryInput
-    disconnect?: badgeWhereInput | boolean
-    delete?: badgeWhereInput | boolean
-    connect?: badgeWhereUniqueInput
-    update?: XOR<XOR<badgeUpdateToOneWithWhereWithoutCategoryInput, badgeUpdateWithoutCategoryInput>, badgeUncheckedUpdateWithoutCategoryInput>
+  export type badgeUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput> | badgeCreateWithoutCategoryInput[] | badgeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: badgeCreateOrConnectWithoutCategoryInput | badgeCreateOrConnectWithoutCategoryInput[]
+    upsert?: badgeUpsertWithWhereUniqueWithoutCategoryInput | badgeUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: badgeCreateManyCategoryInputEnvelope
+    set?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
+    disconnect?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
+    delete?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
+    connect?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
+    update?: badgeUpdateWithWhereUniqueWithoutCategoryInput | badgeUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: badgeUpdateManyWithWhereWithoutCategoryInput | badgeUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: badgeScalarWhereInput | badgeScalarWhereInput[]
   }
 
   export type cognitiveExerciseUpdateManyWithoutCategoryNestedInput = {
@@ -77770,6 +79235,22 @@ export namespace Prisma {
     deleteMany?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
   }
 
+  export type categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput = {
+    create?: XOR<categoryTypeCreateWithoutCategoriesInput, categoryTypeUncheckedCreateWithoutCategoriesInput>
+    connectOrCreate?: categoryTypeCreateOrConnectWithoutCategoriesInput
+    upsert?: categoryTypeUpsertWithoutCategoriesInput
+    connect?: categoryTypeWhereUniqueInput
+    update?: XOR<XOR<categoryTypeUpdateToOneWithWhereWithoutCategoriesInput, categoryTypeUpdateWithoutCategoriesInput>, categoryTypeUncheckedUpdateWithoutCategoriesInput>
+  }
+
+  export type categoryChapterUpdateOneRequiredWithoutCategoryNestedInput = {
+    create?: XOR<categoryChapterCreateWithoutCategoryInput, categoryChapterUncheckedCreateWithoutCategoryInput>
+    connectOrCreate?: categoryChapterCreateOrConnectWithoutCategoryInput
+    upsert?: categoryChapterUpsertWithoutCategoryInput
+    connect?: categoryChapterWhereUniqueInput
+    update?: XOR<XOR<categoryChapterUpdateToOneWithWhereWithoutCategoryInput, categoryChapterUpdateWithoutCategoryInput>, categoryChapterUncheckedUpdateWithoutCategoryInput>
+  }
+
   export type activityUncheckedUpdateManyWithoutCategoryNestedInput = {
     create?: XOR<activityCreateWithoutCategoryInput, activityUncheckedCreateWithoutCategoryInput> | activityCreateWithoutCategoryInput[] | activityUncheckedCreateWithoutCategoryInput[]
     connectOrCreate?: activityCreateOrConnectWithoutCategoryInput | activityCreateOrConnectWithoutCategoryInput[]
@@ -77784,14 +79265,18 @@ export namespace Prisma {
     deleteMany?: activityScalarWhereInput | activityScalarWhereInput[]
   }
 
-  export type badgeUncheckedUpdateOneWithoutCategoryNestedInput = {
-    create?: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput>
-    connectOrCreate?: badgeCreateOrConnectWithoutCategoryInput
-    upsert?: badgeUpsertWithoutCategoryInput
-    disconnect?: badgeWhereInput | boolean
-    delete?: badgeWhereInput | boolean
-    connect?: badgeWhereUniqueInput
-    update?: XOR<XOR<badgeUpdateToOneWithWhereWithoutCategoryInput, badgeUpdateWithoutCategoryInput>, badgeUncheckedUpdateWithoutCategoryInput>
+  export type badgeUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput> | badgeCreateWithoutCategoryInput[] | badgeUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: badgeCreateOrConnectWithoutCategoryInput | badgeCreateOrConnectWithoutCategoryInput[]
+    upsert?: badgeUpsertWithWhereUniqueWithoutCategoryInput | badgeUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: badgeCreateManyCategoryInputEnvelope
+    set?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
+    disconnect?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
+    delete?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
+    connect?: badgeWhereUniqueInput | badgeWhereUniqueInput[]
+    update?: badgeUpdateWithWhereUniqueWithoutCategoryInput | badgeUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: badgeUpdateManyWithWhereWithoutCategoryInput | badgeUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: badgeScalarWhereInput | badgeScalarWhereInput[]
   }
 
   export type cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput = {
@@ -78362,10 +79847,9 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutActivityInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -78377,14 +79861,17 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutActivityInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    chapterId: number
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -78564,10 +80051,9 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutActivityInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -78579,14 +80065,17 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutActivityInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    chapterId?: IntFieldUpdateOperationsInput | number
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -79196,9 +80685,8 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutBadgeInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
@@ -79211,13 +80699,16 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutBadgeInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
@@ -79278,9 +80769,8 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutBadgeInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
@@ -79293,13 +80783,16 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutBadgeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
@@ -79315,11 +80808,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutCognitiveExerciseInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
@@ -79330,15 +80822,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutCognitiveExerciseInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
@@ -79404,11 +80899,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutCognitiveExerciseInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
@@ -79419,15 +80913,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutCognitiveExerciseInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -79587,11 +81084,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutCollaborativeProjectInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
@@ -79602,15 +81098,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutCollaborativeProjectInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
@@ -79821,11 +81320,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutCollaborativeProjectInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
@@ -79836,15 +81334,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutCollaborativeProjectInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -80390,11 +81891,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutExerciseProgramInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -80405,15 +81905,18 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutExerciseProgramInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -80479,11 +81982,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutExerciseProgramInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -80494,15 +81996,18 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutExerciseProgramInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -82098,11 +83603,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutHelpRequestInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
@@ -82113,15 +83617,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutHelpRequestInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
@@ -82334,11 +83841,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutHelpRequestInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
@@ -82349,15 +83855,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutHelpRequestInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -82371,11 +83880,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutLocalServiceInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -82386,15 +83894,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutLocalServiceInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -82454,11 +83965,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutLocalServiceInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -82469,15 +83979,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutLocalServiceInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -83505,11 +85018,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutNutritionalAdviceInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -83520,15 +85032,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutNutritionalAdviceInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -83558,11 +85073,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutNutritionalAdviceInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -83573,15 +85087,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutNutritionalAdviceInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -84308,11 +85825,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutResourceInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -84323,15 +85839,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutResourceInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -84480,11 +85999,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutResourceInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -84495,15 +86013,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutResourceInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -85438,11 +86959,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutSkillInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -85453,15 +86973,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutSkillInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -85517,11 +87040,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutSkillInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -85532,15 +87054,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutSkillInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -86219,11 +87744,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutUrbanIssueReportInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -86234,15 +87758,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutUrbanIssueReportInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -86391,11 +87918,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutUrbanIssueReportInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -86406,15 +87932,18 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutUrbanIssueReportInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -89884,11 +91413,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutWellnessBadgeInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -89899,15 +91427,18 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutWellnessBadgeInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -89937,11 +91468,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutWellnessBadgeInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -89952,15 +91482,18 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutWellnessBadgeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -90115,11 +91648,10 @@ export namespace Prisma {
   }
 
   export type categoryCreateWithoutWellnessGoalInput = {
-    name: string
+    categoryName: string
     description?: string | null
-    type: categoryTypeCreateNestedOneWithoutCategoriesInput
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -90130,15 +91662,18 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
   export type categoryUncheckedCreateWithoutWellnessGoalInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
     typeId: number
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -90316,11 +91851,10 @@ export namespace Prisma {
   }
 
   export type categoryUpdateWithoutWellnessGoalInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -90331,15 +91865,18 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateWithoutWellnessGoalInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -90428,11 +91965,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type categoryCreateWithoutTypeInput = {
-    name: string
+  export type categoryCreateWithoutCategoryTypeInput = {
+    categoryName: string
     description?: string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
-    badge?: badgeCreateNestedOneWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
@@ -90444,14 +91981,16 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
     exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
-  export type categoryUncheckedCreateWithoutTypeInput = {
+  export type categoryUncheckedCreateWithoutCategoryTypeInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
+    chapterId: number
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
-    badge?: badgeUncheckedCreateNestedOneWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
@@ -90465,30 +92004,30 @@ export namespace Prisma {
     exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
-  export type categoryCreateOrConnectWithoutTypeInput = {
+  export type categoryCreateOrConnectWithoutCategoryTypeInput = {
     where: categoryWhereUniqueInput
-    create: XOR<categoryCreateWithoutTypeInput, categoryUncheckedCreateWithoutTypeInput>
+    create: XOR<categoryCreateWithoutCategoryTypeInput, categoryUncheckedCreateWithoutCategoryTypeInput>
   }
 
-  export type categoryCreateManyTypeInputEnvelope = {
-    data: categoryCreateManyTypeInput | categoryCreateManyTypeInput[]
+  export type categoryCreateManyCategoryTypeInputEnvelope = {
+    data: categoryCreateManyCategoryTypeInput | categoryCreateManyCategoryTypeInput[]
     skipDuplicates?: boolean
   }
 
-  export type categoryUpsertWithWhereUniqueWithoutTypeInput = {
+  export type categoryUpsertWithWhereUniqueWithoutCategoryTypeInput = {
     where: categoryWhereUniqueInput
-    update: XOR<categoryUpdateWithoutTypeInput, categoryUncheckedUpdateWithoutTypeInput>
-    create: XOR<categoryCreateWithoutTypeInput, categoryUncheckedCreateWithoutTypeInput>
+    update: XOR<categoryUpdateWithoutCategoryTypeInput, categoryUncheckedUpdateWithoutCategoryTypeInput>
+    create: XOR<categoryCreateWithoutCategoryTypeInput, categoryUncheckedCreateWithoutCategoryTypeInput>
   }
 
-  export type categoryUpdateWithWhereUniqueWithoutTypeInput = {
+  export type categoryUpdateWithWhereUniqueWithoutCategoryTypeInput = {
     where: categoryWhereUniqueInput
-    data: XOR<categoryUpdateWithoutTypeInput, categoryUncheckedUpdateWithoutTypeInput>
+    data: XOR<categoryUpdateWithoutCategoryTypeInput, categoryUncheckedUpdateWithoutCategoryTypeInput>
   }
 
-  export type categoryUpdateManyWithWhereWithoutTypeInput = {
+  export type categoryUpdateManyWithWhereWithoutCategoryTypeInput = {
     where: categoryScalarWhereInput
-    data: XOR<categoryUpdateManyMutationInput, categoryUncheckedUpdateManyWithoutTypeInput>
+    data: XOR<categoryUpdateManyMutationInput, categoryUncheckedUpdateManyWithoutCategoryTypeInput>
   }
 
   export type categoryScalarWhereInput = {
@@ -90496,23 +92035,75 @@ export namespace Prisma {
     OR?: categoryScalarWhereInput[]
     NOT?: categoryScalarWhereInput | categoryScalarWhereInput[]
     id?: IntFilter<"category"> | number
-    name?: StringFilter<"category"> | string
+    categoryName?: StringFilter<"category"> | string
     description?: StringNullableFilter<"category"> | string | null
     typeId?: IntFilter<"category"> | number
+    chapterId?: IntFilter<"category"> | number
   }
 
-  export type categoryTypeCreateWithoutCategoriesInput = {
-    name: string
+  export type categoryCreateWithoutCategoryChapterInput = {
+    categoryName: string
+    description?: string | null
+    activity?: activityCreateNestedManyWithoutCategoryInput
+    badge?: badgeCreateNestedManyWithoutCategoryInput
+    cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
+    collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
+    localService?: localServiceCreateNestedManyWithoutCategoryInput
+    nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
+    resource?: resourceCreateNestedManyWithoutCategoryInput
+    skill?: skillCreateNestedManyWithoutCategoryInput
+    urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
+    wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
+    wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
+    categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
   }
 
-  export type categoryTypeUncheckedCreateWithoutCategoriesInput = {
+  export type categoryUncheckedCreateWithoutCategoryChapterInput = {
     id?: number
-    name: string
+    categoryName: string
+    description?: string | null
+    typeId: number
+    activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
+    badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
+    cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
+    collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
+    localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
+    nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
+    resource?: resourceUncheckedCreateNestedManyWithoutCategoryInput
+    skill?: skillUncheckedCreateNestedManyWithoutCategoryInput
+    urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
+    wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
+    wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
-  export type categoryTypeCreateOrConnectWithoutCategoriesInput = {
-    where: categoryTypeWhereUniqueInput
-    create: XOR<categoryTypeCreateWithoutCategoriesInput, categoryTypeUncheckedCreateWithoutCategoriesInput>
+  export type categoryCreateOrConnectWithoutCategoryChapterInput = {
+    where: categoryWhereUniqueInput
+    create: XOR<categoryCreateWithoutCategoryChapterInput, categoryUncheckedCreateWithoutCategoryChapterInput>
+  }
+
+  export type categoryCreateManyCategoryChapterInputEnvelope = {
+    data: categoryCreateManyCategoryChapterInput | categoryCreateManyCategoryChapterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type categoryUpsertWithWhereUniqueWithoutCategoryChapterInput = {
+    where: categoryWhereUniqueInput
+    update: XOR<categoryUpdateWithoutCategoryChapterInput, categoryUncheckedUpdateWithoutCategoryChapterInput>
+    create: XOR<categoryCreateWithoutCategoryChapterInput, categoryUncheckedCreateWithoutCategoryChapterInput>
+  }
+
+  export type categoryUpdateWithWhereUniqueWithoutCategoryChapterInput = {
+    where: categoryWhereUniqueInput
+    data: XOR<categoryUpdateWithoutCategoryChapterInput, categoryUncheckedUpdateWithoutCategoryChapterInput>
+  }
+
+  export type categoryUpdateManyWithWhereWithoutCategoryChapterInput = {
+    where: categoryScalarWhereInput
+    data: XOR<categoryUpdateManyMutationInput, categoryUncheckedUpdateManyWithoutCategoryChapterInput>
   }
 
   export type activityCreateWithoutCategoryInput = {
@@ -90596,6 +92187,11 @@ export namespace Prisma {
   export type badgeCreateOrConnectWithoutCategoryInput = {
     where: badgeWhereUniqueInput
     create: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type badgeCreateManyCategoryInputEnvelope = {
+    data: badgeCreateManyCategoryInput | badgeCreateManyCategoryInput[]
+    skipDuplicates?: boolean
   }
 
   export type cognitiveExerciseCreateWithoutCategoryInput = {
@@ -90990,24 +92586,36 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type categoryTypeUpsertWithoutCategoriesInput = {
-    update: XOR<categoryTypeUpdateWithoutCategoriesInput, categoryTypeUncheckedUpdateWithoutCategoriesInput>
+  export type categoryTypeCreateWithoutCategoriesInput = {
+    name: string
+  }
+
+  export type categoryTypeUncheckedCreateWithoutCategoriesInput = {
+    id?: number
+    name: string
+  }
+
+  export type categoryTypeCreateOrConnectWithoutCategoriesInput = {
+    where: categoryTypeWhereUniqueInput
     create: XOR<categoryTypeCreateWithoutCategoriesInput, categoryTypeUncheckedCreateWithoutCategoriesInput>
-    where?: categoryTypeWhereInput
   }
 
-  export type categoryTypeUpdateToOneWithWhereWithoutCategoriesInput = {
-    where?: categoryTypeWhereInput
-    data: XOR<categoryTypeUpdateWithoutCategoriesInput, categoryTypeUncheckedUpdateWithoutCategoriesInput>
+  export type categoryChapterCreateWithoutCategoryInput = {
+    chapterId: number
+    chapterName: string
+    chapterDescription?: string | null
   }
 
-  export type categoryTypeUpdateWithoutCategoriesInput = {
-    name?: StringFieldUpdateOperationsInput | string
+  export type categoryChapterUncheckedCreateWithoutCategoryInput = {
+    id?: number
+    chapterId: number
+    chapterName: string
+    chapterDescription?: string | null
   }
 
-  export type categoryTypeUncheckedUpdateWithoutCategoriesInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+  export type categoryChapterCreateOrConnectWithoutCategoryInput = {
+    where: categoryChapterWhereUniqueInput
+    create: XOR<categoryChapterCreateWithoutCategoryInput, categoryChapterUncheckedCreateWithoutCategoryInput>
   }
 
   export type activityUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -91026,37 +92634,20 @@ export namespace Prisma {
     data: XOR<activityUpdateManyMutationInput, activityUncheckedUpdateManyWithoutCategoryInput>
   }
 
-  export type badgeUpsertWithoutCategoryInput = {
+  export type badgeUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: badgeWhereUniqueInput
     update: XOR<badgeUpdateWithoutCategoryInput, badgeUncheckedUpdateWithoutCategoryInput>
     create: XOR<badgeCreateWithoutCategoryInput, badgeUncheckedCreateWithoutCategoryInput>
-    where?: badgeWhereInput
   }
 
-  export type badgeUpdateToOneWithWhereWithoutCategoryInput = {
-    where?: badgeWhereInput
+  export type badgeUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: badgeWhereUniqueInput
     data: XOR<badgeUpdateWithoutCategoryInput, badgeUncheckedUpdateWithoutCategoryInput>
   }
 
-  export type badgeUpdateWithoutCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    icon?: NullableStringFieldUpdateOperationsInput | string | null
-    level?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userBadge?: userBadgeUpdateOneWithoutBadgeNestedInput
-  }
-
-  export type badgeUncheckedUpdateWithoutCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    icon?: NullableStringFieldUpdateOperationsInput | string | null
-    level?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userBadgeId?: NullableStringFieldUpdateOperationsInput | string | null
+  export type badgeUpdateManyWithWhereWithoutCategoryInput = {
+    where: badgeScalarWhereInput
+    data: XOR<badgeUpdateManyMutationInput, badgeUncheckedUpdateManyWithoutCategoryInput>
   }
 
   export type cognitiveExerciseUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -91323,6 +92914,50 @@ export namespace Prisma {
     image?: StringNullableFilter<"exerciseProgram"> | string | null
     createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
     updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
+  }
+
+  export type categoryTypeUpsertWithoutCategoriesInput = {
+    update: XOR<categoryTypeUpdateWithoutCategoriesInput, categoryTypeUncheckedUpdateWithoutCategoriesInput>
+    create: XOR<categoryTypeCreateWithoutCategoriesInput, categoryTypeUncheckedCreateWithoutCategoriesInput>
+    where?: categoryTypeWhereInput
+  }
+
+  export type categoryTypeUpdateToOneWithWhereWithoutCategoriesInput = {
+    where?: categoryTypeWhereInput
+    data: XOR<categoryTypeUpdateWithoutCategoriesInput, categoryTypeUncheckedUpdateWithoutCategoriesInput>
+  }
+
+  export type categoryTypeUpdateWithoutCategoriesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type categoryTypeUncheckedUpdateWithoutCategoriesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type categoryChapterUpsertWithoutCategoryInput = {
+    update: XOR<categoryChapterUpdateWithoutCategoryInput, categoryChapterUncheckedUpdateWithoutCategoryInput>
+    create: XOR<categoryChapterCreateWithoutCategoryInput, categoryChapterUncheckedCreateWithoutCategoryInput>
+    where?: categoryChapterWhereInput
+  }
+
+  export type categoryChapterUpdateToOneWithWhereWithoutCategoryInput = {
+    where?: categoryChapterWhereInput
+    data: XOR<categoryChapterUpdateWithoutCategoryInput, categoryChapterUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type categoryChapterUpdateWithoutCategoryInput = {
+    chapterId?: IntFieldUpdateOperationsInput | number
+    chapterName?: StringFieldUpdateOperationsInput | string
+    chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type categoryChapterUncheckedUpdateWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    chapterId?: IntFieldUpdateOperationsInput | number
+    chapterName?: StringFieldUpdateOperationsInput | string
+    chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type activityRegistrationCreateManyActivityInput = {
@@ -93423,17 +95058,18 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type categoryCreateManyTypeInput = {
+  export type categoryCreateManyCategoryTypeInput = {
     id?: number
-    name: string
+    categoryName: string
     description?: string | null
+    chapterId: number
   }
 
-  export type categoryUpdateWithoutTypeInput = {
-    name?: StringFieldUpdateOperationsInput | string
+  export type categoryUpdateWithoutCategoryTypeInput = {
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
@@ -93445,14 +95081,16 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
     exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
-  export type categoryUncheckedUpdateWithoutTypeInput = {
+  export type categoryUncheckedUpdateWithoutCategoryTypeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: IntFieldUpdateOperationsInput | number
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
-    badge?: badgeUncheckedUpdateOneWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
@@ -93466,10 +95104,64 @@ export namespace Prisma {
     exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
-  export type categoryUncheckedUpdateManyWithoutTypeInput = {
+  export type categoryUncheckedUpdateManyWithoutCategoryTypeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type categoryCreateManyCategoryChapterInput = {
+    id?: number
+    categoryName: string
+    description?: string | null
+    typeId: number
+  }
+
+  export type categoryUpdateWithoutCategoryChapterInput = {
+    categoryName?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    activity?: activityUpdateManyWithoutCategoryNestedInput
+    badge?: badgeUpdateManyWithoutCategoryNestedInput
+    cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
+    collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
+    localService?: localServiceUpdateManyWithoutCategoryNestedInput
+    nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
+    resource?: resourceUpdateManyWithoutCategoryNestedInput
+    skill?: skillUpdateManyWithoutCategoryNestedInput
+    urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
+    wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
+    wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
+    categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
+  }
+
+  export type categoryUncheckedUpdateWithoutCategoryChapterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    categoryName?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    typeId?: IntFieldUpdateOperationsInput | number
+    activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
+    badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
+    cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
+    collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
+    localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
+    nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
+    resource?: resourceUncheckedUpdateManyWithoutCategoryNestedInput
+    skill?: skillUncheckedUpdateManyWithoutCategoryNestedInput
+    urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
+    wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
+    wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type categoryUncheckedUpdateManyWithoutCategoryChapterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    categoryName?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    typeId?: IntFieldUpdateOperationsInput | number
   }
 
   export type activityCreateManyCategoryInput = {
@@ -93492,6 +95184,17 @@ export namespace Prisma {
     transportOptions?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
+  }
+
+  export type badgeCreateManyCategoryInput = {
+    id?: string
+    name: string
+    description?: string | null
+    icon?: string | null
+    level?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    userBadgeId?: string | null
   }
 
   export type cognitiveExerciseCreateManyCategoryInput = {
@@ -93692,6 +95395,39 @@ export namespace Prisma {
     transportOptions?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type badgeUpdateWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    level?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    userBadge?: userBadgeUpdateOneWithoutBadgeNestedInput
+  }
+
+  export type badgeUncheckedUpdateWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    level?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    userBadgeId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type badgeUncheckedUpdateManyWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    level?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    userBadgeId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type cognitiveExerciseUpdateWithoutCategoryInput = {

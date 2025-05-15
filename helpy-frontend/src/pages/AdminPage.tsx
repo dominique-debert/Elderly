@@ -1,22 +1,24 @@
 import { useState } from 'react';
 import { useAuthStore } from '@/stores/auth';
 import { Navigate } from 'react-router-dom';
-import { MoodList } from '@/components/Mood/MoodList'; 
+
 import { AdminTabBar } from '@/components/AdminTabBar';
-import { ActivityList } from '@/components/Activity/ActivityList';
 import { ETabKey } from '@/@types/ETabKey';
-import { HelpList } from '@/components/Help/HelpList';
+
+import { ActivityList } from '@/components/Activity/ActivityList';
 import { BadgeList } from '@/components/Badge/BadgeList';
-import { WellnessList } from '@/components/Wellness/WellnessList';
 import { CognitiveList } from '@/components/Cognitive/CognitiveList';
-import { SkillList } from '@/components/Skill/SkillList';
 import { ForumList } from '@/components/Forum/ForumList';
+import { HelpList } from '@/components/Help/HelpList';
+import { MoodList } from '@/components/Mood/MoodList'; 
 import { NutritionalList } from '@/components/Nutrition/NutritionalList';
 import { ProgramList } from '@/components/Program/ProgramList';
 import { ProjectList } from '@/components/Project/ProjectList';
 import { ResourceList } from '@/components/Resource/ResourceList';
 import { ServiceList } from '@/components/Service/ServiceList';
+import { SkillList } from '@/components/Skill/SkillList';
 import { UrbanIssueList } from '@/components/UrbanIssue/UrbanIssueList';
+import { WellnessList } from '@/components/Wellness/WellnessList';
 
 const AdminPage = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -31,18 +33,14 @@ const AdminPage = () => {
     switch (activeTab) {
       case ETabKey.Activity:
         return <ActivityList />;
-      case ETabKey.Help:
-        return <HelpList />;
       case ETabKey.Badge:
         return <BadgeList />;
-      case ETabKey.Wellness:
-        return <WellnessList />;
       case ETabKey.Cognitive:
         return <CognitiveList />;
-      case ETabKey.Skill:
-        return <SkillList />;
       case ETabKey.Forum:
         return <ForumList />;
+      case ETabKey.Help:
+        return <HelpList />;
       case ETabKey.Mood:
         return <MoodList />;
       case ETabKey.Nutritional:
@@ -55,10 +53,14 @@ const AdminPage = () => {
         return <ResourceList />;
       case ETabKey.Service:
         return <ServiceList />;
+      case ETabKey.Skill:
+        return <SkillList />;
       case ETabKey.UrbanIssue:
         return <UrbanIssueList />;
+      case ETabKey.Wellness:
+        return <WellnessList />;
       default:
-        return null;
+      return null;
     }
   };
 

@@ -13,3 +13,15 @@ export enum CategoryType {
   URBAN_ISSUE = 12,
   WELLNESS = 13
 }
+
+export enum CategoryChapter { 
+  PHYSICAL = 1,
+  COGNITIVE = 2,
+  SOCIAL = 3,
+  SENSORY = 4,
+}
+
+// chapterId: 1, chapterName: "Activités physiques"
+// chapterId: 2, chapterName: "Activités cognitives"
+// chapterId: 3, chapterName: "Activités sociales"
+// chapterId: 3, chapterName: "Activités sensorielles"
