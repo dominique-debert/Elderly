@@ -16,6 +16,7 @@ import { ProgramList } from '@/components/Program/ProgramList';
 import { ProjectList } from '@/components/Project/ProjectList';
 import { ResourceList } from '@/components/Resource/ResourceList';
 import { ServiceList } from '@/components/Service/ServiceList';
+import { UrbanIssueList } from '@/components/UrbanIssue/UrbanIssueList';
 
 const AdminPage = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -54,6 +55,8 @@ const AdminPage = () => {
         return <ResourceList />;
       case ETabKey.Service:
         return <ServiceList />;
+      case ETabKey.UrbanIssue:
+        return <UrbanIssueList />;
       default:
         return null;
     }

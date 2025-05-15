@@ -16,7 +16,8 @@ async function seedCategoryTypes() {
       { id: 9, name: 'RESOURCE' },
       { id: 10, name: 'SERVICE' },
       { id: 11, name: 'SKILL' },
-      { id: 12, name: 'WELLNESS' },
+      { id: 12, name: 'URBAN_ISSUE' },
+      { id: 13, name: 'WELLNESS' },
     ],
     skipDuplicates: true
   });

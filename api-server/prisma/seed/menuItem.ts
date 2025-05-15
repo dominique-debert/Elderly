@@ -16,6 +16,7 @@ const seedMenuItems = async () => {
     { label: 'Ressources', icon: 'mdiBookOpenPageVariantOutline', key: 'resource' },
     { label: 'Services', icon: 'mdiHandHeartOutline', key: 'service' },
     { label: 'Compétences', icon: 'mdiAccountTieHatOutline', key: 'skill' },
+    { label: 'Problème urbain', icon: 'mdiMapMarkerAlertOutline', key: 'urban_issue' },
     { label: 'Bien-être', icon: 'mdiSpaOutline', key: 'wellness' },
   ];
 

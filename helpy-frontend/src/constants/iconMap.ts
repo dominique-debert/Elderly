@@ -12,12 +12,13 @@ import {
   mdiHandHeartOutline,
   mdiAccountTieHatOutline,
   mdiSpaOutline,
+  mdiMapMarkerAlertOutline,
 } from '@mdi/js';
 
 export const iconMap: Record<string, string> = {
   mdiHeartSettingsOutline,         // Humeurs
   mdiRunFast,                      // Activités
-  mdiMedalOutline,          // Badges
+  mdiMedalOutline,                 // Badges
   mdiBrain,                        // Cognition
   mdiForumOutline,                 // Forum
   mdiHelpCircleOutline,            // Aide
@@ -27,5 +28,6 @@ export const iconMap: Record<string, string> = {
   mdiBookOpenPageVariantOutline,   // Ressources
   mdiHandHeartOutline,             // Services
   mdiAccountTieHatOutline,         // Compétences
+  mdiMapMarkerAlertOutline,        // Problème urbain
   mdiSpaOutline,                   // Bien-être
 };

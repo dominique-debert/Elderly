@@ -11,5 +11,6 @@ export enum ETabKey {
   Resource = 'resource',
   Service = 'service',
   Skill = 'skill',
+  UrbanIssue = 'urban_issue',
   Wellness = 'wellness',
 }
