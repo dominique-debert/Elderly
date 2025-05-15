@@ -20,7 +20,7 @@ export const fetchAllActivityCategories = async (
   next: NextFunction
 ) => {
   try {
-    const activityCategories = await prisma.category.findMany({
+    const categories = await prisma.category.findMany({
       where: {
         typeId: CategoryType.ACTIVITY
       },
@@ -29,9 +29,7 @@ export const fetchAllActivityCategories = async (
       },
       include: {
         categoryType: {
-          select: {
-            name: true,
-          }
+          select: { name: true }
         },
         categoryChapter: {
           select: {
@@ -41,12 +39,29 @@ export const fetchAllActivityCategories = async (
         }
       }
     });
-    
-    res.status(200).json({ activityCategories });
+
+    // Regroupement côté backend
+    const grouped: Record<string, Record<string, any[]>> = {};
+
+    categories.forEach((cat) => {
+      const chapterName = cat.categoryChapter?.chapterName ?? 'Sans chapitre';
+      const typeName = cat.categoryType?.name ?? 'Sans type';
+
+      if (!grouped[chapterName]) grouped[chapterName] = {};
+      if (!grouped[chapterName][typeName]) grouped[chapterName][typeName] = [];
+
+      grouped[chapterName][typeName].push({
+        id: cat.id,
+        categoryName: cat.categoryName,
+      });
+    });
+
+    res.status(200).json(grouped);
   } catch (error) {
     next(error);
   }
 };
+
 
 // CATÉGORIE D'ACTIVITÉ PAR ID
 export const fetchActivityCategoryById = async (

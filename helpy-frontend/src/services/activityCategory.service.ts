@@ -1,7 +1,7 @@
 import api from '../lib/axios';
 import type { ICategory } from '../@types/ICategory';
 
-export const fetchActivityCategories = async (): Promise<ICategory[]> =>  {
+export const fetchActivityCategories = async (): Promise<ICategory> => {
   const accessToken = localStorage.getItem('accessToken');
 
   const { data } = await api.get(`/categories/activities`, {
@@ -9,9 +9,11 @@ export const fetchActivityCategories = async (): Promise<ICategory[]> =>  {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  console.log(data.activityCategories)
-  return data.activityCategories;
+
+  console.log('Fetched grouped data:', data); // ← ici c’est le groupement directement
+  return data; // pas de data.activityCategories
 };
+
 
 export const createActivityCategory = async (category: { name: string; description?: string }) => {
   const { data } = await api.post('/categories/activities', category, {

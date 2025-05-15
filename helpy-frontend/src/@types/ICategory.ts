@@ -3,7 +3,11 @@ export interface ICategory {
   categoryName: string;
   typeId: number;
   chapterId: number;
-  chapterName: string;
-  chapterDescription: string;
+  categoryChapter?: {
+    chapterName: string;
+    chapterDescription: string;
+  };
+  categoryType?: {
+    name: string;
+  };
 }
-
