@@ -5,6 +5,8 @@ import { MoodListView } from './MoodListView';
 import { MoodTableView } from './MoodTableView';
 import { MoodListSwitcher } from './MoodListSwitcher';
 import { MoodCardView } from './MoodCardView';
+import Icon from "@mdi/react";
+import { mdiMagnify } from "@mdi/js";
 
 type Mode = 'card' | 'list' | 'table';
 
@@ -30,12 +32,32 @@ export const MoodList = () => {
 
   return (
     <div className="w-full relative">
+
+
+
       {moods && moods.length > 0 && (
         <MoodListSwitcher mode={mode} setMode={setMode} />
       )}
+
+      <div className="mb-6">
+        <label className="input">
+          <Icon
+            path={mdiMagnify}
+            size={.8}
+          />
+          <input
+            type="search"
+            placeholder="Rechercher une humeur..."
+            // value={search}
+            // onChange={(e) => setSearch(e.target.value)}
+          />
+        </label>
+      </div>
+
       {mode === 'card' && <MoodCardView moods={moods || []} />}
       {mode === 'list' && <MoodListView moods={moods || []} />}
       {mode === 'table' && <MoodTableView moods={moods || []} />}
+
     </div>
   );
 }

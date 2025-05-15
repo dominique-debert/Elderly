@@ -53,6 +53,7 @@ export const fetchAllActivityCategories = async (
       grouped[chapterName][typeName].push({
         id: cat.id,
         categoryName: cat.categoryName,
+        description: cat.description,
       });
     });
 

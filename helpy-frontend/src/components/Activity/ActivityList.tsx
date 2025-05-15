@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-
-import type { ICategory } from '@/@types/ICategory';
-
 import { fetchActivityCategories } from '@/services/activityCategory.service';
-
+import type { ICategory } from '@/@types/ICategory';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Icon } from "@mdi/react";
+import { mdiDotsVertical, mdiPencilOutline, mdiDeleteOutline, mdiMagnify } from "@mdi/js";
 
 type Mode = 'card' | 'list' | 'table';
 
@@ -29,63 +27,82 @@ export const ActivityList = () => {
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
   if (isError) return <div className="text-center mt-10 text-red-500">Erreur de chargement</div>;
 
+  // Préparation : filtrer les chapitres avec des résultats
+  const filteredChapters = Object.entries(groupedCategories ?? {}).filter(([_, types]) => {
+    const allCategories = Object.values(types).flat() as ICategory[];
+    return allCategories.some((cat) =>
+      cat.categoryName.toLowerCase().includes(search.toLowerCase())
+    );
+  });
+
   return (
     <div className="w-full p-4">
       <div className="mb-6">
-        <Input
-          type="text"
-          placeholder="Rechercher une catégorie..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value.toLowerCase())}
-        />
+        <label className="input">
+          <Icon
+            path={mdiMagnify}
+            size={.8}
+          />
+          <input
+            type="search"
+            placeholder="Rechercher une catégorie..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </label>
       </div>
 
-      {Object.entries(groupedCategories ?? {}).map(([chapterName, types]) => {
-        // Fusionner tous les types (plus besoin de les séparer)
-        const allCategories: ICategory[] = Object.values(types).flat() as ICategory[];
+      {filteredChapters.length === 0 && (
+        <div className="text-center text-gray-500 italic">Aucun résultat ne correspond à la recherche.</div>
+      )}
 
-        // Filtrer selon la recherche
+      {filteredChapters.map(([chapterName, types]) => {
+        const allCategories = Object.values(types).flat() as ICategory[];
         const filtered = allCategories.filter((category) =>
-          category.categoryName.toLowerCase().includes(search)
-        );
 
-        return (
-          <div className="collapse collapse-arrow bg-base-200 mb-4" key={chapterName}>
-            <input type="checkbox" />
-            <div className="collapse-title text-xl font-bold">{chapterName}</div>
-            <div className="collapse-content">
-              {filtered.length > 0 ? (
-                <ul className="list-disc ml-6">
-                  {filtered.map((category) => (
-                    <li key={category.id} className="flex justify-between items-center my-1">
-                      <span>{category.categoryName}</span>
-                      <div className="flex gap-2">
-                        <Button
-                          className="cursor-pointer"
-                          variant="outline"
-                          size="sm"
-                          onClick={() => alert('Modifier ' + category.id)}
-                        >
-                          Modifier
-                        </Button>
-                        <Button
-                          className="cursor-pointer"
-                          size="sm"
-                          onClick={() => alert('Supprimer ' + category.id)}
-                        >
-                          Supprimer
-                        </Button>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <div className="text-sm italic text-gray-500">Aucune catégorie correspondante</div>
-              )}
-            </div>
+        category.categoryName.toLowerCase().includes(search.toLowerCase())
+      );
+
+      return (
+        <>
+          <div className="text-xl font-semibold mt-12" key={chapterName}>{chapterName}</div>
+          <div className="divider mt-0"></div>
+
+          <div className="grid grid-cols-2 p-0 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 w-full">
+            {filtered.map((category) => (
+              <div key={category.id} className="card w-full bg-base-100 card-xs shadow-lg">
+                <div className="card-body p-4">
+                  <h2 className="text-xl card-title">{category.categoryName}</h2>
+                  
+                  <p className="text-sm">{category.description}</p>
+                      <div className="divider"></div>
+                    <div className="justify-end card-actions">
+                      <button className="btn btn-primary"
+                        onClick={() => console.log('Modifier', category.id)}
+                      >
+                        <Icon
+                          path={mdiPencilOutline}
+                          size={0.8}
+                        />                          
+                        Modifier
+                      </button>
+                      <button className="btn btn-ghost bg-base-200"
+                        onClick={() => console.log('Supprimer', category.id)}
+                      >
+                        <Icon
+                          path={mdiDeleteOutline}
+                          size={0.8}
+                        />    
+                        Supprimer
+                      </button>
+                    </div>
+                  </div>
+              </div>
+            ))}
           </div>
-        );
-      })}
+        </>
+      );
+    })}
     </div>
   );
 };

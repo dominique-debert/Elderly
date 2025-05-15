@@ -1,6 +1,7 @@
 export interface ICategory {
   id?: string;
   categoryName: string;
+  description: string;
   typeId: number;
   chapterId: number;
   categoryChapter?: {

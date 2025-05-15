@@ -1,5 +1,5 @@
-import api from '../lib/axios';
-import type { ICategory } from '../@types/ICategory';
+import api from '@/lib/axios';
+import type { ICategory } from '@/@types/ICategory';
 
 export const fetchActivityCategories = async (): Promise<ICategory> => {
   const accessToken = localStorage.getItem('accessToken');
@@ -10,8 +10,7 @@ export const fetchActivityCategories = async (): Promise<ICategory> => {
     },
   });
 
-  console.log('Fetched grouped data:', data); // ← ici c’est le groupement directement
-  return data; // pas de data.activityCategories
+  return data;
 };
 
 
