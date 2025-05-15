@@ -186,8 +186,7 @@ exports.Prisma.CognitiveExerciseScalarFieldEnum = {
   description: 'description',
   image: 'image',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  programCategoryId: 'programCategoryId'
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.CollaborativeProjectScalarFieldEnum = {
@@ -232,8 +231,7 @@ exports.Prisma.ExerciseProgramScalarFieldEnum = {
   videoLink: 'videoLink',
   image: 'image',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  programCategoryId: 'programCategoryId'
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ForumCategoryScalarFieldEnum = {
@@ -696,12 +694,6 @@ exports.Prisma.WellnessGoalProgressScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.ProgramCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description'
-};
-
 exports.Prisma.CategoryTypeScalarFieldEnum = {
   id: 'id',
   name: 'name'
@@ -792,7 +784,6 @@ exports.Prisma.ModelName = {
   wellnessBadge: 'wellnessBadge',
   wellnessGoal: 'wellnessGoal',
   wellnessGoalProgress: 'wellnessGoalProgress',
-  programCategory: 'programCategory',
   categoryType: 'categoryType',
   category: 'category'
 };

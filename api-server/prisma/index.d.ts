@@ -244,11 +244,6 @@ export type wellnessGoal = $Result.DefaultSelection<Prisma.$wellnessGoalPayload>
  */
 export type wellnessGoalProgress = $Result.DefaultSelection<Prisma.$wellnessGoalProgressPayload>
 /**
- * Model programCategory
- * 
- */
-export type programCategory = $Result.DefaultSelection<Prisma.$programCategoryPayload>
-/**
  * Model categoryType
  * 
  */
@@ -863,16 +858,6 @@ export class PrismaClient<
   get wellnessGoalProgress(): Prisma.wellnessGoalProgressDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.programCategory`: Exposes CRUD operations for the **programCategory** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more ProgramCategories
-    * const programCategories = await prisma.programCategory.findMany()
-    * ```
-    */
-  get programCategory(): Prisma.programCategoryDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.categoryType`: Exposes CRUD operations for the **categoryType** model.
     * Example usage:
     * ```ts
@@ -1377,7 +1362,6 @@ export namespace Prisma {
     wellnessBadge: 'wellnessBadge',
     wellnessGoal: 'wellnessGoal',
     wellnessGoalProgress: 'wellnessGoalProgress',
-    programCategory: 'programCategory',
     categoryType: 'categoryType',
     category: 'category'
   };
@@ -1398,7 +1382,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "healthIndicator" | "mood" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "menuItem" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "session" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "wellnessGoalProgress" | "programCategory" | "categoryType" | "category"
+      modelProps: "activity" | "activityLog" | "activityRegistration" | "badge" | "cognitiveExercise" | "collaborativeProject" | "conversation" | "conversationParticipant" | "exerciseProgram" | "forumCategory" | "forumMessage" | "forumTopic" | "healthIndicator" | "mood" | "helpOffer" | "helpRequest" | "localService" | "medicationReminder" | "menuItem" | "message" | "municipalEvent" | "notification" | "notificationPreferences" | "nutritionalAdvice" | "projectMember" | "projectTask" | "resource" | "satisfactionSurvey" | "session" | "serviceCompleted" | "serviceRating" | "skill" | "surveyResponse" | "trustCircle" | "trustedContact" | "urbanIssueReport" | "user" | "userActivity" | "userBadge" | "userDevice" | "userSkill" | "userStatistics" | "videoCall" | "wellnessBadge" | "wellnessGoal" | "wellnessGoalProgress" | "categoryType" | "category"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4806,80 +4790,6 @@ export namespace Prisma {
           }
         }
       }
-      programCategory: {
-        payload: Prisma.$programCategoryPayload<ExtArgs>
-        fields: Prisma.programCategoryFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.programCategoryFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.programCategoryFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload>
-          }
-          findFirst: {
-            args: Prisma.programCategoryFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.programCategoryFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload>
-          }
-          findMany: {
-            args: Prisma.programCategoryFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload>[]
-          }
-          create: {
-            args: Prisma.programCategoryCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload>
-          }
-          createMany: {
-            args: Prisma.programCategoryCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.programCategoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload>[]
-          }
-          delete: {
-            args: Prisma.programCategoryDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload>
-          }
-          update: {
-            args: Prisma.programCategoryUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload>
-          }
-          deleteMany: {
-            args: Prisma.programCategoryDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.programCategoryUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.programCategoryUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload>[]
-          }
-          upsert: {
-            args: Prisma.programCategoryUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$programCategoryPayload>
-          }
-          aggregate: {
-            args: Prisma.ProgramCategoryAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateProgramCategory>
-          }
-          groupBy: {
-            args: Prisma.programCategoryGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ProgramCategoryGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.programCategoryCountArgs<ExtArgs>
-            result: $Utils.Optional<ProgramCategoryCountAggregateOutputType> | number
-          }
-        }
-      }
       categoryType: {
         payload: Prisma.$categoryTypePayload<ExtArgs>
         fields: Prisma.categoryTypeFieldRefs
@@ -5158,7 +5068,6 @@ export namespace Prisma {
     wellnessBadge?: wellnessBadgeOmit
     wellnessGoal?: wellnessGoalOmit
     wellnessGoalProgress?: wellnessGoalProgressOmit
-    programCategory?: programCategoryOmit
     categoryType?: categoryTypeOmit
     category?: categoryOmit
   }
@@ -5991,46 +5900,6 @@ export namespace Prisma {
    */
   export type WellnessGoalCountOutputTypeCountWellnessGoalProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: wellnessGoalProgressWhereInput
-  }
-
-
-  /**
-   * Count Type ProgramCategoryCountOutputType
-   */
-
-  export type ProgramCategoryCountOutputType = {
-    cognitiveExercise: number
-    exerciseProgram: number
-  }
-
-  export type ProgramCategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cognitiveExercise?: boolean | ProgramCategoryCountOutputTypeCountCognitiveExerciseArgs
-    exerciseProgram?: boolean | ProgramCategoryCountOutputTypeCountExerciseProgramArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * ProgramCategoryCountOutputType without action
-   */
-  export type ProgramCategoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProgramCategoryCountOutputType
-     */
-    select?: ProgramCategoryCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * ProgramCategoryCountOutputType without action
-   */
-  export type ProgramCategoryCountOutputTypeCountCognitiveExerciseArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: cognitiveExerciseWhereInput
-  }
-
-  /**
-   * ProgramCategoryCountOutputType without action
-   */
-  export type ProgramCategoryCountOutputTypeCountExerciseProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: exerciseProgramWhereInput
   }
 
 
@@ -10967,14 +10836,12 @@ export namespace Prisma {
     categoryId: number | null
     difficultyLevel: number | null
     durationMinutes: number | null
-    programCategoryId: number | null
   }
 
   export type CognitiveExerciseSumAggregateOutputType = {
     categoryId: number | null
     difficultyLevel: number | null
     durationMinutes: number | null
-    programCategoryId: number | null
   }
 
   export type CognitiveExerciseMinAggregateOutputType = {
@@ -10987,7 +10854,6 @@ export namespace Prisma {
     image: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    programCategoryId: number | null
   }
 
   export type CognitiveExerciseMaxAggregateOutputType = {
@@ -11000,7 +10866,6 @@ export namespace Prisma {
     image: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    programCategoryId: number | null
   }
 
   export type CognitiveExerciseCountAggregateOutputType = {
@@ -11013,7 +10878,6 @@ export namespace Prisma {
     image: number
     createdAt: number
     updatedAt: number
-    programCategoryId: number
     _all: number
   }
 
@@ -11022,14 +10886,12 @@ export namespace Prisma {
     categoryId?: true
     difficultyLevel?: true
     durationMinutes?: true
-    programCategoryId?: true
   }
 
   export type CognitiveExerciseSumAggregateInputType = {
     categoryId?: true
     difficultyLevel?: true
     durationMinutes?: true
-    programCategoryId?: true
   }
 
   export type CognitiveExerciseMinAggregateInputType = {
@@ -11042,7 +10904,6 @@ export namespace Prisma {
     image?: true
     createdAt?: true
     updatedAt?: true
-    programCategoryId?: true
   }
 
   export type CognitiveExerciseMaxAggregateInputType = {
@@ -11055,7 +10916,6 @@ export namespace Prisma {
     image?: true
     createdAt?: true
     updatedAt?: true
-    programCategoryId?: true
   }
 
   export type CognitiveExerciseCountAggregateInputType = {
@@ -11068,7 +10928,6 @@ export namespace Prisma {
     image?: true
     createdAt?: true
     updatedAt?: true
-    programCategoryId?: true
     _all?: true
   }
 
@@ -11168,7 +11027,6 @@ export namespace Prisma {
     image: string | null
     createdAt: Date
     updatedAt: Date | null
-    programCategoryId: number | null
     _count: CognitiveExerciseCountAggregateOutputType | null
     _avg: CognitiveExerciseAvgAggregateOutputType | null
     _sum: CognitiveExerciseSumAggregateOutputType | null
@@ -11200,10 +11058,8 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    programCategoryId?: boolean
     category?: boolean | cognitiveExercise$categoryArgs<ExtArgs>
     userActivity?: boolean | cognitiveExercise$userActivityArgs<ExtArgs>
-    programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
     _count?: boolean | CognitiveExerciseCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cognitiveExercise"]>
 
@@ -11217,9 +11073,7 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    programCategoryId?: boolean
     category?: boolean | cognitiveExercise$categoryArgs<ExtArgs>
-    programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["cognitiveExercise"]>
 
   export type cognitiveExerciseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11232,9 +11086,7 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    programCategoryId?: boolean
     category?: boolean | cognitiveExercise$categoryArgs<ExtArgs>
-    programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["cognitiveExercise"]>
 
   export type cognitiveExerciseSelectScalar = {
@@ -11247,23 +11099,19 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    programCategoryId?: boolean
   }
 
-  export type cognitiveExerciseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "categoryId" | "difficultyLevel" | "durationMinutes" | "description" | "image" | "createdAt" | "updatedAt" | "programCategoryId", ExtArgs["result"]["cognitiveExercise"]>
+  export type cognitiveExerciseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "categoryId" | "difficultyLevel" | "durationMinutes" | "description" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["cognitiveExercise"]>
   export type cognitiveExerciseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | cognitiveExercise$categoryArgs<ExtArgs>
     userActivity?: boolean | cognitiveExercise$userActivityArgs<ExtArgs>
-    programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
     _count?: boolean | CognitiveExerciseCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type cognitiveExerciseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | cognitiveExercise$categoryArgs<ExtArgs>
-    programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
   }
   export type cognitiveExerciseIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | cognitiveExercise$categoryArgs<ExtArgs>
-    programCategory?: boolean | cognitiveExercise$programCategoryArgs<ExtArgs>
   }
 
   export type $cognitiveExercisePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11271,7 +11119,6 @@ export namespace Prisma {
     objects: {
       category: Prisma.$categoryPayload<ExtArgs> | null
       userActivity: Prisma.$userActivityPayload<ExtArgs>[]
-      programCategory: Prisma.$programCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -11283,7 +11130,6 @@ export namespace Prisma {
       image: string | null
       createdAt: Date
       updatedAt: Date | null
-      programCategoryId: number | null
     }, ExtArgs["result"]["cognitiveExercise"]>
     composites: {}
   }
@@ -11680,7 +11526,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     category<T extends cognitiveExercise$categoryArgs<ExtArgs> = {}>(args?: Subset<T, cognitiveExercise$categoryArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     userActivity<T extends cognitiveExercise$userActivityArgs<ExtArgs> = {}>(args?: Subset<T, cognitiveExercise$userActivityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$userActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    programCategory<T extends cognitiveExercise$programCategoryArgs<ExtArgs> = {}>(args?: Subset<T, cognitiveExercise$programCategoryArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11719,7 +11564,6 @@ export namespace Prisma {
     readonly image: FieldRef<"cognitiveExercise", 'String'>
     readonly createdAt: FieldRef<"cognitiveExercise", 'DateTime'>
     readonly updatedAt: FieldRef<"cognitiveExercise", 'DateTime'>
-    readonly programCategoryId: FieldRef<"cognitiveExercise", 'Int'>
   }
     
 
@@ -12156,25 +12000,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserActivityScalarFieldEnum | UserActivityScalarFieldEnum[]
-  }
-
-  /**
-   * cognitiveExercise.programCategory
-   */
-  export type cognitiveExercise$programCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    where?: programCategoryWhereInput
   }
 
   /**
@@ -15691,14 +15516,12 @@ export namespace Prisma {
     categoryId: number | null
     difficultyLevel: number | null
     durationMinutes: number | null
-    programCategoryId: number | null
   }
 
   export type ExerciseProgramSumAggregateOutputType = {
     categoryId: number | null
     difficultyLevel: number | null
     durationMinutes: number | null
-    programCategoryId: number | null
   }
 
   export type ExerciseProgramMinAggregateOutputType = {
@@ -15713,7 +15536,6 @@ export namespace Prisma {
     image: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    programCategoryId: number | null
   }
 
   export type ExerciseProgramMaxAggregateOutputType = {
@@ -15728,7 +15550,6 @@ export namespace Prisma {
     image: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    programCategoryId: number | null
   }
 
   export type ExerciseProgramCountAggregateOutputType = {
@@ -15743,7 +15564,6 @@ export namespace Prisma {
     image: number
     createdAt: number
     updatedAt: number
-    programCategoryId: number
     _all: number
   }
 
@@ -15752,14 +15572,12 @@ export namespace Prisma {
     categoryId?: true
     difficultyLevel?: true
     durationMinutes?: true
-    programCategoryId?: true
   }
 
   export type ExerciseProgramSumAggregateInputType = {
     categoryId?: true
     difficultyLevel?: true
     durationMinutes?: true
-    programCategoryId?: true
   }
 
   export type ExerciseProgramMinAggregateInputType = {
@@ -15774,7 +15592,6 @@ export namespace Prisma {
     image?: true
     createdAt?: true
     updatedAt?: true
-    programCategoryId?: true
   }
 
   export type ExerciseProgramMaxAggregateInputType = {
@@ -15789,7 +15606,6 @@ export namespace Prisma {
     image?: true
     createdAt?: true
     updatedAt?: true
-    programCategoryId?: true
   }
 
   export type ExerciseProgramCountAggregateInputType = {
@@ -15804,7 +15620,6 @@ export namespace Prisma {
     image?: true
     createdAt?: true
     updatedAt?: true
-    programCategoryId?: true
     _all?: true
   }
 
@@ -15906,7 +15721,6 @@ export namespace Prisma {
     image: string | null
     createdAt: Date
     updatedAt: Date | null
-    programCategoryId: number | null
     _count: ExerciseProgramCountAggregateOutputType | null
     _avg: ExerciseProgramAvgAggregateOutputType | null
     _sum: ExerciseProgramSumAggregateOutputType | null
@@ -15940,10 +15754,8 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    programCategoryId?: boolean
     category?: boolean | categoryDefaultArgs<ExtArgs>
     userActivity?: boolean | exerciseProgram$userActivityArgs<ExtArgs>
-    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
     _count?: boolean | ExerciseProgramCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["exerciseProgram"]>
 
@@ -15959,9 +15771,7 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    programCategoryId?: boolean
     category?: boolean | categoryDefaultArgs<ExtArgs>
-    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["exerciseProgram"]>
 
   export type exerciseProgramSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -15976,9 +15786,7 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    programCategoryId?: boolean
     category?: boolean | categoryDefaultArgs<ExtArgs>
-    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["exerciseProgram"]>
 
   export type exerciseProgramSelectScalar = {
@@ -15993,23 +15801,19 @@ export namespace Prisma {
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    programCategoryId?: boolean
   }
 
-  export type exerciseProgramOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "categoryId" | "difficultyLevel" | "adaptedForReducedMobility" | "durationMinutes" | "description" | "videoLink" | "image" | "createdAt" | "updatedAt" | "programCategoryId", ExtArgs["result"]["exerciseProgram"]>
+  export type exerciseProgramOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "categoryId" | "difficultyLevel" | "adaptedForReducedMobility" | "durationMinutes" | "description" | "videoLink" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["exerciseProgram"]>
   export type exerciseProgramInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | categoryDefaultArgs<ExtArgs>
     userActivity?: boolean | exerciseProgram$userActivityArgs<ExtArgs>
-    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
     _count?: boolean | ExerciseProgramCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type exerciseProgramIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | categoryDefaultArgs<ExtArgs>
-    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
   }
   export type exerciseProgramIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | categoryDefaultArgs<ExtArgs>
-    programCategory?: boolean | exerciseProgram$programCategoryArgs<ExtArgs>
   }
 
   export type $exerciseProgramPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -16017,7 +15821,6 @@ export namespace Prisma {
     objects: {
       category: Prisma.$categoryPayload<ExtArgs>
       userActivity: Prisma.$userActivityPayload<ExtArgs>[]
-      programCategory: Prisma.$programCategoryPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -16031,7 +15834,6 @@ export namespace Prisma {
       image: string | null
       createdAt: Date
       updatedAt: Date | null
-      programCategoryId: number | null
     }, ExtArgs["result"]["exerciseProgram"]>
     composites: {}
   }
@@ -16428,7 +16230,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     category<T extends categoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, categoryDefaultArgs<ExtArgs>>): Prisma__categoryClient<$Result.GetResult<Prisma.$categoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     userActivity<T extends exerciseProgram$userActivityArgs<ExtArgs> = {}>(args?: Subset<T, exerciseProgram$userActivityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$userActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    programCategory<T extends exerciseProgram$programCategoryArgs<ExtArgs> = {}>(args?: Subset<T, exerciseProgram$programCategoryArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -16469,7 +16270,6 @@ export namespace Prisma {
     readonly image: FieldRef<"exerciseProgram", 'String'>
     readonly createdAt: FieldRef<"exerciseProgram", 'DateTime'>
     readonly updatedAt: FieldRef<"exerciseProgram", 'DateTime'>
-    readonly programCategoryId: FieldRef<"exerciseProgram", 'Int'>
   }
     
 
@@ -16887,25 +16687,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserActivityScalarFieldEnum | UserActivityScalarFieldEnum[]
-  }
-
-  /**
-   * exerciseProgram.programCategory
-   */
-  export type exerciseProgram$programCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    where?: programCategoryWhereInput
   }
 
   /**
@@ -60230,1112 +60011,6 @@ export namespace Prisma {
 
 
   /**
-   * Model programCategory
-   */
-
-  export type AggregateProgramCategory = {
-    _count: ProgramCategoryCountAggregateOutputType | null
-    _avg: ProgramCategoryAvgAggregateOutputType | null
-    _sum: ProgramCategorySumAggregateOutputType | null
-    _min: ProgramCategoryMinAggregateOutputType | null
-    _max: ProgramCategoryMaxAggregateOutputType | null
-  }
-
-  export type ProgramCategoryAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type ProgramCategorySumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type ProgramCategoryMinAggregateOutputType = {
-    id: number | null
-    name: string | null
-    description: string | null
-  }
-
-  export type ProgramCategoryMaxAggregateOutputType = {
-    id: number | null
-    name: string | null
-    description: string | null
-  }
-
-  export type ProgramCategoryCountAggregateOutputType = {
-    id: number
-    name: number
-    description: number
-    _all: number
-  }
-
-
-  export type ProgramCategoryAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type ProgramCategorySumAggregateInputType = {
-    id?: true
-  }
-
-  export type ProgramCategoryMinAggregateInputType = {
-    id?: true
-    name?: true
-    description?: true
-  }
-
-  export type ProgramCategoryMaxAggregateInputType = {
-    id?: true
-    name?: true
-    description?: true
-  }
-
-  export type ProgramCategoryCountAggregateInputType = {
-    id?: true
-    name?: true
-    description?: true
-    _all?: true
-  }
-
-  export type ProgramCategoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which programCategory to aggregate.
-     */
-    where?: programCategoryWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of programCategories to fetch.
-     */
-    orderBy?: programCategoryOrderByWithRelationInput | programCategoryOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: programCategoryWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` programCategories from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` programCategories.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned programCategories
-    **/
-    _count?: true | ProgramCategoryCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: ProgramCategoryAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ProgramCategorySumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: ProgramCategoryMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: ProgramCategoryMaxAggregateInputType
-  }
-
-  export type GetProgramCategoryAggregateType<T extends ProgramCategoryAggregateArgs> = {
-        [P in keyof T & keyof AggregateProgramCategory]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateProgramCategory[P]>
-      : GetScalarType<T[P], AggregateProgramCategory[P]>
-  }
-
-
-
-
-  export type programCategoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: programCategoryWhereInput
-    orderBy?: programCategoryOrderByWithAggregationInput | programCategoryOrderByWithAggregationInput[]
-    by: ProgramCategoryScalarFieldEnum[] | ProgramCategoryScalarFieldEnum
-    having?: programCategoryScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: ProgramCategoryCountAggregateInputType | true
-    _avg?: ProgramCategoryAvgAggregateInputType
-    _sum?: ProgramCategorySumAggregateInputType
-    _min?: ProgramCategoryMinAggregateInputType
-    _max?: ProgramCategoryMaxAggregateInputType
-  }
-
-  export type ProgramCategoryGroupByOutputType = {
-    id: number
-    name: string
-    description: string | null
-    _count: ProgramCategoryCountAggregateOutputType | null
-    _avg: ProgramCategoryAvgAggregateOutputType | null
-    _sum: ProgramCategorySumAggregateOutputType | null
-    _min: ProgramCategoryMinAggregateOutputType | null
-    _max: ProgramCategoryMaxAggregateOutputType | null
-  }
-
-  type GetProgramCategoryGroupByPayload<T extends programCategoryGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<ProgramCategoryGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof ProgramCategoryGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], ProgramCategoryGroupByOutputType[P]>
-            : GetScalarType<T[P], ProgramCategoryGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type programCategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    description?: boolean
-    cognitiveExercise?: boolean | programCategory$cognitiveExerciseArgs<ExtArgs>
-    exerciseProgram?: boolean | programCategory$exerciseProgramArgs<ExtArgs>
-    _count?: boolean | ProgramCategoryCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["programCategory"]>
-
-  export type programCategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    description?: boolean
-  }, ExtArgs["result"]["programCategory"]>
-
-  export type programCategorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    description?: boolean
-  }, ExtArgs["result"]["programCategory"]>
-
-  export type programCategorySelectScalar = {
-    id?: boolean
-    name?: boolean
-    description?: boolean
-  }
-
-  export type programCategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description", ExtArgs["result"]["programCategory"]>
-  export type programCategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cognitiveExercise?: boolean | programCategory$cognitiveExerciseArgs<ExtArgs>
-    exerciseProgram?: boolean | programCategory$exerciseProgramArgs<ExtArgs>
-    _count?: boolean | ProgramCategoryCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type programCategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type programCategoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-
-  export type $programCategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "programCategory"
-    objects: {
-      cognitiveExercise: Prisma.$cognitiveExercisePayload<ExtArgs>[]
-      exerciseProgram: Prisma.$exerciseProgramPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      name: string
-      description: string | null
-    }, ExtArgs["result"]["programCategory"]>
-    composites: {}
-  }
-
-  type programCategoryGetPayload<S extends boolean | null | undefined | programCategoryDefaultArgs> = $Result.GetResult<Prisma.$programCategoryPayload, S>
-
-  type programCategoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<programCategoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ProgramCategoryCountAggregateInputType | true
-    }
-
-  export interface programCategoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['programCategory'], meta: { name: 'programCategory' } }
-    /**
-     * Find zero or one ProgramCategory that matches the filter.
-     * @param {programCategoryFindUniqueArgs} args - Arguments to find a ProgramCategory
-     * @example
-     * // Get one ProgramCategory
-     * const programCategory = await prisma.programCategory.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends programCategoryFindUniqueArgs>(args: SelectSubset<T, programCategoryFindUniqueArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one ProgramCategory that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {programCategoryFindUniqueOrThrowArgs} args - Arguments to find a ProgramCategory
-     * @example
-     * // Get one ProgramCategory
-     * const programCategory = await prisma.programCategory.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends programCategoryFindUniqueOrThrowArgs>(args: SelectSubset<T, programCategoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first ProgramCategory that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {programCategoryFindFirstArgs} args - Arguments to find a ProgramCategory
-     * @example
-     * // Get one ProgramCategory
-     * const programCategory = await prisma.programCategory.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends programCategoryFindFirstArgs>(args?: SelectSubset<T, programCategoryFindFirstArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first ProgramCategory that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {programCategoryFindFirstOrThrowArgs} args - Arguments to find a ProgramCategory
-     * @example
-     * // Get one ProgramCategory
-     * const programCategory = await prisma.programCategory.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends programCategoryFindFirstOrThrowArgs>(args?: SelectSubset<T, programCategoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more ProgramCategories that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {programCategoryFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all ProgramCategories
-     * const programCategories = await prisma.programCategory.findMany()
-     * 
-     * // Get first 10 ProgramCategories
-     * const programCategories = await prisma.programCategory.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const programCategoryWithIdOnly = await prisma.programCategory.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends programCategoryFindManyArgs>(args?: SelectSubset<T, programCategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a ProgramCategory.
-     * @param {programCategoryCreateArgs} args - Arguments to create a ProgramCategory.
-     * @example
-     * // Create one ProgramCategory
-     * const ProgramCategory = await prisma.programCategory.create({
-     *   data: {
-     *     // ... data to create a ProgramCategory
-     *   }
-     * })
-     * 
-     */
-    create<T extends programCategoryCreateArgs>(args: SelectSubset<T, programCategoryCreateArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many ProgramCategories.
-     * @param {programCategoryCreateManyArgs} args - Arguments to create many ProgramCategories.
-     * @example
-     * // Create many ProgramCategories
-     * const programCategory = await prisma.programCategory.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends programCategoryCreateManyArgs>(args?: SelectSubset<T, programCategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many ProgramCategories and returns the data saved in the database.
-     * @param {programCategoryCreateManyAndReturnArgs} args - Arguments to create many ProgramCategories.
-     * @example
-     * // Create many ProgramCategories
-     * const programCategory = await prisma.programCategory.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many ProgramCategories and only return the `id`
-     * const programCategoryWithIdOnly = await prisma.programCategory.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends programCategoryCreateManyAndReturnArgs>(args?: SelectSubset<T, programCategoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a ProgramCategory.
-     * @param {programCategoryDeleteArgs} args - Arguments to delete one ProgramCategory.
-     * @example
-     * // Delete one ProgramCategory
-     * const ProgramCategory = await prisma.programCategory.delete({
-     *   where: {
-     *     // ... filter to delete one ProgramCategory
-     *   }
-     * })
-     * 
-     */
-    delete<T extends programCategoryDeleteArgs>(args: SelectSubset<T, programCategoryDeleteArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one ProgramCategory.
-     * @param {programCategoryUpdateArgs} args - Arguments to update one ProgramCategory.
-     * @example
-     * // Update one ProgramCategory
-     * const programCategory = await prisma.programCategory.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends programCategoryUpdateArgs>(args: SelectSubset<T, programCategoryUpdateArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more ProgramCategories.
-     * @param {programCategoryDeleteManyArgs} args - Arguments to filter ProgramCategories to delete.
-     * @example
-     * // Delete a few ProgramCategories
-     * const { count } = await prisma.programCategory.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends programCategoryDeleteManyArgs>(args?: SelectSubset<T, programCategoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more ProgramCategories.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {programCategoryUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many ProgramCategories
-     * const programCategory = await prisma.programCategory.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends programCategoryUpdateManyArgs>(args: SelectSubset<T, programCategoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more ProgramCategories and returns the data updated in the database.
-     * @param {programCategoryUpdateManyAndReturnArgs} args - Arguments to update many ProgramCategories.
-     * @example
-     * // Update many ProgramCategories
-     * const programCategory = await prisma.programCategory.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more ProgramCategories and only return the `id`
-     * const programCategoryWithIdOnly = await prisma.programCategory.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends programCategoryUpdateManyAndReturnArgs>(args: SelectSubset<T, programCategoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one ProgramCategory.
-     * @param {programCategoryUpsertArgs} args - Arguments to update or create a ProgramCategory.
-     * @example
-     * // Update or create a ProgramCategory
-     * const programCategory = await prisma.programCategory.upsert({
-     *   create: {
-     *     // ... data to create a ProgramCategory
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the ProgramCategory we want to update
-     *   }
-     * })
-     */
-    upsert<T extends programCategoryUpsertArgs>(args: SelectSubset<T, programCategoryUpsertArgs<ExtArgs>>): Prisma__programCategoryClient<$Result.GetResult<Prisma.$programCategoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of ProgramCategories.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {programCategoryCountArgs} args - Arguments to filter ProgramCategories to count.
-     * @example
-     * // Count the number of ProgramCategories
-     * const count = await prisma.programCategory.count({
-     *   where: {
-     *     // ... the filter for the ProgramCategories we want to count
-     *   }
-     * })
-    **/
-    count<T extends programCategoryCountArgs>(
-      args?: Subset<T, programCategoryCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], ProgramCategoryCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a ProgramCategory.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProgramCategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends ProgramCategoryAggregateArgs>(args: Subset<T, ProgramCategoryAggregateArgs>): Prisma.PrismaPromise<GetProgramCategoryAggregateType<T>>
-
-    /**
-     * Group by ProgramCategory.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {programCategoryGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends programCategoryGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: programCategoryGroupByArgs['orderBy'] }
-        : { orderBy?: programCategoryGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, programCategoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProgramCategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the programCategory model
-   */
-  readonly fields: programCategoryFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for programCategory.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__programCategoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    cognitiveExercise<T extends programCategory$cognitiveExerciseArgs<ExtArgs> = {}>(args?: Subset<T, programCategory$cognitiveExerciseArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$cognitiveExercisePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    exerciseProgram<T extends programCategory$exerciseProgramArgs<ExtArgs> = {}>(args?: Subset<T, programCategory$exerciseProgramArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$exerciseProgramPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the programCategory model
-   */
-  interface programCategoryFieldRefs {
-    readonly id: FieldRef<"programCategory", 'Int'>
-    readonly name: FieldRef<"programCategory", 'String'>
-    readonly description: FieldRef<"programCategory", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * programCategory findUnique
-   */
-  export type programCategoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    /**
-     * Filter, which programCategory to fetch.
-     */
-    where: programCategoryWhereUniqueInput
-  }
-
-  /**
-   * programCategory findUniqueOrThrow
-   */
-  export type programCategoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    /**
-     * Filter, which programCategory to fetch.
-     */
-    where: programCategoryWhereUniqueInput
-  }
-
-  /**
-   * programCategory findFirst
-   */
-  export type programCategoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    /**
-     * Filter, which programCategory to fetch.
-     */
-    where?: programCategoryWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of programCategories to fetch.
-     */
-    orderBy?: programCategoryOrderByWithRelationInput | programCategoryOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for programCategories.
-     */
-    cursor?: programCategoryWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` programCategories from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` programCategories.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of programCategories.
-     */
-    distinct?: ProgramCategoryScalarFieldEnum | ProgramCategoryScalarFieldEnum[]
-  }
-
-  /**
-   * programCategory findFirstOrThrow
-   */
-  export type programCategoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    /**
-     * Filter, which programCategory to fetch.
-     */
-    where?: programCategoryWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of programCategories to fetch.
-     */
-    orderBy?: programCategoryOrderByWithRelationInput | programCategoryOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for programCategories.
-     */
-    cursor?: programCategoryWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` programCategories from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` programCategories.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of programCategories.
-     */
-    distinct?: ProgramCategoryScalarFieldEnum | ProgramCategoryScalarFieldEnum[]
-  }
-
-  /**
-   * programCategory findMany
-   */
-  export type programCategoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    /**
-     * Filter, which programCategories to fetch.
-     */
-    where?: programCategoryWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of programCategories to fetch.
-     */
-    orderBy?: programCategoryOrderByWithRelationInput | programCategoryOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing programCategories.
-     */
-    cursor?: programCategoryWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` programCategories from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` programCategories.
-     */
-    skip?: number
-    distinct?: ProgramCategoryScalarFieldEnum | ProgramCategoryScalarFieldEnum[]
-  }
-
-  /**
-   * programCategory create
-   */
-  export type programCategoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    /**
-     * The data needed to create a programCategory.
-     */
-    data: XOR<programCategoryCreateInput, programCategoryUncheckedCreateInput>
-  }
-
-  /**
-   * programCategory createMany
-   */
-  export type programCategoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many programCategories.
-     */
-    data: programCategoryCreateManyInput | programCategoryCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * programCategory createManyAndReturn
-   */
-  export type programCategoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * The data used to create many programCategories.
-     */
-    data: programCategoryCreateManyInput | programCategoryCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * programCategory update
-   */
-  export type programCategoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    /**
-     * The data needed to update a programCategory.
-     */
-    data: XOR<programCategoryUpdateInput, programCategoryUncheckedUpdateInput>
-    /**
-     * Choose, which programCategory to update.
-     */
-    where: programCategoryWhereUniqueInput
-  }
-
-  /**
-   * programCategory updateMany
-   */
-  export type programCategoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update programCategories.
-     */
-    data: XOR<programCategoryUpdateManyMutationInput, programCategoryUncheckedUpdateManyInput>
-    /**
-     * Filter which programCategories to update
-     */
-    where?: programCategoryWhereInput
-    /**
-     * Limit how many programCategories to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * programCategory updateManyAndReturn
-   */
-  export type programCategoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * The data used to update programCategories.
-     */
-    data: XOR<programCategoryUpdateManyMutationInput, programCategoryUncheckedUpdateManyInput>
-    /**
-     * Filter which programCategories to update
-     */
-    where?: programCategoryWhereInput
-    /**
-     * Limit how many programCategories to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * programCategory upsert
-   */
-  export type programCategoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    /**
-     * The filter to search for the programCategory to update in case it exists.
-     */
-    where: programCategoryWhereUniqueInput
-    /**
-     * In case the programCategory found by the `where` argument doesn't exist, create a new programCategory with this data.
-     */
-    create: XOR<programCategoryCreateInput, programCategoryUncheckedCreateInput>
-    /**
-     * In case the programCategory was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<programCategoryUpdateInput, programCategoryUncheckedUpdateInput>
-  }
-
-  /**
-   * programCategory delete
-   */
-  export type programCategoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-    /**
-     * Filter which programCategory to delete.
-     */
-    where: programCategoryWhereUniqueInput
-  }
-
-  /**
-   * programCategory deleteMany
-   */
-  export type programCategoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which programCategories to delete
-     */
-    where?: programCategoryWhereInput
-    /**
-     * Limit how many programCategories to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * programCategory.cognitiveExercise
-   */
-  export type programCategory$cognitiveExerciseArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the cognitiveExercise
-     */
-    select?: cognitiveExerciseSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the cognitiveExercise
-     */
-    omit?: cognitiveExerciseOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: cognitiveExerciseInclude<ExtArgs> | null
-    where?: cognitiveExerciseWhereInput
-    orderBy?: cognitiveExerciseOrderByWithRelationInput | cognitiveExerciseOrderByWithRelationInput[]
-    cursor?: cognitiveExerciseWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CognitiveExerciseScalarFieldEnum | CognitiveExerciseScalarFieldEnum[]
-  }
-
-  /**
-   * programCategory.exerciseProgram
-   */
-  export type programCategory$exerciseProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the exerciseProgram
-     */
-    select?: exerciseProgramSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the exerciseProgram
-     */
-    omit?: exerciseProgramOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: exerciseProgramInclude<ExtArgs> | null
-    where?: exerciseProgramWhereInput
-    orderBy?: exerciseProgramOrderByWithRelationInput | exerciseProgramOrderByWithRelationInput[]
-    cursor?: exerciseProgramWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ExerciseProgramScalarFieldEnum | ExerciseProgramScalarFieldEnum[]
-  }
-
-  /**
-   * programCategory without action
-   */
-  export type programCategoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the programCategory
-     */
-    select?: programCategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the programCategory
-     */
-    omit?: programCategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: programCategoryInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Model categoryType
    */
 
@@ -63936,8 +62611,7 @@ export namespace Prisma {
     description: 'description',
     image: 'image',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    programCategoryId: 'programCategoryId'
+    updatedAt: 'updatedAt'
   };
 
   export type CognitiveExerciseScalarFieldEnum = (typeof CognitiveExerciseScalarFieldEnum)[keyof typeof CognitiveExerciseScalarFieldEnum]
@@ -63994,8 +62668,7 @@ export namespace Prisma {
     videoLink: 'videoLink',
     image: 'image',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    programCategoryId: 'programCategoryId'
+    updatedAt: 'updatedAt'
   };
 
   export type ExerciseProgramScalarFieldEnum = (typeof ExerciseProgramScalarFieldEnum)[keyof typeof ExerciseProgramScalarFieldEnum]
@@ -64572,15 +63245,6 @@ export namespace Prisma {
   export type WellnessGoalProgressScalarFieldEnum = (typeof WellnessGoalProgressScalarFieldEnum)[keyof typeof WellnessGoalProgressScalarFieldEnum]
 
 
-  export const ProgramCategoryScalarFieldEnum: {
-    id: 'id',
-    name: 'name',
-    description: 'description'
-  };
-
-  export type ProgramCategoryScalarFieldEnum = (typeof ProgramCategoryScalarFieldEnum)[keyof typeof ProgramCategoryScalarFieldEnum]
-
-
   export const CategoryTypeScalarFieldEnum: {
     id: 'id',
     name: 'name'
@@ -65113,10 +63777,8 @@ export namespace Prisma {
     image?: StringNullableFilter<"cognitiveExercise"> | string | null
     createdAt?: DateTimeFilter<"cognitiveExercise"> | Date | string
     updatedAt?: DateTimeNullableFilter<"cognitiveExercise"> | Date | string | null
-    programCategoryId?: IntNullableFilter<"cognitiveExercise"> | number | null
     category?: XOR<CategoryNullableScalarRelationFilter, categoryWhereInput> | null
     userActivity?: UserActivityListRelationFilter
-    programCategory?: XOR<ProgramCategoryNullableScalarRelationFilter, programCategoryWhereInput> | null
   }
 
   export type cognitiveExerciseOrderByWithRelationInput = {
@@ -65129,10 +63791,8 @@ export namespace Prisma {
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    programCategoryId?: SortOrderInput | SortOrder
     category?: categoryOrderByWithRelationInput
     userActivity?: userActivityOrderByRelationAggregateInput
-    programCategory?: programCategoryOrderByWithRelationInput
   }
 
   export type cognitiveExerciseWhereUniqueInput = Prisma.AtLeast<{
@@ -65148,10 +63808,8 @@ export namespace Prisma {
     image?: StringNullableFilter<"cognitiveExercise"> | string | null
     createdAt?: DateTimeFilter<"cognitiveExercise"> | Date | string
     updatedAt?: DateTimeNullableFilter<"cognitiveExercise"> | Date | string | null
-    programCategoryId?: IntNullableFilter<"cognitiveExercise"> | number | null
     category?: XOR<CategoryNullableScalarRelationFilter, categoryWhereInput> | null
     userActivity?: UserActivityListRelationFilter
-    programCategory?: XOR<ProgramCategoryNullableScalarRelationFilter, programCategoryWhereInput> | null
   }, "id">
 
   export type cognitiveExerciseOrderByWithAggregationInput = {
@@ -65164,7 +63822,6 @@ export namespace Prisma {
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    programCategoryId?: SortOrderInput | SortOrder
     _count?: cognitiveExerciseCountOrderByAggregateInput
     _avg?: cognitiveExerciseAvgOrderByAggregateInput
     _max?: cognitiveExerciseMaxOrderByAggregateInput
@@ -65185,7 +63842,6 @@ export namespace Prisma {
     image?: StringNullableWithAggregatesFilter<"cognitiveExercise"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"cognitiveExercise"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"cognitiveExercise"> | Date | string | null
-    programCategoryId?: IntNullableWithAggregatesFilter<"cognitiveExercise"> | number | null
   }
 
   export type collaborativeProjectWhereInput = {
@@ -65423,10 +64079,8 @@ export namespace Prisma {
     image?: StringNullableFilter<"exerciseProgram"> | string | null
     createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
     updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
-    programCategoryId?: IntNullableFilter<"exerciseProgram"> | number | null
     category?: XOR<CategoryScalarRelationFilter, categoryWhereInput>
     userActivity?: UserActivityListRelationFilter
-    programCategory?: XOR<ProgramCategoryNullableScalarRelationFilter, programCategoryWhereInput> | null
   }
 
   export type exerciseProgramOrderByWithRelationInput = {
@@ -65441,10 +64095,8 @@ export namespace Prisma {
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    programCategoryId?: SortOrderInput | SortOrder
     category?: categoryOrderByWithRelationInput
     userActivity?: userActivityOrderByRelationAggregateInput
-    programCategory?: programCategoryOrderByWithRelationInput
   }
 
   export type exerciseProgramWhereUniqueInput = Prisma.AtLeast<{
@@ -65462,10 +64114,8 @@ export namespace Prisma {
     image?: StringNullableFilter<"exerciseProgram"> | string | null
     createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
     updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
-    programCategoryId?: IntNullableFilter<"exerciseProgram"> | number | null
     category?: XOR<CategoryScalarRelationFilter, categoryWhereInput>
     userActivity?: UserActivityListRelationFilter
-    programCategory?: XOR<ProgramCategoryNullableScalarRelationFilter, programCategoryWhereInput> | null
   }, "id">
 
   export type exerciseProgramOrderByWithAggregationInput = {
@@ -65480,7 +64130,6 @@ export namespace Prisma {
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    programCategoryId?: SortOrderInput | SortOrder
     _count?: exerciseProgramCountOrderByAggregateInput
     _avg?: exerciseProgramAvgOrderByAggregateInput
     _max?: exerciseProgramMaxOrderByAggregateInput
@@ -65503,7 +64152,6 @@ export namespace Prisma {
     image?: StringNullableWithAggregatesFilter<"exerciseProgram"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"exerciseProgram"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"exerciseProgram"> | Date | string | null
-    programCategoryId?: IntNullableWithAggregatesFilter<"exerciseProgram"> | number | null
   }
 
   export type forumCategoryWhereInput = {
@@ -68550,56 +67198,6 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableWithAggregatesFilter<"wellnessGoalProgress"> | Date | string | null
   }
 
-  export type programCategoryWhereInput = {
-    AND?: programCategoryWhereInput | programCategoryWhereInput[]
-    OR?: programCategoryWhereInput[]
-    NOT?: programCategoryWhereInput | programCategoryWhereInput[]
-    id?: IntFilter<"programCategory"> | number
-    name?: StringFilter<"programCategory"> | string
-    description?: StringNullableFilter<"programCategory"> | string | null
-    cognitiveExercise?: CognitiveExerciseListRelationFilter
-    exerciseProgram?: ExerciseProgramListRelationFilter
-  }
-
-  export type programCategoryOrderByWithRelationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    description?: SortOrderInput | SortOrder
-    cognitiveExercise?: cognitiveExerciseOrderByRelationAggregateInput
-    exerciseProgram?: exerciseProgramOrderByRelationAggregateInput
-  }
-
-  export type programCategoryWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: programCategoryWhereInput | programCategoryWhereInput[]
-    OR?: programCategoryWhereInput[]
-    NOT?: programCategoryWhereInput | programCategoryWhereInput[]
-    name?: StringFilter<"programCategory"> | string
-    description?: StringNullableFilter<"programCategory"> | string | null
-    cognitiveExercise?: CognitiveExerciseListRelationFilter
-    exerciseProgram?: ExerciseProgramListRelationFilter
-  }, "id">
-
-  export type programCategoryOrderByWithAggregationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    description?: SortOrderInput | SortOrder
-    _count?: programCategoryCountOrderByAggregateInput
-    _avg?: programCategoryAvgOrderByAggregateInput
-    _max?: programCategoryMaxOrderByAggregateInput
-    _min?: programCategoryMinOrderByAggregateInput
-    _sum?: programCategorySumOrderByAggregateInput
-  }
-
-  export type programCategoryScalarWhereWithAggregatesInput = {
-    AND?: programCategoryScalarWhereWithAggregatesInput | programCategoryScalarWhereWithAggregatesInput[]
-    OR?: programCategoryScalarWhereWithAggregatesInput[]
-    NOT?: programCategoryScalarWhereWithAggregatesInput | programCategoryScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"programCategory"> | number
-    name?: StringWithAggregatesFilter<"programCategory"> | string
-    description?: StringNullableWithAggregatesFilter<"programCategory"> | string | null
-  }
-
   export type categoryTypeWhereInput = {
     AND?: categoryTypeWhereInput | categoryTypeWhereInput[]
     OR?: categoryTypeWhereInput[]
@@ -69140,7 +67738,6 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     category?: categoryCreateNestedOneWithoutCognitiveExerciseInput
     userActivity?: userActivityCreateNestedManyWithoutCognitiveExerciseInput
-    programCategory?: programCategoryCreateNestedOneWithoutCognitiveExerciseInput
   }
 
   export type cognitiveExerciseUncheckedCreateInput = {
@@ -69153,7 +67750,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
     userActivity?: userActivityUncheckedCreateNestedManyWithoutCognitiveExerciseInput
   }
 
@@ -69168,7 +67764,6 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: categoryUpdateOneWithoutCognitiveExerciseNestedInput
     userActivity?: userActivityUpdateManyWithoutCognitiveExerciseNestedInput
-    programCategory?: programCategoryUpdateOneWithoutCognitiveExerciseNestedInput
   }
 
   export type cognitiveExerciseUncheckedUpdateInput = {
@@ -69181,7 +67776,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     userActivity?: userActivityUncheckedUpdateManyWithoutCognitiveExerciseNestedInput
   }
 
@@ -69195,7 +67789,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
   }
 
   export type cognitiveExerciseUpdateManyMutationInput = {
@@ -69219,7 +67812,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type collaborativeProjectCreateInput = {
@@ -69468,7 +68060,6 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     category: categoryCreateNestedOneWithoutExerciseProgramInput
     userActivity?: userActivityCreateNestedManyWithoutExerciseProgramInput
-    programCategory?: programCategoryCreateNestedOneWithoutExerciseProgramInput
   }
 
   export type exerciseProgramUncheckedCreateInput = {
@@ -69483,7 +68074,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
     userActivity?: userActivityUncheckedCreateNestedManyWithoutExerciseProgramInput
   }
 
@@ -69500,7 +68090,6 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: categoryUpdateOneRequiredWithoutExerciseProgramNestedInput
     userActivity?: userActivityUpdateManyWithoutExerciseProgramNestedInput
-    programCategory?: programCategoryUpdateOneWithoutExerciseProgramNestedInput
   }
 
   export type exerciseProgramUncheckedUpdateInput = {
@@ -69515,7 +68104,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     userActivity?: userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput
   }
 
@@ -69531,7 +68119,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
   }
 
   export type exerciseProgramUpdateManyMutationInput = {
@@ -69559,7 +68146,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type forumCategoryCreateInput = {
@@ -72891,53 +71477,6 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type programCategoryCreateInput = {
-    name: string
-    description?: string | null
-    cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutProgramCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutProgramCategoryInput
-  }
-
-  export type programCategoryUncheckedCreateInput = {
-    id?: number
-    name: string
-    description?: string | null
-    cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutProgramCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutProgramCategoryInput
-  }
-
-  export type programCategoryUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    cognitiveExercise?: cognitiveExerciseUpdateManyWithoutProgramCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutProgramCategoryNestedInput
-  }
-
-  export type programCategoryUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutProgramCategoryNestedInput
-  }
-
-  export type programCategoryCreateManyInput = {
-    id?: number
-    name: string
-    description?: string | null
-  }
-
-  export type programCategoryUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type programCategoryUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type categoryTypeCreateInput = {
     name: string
     categories?: categoryCreateNestedManyWithoutTypeInput
@@ -73540,11 +72079,6 @@ export namespace Prisma {
     none?: userActivityWhereInput
   }
 
-  export type ProgramCategoryNullableScalarRelationFilter = {
-    is?: programCategoryWhereInput | null
-    isNot?: programCategoryWhereInput | null
-  }
-
   export type userActivityOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -73559,14 +72093,12 @@ export namespace Prisma {
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type cognitiveExerciseAvgOrderByAggregateInput = {
     categoryId?: SortOrder
     difficultyLevel?: SortOrder
     durationMinutes?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type cognitiveExerciseMaxOrderByAggregateInput = {
@@ -73579,7 +72111,6 @@ export namespace Prisma {
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type cognitiveExerciseMinOrderByAggregateInput = {
@@ -73592,14 +72123,12 @@ export namespace Prisma {
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type cognitiveExerciseSumOrderByAggregateInput = {
     categoryId?: SortOrder
     difficultyLevel?: SortOrder
     durationMinutes?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type ProjectMemberListRelationFilter = {
@@ -73770,14 +72299,12 @@ export namespace Prisma {
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type exerciseProgramAvgOrderByAggregateInput = {
     categoryId?: SortOrder
     difficultyLevel?: SortOrder
     durationMinutes?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type exerciseProgramMaxOrderByAggregateInput = {
@@ -73792,7 +72319,6 @@ export namespace Prisma {
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type exerciseProgramMinOrderByAggregateInput = {
@@ -73807,14 +72333,12 @@ export namespace Prisma {
     image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type exerciseProgramSumOrderByAggregateInput = {
     categoryId?: SortOrder
     difficultyLevel?: SortOrder
     durationMinutes?: SortOrder
-    programCategoryId?: SortOrder
   }
 
   export type ForumTopicListRelationFilter = {
@@ -75750,52 +74274,6 @@ export namespace Prisma {
     achievedValue?: SortOrder
   }
 
-  export type CognitiveExerciseListRelationFilter = {
-    every?: cognitiveExerciseWhereInput
-    some?: cognitiveExerciseWhereInput
-    none?: cognitiveExerciseWhereInput
-  }
-
-  export type ExerciseProgramListRelationFilter = {
-    every?: exerciseProgramWhereInput
-    some?: exerciseProgramWhereInput
-    none?: exerciseProgramWhereInput
-  }
-
-  export type cognitiveExerciseOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type exerciseProgramOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type programCategoryCountOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-  }
-
-  export type programCategoryAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type programCategoryMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-  }
-
-  export type programCategoryMinOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-  }
-
-  export type programCategorySumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type CategoryListRelationFilter = {
     every?: categoryWhereInput
     some?: categoryWhereInput
@@ -75839,6 +74317,12 @@ export namespace Prisma {
     isNot?: badgeWhereInput | null
   }
 
+  export type CognitiveExerciseListRelationFilter = {
+    every?: cognitiveExerciseWhereInput
+    some?: cognitiveExerciseWhereInput
+    none?: cognitiveExerciseWhereInput
+  }
+
   export type LocalServiceListRelationFilter = {
     every?: localServiceWhereInput
     some?: localServiceWhereInput
@@ -75863,6 +74347,16 @@ export namespace Prisma {
     none?: wellnessBadgeWhereInput
   }
 
+  export type ExerciseProgramListRelationFilter = {
+    every?: exerciseProgramWhereInput
+    some?: exerciseProgramWhereInput
+    none?: exerciseProgramWhereInput
+  }
+
+  export type cognitiveExerciseOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type localServiceOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -75876,6 +74370,10 @@ export namespace Prisma {
   }
 
   export type wellnessBadgeOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type exerciseProgramOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -76117,12 +74615,6 @@ export namespace Prisma {
     connect?: userActivityWhereUniqueInput | userActivityWhereUniqueInput[]
   }
 
-  export type programCategoryCreateNestedOneWithoutCognitiveExerciseInput = {
-    create?: XOR<programCategoryCreateWithoutCognitiveExerciseInput, programCategoryUncheckedCreateWithoutCognitiveExerciseInput>
-    connectOrCreate?: programCategoryCreateOrConnectWithoutCognitiveExerciseInput
-    connect?: programCategoryWhereUniqueInput
-  }
-
   export type userActivityUncheckedCreateNestedManyWithoutCognitiveExerciseInput = {
     create?: XOR<userActivityCreateWithoutCognitiveExerciseInput, userActivityUncheckedCreateWithoutCognitiveExerciseInput> | userActivityCreateWithoutCognitiveExerciseInput[] | userActivityUncheckedCreateWithoutCognitiveExerciseInput[]
     connectOrCreate?: userActivityCreateOrConnectWithoutCognitiveExerciseInput | userActivityCreateOrConnectWithoutCognitiveExerciseInput[]
@@ -76152,16 +74644,6 @@ export namespace Prisma {
     update?: userActivityUpdateWithWhereUniqueWithoutCognitiveExerciseInput | userActivityUpdateWithWhereUniqueWithoutCognitiveExerciseInput[]
     updateMany?: userActivityUpdateManyWithWhereWithoutCognitiveExerciseInput | userActivityUpdateManyWithWhereWithoutCognitiveExerciseInput[]
     deleteMany?: userActivityScalarWhereInput | userActivityScalarWhereInput[]
-  }
-
-  export type programCategoryUpdateOneWithoutCognitiveExerciseNestedInput = {
-    create?: XOR<programCategoryCreateWithoutCognitiveExerciseInput, programCategoryUncheckedCreateWithoutCognitiveExerciseInput>
-    connectOrCreate?: programCategoryCreateOrConnectWithoutCognitiveExerciseInput
-    upsert?: programCategoryUpsertWithoutCognitiveExerciseInput
-    disconnect?: programCategoryWhereInput | boolean
-    delete?: programCategoryWhereInput | boolean
-    connect?: programCategoryWhereUniqueInput
-    update?: XOR<XOR<programCategoryUpdateToOneWithWhereWithoutCognitiveExerciseInput, programCategoryUpdateWithoutCognitiveExerciseInput>, programCategoryUncheckedUpdateWithoutCognitiveExerciseInput>
   }
 
   export type userActivityUncheckedUpdateManyWithoutCognitiveExerciseNestedInput = {
@@ -76461,12 +74943,6 @@ export namespace Prisma {
     connect?: userActivityWhereUniqueInput | userActivityWhereUniqueInput[]
   }
 
-  export type programCategoryCreateNestedOneWithoutExerciseProgramInput = {
-    create?: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput>
-    connectOrCreate?: programCategoryCreateOrConnectWithoutExerciseProgramInput
-    connect?: programCategoryWhereUniqueInput
-  }
-
   export type userActivityUncheckedCreateNestedManyWithoutExerciseProgramInput = {
     create?: XOR<userActivityCreateWithoutExerciseProgramInput, userActivityUncheckedCreateWithoutExerciseProgramInput> | userActivityCreateWithoutExerciseProgramInput[] | userActivityUncheckedCreateWithoutExerciseProgramInput[]
     connectOrCreate?: userActivityCreateOrConnectWithoutExerciseProgramInput | userActivityCreateOrConnectWithoutExerciseProgramInput[]
@@ -76494,16 +74970,6 @@ export namespace Prisma {
     update?: userActivityUpdateWithWhereUniqueWithoutExerciseProgramInput | userActivityUpdateWithWhereUniqueWithoutExerciseProgramInput[]
     updateMany?: userActivityUpdateManyWithWhereWithoutExerciseProgramInput | userActivityUpdateManyWithWhereWithoutExerciseProgramInput[]
     deleteMany?: userActivityScalarWhereInput | userActivityScalarWhereInput[]
-  }
-
-  export type programCategoryUpdateOneWithoutExerciseProgramNestedInput = {
-    create?: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput>
-    connectOrCreate?: programCategoryCreateOrConnectWithoutExerciseProgramInput
-    upsert?: programCategoryUpsertWithoutExerciseProgramInput
-    disconnect?: programCategoryWhereInput | boolean
-    delete?: programCategoryWhereInput | boolean
-    connect?: programCategoryWhereUniqueInput
-    update?: XOR<XOR<programCategoryUpdateToOneWithWhereWithoutExerciseProgramInput, programCategoryUpdateWithoutExerciseProgramInput>, programCategoryUncheckedUpdateWithoutExerciseProgramInput>
   }
 
   export type userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput = {
@@ -78890,90 +77356,6 @@ export namespace Prisma {
     update?: XOR<XOR<wellnessGoalUpdateToOneWithWhereWithoutWellnessGoalProgressInput, wellnessGoalUpdateWithoutWellnessGoalProgressInput>, wellnessGoalUncheckedUpdateWithoutWellnessGoalProgressInput>
   }
 
-  export type cognitiveExerciseCreateNestedManyWithoutProgramCategoryInput = {
-    create?: XOR<cognitiveExerciseCreateWithoutProgramCategoryInput, cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput> | cognitiveExerciseCreateWithoutProgramCategoryInput[] | cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput[]
-    connectOrCreate?: cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput | cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput[]
-    createMany?: cognitiveExerciseCreateManyProgramCategoryInputEnvelope
-    connect?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-  }
-
-  export type exerciseProgramCreateNestedManyWithoutProgramCategoryInput = {
-    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput> | exerciseProgramCreateWithoutProgramCategoryInput[] | exerciseProgramUncheckedCreateWithoutProgramCategoryInput[]
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput | exerciseProgramCreateOrConnectWithoutProgramCategoryInput[]
-    createMany?: exerciseProgramCreateManyProgramCategoryInputEnvelope
-    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-  }
-
-  export type cognitiveExerciseUncheckedCreateNestedManyWithoutProgramCategoryInput = {
-    create?: XOR<cognitiveExerciseCreateWithoutProgramCategoryInput, cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput> | cognitiveExerciseCreateWithoutProgramCategoryInput[] | cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput[]
-    connectOrCreate?: cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput | cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput[]
-    createMany?: cognitiveExerciseCreateManyProgramCategoryInputEnvelope
-    connect?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-  }
-
-  export type exerciseProgramUncheckedCreateNestedManyWithoutProgramCategoryInput = {
-    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput> | exerciseProgramCreateWithoutProgramCategoryInput[] | exerciseProgramUncheckedCreateWithoutProgramCategoryInput[]
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput | exerciseProgramCreateOrConnectWithoutProgramCategoryInput[]
-    createMany?: exerciseProgramCreateManyProgramCategoryInputEnvelope
-    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-  }
-
-  export type cognitiveExerciseUpdateManyWithoutProgramCategoryNestedInput = {
-    create?: XOR<cognitiveExerciseCreateWithoutProgramCategoryInput, cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput> | cognitiveExerciseCreateWithoutProgramCategoryInput[] | cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput[]
-    connectOrCreate?: cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput | cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput[]
-    upsert?: cognitiveExerciseUpsertWithWhereUniqueWithoutProgramCategoryInput | cognitiveExerciseUpsertWithWhereUniqueWithoutProgramCategoryInput[]
-    createMany?: cognitiveExerciseCreateManyProgramCategoryInputEnvelope
-    set?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-    disconnect?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-    delete?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-    connect?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-    update?: cognitiveExerciseUpdateWithWhereUniqueWithoutProgramCategoryInput | cognitiveExerciseUpdateWithWhereUniqueWithoutProgramCategoryInput[]
-    updateMany?: cognitiveExerciseUpdateManyWithWhereWithoutProgramCategoryInput | cognitiveExerciseUpdateManyWithWhereWithoutProgramCategoryInput[]
-    deleteMany?: cognitiveExerciseScalarWhereInput | cognitiveExerciseScalarWhereInput[]
-  }
-
-  export type exerciseProgramUpdateManyWithoutProgramCategoryNestedInput = {
-    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput> | exerciseProgramCreateWithoutProgramCategoryInput[] | exerciseProgramUncheckedCreateWithoutProgramCategoryInput[]
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput | exerciseProgramCreateOrConnectWithoutProgramCategoryInput[]
-    upsert?: exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput | exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput[]
-    createMany?: exerciseProgramCreateManyProgramCategoryInputEnvelope
-    set?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    disconnect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    delete?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    update?: exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput | exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput[]
-    updateMany?: exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput | exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput[]
-    deleteMany?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
-  }
-
-  export type cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryNestedInput = {
-    create?: XOR<cognitiveExerciseCreateWithoutProgramCategoryInput, cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput> | cognitiveExerciseCreateWithoutProgramCategoryInput[] | cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput[]
-    connectOrCreate?: cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput | cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput[]
-    upsert?: cognitiveExerciseUpsertWithWhereUniqueWithoutProgramCategoryInput | cognitiveExerciseUpsertWithWhereUniqueWithoutProgramCategoryInput[]
-    createMany?: cognitiveExerciseCreateManyProgramCategoryInputEnvelope
-    set?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-    disconnect?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-    delete?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-    connect?: cognitiveExerciseWhereUniqueInput | cognitiveExerciseWhereUniqueInput[]
-    update?: cognitiveExerciseUpdateWithWhereUniqueWithoutProgramCategoryInput | cognitiveExerciseUpdateWithWhereUniqueWithoutProgramCategoryInput[]
-    updateMany?: cognitiveExerciseUpdateManyWithWhereWithoutProgramCategoryInput | cognitiveExerciseUpdateManyWithWhereWithoutProgramCategoryInput[]
-    deleteMany?: cognitiveExerciseScalarWhereInput | cognitiveExerciseScalarWhereInput[]
-  }
-
-  export type exerciseProgramUncheckedUpdateManyWithoutProgramCategoryNestedInput = {
-    create?: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput> | exerciseProgramCreateWithoutProgramCategoryInput[] | exerciseProgramUncheckedCreateWithoutProgramCategoryInput[]
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutProgramCategoryInput | exerciseProgramCreateOrConnectWithoutProgramCategoryInput[]
-    upsert?: exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput | exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput[]
-    createMany?: exerciseProgramCreateManyProgramCategoryInputEnvelope
-    set?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    disconnect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    delete?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    update?: exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput | exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput[]
-    updateMany?: exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput | exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput[]
-    deleteMany?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
-  }
-
   export type categoryCreateNestedManyWithoutTypeInput = {
     create?: XOR<categoryCreateWithoutTypeInput, categoryUncheckedCreateWithoutTypeInput> | categoryCreateWithoutTypeInput[] | categoryUncheckedCreateWithoutTypeInput[]
     connectOrCreate?: categoryCreateOrConnectWithoutTypeInput | categoryCreateOrConnectWithoutTypeInput[]
@@ -81010,24 +79392,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type programCategoryCreateWithoutCognitiveExerciseInput = {
-    name: string
-    description?: string | null
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutProgramCategoryInput
-  }
-
-  export type programCategoryUncheckedCreateWithoutCognitiveExerciseInput = {
-    id?: number
-    name: string
-    description?: string | null
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutProgramCategoryInput
-  }
-
-  export type programCategoryCreateOrConnectWithoutCognitiveExerciseInput = {
-    where: programCategoryWhereUniqueInput
-    create: XOR<programCategoryCreateWithoutCognitiveExerciseInput, programCategoryUncheckedCreateWithoutCognitiveExerciseInput>
-  }
-
   export type categoryUpsertWithoutCognitiveExerciseInput = {
     update: XOR<categoryUpdateWithoutCognitiveExerciseInput, categoryUncheckedUpdateWithoutCognitiveExerciseInput>
     create: XOR<categoryCreateWithoutCognitiveExerciseInput, categoryUncheckedCreateWithoutCognitiveExerciseInput>
@@ -81107,30 +79471,6 @@ export namespace Prisma {
     comment?: StringNullableFilter<"userActivity"> | string | null
     createdAt?: DateTimeFilter<"userActivity"> | Date | string
     updatedAt?: DateTimeNullableFilter<"userActivity"> | Date | string | null
-  }
-
-  export type programCategoryUpsertWithoutCognitiveExerciseInput = {
-    update: XOR<programCategoryUpdateWithoutCognitiveExerciseInput, programCategoryUncheckedUpdateWithoutCognitiveExerciseInput>
-    create: XOR<programCategoryCreateWithoutCognitiveExerciseInput, programCategoryUncheckedCreateWithoutCognitiveExerciseInput>
-    where?: programCategoryWhereInput
-  }
-
-  export type programCategoryUpdateToOneWithWhereWithoutCognitiveExerciseInput = {
-    where?: programCategoryWhereInput
-    data: XOR<programCategoryUpdateWithoutCognitiveExerciseInput, programCategoryUncheckedUpdateWithoutCognitiveExerciseInput>
-  }
-
-  export type programCategoryUpdateWithoutCognitiveExerciseInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    exerciseProgram?: exerciseProgramUpdateManyWithoutProgramCategoryNestedInput
-  }
-
-  export type programCategoryUncheckedUpdateWithoutCognitiveExerciseInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutProgramCategoryNestedInput
   }
 
   export type userCreateWithoutCollaborativeProjectInput = {
@@ -82127,24 +80467,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type programCategoryCreateWithoutExerciseProgramInput = {
-    name: string
-    description?: string | null
-    cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutProgramCategoryInput
-  }
-
-  export type programCategoryUncheckedCreateWithoutExerciseProgramInput = {
-    id?: number
-    name: string
-    description?: string | null
-    cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutProgramCategoryInput
-  }
-
-  export type programCategoryCreateOrConnectWithoutExerciseProgramInput = {
-    where: programCategoryWhereUniqueInput
-    create: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput>
-  }
-
   export type categoryUpsertWithoutExerciseProgramInput = {
     update: XOR<categoryUpdateWithoutExerciseProgramInput, categoryUncheckedUpdateWithoutExerciseProgramInput>
     create: XOR<categoryCreateWithoutExerciseProgramInput, categoryUncheckedCreateWithoutExerciseProgramInput>
@@ -82207,30 +80529,6 @@ export namespace Prisma {
   export type userActivityUpdateManyWithWhereWithoutExerciseProgramInput = {
     where: userActivityScalarWhereInput
     data: XOR<userActivityUpdateManyMutationInput, userActivityUncheckedUpdateManyWithoutExerciseProgramInput>
-  }
-
-  export type programCategoryUpsertWithoutExerciseProgramInput = {
-    update: XOR<programCategoryUpdateWithoutExerciseProgramInput, programCategoryUncheckedUpdateWithoutExerciseProgramInput>
-    create: XOR<programCategoryCreateWithoutExerciseProgramInput, programCategoryUncheckedCreateWithoutExerciseProgramInput>
-    where?: programCategoryWhereInput
-  }
-
-  export type programCategoryUpdateToOneWithWhereWithoutExerciseProgramInput = {
-    where?: programCategoryWhereInput
-    data: XOR<programCategoryUpdateWithoutExerciseProgramInput, programCategoryUncheckedUpdateWithoutExerciseProgramInput>
-  }
-
-  export type programCategoryUpdateWithoutExerciseProgramInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    cognitiveExercise?: cognitiveExerciseUpdateManyWithoutProgramCategoryNestedInput
-  }
-
-  export type programCategoryUncheckedUpdateWithoutExerciseProgramInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryNestedInput
   }
 
   export type forumTopicCreateWithoutForumCategoryInput = {
@@ -89896,7 +88194,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     category?: categoryCreateNestedOneWithoutCognitiveExerciseInput
-    programCategory?: programCategoryCreateNestedOneWithoutCognitiveExerciseInput
   }
 
   export type cognitiveExerciseUncheckedCreateWithoutUserActivityInput = {
@@ -89909,7 +88206,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
   }
 
   export type cognitiveExerciseCreateOrConnectWithoutUserActivityInput = {
@@ -89929,7 +88225,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     category: categoryCreateNestedOneWithoutExerciseProgramInput
-    programCategory?: programCategoryCreateNestedOneWithoutExerciseProgramInput
   }
 
   export type exerciseProgramUncheckedCreateWithoutUserActivityInput = {
@@ -89944,7 +88239,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
   }
 
   export type exerciseProgramCreateOrConnectWithoutUserActivityInput = {
@@ -90086,7 +88380,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: categoryUpdateOneWithoutCognitiveExerciseNestedInput
-    programCategory?: programCategoryUpdateOneWithoutCognitiveExerciseNestedInput
   }
 
   export type cognitiveExerciseUncheckedUpdateWithoutUserActivityInput = {
@@ -90099,7 +88392,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type exerciseProgramUpsertWithoutUserActivityInput = {
@@ -90125,7 +88417,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: categoryUpdateOneRequiredWithoutExerciseProgramNestedInput
-    programCategory?: programCategoryUpdateOneWithoutExerciseProgramNestedInput
   }
 
   export type exerciseProgramUncheckedUpdateWithoutUserActivityInput = {
@@ -90140,7 +88431,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type userUpsertWithoutUserActivityInput = {
@@ -92138,148 +90428,6 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type cognitiveExerciseCreateWithoutProgramCategoryInput = {
-    id?: string
-    name: string
-    difficultyLevel?: number | null
-    durationMinutes?: number | null
-    description?: string | null
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    category?: categoryCreateNestedOneWithoutCognitiveExerciseInput
-    userActivity?: userActivityCreateNestedManyWithoutCognitiveExerciseInput
-  }
-
-  export type cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput = {
-    id?: string
-    name: string
-    categoryId: number
-    difficultyLevel?: number | null
-    durationMinutes?: number | null
-    description?: string | null
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    userActivity?: userActivityUncheckedCreateNestedManyWithoutCognitiveExerciseInput
-  }
-
-  export type cognitiveExerciseCreateOrConnectWithoutProgramCategoryInput = {
-    where: cognitiveExerciseWhereUniqueInput
-    create: XOR<cognitiveExerciseCreateWithoutProgramCategoryInput, cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput>
-  }
-
-  export type cognitiveExerciseCreateManyProgramCategoryInputEnvelope = {
-    data: cognitiveExerciseCreateManyProgramCategoryInput | cognitiveExerciseCreateManyProgramCategoryInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type exerciseProgramCreateWithoutProgramCategoryInput = {
-    id?: string
-    name: string
-    difficultyLevel?: number | null
-    adaptedForReducedMobility?: boolean | null
-    durationMinutes?: number | null
-    description?: string | null
-    videoLink?: string | null
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    category: categoryCreateNestedOneWithoutExerciseProgramInput
-    userActivity?: userActivityCreateNestedManyWithoutExerciseProgramInput
-  }
-
-  export type exerciseProgramUncheckedCreateWithoutProgramCategoryInput = {
-    id?: string
-    name: string
-    categoryId: number
-    difficultyLevel?: number | null
-    adaptedForReducedMobility?: boolean | null
-    durationMinutes?: number | null
-    description?: string | null
-    videoLink?: string | null
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    userActivity?: userActivityUncheckedCreateNestedManyWithoutExerciseProgramInput
-  }
-
-  export type exerciseProgramCreateOrConnectWithoutProgramCategoryInput = {
-    where: exerciseProgramWhereUniqueInput
-    create: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput>
-  }
-
-  export type exerciseProgramCreateManyProgramCategoryInputEnvelope = {
-    data: exerciseProgramCreateManyProgramCategoryInput | exerciseProgramCreateManyProgramCategoryInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type cognitiveExerciseUpsertWithWhereUniqueWithoutProgramCategoryInput = {
-    where: cognitiveExerciseWhereUniqueInput
-    update: XOR<cognitiveExerciseUpdateWithoutProgramCategoryInput, cognitiveExerciseUncheckedUpdateWithoutProgramCategoryInput>
-    create: XOR<cognitiveExerciseCreateWithoutProgramCategoryInput, cognitiveExerciseUncheckedCreateWithoutProgramCategoryInput>
-  }
-
-  export type cognitiveExerciseUpdateWithWhereUniqueWithoutProgramCategoryInput = {
-    where: cognitiveExerciseWhereUniqueInput
-    data: XOR<cognitiveExerciseUpdateWithoutProgramCategoryInput, cognitiveExerciseUncheckedUpdateWithoutProgramCategoryInput>
-  }
-
-  export type cognitiveExerciseUpdateManyWithWhereWithoutProgramCategoryInput = {
-    where: cognitiveExerciseScalarWhereInput
-    data: XOR<cognitiveExerciseUpdateManyMutationInput, cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryInput>
-  }
-
-  export type cognitiveExerciseScalarWhereInput = {
-    AND?: cognitiveExerciseScalarWhereInput | cognitiveExerciseScalarWhereInput[]
-    OR?: cognitiveExerciseScalarWhereInput[]
-    NOT?: cognitiveExerciseScalarWhereInput | cognitiveExerciseScalarWhereInput[]
-    id?: StringFilter<"cognitiveExercise"> | string
-    name?: StringFilter<"cognitiveExercise"> | string
-    categoryId?: IntFilter<"cognitiveExercise"> | number
-    difficultyLevel?: IntNullableFilter<"cognitiveExercise"> | number | null
-    durationMinutes?: IntNullableFilter<"cognitiveExercise"> | number | null
-    description?: StringNullableFilter<"cognitiveExercise"> | string | null
-    image?: StringNullableFilter<"cognitiveExercise"> | string | null
-    createdAt?: DateTimeFilter<"cognitiveExercise"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"cognitiveExercise"> | Date | string | null
-    programCategoryId?: IntNullableFilter<"cognitiveExercise"> | number | null
-  }
-
-  export type exerciseProgramUpsertWithWhereUniqueWithoutProgramCategoryInput = {
-    where: exerciseProgramWhereUniqueInput
-    update: XOR<exerciseProgramUpdateWithoutProgramCategoryInput, exerciseProgramUncheckedUpdateWithoutProgramCategoryInput>
-    create: XOR<exerciseProgramCreateWithoutProgramCategoryInput, exerciseProgramUncheckedCreateWithoutProgramCategoryInput>
-  }
-
-  export type exerciseProgramUpdateWithWhereUniqueWithoutProgramCategoryInput = {
-    where: exerciseProgramWhereUniqueInput
-    data: XOR<exerciseProgramUpdateWithoutProgramCategoryInput, exerciseProgramUncheckedUpdateWithoutProgramCategoryInput>
-  }
-
-  export type exerciseProgramUpdateManyWithWhereWithoutProgramCategoryInput = {
-    where: exerciseProgramScalarWhereInput
-    data: XOR<exerciseProgramUpdateManyMutationInput, exerciseProgramUncheckedUpdateManyWithoutProgramCategoryInput>
-  }
-
-  export type exerciseProgramScalarWhereInput = {
-    AND?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
-    OR?: exerciseProgramScalarWhereInput[]
-    NOT?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
-    id?: StringFilter<"exerciseProgram"> | string
-    name?: StringFilter<"exerciseProgram"> | string
-    categoryId?: IntFilter<"exerciseProgram"> | number
-    difficultyLevel?: IntNullableFilter<"exerciseProgram"> | number | null
-    adaptedForReducedMobility?: BoolNullableFilter<"exerciseProgram"> | boolean | null
-    durationMinutes?: IntNullableFilter<"exerciseProgram"> | number | null
-    description?: StringNullableFilter<"exerciseProgram"> | string | null
-    videoLink?: StringNullableFilter<"exerciseProgram"> | string | null
-    image?: StringNullableFilter<"exerciseProgram"> | string | null
-    createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
-    programCategoryId?: IntNullableFilter<"exerciseProgram"> | number | null
-  }
-
   export type categoryCreateWithoutTypeInput = {
     name: string
     description?: string | null
@@ -92460,7 +90608,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     userActivity?: userActivityCreateNestedManyWithoutCognitiveExerciseInput
-    programCategory?: programCategoryCreateNestedOneWithoutCognitiveExerciseInput
   }
 
   export type cognitiveExerciseUncheckedCreateWithoutCategoryInput = {
@@ -92472,7 +90619,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
     userActivity?: userActivityUncheckedCreateNestedManyWithoutCognitiveExerciseInput
   }
 
@@ -92818,7 +90964,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     userActivity?: userActivityCreateNestedManyWithoutExerciseProgramInput
-    programCategory?: programCategoryCreateNestedOneWithoutExerciseProgramInput
   }
 
   export type exerciseProgramUncheckedCreateWithoutCategoryInput = {
@@ -92832,7 +90977,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
     userActivity?: userActivityUncheckedCreateNestedManyWithoutExerciseProgramInput
   }
 
@@ -92929,6 +91073,21 @@ export namespace Prisma {
   export type cognitiveExerciseUpdateManyWithWhereWithoutCategoryInput = {
     where: cognitiveExerciseScalarWhereInput
     data: XOR<cognitiveExerciseUpdateManyMutationInput, cognitiveExerciseUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type cognitiveExerciseScalarWhereInput = {
+    AND?: cognitiveExerciseScalarWhereInput | cognitiveExerciseScalarWhereInput[]
+    OR?: cognitiveExerciseScalarWhereInput[]
+    NOT?: cognitiveExerciseScalarWhereInput | cognitiveExerciseScalarWhereInput[]
+    id?: StringFilter<"cognitiveExercise"> | string
+    name?: StringFilter<"cognitiveExercise"> | string
+    categoryId?: IntFilter<"cognitiveExercise"> | number
+    difficultyLevel?: IntNullableFilter<"cognitiveExercise"> | number | null
+    durationMinutes?: IntNullableFilter<"cognitiveExercise"> | number | null
+    description?: StringNullableFilter<"cognitiveExercise"> | string | null
+    image?: StringNullableFilter<"cognitiveExercise"> | string | null
+    createdAt?: DateTimeFilter<"cognitiveExercise"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"cognitiveExercise"> | Date | string | null
   }
 
   export type collaborativeProjectUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -93147,6 +91306,23 @@ export namespace Prisma {
   export type exerciseProgramUpdateManyWithWhereWithoutCategoryInput = {
     where: exerciseProgramScalarWhereInput
     data: XOR<exerciseProgramUpdateManyMutationInput, exerciseProgramUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type exerciseProgramScalarWhereInput = {
+    AND?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
+    OR?: exerciseProgramScalarWhereInput[]
+    NOT?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
+    id?: StringFilter<"exerciseProgram"> | string
+    name?: StringFilter<"exerciseProgram"> | string
+    categoryId?: IntFilter<"exerciseProgram"> | number
+    difficultyLevel?: IntNullableFilter<"exerciseProgram"> | number | null
+    adaptedForReducedMobility?: BoolNullableFilter<"exerciseProgram"> | boolean | null
+    durationMinutes?: IntNullableFilter<"exerciseProgram"> | number | null
+    description?: StringNullableFilter<"exerciseProgram"> | string | null
+    videoLink?: StringNullableFilter<"exerciseProgram"> | string | null
+    image?: StringNullableFilter<"exerciseProgram"> | string | null
+    createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
   }
 
   export type activityRegistrationCreateManyActivityInput = {
@@ -95247,114 +93423,6 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type cognitiveExerciseCreateManyProgramCategoryInput = {
-    id?: string
-    name: string
-    categoryId: number
-    difficultyLevel?: number | null
-    durationMinutes?: number | null
-    description?: string | null
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
-  export type exerciseProgramCreateManyProgramCategoryInput = {
-    id?: string
-    name: string
-    categoryId: number
-    difficultyLevel?: number | null
-    adaptedForReducedMobility?: boolean | null
-    durationMinutes?: number | null
-    description?: string | null
-    videoLink?: string | null
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
-  export type cognitiveExerciseUpdateWithoutProgramCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: categoryUpdateOneWithoutCognitiveExerciseNestedInput
-    userActivity?: userActivityUpdateManyWithoutCognitiveExerciseNestedInput
-  }
-
-  export type cognitiveExerciseUncheckedUpdateWithoutProgramCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    categoryId?: IntFieldUpdateOperationsInput | number
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userActivity?: userActivityUncheckedUpdateManyWithoutCognitiveExerciseNestedInput
-  }
-
-  export type cognitiveExerciseUncheckedUpdateManyWithoutProgramCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    categoryId?: IntFieldUpdateOperationsInput | number
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type exerciseProgramUpdateWithoutProgramCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: categoryUpdateOneRequiredWithoutExerciseProgramNestedInput
-    userActivity?: userActivityUpdateManyWithoutExerciseProgramNestedInput
-  }
-
-  export type exerciseProgramUncheckedUpdateWithoutProgramCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    categoryId?: IntFieldUpdateOperationsInput | number
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userActivity?: userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput
-  }
-
-  export type exerciseProgramUncheckedUpdateManyWithoutProgramCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    categoryId?: IntFieldUpdateOperationsInput | number
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type categoryCreateManyTypeInput = {
     id?: number
     name: string
@@ -95435,7 +93503,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
   }
 
   export type collaborativeProjectCreateManyCategoryInput = {
@@ -95557,7 +93624,6 @@ export namespace Prisma {
     image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    programCategoryId?: number | null
   }
 
   export type activityUpdateWithoutCategoryInput = {
@@ -95638,7 +93704,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     userActivity?: userActivityUpdateManyWithoutCognitiveExerciseNestedInput
-    programCategory?: programCategoryUpdateOneWithoutCognitiveExerciseNestedInput
   }
 
   export type cognitiveExerciseUncheckedUpdateWithoutCategoryInput = {
@@ -95650,7 +93715,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     userActivity?: userActivityUncheckedUpdateManyWithoutCognitiveExerciseNestedInput
   }
 
@@ -95663,7 +93727,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type collaborativeProjectUpdateWithoutCategoryInput = {
@@ -96016,7 +94079,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     userActivity?: userActivityUpdateManyWithoutExerciseProgramNestedInput
-    programCategory?: programCategoryUpdateOneWithoutExerciseProgramNestedInput
   }
 
   export type exerciseProgramUncheckedUpdateWithoutCategoryInput = {
@@ -96030,7 +94092,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     userActivity?: userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput
   }
 
@@ -96045,7 +94106,6 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    programCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 

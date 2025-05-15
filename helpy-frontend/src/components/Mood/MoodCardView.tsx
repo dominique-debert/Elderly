@@ -1,4 +1,4 @@
-import { IMood } from '../../@types/IMood';
+import { IMood } from '@/@types/IMood';
 import { MoodCard } from './MoodCard';
 
 type MoodCardViewProps = {
