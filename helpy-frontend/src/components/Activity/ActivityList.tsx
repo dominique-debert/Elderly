@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchActivityCategories } from '@/services/activityCategory.service';
 import type { ICategory } from '@/@types/ICategory';
-import { Button } from '@/components/ui/button';
 import { Icon } from "@mdi/react";
-import { mdiDotsVertical, mdiPencilOutline, mdiDeleteOutline, mdiMagnify } from "@mdi/js";
-
+import { mdiPencilOutline, mdiDeleteOutline, mdiMagnify } from "@mdi/js";
+import { ConfirmDeleteActivityModal } from "./ConfirmDeleteActivityModal";
 type Mode = 'card' | 'list' | 'table';
 
 export const ActivityList = () => {
@@ -14,6 +13,15 @@ export const ActivityList = () => {
   });
 
   const [search, setSearch] = useState('');
+  const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const [categoryToDelete, setCategoryToDelete] = useState<ICategory | null>(null);
+
+  const queryClient = useQueryClient();
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: ['activities'] });
+  };
 
   useEffect(() => {
     localStorage.setItem('activityViewMode', mode);
@@ -69,36 +77,47 @@ export const ActivityList = () => {
           <div className="divider mt-0"></div>
 
           <div className="grid grid-cols-2 p-0 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 w-full">
-            {filtered.map((category) => (
-              <div key={category.id} className="card w-full bg-base-100 card-xs shadow-lg">
-                <div className="card-body p-4">
-                  <h2 className="text-xl card-title">{category.categoryName}</h2>
-                  
-                  <p className="text-sm">{category.description}</p>
-                      <div className="divider"></div>
-                    <div className="justify-end card-actions">
-                      <button className="btn btn-primary"
-                        onClick={() => console.log('Modifier', category.id)}
-                      >
-                        <Icon
-                          path={mdiPencilOutline}
-                          size={0.8}
-                        />                          
-                        Modifier
-                      </button>
-                      <button className="btn btn-ghost bg-base-200"
-                        onClick={() => console.log('Supprimer', category.id)}
-                      >
-                        <Icon
-                          path={mdiDeleteOutline}
-                          size={0.8}
-                        />    
-                        Supprimer
-                      </button>
-                    </div>
-                  </div>
+          {filtered.map((category) => (
+            <div key={category.id} className="card w-full bg-base-100 card-xs shadow-lg">
+              <div className="card-body p-4">
+                <h2 className="text-xl card-title">{category.categoryName}</h2>
+                
+                <p className="text-sm">{category.description}</p>
+                <div className="divider"></div>
+                  <div className="justify-end card-actions">
+                    <button className="btn btn-primary"
+                      onClick={() => console.log('Modifier', category.id)}
+                    >
+                    <Icon
+                      path={mdiPencilOutline}
+                      size={0.8}
+                    />                          
+                    Modifier
+                  </button>
+                  <button className="btn btn-ghost bg-base-200"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCategoryToDelete(category);
+                      setIsConfirmDeleteOpen(true);
+                    }}      
+                  >
+                    <Icon
+                      path={mdiDeleteOutline}
+                      size={0.8}
+                    />    
+                    Supprimer
+                  </button>
+                </div>
               </div>
-            ))}
+            </div>
+          ))}
+          {isConfirmDeleteOpen && categoryToDelete && (
+            <ConfirmDeleteActivityModal
+              category={categoryToDelete}
+              onClose={() => setIsConfirmDeleteOpen(false)}
+              onConfirm={handleDeleted}
+            />
+          )}
           </div>
         </>
       );

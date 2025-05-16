@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useCategoryModalStore } from '../stores/categoryModalStore';
-import { createActivityCategory } from '../services/activityCategory.service';
+import { useCategoryModalStore } from '../../stores/categoryModalStore';
+import { createActivityCategory } from '../../services/activityCategory.service';
 import { useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 

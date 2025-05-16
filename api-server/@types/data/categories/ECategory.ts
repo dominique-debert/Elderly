@@ -1,4 +1,4 @@
-export enum CategoryType { 
+export enum ECategoryType { 
   ACTIVITY = 1,
   BADGE = 2,
   COGNITIVE = 3,
@@ -14,7 +14,7 @@ export enum CategoryType {
   WELLNESS = 13
 }
 
-export enum CategoryChapter { 
+export enum ECategoryChapter { 
   PHYSICAL = 1,
   COGNITIVE = 2,
   SOCIAL = 3,

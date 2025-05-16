@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError';
-import { CategoryType } from '@/@types/data/categories/ECategory';
+import { ECategoryType } from '@/@types/data/categories/ECategory';
 import ICategory from '@/@types/data/categories/ICategory';
 
 const prisma = new PrismaClient();
@@ -22,10 +22,10 @@ export const fetchAllServiceCategories = async (
   try {
     const serviceCategories = await prisma.category.findMany({
       where: {
-        typeId: CategoryType.SERVICE
+        typeId: ECategoryType.SERVICE
       },
       orderBy: {
-        name: 'asc'
+        categoryName: 'asc'
       }
     });
 
@@ -47,7 +47,7 @@ export const fetchServiceCategoryById = async (
     const serviceCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE }
     });
 
     if (!serviceCategory) {
@@ -87,7 +87,7 @@ export const updateServiceCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE }
     });
 
     if (!category) {
@@ -101,7 +101,7 @@ export const updateServiceCategory = async (
       },
       where: {
         id: Number(id),
-        typeId: CategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE }
     });
 
     res.status(200).json(categoryToUpdate);
@@ -121,7 +121,7 @@ export const deleteServiceCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE }
     });
 
     if (!category) {
@@ -131,7 +131,7 @@ export const deleteServiceCategory = async (
     await prisma.category.delete({
       where: {
         id: Number(id),
-        typeId: CategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE }
     });
 
     res.status(200).json({ message: 'Catégorie supprimée avec succès' });

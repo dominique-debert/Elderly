@@ -1,4 +1,4 @@
-import { mdiDeleteOutline, mdiDotsVertical, mdiPencilOutline } from '@mdi/js';
+import { mdiDeleteOutline, mdiPencilOutline } from '@mdi/js';
 import Icon from '@mdi/react';
 import { IMood } from '../../@types/IMood';
 import { useQueryClient } from '@tanstack/react-query';

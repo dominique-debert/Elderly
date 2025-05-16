@@ -1,4 +1,4 @@
-export enum CategoryType { 
+export enum ECategoryType { 
   ACTIVITY = 1,
   BADGE = 2,
   COGNITIVE = 3,

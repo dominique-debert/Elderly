@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError';
-import { CategoryType } from '@/@types/data/categories/ECategory';
+import { ECategoryType } from '@/@types/data/categories/ECategory';
 import ICategory from '@/@types/data/categories/ICategory';
 
 const prisma = new PrismaClient();
@@ -22,10 +22,10 @@ export const fetchAllCognitiveCategories = async (
   try {
     const cognitiveCategories = await prisma.category.findMany({
       where: {
-        typeId: CategoryType.COGNITIVE
+        typeId: ECategoryType.COGNITIVE
       },
       orderBy: {
-        name: 'asc'
+        categoryName: 'asc'
       }
     });
 
@@ -47,7 +47,7 @@ export const fetchCognitiveCategoryById = async (
     const cognitiveCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.COGNITIVE }
+        typeId: ECategoryType.COGNITIVE }
     });
 
     if (!cognitiveCategory) {
@@ -87,7 +87,7 @@ export const updateCognitiveCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.COGNITIVE }
+        typeId: ECategoryType.COGNITIVE }
     });
 
     if (!category) {
@@ -101,7 +101,7 @@ export const updateCognitiveCategory = async (
       },
       where: {
         id: Number(id),
-        typeId: CategoryType.COGNITIVE }
+        typeId: ECategoryType.COGNITIVE }
     });
 
     res.status(200).json(categoryToUpdate);
@@ -121,7 +121,7 @@ export const deleteCognitiveCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.COGNITIVE }
+        typeId: ECategoryType.COGNITIVE }
     });
 
     if (!category) {
@@ -131,7 +131,7 @@ export const deleteCognitiveCategory = async (
     await prisma.category.delete({
       where: {
         id: Number(id),
-        typeId: CategoryType.COGNITIVE }
+        typeId: ECategoryType.COGNITIVE }
     });
 
     res.status(200).json({ message: 'Catégorie supprimée avec succès' });

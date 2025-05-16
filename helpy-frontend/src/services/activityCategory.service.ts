@@ -13,14 +13,12 @@ export const fetchActivityCategories = async (): Promise<ICategory> => {
   return data;
 };
 
-
 export const createActivityCategory = async (category: { name: string; description?: string }) => {
   const { data } = await api.post('/categories/activities', category, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
     },
   });
-  console.log(data);
   return data;
 };
 

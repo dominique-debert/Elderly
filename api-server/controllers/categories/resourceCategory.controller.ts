@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError';
-import { CategoryType } from '@/@types/data/categories/ECategory';
+import { ECategoryType } from '@/@types/data/categories/ECategory';
 import ICategory from '@/@types/data/categories/ICategory';
 
 const prisma = new PrismaClient();
@@ -22,10 +22,10 @@ export const fetchAllResourceCategories = async (
   try {
     const resourceCategories = await prisma.category.findMany({
       where: {
-        typeId: CategoryType.RESOURCE
+        typeId: ECategoryType.RESOURCE
       },
       orderBy: {
-        name: 'asc'
+        categoryName: 'asc'
       }
     });
 
@@ -47,7 +47,7 @@ export const fetchResourceCategoryById = async (
     const resourceCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.RESOURCE }
+        typeId: ECategoryType.RESOURCE }
     });
 
     if (!resourceCategory) {
@@ -87,7 +87,7 @@ export const updateResourceCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.RESOURCE }
+        typeId: ECategoryType.RESOURCE }
     });
 
     if (!category) {
@@ -101,7 +101,7 @@ export const updateResourceCategory = async (
       },
       where: {
         id: Number(id),
-        typeId: CategoryType.RESOURCE }
+        typeId: ECategoryType.RESOURCE }
     });
 
     res.status(200).json(categoryToUpdate);
@@ -121,7 +121,7 @@ export const deleteResourceCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.RESOURCE }
+        typeId: ECategoryType.RESOURCE }
     });
 
     if (!category) {
@@ -131,7 +131,7 @@ export const deleteResourceCategory = async (
     await prisma.category.delete({
       where: {
         id: Number(id),
-        typeId: CategoryType.RESOURCE }
+        typeId: ECategoryType.RESOURCE }
     });
 
     res.status(200).json({ message: 'Catégorie supprimée avec succès' });

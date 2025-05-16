@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError';
-import { CategoryType } from '@/@types/data/categories/ECategory';
+import { ECategoryType } from '@/@types/data/categories/ECategory';
 import ICategory from '@/@types/data/categories/ICategory';
 
 const prisma = new PrismaClient();
@@ -22,10 +22,10 @@ export const fetchAllWellnessCategories = async (
   try {
     const wellnessCategories = await prisma.category.findMany({
       where: {
-        typeId: CategoryType.WELLNESS
+        typeId: ECategoryType.WELLNESS
       },
       orderBy: {
-        name: 'asc'
+        categoryName: 'asc'
       }
     });
 
@@ -47,7 +47,7 @@ export const fetchWellnessCategoryById = async (
     const wellnessCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.WELLNESS }
+        typeId: ECategoryType.WELLNESS }
     });
 
     if (!wellnessCategory) {
@@ -87,7 +87,7 @@ export const updateWellnessCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.WELLNESS }
+        typeId: ECategoryType.WELLNESS }
     });
 
     if (!category) {
@@ -101,7 +101,7 @@ export const updateWellnessCategory = async (
       },
       where: {
         id: Number(id),
-        typeId: CategoryType.WELLNESS }
+        typeId: ECategoryType.WELLNESS }
     });
 
     res.status(200).json(categoryToUpdate);
@@ -121,7 +121,7 @@ export const deleteWellnessCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.WELLNESS }
+        typeId: ECategoryType.WELLNESS }
     });
 
     if (!category) {
@@ -131,7 +131,7 @@ export const deleteWellnessCategory = async (
     await prisma.category.delete({
       where: {
         id: Number(id),
-        typeId: CategoryType.WELLNESS }
+        typeId: ECategoryType.WELLNESS }
     });
 
     res.status(200).json({ message: 'Catégorie supprimée avec succès' });

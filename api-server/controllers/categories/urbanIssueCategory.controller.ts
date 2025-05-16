@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError';
-import { CategoryType } from '@/@types/data/categories/ECategory';
+import { ECategoryType } from '@/@types/data/categories/ECategory';
 import ICategory from '@/@types/data/categories/ICategory';
 
 const prisma = new PrismaClient();
@@ -22,10 +22,10 @@ export const fetchAllUrbanIssueCategories = async (
   try {
     const urbanIssueCategories = await prisma.category.findMany({
       where: {
-        typeId: CategoryType.URBAN_ISSUE
+        typeId: ECategoryType.URBAN_ISSUE
       },
       orderBy: {
-        name: 'asc'
+        categoryName: 'asc'
       }
     });
 
@@ -47,7 +47,7 @@ export const fetchUrbanIssueCategoryById = async (
     const urbanIssueCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.URBAN_ISSUE }
+        typeId: ECategoryType.URBAN_ISSUE }
     });
 
     if (!urbanIssueCategory) {
@@ -87,7 +87,7 @@ export const updateUrbanIssueCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.URBAN_ISSUE }
+        typeId: ECategoryType.URBAN_ISSUE }
     });
 
     if (!category) {
@@ -101,7 +101,7 @@ export const updateUrbanIssueCategory = async (
       },
       where: {
         id: Number(id),
-        typeId: CategoryType.URBAN_ISSUE }
+        typeId: ECategoryType.URBAN_ISSUE }
     });
 
     res.status(200).json(categoryToUpdate);
@@ -121,7 +121,7 @@ export const deleteUrbanIssueCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.URBAN_ISSUE }
+        typeId: ECategoryType.URBAN_ISSUE }
     });
 
     if (!category) {
@@ -131,7 +131,7 @@ export const deleteUrbanIssueCategory = async (
     await prisma.category.delete({
       where: {
         id: Number(id),
-        typeId: CategoryType.URBAN_ISSUE }
+        typeId: ECategoryType.URBAN_ISSUE }
     });
 
     res.status(200).json({ message: 'Catégorie supprimée avec succès' });

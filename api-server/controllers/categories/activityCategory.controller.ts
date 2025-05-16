@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError.js';
-import { CategoryType } from '@/@types/data/categories/ECategory';
+import { ECategoryType } from '@/@types/data/categories/ECategory';
 import ICategory from '@/@types/data/categories/ICategory';
 
 const prisma = new PrismaClient();
@@ -22,7 +22,7 @@ export const fetchAllActivityCategories = async (
   try {
     const categories = await prisma.category.findMany({
       where: {
-        typeId: CategoryType.ACTIVITY
+        typeId: ECategoryType.ACTIVITY
       },
       orderBy: {
         categoryName: 'asc'
@@ -39,24 +39,24 @@ export const fetchAllActivityCategories = async (
         }
       }
     });
-
-    // Regroupement côté backend
+    
+    // Regroupement
     const grouped: Record<string, Record<string, any[]>> = {};
-
-    categories.forEach((cat) => {
-      const chapterName = cat.categoryChapter?.chapterName ?? 'Sans chapitre';
-      const typeName = cat.categoryType?.name ?? 'Sans type';
-
+    
+    categories.forEach((category) => {
+      const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
+      const typeName = category.categoryType?.name ?? 'Sans type';
+      
       if (!grouped[chapterName]) grouped[chapterName] = {};
       if (!grouped[chapterName][typeName]) grouped[chapterName][typeName] = [];
-
+      
       grouped[chapterName][typeName].push({
-        id: cat.id,
-        categoryName: cat.categoryName,
-        description: cat.description,
+        id: category.id,
+        categoryName: category.categoryName,
+        description: category.description,
       });
     });
-
+    
     res.status(200).json(grouped);
   } catch (error) {
     next(error);
@@ -76,41 +76,42 @@ export const fetchActivityCategoryById = async (
     const activityCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: CategoryType.ACTIVITY }
-      });
+        typeId: ECategoryType.ACTIVITY }
+    });
       
-      if (!activityCategory) {
-        throw createHttpError(404, 'Catégorie non trouvée');
-      }
-      
-      res.status(200).json(activityCategory);
-    } catch (error) {
-      next(error);
+    if (!activityCategory) {
+      throw createHttpError(404, 'Catégorie non trouvée');
     }
-  };
+      
+    res.status(200).json(activityCategory);
+  } catch (error) {
+    next(error);
+  }
+};
   
   // CRÉER UNE CATÉGORIE D'ACTIVITÉ
-  // export const createActivityCategory = async (
-  //   req: Request,
-  //   res: Response,
-  //   next: NextFunction
-  // ) => {
-  //   try {
-  //     const { name, description } = req.body;
-  
-  //     const categoryToCreate = await prisma.category.create({
-  //       data: {
-  //         categoryName,
-  //         description,
-  //         typeId: CategoryType.ACTIVITY,
-  //       }
-  //     });
-  
-  //     res.status(201).json(categoryToCreate);
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // };
+  export const createActivityCategory = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const { categoryName, description, chapterId } = req.body;
+      
+      const categoryToCreate = await prisma.category.create({
+        data: {
+          categoryName,
+          description,
+          typeId: ECategoryType.ACTIVITY,
+          chapterId: chapterId
+        }
+      });
+      
+      res.status(201).json(categoryToCreate);
+  } catch (error) {
+    next(error);
+  }
+};
   
   export const updateActivityCategory = async (
     req: Request<{ id: string }, ICategory>,
@@ -123,7 +124,7 @@ export const fetchActivityCategoryById = async (
       const category = await prisma.category.findUnique({
         where: {
           id: Number(id),
-          typeId: CategoryType.ACTIVITY }
+          typeId: ECategoryType.ACTIVITY }
         });
         
         if (!category) {
@@ -137,7 +138,7 @@ export const fetchActivityCategoryById = async (
           },
           where: {
             id: Number(id),
-            typeId: CategoryType.ACTIVITY }
+            typeId: ECategoryType.ACTIVITY }
           });
           
           res.status(200).json(categoryToUpdate);
@@ -146,33 +147,33 @@ export const fetchActivityCategoryById = async (
         }
       };
       
-      export const deleteActivityCategory = async (
-        req: Request<{ id: string }>,
-        res: Response,
-        next: NextFunction
-      ) => {
-        const { id } = req.params;
+export const deleteActivityCategory = async (
+  req: Request<{ id: string }>,
+  res: Response,
+  next: NextFunction
+  ) => {
+    const { id } = req.params;
+    
+    try {
+      const category = await prisma.category.findUnique({
+        where: {
+          id: Number(id),
+          typeId: ECategoryType.ACTIVITY }
+        });
         
-        try {
-          const category = await prisma.category.findUnique({
-            where: {
-              id: Number(id),
-              typeId: CategoryType.ACTIVITY }
-            });
-            
-            if (!category) {
-              throw createHttpError(404, 'Catégorie non trouvée');
-            }
-            
-            await prisma.category.delete({
-              where: {
-                id: Number(id),
-                typeId: CategoryType.ACTIVITY }
-              });
-              
-              res.status(200).json({ message: 'Catégorie supprimée avec succès' });
-            } catch (error) {
-              next(error);
-            }
-          };
+        if (!category) {
+          throw createHttpError(404, 'Catégorie non trouvée');
+        }
+        
+        await prisma.category.delete({
+          where: {
+            id: Number(id),
+            typeId: ECategoryType.ACTIVITY }
+          });
+          
+          res.status(200).json({ message: 'Catégorie supprimée avec succès' });
+  } catch (error) {
+    next(error);
+  }
+};
           
