@@ -73,7 +73,7 @@ export const fetchActivityCategoryById = async (
   const { id } = req.params;
   
   try {
-    const activityCategory = await prisma.category.findUnique({
+    const activityCategory = await prisma.category.findFirst({
       where: {
         id: Number(id),
         typeId: ECategoryType.ACTIVITY }
@@ -123,12 +123,11 @@ export const fetchActivityCategoryById = async (
     try {
       const category = await prisma.category.findUnique({
         where: {
-          id: Number(id),
-          typeId: ECategoryType.ACTIVITY }
-        });
+          id: Number(id)
+        }});
         
         if (!category) {
-          throw createHttpError(404, 'Catégorie non trouvée');
+          throw createHttpError(404, 'Activité non trouvée');
         }
         
         const categoryToUpdate = await prisma.category.update({
@@ -138,7 +137,8 @@ export const fetchActivityCategoryById = async (
           },
           where: {
             id: Number(id),
-            typeId: ECategoryType.ACTIVITY }
+            typeId: ECategoryType.ACTIVITY
+           }
           });
           
           res.status(200).json(categoryToUpdate);

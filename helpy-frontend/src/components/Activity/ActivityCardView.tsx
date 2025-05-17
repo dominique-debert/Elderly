@@ -1,7 +1,16 @@
-function ActivityCardList() {
-  return (
-    <div>ActivityCardList</div>
-  )
-}
+import { ICategory } from '@/@types/ICategory';
+import { ActivityCard } from './ActivityCard';
 
-export default ActivityCardList
+type ActivityCardViewProps = {
+  activities: ICategory[];
+};
+
+export function ActivityCardView({ activities }: ActivityCardViewProps) {
+  return (
+    <div>
+      {activities.map((activity) => (
+        <ActivityCard key={activity.id} activity={activity} />
+      ))}
+    </div>
+  );
+}

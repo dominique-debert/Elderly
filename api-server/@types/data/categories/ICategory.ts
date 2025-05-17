@@ -1,5 +1,5 @@
 export default interface ICategory {
-  name: string
+  categoryName: string
   description?: string
   categoryId: number
   chapterId: number

@@ -61,7 +61,7 @@
  *     UpdateActivityCategory:
  *       type: object
  *       properties:
- *         name:
+ *         categoryName:
  *           type: string
  *           description: Nom de la catégorie d'activité
  *           example: "Sports"

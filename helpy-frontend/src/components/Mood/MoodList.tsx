@@ -32,9 +32,6 @@ export const MoodList = () => {
 
   return (
     <div className="w-full relative">
-
-
-
       {moods && moods.length > 0 && (
         <MoodListSwitcher mode={mode} setMode={setMode} />
       )}

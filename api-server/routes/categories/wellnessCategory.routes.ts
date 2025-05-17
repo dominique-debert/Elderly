@@ -7,7 +7,7 @@ import {
   deleteWellnessCategory
 } from '@/controllers/index.controller';
 
-import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
+import { categorySchema, idParamCategorySchema } from '@/validators/category.validator';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 

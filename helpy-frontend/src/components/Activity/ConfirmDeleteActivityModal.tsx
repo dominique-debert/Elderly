@@ -26,8 +26,8 @@ export function ConfirmDeleteActivityModal({ category, onClose, onConfirm }: Con
         <h3 className="font-bold text-lg">Supprimer l'activité</h3>
         <p className="py-4">Confirmer la suppression de <strong>{category.categoryName}</strong> ?</p>
         <div className="modal-action">
-          <button className="btn btn-error" onClick={handleDelete}>Supprimer</button>
-          <button className="btn" onClick={onClose}>Annuler</button>
+          <button className="btn btn-primary" onClick={handleDelete}>Supprimer</button>
+          <button className="btn btn-ghost" onClick={onClose}>Annuler</button>
         </div>
       </div>
     </dialog>

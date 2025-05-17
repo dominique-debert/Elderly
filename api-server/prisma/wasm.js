@@ -696,14 +696,18 @@ exports.Prisma.WellnessGoalProgressScalarFieldEnum = {
 
 exports.Prisma.CategoryTypeScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.CategoryChapterScalarFieldEnum = {
   id: 'id',
   chapterId: 'chapterId',
   chapterName: 'chapterName',
-  chapterDescription: 'chapterDescription'
+  chapterDescription: 'chapterDescription',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.CategoryScalarFieldEnum = {
@@ -711,7 +715,9 @@ exports.Prisma.CategoryScalarFieldEnum = {
   categoryName: 'categoryName',
   description: 'description',
   typeId: 'typeId',
-  chapterId: 'chapterId'
+  chapterId: 'chapterId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {

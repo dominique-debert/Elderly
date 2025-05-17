@@ -799,6 +799,8 @@ model categoryType {
   id         Int        @id @default(autoincrement())
   name       String     @unique
   categories category[]
+  createdAt  DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt  DateTime?  @map("updated_at") @db.Timestamp(6)
 
   @@map("category_type")
 }
@@ -809,6 +811,8 @@ model categoryChapter {
   chapterName        String     @unique @map("chapter_name")
   chapterDescription String?    @map("chapter_description")
   category           category[]
+  createdAt          DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt          DateTime?  @map("updated_at") @db.Timestamp(6)
 
   @@map("category_chapter")
 }
@@ -819,6 +823,8 @@ model category {
   description          String?
   typeId               Int                    @map("type_id")
   chapterId            Int                    @map("chapter_id")
+  createdAt            DateTime               @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt            DateTime?              @map("updated_at") @db.Timestamp(6)
   activity             activity[]
   badge                badge[]
   cognitiveExercise    cognitiveExercise[]

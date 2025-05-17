@@ -33,7 +33,7 @@ const router = Router();
  *           schema:
  *             type: object
  *             required:
- *               - name
+ *               - categoryName
  *               - typeId
  *             properties:
  *               name:
@@ -117,7 +117,7 @@ router.get('/:id', errorHandler, fetchActivityCategoryById);
  *     tags: [Activity Categories]
  *     parameters:
  *       - in: path
- *         name: id
+ *         categoryName: id
  *         required: true
  *         schema:
  *           type: string

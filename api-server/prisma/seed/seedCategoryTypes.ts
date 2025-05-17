@@ -6,19 +6,19 @@ async function seedCategoryTypes() {
   await prisma.categoryType.deleteMany();
   await prisma.categoryType.createMany({
     data: [
-      { id: 1, name: 'ACTIVITY' },
-      { id: 2, name: 'BADGE' },
-      { id: 3, name: 'COGNITIVE' },
-      { id: 4, name: 'FORUM' },
-      { id: 5, name: 'HELP' },
-      { id: 6, name: 'NUTRITIONAL' },
-      { id: 7, name: 'PROGRAM' },
-      { id: 8, name: 'PROJECT' },
-      { id: 9, name: 'RESOURCE' },
-      { id: 10, name: 'SERVICE' },
-      { id: 11, name: 'SKILL' },
-      { id: 12, name: 'URBAN_ISSUE' },
-      { id: 13, name: 'WELLNESS' },
+      { id: 1, name: 'Activités' },
+      { id: 2, name: 'Badges' },
+      { id: 3, name: 'Cognition' },
+      { id: 4, name: 'Forum' },
+      { id: 5, name: 'Aide' },
+      { id: 6, name: 'Nutrition' },
+      { id: 7, name: 'Programmes' },
+      { id: 8, name: 'Projets' },
+      { id: 9, name: 'Ressources' },
+      { id: 10, name: 'Services' },
+      { id: 11, name: 'Compétences' },
+      { id: 12, name: 'Problèmes urbains' },
+      { id: 13, name: 'Bien-être' },
     ],
     skipDuplicates: true
   });

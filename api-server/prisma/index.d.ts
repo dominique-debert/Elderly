@@ -60164,16 +60164,22 @@ export namespace Prisma {
   export type CategoryTypeMinAggregateOutputType = {
     id: number | null
     name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CategoryTypeMaxAggregateOutputType = {
     id: number | null
     name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CategoryTypeCountAggregateOutputType = {
     id: number
     name: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -60189,16 +60195,22 @@ export namespace Prisma {
   export type CategoryTypeMinAggregateInputType = {
     id?: true
     name?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CategoryTypeMaxAggregateInputType = {
     id?: true
     name?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CategoryTypeCountAggregateInputType = {
     id?: true
     name?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -60291,6 +60303,8 @@ export namespace Prisma {
   export type CategoryTypeGroupByOutputType = {
     id: number
     name: string
+    createdAt: Date
+    updatedAt: Date | null
     _count: CategoryTypeCountAggregateOutputType | null
     _avg: CategoryTypeAvgAggregateOutputType | null
     _sum: CategoryTypeSumAggregateOutputType | null
@@ -60315,6 +60329,8 @@ export namespace Prisma {
   export type categoryTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     categories?: boolean | categoryType$categoriesArgs<ExtArgs>
     _count?: boolean | CategoryTypeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["categoryType"]>
@@ -60322,19 +60338,25 @@ export namespace Prisma {
   export type categoryTypeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["categoryType"]>
 
   export type categoryTypeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["categoryType"]>
 
   export type categoryTypeSelectScalar = {
     id?: boolean
     name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type categoryTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["categoryType"]>
+  export type categoryTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["categoryType"]>
   export type categoryTypeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     categories?: boolean | categoryType$categoriesArgs<ExtArgs>
     _count?: boolean | CategoryTypeCountOutputTypeDefaultArgs<ExtArgs>
@@ -60350,6 +60372,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
+      createdAt: Date
+      updatedAt: Date | null
     }, ExtArgs["result"]["categoryType"]>
     composites: {}
   }
@@ -60776,6 +60800,8 @@ export namespace Prisma {
   interface categoryTypeFieldRefs {
     readonly id: FieldRef<"categoryType", 'Int'>
     readonly name: FieldRef<"categoryType", 'String'>
+    readonly createdAt: FieldRef<"categoryType", 'DateTime'>
+    readonly updatedAt: FieldRef<"categoryType", 'DateTime'>
   }
     
 
@@ -61233,6 +61259,8 @@ export namespace Prisma {
     chapterId: number | null
     chapterName: string | null
     chapterDescription: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CategoryChapterMaxAggregateOutputType = {
@@ -61240,6 +61268,8 @@ export namespace Prisma {
     chapterId: number | null
     chapterName: string | null
     chapterDescription: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CategoryChapterCountAggregateOutputType = {
@@ -61247,6 +61277,8 @@ export namespace Prisma {
     chapterId: number
     chapterName: number
     chapterDescription: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -61266,6 +61298,8 @@ export namespace Prisma {
     chapterId?: true
     chapterName?: true
     chapterDescription?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CategoryChapterMaxAggregateInputType = {
@@ -61273,6 +61307,8 @@ export namespace Prisma {
     chapterId?: true
     chapterName?: true
     chapterDescription?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CategoryChapterCountAggregateInputType = {
@@ -61280,6 +61316,8 @@ export namespace Prisma {
     chapterId?: true
     chapterName?: true
     chapterDescription?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -61374,6 +61412,8 @@ export namespace Prisma {
     chapterId: number
     chapterName: string
     chapterDescription: string | null
+    createdAt: Date
+    updatedAt: Date | null
     _count: CategoryChapterCountAggregateOutputType | null
     _avg: CategoryChapterAvgAggregateOutputType | null
     _sum: CategoryChapterSumAggregateOutputType | null
@@ -61400,6 +61440,8 @@ export namespace Prisma {
     chapterId?: boolean
     chapterName?: boolean
     chapterDescription?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     category?: boolean | categoryChapter$categoryArgs<ExtArgs>
     _count?: boolean | CategoryChapterCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["categoryChapter"]>
@@ -61409,6 +61451,8 @@ export namespace Prisma {
     chapterId?: boolean
     chapterName?: boolean
     chapterDescription?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["categoryChapter"]>
 
   export type categoryChapterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -61416,6 +61460,8 @@ export namespace Prisma {
     chapterId?: boolean
     chapterName?: boolean
     chapterDescription?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["categoryChapter"]>
 
   export type categoryChapterSelectScalar = {
@@ -61423,9 +61469,11 @@ export namespace Prisma {
     chapterId?: boolean
     chapterName?: boolean
     chapterDescription?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type categoryChapterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "chapterId" | "chapterName" | "chapterDescription", ExtArgs["result"]["categoryChapter"]>
+  export type categoryChapterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "chapterId" | "chapterName" | "chapterDescription" | "createdAt" | "updatedAt", ExtArgs["result"]["categoryChapter"]>
   export type categoryChapterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | categoryChapter$categoryArgs<ExtArgs>
     _count?: boolean | CategoryChapterCountOutputTypeDefaultArgs<ExtArgs>
@@ -61443,6 +61491,8 @@ export namespace Prisma {
       chapterId: number
       chapterName: string
       chapterDescription: string | null
+      createdAt: Date
+      updatedAt: Date | null
     }, ExtArgs["result"]["categoryChapter"]>
     composites: {}
   }
@@ -61871,6 +61921,8 @@ export namespace Prisma {
     readonly chapterId: FieldRef<"categoryChapter", 'Int'>
     readonly chapterName: FieldRef<"categoryChapter", 'String'>
     readonly chapterDescription: FieldRef<"categoryChapter", 'String'>
+    readonly createdAt: FieldRef<"categoryChapter", 'DateTime'>
+    readonly updatedAt: FieldRef<"categoryChapter", 'DateTime'>
   }
     
 
@@ -62331,6 +62383,8 @@ export namespace Prisma {
     description: string | null
     typeId: number | null
     chapterId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CategoryMaxAggregateOutputType = {
@@ -62339,6 +62393,8 @@ export namespace Prisma {
     description: string | null
     typeId: number | null
     chapterId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CategoryCountAggregateOutputType = {
@@ -62347,6 +62403,8 @@ export namespace Prisma {
     description: number
     typeId: number
     chapterId: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -62369,6 +62427,8 @@ export namespace Prisma {
     description?: true
     typeId?: true
     chapterId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CategoryMaxAggregateInputType = {
@@ -62377,6 +62437,8 @@ export namespace Prisma {
     description?: true
     typeId?: true
     chapterId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CategoryCountAggregateInputType = {
@@ -62385,6 +62447,8 @@ export namespace Prisma {
     description?: true
     typeId?: true
     chapterId?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -62480,6 +62544,8 @@ export namespace Prisma {
     description: string | null
     typeId: number
     chapterId: number
+    createdAt: Date
+    updatedAt: Date | null
     _count: CategoryCountAggregateOutputType | null
     _avg: CategoryAvgAggregateOutputType | null
     _sum: CategorySumAggregateOutputType | null
@@ -62507,6 +62573,8 @@ export namespace Prisma {
     description?: boolean
     typeId?: boolean
     chapterId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     activity?: boolean | category$activityArgs<ExtArgs>
     badge?: boolean | category$badgeArgs<ExtArgs>
     cognitiveExercise?: boolean | category$cognitiveExerciseArgs<ExtArgs>
@@ -62531,6 +62599,8 @@ export namespace Prisma {
     description?: boolean
     typeId?: boolean
     chapterId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
     categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["category"]>
@@ -62541,6 +62611,8 @@ export namespace Prisma {
     description?: boolean
     typeId?: boolean
     chapterId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
     categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["category"]>
@@ -62551,9 +62623,11 @@ export namespace Prisma {
     description?: boolean
     typeId?: boolean
     chapterId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type categoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "categoryName" | "description" | "typeId" | "chapterId", ExtArgs["result"]["category"]>
+  export type categoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "categoryName" | "description" | "typeId" | "chapterId" | "createdAt" | "updatedAt", ExtArgs["result"]["category"]>
   export type categoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     activity?: boolean | category$activityArgs<ExtArgs>
     badge?: boolean | category$badgeArgs<ExtArgs>
@@ -62606,6 +62680,8 @@ export namespace Prisma {
       description: string | null
       typeId: number
       chapterId: number
+      createdAt: Date
+      updatedAt: Date | null
     }, ExtArgs["result"]["category"]>
     composites: {}
   }
@@ -63049,6 +63125,8 @@ export namespace Prisma {
     readonly description: FieldRef<"category", 'String'>
     readonly typeId: FieldRef<"category", 'Int'>
     readonly chapterId: FieldRef<"category", 'Int'>
+    readonly createdAt: FieldRef<"category", 'DateTime'>
+    readonly updatedAt: FieldRef<"category", 'DateTime'>
   }
     
 
@@ -64503,7 +64581,9 @@ export namespace Prisma {
 
   export const CategoryTypeScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    name: 'name',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type CategoryTypeScalarFieldEnum = (typeof CategoryTypeScalarFieldEnum)[keyof typeof CategoryTypeScalarFieldEnum]
@@ -64513,7 +64593,9 @@ export namespace Prisma {
     id: 'id',
     chapterId: 'chapterId',
     chapterName: 'chapterName',
-    chapterDescription: 'chapterDescription'
+    chapterDescription: 'chapterDescription',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type CategoryChapterScalarFieldEnum = (typeof CategoryChapterScalarFieldEnum)[keyof typeof CategoryChapterScalarFieldEnum]
@@ -64524,7 +64606,9 @@ export namespace Prisma {
     categoryName: 'categoryName',
     description: 'description',
     typeId: 'typeId',
-    chapterId: 'chapterId'
+    chapterId: 'chapterId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
@@ -68471,12 +68555,16 @@ export namespace Prisma {
     NOT?: categoryTypeWhereInput | categoryTypeWhereInput[]
     id?: IntFilter<"categoryType"> | number
     name?: StringFilter<"categoryType"> | string
+    createdAt?: DateTimeFilter<"categoryType"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"categoryType"> | Date | string | null
     categories?: CategoryListRelationFilter
   }
 
   export type categoryTypeOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     categories?: categoryOrderByRelationAggregateInput
   }
 
@@ -68486,12 +68574,16 @@ export namespace Prisma {
     AND?: categoryTypeWhereInput | categoryTypeWhereInput[]
     OR?: categoryTypeWhereInput[]
     NOT?: categoryTypeWhereInput | categoryTypeWhereInput[]
+    createdAt?: DateTimeFilter<"categoryType"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"categoryType"> | Date | string | null
     categories?: CategoryListRelationFilter
   }, "id" | "name">
 
   export type categoryTypeOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: categoryTypeCountOrderByAggregateInput
     _avg?: categoryTypeAvgOrderByAggregateInput
     _max?: categoryTypeMaxOrderByAggregateInput
@@ -68505,6 +68597,8 @@ export namespace Prisma {
     NOT?: categoryTypeScalarWhereWithAggregatesInput | categoryTypeScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"categoryType"> | number
     name?: StringWithAggregatesFilter<"categoryType"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"categoryType"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"categoryType"> | Date | string | null
   }
 
   export type categoryChapterWhereInput = {
@@ -68515,6 +68609,8 @@ export namespace Prisma {
     chapterId?: IntFilter<"categoryChapter"> | number
     chapterName?: StringFilter<"categoryChapter"> | string
     chapterDescription?: StringNullableFilter<"categoryChapter"> | string | null
+    createdAt?: DateTimeFilter<"categoryChapter"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"categoryChapter"> | Date | string | null
     category?: CategoryListRelationFilter
   }
 
@@ -68523,6 +68619,8 @@ export namespace Prisma {
     chapterId?: SortOrder
     chapterName?: SortOrder
     chapterDescription?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     category?: categoryOrderByRelationAggregateInput
   }
 
@@ -68534,6 +68632,8 @@ export namespace Prisma {
     OR?: categoryChapterWhereInput[]
     NOT?: categoryChapterWhereInput | categoryChapterWhereInput[]
     chapterDescription?: StringNullableFilter<"categoryChapter"> | string | null
+    createdAt?: DateTimeFilter<"categoryChapter"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"categoryChapter"> | Date | string | null
     category?: CategoryListRelationFilter
   }, "id" | "chapterId" | "chapterName">
 
@@ -68542,6 +68642,8 @@ export namespace Prisma {
     chapterId?: SortOrder
     chapterName?: SortOrder
     chapterDescription?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: categoryChapterCountOrderByAggregateInput
     _avg?: categoryChapterAvgOrderByAggregateInput
     _max?: categoryChapterMaxOrderByAggregateInput
@@ -68557,6 +68659,8 @@ export namespace Prisma {
     chapterId?: IntWithAggregatesFilter<"categoryChapter"> | number
     chapterName?: StringWithAggregatesFilter<"categoryChapter"> | string
     chapterDescription?: StringNullableWithAggregatesFilter<"categoryChapter"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"categoryChapter"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"categoryChapter"> | Date | string | null
   }
 
   export type categoryWhereInput = {
@@ -68568,6 +68672,8 @@ export namespace Prisma {
     description?: StringNullableFilter<"category"> | string | null
     typeId?: IntFilter<"category"> | number
     chapterId?: IntFilter<"category"> | number
+    createdAt?: DateTimeFilter<"category"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"category"> | Date | string | null
     activity?: ActivityListRelationFilter
     badge?: BadgeListRelationFilter
     cognitiveExercise?: CognitiveExerciseListRelationFilter
@@ -68591,6 +68697,8 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     typeId?: SortOrder
     chapterId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     activity?: activityOrderByRelationAggregateInput
     badge?: badgeOrderByRelationAggregateInput
     cognitiveExercise?: cognitiveExerciseOrderByRelationAggregateInput
@@ -68617,6 +68725,8 @@ export namespace Prisma {
     description?: StringNullableFilter<"category"> | string | null
     typeId?: IntFilter<"category"> | number
     chapterId?: IntFilter<"category"> | number
+    createdAt?: DateTimeFilter<"category"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"category"> | Date | string | null
     activity?: ActivityListRelationFilter
     badge?: BadgeListRelationFilter
     cognitiveExercise?: CognitiveExerciseListRelationFilter
@@ -68640,6 +68750,8 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     typeId?: SortOrder
     chapterId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: categoryCountOrderByAggregateInput
     _avg?: categoryAvgOrderByAggregateInput
     _max?: categoryMaxOrderByAggregateInput
@@ -68656,6 +68768,8 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"category"> | string | null
     typeId?: IntWithAggregatesFilter<"category"> | number
     chapterId?: IntWithAggregatesFilter<"category"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"category"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"category"> | Date | string | null
   }
 
   export type activityCreateInput = {
@@ -72806,44 +72920,60 @@ export namespace Prisma {
 
   export type categoryTypeCreateInput = {
     name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     categories?: categoryCreateNestedManyWithoutCategoryTypeInput
   }
 
   export type categoryTypeUncheckedCreateInput = {
     id?: number
     name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     categories?: categoryUncheckedCreateNestedManyWithoutCategoryTypeInput
   }
 
   export type categoryTypeUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     categories?: categoryUpdateManyWithoutCategoryTypeNestedInput
   }
 
   export type categoryTypeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     categories?: categoryUncheckedUpdateManyWithoutCategoryTypeNestedInput
   }
 
   export type categoryTypeCreateManyInput = {
     id?: number
     name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type categoryTypeUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type categoryTypeUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type categoryChapterCreateInput = {
     chapterId: number
     chapterName: string
     chapterDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     category?: categoryCreateNestedManyWithoutCategoryChapterInput
   }
 
@@ -72852,6 +72982,8 @@ export namespace Prisma {
     chapterId: number
     chapterName: string
     chapterDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     category?: categoryUncheckedCreateNestedManyWithoutCategoryChapterInput
   }
 
@@ -72859,6 +72991,8 @@ export namespace Prisma {
     chapterId?: IntFieldUpdateOperationsInput | number
     chapterName?: StringFieldUpdateOperationsInput | string
     chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: categoryUpdateManyWithoutCategoryChapterNestedInput
   }
 
@@ -72867,6 +73001,8 @@ export namespace Prisma {
     chapterId?: IntFieldUpdateOperationsInput | number
     chapterName?: StringFieldUpdateOperationsInput | string
     chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: categoryUncheckedUpdateManyWithoutCategoryChapterNestedInput
   }
 
@@ -72875,12 +73011,16 @@ export namespace Prisma {
     chapterId: number
     chapterName: string
     chapterDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type categoryChapterUpdateManyMutationInput = {
     chapterId?: IntFieldUpdateOperationsInput | number
     chapterName?: StringFieldUpdateOperationsInput | string
     chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type categoryChapterUncheckedUpdateManyInput = {
@@ -72888,11 +73028,15 @@ export namespace Prisma {
     chapterId?: IntFieldUpdateOperationsInput | number
     chapterName?: StringFieldUpdateOperationsInput | string
     chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type categoryCreateInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -72916,6 +73060,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -72934,6 +73080,8 @@ export namespace Prisma {
   export type categoryUpdateInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -72957,6 +73105,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -72978,11 +73128,15 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type categoryUpdateManyMutationInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type categoryUncheckedUpdateManyInput = {
@@ -72991,6 +73145,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -75670,6 +75826,8 @@ export namespace Prisma {
   export type categoryTypeCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type categoryTypeAvgOrderByAggregateInput = {
@@ -75679,11 +75837,15 @@ export namespace Prisma {
   export type categoryTypeMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type categoryTypeMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type categoryTypeSumOrderByAggregateInput = {
@@ -75695,6 +75857,8 @@ export namespace Prisma {
     chapterId?: SortOrder
     chapterName?: SortOrder
     chapterDescription?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type categoryChapterAvgOrderByAggregateInput = {
@@ -75707,6 +75871,8 @@ export namespace Prisma {
     chapterId?: SortOrder
     chapterName?: SortOrder
     chapterDescription?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type categoryChapterMinOrderByAggregateInput = {
@@ -75714,6 +75880,8 @@ export namespace Prisma {
     chapterId?: SortOrder
     chapterName?: SortOrder
     chapterDescription?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type categoryChapterSumOrderByAggregateInput = {
@@ -75797,6 +75965,8 @@ export namespace Prisma {
     description?: SortOrder
     typeId?: SortOrder
     chapterId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type categoryAvgOrderByAggregateInput = {
@@ -75811,6 +75981,8 @@ export namespace Prisma {
     description?: SortOrder
     typeId?: SortOrder
     chapterId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type categoryMinOrderByAggregateInput = {
@@ -75819,6 +75991,8 @@ export namespace Prisma {
     description?: SortOrder
     typeId?: SortOrder
     chapterId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type categorySumOrderByAggregateInput = {
@@ -79849,6 +80023,8 @@ export namespace Prisma {
   export type categoryCreateWithoutActivityInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
@@ -79871,6 +80047,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
@@ -80053,6 +80231,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutActivityInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
@@ -80075,6 +80255,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
@@ -80687,6 +80869,8 @@ export namespace Prisma {
   export type categoryCreateWithoutBadgeInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
@@ -80709,6 +80893,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
@@ -80771,6 +80957,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutBadgeInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
@@ -80793,6 +80981,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
@@ -80810,6 +81000,8 @@ export namespace Prisma {
   export type categoryCreateWithoutCognitiveExerciseInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
@@ -80832,6 +81024,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
@@ -80901,6 +81095,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutCognitiveExerciseInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
@@ -80923,6 +81119,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
@@ -81086,6 +81284,8 @@ export namespace Prisma {
   export type categoryCreateWithoutCollaborativeProjectInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -81108,6 +81308,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -81322,6 +81524,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutCollaborativeProjectInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -81344,6 +81548,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -81893,6 +82099,8 @@ export namespace Prisma {
   export type categoryCreateWithoutExerciseProgramInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -81915,6 +82123,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -81984,6 +82194,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutExerciseProgramInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -82006,6 +82218,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -83605,6 +83819,8 @@ export namespace Prisma {
   export type categoryCreateWithoutHelpRequestInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -83627,6 +83843,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -83843,6 +84061,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutHelpRequestInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -83865,6 +84085,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -83882,6 +84104,8 @@ export namespace Prisma {
   export type categoryCreateWithoutLocalServiceInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -83904,6 +84128,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -83967,6 +84193,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutLocalServiceInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -83989,6 +84217,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -85020,6 +85250,8 @@ export namespace Prisma {
   export type categoryCreateWithoutNutritionalAdviceInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -85042,6 +85274,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -85075,6 +85309,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutNutritionalAdviceInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -85097,6 +85333,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -85827,6 +86065,8 @@ export namespace Prisma {
   export type categoryCreateWithoutResourceInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -85849,6 +86089,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -86001,6 +86243,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutResourceInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -86023,6 +86267,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -86961,6 +87207,8 @@ export namespace Prisma {
   export type categoryCreateWithoutSkillInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -86983,6 +87231,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -87042,6 +87292,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutSkillInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -87064,6 +87316,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -87746,6 +88000,8 @@ export namespace Prisma {
   export type categoryCreateWithoutUrbanIssueReportInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -87768,6 +88024,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -87920,6 +88178,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutUrbanIssueReportInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -87942,6 +88202,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -91415,6 +91677,8 @@ export namespace Prisma {
   export type categoryCreateWithoutWellnessBadgeInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -91437,6 +91701,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -91470,6 +91736,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutWellnessBadgeInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -91492,6 +91760,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -91650,6 +91920,8 @@ export namespace Prisma {
   export type categoryCreateWithoutWellnessGoalInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -91672,6 +91944,8 @@ export namespace Prisma {
     description?: string | null
     typeId: number
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -91853,6 +92127,8 @@ export namespace Prisma {
   export type categoryUpdateWithoutWellnessGoalInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -91875,6 +92151,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -91968,6 +92246,8 @@ export namespace Prisma {
   export type categoryCreateWithoutCategoryTypeInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -91989,6 +92269,8 @@ export namespace Prisma {
     categoryName: string
     description?: string | null
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -92039,11 +92321,15 @@ export namespace Prisma {
     description?: StringNullableFilter<"category"> | string | null
     typeId?: IntFilter<"category"> | number
     chapterId?: IntFilter<"category"> | number
+    createdAt?: DateTimeFilter<"category"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"category"> | Date | string | null
   }
 
   export type categoryCreateWithoutCategoryChapterInput = {
     categoryName: string
     description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
@@ -92065,6 +92351,8 @@ export namespace Prisma {
     categoryName: string
     description?: string | null
     typeId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
@@ -92588,11 +92876,15 @@ export namespace Prisma {
 
   export type categoryTypeCreateWithoutCategoriesInput = {
     name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type categoryTypeUncheckedCreateWithoutCategoriesInput = {
     id?: number
     name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type categoryTypeCreateOrConnectWithoutCategoriesInput = {
@@ -92604,6 +92896,8 @@ export namespace Prisma {
     chapterId: number
     chapterName: string
     chapterDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type categoryChapterUncheckedCreateWithoutCategoryInput = {
@@ -92611,6 +92905,8 @@ export namespace Prisma {
     chapterId: number
     chapterName: string
     chapterDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type categoryChapterCreateOrConnectWithoutCategoryInput = {
@@ -92929,11 +93225,15 @@ export namespace Prisma {
 
   export type categoryTypeUpdateWithoutCategoriesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type categoryTypeUncheckedUpdateWithoutCategoriesInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type categoryChapterUpsertWithoutCategoryInput = {
@@ -92951,6 +93251,8 @@ export namespace Prisma {
     chapterId?: IntFieldUpdateOperationsInput | number
     chapterName?: StringFieldUpdateOperationsInput | string
     chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type categoryChapterUncheckedUpdateWithoutCategoryInput = {
@@ -92958,6 +93260,8 @@ export namespace Prisma {
     chapterId?: IntFieldUpdateOperationsInput | number
     chapterName?: StringFieldUpdateOperationsInput | string
     chapterDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type activityRegistrationCreateManyActivityInput = {
@@ -95063,11 +95367,15 @@ export namespace Prisma {
     categoryName: string
     description?: string | null
     chapterId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type categoryUpdateWithoutCategoryTypeInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -95089,6 +95397,8 @@ export namespace Prisma {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -95109,6 +95419,8 @@ export namespace Prisma {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     chapterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type categoryCreateManyCategoryChapterInput = {
@@ -95116,11 +95428,15 @@ export namespace Prisma {
     categoryName: string
     description?: string | null
     typeId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type categoryUpdateWithoutCategoryChapterInput = {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
@@ -95142,6 +95458,8 @@ export namespace Prisma {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
@@ -95162,6 +95480,8 @@ export namespace Prisma {
     categoryName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type activityCreateManyCategoryInput = {
