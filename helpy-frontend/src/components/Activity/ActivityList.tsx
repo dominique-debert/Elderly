@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchActivityCategories } from '@/services/activityCategory.service';
 import type { ICategory } from '@/@types/ICategory';
 import { ActivityCardView } from "./ActivityCardView";
-import { ActivityListSwitcher } from "./ActivityListSwitcher";
+import { ActivityListSwitcher } from "./ActivityModeSwitcher";
 import { ActivityListView } from "./ActivityListView";
 import { ActivityTableView } from "./ActivityTableView";
 
@@ -61,8 +61,8 @@ export const ActivityList = () => {
           <div key={chapterName}>
             <div className="text-xl font-semibold mt-12">{chapterName}</div>
             <div className="divider mt-0"></div>
-              {mode === 'list' && <ActivityListView activities={filtered} />}
-              {mode === 'card' && <ActivityCardView activities={filtered} />}
+            {mode === 'list' && <ActivityListView activities={filtered} />}
+            {mode === 'card' && <ActivityCardView activities={filtered} />}
             {mode === 'table' && <ActivityTableView activities={filtered} />}
           </div>
         );

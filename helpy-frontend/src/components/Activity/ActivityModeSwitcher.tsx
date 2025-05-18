@@ -1,5 +1,5 @@
 import Icon from '@mdi/react';
-import { mdiViewGrid, mdiViewList, mdiTable, mdiPlus, mdiMagnify } from '@mdi/js';
+import { mdiViewGrid, mdiViewList, mdiTable, mdiPlus, mdiMagnify, mdiClose } from '@mdi/js';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { ActivityCreateModal } from './ActivityCreateModal';
@@ -33,6 +33,11 @@ export function ActivityListSwitcher({ mode, setMode, search, setSearch }: Switc
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          <button className="cursor-pointer"
+            onClick={() => setSearch('')}
+          >
+            <Icon path={mdiClose} size={0.8} />
+          </button>
         </label>
 
         {/* Boutons */}
