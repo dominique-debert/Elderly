@@ -1,7 +1,11 @@
 import {ICategory} from '@/@types/ICategory'
 import ActivityListItem from './ActivityListItem';
 
-export function ActivityListView({ activities }: { activities: ICategory[] }) {
+type ActivityListViewProps = {
+  activities: ICategory[];
+};
+
+export function ActivityListView({ activities }: ActivityListViewProps) {
   return (
     <ul className="space-y-2 mt-10">
       {activities?.map((activity) => (

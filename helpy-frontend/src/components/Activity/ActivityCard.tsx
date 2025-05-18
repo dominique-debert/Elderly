@@ -1,6 +1,6 @@
 import { mdiDeleteOutline, mdiPencilOutline } from '@mdi/js';
 import Icon from '@mdi/react';
-import { ICategory } from '@/@types/ICategory';
+import type { ICategory } from '@/@types/ICategory';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { ConfirmDeleteActivityModal } from './ConfirmDeleteActivityModal';

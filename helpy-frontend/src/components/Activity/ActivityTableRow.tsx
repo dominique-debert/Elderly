@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ConfirmDeleteActivityModal } from './ConfirmDeleteActivityModal';
 import { ActivityEditModal } from './ActivityEditModal';
 import { TableCell, TableRow } from '../ui/table';
-import { ICategory } from "@/@types/ICategory";
+import type { ICategory } from "@/@types/ICategory";
 
 export default function ActivityTableRow({ activity }: { activity: ICategory }) {
 

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { ICategoryState } from '../@types/ICategoryState';
-import { ICategory } from '../@types/ICategory';
+import type { ICategory } from '../@types/ICategory';
 
 export const useCategoryMenuStore = create<ICategoryState>((set) => ({
   selectedCategory: null,

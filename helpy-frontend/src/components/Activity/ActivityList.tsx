@@ -61,13 +61,9 @@ export const ActivityList = () => {
           <div key={chapterName}>
             <div className="text-xl font-semibold mt-12">{chapterName}</div>
             <div className="divider mt-0"></div>
-              {filtered.map((activity) => (
-                <>
-                  {mode === 'list' && <ActivityListView key={activity.id} activities={[activity]} />}
-                </>
-              ))}
-              {mode === 'card' && <ActivityCardView activities={allActivities} />}
-            {mode === 'table' && <ActivityTableView activities={allActivities} />}
+              {mode === 'list' && <ActivityListView activities={filtered} />}
+              {mode === 'card' && <ActivityCardView activities={filtered} />}
+            {mode === 'table' && <ActivityTableView activities={filtered} />}
           </div>
         );
       })}
