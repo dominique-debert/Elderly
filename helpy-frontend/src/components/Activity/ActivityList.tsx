@@ -51,15 +51,15 @@ export const ActivityList = () => {
         </div>
       )}
 
-      {filteredChapters.map(([chapterName, types]) => {
+      {filteredChapters.map(([chapterName, types], index) => {
         const allActivities = Object.values(types).flat() as ICategory[];
         const filtered = allActivities.filter((activity) =>
           activity.categoryName.toLowerCase().includes(search.toLowerCase())
         );
 
         return (
-          <div key={chapterName}>
-            <div className="text-xl font-semibold mt-12">{chapterName}</div>
+          <div key={chapterName} className={index !== 0 ? 'mt-12' : 'mt-6'}>
+            <div className="text-xl font-semibold">{chapterName}</div>
             <div className="divider mt-0"></div>
             {mode === 'list' && <ActivityListView activities={filtered} />}
             {mode === 'card' && <ActivityCardView activities={filtered} />}
