@@ -1,10 +1,10 @@
-import { useAuthStore } from "../stores/auth";
-import ActivityCard from "../components/ActivityCard";
-import ForumCard from "../components/ForumCard";
-import HealthCard from "../components/HealthCard";
-import UserCard from "../components/UserCard";
-import ServiceCard from "../components/ServiceCard";
-import MedicationCard from "../components/MedicationCard";
+import { useAuthStore } from "@/stores/auth";
+import ActivityCard from "@/components/ActivityDashboardCard";
+import ForumCard from "@/components/ForumCard";
+import HealthCard from "@/components/HealthCard";
+import UserCard from "@/components/UserCard";
+import ServiceCard from "@/components/ServiceCard";
+import MedicationCard from "@/components/MedicationCard";
 import { Navigate } from "react-router-dom";
 import { MeteoWidget } from "@/components/MeteoWidget";
 

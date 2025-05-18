@@ -11,4 +11,5 @@ export interface ICategory {
   categoryType?: {
     name: string;
   };
+  createdAt: Date;
 }

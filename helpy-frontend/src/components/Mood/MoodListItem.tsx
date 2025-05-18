@@ -32,7 +32,6 @@ export default function MoodListItem({ mood }: { mood: IMood }) {
         <span className="w-80">{mood.description}</span>
         <span className="w-48 text-center">{mood.valence}</span>
         <span className="w-24">{mood.intensity}/5</span>
-        <span className="w-48">{new Date(mood.createdAt).toLocaleDateString()}</span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"
