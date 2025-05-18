@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { updateActivityCategory } from '@/services/activityCategory.service';
 import { toast } from 'react-hot-toast';
 import { ICategory } from "@/@types/ICategory";
-import { ECategoryType } from "@/@types/ECategory";
 import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
 import { IChapter } from "@/@types/IChapter";
 import { ICategoryType } from "@/@types/ICategoryType";
@@ -46,7 +45,6 @@ export function ActivityEditModal({ activity, onClose, onUpdated }: ActivityModa
         setChapters(chaptersFormatted);
         setTypes(typesFormatted);
   
-        // ✅ Initialiser le formulaire uniquement une fois les données chargées
         setForm({
           categoryName: activity.categoryName,
           description: activity.description || '',

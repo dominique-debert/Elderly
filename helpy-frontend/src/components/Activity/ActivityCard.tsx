@@ -24,6 +24,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
     setIsConfirmDeleteOpen(false);
     queryClient.invalidateQueries({ queryKey: ['activities'] });
   };
+  
 return (
   <>
     <div
@@ -33,9 +34,8 @@ return (
         <p className="text-xl font-semibold mb-2"> {activity.categoryName}</p>
       </div>
       <p className="text-sm text-gray-600">
-        {activity.description}
-      </p>
       {activity.description && <p className="mt-2">{activity.description}</p>}
+      </p>
       <div className="divider"></div>
       <div className="justify-end card-actions">
           <button className="btn btn-primary"

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useCategoryModalStore } from '@/stores/categoryModalStore';
-import { createActivityCategory } from '@/services/activityCategory.service';
 import toast from 'react-hot-toast';
+import { createActivityCategory } from '@/services/activityCategory.service';
 import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
 import { IChapter } from "@/@types/IChapter";
 import { ICategoryType } from "@/@types/ICategoryType";
@@ -12,8 +11,6 @@ type ActivityCreateModalProps = {
 };
 
 export const ActivityCreateModal: React.FC<ActivityCreateModalProps> = ({ onClose, onCreated }) => {
-  const { isOpen, close } = useCategoryModalStore();
-
   const [form, setForm] = useState({
     categoryName: '',
     description: '',
@@ -56,69 +53,69 @@ export const ActivityCreateModal: React.FC<ActivityCreateModalProps> = ({ onClos
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-4">Ajouter une activité</h2>
-        
-        <div className="form-control mb-4">
-          <label className="label"><span className="label-text">Nom</span></label>
+    <dialog className="modal modal-open">
+      <div className="modal-box">
+        <h3 className="border-b border-base-300 font-medium text-xl">Créer une nouvelle catégorie</h3>
+
+        <form method="dialog" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
+
+          <button className="btn btn-sm btn-circle btn-ghost absolute right-4 top-5" onClick={onClose}>✕</button>
+
+          <label className="text-sm -mb-2 mt-4">Nom</label>
           <input
             type="text"
             name="categoryName"
-            placeholder="Nom de la catégorie"
-            className="input input-bordered"
             value={form.categoryName}
             onChange={handleChange}
+            className="input input-bordered w-full"
+            placeholder="Nom de la catégorie"
+            required
           />
-        </div>
 
-        <div className="form-control mb-4">
-          <label className="label"><span className="label-text">Description</span></label>
+          <label className="text-sm -mb-2 mt-4">Description</label>
           <textarea
             name="description"
-            placeholder="Description"
-            className="textarea textarea-bordered"
             value={form.description}
             onChange={handleChange}
+            className="textarea textarea-bordered w-full"
+            placeholder="Description"
           />
-        </div>
 
-        <div className="form-control mb-4">
-          <label className="label"><span className="label-text">Chapitre</span></label>
+          <label className="text-sm -mb-2 mt-4">Chapitre</label>
           <select
             name="chapterId"
-            className="select select-bordered"
             value={form.chapterId}
             onChange={handleChange}
+            className="select select-bordered w-full"
+            required
           >
+            <option value="" disabled>Choisir un chapitre</option>
             {chapters.map((ch) => (
               <option key={ch.chapterId} value={ch.chapterId}>{ch.chapterName}</option>
             ))}
           </select>
-        </div>
 
-        <div className="form-control mb-6">
-          <label className="label"><span className="label-text">Type</span></label>
+          <label className="text-sm -mb-2 mt-4">Type</label>
           <select
             name="typeId"
-            className="select select-bordered"
             value={form.typeId}
             onChange={handleChange}
+            className="select select-bordered w-full"
+            required
           >
+            <option value="" disabled>Choisir un type</option>
             {types.map((t) => (
               <option key={t.id} value={t.id}>{t.name}</option>
             ))}
           </select>
-        </div>
 
-        <div className="flex justify-end gap-4">
-          <button onClick={close} className="btn btn-ghost">Annuler</button>
-          <button onClick={handleSubmit} className="btn btn-primary">Créer</button>
-        </div>
+          <div className="modal-action">
+            <button type="submit" className="btn btn-primary">Enregistrer</button>
+            <button type="button" className="btn" onClick={onClose}>Annuler</button>
+          </div>
+        </form>
       </div>
-    </div>
+    </dialog>
   );
 };

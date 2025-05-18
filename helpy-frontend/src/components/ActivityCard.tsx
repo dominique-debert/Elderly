@@ -8,7 +8,7 @@ import {
 const ActivityCard = () => {
 
   return (
-    <Card
+    <>    <Card
       className="lg:w-full bg-base-100 border border-base-200"
     >            
       <CardHeader>
@@ -26,6 +26,8 @@ const ActivityCard = () => {
         </div>
       </CardContent>
     </Card>
+    </>
+
   );
 };
 
