@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
-import { updateWellnessCategory } from '@/services/wellnessCategory.service';
+import { updateCognitiveCategory } from '@/services/cognitiveCategory.service';
 import { toast } from 'react-hot-toast';
 import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
 import type { ICategory } from "@/@types/ICategory";
 import type { ICategoryType } from "@/@types/ICategoryType";
 import type { IChapter } from "@/@types/IChapter";
 
-type WellnessModalProps = {
-  wellnessCategory: ICategory;
+type CognitionModalProps = {
+  category: ICategory;
   onClose: () => void;
   onUpdated?: () => void;
 };
 
-export function WellnessEditModal({ wellnessCategory, onClose, onUpdated }: WellnessModalProps) {
+export function CognitionEditModal({ category, onClose, onUpdated }: CognitionModalProps) {
+  
   const [form, setForm] = useState<{
     categoryName: string;
     description: string;
@@ -46,10 +47,10 @@ export function WellnessEditModal({ wellnessCategory, onClose, onUpdated }: Well
         setTypes(typesFormatted);
   
         setForm({
-          categoryName: wellnessCategory.categoryName,
-          description: wellnessCategory.description || '',
-          chapterId: String(wellnessCategory.chapterId ?? chaptersFormatted[0]?.id ?? ''),
-          typeId: String(wellnessCategory.typeId ?? typesFormatted[0]?.id ?? ''),
+          categoryName: category.categoryName,
+          description: category.description || '',
+          chapterId: String(category.chapterId ?? chaptersFormatted[0]?.id ?? ''),
+          typeId: String(category.typeId ?? typesFormatted[0]?.id ?? ''),
         });
   
       } catch (error) {
@@ -60,7 +61,7 @@ export function WellnessEditModal({ wellnessCategory, onClose, onUpdated }: Well
     };
   
     fetchData();
-  }, [wellnessCategory]);
+  }, [category]);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -74,7 +75,7 @@ export function WellnessEditModal({ wellnessCategory, onClose, onUpdated }: Well
     if (!form) return;
 
     try {
-      await updateWellnessCategory(wellnessCategory.id.toString(), {
+      await updateCognitiveCategory(Number(category.id), {
         categoryName: form.categoryName,
         description: form.description,
         chapterId: Number(form.chapterId),
@@ -90,17 +91,17 @@ export function WellnessEditModal({ wellnessCategory, onClose, onUpdated }: Well
   };
 
   if (loading || !form) {
-    const chapterName = chapters.find((c) => c.id === wellnessCategory.chapterId)?.name || `ID: ${wellnessCategory.chapterId}`;
-    const typeName = types.find((t) => t.id === wellnessCategory.typeId)?.name || `ID: ${wellnessCategory.typeId}`;
+    const chapterName = chapters.find((c) => c.id === category.chapterId)?.name || `ID: ${category.chapterId}`;
+    const typeName = types.find((t) => t.id === category.typeId)?.name || `ID: ${category.typeId}`;
     return (
-      <dialog className="modal modal-open" key={wellnessCategory.id}>
+      <dialog className="modal modal-open" key={category.id}>
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Modifier la catégorie de bien-être</h3>
+          <h3 className="font-bold text-lg">Modifier la catégorie cognitive</h3>
           <form className="flex flex-col gap-4 mt-4 w-full">
             <label className="text-sm -mb-2 mt-4">Nom</label>
-            <input type="text" value={wellnessCategory.categoryName} disabled className="input input-bordered w-full bg-gray-100" />
+            <input type="text" value={category.categoryName} disabled className="input input-bordered w-full bg-gray-100" />
             <label className="text-sm -mb-2 mt-4">Description</label>
-            <textarea value={wellnessCategory.description || ''} disabled className="textarea textarea-bordered w-full bg-gray-100" />
+            <textarea value={category.description || ''} disabled className="textarea textarea-bordered w-full bg-gray-100" />
             <label className="text-sm -mb-2 mt-4">Chapitre</label>
             <input type="text" value={chapterName} disabled className="input input-bordered w-full bg-gray-100" />
             <label className="text-sm -mb-2 mt-4">Type</label>
@@ -115,9 +116,9 @@ export function WellnessEditModal({ wellnessCategory, onClose, onUpdated }: Well
   }
 
   return (
-    <dialog className="modal modal-open" key={wellnessCategory.id}>
+    <dialog className="modal modal-open" key={category.id}>
       <div className="modal-box">
-        <h3 className="font-bold text-lg">Modifier la catégorie de bien-être</h3>
+        <h3 className="font-bold text-lg">Modifier la catégorie cognitive</h3>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
           <label className="text-sm -mb-2 mt-4">Nom</label>

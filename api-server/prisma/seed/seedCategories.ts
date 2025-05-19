@@ -182,6 +182,146 @@ async function seedCategoryTypes() {
         typeId: ECategoryType.WELLNESS,
         chapterId: ECategoryChapter.SOCIAL_WELLNESS
       },      
+      {
+        id: 26,
+        categoryName: "Mémoire",
+        description: "Activités qui stimulent la mémoire à court ou long terme.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 27,
+        categoryName: "Concentration",
+        description: "Activités qui favorisent l'attention soutenue et la focalisation.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 28,
+        categoryName: "Raisonnement",
+        description: "Activités qui sollicitent la logique, la résolution de problèmes et la pensée critique.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 29,
+        categoryName: "Langage",
+        description: "Activités qui mobilisent la compréhension, l’expression orale ou écrite.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 30,
+        categoryName: "Vitesse de traitement",
+        description: "Activités qui renforcent la rapidité d’analyse ou de réaction.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 31,
+        categoryName: "Perception",
+        description: "Activités qui entraînent l’interprétation des informations sensorielles.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 32,
+        categoryName: "Fonctions exécutives",
+        description: "Activités mobilisant la planification, l’organisation, la flexibilité mentale.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 33,
+        categoryName: "Apprentissage",
+        description: "Activités qui favorisent l'acquisition de nouvelles connaissances ou compétences.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 34,
+        categoryName: "Créativité",
+        description: "Activités qui stimulent l'imagination et l'innovation.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 35,
+        categoryName: "Prise de décision",
+        description: "Activités qui aident à évaluer des options et à faire des choix éclairés.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_ACTIVITY
+      },      
+      {
+        id: 36,
+        categoryName: "Stimulation cognitive",
+        description: "Ressources ou contextes favorisant une cognition active et saine.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
+      {
+        id: 37,
+        categoryName: "Repos mental",
+        description: "Activités qui permettent de reposer le cerveau et de limiter la surcharge cognitive.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
+      {
+        id: 38,
+        categoryName: "Gestion de l’information",
+        description: "Stratégies ou outils pour mieux traiter, filtrer ou hiérarchiser les informations.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
+      {
+        id: 39,
+        categoryName: "Équilibre émotionnel",
+        description: "Pratiques qui aident à maintenir un état émotionnel stable et positif.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
+      {
+        id: 40,
+        categoryName: "Hygiène mentale",
+        description: "Habitudes et routines qui soutiennent la santé mentale globale.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
+      {
+        id: 41,
+        categoryName: "Relaxation",
+        description: "Techniques pour réduire le stress et favoriser la détente.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
+      {
+        id: 42,
+        categoryName: "Socialisation",
+        description: "Activités qui encouragent les interactions sociales positives.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
+      {
+        id: 43,
+        categoryName: "Environnement sain",
+        description: "Contextes physiques ou sociaux qui favorisent le bien-être cognitif.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
+      {
+        id: 44,
+        categoryName: "Nutrition cérébrale",
+        description: "Alimentation et habitudes qui soutiennent la santé du cerveau.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
+      {
+        id: 45,
+        categoryName: "Exercice physique",
+        description: "Activités physiques qui améliorent la fonction cognitive et le bien-être mental.",
+        typeId: ECategoryType.COGNITIVE,
+        chapterId: ECategoryChapter.COGNITIVE_WELLNESS
+      },      
     ],
     skipDuplicates: true
   });
@@ -197,3 +337,10 @@ seedCategoryTypes()
 .finally(async () => {
   await prisma.$disconnect();
 });
+
+
+
+
+
+
+// exercice_physique		Activités physiques qui améliorent la fonction cognitive et le bien-être mental.	Course à pied, natation, danse, entraînement en force, sports d'équipe.
