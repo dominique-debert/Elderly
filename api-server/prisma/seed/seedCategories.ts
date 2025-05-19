@@ -124,63 +124,63 @@ async function seedCategoryTypes() {
         categoryName: "Activités physiques",
         description: "Les activités physiques, qu’il s’agisse de sports, de marche ou de yoga, jouent un rôle fondamental. Elles augmentent l’énergie, améliorent l’humeur et réduisent le risque de maladies chroniques.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.PHYSICAL
+        chapterId: ECategoryChapter.PHYSICAL_WELLNESS
       },
       {
         id: 18,
         categoryName: "Alimentation saine",
         description: "L’alimentation joue un rôle majeur dans le bien-être physique. Une alimentation équilibrée fournit les nutriments nécessaires pour le bon fonctionnement du corps.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.PHYSICAL
+        chapterId: ECategoryChapter.PHYSICAL_WELLNESS
       },
       {
         id: 19,
         categoryName: "Sommeil",
         description: "Le sommeil est souvent négligé, mais il est essentiel pour la régénération du corps et de l’esprit.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.PHYSICAL
+        chapterId: ECategoryChapter.PHYSICAL_WELLNESS
       },
       {
         id: 20,
         categoryName: "Santé mentale",
         description: "La santé mentale est indissociable du bien-être émotionnel. Elle implique la capacité à gérer les émotions positives et négatives.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.EMOTIONAL
+        chapterId: ECategoryChapter.EMOTIONAL_WELLNESS
       },
       {
         id: 21,
         categoryName: "Gestion du stress",
         description: "La gestion du stress est fondamentale pour éviter l’épuisement émotionnel.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.EMOTIONAL
+        chapterId: ECategoryChapter.EMOTIONAL_WELLNESS
       },
       {
         id: 22,
         categoryName: "Compassion et empathie",
         description: "Éprouver de la compassion et de l’empathie enrichit les relations interpersonnelles et renforce le bien-être émotionnel.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.EMOTIONAL
+        chapterId: ECategoryChapter.EMOTIONAL_WELLNESS
       },
       {
         id: 23,
         categoryName: "Relations positives",
         description: "Les relations positives sont un pilier du bien-être social. Elles se caractérisent par des échanges respectueux et bienveillants.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.SOCIAL
+        chapterId: ECategoryChapter.SOCIAL_WELLNESS
       },
       {
         id: 24,
         categoryName: "Sentiment d’appartenance à une communauté",
         description: "Le sentiment d’appartenance à une communauté renforce le bien-être social.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.SOCIAL
+        chapterId: ECategoryChapter.SOCIAL_WELLNESS
       },
       {
         id: 25,
         categoryName: "Qualité de vie et interactions",
         description: "La qualité de vie est influencée par la nature et la qualité des interactions sociales.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.SOCIAL
+        chapterId: ECategoryChapter.SOCIAL_WELLNESS
       },      
     ],
     skipDuplicates: true

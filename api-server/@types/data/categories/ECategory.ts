@@ -19,10 +19,11 @@ export enum ECategoryChapter {
   COGNITIVE = 2,
   SOCIAL = 3,
   SENSORY = 4,
-  EMOTIONAL = 5,
+  PHYSICAL_WELLNESS = 5,
+  EMOTIONAL_WELLNESS = 6,
+  SOCIAL_WELLNESS = 7,
+  INTELLECTUAL_WELLNESS = 8,
+  FINANCIAL_WELLNESS = 9,
+  ENVIRONMENTAL_WELLNESS = 10,
+  SPIRITUAL_WELLNESS = 11,
 }
-
-// chapterId: 1, chapterName: "Activités physiques"
-// chapterId: 2, chapterName: "Activités cognitives"
-// chapterId: 3, chapterName: "Activités sociales"
-// chapterId: 3, chapterName: "Activités sensorielles"
