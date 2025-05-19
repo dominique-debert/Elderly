@@ -322,6 +322,174 @@ async function seedCategoryTypes() {
         typeId: ECategoryType.COGNITIVE,
         chapterId: ECategoryChapter.COGNITIVE_WELLNESS
       },      
+      {
+        id: 46,
+        categoryName: "Marche régulière",
+        description: "Badge obtenu après avoir marché un certain nombre de pas pendant plusieurs jours.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.PHYSICAL_ACHIEVEMENTS
+      },      
+      {
+        id: 47,
+        categoryName: "Exercices cardiovasculaires",
+        description: "Récompense pour la pratique régulière d’activités comme le jogging ou la natation.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.PHYSICAL_ACHIEVEMENTS
+      },      
+      {
+        id: 48,
+        categoryName: "Renforcement musculaire",
+        description: "Badge pour la pratique d’exercices de musculation ou de gainage.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.PHYSICAL_ACHIEVEMENTS
+      },      
+      {
+        id: 49,
+        categoryName: "Souplesse et étirements",
+        description: "Récompense pour des séances régulières d’étirements ou de yoga.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.PHYSICAL_ACHIEVEMENTS
+      },      
+      {
+        id: 50,
+        categoryName: "Jeux de mémoire",
+        description: "Badge pour avoir complété des exercices de mémoire ou de concentration.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.COGNITIVE_ACHIEVEMENTS
+      },      
+      {
+        id: 51,
+        categoryName: "Résolution de problèmes",
+        description: "Récompense pour avoir complété des jeux de logique ou de stratégie.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.COGNITIVE_ACHIEVEMENTS
+      },      
+      {
+        id: 52,
+        categoryName: "Apprentissage continu",
+        description: "Badge obtenu après avoir lu ou étudié régulièrement.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.COGNITIVE_ACHIEVEMENTS
+      },      
+      {
+        id: 53,
+        categoryName: "Créativité",
+        description: "Récompense pour des activités artistiques ou créatives (dessin, musique, écriture).",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.COGNITIVE_ACHIEVEMENTS
+      },      
+      {
+        id: 54,
+        categoryName: "Hydratation",
+        description: "Badge obtenu pour avoir respecté des objectifs d’hydratation sur plusieurs jours.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.NUTRITION_ACHIEVEMENTS
+      },      
+      {
+        id: 55,
+        categoryName: "Repas équilibrés",
+        description: "Récompense pour avoir consommé des repas sains et variés régulièrement.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.NUTRITION_ACHIEVEMENTS
+      },      
+      {
+        id: 56,
+        categoryName: "Réduction du sucre",
+        description: "Badge pour avoir limité la consommation de sucres ajoutés.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.NUTRITION_ACHIEVEMENTS
+      },      
+      {
+        id: 57,
+        categoryName: "Planification des repas",
+        description: "Récompense pour l’organisation proactive des repas sur la semaine.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.NUTRITION_ACHIEVEMENTS
+      },      
+      {
+        id: 58,
+        categoryName: "Aide à autrui",
+        description: "Badge pour avoir apporté son aide à une personne dans le besoin.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.SOCIAL_ACHIEVEMENTS
+      },      
+      {
+        id: 59,
+        categoryName: "Activités en groupe",
+        description: "Récompense pour la participation à des activités collectives.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.SOCIAL_ACHIEVEMENTS
+      },      
+      {
+        id: 60,
+        categoryName: "Communication positive",
+        description: "Badge pour des interactions sociales bienveillantes et constructives.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.SOCIAL_ACHIEVEMENTS
+      },      
+      {
+        id: 61,
+        categoryName: "Implication communautaire",
+        description: "Récompense pour l’engagement dans une association ou un projet collectif.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.SOCIAL_ACHIEVEMENTS
+      },      
+      {
+        id: 62,
+        categoryName: "Réduction des déchets",
+        description: "Badge obtenu pour des gestes écoresponsables comme le tri ou le zéro déchet.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS
+      },      
+      {
+        id: 63,
+        categoryName: "Mobilité douce",
+        description: "Récompense pour avoir privilégié la marche, le vélo ou les transports en commun.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS
+      },      
+      {
+        id: 64,
+        categoryName: "Consommation responsable",
+        description: "Badge pour des achats locaux, durables ou en vrac.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS
+      },      
+      {
+        id: 65,
+        categoryName: "Économie d’énergie",
+        description: "Récompense pour des efforts visant à réduire sa consommation d’eau ou d’électricité.",
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS
+      },      
+      {
+        id: 66,
+        categoryName: "Ateliers de recyclage",
+        description: "Récompense pour des efforts visant à réduire sa consommation d’eau ou d’électricité.",
+        typeId: ECategoryType.ACTIVITY,
+        chapterId: ECategoryChapter.ENVIRONMENTAL
+      },      
+      {
+        id: 67,
+        categoryName: "Jardinage écologique",
+        description: "Récompense pour des efforts visant à réduire sa consommation d’eau ou d’électricité.",
+        typeId: ECategoryType.ACTIVITY,
+        chapterId: ECategoryChapter.ENVIRONMENTAL
+      },      
+      {
+        id: 68,
+        categoryName: "Sensibilisation à l’environnement",
+        description: "Récompense pour des efforts visant à réduire sa consommation d’eau ou d’électricité.",
+        typeId: ECategoryType.ACTIVITY,
+        chapterId: ECategoryChapter.ENVIRONMENTAL
+      },      
+      {
+        id: 69,
+        categoryName: "Nettoyage de la nature",
+        description: "Récompense pour des efforts visant à réduire sa consommation d’eau ou d’électricité.",
+        typeId: ECategoryType.ACTIVITY,
+        chapterId: ECategoryChapter.ENVIRONMENTAL
+      },      
     ],
     skipDuplicates: true
   });
@@ -338,9 +506,30 @@ seedCategoryTypes()
   await prisma.$disconnect();
 });
 
+// URBAN ISSUES
+//   {
+//     name: "Accessibilité urbaine",
+//     description: "Réflexions et projets sur l’accessibilité des espaces publics pour les personnes en situation de handicap ou à mobilité réduite.",
+//     chapterId: 14,
+//   },
+//   {
+//     name: "Mobilité et transport",
+//     description: "Discussions et activités autour des transports durables, sûrs et adaptés à tous.",
+//     chapterId: 14,
+//   },
+//   {
+//     name: "Aménagement inclusif",
+//     description: "Projets d’aménagement de quartiers, de parcs ou de bâtiments pensés pour tous les âges et capacités.",
+//     chapterId: 14,
+//   },
+//   {
+//     name: "Participation citoyenne",
+//     description: "Ateliers pour impliquer les citoyens dans les décisions d’urbanisme local.",
+//     chapterId: 14,
+//   },
+//   {
+//     name: "Sécurité et confort urbain",
+//     description: "Activités visant à identifier et améliorer les points noirs en ville : éclairage, signalisation, mobilier urbain.",
+//     chapterId: 14,
+//   }
 
-
-
-
-
-// exercice_physique		Activités physiques qui améliorent la fonction cognitive et le bien-être mental.	Course à pied, natation, danse, entraînement en force, sports d'équipe.
