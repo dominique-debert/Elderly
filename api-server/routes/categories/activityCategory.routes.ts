@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {
-  // createActivityCategory,
+  createActivityCategory,
   fetchAllActivityCategories,
   fetchActivityCategoryById,
   updateActivityCategory,
@@ -42,10 +42,13 @@ const router = Router();
  *                 type: string
  *               typeId:
  *                 type: integer
+ *               chapterId:
+ *                 type: integer
  *             example:
  *               name: "Sport"
  *               description: "Tout ce qui touche au sport"
  *               typeId: 1
+ *               chapterId: 1
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
@@ -56,7 +59,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-// router.post('/', validate(activityCategorySchema), errorHandler, createActivityCategory);
+router.post('/', validate(activityCategorySchema), errorHandler, createActivityCategory);
 
 /**
  * @swagger
@@ -92,8 +95,7 @@ router.get('/', errorHandler, fetchAllActivityCategories);
  *         name: id
  *         required: true
  *         schema:
- *           type: string
- *           format: cuid
+ *           type: integer
  *         description: ID de la catégorie
  *     responses:
  *       200:
@@ -120,7 +122,7 @@ router.get('/:id', errorHandler, fetchActivityCategoryById);
  *         categoryName: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: integer
  *         description: ID de la catégorie
  *     requestBody:
  *       required: true
@@ -134,6 +136,8 @@ router.get('/:id', errorHandler, fetchActivityCategoryById);
  *               description:
  *                 type: string
  *               typeId:
+ *                 type: integer
+ *               chapterId:
  *                 type: integer
  *             example:
  *               name: "Sports"
@@ -162,7 +166,7 @@ router.put('/:id', errorHandler, updateActivityCategory);
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: integer
  *         description: ID de la catégorie
  *     responses:
  *       200:

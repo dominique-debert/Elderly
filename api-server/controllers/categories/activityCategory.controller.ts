@@ -80,7 +80,7 @@ export const fetchActivityCategoryById = async (
     });
       
     if (!activityCategory) {
-      throw createHttpError(404, 'Catégorie non trouvée');
+      throw createHttpError(404, `Catégorie d'activité non trouvée`);
     }
       
     res.status(200).json(activityCategory);
@@ -127,7 +127,7 @@ export const fetchActivityCategoryById = async (
         }});
         
         if (!category) {
-          throw createHttpError(404, 'Activité non trouvée');
+          throw createHttpError(404, `Catégorie d'activité non trouvée`);
         }
         
         const categoryToUpdate = await prisma.category.update({
@@ -162,7 +162,7 @@ export const deleteActivityCategory = async (
         });
         
         if (!category) {
-          throw createHttpError(404, 'Catégorie non trouvée');
+          throw createHttpError(404, `Catégorie d'activité non trouvée`);
         }
         
         await prisma.category.delete({
@@ -171,7 +171,7 @@ export const deleteActivityCategory = async (
             typeId: ECategoryType.ACTIVITY }
           });
           
-          res.status(200).json({ message: 'Catégorie supprimée avec succès' });
+          res.status(200).json({ message: `Catégorie d'activité supprimée avec succès` });
   } catch (error) {
     next(error);
   }

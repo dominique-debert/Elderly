@@ -7,24 +7,24 @@ import {
   deleteBadgeCategory
 } from '@/controllers/index.controller';
 
-import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
 import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
 
 const router = Router();
 
 /**
  * @swagger
  * tags:
- *   name: Badge Categories
- *   description: Gestion des catégories de badges
+ *   name: Activity Categories
+ *   description: Gestion des catégories d'activités
  */
 
 /**
  * @swagger
  * /api/categories/badges:
  *   post:
- *     summary: Créer une nouvelle catégorie de badge
+ *     summary: Créer une nouvelle catégorie de badgges
  *     tags: [Badge Categories]
  *     requestBody:
  *       required: true
@@ -33,8 +33,9 @@ const router = Router();
  *           schema:
  *             type: object
  *             required:
- *               - name
+ *               - categoryName
  *               - typeId
+ *               - chapterId
  *             properties:
  *               name:
  *                 type: string
@@ -42,10 +43,12 @@ const router = Router();
  *                 type: string
  *               typeId:
  *                 type: integer
+ *               chapterId:
+ *                 type: integer
  *             example:
  *               name: "Expert"
- *               description: "Badge Expert"
- *               typeId: 2
+ *               description: "Catégorie de badge pour les experts"
+ *               typeId: 1
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
@@ -62,7 +65,7 @@ router.post('/', validate(categorySchema), errorHandler, createBadgeCategory);
  * @swagger
  * /api/categories/badges:
  *   get:
- *     summary: Récupérer toutes les catégories de badges
+ *     summary: Récupérer toutes les catégories d'activités
  *     tags: [Badge Categories]
  *     responses:
  *       200:
@@ -85,15 +88,14 @@ router.get('/', errorHandler, fetchAllBadgeCategories);
  * @swagger
  * /api/categories/badges/{id}:
  *   get:
- *     summary: Récupérer une catégorie de badge par ID
+ *     summary: Récupérer une catégorie de badgge par ID
  *     tags: [Badge Categories]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
- *           type: string
- *           format: cuid
+ *           type: integer
  *         description: ID de la catégorie
  *     responses:
  *       200:
@@ -107,20 +109,20 @@ router.get('/', errorHandler, fetchAllBadgeCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchBadgeCategoryById);
+router.get('/:id', errorHandler, fetchBadgeCategoryById);
 
 /**
  * @swagger
  * /api/categories/badges/{id}:
  *   put:
- *     summary: Mettre à jour une catégorie de badge
+ *     summary: Mettre à jour une catégorie de badgge
  *     tags: [Badge Categories]
  *     parameters:
  *       - in: path
- *         name: id
+ *         categoryName: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: integer
  *         description: ID de la catégorie
  *     requestBody:
  *       required: true
@@ -135,10 +137,12 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetc
  *                 type: string
  *               typeId:
  *                 type: integer
+ *               chapterId:
+ *                 type: integer
  *             example:
  *               name: "Sports"
- *               description: "Catégorie pour les experts"
- *               typeId: 2
+ *               description: "Catégorie pour les 'experts'"
+ *               typeId: 1
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
@@ -149,20 +153,20 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetc
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateBadgeCategory);
+router.put('/:id', errorHandler, updateBadgeCategory);
 
 /**
  * @swagger
  * /api/categories/badges/{id}:
  *   delete:
- *     summary: Supprimer une catégorie de badge
+ *     summary: Supprimer une catégorie de badgge
  *     tags: [Badge Categories]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: integer
  *         description: ID de la catégorie
  *     responses:
  *       200:
@@ -170,6 +174,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteBadgeCategory);
+router.delete('/:id', errorHandler, deleteBadgeCategory);
 
 export default router;

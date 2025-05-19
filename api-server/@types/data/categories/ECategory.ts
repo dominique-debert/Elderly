@@ -19,6 +19,7 @@ export enum ECategoryChapter {
   COGNITIVE = 2,
   SOCIAL = 3,
   SENSORY = 4,
+  EMOTIONAL = 5,
 }
 
 // chapterId: 1, chapterName: "Activités physiques"

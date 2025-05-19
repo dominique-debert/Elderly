@@ -35,6 +35,7 @@ const router = Router();
  *             required:
  *               - name
  *               - typeId
+ *               - chapterId
  *             properties:
  *               name:
  *                 type: string
@@ -42,10 +43,13 @@ const router = Router();
  *                 type: string
  *               typeId:
  *                 type: integer
+ *               chapterId:
+ *                 type: integer
  *             example:
  *               name: "Bien-être mental"
  *               description: "Catégorie pour les activités liées au bien-être mental"
  *               typeId: 12
+ *               chapterId: 12
  *     responses:
  *       201:
  *         description: Catégorie créée avec succès
@@ -92,8 +96,7 @@ router.get('/', errorHandler, fetchAllWellnessCategories);
  *         name: id
  *         required: true
  *         schema:
- *           type: string
- *           format: cuid
+ *           type: integer
  *         description: ID de la catégorie
  *     responses:
  *       200:
@@ -120,7 +123,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetc
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: integer
  *         description: ID de la catégorie
  *     requestBody:
  *       required: true
@@ -135,10 +138,13 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetc
  *                 type: string
  *               typeId:
  *                 type: integer
+ *               chapterId:
+ *                 type: integer
  *             example:
  *               name: "Bien-être mental"
  *               description: "Catégorie pour les activités liées au bien-être mental"
  *               typeId: 12
+ *               chapterId: 12
  *     responses:
  *       200:
  *         description: Catégorie mise à jour avec succès
@@ -162,7 +168,7 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: integer
  *         description: ID de la catégorie
  *     responses:
  *       200:
