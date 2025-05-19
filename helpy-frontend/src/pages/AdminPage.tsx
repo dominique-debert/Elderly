@@ -5,12 +5,12 @@ import { Navigate } from 'react-router-dom';
 import { AdminTabBar } from '@/components/AdminTabBar';
 import { ETabKey } from '@/@types/ETabKey';
 
-import { ActivityList } from '@/components/Activity/ActivityList';
-import { BadgeList } from '@/components/Badge/BadgeList';
+import { ActivityList } from '@/components/ActivityCategories/ActivityList';
+import { BadgeList } from "@/components/BadgeCategories/BadgeList";
 import { CognitiveList } from '@/components/Cognitive/CognitiveList';
 import { ForumList } from '@/components/Forum/ForumList';
 import { HelpList } from '@/components/Help/HelpList';
-import { MoodList } from '@/components/Mood/MoodList'; 
+import { MoodList } from '@/components/MoodCategories/MoodList'; 
 import { NutritionalList } from '@/components/Nutrition/NutritionalList';
 import { ProgramList } from '@/components/Program/ProgramList';
 import { ProjectList } from '@/components/Project/ProjectList';
@@ -18,7 +18,7 @@ import { ResourceList } from '@/components/Resource/ResourceList';
 import { ServiceList } from '@/components/Service/ServiceList';
 import { SkillList } from '@/components/Skill/SkillList';
 import { UrbanIssueList } from '@/components/UrbanIssue/UrbanIssueList';
-import { WellnessList } from '@/components/Wellness/WellnessList';
+import { WellnessList } from '@/components/WellnessCategories/WellnessList';
 
 const AdminPage = () => {
   const { user, isAuthenticated } = useAuthStore();
