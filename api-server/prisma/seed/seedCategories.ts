@@ -3,7 +3,7 @@ import { PrismaClient } from '@/prisma/client';
 
 const prisma = new PrismaClient();
 
-async function seedCategoryTypes() {
+async function seedCategories() {
   await prisma.category.deleteMany();
   await prisma.category.createMany({
     data: [
@@ -466,36 +466,221 @@ async function seedCategoryTypes() {
         id: 66,
         categoryName: "Ateliers de recyclage",
         description: "Récompense pour des efforts visant à réduire sa consommation d’eau ou d’électricité.",
-        typeId: ECategoryType.ACTIVITY,
-        chapterId: ECategoryChapter.ENVIRONMENTAL
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS
       },      
       {
         id: 67,
         categoryName: "Jardinage écologique",
         description: "Récompense pour des efforts visant à réduire sa consommation d’eau ou d’électricité.",
-        typeId: ECategoryType.ACTIVITY,
-        chapterId: ECategoryChapter.ENVIRONMENTAL
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS
       },      
       {
         id: 68,
         categoryName: "Sensibilisation à l’environnement",
         description: "Récompense pour des efforts visant à réduire sa consommation d’eau ou d’électricité.",
-        typeId: ECategoryType.ACTIVITY,
-        chapterId: ECategoryChapter.ENVIRONMENTAL
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS
       },      
       {
         id: 69,
         categoryName: "Nettoyage de la nature",
         description: "Récompense pour des efforts visant à réduire sa consommation d’eau ou d’électricité.",
-        typeId: ECategoryType.ACTIVITY,
-        chapterId: ECategoryChapter.ENVIRONMENTAL
+        typeId: ECategoryType.BADGE,
+        chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS
+      },
+
+      // 🛒 Aides quotidiennes (id: 31)
+      {
+        id: 70,
+        categoryName: "Aide aux courses",
+        description: "Accompagnement ou prise en charge des achats de première nécessité.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.DAILY_HELP
       },      
+      {
+        id: 71,
+        categoryName: "Entretien du domicile",
+        description: "Soutien pour le ménage, la lessive ou les petites réparations.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.DAILY_HELP
+      },      
+      {
+        id: 72,
+        categoryName: "Assistance administrative de proximité",
+        description: "Aide à domicile pour remplir des documents ou organiser les tâches du quotidien.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.DAILY_HELP
+      },
+
+      // 🤝 Soutien social (id: 32)
+      {
+        id: 73,
+        categoryName: "Écoute et accompagnement",
+        description: "Présence bienveillante et disponibilité pour les personnes isolées.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.SOCIAL_SUPPORT
+      },      
+      {
+        id: 74,
+        categoryName: "Groupes de parole",
+        description: "Espaces de partage entre personnes vivant des situations similaires.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.SOCIAL_SUPPORT
+      },      
+      {
+        id: 75,
+        categoryName: "Accompagnement à l’autonomie",
+        description: "Soutien pour reprendre confiance et gérer les démarches du quotidien.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.SOCIAL_SUPPORT
+      },
+
+      // 📑 Aide administrative (id: 33)
+      {
+        id: 76,
+        categoryName: "Rédaction de documents",
+        description: "Aide pour la rédaction de courriers, CV ou formulaires.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.ADMINISTRATIVE_HELP
+      },      
+      {
+        id: 77,
+        categoryName: "Démarches en ligne",
+        description: "Accompagnement à l’utilisation des services administratifs numériques.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.ADMINISTRATIVE_HELP
+      },      
+      {
+        id: 78,
+        categoryName: "Orientation juridique",
+        description: "Informations de base sur les droits et les recours disponibles.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.ADMINISTRATIVE_HELP
+      },
+
+      // 🧠 Soutien psychologique (id: 34)
+      {
+        id: 79,
+        categoryName: "Entretiens individuels",
+        description: "Échanges confidentiels avec des professionnels ou bénévoles formés.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.PSYCHOLOGICAL_SUPPORT
+      },      
+      {
+        id: 80,
+        categoryName: "Ateliers bien-être émotionnel",
+        description: "Sessions en groupe pour gérer le stress, les émotions ou les conflits.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.PSYCHOLOGICAL_SUPPORT
+      },      
+      {
+        id: 81,
+        categoryName: "Prévention du mal-être",
+        description: "Actions pour repérer les signes de souffrance psychique.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.PSYCHOLOGICAL_SUPPORT
+      },
+
+      // 🆘 Aide médicale (id: 35)
+      {
+        id: 82,
+        categoryName: "Premiers secours",
+        description: "Interventions d’urgence en cas d’accident ou de malaise.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.MEDICAL_AID
+      },      
+      {
+        id: 83,
+        categoryName: "Soins ponctuels",
+        description: "Pansements, prises de tension, suivi de traitements simples.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.MEDICAL_AID
+      },      
+      {
+        id: 84,
+        categoryName: "Mise en relation avec un médecin",
+        description: "Assistance pour trouver un professionnel de santé adapté.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.MEDICAL_AID
+      },
+      
+      // 🏠 Aide au logement (id: 36)
+      {
+        id: 85,
+        categoryName: "Hébergement temporaire",
+        description: "Solutions d’urgence pour les personnes sans domicile.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.HOUSING_SUPPORT
+      },      
+      {
+        id: 86,
+        categoryName: "Accompagnement logement durable",
+        description: "Soutien dans la recherche, l’installation et le maintien dans un logement.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.HOUSING_SUPPORT
+      },      
+      {
+        id: 87,
+        categoryName: "Aide à l’aménagement",
+        description: "Adaptation du domicile aux besoins de la personne (mobilité, sécurité).",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.HOUSING_SUPPORT
+      },      
+      
+      // 🥫 Aide alimentaire (id: 37)
+      {
+        id: 88,
+        categoryName: "Distributions de repas",
+        description: "Repas chauds ou colis alimentaires distribués régulièrement.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.FOOD_AID
+      },      
+      {
+        id: 89,
+        categoryName: "Epiceries solidaires",
+        description: "Magasins à prix réduits pour les personnes en situation précaire.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.FOOD_AID
+      },      
+      {
+        id: 90,
+        categoryName: "Cuisine partagée",
+        description: "Ateliers de cuisine pour apprendre à bien manger avec peu de moyens.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.FOOD_AID
+      },      
+      
+      // 🚨 Urgence et secours (id: 38)
+      {
+        id: 90,
+        categoryName: "Intervention d’urgence",
+        description: "Mise en sécurité rapide des personnes en danger.",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.EMERGENCY_SERVICES
+      },
+      {
+        id: 91,
+        categoryName: "Cellule de crise",
+        description: "Prise en charge temporaire en cas de situation critique (incendie, expulsion…).",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.EMERGENCY_SERVICES
+      },
+      {
+        id: 92,
+        categoryName: "Coordination avec les secours",
+        description: "Lien entre la personne et les services officiels (pompiers, SAMU, etc.).",
+        typeId: ECategoryType.HELP,
+        chapterId: ECategoryChapter.EMERGENCY_SERVICES
+      },
+
     ],
     skipDuplicates: true
   });
 }
 
-seedCategoryTypes()
+seedCategories()
 .then(() => {
   console.log(`✅ Catégories seedées`);
 })
@@ -505,31 +690,3 @@ seedCategoryTypes()
 .finally(async () => {
   await prisma.$disconnect();
 });
-
-// URBAN ISSUES
-//   {
-//     name: "Accessibilité urbaine",
-//     description: "Réflexions et projets sur l’accessibilité des espaces publics pour les personnes en situation de handicap ou à mobilité réduite.",
-//     chapterId: 14,
-//   },
-//   {
-//     name: "Mobilité et transport",
-//     description: "Discussions et activités autour des transports durables, sûrs et adaptés à tous.",
-//     chapterId: 14,
-//   },
-//   {
-//     name: "Aménagement inclusif",
-//     description: "Projets d’aménagement de quartiers, de parcs ou de bâtiments pensés pour tous les âges et capacités.",
-//     chapterId: 14,
-//   },
-//   {
-//     name: "Participation citoyenne",
-//     description: "Ateliers pour impliquer les citoyens dans les décisions d’urbanisme local.",
-//     chapterId: 14,
-//   },
-//   {
-//     name: "Sécurité et confort urbain",
-//     description: "Activités visant à identifier et améliorer les points noirs en ville : éclairage, signalisation, mobilier urbain.",
-//     chapterId: 14,
-//   }
-

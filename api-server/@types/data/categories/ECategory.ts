@@ -137,7 +137,7 @@ export enum ECategoryChapter {
   SOCIAL_SUPPORT = 32,        // 🧑‍🤝‍🧑
 
   // Services administratifs et juridiques
-  ADMINISTRATIVE = 33,        // 🏢
+  ADMINISTRATIVE_HELP = 33,        // 🏢
 
   // Soutien psychologique et émotionnel
   PSYCHOLOGICAL_SUPPORT = 34, // 🤝

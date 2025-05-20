@@ -9,7 +9,7 @@ import { ActivityList } from '@/components/ActivityCategories/ActivityList';
 import { BadgeList } from "@/components/BadgeCategories/BadgeList";
 import { CognitiveList } from '@/components/CognitiveCategory/CognitionList';
 import { ForumList } from '@/components/Forum/ForumList';
-import { HelpList } from '@/components/Help/HelpList';
+import { HelpList } from "@/components/HelpCategory/HelpList";
 import { MoodList } from '@/components/MoodCategories/MoodList'; 
 import { NutritionalList } from '@/components/Nutrition/NutritionalList';
 import { ProgramList } from '@/components/Program/ProgramList';

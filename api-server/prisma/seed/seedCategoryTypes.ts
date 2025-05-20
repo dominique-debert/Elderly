@@ -6,7 +6,7 @@ async function seedCategoryTypes() {
   await prisma.categoryType.deleteMany();
   await prisma.categoryType.createMany({
     data: [
-      { id: 1, name: 'Activités' },
+      { id: 1, name: '🎯 Activités' },
       { id: 2, name: 'Badges' },
       { id: 3, name: 'Cognition' },
       { id: 4, name: 'Forum' },

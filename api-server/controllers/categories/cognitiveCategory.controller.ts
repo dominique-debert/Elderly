@@ -40,8 +40,6 @@ export const fetchAllCognitiveCategories = async (
       }
     });
     
-    console.log(categories);
-
     // Regroupement
     const grouped: Record<string, Record<string, any[]>> = {};
     
