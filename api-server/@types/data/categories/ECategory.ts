@@ -42,34 +42,24 @@ export enum ECategoryType {
 export enum ECategoryChapter {
   // Activités physiques et sportives
   PHYSICAL = 1,               // 🏃
-
   // Fonctions cognitives et intellectuelles
   COGNITIVE = 2,              // 🧠
-
   // Activités sociales et communautaires
   SOCIAL = 3,                 // 🤝
-
   // Activités sensorielles
   SENSORY = 4,                // 👁️👂
-
   // Bien-être physique (sommeil, relaxation, etc.)
   PHYSICAL_WELLNESS = 5,      // 🧘‍♂️
-
   // Bien-être émotionnel et gestion du stress
   EMOTIONAL_WELLNESS = 6,     // 😊
-
   // Bien-être social et sentiment d’appartenance
   SOCIAL_WELLNESS = 7,        // 🤗
-
   // Bien-être intellectuel et cognitif
   INTELLECTUAL_WELLNESS = 8,  // 🧩
-
   // Bien-être financier
   FINANCIAL_WELLNESS = 9,     // 💰
-
   // Bien-être environnemental
   ENVIRONMENTAL_WELLNESS = 10,// 🌱
-
   // Bien-être spirituel
   SPIRITUAL_WELLNESS = 11,    // 🕉️
 
@@ -115,94 +105,104 @@ export enum ECategoryChapter {
   // Vidéos éducatives
   VIDEOS = 25,                // 🎥
 
-  // Articles et études
-  ARTICLES = 26,              // 📝
+  // 📝 ARTICLES - Articles et études
+  ARTICLES = 26,              // 
 
-  // Podcasts et interviews
+  // 🎙️ PODCASTS - Podcasts et interviews
   PODCASTS = 27,              // 🎙️
 
-  // Infographies et données visuelles
+  // 📊 INFOGRAPHICS - Infographies et données visuelles
   INFOGRAPHICS = 28,          // 📊
 
-  // Services médicaux et santé
+  // 🏥 HEALTHCARE - Services médicaux et santé
   HEALTHCARE = 29,            // 🏥
 
-  // Services éducatifs et formations
+  // 🧑‍🏫 EDUCATION - Services éducatifs et formations
   EDUCATION = 30,             // 🧑‍🏫
 
-  // Aides quotidiennes (courses, ménage)
+  // 🛒 DAILY_HELP - Aides quotidiennes (courses, ménage)
   DAILY_HELP = 31,            // 🛒
 
-  // Services sociaux et accompagnement
+  // 🧑‍🤝‍🧑 SOCIAL_SUPPORT - Services sociaux et accompagnement
   SOCIAL_SUPPORT = 32,        // 🧑‍🤝‍🧑
 
-  // Services administratifs et juridiques
+  // 🏢 ADMINISTRATIVE_HELP - Services administratifs et juridiques
   ADMINISTRATIVE_HELP = 33,        // 🏢
 
-  // Soutien psychologique et émotionnel
+  // 🤝 PSYCHOLOGICAL_SUPPORT - Soutien psychologique et émotionnel
   PSYCHOLOGICAL_SUPPORT = 34, // 🤝
 
-  // Aide médicale et premiers secours
+  // 💊 MEDICAL_AID - Aide médicale et premiers secours
   MEDICAL_AID = 35,           // 💊
 
-  // Aide au logement d’urgence
+  // 🏠 HOUSING_SUPPORT - Aide au logement d’urgence
   HOUSING_SUPPORT = 36,       // 🏠
 
-  // Aide alimentaire
+  // 🥖 FOOD_AID - Aide alimentaire
   FOOD_AID = 37,              // 🥖
 
-  // Services d’urgence et intervention rapide
+  // 📞 EMERGENCY_SERVICES - Services d’urgence et intervention rapide
   EMERGENCY_SERVICES = 38,    // 📞
 
-  // Programmes sportifs et bien-être physique
+  // 🏃‍♂️ PHYSICAL_ACTIVITY - Programmes sportifs et bien-être physique
   PHYSICAL_ACTIVITY = 39,     // 🏃‍♂️
 
-  // Programmes cognitifs et développement mental
+  // 🧠 COGNITIVE_TRAINING - Programmes cognitifs et développement mental
   COGNITIVE_TRAINING = 40,    // 🧠
 
-  // Programmes nutritionnels
+  // 🥗 NUTRITION - Programmes nutritionnels
   NUTRITION = 41,             // 🥗
 
-  // Programmes sociaux et communautaires
+  // 🤝 SOCIAL_ENGAGEMENT - Programmes sociaux et communautaires
   SOCIAL_ENGAGEMENT = 42,     // 🤝
 
-  // Programmes environnementaux
+  // 🌍 ENVIRONMENTAL_ACTION - Programmes environnementaux
   ENVIRONMENTAL_ACTION = 43,  // 🌍
 
-  // Badges de performance physique
+  // 🏆 PHYSICAL_ACHIEVEMENTS - Badges de performance physique
   PHYSICAL_ACHIEVEMENTS = 44, // 🏆
 
-  // Badges cognitifs
+  // 🧠 COGNITIVE_ACHIEVEMENTS - Badges cognitifs
   COGNITIVE_ACHIEVEMENTS = 45,// 🧠
 
-  // Badges nutritionnels
+  // 🥗 NUTRITION_ACHIEVEMENTS - Badges nutritionnels
   NUTRITION_ACHIEVEMENTS = 46,// 🥗
 
-  // Badges sociaux
+  // 🤝 SOCIAL_ACHIEVEMENTS - Badges sociaux
   SOCIAL_ACHIEVEMENTS = 47,   // 🤝
 
-  // Badges environnementaux
+  // 🌍 ENVIRONMENTAL_ACHIEVEMENTS - Badges environnementaux
   ENVIRONMENTAL_ACHIEVEMENTS = 48, // 🌍
 
-  // Activités environnementales
+  // 🌱 ENVIRONMENTAL - Activités environnementales
   ENVIRONMENTAL = 49,         // 🌱
 
-  // Discussions générales
+  // 💬 GENERAL - Discussions générales
   GENERAL = 50,               // 💬
 
-  // Discussions développement personnel
+  // 🧠 PERSONAL_DEVELOPMENT_FORUM - Discussions développement personnel
   PERSONAL_DEVELOPMENT_FORUM = 51, // 🧠
 
-  // Discussions nutrition
+  // 🥗 NUTRITION_FORUM - Discussions nutrition
   NUTRITION_FORUM = 52,       // 🥗
 
-  // Discussions sociales
+  // 🤝 SOCIAL_FORUM - Discussions sociales
   SOCIAL_FORUM = 53,          // 🤝
 
-  // Discussions environnementales
+  // 🌍 ENVIRONMENTAL_FORUM - Discussions environnementales
   ENVIRONMENTAL_FORUM = 54,   // 🌍
 
-  // Bien-être mental et cognitif
-  MENTAL = 55,                // 🧠
+  // 🧠 MENTAL - Bien-être mental et cognitif
+  MENTAL_HEALTH = 55,                // 🧠
+
+  MANUAL_SKILL = 56,
+  NUTRITIONAL_SKILL = 57,
+  CREATIVE_SKILL = 58,
+  MEDICAL_CARE = 59,
+  ARTISTIC = 60,
+  DISCUSSIONS = 61,
+  CREATIVE = 62,
+  INCLUSION = 63,
+  ELDERLY_SUPPORT = 64
 }
 

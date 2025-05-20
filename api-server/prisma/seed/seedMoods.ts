@@ -30,13 +30,13 @@ const moods = [
   { name: 'Nostalgique', valence: 'neutre', intensity: 3, color: '#D8BFD8', description: 'Regret tendre du passé' },                        // lilas
 ];
 
-async function main() {
+async function seedMoods() {
   await prisma.mood.deleteMany();
   await prisma.mood.createMany({ data: moods.map(mood => ({ ...mood, valence: mood.valence as Valence })) });
   console.log('✅ Seed des humeurs avec couleurs terminé.');
 }
 
-main()
+seedMoods()
   .catch((e) => {
     console.error(e);
     process.exit(1);
