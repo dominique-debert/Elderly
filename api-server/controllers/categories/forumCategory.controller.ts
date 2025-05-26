@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client.js';
 import { createHttpError } from '@/utils/httpError.js';
 import IForumCategory from '@/@types/data/forums/IForumCategory';
+import { ECategoryType } from "@/@types/data/categories/ECategory";
 
 const prisma = new PrismaClient();
 
@@ -33,16 +34,65 @@ export const getAllForumCategories = async (
   next: NextFunction
 ) => {
   try {
-    const forumCategories = await prisma.forumCategory.findMany({
+    const categories = await prisma.category.findMany({
+      where: {
+        typeId: ECategoryType.FORUM
+      },
       orderBy: {
-        name: 'asc'
+        categoryName: 'asc',
+      },
+      include: {
+        categoryType:{
+          select: {
+            id: true,
+            name: true
+          },
+        },
+        categoryChapter: {
+          select: {
+            chapterId: true,
+            chapterName: true, 
+            chapterDescription: true,
+          },
+        },
       }
     });
-
-    res.status(200).json({ forumCategories });
-  } catch (error) {
-    next(error);
-  }
+    
+    const grouped: Record<string, Record<string, any[]>> = {};
+    
+    // Étape 1 : Regrouper d'abord par typeName → chapterName
+    categories.forEach((category) => {
+      const typeName = category.categoryType?.name ?? 'Sans type';
+      const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
+      
+      if (!grouped[typeName]) grouped[typeName] = {};
+      if (!grouped[typeName][chapterName]) grouped[typeName][chapterName] = [];
+      
+      grouped[typeName][chapterName].push({
+        id: category.id,
+        categoryName: category.categoryName,
+        description: category.description,
+      });
+    });
+    
+    // Étape 2 : Trier par typeName > chapterName > categoryName
+    const sortedGrouped: Record<string, Record<string, any[]>> = {};
+    
+    Object.keys(grouped).sort().forEach((typeName) => {
+      sortedGrouped[typeName] = {};
+      
+      Object.keys(grouped[typeName]).sort().forEach((chapterName) => {
+        sortedGrouped[typeName][chapterName] = grouped[typeName][chapterName].sort((a, b) =>
+          a.categoryName.localeCompare(b.categoryName)
+      );
+    });
+  });
+  
+  
+  res.status(200).json(grouped);
+} catch (error) {
+  next(error);
+}
 };
 
 export const getForumCategoryById = async (

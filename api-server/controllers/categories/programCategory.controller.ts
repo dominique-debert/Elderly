@@ -20,19 +20,65 @@ export const fetchAllProgramCategories = async (
   next: NextFunction
 ) => {
   try {
-    const programCategories = await prisma.category.findMany({
+    const categories = await prisma.category.findMany({
       where: {
         typeId: ECategoryType.PROGRAM
       },
       orderBy: {
-        categoryName: 'asc'
+        categoryName: 'asc',
+      },
+      include: {
+        categoryType:{
+          select: {
+            id: true,
+            name: true
+          },
+        },
+        categoryChapter: {
+          select: {
+            chapterId: true,
+            chapterName: true, 
+            chapterDescription: true,
+          },
+        },
       }
     });
-
-    res.status(200).json({ programCategories });
-  } catch (error) {
-    next(error);
-  }
+    
+    const grouped: Record<string, Record<string, any[]>> = {};
+    
+    // Étape 1 : Regrouper d'abord par typeName → chapterName
+    categories.forEach((category) => {
+      const typeName = category.categoryType?.name ?? 'Sans type';
+      const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
+      
+      if (!grouped[typeName]) grouped[typeName] = {};
+      if (!grouped[typeName][chapterName]) grouped[typeName][chapterName] = [];
+      
+      grouped[typeName][chapterName].push({
+        id: category.id,
+        categoryName: category.categoryName,
+        description: category.description,
+      });
+    });
+    
+    // Étape 2 : Trier par typeName > chapterName > categoryName
+    const sortedGrouped: Record<string, Record<string, any[]>> = {};
+    
+    Object.keys(grouped).sort().forEach((typeName) => {
+      sortedGrouped[typeName] = {};
+      
+      Object.keys(grouped[typeName]).sort().forEach((chapterName) => {
+        sortedGrouped[typeName][chapterName] = grouped[typeName][chapterName].sort((a, b) =>
+          a.categoryName.localeCompare(b.categoryName)
+      );
+    });
+  });
+  
+  
+  res.status(200).json(grouped);
+} catch (error) {
+  next(error);
+}
 };
 
 // CATÉGORIE DE PROGRAMME PAR ID

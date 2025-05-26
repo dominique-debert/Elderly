@@ -25,42 +25,60 @@ export const fetchAllWellnessCategories = async (
         typeId: ECategoryType.WELLNESS
       },
       orderBy: {
-        categoryName: 'asc'
+        categoryName: 'asc',
       },
       include: {
-        categoryType: {
-          select: { name: true }
+        categoryType:{
+          select: {
+            id: true,
+            name: true
+          },
         },
         categoryChapter: {
           select: {
-            chapterName: true,
-            chapterDescription: true
-          }
-        }
+            chapterId: true,
+            chapterName: true, 
+            chapterDescription: true,
+          },
+        },
       }
     });
     
-    // Regroupement
     const grouped: Record<string, Record<string, any[]>> = {};
     
+    // Étape 1 : Regrouper d'abord par typeName → chapterName
     categories.forEach((category) => {
-      const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
       const typeName = category.categoryType?.name ?? 'Sans type';
+      const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
       
-      if (!grouped[chapterName]) grouped[chapterName] = {};
-      if (!grouped[chapterName][typeName]) grouped[chapterName][typeName] = [];
+      if (!grouped[typeName]) grouped[typeName] = {};
+      if (!grouped[typeName][chapterName]) grouped[typeName][chapterName] = [];
       
-      grouped[chapterName][typeName].push({
+      grouped[typeName][chapterName].push({
         id: category.id,
         categoryName: category.categoryName,
         description: category.description,
       });
     });
     
-    res.status(200).json(grouped);
-  } catch (error) {
-    next(error);
-  }
+    // Étape 2 : Trier par typeName > chapterName > categoryName
+    const sortedGrouped: Record<string, Record<string, any[]>> = {};
+    
+    Object.keys(grouped).sort().forEach((typeName) => {
+      sortedGrouped[typeName] = {};
+      
+      Object.keys(grouped[typeName]).sort().forEach((chapterName) => {
+        sortedGrouped[typeName][chapterName] = grouped[typeName][chapterName].sort((a, b) =>
+          a.categoryName.localeCompare(b.categoryName)
+      );
+    });
+  });
+  
+  
+  res.status(200).json(grouped);
+} catch (error) {
+  next(error);
+}
 };
 
 
@@ -77,17 +95,17 @@ export const fetchWellnessCategoryById = async (
       where: {
         id: Number(id),
         typeId: ECategoryType.WELLNESS }
-    });
+      });
       
-    if (!WellnessCategory) {
-      throw createHttpError(404, `Catégorie de bien-être non trouvée`);
+      if (!WellnessCategory) {
+        throw createHttpError(404, `Catégorie de bien-être non trouvée`);
+      }
+      
+      res.status(200).json(WellnessCategory);
+    } catch (error) {
+      next(error);
     }
-      
-    res.status(200).json(WellnessCategory);
-  } catch (error) {
-    next(error);
-  }
-};
+  };
   
   // CRÉER UNE CATÉGORIE DE BIEN-ÊTRE
   export const createWellnessCategory = async (
@@ -108,10 +126,10 @@ export const fetchWellnessCategoryById = async (
       });
       
       res.status(201).json(categoryToCreate);
-  } catch (error) {
-    next(error);
-  }
-};
+    } catch (error) {
+      next(error);
+    }
+  };
   
   export const updateWellnessCategory = async (
     req: Request<{ id: string }, ICategory>,
@@ -138,43 +156,43 @@ export const fetchWellnessCategoryById = async (
           where: {
             id: Number(id),
             typeId: ECategoryType.WELLNESS
-           }
+          }
+        });
+        
+        res.status(200).json(categoryToUpdate);
+      } catch (error) {
+        next(error);
+      }
+    };
+    
+    export const deleteWellnessCategory = async (
+      req: Request<{ id: string }>,
+      res: Response,
+      next: NextFunction
+    ) => {
+      const { id } = req.params;
+      
+      try {
+        const category = await prisma.category.findUnique({
+          where: {
+            id: Number(id),
+            typeId: ECategoryType.WELLNESS }
           });
           
-          res.status(200).json(categoryToUpdate);
+          if (!category) {
+            throw createHttpError(404, `Catégorie de bien-être non trouvée`);
+          }
+          
+          await prisma.category.delete({
+            where: {
+              id: Number(id),
+              typeId: ECategoryType.WELLNESS 
+            }
+          });
+          
+          res.status(200).json({ message: `Catégorie de bien-être supprimée avec succès` });
         } catch (error) {
           next(error);
         }
       };
       
-export const deleteWellnessCategory = async (
-  req: Request<{ id: string }>,
-  res: Response,
-  next: NextFunction
-  ) => {
-    const { id } = req.params;
-    
-    try {
-      const category = await prisma.category.findUnique({
-        where: {
-          id: Number(id),
-          typeId: ECategoryType.WELLNESS }
-        });
-        
-        if (!category) {
-          throw createHttpError(404, `Catégorie de bien-être non trouvée`);
-        }
-        
-        await prisma.category.delete({
-          where: {
-            id: Number(id),
-            typeId: ECategoryType.WELLNESS 
-          }
-        });
-          
-        res.status(200).json({ message: `Catégorie de bien-être supprimée avec succès` });
-  } catch (error) {
-    next(error);
-  }
-};
-          

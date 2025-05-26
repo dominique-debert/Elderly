@@ -25,37 +25,55 @@ export const fetchAllHelpCategories = async (
         typeId: ECategoryType.HELP
       },
       orderBy: {
-        categoryName: 'asc'
+        categoryName: 'asc',
       },
       include: {
-        categoryType: {
-          select: { name: true }
+        categoryType:{
+          select: {
+            id: true,
+            name: true
+          },
         },
         categoryChapter: {
           select: {
-            chapterName: true,
+            chapterId: true,
+            chapterName: true, 
             chapterDescription: true,
           },
-        }
+        },
       }
     });
     
-    // Regroupement
     const grouped: Record<string, Record<string, any[]>> = {};
-    
+
+    // Étape 1 : Regrouper d'abord par typeName → chapterName
     categories.forEach((category) => {
-      const chapterName = category.categoryChapter?.chapterName ?? "Sans chapitre";
-      const typeName = category.categoryType?.name ?? "Sans type";
-      
-      if (!grouped[chapterName]) grouped[chapterName] = {};
-      if (!grouped[chapterName][typeName]) grouped[chapterName][typeName] = [];
-      
-      grouped[chapterName][typeName].push({
+      const typeName = category.categoryType?.name ?? 'Sans type';
+      const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
+    
+      if (!grouped[typeName]) grouped[typeName] = {};
+      if (!grouped[typeName][chapterName]) grouped[typeName][chapterName] = [];
+    
+      grouped[typeName][chapterName].push({
         id: category.id,
         categoryName: category.categoryName,
         description: category.description,
       });
     });
+    
+    // Étape 2 : Trier par typeName > chapterName > categoryName
+    const sortedGrouped: Record<string, Record<string, any[]>> = {};
+    
+    Object.keys(grouped).sort().forEach((typeName) => {
+      sortedGrouped[typeName] = {};
+    
+      Object.keys(grouped[typeName]).sort().forEach((chapterName) => {
+        sortedGrouped[typeName][chapterName] = grouped[typeName][chapterName].sort((a, b) =>
+          a.categoryName.localeCompare(b.categoryName)
+        );
+      });
+    });
+    
     
     res.status(200).json(grouped);
   } catch (error) {

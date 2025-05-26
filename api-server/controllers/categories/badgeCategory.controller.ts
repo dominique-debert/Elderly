@@ -25,37 +25,55 @@ export const fetchAllBadgeCategories = async (
         typeId: ECategoryType.BADGE
       },
       orderBy: {
-        categoryName: 'asc'
+        categoryName: 'asc',
       },
       include: {
-        categoryType: {
-          select: { name: true }
+        categoryType:{
+          select: {
+            id: true,
+            name: true
+          },
         },
         categoryChapter: {
           select: {
-            chapterName: true,
-            chapterDescription: true
-          }
-        }
+            chapterId: true,
+            chapterName: true, 
+            chapterDescription: true,
+          },
+        },
       }
     });
     
-    // Regroupement
     const grouped: Record<string, Record<string, any[]>> = {};
-    
+
+    // Étape 1 : Regrouper d'abord par typeName → chapterName
     categories.forEach((category) => {
-      const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
       const typeName = category.categoryType?.name ?? 'Sans type';
-      
-      if (!grouped[chapterName]) grouped[chapterName] = {};
-      if (!grouped[chapterName][typeName]) grouped[chapterName][typeName] = [];
-      
-      grouped[chapterName][typeName].push({
+      const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
+    
+      if (!grouped[typeName]) grouped[typeName] = {};
+      if (!grouped[typeName][chapterName]) grouped[typeName][chapterName] = [];
+    
+      grouped[typeName][chapterName].push({
         id: category.id,
         categoryName: category.categoryName,
         description: category.description,
       });
     });
+    
+    // Étape 2 : Trier par typeName > chapterName > categoryName
+    const sortedGrouped: Record<string, Record<string, any[]>> = {};
+    
+    Object.keys(grouped).sort().forEach((typeName) => {
+      sortedGrouped[typeName] = {};
+    
+      Object.keys(grouped[typeName]).sort().forEach((chapterName) => {
+        sortedGrouped[typeName][chapterName] = grouped[typeName][chapterName].sort((a, b) =>
+          a.categoryName.localeCompare(b.categoryName)
+        );
+      });
+    });
+    
     
     res.status(200).json(grouped);
   } catch (error) {
@@ -64,7 +82,7 @@ export const fetchAllBadgeCategories = async (
 };
 
 
-// CATÉGORIE DE BADGE PAR ID
+// CATÉGORIE DE BADGES PAR ID
 export const fetchBadgeCategoryById = async (
   req: Request,
   res: Response,
@@ -80,7 +98,7 @@ export const fetchBadgeCategoryById = async (
     });
       
     if (!badgeCategory) {
-      throw createHttpError(404, 'Catégorie de badge non trouvée');
+      throw createHttpError(404, `Catégorie de badge non trouvée`);
     }
       
     res.status(200).json(badgeCategory);
@@ -89,7 +107,7 @@ export const fetchBadgeCategoryById = async (
   }
 };
   
-  // CRÉER UNE CATÉGORIE DE BADGE
+  // CRÉER UNE CATÉGORIE DE BADGES
   export const createBadgeCategory = async (
     req: Request,
     res: Response,
@@ -127,7 +145,7 @@ export const fetchBadgeCategoryById = async (
         }});
         
         if (!category) {
-          throw createHttpError(404, 'Catégorie de badge non trouvée');
+          throw createHttpError(404, `Catégorie de badges non trouvée`);
         }
         
         const categoryToUpdate = await prisma.category.update({
@@ -162,7 +180,7 @@ export const deleteBadgeCategory = async (
         });
         
         if (!category) {
-          throw createHttpError(404, 'Catégorie de badge non trouvée');
+          throw createHttpError(404, `Catégorie de badges non trouvée`);
         }
         
         await prisma.category.delete({
@@ -171,7 +189,7 @@ export const deleteBadgeCategory = async (
             typeId: ECategoryType.BADGE }
           });
           
-          res.status(200).json({ message: 'Catégorie de badge supprimée avec succès' });
+          res.status(200).json({ message: `Catégorie de badges supprimée avec succès` });
   } catch (error) {
     next(error);
   }

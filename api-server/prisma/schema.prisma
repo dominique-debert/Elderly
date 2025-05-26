@@ -802,6 +802,7 @@ model categoryType {
   createdAt  DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt  DateTime?  @map("updated_at") @db.Timestamp(6)
 
+  @@index([name])
   @@map("category_type")
 }
 
@@ -814,6 +815,7 @@ model categoryChapter {
   createdAt          DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt          DateTime?  @map("updated_at") @db.Timestamp(6)
 
+  @@index([chapterName])
   @@map("category_chapter")
 }
 
@@ -829,6 +831,7 @@ model category {
   badge                badge[]
   cognitiveExercise    cognitiveExercise[]
   collaborativeProject collaborativeProject[]
+  exerciseProgram      exerciseProgram[]
   helpRequest          helpRequest[]
   localService         localService[]
   nutritionalAdvice    nutritionalAdvice[]
@@ -837,8 +840,6 @@ model category {
   urbanIssueReport     urbanIssueReport[]
   wellnessBadge        wellnessBadge[]
   wellnessGoal         wellnessGoal[]
-  exerciseProgram      exerciseProgram[]
-
-  categoryType    categoryType    @relation(fields: [typeId], references: [id])
-  categoryChapter categoryChapter @relation(fields: [chapterId], references: [chapterId])
+  categoryType         categoryType           @relation(fields: [typeId], references: [id])
+  categoryChapter      categoryChapter        @relation(fields: [chapterId], references: [chapterId])
 }
