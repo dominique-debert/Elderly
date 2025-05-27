@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuthStore } from '../stores/auth';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
+import LoginPageVideo from '/videos/login.mp4'
 
 const LoginPage = () => {
   const { login, isAuthenticated } = useAuthStore();
@@ -19,7 +20,11 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex justify-end items-center w-screen h-screen bg-[url(/images/background.webp)] bg-cover">
+    <div className="flex justify-end items-center w-screen h-screen bg-cover">
+      <video id="background-video" loop autoPlay>
+        <source src={ LoginPageVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className="card w-100 h-100 bg-base-100 shadow-xl mr-20 py-10 px-10 bg-opacity-85">
         <h2 className="text-3xl font-bold text-left text-primary mb-8">Se connecter</h2>
         <form onSubmit={handleSubmit} className="space-y-4">

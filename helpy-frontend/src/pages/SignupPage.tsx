@@ -2,6 +2,7 @@ import React from 'react';
 import { useSignupStore } from '../stores/signup';
 import { useAuthStore } from '../stores/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import LoginPageVideo from '/videos/login.mp4'
 
 const SignupPage = () => {
   const { email, password, firstName, lastName, birthDate, isAdmin, setEmail, setPassword, setFirstName, setLastName, setBirthDate, setIsAdmin } = useSignupStore();
@@ -17,7 +18,11 @@ const SignupPage = () => {
   return (
     <div className='container'>
 
-    <div className="flex justify-end items-center w-screen h-screen bg-[url(/images/background.webp)] bg-cover">
+    <div className="flex justify-end items-center w-screen h-screen p-0 m-0">
+      <video id="background-video" loop autoPlay>
+        <source src={ LoginPageVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className="card w-96 h-150 bg-base-100 shadow-xl mr-20 py-10 px-10 bg-opacity-85">
         <h2 className="text-2xl font-bold mb-4 text-left text-primary">S'inscrire</h2>
         <p className="text-left text-sm mb-4">Inscrivez-vous gratuitement pour accéder à nos services.</p>
