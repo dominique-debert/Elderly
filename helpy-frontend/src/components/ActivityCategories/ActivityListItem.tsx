@@ -28,8 +28,8 @@ export default function ActivityListItem({ activity }: { activity: ICategory }) 
         key={activity.id}
         className="p-4 rounded shadow-md flex items-center gap-4"
       >
-        <span className="w-64 font-semibold">{activity.categoryName}</span>
-        <span className="w-full">{activity.description}</span>
+        <span className="w-1/2 font-semibold">{activity.categoryName}</span>
+        <span className="ml-[32px] w-full">{activity.description}</span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"

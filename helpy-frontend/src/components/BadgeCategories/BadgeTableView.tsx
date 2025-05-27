@@ -1,21 +1,20 @@
 import type { ICategory } from '@/@types/ICategory'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
 import BadgeTableRow from "./BadgeTableRow";
 
 export function BadgeTableView({ badgeCategories }: { badgeCategories: ICategory[] }) {   
   return (
-    <Table className="table w-full table-zebra">
-      <TableHeader className='text-semibold'>
-        <TableRow>
-          <TableHead>Titre</TableHead>
-          <TableHead>Description</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
+    <table className="table w-full table-zebra">
+      <thead className='text-semibold'>
+        <tr>
+          <th className="w-1/3">Titre</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
         {badgeCategories?.map((badgeCategory) => (
           <BadgeTableRow key={badgeCategory.id} badgeCategory={badgeCategory}/>
         ))}
-      </TableBody>
-    </Table>
+      </tbody>
+    </table>
   );
 }

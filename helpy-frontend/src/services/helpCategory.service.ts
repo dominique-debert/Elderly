@@ -9,7 +9,6 @@ export const fetchHelpCategories = async (): Promise<ICategory> => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  console.log(data);
   return data;
 };
 

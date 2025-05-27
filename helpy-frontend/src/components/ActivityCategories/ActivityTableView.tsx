@@ -1,21 +1,20 @@
 import type { ICategory } from '@/@types/ICategory'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
 import ActivityTableRow from "./ActivityTableRow";
 
 export function ActivityTableView({ activities }: { activities: ICategory[] }) {   
   return (
-    <Table className="table w-full table-zebra">
-      <TableHeader className='text-semibold'>
-        <TableRow>
-          <TableHead>Titre</TableHead>
-          <TableHead>Description</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
+    <table className="table w-full table-zebra">
+      <thead className='text-semibold'>
+        <tr>
+          <th className="w-1/3">Titre</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
         {activities?.map((activity) => (
           <ActivityTableRow key={activity.id} activity={activity}/>
         ))}
-      </TableBody>
-    </Table>
+      </tbody>
+    </table>
   );
 }

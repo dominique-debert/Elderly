@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchActivityCategories } from '@/services/activityCategory.service';
 import type { ICategory } from '@/@types/ICategory';
@@ -26,15 +26,33 @@ export const ActivityList = () => {
     queryFn: fetchActivityCategories,
   });
 
+  // === Filtrage et tri dans une structure hiérarchique ===
+  const filteredGrouped = useMemo(() => {
+    if (!groupedActivities) return {};
+
+    const searchLower = search.toLowerCase();
+    const filtered: Record<string, Record<string, ICategory[]>> = {};
+
+    Object.entries(groupedActivities).forEach(([typeName, chapters]) => {
+      Object.entries(chapters).forEach(([chapterName, categories]) => {
+        const categoryArray = categories as ICategory[];
+        const filteredCategories = categoryArray.filter((category) =>
+          category.categoryName.toLowerCase().includes(searchLower)
+        );
+        if (filteredCategories.length > 0) {
+          if (!filtered[typeName]) filtered[typeName] = {};
+          filtered[typeName][chapterName] = filteredCategories;
+        }
+      });
+    });
+
+    return filtered;
+  }, [groupedActivities, search]);
+
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
   if (isError) return <div className="text-center mt-10 text-red-500">Erreur de chargement</div>;
 
-  const filteredChapters = Object.entries(groupedActivities ?? {}).filter(([, types]) => {
-    const allActivities = Object.values(types).flat() as ICategory[];
-    return allActivities.some((category) =>
-      category.categoryName.toLowerCase().includes(search.toLowerCase())
-    );
-  });
+  const hasResults = Object.keys(filteredGrouped).length > 0;
 
   return (
     <div className="w-full p-4">
@@ -45,28 +63,23 @@ export const ActivityList = () => {
         setSearch={setSearch}
       />
 
-      {filteredChapters.length === 0 && (
+      {!hasResults && (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>
       )}
 
-      {filteredChapters.map(([chapterName, types], index) => {
-        const allActivities = Object.values(types).flat() as ICategory[];
-        const filtered = allActivities.filter((activity) =>
-          activity.categoryName.toLowerCase().includes(search.toLowerCase())
-        );
-
-        return (
-          <div key={chapterName} className={index !== 0 ? 'mt-12' : 'mt-6'}>
-            <div className="text-xl font-semibold">{chapterName}</div>
+      {Object.entries(filteredGrouped).sort().map(([typeName, chapters]) => (
+        Object.entries(chapters).sort().map(([chapterName, categories], index) => (
+          <div key={`${typeName}-${chapterName}`} className={index !== 0 ? 'mt-12' : 'mt-6'}>
+            <div className="text-xl font-semibold">{typeName} → {chapterName}</div>
             <div className="divider mt-0"></div>
-            {mode === 'list' && <ActivityListView activities={filtered} />}
-            {mode === 'card' && <ActivityCardView activities={filtered} />}
-            {mode === 'table' && <ActivityTableView activities={filtered} />}
+            {mode === 'list' && <ActivityListView activities={categories} />}
+            {mode === 'card' && <ActivityCardView activities={categories} />}
+            {mode === 'table' && <ActivityTableView activities={categories} />}
           </div>
-        );
-      })}
+        ))
+      ))}
     </div>
   );
 };

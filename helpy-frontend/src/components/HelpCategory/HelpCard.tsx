@@ -33,9 +33,9 @@ return (
       <div className="flex items-center justify-between w-full mt-2">
         <p className="text-xl font-semibold mb-2"> {helpCategory.categoryName}</p>
       </div>
-      <p className="text-sm text-gray-600">
-      {helpCategory.description && <p className="mt-2">{helpCategory.description}</p>}
-      </p>
+      <div className="text-sm text-gray-600">
+        {helpCategory.description && <p className="mt-2">{helpCategory.description}</p>}
+      </div>
       <div className="divider"></div>
       <div className="justify-end card-actions">
           <button className="btn btn-primary"

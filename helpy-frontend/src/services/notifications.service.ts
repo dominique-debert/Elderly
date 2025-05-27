@@ -30,7 +30,6 @@ export const createNotification = async (category: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
     },
   });
-  console.log(data);
   return data;
 };
 

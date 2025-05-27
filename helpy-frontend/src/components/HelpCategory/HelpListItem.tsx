@@ -28,9 +28,9 @@ export default function HelpListItem({ helpCategory }: { helpCategory: ICategory
         key={helpCategory.id}
         className="p-4 rounded shadow-md flex items-center gap-4"
       >
-        <span className="w-64 font-semibold">{helpCategory.categoryName}</span>
-        <span className="w-full">{helpCategory.description}</span>
-        <div className="ml-auto flex gap-2">
+        <span className="w-1/2 font-semibold">{helpCategory.categoryName}</span>
+        <span className="ml-[32px] w-full">{helpCategory.description}</span>
+        <div className="flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"
             onClick={(e) => {

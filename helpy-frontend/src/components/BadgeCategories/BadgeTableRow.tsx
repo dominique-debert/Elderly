@@ -3,7 +3,6 @@ import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
 import { useState } from 'react';
 import { ConfirmDeleteBadgeModal } from './ConfirmDeleteBadgeModal';
 import { BadgeEditModal } from './BadgeEditModal';
-import { TableCell, TableRow } from '../ui/table';
 import type { ICategory } from "@/@types/ICategory";
 
 export default function BadgeTableRow({ badgeCategory }: { badgeCategory: ICategory }) {
@@ -13,24 +12,24 @@ export default function BadgeTableRow({ badgeCategory }: { badgeCategory: ICateg
 
   return (
     <>
-    <TableRow key={badgeCategory.id}>
-      <TableCell>
+    <tr key={badgeCategory.id}>
+      <td className="w-1/3">
         <div className='flex gap-4'>
           {badgeCategory.categoryName}
         </div>
-      </TableCell>
-      <TableCell>{badgeCategory.description}</TableCell>
-      <TableCell className='text-center w-0'>
+      </td>
+      <td>{badgeCategory.description}</td>
+      <td className='text-center w-0'>
         <button className='btn btn-ghost' onClick={() => setIsEditOpen(true)}>
           <Icon path={mdiPencilOutline} size={0.8} className='text-gray-500' />
         </button>
-      </TableCell>
-      <TableCell className='text-center w-0'>
+      </td>
+      <td className='text-center w-0'>
         <button className='btn btn-ghost' onClick={() => setIsConfirmDeleteOpen(true)}>
           <Icon path={mdiDeleteOutline} size={0.8} className='text-red-500' />
         </button>
-      </TableCell>
-    </TableRow>
+      </td>
+    </tr>
 
     {isEditOpen && (
       <BadgeEditModal

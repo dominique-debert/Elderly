@@ -9,6 +9,7 @@ export interface ICategory {
     chapterDescription: string;
   };
   categoryType?: {
+    id: string;
     name: string;
   };
   createdAt: Date;

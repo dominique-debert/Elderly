@@ -9,7 +9,6 @@ export const fetchCognitiveCategories = async (): Promise<ICategory> => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  console.log(data);
   return data;
 };
 

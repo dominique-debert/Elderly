@@ -32,9 +32,9 @@ return (
       <div className="flex items-center justify-between w-full mt-2">
         <p className="text-xl font-semibold mb-2"> {mood.name}</p>
       </div>
-      <p className="text-sm text-gray-600">
+      <div className="text-sm text-gray-600">
         {mood.valence} · intensité {mood.intensity}/5
-      </p>
+      </div>
       {mood.description && <p className="mt-2">{mood.description}</p>}
       <div className="divider"></div>
       <div className="justify-end card-actions">

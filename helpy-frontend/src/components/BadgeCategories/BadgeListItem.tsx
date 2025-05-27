@@ -28,8 +28,8 @@ export default function BadgeListItem({ badgeCategory }: { badgeCategory: ICateg
         key={badgeCategory.id}
         className="p-4 rounded shadow-md flex items-center gap-4"
       >
-        <span className="w-64 font-semibold">{badgeCategory.categoryName}</span>
-        <span className="w-full">{badgeCategory.description}</span>
+        <span className="w-1/2 font-semibold">{badgeCategory.categoryName}</span>
+        <span className="ml-[32px] w-full">{badgeCategory.description}</span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"

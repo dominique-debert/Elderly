@@ -7,17 +7,17 @@ import { ETabKey } from '@/@types/ETabKey';
 
 import { ActivityList } from '@/components/ActivityCategories/ActivityList';
 import { BadgeList } from "@/components/BadgeCategories/BadgeList";
-import { CognitiveList } from '@/components/CognitiveCategory/CognitionList';
-import { ForumList } from '@/components/Forum/ForumList';
+import { CognitiveList } from '@/components/CognitiveCategories/CognitionList';
+import { ForumList } from "@/components/ForumCategories/ForumList";
 import { HelpList } from "@/components/HelpCategory/HelpList";
 import { MoodList } from '@/components/MoodCategories/MoodList'; 
-import { NutritionalList } from '@/components/Nutrition/NutritionalList';
-import { ProgramList } from '@/components/Program/ProgramList';
-import { ProjectList } from '@/components/Project/ProjectList';
-import { ResourceList } from '@/components/Resource/ResourceList';
-import { ServiceList } from '@/components/Service/ServiceList';
-import { SkillList } from '@/components/Skill/SkillList';
-import { UrbanIssueList } from '@/components/UrbanIssue/UrbanIssueList';
+import { NutritionList } from '@/components/NutritionCategories/NutritionList';
+import { ProgramList } from "@/components/ProgramCategories/ProgramList";
+import { ProjectList } from "@/components/ProjectCategories/ProjectList";
+import { ResourceList } from '@/components/ResourceCategories/ResourceList';
+import { ServiceList } from "@/components/ServiceCategories/ServiceList";
+import { SkillList } from "@/components/SkillCategories/SkillList";
+import { UrbanIssueList } from "@/components/UrbanIssueCategories/UrbanIssueList";
 import { WellnessList } from '@/components/WellnessCategories/WellnessList';
 
 const AdminPage = () => {
@@ -44,7 +44,7 @@ const AdminPage = () => {
       case ETabKey.Mood:
         return <MoodList />;
       case ETabKey.Nutritional:
-        return <NutritionalList />;
+        return <NutritionList />;
       case ETabKey.Program:
         return <ProgramList />;
       case ETabKey.Project:
