@@ -13,7 +13,7 @@ const Layout = () => {
       <div className="flex h-full"> {/* 4rem = hauteur de la navbar */}
         {isAuthenticated && <Sidebar />}
 
-        <main className="flex-1 overflow-y-auto no-scrollbar mt-16 ml-2 mr-4">
+        <main className="flex-1 overflow-y-auto no-scrollbar ml-2 mr-4">
           <Outlet />
         </main>
       </div>

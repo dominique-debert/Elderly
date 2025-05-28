@@ -19,7 +19,7 @@ const HomePage = () => {
     <>
       <div className="flex flex-col w-full gap-4">
         
-        <div className="lg:flex lg:flex-row gap-4 mt-4">
+        <div className="lg:flex lg:flex-row gap-4 mt-20">
           {user ? (
             <>
               <UserCard />
