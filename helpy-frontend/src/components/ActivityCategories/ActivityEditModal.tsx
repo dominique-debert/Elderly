@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { updateActivityCategory } from '@/services/activityCategory.service';
 import { toast } from 'react-hot-toast';
 import type { ICategory } from "@/@types/ICategory";
-import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
+import { fetchCategoryChapters, fetchCategoryTypes } from '@/services/categoryMeta.service';
 import { IChapter } from "@/@types/IChapter";
 import { ICategoryType } from "@/@types/ICategoryType";
 
@@ -28,8 +28,8 @@ export function ActivityEditModal({ activity, onClose, onUpdated }: ActivityModa
     const fetchData = async () => {
       try {
         const [chapterData, typeData] = await Promise.all([
-          getCategoryChapters(),
-          getCategoryTypes(),
+          fetchCategoryChapters(),
+          fetchCategoryTypes(),
         ]);
   
         const chaptersFormatted = chapterData.map((chapter: IChapter) => ({

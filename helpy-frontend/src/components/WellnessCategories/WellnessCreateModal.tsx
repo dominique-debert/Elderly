@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { createWellnessCategory } from '@/services/wellnessCategory.service';
-import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
+import { fetchCategoryChapters, fetchCategoryTypes } from '@/services/categoryMeta.service';
 import { IChapter } from "@/@types/IChapter";
 import { ICategoryType } from "@/@types/ICategoryType";
 
@@ -22,8 +22,8 @@ export const WellnessCreateModal: React.FC<WellnessCreateModalProps> = ({ onClos
   const [types, setTypes] = useState<ICategoryType[]>([]);
 
   useEffect(() => {
-    getCategoryChapters().then(setChapters).catch(() => toast.error("Erreur lors du chargement des chapitres"));
-    getCategoryTypes().then(setTypes).catch(() => toast.error("Erreur lors du chargement des types"));
+    fetchCategoryChapters().then(setChapters).catch(() => toast.error("Erreur lors du chargement des chapitres"));
+    fetchCategoryTypes().then(setTypes).catch(() => toast.error("Erreur lors du chargement des types"));
   }, []);
 
   const handleChange = (

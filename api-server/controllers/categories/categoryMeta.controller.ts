@@ -4,7 +4,7 @@ import { PrismaClient } from '@/prisma/client';
 
 const prisma = new PrismaClient()
 
-export async function getCategoryChapters(
+export async function fetchCategoryChapters(
   req: Request,
   res: Response,
   next: NextFunction
@@ -23,7 +23,7 @@ export async function getCategoryChapters(
   }
 }
 
-export async function getCategoryTypes(  req: Request,
+export async function fetchCategoryTypes(  req: Request,
   res: Response,
   next: NextFunction) {
   try {

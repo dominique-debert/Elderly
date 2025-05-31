@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { updateProjectCategory } from '@/services/projectCategory.service';
 import { toast } from 'react-hot-toast';
-import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
+import { fetchCategoryChapters, fetchCategoryTypes } from '@/services/categoryMeta.service';
 import type { ICategory } from "@/@types/ICategory";
 import type { ICategoryType } from "@/@types/ICategoryType";
 import type { IChapter } from "@/@types/IChapter";
@@ -29,8 +29,8 @@ export function ProjectEditModal({ category, onClose, onUpdated }: ProjectModalP
     const fetchData = async () => {
       try {
         const [chapterData, typeData] = await Promise.all([
-          getCategoryChapters(),
-          getCategoryTypes(),
+          fetchCategoryChapters(),
+          fetchCategoryTypes(),
         ]);
   
         const chaptersFormatted = chapterData.map((chapter: IChapter) => ({
