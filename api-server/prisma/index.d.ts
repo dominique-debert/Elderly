@@ -6065,6 +6065,7 @@ export namespace Prisma {
     badge: number
     cognitiveExercise: number
     collaborativeProject: number
+    exerciseProgram: number
     helpRequest: number
     localService: number
     nutritionalAdvice: number
@@ -6073,7 +6074,6 @@ export namespace Prisma {
     urbanIssueReport: number
     wellnessBadge: number
     wellnessGoal: number
-    exerciseProgram: number
   }
 
   export type CategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6081,6 +6081,7 @@ export namespace Prisma {
     badge?: boolean | CategoryCountOutputTypeCountBadgeArgs
     cognitiveExercise?: boolean | CategoryCountOutputTypeCountCognitiveExerciseArgs
     collaborativeProject?: boolean | CategoryCountOutputTypeCountCollaborativeProjectArgs
+    exerciseProgram?: boolean | CategoryCountOutputTypeCountExerciseProgramArgs
     helpRequest?: boolean | CategoryCountOutputTypeCountHelpRequestArgs
     localService?: boolean | CategoryCountOutputTypeCountLocalServiceArgs
     nutritionalAdvice?: boolean | CategoryCountOutputTypeCountNutritionalAdviceArgs
@@ -6089,7 +6090,6 @@ export namespace Prisma {
     urbanIssueReport?: boolean | CategoryCountOutputTypeCountUrbanIssueReportArgs
     wellnessBadge?: boolean | CategoryCountOutputTypeCountWellnessBadgeArgs
     wellnessGoal?: boolean | CategoryCountOutputTypeCountWellnessGoalArgs
-    exerciseProgram?: boolean | CategoryCountOutputTypeCountExerciseProgramArgs
   }
 
   // Custom InputTypes
@@ -6129,6 +6129,13 @@ export namespace Prisma {
    */
   export type CategoryCountOutputTypeCountCollaborativeProjectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: collaborativeProjectWhereInput
+  }
+
+  /**
+   * CategoryCountOutputType without action
+   */
+  export type CategoryCountOutputTypeCountExerciseProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: exerciseProgramWhereInput
   }
 
   /**
@@ -6185,13 +6192,6 @@ export namespace Prisma {
    */
   export type CategoryCountOutputTypeCountWellnessGoalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: wellnessGoalWhereInput
-  }
-
-  /**
-   * CategoryCountOutputType without action
-   */
-  export type CategoryCountOutputTypeCountExerciseProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: exerciseProgramWhereInput
   }
 
 
@@ -62579,6 +62579,7 @@ export namespace Prisma {
     badge?: boolean | category$badgeArgs<ExtArgs>
     cognitiveExercise?: boolean | category$cognitiveExerciseArgs<ExtArgs>
     collaborativeProject?: boolean | category$collaborativeProjectArgs<ExtArgs>
+    exerciseProgram?: boolean | category$exerciseProgramArgs<ExtArgs>
     helpRequest?: boolean | category$helpRequestArgs<ExtArgs>
     localService?: boolean | category$localServiceArgs<ExtArgs>
     nutritionalAdvice?: boolean | category$nutritionalAdviceArgs<ExtArgs>
@@ -62587,7 +62588,6 @@ export namespace Prisma {
     urbanIssueReport?: boolean | category$urbanIssueReportArgs<ExtArgs>
     wellnessBadge?: boolean | category$wellnessBadgeArgs<ExtArgs>
     wellnessGoal?: boolean | category$wellnessGoalArgs<ExtArgs>
-    exerciseProgram?: boolean | category$exerciseProgramArgs<ExtArgs>
     categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
     categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
@@ -62633,6 +62633,7 @@ export namespace Prisma {
     badge?: boolean | category$badgeArgs<ExtArgs>
     cognitiveExercise?: boolean | category$cognitiveExerciseArgs<ExtArgs>
     collaborativeProject?: boolean | category$collaborativeProjectArgs<ExtArgs>
+    exerciseProgram?: boolean | category$exerciseProgramArgs<ExtArgs>
     helpRequest?: boolean | category$helpRequestArgs<ExtArgs>
     localService?: boolean | category$localServiceArgs<ExtArgs>
     nutritionalAdvice?: boolean | category$nutritionalAdviceArgs<ExtArgs>
@@ -62641,7 +62642,6 @@ export namespace Prisma {
     urbanIssueReport?: boolean | category$urbanIssueReportArgs<ExtArgs>
     wellnessBadge?: boolean | category$wellnessBadgeArgs<ExtArgs>
     wellnessGoal?: boolean | category$wellnessGoalArgs<ExtArgs>
-    exerciseProgram?: boolean | category$exerciseProgramArgs<ExtArgs>
     categoryType?: boolean | categoryTypeDefaultArgs<ExtArgs>
     categoryChapter?: boolean | categoryChapterDefaultArgs<ExtArgs>
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
@@ -62662,6 +62662,7 @@ export namespace Prisma {
       badge: Prisma.$badgePayload<ExtArgs>[]
       cognitiveExercise: Prisma.$cognitiveExercisePayload<ExtArgs>[]
       collaborativeProject: Prisma.$collaborativeProjectPayload<ExtArgs>[]
+      exerciseProgram: Prisma.$exerciseProgramPayload<ExtArgs>[]
       helpRequest: Prisma.$helpRequestPayload<ExtArgs>[]
       localService: Prisma.$localServicePayload<ExtArgs>[]
       nutritionalAdvice: Prisma.$nutritionalAdvicePayload<ExtArgs>[]
@@ -62670,7 +62671,6 @@ export namespace Prisma {
       urbanIssueReport: Prisma.$urbanIssueReportPayload<ExtArgs>[]
       wellnessBadge: Prisma.$wellnessBadgePayload<ExtArgs>[]
       wellnessGoal: Prisma.$wellnessGoalPayload<ExtArgs>[]
-      exerciseProgram: Prisma.$exerciseProgramPayload<ExtArgs>[]
       categoryType: Prisma.$categoryTypePayload<ExtArgs>
       categoryChapter: Prisma.$categoryChapterPayload<ExtArgs>
     }
@@ -63080,6 +63080,7 @@ export namespace Prisma {
     badge<T extends category$badgeArgs<ExtArgs> = {}>(args?: Subset<T, category$badgeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$badgePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     cognitiveExercise<T extends category$cognitiveExerciseArgs<ExtArgs> = {}>(args?: Subset<T, category$cognitiveExerciseArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$cognitiveExercisePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     collaborativeProject<T extends category$collaborativeProjectArgs<ExtArgs> = {}>(args?: Subset<T, category$collaborativeProjectArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$collaborativeProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    exerciseProgram<T extends category$exerciseProgramArgs<ExtArgs> = {}>(args?: Subset<T, category$exerciseProgramArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$exerciseProgramPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     helpRequest<T extends category$helpRequestArgs<ExtArgs> = {}>(args?: Subset<T, category$helpRequestArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$helpRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     localService<T extends category$localServiceArgs<ExtArgs> = {}>(args?: Subset<T, category$localServiceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$localServicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     nutritionalAdvice<T extends category$nutritionalAdviceArgs<ExtArgs> = {}>(args?: Subset<T, category$nutritionalAdviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$nutritionalAdvicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -63088,7 +63089,6 @@ export namespace Prisma {
     urbanIssueReport<T extends category$urbanIssueReportArgs<ExtArgs> = {}>(args?: Subset<T, category$urbanIssueReportArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$urbanIssueReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     wellnessBadge<T extends category$wellnessBadgeArgs<ExtArgs> = {}>(args?: Subset<T, category$wellnessBadgeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessBadgePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     wellnessGoal<T extends category$wellnessGoalArgs<ExtArgs> = {}>(args?: Subset<T, category$wellnessGoalArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$wellnessGoalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    exerciseProgram<T extends category$exerciseProgramArgs<ExtArgs> = {}>(args?: Subset<T, category$exerciseProgramArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$exerciseProgramPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     categoryType<T extends categoryTypeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, categoryTypeDefaultArgs<ExtArgs>>): Prisma__categoryTypeClient<$Result.GetResult<Prisma.$categoryTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     categoryChapter<T extends categoryChapterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, categoryChapterDefaultArgs<ExtArgs>>): Prisma__categoryChapterClient<$Result.GetResult<Prisma.$categoryChapterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -63619,6 +63619,30 @@ export namespace Prisma {
   }
 
   /**
+   * category.exerciseProgram
+   */
+  export type category$exerciseProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the exerciseProgram
+     */
+    select?: exerciseProgramSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the exerciseProgram
+     */
+    omit?: exerciseProgramOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: exerciseProgramInclude<ExtArgs> | null
+    where?: exerciseProgramWhereInput
+    orderBy?: exerciseProgramOrderByWithRelationInput | exerciseProgramOrderByWithRelationInput[]
+    cursor?: exerciseProgramWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ExerciseProgramScalarFieldEnum | ExerciseProgramScalarFieldEnum[]
+  }
+
+  /**
    * category.helpRequest
    */
   export type category$helpRequestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -63808,30 +63832,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: WellnessGoalScalarFieldEnum | WellnessGoalScalarFieldEnum[]
-  }
-
-  /**
-   * category.exerciseProgram
-   */
-  export type category$exerciseProgramArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the exerciseProgram
-     */
-    select?: exerciseProgramSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the exerciseProgram
-     */
-    omit?: exerciseProgramOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: exerciseProgramInclude<ExtArgs> | null
-    where?: exerciseProgramWhereInput
-    orderBy?: exerciseProgramOrderByWithRelationInput | exerciseProgramOrderByWithRelationInput[]
-    cursor?: exerciseProgramWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ExerciseProgramScalarFieldEnum | ExerciseProgramScalarFieldEnum[]
   }
 
   /**
@@ -68678,6 +68678,7 @@ export namespace Prisma {
     badge?: BadgeListRelationFilter
     cognitiveExercise?: CognitiveExerciseListRelationFilter
     collaborativeProject?: CollaborativeProjectListRelationFilter
+    exerciseProgram?: ExerciseProgramListRelationFilter
     helpRequest?: HelpRequestListRelationFilter
     localService?: LocalServiceListRelationFilter
     nutritionalAdvice?: NutritionalAdviceListRelationFilter
@@ -68686,7 +68687,6 @@ export namespace Prisma {
     urbanIssueReport?: UrbanIssueReportListRelationFilter
     wellnessBadge?: WellnessBadgeListRelationFilter
     wellnessGoal?: WellnessGoalListRelationFilter
-    exerciseProgram?: ExerciseProgramListRelationFilter
     categoryType?: XOR<CategoryTypeScalarRelationFilter, categoryTypeWhereInput>
     categoryChapter?: XOR<CategoryChapterScalarRelationFilter, categoryChapterWhereInput>
   }
@@ -68703,6 +68703,7 @@ export namespace Prisma {
     badge?: badgeOrderByRelationAggregateInput
     cognitiveExercise?: cognitiveExerciseOrderByRelationAggregateInput
     collaborativeProject?: collaborativeProjectOrderByRelationAggregateInput
+    exerciseProgram?: exerciseProgramOrderByRelationAggregateInput
     helpRequest?: helpRequestOrderByRelationAggregateInput
     localService?: localServiceOrderByRelationAggregateInput
     nutritionalAdvice?: nutritionalAdviceOrderByRelationAggregateInput
@@ -68711,7 +68712,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportOrderByRelationAggregateInput
     wellnessBadge?: wellnessBadgeOrderByRelationAggregateInput
     wellnessGoal?: wellnessGoalOrderByRelationAggregateInput
-    exerciseProgram?: exerciseProgramOrderByRelationAggregateInput
     categoryType?: categoryTypeOrderByWithRelationInput
     categoryChapter?: categoryChapterOrderByWithRelationInput
   }
@@ -68731,6 +68731,7 @@ export namespace Prisma {
     badge?: BadgeListRelationFilter
     cognitiveExercise?: CognitiveExerciseListRelationFilter
     collaborativeProject?: CollaborativeProjectListRelationFilter
+    exerciseProgram?: ExerciseProgramListRelationFilter
     helpRequest?: HelpRequestListRelationFilter
     localService?: LocalServiceListRelationFilter
     nutritionalAdvice?: NutritionalAdviceListRelationFilter
@@ -68739,7 +68740,6 @@ export namespace Prisma {
     urbanIssueReport?: UrbanIssueReportListRelationFilter
     wellnessBadge?: WellnessBadgeListRelationFilter
     wellnessGoal?: WellnessGoalListRelationFilter
-    exerciseProgram?: ExerciseProgramListRelationFilter
     categoryType?: XOR<CategoryTypeScalarRelationFilter, categoryTypeWhereInput>
     categoryChapter?: XOR<CategoryChapterScalarRelationFilter, categoryChapterWhereInput>
   }, "id">
@@ -73041,6 +73041,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -73049,7 +73050,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -73066,6 +73066,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -73074,7 +73075,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryUpdateInput = {
@@ -73086,6 +73086,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -73094,7 +73095,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -73111,6 +73111,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -73119,7 +73120,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoryCreateManyInput = {
@@ -75895,6 +75895,12 @@ export namespace Prisma {
     none?: cognitiveExerciseWhereInput
   }
 
+  export type ExerciseProgramListRelationFilter = {
+    every?: exerciseProgramWhereInput
+    some?: exerciseProgramWhereInput
+    none?: exerciseProgramWhereInput
+  }
+
   export type LocalServiceListRelationFilter = {
     every?: localServiceWhereInput
     some?: localServiceWhereInput
@@ -75919,12 +75925,6 @@ export namespace Prisma {
     none?: wellnessBadgeWhereInput
   }
 
-  export type ExerciseProgramListRelationFilter = {
-    every?: exerciseProgramWhereInput
-    some?: exerciseProgramWhereInput
-    none?: exerciseProgramWhereInput
-  }
-
   export type CategoryTypeScalarRelationFilter = {
     is?: categoryTypeWhereInput
     isNot?: categoryTypeWhereInput
@@ -75936,6 +75936,10 @@ export namespace Prisma {
   }
 
   export type cognitiveExerciseOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type exerciseProgramOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -75952,10 +75956,6 @@ export namespace Prisma {
   }
 
   export type wellnessBadgeOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type exerciseProgramOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -79061,6 +79061,13 @@ export namespace Prisma {
     connect?: collaborativeProjectWhereUniqueInput | collaborativeProjectWhereUniqueInput[]
   }
 
+  export type exerciseProgramCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput> | exerciseProgramCreateWithoutCategoryInput[] | exerciseProgramUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: exerciseProgramCreateOrConnectWithoutCategoryInput | exerciseProgramCreateOrConnectWithoutCategoryInput[]
+    createMany?: exerciseProgramCreateManyCategoryInputEnvelope
+    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+  }
+
   export type helpRequestCreateNestedManyWithoutCategoryInput = {
     create?: XOR<helpRequestCreateWithoutCategoryInput, helpRequestUncheckedCreateWithoutCategoryInput> | helpRequestCreateWithoutCategoryInput[] | helpRequestUncheckedCreateWithoutCategoryInput[]
     connectOrCreate?: helpRequestCreateOrConnectWithoutCategoryInput | helpRequestCreateOrConnectWithoutCategoryInput[]
@@ -79117,13 +79124,6 @@ export namespace Prisma {
     connect?: wellnessGoalWhereUniqueInput | wellnessGoalWhereUniqueInput[]
   }
 
-  export type exerciseProgramCreateNestedManyWithoutCategoryInput = {
-    create?: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput> | exerciseProgramCreateWithoutCategoryInput[] | exerciseProgramUncheckedCreateWithoutCategoryInput[]
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutCategoryInput | exerciseProgramCreateOrConnectWithoutCategoryInput[]
-    createMany?: exerciseProgramCreateManyCategoryInputEnvelope
-    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-  }
-
   export type categoryTypeCreateNestedOneWithoutCategoriesInput = {
     create?: XOR<categoryTypeCreateWithoutCategoriesInput, categoryTypeUncheckedCreateWithoutCategoriesInput>
     connectOrCreate?: categoryTypeCreateOrConnectWithoutCategoriesInput
@@ -79162,6 +79162,13 @@ export namespace Prisma {
     connectOrCreate?: collaborativeProjectCreateOrConnectWithoutCategoryInput | collaborativeProjectCreateOrConnectWithoutCategoryInput[]
     createMany?: collaborativeProjectCreateManyCategoryInputEnvelope
     connect?: collaborativeProjectWhereUniqueInput | collaborativeProjectWhereUniqueInput[]
+  }
+
+  export type exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput> | exerciseProgramCreateWithoutCategoryInput[] | exerciseProgramUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: exerciseProgramCreateOrConnectWithoutCategoryInput | exerciseProgramCreateOrConnectWithoutCategoryInput[]
+    createMany?: exerciseProgramCreateManyCategoryInputEnvelope
+    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
   }
 
   export type helpRequestUncheckedCreateNestedManyWithoutCategoryInput = {
@@ -79220,13 +79227,6 @@ export namespace Prisma {
     connect?: wellnessGoalWhereUniqueInput | wellnessGoalWhereUniqueInput[]
   }
 
-  export type exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput = {
-    create?: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput> | exerciseProgramCreateWithoutCategoryInput[] | exerciseProgramUncheckedCreateWithoutCategoryInput[]
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutCategoryInput | exerciseProgramCreateOrConnectWithoutCategoryInput[]
-    createMany?: exerciseProgramCreateManyCategoryInputEnvelope
-    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-  }
-
   export type activityUpdateManyWithoutCategoryNestedInput = {
     create?: XOR<activityCreateWithoutCategoryInput, activityUncheckedCreateWithoutCategoryInput> | activityCreateWithoutCategoryInput[] | activityUncheckedCreateWithoutCategoryInput[]
     connectOrCreate?: activityCreateOrConnectWithoutCategoryInput | activityCreateOrConnectWithoutCategoryInput[]
@@ -79281,6 +79281,20 @@ export namespace Prisma {
     update?: collaborativeProjectUpdateWithWhereUniqueWithoutCategoryInput | collaborativeProjectUpdateWithWhereUniqueWithoutCategoryInput[]
     updateMany?: collaborativeProjectUpdateManyWithWhereWithoutCategoryInput | collaborativeProjectUpdateManyWithWhereWithoutCategoryInput[]
     deleteMany?: collaborativeProjectScalarWhereInput | collaborativeProjectScalarWhereInput[]
+  }
+
+  export type exerciseProgramUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput> | exerciseProgramCreateWithoutCategoryInput[] | exerciseProgramUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: exerciseProgramCreateOrConnectWithoutCategoryInput | exerciseProgramCreateOrConnectWithoutCategoryInput[]
+    upsert?: exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput | exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: exerciseProgramCreateManyCategoryInputEnvelope
+    set?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    disconnect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    delete?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    update?: exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput | exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: exerciseProgramUpdateManyWithWhereWithoutCategoryInput | exerciseProgramUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
   }
 
   export type helpRequestUpdateManyWithoutCategoryNestedInput = {
@@ -79395,20 +79409,6 @@ export namespace Prisma {
     deleteMany?: wellnessGoalScalarWhereInput | wellnessGoalScalarWhereInput[]
   }
 
-  export type exerciseProgramUpdateManyWithoutCategoryNestedInput = {
-    create?: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput> | exerciseProgramCreateWithoutCategoryInput[] | exerciseProgramUncheckedCreateWithoutCategoryInput[]
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutCategoryInput | exerciseProgramCreateOrConnectWithoutCategoryInput[]
-    upsert?: exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput | exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput[]
-    createMany?: exerciseProgramCreateManyCategoryInputEnvelope
-    set?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    disconnect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    delete?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    update?: exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput | exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput[]
-    updateMany?: exerciseProgramUpdateManyWithWhereWithoutCategoryInput | exerciseProgramUpdateManyWithWhereWithoutCategoryInput[]
-    deleteMany?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
-  }
-
   export type categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput = {
     create?: XOR<categoryTypeCreateWithoutCategoriesInput, categoryTypeUncheckedCreateWithoutCategoriesInput>
     connectOrCreate?: categoryTypeCreateOrConnectWithoutCategoriesInput
@@ -79479,6 +79479,20 @@ export namespace Prisma {
     update?: collaborativeProjectUpdateWithWhereUniqueWithoutCategoryInput | collaborativeProjectUpdateWithWhereUniqueWithoutCategoryInput[]
     updateMany?: collaborativeProjectUpdateManyWithWhereWithoutCategoryInput | collaborativeProjectUpdateManyWithWhereWithoutCategoryInput[]
     deleteMany?: collaborativeProjectScalarWhereInput | collaborativeProjectScalarWhereInput[]
+  }
+
+  export type exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput> | exerciseProgramCreateWithoutCategoryInput[] | exerciseProgramUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: exerciseProgramCreateOrConnectWithoutCategoryInput | exerciseProgramCreateOrConnectWithoutCategoryInput[]
+    upsert?: exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput | exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: exerciseProgramCreateManyCategoryInputEnvelope
+    set?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    disconnect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    delete?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
+    update?: exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput | exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: exerciseProgramUpdateManyWithWhereWithoutCategoryInput | exerciseProgramUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
   }
 
   export type helpRequestUncheckedUpdateManyWithoutCategoryNestedInput = {
@@ -79591,20 +79605,6 @@ export namespace Prisma {
     update?: wellnessGoalUpdateWithWhereUniqueWithoutCategoryInput | wellnessGoalUpdateWithWhereUniqueWithoutCategoryInput[]
     updateMany?: wellnessGoalUpdateManyWithWhereWithoutCategoryInput | wellnessGoalUpdateManyWithWhereWithoutCategoryInput[]
     deleteMany?: wellnessGoalScalarWhereInput | wellnessGoalScalarWhereInput[]
-  }
-
-  export type exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput = {
-    create?: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput> | exerciseProgramCreateWithoutCategoryInput[] | exerciseProgramUncheckedCreateWithoutCategoryInput[]
-    connectOrCreate?: exerciseProgramCreateOrConnectWithoutCategoryInput | exerciseProgramCreateOrConnectWithoutCategoryInput[]
-    upsert?: exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput | exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput[]
-    createMany?: exerciseProgramCreateManyCategoryInputEnvelope
-    set?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    disconnect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    delete?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    connect?: exerciseProgramWhereUniqueInput | exerciseProgramWhereUniqueInput[]
-    update?: exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput | exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput[]
-    updateMany?: exerciseProgramUpdateManyWithWhereWithoutCategoryInput | exerciseProgramUpdateManyWithWhereWithoutCategoryInput[]
-    deleteMany?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -80028,6 +80028,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -80036,7 +80037,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -80052,6 +80052,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -80060,7 +80061,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutActivityInput = {
@@ -80236,6 +80236,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -80244,7 +80245,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -80260,6 +80260,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -80268,7 +80269,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type userCreateWithoutActivityLogInput = {
@@ -80874,6 +80874,7 @@ export namespace Prisma {
     activity?: activityCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -80882,7 +80883,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -80898,6 +80898,7 @@ export namespace Prisma {
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -80906,7 +80907,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutBadgeInput = {
@@ -80962,6 +80962,7 @@ export namespace Prisma {
     activity?: activityUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -80970,7 +80971,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -80986,6 +80986,7 @@ export namespace Prisma {
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -80994,7 +80995,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoryCreateWithoutCognitiveExerciseInput = {
@@ -81005,6 +81005,7 @@ export namespace Prisma {
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -81013,7 +81014,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -81029,6 +81029,7 @@ export namespace Prisma {
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -81037,7 +81038,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutCognitiveExerciseInput = {
@@ -81100,6 +81100,7 @@ export namespace Prisma {
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -81108,7 +81109,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -81124,6 +81124,7 @@ export namespace Prisma {
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -81132,7 +81133,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type userActivityUpsertWithWhereUniqueWithoutCognitiveExerciseInput = {
@@ -81289,6 +81289,7 @@ export namespace Prisma {
     activity?: activityCreateNestedManyWithoutCategoryInput
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -81297,7 +81298,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -81313,6 +81313,7 @@ export namespace Prisma {
     activity?: activityUncheckedCreateNestedManyWithoutCategoryInput
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -81321,7 +81322,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutCollaborativeProjectInput = {
@@ -81529,6 +81529,7 @@ export namespace Prisma {
     activity?: activityUpdateManyWithoutCategoryNestedInput
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -81537,7 +81538,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -81553,6 +81553,7 @@ export namespace Prisma {
     activity?: activityUncheckedUpdateManyWithoutCategoryNestedInput
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -81561,7 +81562,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type projectMemberUpsertWithWhereUniqueWithoutCollaborativeProjectInput = {
@@ -83825,6 +83825,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
     resource?: resourceCreateNestedManyWithoutCategoryInput
@@ -83832,7 +83833,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -83849,6 +83849,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
     resource?: resourceUncheckedCreateNestedManyWithoutCategoryInput
@@ -83856,7 +83857,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutHelpRequestInput = {
@@ -84067,6 +84067,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
     resource?: resourceUpdateManyWithoutCategoryNestedInput
@@ -84074,7 +84075,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -84091,6 +84091,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
     resource?: resourceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -84098,7 +84099,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoryCreateWithoutLocalServiceInput = {
@@ -84110,6 +84110,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
     resource?: resourceCreateNestedManyWithoutCategoryInput
@@ -84117,7 +84118,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -84134,6 +84134,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
     resource?: resourceUncheckedCreateNestedManyWithoutCategoryInput
@@ -84141,7 +84142,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutLocalServiceInput = {
@@ -84199,6 +84199,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
     resource?: resourceUpdateManyWithoutCategoryNestedInput
@@ -84206,7 +84207,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -84223,6 +84223,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
     resource?: resourceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -84230,7 +84231,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type serviceRatingUpsertWithWhereUniqueWithoutLocalServiceInput = {
@@ -85256,6 +85256,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     resource?: resourceCreateNestedManyWithoutCategoryInput
@@ -85263,7 +85264,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -85280,6 +85280,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     resource?: resourceUncheckedCreateNestedManyWithoutCategoryInput
@@ -85287,7 +85288,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutNutritionalAdviceInput = {
@@ -85315,6 +85315,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     resource?: resourceUpdateManyWithoutCategoryNestedInput
@@ -85322,7 +85323,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -85339,6 +85339,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     resource?: resourceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -85346,7 +85347,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type collaborativeProjectCreateWithoutProjectMemberInput = {
@@ -86071,6 +86071,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -86078,7 +86079,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -86095,6 +86095,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -86102,7 +86103,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutResourceInput = {
@@ -86249,6 +86249,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -86256,7 +86257,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -86273,6 +86273,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -86280,7 +86281,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type surveyResponseCreateWithoutSatisfactionSurveyInput = {
@@ -87213,6 +87213,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -87220,7 +87221,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -87237,6 +87237,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -87244,7 +87245,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutSkillInput = {
@@ -87298,6 +87298,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -87305,7 +87306,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -87322,6 +87322,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -87329,7 +87330,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type userSkillUpsertWithWhereUniqueWithoutSkillInput = {
@@ -88006,6 +88006,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -88013,7 +88014,6 @@ export namespace Prisma {
     skill?: skillCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -88030,6 +88030,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -88037,7 +88038,6 @@ export namespace Prisma {
     skill?: skillUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutUrbanIssueReportInput = {
@@ -88184,6 +88184,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -88191,7 +88192,6 @@ export namespace Prisma {
     skill?: skillUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -88208,6 +88208,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -88215,7 +88216,6 @@ export namespace Prisma {
     skill?: skillUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type activityCreateWithoutUserInput = {
@@ -91683,6 +91683,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -91690,7 +91691,6 @@ export namespace Prisma {
     skill?: skillCreateNestedManyWithoutCategoryInput
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -91707,6 +91707,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -91714,7 +91715,6 @@ export namespace Prisma {
     skill?: skillUncheckedCreateNestedManyWithoutCategoryInput
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutWellnessBadgeInput = {
@@ -91742,6 +91742,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -91749,7 +91750,6 @@ export namespace Prisma {
     skill?: skillUpdateManyWithoutCategoryNestedInput
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -91766,6 +91766,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -91773,7 +91774,6 @@ export namespace Prisma {
     skill?: skillUncheckedUpdateManyWithoutCategoryNestedInput
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type wellnessGoalProgressCreateWithoutWellnessGoalInput = {
@@ -91926,6 +91926,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -91933,7 +91934,6 @@ export namespace Prisma {
     skill?: skillCreateNestedManyWithoutCategoryInput
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
@@ -91950,6 +91950,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -91957,7 +91958,6 @@ export namespace Prisma {
     skill?: skillUncheckedCreateNestedManyWithoutCategoryInput
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutWellnessGoalInput = {
@@ -92133,6 +92133,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -92140,7 +92141,6 @@ export namespace Prisma {
     skill?: skillUpdateManyWithoutCategoryNestedInput
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
@@ -92157,6 +92157,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -92164,7 +92165,6 @@ export namespace Prisma {
     skill?: skillUncheckedUpdateManyWithoutCategoryNestedInput
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type wellnessGoalCreateWithoutWellnessGoalProgressInput = {
@@ -92252,6 +92252,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -92260,7 +92261,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryChapter: categoryChapterCreateNestedOneWithoutCategoryInput
   }
 
@@ -92275,6 +92275,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -92283,7 +92284,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutCategoryTypeInput = {
@@ -92334,6 +92334,7 @@ export namespace Prisma {
     badge?: badgeCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestCreateNestedManyWithoutCategoryInput
     localService?: localServiceCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceCreateNestedManyWithoutCategoryInput
@@ -92342,7 +92343,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramCreateNestedManyWithoutCategoryInput
     categoryType: categoryTypeCreateNestedOneWithoutCategoriesInput
   }
 
@@ -92357,6 +92357,7 @@ export namespace Prisma {
     badge?: badgeUncheckedCreateNestedManyWithoutCategoryInput
     cognitiveExercise?: cognitiveExerciseUncheckedCreateNestedManyWithoutCategoryInput
     collaborativeProject?: collaborativeProjectUncheckedCreateNestedManyWithoutCategoryInput
+    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
     helpRequest?: helpRequestUncheckedCreateNestedManyWithoutCategoryInput
     localService?: localServiceUncheckedCreateNestedManyWithoutCategoryInput
     nutritionalAdvice?: nutritionalAdviceUncheckedCreateNestedManyWithoutCategoryInput
@@ -92365,7 +92366,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedCreateNestedManyWithoutCategoryInput
     wellnessBadge?: wellnessBadgeUncheckedCreateNestedManyWithoutCategoryInput
     wellnessGoal?: wellnessGoalUncheckedCreateNestedManyWithoutCategoryInput
-    exerciseProgram?: exerciseProgramUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoryCreateOrConnectWithoutCategoryChapterInput = {
@@ -92549,6 +92549,44 @@ export namespace Prisma {
 
   export type collaborativeProjectCreateManyCategoryInputEnvelope = {
     data: collaborativeProjectCreateManyCategoryInput | collaborativeProjectCreateManyCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type exerciseProgramCreateWithoutCategoryInput = {
+    id?: string
+    name: string
+    difficultyLevel?: number | null
+    adaptedForReducedMobility?: boolean | null
+    durationMinutes?: number | null
+    description?: string | null
+    videoLink?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    userActivity?: userActivityCreateNestedManyWithoutExerciseProgramInput
+  }
+
+  export type exerciseProgramUncheckedCreateWithoutCategoryInput = {
+    id?: string
+    name: string
+    difficultyLevel?: number | null
+    adaptedForReducedMobility?: boolean | null
+    durationMinutes?: number | null
+    description?: string | null
+    videoLink?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    userActivity?: userActivityUncheckedCreateNestedManyWithoutExerciseProgramInput
+  }
+
+  export type exerciseProgramCreateOrConnectWithoutCategoryInput = {
+    where: exerciseProgramWhereUniqueInput
+    create: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type exerciseProgramCreateManyCategoryInputEnvelope = {
+    data: exerciseProgramCreateManyCategoryInput | exerciseProgramCreateManyCategoryInput[]
     skipDuplicates?: boolean
   }
 
@@ -92836,44 +92874,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type exerciseProgramCreateWithoutCategoryInput = {
-    id?: string
-    name: string
-    difficultyLevel?: number | null
-    adaptedForReducedMobility?: boolean | null
-    durationMinutes?: number | null
-    description?: string | null
-    videoLink?: string | null
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    userActivity?: userActivityCreateNestedManyWithoutExerciseProgramInput
-  }
-
-  export type exerciseProgramUncheckedCreateWithoutCategoryInput = {
-    id?: string
-    name: string
-    difficultyLevel?: number | null
-    adaptedForReducedMobility?: boolean | null
-    durationMinutes?: number | null
-    description?: string | null
-    videoLink?: string | null
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    userActivity?: userActivityUncheckedCreateNestedManyWithoutExerciseProgramInput
-  }
-
-  export type exerciseProgramCreateOrConnectWithoutCategoryInput = {
-    where: exerciseProgramWhereUniqueInput
-    create: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput>
-  }
-
-  export type exerciseProgramCreateManyCategoryInputEnvelope = {
-    data: exerciseProgramCreateManyCategoryInput | exerciseProgramCreateManyCategoryInput[]
-    skipDuplicates?: boolean
-  }
-
   export type categoryTypeCreateWithoutCategoriesInput = {
     name: string
     createdAt?: Date | string
@@ -92991,6 +92991,39 @@ export namespace Prisma {
   export type collaborativeProjectUpdateManyWithWhereWithoutCategoryInput = {
     where: collaborativeProjectScalarWhereInput
     data: XOR<collaborativeProjectUpdateManyMutationInput, collaborativeProjectUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: exerciseProgramWhereUniqueInput
+    update: XOR<exerciseProgramUpdateWithoutCategoryInput, exerciseProgramUncheckedUpdateWithoutCategoryInput>
+    create: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: exerciseProgramWhereUniqueInput
+    data: XOR<exerciseProgramUpdateWithoutCategoryInput, exerciseProgramUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type exerciseProgramUpdateManyWithWhereWithoutCategoryInput = {
+    where: exerciseProgramScalarWhereInput
+    data: XOR<exerciseProgramUpdateManyMutationInput, exerciseProgramUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type exerciseProgramScalarWhereInput = {
+    AND?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
+    OR?: exerciseProgramScalarWhereInput[]
+    NOT?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
+    id?: StringFilter<"exerciseProgram"> | string
+    name?: StringFilter<"exerciseProgram"> | string
+    categoryId?: IntFilter<"exerciseProgram"> | number
+    difficultyLevel?: IntNullableFilter<"exerciseProgram"> | number | null
+    adaptedForReducedMobility?: BoolNullableFilter<"exerciseProgram"> | boolean | null
+    durationMinutes?: IntNullableFilter<"exerciseProgram"> | number | null
+    description?: StringNullableFilter<"exerciseProgram"> | string | null
+    videoLink?: StringNullableFilter<"exerciseProgram"> | string | null
+    image?: StringNullableFilter<"exerciseProgram"> | string | null
+    createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
   }
 
   export type helpRequestUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -93177,39 +93210,6 @@ export namespace Prisma {
   export type wellnessGoalUpdateManyWithWhereWithoutCategoryInput = {
     where: wellnessGoalScalarWhereInput
     data: XOR<wellnessGoalUpdateManyMutationInput, wellnessGoalUncheckedUpdateManyWithoutCategoryInput>
-  }
-
-  export type exerciseProgramUpsertWithWhereUniqueWithoutCategoryInput = {
-    where: exerciseProgramWhereUniqueInput
-    update: XOR<exerciseProgramUpdateWithoutCategoryInput, exerciseProgramUncheckedUpdateWithoutCategoryInput>
-    create: XOR<exerciseProgramCreateWithoutCategoryInput, exerciseProgramUncheckedCreateWithoutCategoryInput>
-  }
-
-  export type exerciseProgramUpdateWithWhereUniqueWithoutCategoryInput = {
-    where: exerciseProgramWhereUniqueInput
-    data: XOR<exerciseProgramUpdateWithoutCategoryInput, exerciseProgramUncheckedUpdateWithoutCategoryInput>
-  }
-
-  export type exerciseProgramUpdateManyWithWhereWithoutCategoryInput = {
-    where: exerciseProgramScalarWhereInput
-    data: XOR<exerciseProgramUpdateManyMutationInput, exerciseProgramUncheckedUpdateManyWithoutCategoryInput>
-  }
-
-  export type exerciseProgramScalarWhereInput = {
-    AND?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
-    OR?: exerciseProgramScalarWhereInput[]
-    NOT?: exerciseProgramScalarWhereInput | exerciseProgramScalarWhereInput[]
-    id?: StringFilter<"exerciseProgram"> | string
-    name?: StringFilter<"exerciseProgram"> | string
-    categoryId?: IntFilter<"exerciseProgram"> | number
-    difficultyLevel?: IntNullableFilter<"exerciseProgram"> | number | null
-    adaptedForReducedMobility?: BoolNullableFilter<"exerciseProgram"> | boolean | null
-    durationMinutes?: IntNullableFilter<"exerciseProgram"> | number | null
-    description?: StringNullableFilter<"exerciseProgram"> | string | null
-    videoLink?: StringNullableFilter<"exerciseProgram"> | string | null
-    image?: StringNullableFilter<"exerciseProgram"> | string | null
-    createdAt?: DateTimeFilter<"exerciseProgram"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"exerciseProgram"> | Date | string | null
   }
 
   export type categoryTypeUpsertWithoutCategoriesInput = {
@@ -95380,6 +95380,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -95388,7 +95389,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryChapter?: categoryChapterUpdateOneRequiredWithoutCategoryNestedInput
   }
 
@@ -95403,6 +95403,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -95411,7 +95412,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateManyWithoutCategoryTypeInput = {
@@ -95441,6 +95441,7 @@ export namespace Prisma {
     badge?: badgeUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUpdateManyWithoutCategoryNestedInput
@@ -95449,7 +95450,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUpdateManyWithoutCategoryNestedInput
     categoryType?: categoryTypeUpdateOneRequiredWithoutCategoriesNestedInput
   }
 
@@ -95464,6 +95464,7 @@ export namespace Prisma {
     badge?: badgeUncheckedUpdateManyWithoutCategoryNestedInput
     cognitiveExercise?: cognitiveExerciseUncheckedUpdateManyWithoutCategoryNestedInput
     collaborativeProject?: collaborativeProjectUncheckedUpdateManyWithoutCategoryNestedInput
+    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
     helpRequest?: helpRequestUncheckedUpdateManyWithoutCategoryNestedInput
     localService?: localServiceUncheckedUpdateManyWithoutCategoryNestedInput
     nutritionalAdvice?: nutritionalAdviceUncheckedUpdateManyWithoutCategoryNestedInput
@@ -95472,7 +95473,6 @@ export namespace Prisma {
     urbanIssueReport?: urbanIssueReportUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessBadge?: wellnessBadgeUncheckedUpdateManyWithoutCategoryNestedInput
     wellnessGoal?: wellnessGoalUncheckedUpdateManyWithoutCategoryNestedInput
-    exerciseProgram?: exerciseProgramUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoryUncheckedUpdateManyWithoutCategoryChapterInput = {
@@ -95535,6 +95535,19 @@ export namespace Prisma {
     creatorId: string
     creationDate?: Date | string
     status?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type exerciseProgramCreateManyCategoryInput = {
+    id?: string
+    name: string
+    difficultyLevel?: number | null
+    adaptedForReducedMobility?: boolean | null
+    durationMinutes?: number | null
+    description?: string | null
+    videoLink?: string | null
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -95632,19 +95645,6 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     active?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
-  export type exerciseProgramCreateManyCategoryInput = {
-    id?: string
-    name: string
-    difficultyLevel?: number | null
-    adaptedForReducedMobility?: boolean | null
-    durationMinutes?: number | null
-    description?: string | null
-    videoLink?: string | null
-    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string | null
   }
@@ -95818,6 +95818,47 @@ export namespace Prisma {
     creatorId?: StringFieldUpdateOperationsInput | string
     creationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type exerciseProgramUpdateWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    userActivity?: userActivityUpdateManyWithoutExerciseProgramNestedInput
+  }
+
+  export type exerciseProgramUncheckedUpdateWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    userActivity?: userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput
+  }
+
+  export type exerciseProgramUncheckedUpdateManyWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -96119,47 +96160,6 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     active?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type exerciseProgramUpdateWithoutCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userActivity?: userActivityUpdateManyWithoutExerciseProgramNestedInput
-  }
-
-  export type exerciseProgramUncheckedUpdateWithoutCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userActivity?: userActivityUncheckedUpdateManyWithoutExerciseProgramNestedInput
-  }
-
-  export type exerciseProgramUncheckedUpdateManyWithoutCategoryInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    difficultyLevel?: NullableIntFieldUpdateOperationsInput | number | null
-    adaptedForReducedMobility?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    durationMinutes?: NullableIntFieldUpdateOperationsInput | number | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    videoLink?: NullableStringFieldUpdateOperationsInput | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }

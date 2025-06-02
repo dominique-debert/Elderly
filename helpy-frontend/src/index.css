@@ -20,7 +20,7 @@ layer(base);
     /* --color-base-content: rgba(230, 30, 90, 1); */
     --text-primary: rgba(230, 30, 90, 1);
     --primary: rgba(230, 30, 90, 1);
-    --font-display: 'Fira Sans', sans-serif;
+    --font-display: 'Fira Sans', sans-serif !important;
     --menu-active-bg: rgba(230, 30, 90, 1);
     --menu-active-fg: white;
     --menu-hover: rgba(230, 30, 90, 1);
