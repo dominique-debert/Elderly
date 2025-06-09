@@ -786,7 +786,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/media/dominique/Projects/E1N/helpy/api-server/prisma",
+      "value": "/mnt/dev/E1N/helpy/api-server/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -800,7 +800,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/media/dominique/Projects/E1N/helpy/api-server/prisma/schema.prisma",
+    "sourceFilePath": "/mnt/dev/E1N/helpy/api-server/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -814,7 +814,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
