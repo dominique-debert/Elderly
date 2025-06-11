@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   forumMessageSchema,
@@ -36,7 +35,6 @@ const router = Router();
 router.post(
   '/',
   validate(forumMessageSchema),
-  errorHandler,
   createForumMessage
 );
 
@@ -58,7 +56,6 @@ router.post(
  */
 router.get(
   '/',
-  errorHandler,
   getAllForumMessages
 );
 
@@ -120,7 +117,6 @@ router.get(
 router.put(
   '/:id',
   validate(idParamForumMessageSchema, 'params'),
-  errorHandler,
   updateForumMessage
 );
 
@@ -147,7 +143,6 @@ router.put(
 router.delete(
   '/:id',
   validate(idParamForumMessageSchema, 'params'),
-  errorHandler,
   deleteForumMessage
 );
 

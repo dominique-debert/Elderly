@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -56,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createHelpCategory);
+router.post('/', validate(categorySchema), createHelpCategory);
 
 /**
  * @swagger
@@ -79,7 +78,7 @@ router.post('/', validate(categorySchema), errorHandler, createHelpCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, fetchAllHelpCategories);
+router.get('/', fetchAllHelpCategories);
 
 /**
  * @swagger
@@ -107,7 +106,7 @@ router.get('/', errorHandler, fetchAllHelpCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchHelpCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), fetchHelpCategoryById);
 
 /**
  * @swagger
@@ -149,7 +148,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetc
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateHelpCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), updateHelpCategory);
 
 /**
  * @swagger
@@ -170,6 +169,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteHelpCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteHelpCategory);
 
 export default router;

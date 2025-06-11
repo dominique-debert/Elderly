@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { activityCategorySchema } from '../../validators/activityCategory.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -59,7 +58,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(activityCategorySchema), errorHandler, createActivityCategory);
+router.post('/', validate(activityCategorySchema), createActivityCategory);
 
 /**
  * @swagger
@@ -82,7 +81,7 @@ router.post('/', validate(activityCategorySchema), errorHandler, createActivityC
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, fetchAllActivityCategories);
+router.get('/', fetchAllActivityCategories);
 
 /**
  * @swagger
@@ -109,7 +108,7 @@ router.get('/', errorHandler, fetchAllActivityCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', errorHandler, fetchActivityCategoryById);
+router.get('/:id', fetchActivityCategoryById);
 
 /**
  * @swagger
@@ -153,7 +152,7 @@ router.get('/:id', errorHandler, fetchActivityCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', errorHandler, updateActivityCategory);
+router.put('/:id', updateActivityCategory);
 
 /**
  * @swagger
@@ -174,6 +173,6 @@ router.put('/:id', errorHandler, updateActivityCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', errorHandler, deleteActivityCategory);
+router.delete('/:id', deleteActivityCategory);
 
 export default router;

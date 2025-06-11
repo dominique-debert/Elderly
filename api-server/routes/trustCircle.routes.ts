@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { trustCircleSchema, idParamTrustCircleSchema } from '../validators/trustCircle.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(trustCircleSchema), errorHandler, createTrustCircle);
+router.post('/', validate(trustCircleSchema), createTrustCircle);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(trustCircleSchema), errorHandler, createTrustCircle);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllTrustCircle);
+router.get('/', getAllTrustCircle);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllTrustCircle);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamTrustCircleSchema, 'params'), errorHandler, getTrustCircleById);
+router.get('/:id', validate(idParamTrustCircleSchema, 'params'), getTrustCircleById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamTrustCircleSchema, 'params'), errorHandler, g
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamTrustCircleSchema, 'params'), errorHandler, updateTrustCircle);
+router.put('/:id', validate(idParamTrustCircleSchema, 'params'), updateTrustCircle);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamTrustCircleSchema, 'params'), errorHandler, u
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamTrustCircleSchema, 'params'), errorHandler, deleteTrustCircle);
+router.delete('/:id', validate(idParamTrustCircleSchema, 'params'), deleteTrustCircle);
 
 export default router;

@@ -2,7 +2,6 @@ import { Router } from 'express';
 import { signUp, signIn, logout } from '@/controllers/index.controller';
 import { validate } from '@/middlewares/validate';
 import { signUpSchema, signInSchema } from '../validators/auth.validator';
-import errorHandler from '@/middlewares/errorHandler';
 
 const router = Router();
 /**
@@ -88,8 +87,8 @@ const router = Router();
  *         description: Déconnexion réussie
  */
 
-router.post('/signup', validate(signUpSchema), errorHandler, signUp);
-router.post('/login', validate(signInSchema), errorHandler, signIn);
-router.post('/logout', errorHandler, logout);
+router.post('/signup', validate(signUpSchema),  signUp);
+router.post('/login', validate(signInSchema),  signIn);
+router.post('/logout',  logout);
 
 export default router;

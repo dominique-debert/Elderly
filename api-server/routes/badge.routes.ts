@@ -2,7 +2,6 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
 import { badgeSchema, idParamSchema } from '../validators/badge.validator';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   createBadge,
@@ -55,7 +54,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(badgeSchema), errorHandler, createBadge);
+router.post('/', validate(badgeSchema), createBadge);
 
 /**
  * @swagger
@@ -79,7 +78,7 @@ router.post('/', validate(badgeSchema), errorHandler, createBadge);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllBadges);
+router.get('/', getAllBadges);
 
 /**
  * @swagger
@@ -108,7 +107,7 @@ router.get('/', errorHandler, getAllBadges);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamSchema, 'params'), errorHandler, getBadgeById);
+router.get('/:id', validate(idParamSchema, 'params'), getBadgeById);
 
 /**
  * @swagger
@@ -159,7 +158,7 @@ router.get('/:id', validate(idParamSchema, 'params'), errorHandler, getBadgeById
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamSchema, 'params'), errorHandler, updateBadge);
+router.put('/:id', validate(idParamSchema, 'params'), updateBadge);
 
 /**
  * @swagger
@@ -184,6 +183,6 @@ router.put('/:id', validate(idParamSchema, 'params'), errorHandler, updateBadge)
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamSchema, 'params'), errorHandler, deleteBadge);
+router.delete('/:id', validate(idParamSchema, 'params'), deleteBadge);
 
 export default router;

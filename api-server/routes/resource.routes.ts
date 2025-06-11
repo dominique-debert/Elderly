@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { resourceSchema, idParamResourceSchema } from '../validators/resource.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(resourceSchema), errorHandler, createResource);
+router.post('/', validate(resourceSchema), createResource);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(resourceSchema), errorHandler, createResource);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllResources);
+router.get('/', getAllResources);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllResources);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamResourceSchema, 'params'), errorHandler, getResourceById);
+router.get('/:id', validate(idParamResourceSchema, 'params'), getResourceById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamResourceSchema, 'params'), errorHandler, getR
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamResourceSchema, 'params'), errorHandler, updateResource);
+router.put('/:id', validate(idParamResourceSchema, 'params'), updateResource);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamResourceSchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamResourceSchema, 'params'), errorHandler, deleteResource);
+router.delete('/:id', validate(idParamResourceSchema, 'params'), deleteResource);
 
 export default router;

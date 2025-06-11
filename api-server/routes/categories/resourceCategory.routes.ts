@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -56,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createResourceCategory);
+router.post('/', validate(categorySchema), createResourceCategory);
 
 /**
  * @swagger
@@ -79,7 +78,7 @@ router.post('/', validate(categorySchema), errorHandler, createResourceCategory)
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, fetchAllResourceCategories);
+router.get('/', fetchAllResourceCategories);
 
 /**
  * @swagger
@@ -107,7 +106,7 @@ router.get('/', errorHandler, fetchAllResourceCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchResourceCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), fetchResourceCategoryById);
 
 /**
  * @swagger
@@ -149,7 +148,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetc
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateResourceCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), updateResourceCategory);
 
 /**
  * @swagger
@@ -170,6 +169,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteResourceCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteResourceCategory);
 
 export default router;

@@ -12,7 +12,6 @@ import {
   idParamHelpRequestSchema
 } from '../validators/helpRequest.validator';
 
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -42,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(helpRequestSchema), errorHandler, createHelpRequest);
+router.post('/', validate(helpRequestSchema), createHelpRequest);
 
 /**
  * @swagger
@@ -65,7 +64,7 @@ router.post('/', validate(helpRequestSchema), errorHandler, createHelpRequest);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllHelpRequests);
+router.get('/', getAllHelpRequests);
 
 /**
  * @swagger
@@ -93,7 +92,7 @@ router.get('/', errorHandler, getAllHelpRequests);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamHelpRequestSchema, 'params'), errorHandler, getHelpRequestById);
+router.get('/:id', validate(idParamHelpRequestSchema, 'params'), getHelpRequestById);
 
 /**
  * @swagger
@@ -120,7 +119,7 @@ router.get('/:id', validate(idParamHelpRequestSchema, 'params'), errorHandler, g
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamHelpRequestSchema, 'params'), errorHandler, updateHelpRequest);
+router.put('/:id', validate(idParamHelpRequestSchema, 'params'), updateHelpRequest);
 
 /**
  * @swagger
@@ -141,6 +140,6 @@ router.put('/:id', validate(idParamHelpRequestSchema, 'params'), errorHandler, u
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamHelpRequestSchema, 'params'), errorHandler, deleteHelpRequest);
+router.delete('/:id', validate(idParamHelpRequestSchema, 'params'), deleteHelpRequest);
 
 export default router;

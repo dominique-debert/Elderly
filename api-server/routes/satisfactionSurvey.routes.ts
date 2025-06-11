@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { satisfactionSurveySchema, idParamSatisfactionSurveySchema } from '../validators/satisfactionSurvey.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(satisfactionSurveySchema), errorHandler, createSatisfactionSurvey);
+router.post('/', validate(satisfactionSurveySchema), createSatisfactionSurvey);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(satisfactionSurveySchema), errorHandler, createSatisfa
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllSatisfactionSurveys);
+router.get('/', getAllSatisfactionSurveys);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllSatisfactionSurveys);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamSatisfactionSurveySchema, 'params'), errorHandler, getSatisfactionSurveyById);
+router.get('/:id', validate(idParamSatisfactionSurveySchema, 'params'), getSatisfactionSurveyById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamSatisfactionSurveySchema, 'params'), errorHan
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamSatisfactionSurveySchema, 'params'), errorHandler, updateSatisfactionSurvey);
+router.put('/:id', validate(idParamSatisfactionSurveySchema, 'params'), updateSatisfactionSurvey);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamSatisfactionSurveySchema, 'params'), errorHan
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamSatisfactionSurveySchema, 'params'), errorHandler, deleteSatisfactionSurvey);
+router.delete('/:id', validate(idParamSatisfactionSurveySchema, 'params'), deleteSatisfactionSurvey);
 
 export default router;

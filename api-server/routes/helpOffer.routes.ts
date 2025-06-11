@@ -12,7 +12,6 @@ import {
   idParamHelpOfferSchema
 } from '../validators/helpOffer.validator';
 
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -42,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(helpOfferSchema), errorHandler, createHelpOffer);
+router.post('/', validate(helpOfferSchema), createHelpOffer);
 
 /**
  * @swagger
@@ -65,7 +64,7 @@ router.post('/', validate(helpOfferSchema), errorHandler, createHelpOffer);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllHelpOffers);
+router.get('/', getAllHelpOffers);
 
 /**
  * @swagger
@@ -93,7 +92,7 @@ router.get('/', errorHandler, getAllHelpOffers);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamHelpOfferSchema, 'params'), errorHandler, getHelpOfferById);
+router.get('/:id', validate(idParamHelpOfferSchema, 'params'), getHelpOfferById);
 
 /**
  * @swagger
@@ -132,7 +131,7 @@ router.get('/:id', validate(idParamHelpOfferSchema, 'params'), errorHandler, get
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamHelpOfferSchema, 'params'), errorHandler, updateHelpOffer);
+router.put('/:id', validate(idParamHelpOfferSchema, 'params'), updateHelpOffer);
 
 /**
  * @swagger
@@ -153,6 +152,6 @@ router.put('/:id', validate(idParamHelpOfferSchema, 'params'), errorHandler, upd
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamHelpOfferSchema, 'params'), errorHandler, deleteHelpOffer);
+router.delete('/:id', validate(idParamHelpOfferSchema, 'params'), deleteHelpOffer);
 
 export default router;

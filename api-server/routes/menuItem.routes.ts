@@ -1,6 +1,5 @@
 // routes/badgeRoutes.ts
 import { Router } from 'express';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   getAllMenuItems,
@@ -30,6 +29,6 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllMenuItems);
+router.get('/', getAllMenuItems);
 
 export default router;

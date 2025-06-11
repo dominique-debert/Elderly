@@ -12,7 +12,6 @@ import {
   idParamMessageSchema
 } from '@/validators/message.validator';
 
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -42,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(messageSchema), errorHandler, createMessage);
+router.post('/', validate(messageSchema), createMessage);
 
 /**
  * @swagger
@@ -65,7 +64,7 @@ router.post('/', validate(messageSchema), errorHandler, createMessage);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllMessages);
+router.get('/', getAllMessages);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllMessages);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamMessageSchema, 'params'), errorHandler, getMessageById);
+router.get('/:id', validate(idParamMessageSchema, 'params'), getMessageById);
 
 /**
  * @swagger
@@ -114,7 +113,7 @@ router.get('/:id', validate(idParamMessageSchema, 'params'), errorHandler, getMe
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamMessageSchema, 'params'), errorHandler, updateMessage);
+router.put('/:id', validate(idParamMessageSchema, 'params'), updateMessage);
 
 /**
  * @swagger
@@ -133,6 +132,6 @@ router.put('/:id', validate(idParamMessageSchema, 'params'), errorHandler, updat
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamMessageSchema, 'params'), errorHandler, deleteMessage);
+router.delete('/:id', validate(idParamMessageSchema, 'params'), deleteMessage);
 
 export default router;

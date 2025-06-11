@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   wellnessBadgeSchema,
@@ -33,7 +32,7 @@ const router = Router();
  *       201:
  *         description: Badge créé
  */
-router.post('/', validate(wellnessBadgeSchema), errorHandler, createWellnessBadge);
+router.post('/', validate(wellnessBadgeSchema), createWellnessBadge);
 
 /**
  * @swagger
@@ -45,7 +44,7 @@ router.post('/', validate(wellnessBadgeSchema), errorHandler, createWellnessBadg
  *       200:
  *         description: Liste des badges
  */
-router.get('/', errorHandler, getAllWellnessBadges);
+router.get('/', getAllWellnessBadges);
 
 /**
  * @swagger
@@ -66,7 +65,7 @@ router.get('/', errorHandler, getAllWellnessBadges);
  *       404:
  *         description: Badge introuvable
  */
-router.get('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler, getWellnessBadgeById);
+router.get('/:id', validate(idParamWellnessBadgeSchema, 'params'), getWellnessBadgeById);
 
 /**
  * @swagger
@@ -93,7 +92,7 @@ router.get('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler,
  *       404:
  *         description: Badge introuvable
  */
-router.put('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler, updateWellnessBadge);
+router.put('/:id', validate(idParamWellnessBadgeSchema, 'params'), updateWellnessBadge);
 
 /**
  * @swagger
@@ -114,6 +113,6 @@ router.put('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler,
  *       404:
  *         description: Badge introuvable
  */
-router.delete('/:id', validate(idParamWellnessBadgeSchema, 'params'), errorHandler, deleteWellnessBadge);
+router.delete('/:id', validate(idParamWellnessBadgeSchema, 'params'), deleteWellnessBadge);
 
 export default router;

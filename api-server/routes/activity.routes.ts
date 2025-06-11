@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import errorHandler from '@/middlewares/errorHandler';
 import { 
   createActivity,
   getAllActivities,
@@ -16,9 +15,9 @@ import {
 
 const router = Router();
 
-router.post('/', validate(activitySchema), errorHandler, createActivity);
-router.get('/', errorHandler, getAllActivities);
-router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getActivityById);
+router.post('/', validate(activitySchema),  createActivity);
+router.get('/',  getAllActivities);
+router.get('/:id', validate(idParamActivitySchema, 'params'),  getActivityById);
 
 /**
  * @swagger
@@ -49,7 +48,7 @@ router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getA
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getActivityById);
+router.get('/:id', validate(idParamActivitySchema, 'params'),  getActivityById);
 
 /**
  * @swagger
@@ -80,7 +79,7 @@ router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getA
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamActivitySchema, 'params'), errorHandler, updateActivity);
+router.put('/:id', validate(idParamActivitySchema, 'params'),  updateActivity);
 
 /**
  * @swagger
@@ -105,6 +104,6 @@ router.put('/:id', validate(idParamActivitySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamActivitySchema, 'params'), errorHandler, deleteActivity);
+router.delete('/:id', validate(idParamActivitySchema, 'params'),  deleteActivity);
 
 export default router;

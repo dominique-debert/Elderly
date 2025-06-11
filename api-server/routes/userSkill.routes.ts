@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { userSkillSchema, idParamUserSkillSchema } from '../validators/userSkill.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(userSkillSchema), errorHandler, createUserSkill);
+router.post('/', validate(userSkillSchema), createUserSkill);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(userSkillSchema), errorHandler, createUserSkill);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllUserSkills);
+router.get('/', getAllUserSkills);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllUserSkills);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUserSkillSchema, 'params'), errorHandler, getUserSkillById);
+router.get('/:id', validate(idParamUserSkillSchema, 'params'), getUserSkillById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamUserSkillSchema, 'params'), errorHandler, get
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUserSkillSchema, 'params'), errorHandler, updateUserSkill);
+router.put('/:id', validate(idParamUserSkillSchema, 'params'), updateUserSkill);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamUserSkillSchema, 'params'), errorHandler, upd
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUserSkillSchema, 'params'), errorHandler, deleteUserSkill);
+router.delete('/:id', validate(idParamUserSkillSchema, 'params'), deleteUserSkill);
 
 export default router;

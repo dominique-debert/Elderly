@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   conversationParticipantSchema,
@@ -36,7 +35,6 @@ const router = Router();
 router.post(
   '/',
   validate(conversationParticipantSchema),
-  errorHandler,
   createConversationParticipant
 );
 
@@ -58,7 +56,6 @@ router.post(
  */
 router.get(
   '/',
-  errorHandler,
   getAllConversationParticipants
 );
 
@@ -120,7 +117,6 @@ router.get(
 router.put(
   '/:id',
   validate(idParamConversationParticipantSchema, 'params'),
-  errorHandler,
   updateConversationParticipant
 );
 
@@ -147,7 +143,6 @@ router.put(
 router.delete(
   '/:id',
   validate(idParamConversationParticipantSchema, 'params'),
-  errorHandler,
   deleteConversationParticipant
 );
 

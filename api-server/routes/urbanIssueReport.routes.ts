@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { urbanIssueReportSchema, idParamUrbanIssueReportSchema } from '../validators/urbanIssueReport.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(urbanIssueReportSchema), errorHandler, createUrbanIssueReport);
+router.post('/', validate(urbanIssueReportSchema), createUrbanIssueReport);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(urbanIssueReportSchema), errorHandler, createUrbanIssu
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllUrbanIssueReports);
+router.get('/', getAllUrbanIssueReports);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllUrbanIssueReports);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUrbanIssueReportSchema, 'params'), errorHandler, getUrbanIssueReportById);
+router.get('/:id', validate(idParamUrbanIssueReportSchema, 'params'), getUrbanIssueReportById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamUrbanIssueReportSchema, 'params'), errorHandl
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUrbanIssueReportSchema, 'params'), errorHandler, updateUrbanIssueReport);
+router.put('/:id', validate(idParamUrbanIssueReportSchema, 'params'), updateUrbanIssueReport);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamUrbanIssueReportSchema, 'params'), errorHandl
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUrbanIssueReportSchema, 'params'), errorHandler, deleteUrbanIssueReport);
+router.delete('/:id', validate(idParamUrbanIssueReportSchema, 'params'), deleteUrbanIssueReport);
 
 export default router;

@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -56,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createProjectCategory);
+router.post('/', validate(categorySchema), createProjectCategory);
 
 /**
  * @swagger
@@ -79,7 +78,7 @@ router.post('/', validate(categorySchema), errorHandler, createProjectCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, fetchAllProjectCategories);
+router.get('/', fetchAllProjectCategories);
 
 /**
  * @swagger
@@ -107,7 +106,7 @@ router.get('/', errorHandler, fetchAllProjectCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchProjectCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), fetchProjectCategoryById);
 
 /**
  * @swagger
@@ -149,7 +148,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetc
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateProjectCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), updateProjectCategory);
 
 /**
  * @swagger
@@ -170,6 +169,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteProjectCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteProjectCategory);
 
 export default router;

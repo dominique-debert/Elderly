@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { videoCallSchema, idParamVideoCallSchema } from '../validators/videoCall.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(videoCallSchema), errorHandler, createVideoCall);
+router.post('/', validate(videoCallSchema), createVideoCall);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(videoCallSchema), errorHandler, createVideoCall);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllVideoCalls);
+router.get('/', getAllVideoCalls);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllVideoCalls);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamVideoCallSchema, 'params'), errorHandler, getVideoCallById);
+router.get('/:id', validate(idParamVideoCallSchema, 'params'), getVideoCallById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamVideoCallSchema, 'params'), errorHandler, get
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamVideoCallSchema, 'params'), errorHandler, updateVideoCall);
+router.put('/:id', validate(idParamVideoCallSchema, 'params'), updateVideoCall);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamVideoCallSchema, 'params'), errorHandler, upd
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamVideoCallSchema, 'params'), errorHandler, deleteVideoCall);
+router.delete('/:id', validate(idParamVideoCallSchema, 'params'), deleteVideoCall);
 
 export default router;

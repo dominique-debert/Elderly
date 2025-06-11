@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { projectMemberSchema, idParamProjectMemberSchema } from '../validators/projectMember.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(projectMemberSchema), errorHandler, createProjectMember);
+router.post('/', validate(projectMemberSchema), createProjectMember);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(projectMemberSchema), errorHandler, createProjectMembe
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllProjectMembers);
+router.get('/', getAllProjectMembers);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllProjectMembers);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamProjectMemberSchema, 'params'), errorHandler, getProjectMemberById);
+router.get('/:id', validate(idParamProjectMemberSchema, 'params'), getProjectMemberById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamProjectMemberSchema, 'params'), errorHandler,
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamProjectMemberSchema, 'params'), errorHandler, updateProjectMember);
+router.put('/:id', validate(idParamProjectMemberSchema, 'params'), updateProjectMember);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamProjectMemberSchema, 'params'), errorHandler,
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamProjectMemberSchema, 'params'), errorHandler, deleteProjectMember);
+router.delete('/:id', validate(idParamProjectMemberSchema, 'params'), deleteProjectMember);
 
 export default router;

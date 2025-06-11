@@ -61,6 +61,7 @@ import resourceCategoriesRouter from './categories/resourceCategory.routes';
 import serviceCategoriesRouter from './categories/serviceCategory.routes';
 import skillCategoriesRouter from './categories/skillCategory.routes';
 import wellnessCategoriesRouter from './categories/wellnessCategory.routes';
+import errorHandler from "@/middlewares/errorHandler";
 
 const router = Router();
 
@@ -126,6 +127,9 @@ router.use('/user-statistics', userStatisticsRouter);
 router.use('/video-calls', videoCallRouter);
 router.use('/weather', weatherRouter);
 router.use('/wellness-goals', wellnessGoalRouter);
+
+// Error handler (global)
+router.use(errorHandler);
 
 export default router;
 

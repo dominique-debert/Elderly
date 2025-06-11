@@ -12,7 +12,6 @@ import {
   idParamMunicipalEventSchema
 } from '../validators/municipalEvent.validator';
 
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -42,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(municipalEventSchema), errorHandler, createMunicipalEvent);
+router.post('/', validate(municipalEventSchema), createMunicipalEvent);
 
 /**
  * @swagger
@@ -65,7 +64,7 @@ router.post('/', validate(municipalEventSchema), errorHandler, createMunicipalEv
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllMunicipalEvents);
+router.get('/', getAllMunicipalEvents);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllMunicipalEvents);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamMunicipalEventSchema, 'params'), errorHandler, getMunicipalEventById);
+router.get('/:id', validate(idParamMunicipalEventSchema, 'params'), getMunicipalEventById);
 
 /**
  * @swagger
@@ -114,7 +113,7 @@ router.get('/:id', validate(idParamMunicipalEventSchema, 'params'), errorHandler
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamMunicipalEventSchema, 'params'), errorHandler, updateMunicipalEvent);
+router.put('/:id', validate(idParamMunicipalEventSchema, 'params'), updateMunicipalEvent);
 
 /**
  * @swagger
@@ -133,6 +132,6 @@ router.put('/:id', validate(idParamMunicipalEventSchema, 'params'), errorHandler
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamMunicipalEventSchema, 'params'), errorHandler, deleteMunicipalEvent);
+router.delete('/:id', validate(idParamMunicipalEventSchema, 'params'), deleteMunicipalEvent);
 
 export default router;

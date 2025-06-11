@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { userDeviceSchema, idParamUserDeviceSchema } from '../validators/userDevice.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(userDeviceSchema), errorHandler, createUserDevice);
+router.post('/', validate(userDeviceSchema), createUserDevice);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(userDeviceSchema), errorHandler, createUserDevice);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllUserDevices);
+router.get('/', getAllUserDevices);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllUserDevices);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUserDeviceSchema, 'params'), errorHandler, getUserDeviceById);
+router.get('/:id', validate(idParamUserDeviceSchema, 'params'), getUserDeviceById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamUserDeviceSchema, 'params'), errorHandler, ge
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUserDeviceSchema, 'params'), errorHandler, updateUserDevice);
+router.put('/:id', validate(idParamUserDeviceSchema, 'params'), updateUserDevice);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamUserDeviceSchema, 'params'), errorHandler, up
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUserDeviceSchema, 'params'), errorHandler, deleteUserDevice);
+router.delete('/:id', validate(idParamUserDeviceSchema, 'params'), deleteUserDevice);
 
 export default router;

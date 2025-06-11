@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { trustedContactSchema, idParamTrustedContactSchema } from '../validators/trustedContact.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(trustedContactSchema), errorHandler, createTrustedContact);
+router.post('/', validate(trustedContactSchema), createTrustedContact);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(trustedContactSchema), errorHandler, createTrustedCont
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllTrustedContacts);
+router.get('/', getAllTrustedContacts);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllTrustedContacts);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamTrustedContactSchema, 'params'), errorHandler, getTrustedContactById);
+router.get('/:id', validate(idParamTrustedContactSchema, 'params'), getTrustedContactById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamTrustedContactSchema, 'params'), errorHandler
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamTrustedContactSchema, 'params'), errorHandler, updateTrustedContact);
+router.put('/:id', validate(idParamTrustedContactSchema, 'params'), updateTrustedContact);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamTrustedContactSchema, 'params'), errorHandler
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamTrustedContactSchema, 'params'), errorHandler, deleteTrustedContact);
+router.delete('/:id', validate(idParamTrustedContactSchema, 'params'), deleteTrustedContact);
 
 export default router;

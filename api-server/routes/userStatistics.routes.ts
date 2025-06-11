@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { userStatisticsSchema, idParamUserStatisticsSchema } from '../validators/userStatistics.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(userStatisticsSchema), errorHandler, createUserStatistics);
+router.post('/', validate(userStatisticsSchema), createUserStatistics);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(userStatisticsSchema), errorHandler, createUserStatist
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllUserStatistics);
+router.get('/', getAllUserStatistics);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllUserStatistics);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUserStatisticsSchema, 'params'), errorHandler, getUserStatisticsById);
+router.get('/:id', validate(idParamUserStatisticsSchema, 'params'), getUserStatisticsById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamUserStatisticsSchema, 'params'), errorHandler
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUserStatisticsSchema, 'params'), errorHandler, updateUserStatistics);
+router.put('/:id', validate(idParamUserStatisticsSchema, 'params'), updateUserStatistics);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamUserStatisticsSchema, 'params'), errorHandler
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUserStatisticsSchema, 'params'), errorHandler, deleteUserStatistics);
+router.delete('/:id', validate(idParamUserStatisticsSchema, 'params'), deleteUserStatistics);
 
 export default router;

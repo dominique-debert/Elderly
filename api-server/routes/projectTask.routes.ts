@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { projectTaskSchema, idParamProjectTaskSchema } from '../validators/projectTask.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(projectTaskSchema), errorHandler, createProjectTask);
+router.post('/', validate(projectTaskSchema), createProjectTask);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(projectTaskSchema), errorHandler, createProjectTask);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllProjectTasks);
+router.get('/', getAllProjectTasks);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllProjectTasks);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamProjectTaskSchema, 'params'), errorHandler, getProjectTaskById);
+router.get('/:id', validate(idParamProjectTaskSchema, 'params'), getProjectTaskById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamProjectTaskSchema, 'params'), errorHandler, g
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamProjectTaskSchema, 'params'), errorHandler, updateProjectTask);
+router.put('/:id', validate(idParamProjectTaskSchema, 'params'), updateProjectTask);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamProjectTaskSchema, 'params'), errorHandler, u
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamProjectTaskSchema, 'params'), errorHandler, deleteProjectTask);
+router.delete('/:id', validate(idParamProjectTaskSchema, 'params'), deleteProjectTask);
 
 export default router;

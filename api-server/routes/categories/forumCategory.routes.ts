@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   forumCategorySchema,
@@ -36,7 +35,7 @@ const router = Router();
 router.post(
   '/',
   validate(forumCategorySchema),
-  errorHandler,
+ 
   createForumCategory
 );
 
@@ -58,7 +57,7 @@ router.post(
  */
 router.get(
   '/',
-  errorHandler,
+ 
   getAllForumCategories
 );
 
@@ -120,7 +119,7 @@ router.get(
 router.put(
   '/:id',
   validate(idParamForumCategorySchema, 'params'),
-  errorHandler,
+ 
   updateForumCategory
 );
 
@@ -147,7 +146,7 @@ router.put(
 router.delete(
   '/:id',
   validate(idParamForumCategorySchema, 'params'),
-  errorHandler,
+ 
   deleteForumCategory
 );
 

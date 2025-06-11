@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate.js';
-import errorHandler from '@/middlewares/errorHandler.js';
 
 import {
   localServiceSchema,
@@ -33,7 +32,7 @@ const localServiceRouter = Router();
  *       201:
  *         description: Service local créé
  */
-localServiceRouter.post('/', validate(localServiceSchema), errorHandler, createLocalService);
+localServiceRouter.post('/', validate(localServiceSchema), createLocalService);
 
 /**
  * @swagger
@@ -45,7 +44,7 @@ localServiceRouter.post('/', validate(localServiceSchema), errorHandler, createL
  *       200:
  *         description: Liste des services locaux
  */
-localServiceRouter.get('/', errorHandler, getAllLocalServices);
+localServiceRouter.get('/', getAllLocalServices);
 
 /**
  * @swagger
@@ -66,7 +65,7 @@ localServiceRouter.get('/', errorHandler, getAllLocalServices);
  *       404:
  *         description: Service local introuvable
  */
-localServiceRouter.get('/:id', validate(idParamLocalServiceSchema, 'params'), errorHandler, getLocalServiceById);
+localServiceRouter.get('/:id', validate(idParamLocalServiceSchema, 'params'), getLocalServiceById);
 
 /**
  * @swagger
@@ -93,7 +92,7 @@ localServiceRouter.get('/:id', validate(idParamLocalServiceSchema, 'params'), er
  *       404:
  *         description: Service local introuvable
  */
-localServiceRouter.put('/:id', validate(idParamLocalServiceSchema, 'params'), errorHandler, updateLocalService);
+localServiceRouter.put('/:id', validate(idParamLocalServiceSchema, 'params'), updateLocalService);
 
 /**
  * @swagger
@@ -114,6 +113,6 @@ localServiceRouter.put('/:id', validate(idParamLocalServiceSchema, 'params'), er
  *       404:
  *         description: Service local introuvable
  */
-localServiceRouter.delete('/:id', validate(idParamLocalServiceSchema, 'params'), errorHandler, deleteLocalService);
+localServiceRouter.delete('/:id', validate(idParamLocalServiceSchema, 'params'), deleteLocalService);
 
 export default localServiceRouter;

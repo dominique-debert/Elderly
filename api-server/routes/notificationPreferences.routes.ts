@@ -12,7 +12,6 @@ import {
   idParamNotificationPreferencesSchema
 } from '../validators/notificationPreferences.validator';
 
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -42,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(notificationPreferencesSchema), errorHandler, createNotificationPreferences);
+router.post('/', validate(notificationPreferencesSchema), createNotificationPreferences);
 
 /**
  * @swagger
@@ -65,7 +64,7 @@ router.post('/', validate(notificationPreferencesSchema), errorHandler, createNo
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllNotificationPreferences);
+router.get('/', getAllNotificationPreferences);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllNotificationPreferences);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamNotificationPreferencesSchema, 'params'), errorHandler, getNotificationPreferencesById);
+router.get('/:id', validate(idParamNotificationPreferencesSchema, 'params'), getNotificationPreferencesById);
 
 /**
  * @swagger
@@ -114,7 +113,7 @@ router.get('/:id', validate(idParamNotificationPreferencesSchema, 'params'), err
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamNotificationPreferencesSchema, 'params'), errorHandler, updateNotificationPreferences);
+router.put('/:id', validate(idParamNotificationPreferencesSchema, 'params'), updateNotificationPreferences);
 
 /**
  * @swagger
@@ -133,6 +132,6 @@ router.put('/:id', validate(idParamNotificationPreferencesSchema, 'params'), err
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamNotificationPreferencesSchema, 'params'), errorHandler, deleteNotificationPreferences);
+router.delete('/:id', validate(idParamNotificationPreferencesSchema, 'params'), deleteNotificationPreferences);
 
 export default router;

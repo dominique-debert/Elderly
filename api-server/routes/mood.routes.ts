@@ -12,7 +12,6 @@ import {
   idParamMoodSchema
 } from '../validators/mood.validator';
 
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();

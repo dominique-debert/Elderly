@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { userActivitySchema, idParamUserActivitySchema } from '../validators/userActivity.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(userActivitySchema), errorHandler, createUserActivity);
+router.post('/', validate(userActivitySchema), createUserActivity);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(userActivitySchema), errorHandler, createUserActivity)
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllUserActivities);
+router.get('/', getAllUserActivities);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllUserActivities);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUserActivitySchema, 'params'), errorHandler, getUserActivityById);
+router.get('/:id', validate(idParamUserActivitySchema, 'params'), getUserActivityById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamUserActivitySchema, 'params'), errorHandler, 
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUserActivitySchema, 'params'), errorHandler, updateUserActivity);
+router.put('/:id', validate(idParamUserActivitySchema, 'params'), updateUserActivity);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamUserActivitySchema, 'params'), errorHandler, 
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUserActivitySchema, 'params'), errorHandler, deleteUserActivity);
+router.delete('/:id', validate(idParamUserActivitySchema, 'params'), deleteUserActivity);
 
 export default router;

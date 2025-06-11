@@ -12,7 +12,6 @@ import {
   idParamMedicationReminderSchema
 } from '../validators/medicationReminder.validator';
 
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -42,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(medicationReminderSchema), errorHandler, createMedicationReminder);
+router.post('/', validate(medicationReminderSchema), createMedicationReminder);
 
 /**
  * @swagger
@@ -65,7 +64,7 @@ router.post('/', validate(medicationReminderSchema), errorHandler, createMedicat
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllMedicationReminders);
+router.get('/', getAllMedicationReminders);
 
 /**
  * @swagger
@@ -93,7 +92,7 @@ router.get('/', errorHandler, getAllMedicationReminders);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamMedicationReminderSchema, 'params'), errorHandler, getMedicationReminderById);
+router.get('/:id', validate(idParamMedicationReminderSchema, 'params'), getMedicationReminderById);
 
 /**
  * @swagger
@@ -120,7 +119,7 @@ router.get('/:id', validate(idParamMedicationReminderSchema, 'params'), errorHan
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamMedicationReminderSchema, 'params'), errorHandler, updateMedicationReminder);
+router.put('/:id', validate(idParamMedicationReminderSchema, 'params'), updateMedicationReminder);
 
 /**
  * @swagger
@@ -141,6 +140,6 @@ router.put('/:id', validate(idParamMedicationReminderSchema, 'params'), errorHan
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamMedicationReminderSchema, 'params'), errorHandler, deleteMedicationReminder);
+router.delete('/:id', validate(idParamMedicationReminderSchema, 'params'), deleteMedicationReminder);
 
 export default router;

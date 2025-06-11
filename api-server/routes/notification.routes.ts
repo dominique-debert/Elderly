@@ -13,7 +13,6 @@ import {
   idParamNotificationSchema
 } from '../validators/notification.validator';
 
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -43,7 +42,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(notificationSchema), errorHandler, createNotification);
+router.post('/', validate(notificationSchema), createNotification);
 
 /**
  * @swagger
@@ -66,7 +65,7 @@ router.post('/', validate(notificationSchema), errorHandler, createNotification)
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllNotifications);
+router.get('/', getAllNotifications);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllNotifications);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:userId', errorHandler, getAllNotificationsByUserId);
+router.get('/:userId', getAllNotificationsByUserId);
 
 /**
  * @swagger
@@ -113,7 +112,7 @@ router.get('/:userId', errorHandler, getAllNotificationsByUserId);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamNotificationSchema, 'params'), errorHandler, getNotificationById);
+router.get('/:id', validate(idParamNotificationSchema, 'params'), getNotificationById);
 
 /**
  * @swagger
@@ -138,7 +137,7 @@ router.get('/:id', validate(idParamNotificationSchema, 'params'), errorHandler, 
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamNotificationSchema, 'params'), errorHandler, updateNotification);
+router.put('/:id', validate(idParamNotificationSchema, 'params'), updateNotification);
 
 /**
  * @swagger
@@ -157,6 +156,6 @@ router.put('/:id', validate(idParamNotificationSchema, 'params'), errorHandler, 
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamNotificationSchema, 'params'), errorHandler, deleteNotification);
+router.delete('/:id', validate(idParamNotificationSchema, 'params'), deleteNotification);
 
 export default router;

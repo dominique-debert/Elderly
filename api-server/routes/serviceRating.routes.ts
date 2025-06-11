@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { serviceRatingSchema, idParamServiceRatingSchema } from '../validators/serviceRating.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(serviceRatingSchema), errorHandler, createServiceRating);
+router.post('/', validate(serviceRatingSchema), createServiceRating);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(serviceRatingSchema), errorHandler, createServiceRatin
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllServiceRating);
+router.get('/', getAllServiceRating);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllServiceRating);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamServiceRatingSchema, 'params'), errorHandler, getServiceRatingById);
+router.get('/:id', validate(idParamServiceRatingSchema, 'params'), getServiceRatingById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamServiceRatingSchema, 'params'), errorHandler,
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamServiceRatingSchema, 'params'), errorHandler, updateServiceRating);
+router.put('/:id', validate(idParamServiceRatingSchema, 'params'), updateServiceRating);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamServiceRatingSchema, 'params'), errorHandler,
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamServiceRatingSchema, 'params'), errorHandler, deleteServiceRating);
+router.delete('/:id', validate(idParamServiceRatingSchema, 'params'), deleteServiceRating);
 
 export default router;

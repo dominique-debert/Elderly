@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { serviceCompletedSchema, idParamServiceCompletedSchema } from '../validators/serviceCompleted.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -38,7 +37,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(serviceCompletedSchema), errorHandler, createServiceCompleted);
+router.post('/', validate(serviceCompletedSchema), createServiceCompleted);
 
 /**
  * @swagger
@@ -61,7 +60,7 @@ router.post('/', validate(serviceCompletedSchema), errorHandler, createServiceCo
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, getAllServiceCompleted);
+router.get('/', getAllServiceCompleted);
 
 /**
  * @swagger
@@ -89,7 +88,7 @@ router.get('/', errorHandler, getAllServiceCompleted);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamServiceCompletedSchema, 'params'), errorHandler, getServiceCompletedById);
+router.get('/:id', validate(idParamServiceCompletedSchema, 'params'), getServiceCompletedById);
 
 /**
  * @swagger
@@ -116,7 +115,7 @@ router.get('/:id', validate(idParamServiceCompletedSchema, 'params'), errorHandl
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamServiceCompletedSchema, 'params'), errorHandler, updateServiceCompleted);
+router.put('/:id', validate(idParamServiceCompletedSchema, 'params'), updateServiceCompleted);
 
 /**
  * @swagger
@@ -137,6 +136,6 @@ router.put('/:id', validate(idParamServiceCompletedSchema, 'params'), errorHandl
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamServiceCompletedSchema, 'params'), errorHandler, deleteServiceCompleted);
+router.delete('/:id', validate(idParamServiceCompletedSchema, 'params'), deleteServiceCompleted);
 
 export default router;

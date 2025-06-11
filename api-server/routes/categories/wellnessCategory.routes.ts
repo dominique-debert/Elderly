@@ -8,7 +8,6 @@ import {
 } from '@/controllers/index.controller';
 
 import { categorySchema, idParamCategorySchema } from '@/validators/category.validator';
-import errorHandler from '@/middlewares/errorHandler';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -60,7 +59,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), errorHandler, createWellnessCategory);
+router.post('/', validate(categorySchema), createWellnessCategory);
 
 /**
  * @swagger
@@ -83,7 +82,7 @@ router.post('/', validate(categorySchema), errorHandler, createWellnessCategory)
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', errorHandler, fetchAllWellnessCategories);
+router.get('/', fetchAllWellnessCategories);
 
 /**
  * @swagger
@@ -110,7 +109,7 @@ router.get('/', errorHandler, fetchAllWellnessCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetchWellnessCategoryById);
+router.get('/:id', validate(idParamCategorySchema, 'params'), fetchWellnessCategoryById);
 
 /**
  * @swagger
@@ -155,7 +154,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), errorHandler, fetc
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, updateWellnessCategory);
+router.put('/:id', validate(idParamCategorySchema, 'params'), updateWellnessCategory);
 
 /**
  * @swagger
@@ -176,6 +175,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), errorHandler, deleteWellnessCategory);
+router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteWellnessCategory);
 
 export default router;
