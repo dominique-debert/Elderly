@@ -1,12 +1,11 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   skillSchema,
   idParamSkillSchema
 }
-from '@/schemas/validation/skill.schema'
+from '@/validators/skill.validator'
 
 import { 
   createSkill,
@@ -15,7 +14,7 @@ import {
   updateSkill,
   deleteSkill
 }
-from '@/controllers/skill.controller';
+from '@/controllers/index.controller';
 
 const skillRouter = Router();
 /**
@@ -40,7 +39,7 @@ const skillRouter = Router();
  *       400:
  *         description: Données invalides
  */
-skillRouter.post('/', validate(skillSchema), errorHandler, createSkill);
+skillRouter.post('/', validate(skillSchema), createSkill);
 
 /**
  * @swagger
@@ -49,7 +48,7 @@ skillRouter.post('/', validate(skillSchema), errorHandler, createSkill);
  *     summary: Récupérer la liste des compétences
  *     tags: [Skills]       
  */ 
-skillRouter.get('/', errorHandler, getAllSkills);
+skillRouter.get('/', getAllSkills);
 
 /**
  * @swagger
@@ -75,7 +74,7 @@ skillRouter.get('/', errorHandler, getAllSkills);
  *       404:
  *         description: Compétence non trouvée
  */
-skillRouter.get('/:id', validate(idParamSkillSchema, 'params'), errorHandler, getSkillById);
+skillRouter.get('/:id', validate(idParamSkillSchema, 'params'), getSkillById);
 
 /**
  * @swagger
@@ -107,7 +106,7 @@ skillRouter.get('/:id', validate(idParamSkillSchema, 'params'), errorHandler, ge
  *       400:
  *         description: Données invalides
  */
-skillRouter.put('/:id', validate(idParamSkillSchema, 'params'), errorHandler, updateSkill);
+skillRouter.put('/:id', validate(idParamSkillSchema, 'params'), updateSkill);
 
 /**
  * @swagger
@@ -129,6 +128,6 @@ skillRouter.put('/:id', validate(idParamSkillSchema, 'params'), errorHandler, up
  *       404:
  *         description: Compétence non trouvée
  */
-skillRouter.delete('/:id', validate(idParamSkillSchema, 'params'), errorHandler, deleteSkill);
+skillRouter.delete('/:id', validate(idParamSkillSchema, 'params'), deleteSkill);
 
 export default skillRouter;

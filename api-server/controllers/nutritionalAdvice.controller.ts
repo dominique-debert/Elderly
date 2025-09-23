@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '../prisma/client.js';
+import { PrismaClient } from '@/prisma/client.js';
 import createHttpError from 'http-errors';
 import INutritionalAdvice from '@/@types/data/INutritionalAdvice.js';
 
@@ -16,17 +16,10 @@ export const createNutritionalAdvice = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { title, description, category_id, season, image } = req.body;
 
   try {
-    const newAdvice = await prisma.nutritional_advice.create({
-      data: {
-        title,
-        description,
-        category_id,
-        season,
-        image,
-      },
+    const newAdvice = await prisma.nutritionalAdvice.create({
+      data: req.body,
     });
     res.status(201).json(newAdvice);
   } catch (error) {
@@ -40,7 +33,7 @@ export const getAllNutritionalAdvices = async (
   next: NextFunction
 ) => {
   try {
-    const advices = await prisma.nutritional_advice.findMany({
+    const advices = await prisma.nutritionalAdvice.findMany({
       orderBy: {
         title: 'asc', // corrected from `name: 'title'`
       },
@@ -60,7 +53,7 @@ export const getNutritionalAdviceById = async (
   const { id } = req.params;
 
   try {
-    const advice = await prisma.nutritional_advice.findUnique({
+    const advice = await prisma.nutritionalAdvice.findUnique({
       where: { id },
     });
 
@@ -80,10 +73,9 @@ export const updateNutritionalAdvice = async (
   next: NextFunction
 ) => {
   const { id } = req.params;
-  const { title, description, category_id, season, image } = req.body;
 
   try {
-    const advice = await prisma.nutritional_advice.findUnique({
+    const advice = await prisma.nutritionalAdvice.findUnique({
       where: { id },
     });
 
@@ -91,13 +83,10 @@ export const updateNutritionalAdvice = async (
       throw createHttpError(404, 'Avis nutritionnel non trouvé');
     }
 
-    const updatedAdvice = await prisma.nutritional_advice.update({
+    const updatedAdvice = await prisma.nutritionalAdvice.update({
       data: {
-        title,
-        description,
-        category_id,
-        season,
-        image,
+        ...req.body,
+        updatedAt: new Date()
       },
       where: { id },
     });
@@ -116,15 +105,15 @@ export const deleteNutritionalAdvice = async (
   const { id } = req.params;
 
   try {
-    const service = await prisma.nutritional_advice.findUnique({
+    const advice = await prisma.nutritionalAdvice.findUnique({
       where: { id },
     });
 
-    if (!service) {
+    if (!advice) {
       throw createHttpError(404, 'Avis nutritionnel non trouvé');
     }
 
-    await prisma.nutritional_advice.delete({
+    await prisma.nutritionalAdvice.delete({
       where: { id },
     });
 

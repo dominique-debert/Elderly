@@ -1,11 +1,10 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   exerciseProgramSchema,
   idParamExerciseProgramSchema
-} from '@/schemas/validation/exerciseProgram.schema';
+} from '../validators/exerciseProgram.validator';
 
 import {
   getAllExercisePrograms,
@@ -13,7 +12,7 @@ import {
   createExerciseProgram,
   updateExerciseProgram,
   deleteExerciseProgram
-} from '@/controllers/exerciseProgram.controller';
+} from '@/controllers/index.controller';
 
 const exerciseProgramRouter = Router();
 
@@ -33,7 +32,7 @@ const exerciseProgramRouter = Router();
  *       201:
  *         description: Programme d'exercice créé
  */
-exerciseProgramRouter.post('/', validate(exerciseProgramSchema), errorHandler, createExerciseProgram);
+exerciseProgramRouter.post('/', validate(exerciseProgramSchema), createExerciseProgram);
 
 /**
  * @swagger
@@ -45,7 +44,7 @@ exerciseProgramRouter.post('/', validate(exerciseProgramSchema), errorHandler, c
  *       200:
  *         description: Liste des programmes d'exercice
  */
-exerciseProgramRouter.get('/', errorHandler, getAllExercisePrograms);
+exerciseProgramRouter.get('/', getAllExercisePrograms);
 
 /**
  * @swagger
@@ -67,7 +66,7 @@ exerciseProgramRouter.get('/', errorHandler, getAllExercisePrograms);
  *       404:
  *         description: Programme d'exercice non trouvé
  */
-exerciseProgramRouter.get('/:id', validate(idParamExerciseProgramSchema, 'params'), errorHandler, getExerciseProgramById);
+exerciseProgramRouter.get('/:id', validate(idParamExerciseProgramSchema, 'params'), getExerciseProgramById);
 
 /**
  * @swagger
@@ -94,7 +93,7 @@ exerciseProgramRouter.get('/:id', validate(idParamExerciseProgramSchema, 'params
  *       404:
  *         description: Programme d'exercice non trouvé
  */
-exerciseProgramRouter.put('/:id', validate(idParamExerciseProgramSchema, 'params'), errorHandler, updateExerciseProgram);
+exerciseProgramRouter.put('/:id', validate(idParamExerciseProgramSchema, 'params'), updateExerciseProgram);
 
 /**
  * @swagger
@@ -115,6 +114,6 @@ exerciseProgramRouter.put('/:id', validate(idParamExerciseProgramSchema, 'params
  *       404:
  *         description: Programme d'exercice non trouvé
  */
-exerciseProgramRouter.delete('/:id', validate(idParamExerciseProgramSchema, 'params'), errorHandler, deleteExerciseProgram);
+exerciseProgramRouter.delete('/:id', validate(idParamExerciseProgramSchema, 'params'), deleteExerciseProgram);
 
 export default exerciseProgramRouter;

@@ -1,7 +1,7 @@
 import { PrismaClient } from "../prisma/client.js";
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
-import IWellnessBadge from "@/@types/data/IWellnessBadge.js";
+import IWellnessBadge from "@/@types/data/wellness/IWellnessBadge.js";
 
 const prisma = new PrismaClient();
 
@@ -12,24 +12,15 @@ const prisma = new PrismaClient();
 *   description: Gestion des badges bien-être
 */
 
-export const createWellnessBadge = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-  const {
-    name,
-    description,
-    category_id,
-    image,
-    level
-  }: IWellnessBadge = req.body;
+export const createWellnessBadge = async (
+  req: Request<{}, {}, IWellnessBadge>,
+  res: Response, 
+  next: NextFunction
+) => {
   
   try {
-    const newWellnessBadge = await prisma.wellness_badge.create({
-      data: {
-        name,
-        description,
-        category_id,
-        image,
-        level      
-      }
+    const newWellnessBadge = await prisma.wellnessBadge.create({
+      data: req.body
     });
     res.status(201).json(newWellnessBadge);
   } catch (error) {
@@ -37,9 +28,9 @@ export const createWellnessBadge = async (req: Request, res: Response, next: Nex
   }
 };
 
-export const getAllWellnessBadges = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const getAllWellnessBadges = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const wellnessBadges = await prisma.wellness_badge.findMany({
+    const wellnessBadges = await prisma.wellnessBadge.findMany({
       orderBy: {
         name: 'asc', // Ascending order (A-Z)
       },
@@ -51,11 +42,11 @@ export const getAllWellnessBadges = async (req: Request, res: Response, next: Ne
   }  
 };
 
-export const getWellnessBadgeById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const getWellnessBadgeById = async (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params;
   
   try {
-    const wellnessBadge = await prisma.wellness_badge.findUnique({
+    const wellnessBadge = await prisma.wellnessBadge.findUnique({
       where: { id },
     });
     
@@ -69,19 +60,11 @@ export const getWellnessBadgeById = async (req: Request, res: Response, next: Ne
   }  
 };
 
-export const updateWellnessBadge = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const updateWellnessBadge = async (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params;
   
-  const {
-    name,
-    description,
-    category_id,
-    image,
-    level
-  }: IWellnessBadge = req.body;
-  
   try {
-    const wellnessBadge = await prisma.wellness_badge.findUnique({
+    const wellnessBadge = await prisma.wellnessBadge.findUnique({
       where: { id },
     });    
     
@@ -89,13 +72,10 @@ export const updateWellnessBadge = async (req: Request, res: Response, next: Nex
       throw createHttpError(404, `Badge bien-être non trouvé`);
     }
     
-    const updatedWellnessBadge = await prisma.wellness_badge.update({
+    const updatedWellnessBadge = await prisma.wellnessBadge.update({
       data: {
-        name,
-        description,
-        category_id,
-        image,
-        level      
+        ...req.body,
+        updatedAt: new Date()
       },
       where: { id },
     });
@@ -105,11 +85,11 @@ export const updateWellnessBadge = async (req: Request, res: Response, next: Nex
   }
 };
 
-export const deleteWellnessBadge = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const deleteWellnessBadge = async (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params;
  
   try {
-    const wellnessBadge = await prisma.wellness_badge.findUnique({
+    const wellnessBadge = await prisma.wellnessBadge.findUnique({
       where: { id },
     });    
     
@@ -117,7 +97,7 @@ export const deleteWellnessBadge = async (req: Request, res: Response, next: Nex
       throw createHttpError(404, `Badge bien-être non trouvé`);
     }
     
-    await prisma.wellness_badge.delete({
+    await prisma.wellnessBadge.delete({
       where: { id },
     });
     

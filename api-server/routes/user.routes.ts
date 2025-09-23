@@ -1,11 +1,10 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   userSchema,
   idParamUserSchema
-} from '@/schemas/validation/user.schema';
+} from '@/validators/user.validator';
 
 import {
   createUser,
@@ -14,7 +13,7 @@ import {
   updateUser,
   deleteUser
 } 
-from '@/controllers/user.controller';
+from '@/controllers/index.controller';
 
 const userRouter = Router();
 
@@ -29,7 +28,7 @@ const userRouter = Router();
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UserInput'
+ *             $ref: '#/components/schemas/User'
  *     responses:
  *       201:
  *         description: Utilisateur créé avec succès
@@ -40,7 +39,7 @@ const userRouter = Router();
  *       400:
  *         description: Données invalides
  */
-userRouter.post('/', validate(userSchema), errorHandler, createUser);
+userRouter.post('/', validate(userSchema), createUser);
 
 /**
  * @swagger
@@ -52,7 +51,7 @@ userRouter.post('/', validate(userSchema), errorHandler, createUser);
  *       200:
  *         description: Liste des utilisateurs
  */
-userRouter.get('/', errorHandler, getAllUsers);
+userRouter.get('/', getAllUsers);
 
 /**
  * @swagger
@@ -78,7 +77,7 @@ userRouter.get('/', errorHandler, getAllUsers);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.get('/:id', validate(idParamUserSchema, 'params'), errorHandler, getUserById);
+userRouter.get('/:id', validate(idParamUserSchema, 'params'), getUserById);
 
 /**
  * @swagger
@@ -99,7 +98,7 @@ userRouter.get('/:id', validate(idParamUserSchema, 'params'), errorHandler, getU
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UserInput'
+ *             $ref: '#/components/schemas/User'
  *     responses:
  *       200:
  *         description: Utilisateur mis à jour avec succès
@@ -110,7 +109,7 @@ userRouter.get('/:id', validate(idParamUserSchema, 'params'), errorHandler, getU
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.put('/:id', validate(idParamUserSchema, 'params'), errorHandler, updateUser);
+userRouter.put('/:id', validate(idParamUserSchema, 'params'), updateUser);
 
 /**
  * @swagger
@@ -132,6 +131,6 @@ userRouter.put('/:id', validate(idParamUserSchema, 'params'), errorHandler, upda
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.delete('/:id', validate(idParamUserSchema, 'params'), errorHandler, deleteUser);
+userRouter.delete('/:id', validate(idParamUserSchema, 'params'), deleteUser);
 
 export default userRouter;

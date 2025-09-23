@@ -1,20 +1,18 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError';
-import IBadge from '@/@types/data/IBadge';
 
 const prisma = new PrismaClient();
 
 export const createBadge = async (
-  req: Request<{}, {}, IBadge>,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const { name, description, icon, category_id, level } = req.body;
 
   try {
     const badgeToCreate = await prisma.badge.create({
-      data: { name, description, icon, category_id, level },
+      data: req.body
     });
 
     res.status(201).json(badgeToCreate);
@@ -40,7 +38,7 @@ export const getAllBadges = async (
 };
 
 export const getBadgeById = async (
-  req: Request<{ id: string }>,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
@@ -62,12 +60,11 @@ export const getBadgeById = async (
 };
 
 export const updateBadge = async (
-  req: Request<{ id: string }>, 
+  req: Request, 
   res: Response, 
   next: NextFunction) => {
     
     const { id } = req.params;
-    const { name, description, icon, category_id, level } = req.body;
 
   try {
     const badge = await prisma.badge.findUnique({
@@ -80,12 +77,8 @@ export const updateBadge = async (
 
     const badgeToUpdate = await prisma.badge.update({
       data: {
-        name,
-        description,
-        icon,
-        category_id,
-        level,
-        updated_at: new Date(),
+        ...req.body,
+        updatedAt: new Date()
       },
       where: { id },
     });
@@ -97,7 +90,7 @@ export const updateBadge = async (
 };
 
 export const deleteBadge = async (
-  req: Request<{ id: string }>,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {

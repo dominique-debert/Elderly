@@ -1,93 +1,32 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import { activitySchema, idParamActivitySchema } from '@/schemas/validation/activity.schema';
-import errorHandler from '@/middlewares/errorHandler';
-
-import {
+import { 
   createActivity,
   getAllActivities,
   getActivityById,
   updateActivity,
-  deleteActivity
-} from '@/controllers/activity.controller';
+  deleteActivity,
+} from '@/controllers/index.controller';
+
+import { 
+  activitySchema,
+  idParamActivitySchema 
+} from '../validators/activity.validator';
 
 const router = Router();
 
-/**
- * @swagger
- * /api/activities:
- *   post:
- *     summary: Créer une nouvelle activité
- *     description: Crée une nouvelle activité avec les données fournies
- *     tags: [Activities]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *                 description: Titre de l'activité
- *               name:
- *                 type: string
- *                 description: Nom du badge
- *               description:
- *                 type: string
- *                 description: Description du badge
- *               icon:
- *                 type: string
- *                 description: Chemin de l'icône du badge
- *               category:
- *                 type: string
- *                 description: Catégorie du badge
- *               level:
- *                 type: integer
- *                 description: Niveau du badge
- *     responses:
- *       201:
- *         description: Badge créé avec succès
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Badge'
- *       400:
- *         description: Requête invalide ou badge déjà existant
- *       500:
- *         description: Erreur serveur
- */
-router.post('/', validate(activitySchema), errorHandler, createActivity);
-
-/**
- * @swagger
- * /api/activities:
- *   get:
- *     summary: Récupérer toutes les activités
- *     tags: [Activities]
- *     responses:
- *       200:
- *         description: Liste des activités récupérées avec succès
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 activities:
- *                   type: array
- *                   items:
- *                     $ref: '#/components/schemas/Activity'
- *       500:
- *         description: Erreur serveur
- */
-router.get('/', errorHandler, getAllActivities);
+router.post('/', validate(activitySchema),  createActivity);
+router.get('/',  getAllActivities);
+router.get('/:id', validate(idParamActivitySchema, 'params'),  getActivityById);
 
 /**
  * @swagger
  * /api/activities/{id}:
  *   get:
- *     summary: Récupérer une activité par son ID
+ *     summary: Récupérer une activité et sa catégorie par son ID
  *     description: Renvoie une activité basée sur son ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Activities]
  *     parameters:
  *       - in: path
@@ -99,7 +38,7 @@ router.get('/', errorHandler, getAllActivities);
  *         description: ID de l'activité à récupérer
  *     responses:
  *       200:
- *         description: Activité récupéré avec succès
+ *         description: Activité récupérée avec succès
  *         content:
  *           application/json:
  *             schema:
@@ -109,7 +48,7 @@ router.get('/', errorHandler, getAllActivities);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getActivityById);
+router.get('/:id', validate(idParamActivitySchema, 'params'),  getActivityById);
 
 /**
  * @swagger
@@ -140,7 +79,7 @@ router.get('/:id', validate(idParamActivitySchema, 'params'), errorHandler, getA
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamActivitySchema, 'params'), errorHandler, updateActivity);
+router.put('/:id', validate(idParamActivitySchema, 'params'),  updateActivity);
 
 /**
  * @swagger
@@ -165,6 +104,6 @@ router.put('/:id', validate(idParamActivitySchema, 'params'), errorHandler, upda
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamActivitySchema, 'params'), errorHandler, deleteActivity);
+router.delete('/:id', validate(idParamActivitySchema, 'params'),  deleteActivity);
 
 export default router;

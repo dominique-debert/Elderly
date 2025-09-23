@@ -12,6 +12,18 @@ interface SwaggerOptions {
         email: string;
       };
     };
+    components?: {
+      securitySchemes?: {
+        [key: string]: {
+          type: string;
+          scheme: string;
+          bearerFormat?: string;
+        };
+      };
+    };
+    security?: Array<{
+      [key: string]: string[];
+    }>;
     servers: Array<{
       url: string;
       description: string;
@@ -32,6 +44,20 @@ const options: SwaggerOptions = {
         email: 'support@example.com'
       }
     },
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT'
+        }
+      }
+    },
+    security: [
+      {
+        bearerAuth: []
+      }
+    ],
     servers: [
       {
         url: 'http://localhost:3000',
@@ -43,10 +69,13 @@ const options: SwaggerOptions = {
       }
     ],
   },
+
   apis: [
-    './routes/*',
-    './swagger/schemas/*',
-  ], // Path to the API routes with JSDoc comments
+    './routes/**/*.ts',
+    './schemas/swagger/**/*.ts'
+  ],
 };
 
-export const swaggerSpecs = swaggerJsdoc(options);
+const swaggerSpecs = swaggerJsdoc(options);
+
+export default swaggerSpecs;

@@ -14,6 +14,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["./"],
+  "include": ["./", "validators", "schemas/swagger"],
   "exclude": ["node_modules"]
 }

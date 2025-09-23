@@ -1,11 +1,10 @@
 import { Router } from 'express';
 import { validate } from '@/middlewares/validate';
-import errorHandler from '@/middlewares/errorHandler';
 
 import {
   cognitiveExerciseSchema,
   idParamCognitiveExerciseSchema
-} from '@/schemas/validation/cognitiveExercise.schema';
+} from '../validators/cognitiveExercise.validator';
 
 import {
   createCognitiveExercise,
@@ -13,9 +12,9 @@ import {
   getCognitiveExerciseById,
   updateCognitiveExercise,
   deleteCognitiveExercise
-} from '@/controllers/cognitiveExercise.controller';
+} from '@/controllers/index.controller';
 
-const router: Router = Router();
+const router = Router();
 
 /**
  * @swagger
@@ -36,7 +35,6 @@ const router: Router = Router();
 router.post(
   '/',
   validate(cognitiveExerciseSchema),
-  errorHandler,
   createCognitiveExercise
 );
 
@@ -58,7 +56,6 @@ router.post(
  */
 router.get(
   '/',
-  errorHandler,
   getAllCognitiveExercises
 );
 
@@ -120,7 +117,6 @@ router.get(
 router.put(
   '/:id',
   validate(idParamCognitiveExerciseSchema, 'params'),
-  errorHandler,
   updateCognitiveExercise
 );
 
@@ -147,7 +143,6 @@ router.put(
 router.delete(
   '/:id',
   validate(idParamCognitiveExerciseSchema, 'params'),
-  errorHandler,
   deleteCognitiveExercise
 );
 

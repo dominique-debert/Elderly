@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import createHttpError from 'http-errors';
 import { PrismaClient } from '@/prisma/client';
-import IExerciseProgram from '@/@types/data/IExerciseProgram';
+import IExerciseProgram from '@/@types/data/exercises/IExerciseProgram';
 
 const prisma = new PrismaClient();
 
@@ -18,7 +18,7 @@ export const createExerciseProgram = async (
   next: NextFunction
 ) => {
   try {
-    const newProgram = await prisma.exercise_program.create({
+    const newProgram = await prisma.exerciseProgram.create({
       data: req.body,
     });
     res.status(201).json(newProgram);
@@ -33,7 +33,7 @@ export const getAllExercisePrograms = async (
   next: NextFunction
 ) => {
   try {
-    const programs = await prisma.exercise_program.findMany({
+    const programs = await prisma.exerciseProgram.findMany({
       orderBy: { name: 'asc' },
     });
     res.status(200).json({ programs });
@@ -50,7 +50,7 @@ export const getExerciseProgramById = async (
   const id = req.params.id;
 
   try {
-    const program = await prisma.exercise_program.findUnique({
+    const program = await prisma.exerciseProgram.findUnique({
       where: { id },
     });
 
@@ -72,7 +72,7 @@ export const updateExerciseProgram = async (
   const id = req.params.id;
 
   try {
-    const program = await prisma.exercise_program.findUnique({
+    const program = await prisma.exerciseProgram.findUnique({
       where: { id },
     });
 
@@ -80,8 +80,11 @@ export const updateExerciseProgram = async (
       throw createHttpError(404, `Programme d'exercices non trouvé`);
     }
 
-    const updatedProgram = await prisma.exercise_program.update({
-      data: req.body,
+    const updatedProgram = await prisma.exerciseProgram.update({
+      data: {
+        ...req.body,
+        updatedAt: new Date()
+      },
       where: { id },
     });
 
@@ -99,7 +102,7 @@ export const deleteExerciseProgram = async (
   const id = req.params.id;
 
   try {
-    const program = await prisma.exercise_program.findUnique({
+    const program = await prisma.exerciseProgram.findUnique({
       where: { id },
     });
 
@@ -107,7 +110,7 @@ export const deleteExerciseProgram = async (
       throw createHttpError(404, 'Programme non trouvé');
     }
 
-    await prisma.exercise_program.delete({
+    await prisma.exerciseProgram.delete({
       where: { id },
     });
 

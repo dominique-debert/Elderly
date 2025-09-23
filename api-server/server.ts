@@ -1,35 +1,50 @@
 import express, { Application, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
-import { swaggerSpecs } from '@/config/swagger';
-
-import skillRouter from '@/routes/skill.routes';
-import badgeRouter from '@/routes/badge.routes';
-import cognitiveExerciseRouter from '@/routes/cognitiveExercise.routes';
-import localServiceRouter from '@/routes/localService.routes';
-import nutritionalAdviceRouter from '@/routes/nutritionalAdvice.routes';
-
+import swaggerSpec from '@/config/swagger';
 import errorHandler from '@/middlewares/errorHandler';
-import exerciseProgramRoutes from '@/routes/exerciseProgram.routes';
-import userRouter from '@/routes/user.routes';
+import routes from '@/routes/index.routes';
+import cors from 'cors';
+
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
 
+
 // Middleware
-app.use(express.json()); // Correction de "expresson" -> "express.json"
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://192.168.1.195:5173",
+  "http://192.168.1.195:3000",
+  "http://127.0.0.1:5173",
+  "http://0.0.0.0:5173",
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log(`CORS blocked origin: ${origin}`);
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 // Swagger setup
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Routes
-app.use('/api/badges', badgeRouter);
-app.use('/api/cognitive-exercises', cognitiveExerciseRouter);
-app.use('/api/exercise-programs', exerciseProgramRoutes);
-app.use('/api/local-services', localServiceRouter);
-app.use('/api/nutrition-advices', nutritionalAdviceRouter); // Correction de l'URL (supprimé un slash en trop)
-app.use('/api/users', userRouter);
-app.use('/api/skills', skillRouter);
+app.use('/api', routes);
 
 // Error handling middleware
 app.use(errorHandler);
@@ -44,3 +59,5 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
   console.log(`API Documentation available at http://localhost:${PORT}/api-docs`);
 });
+
+export default app;

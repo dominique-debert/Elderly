@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import createHttpError from 'http-errors';
-import { PrismaClient } from '../prisma/client.js'; // ou '@/prisma/client' si tu utilises des alias
+import { PrismaClient } from '@/prisma/client.js'; // ou '@/prisma/client' si tu utilises des alias
 import ILocalService from '@/@types/data/ILocalService.js';
 
 const prisma = new PrismaClient();
@@ -16,31 +16,10 @@ export const createLocalService = async (
   res: Response,
   next: NextFunction
 ) => {
-  const {
-    name,
-    category_id,
-    address,
-    gps_coordinates,
-    phone,
-    website,
-    description,
-    hours,
-    senior_friendly
-  } = req.body;
 
   try {
-    const newService = await prisma.local_service.create({
-      data: {
-        name,
-        category_id,
-        address,
-        gps_coordinates,
-        phone,
-        website,
-        description,
-        hours,
-        senior_friendly
-      }
+    const newService = await prisma.localService.create({
+      data: req.body
     });
     res.status(201).json(newService);
   } catch (error) {
@@ -54,7 +33,7 @@ export const getAllLocalServices = async (
   next: NextFunction
 ) => {
   try {
-    const localServices = await prisma.local_service.findMany({
+    const localServices = await prisma.localService.findMany({
       orderBy: {
         name: 'asc'
       }
@@ -73,7 +52,7 @@ export const getLocalServiceById = async (
   const { id } = req.params;
 
   try {
-    const service = await prisma.local_service.findUnique({
+    const service = await prisma.localService.findUnique({
       where: { id }
     });
 
@@ -94,20 +73,8 @@ export const updateLocalService = async (
 ) => {
   const { id } = req.params;
 
-  const {
-    name,
-    category_id,
-    address,
-    gps_coordinates,
-    phone,
-    website,
-    description,
-    hours,
-    senior_friendly
-  } = req.body;
-
   try {
-    const service = await prisma.local_service.findUnique({
+    const service = await prisma.localService.findUnique({
       where: { id }
     });
 
@@ -115,19 +82,12 @@ export const updateLocalService = async (
       throw createHttpError(404, 'Service local non trouvé');
     }
 
-    const updatedService = await prisma.local_service.update({
-      where: { id },
+    const updatedService = await prisma.localService.update({
       data: {
-        name,
-        category_id,
-        address,
-        gps_coordinates,
-        phone,
-        website,
-        description,
-        hours,
-        senior_friendly
-      }
+        ...req.body,
+        updatedAt: new Date()
+      },
+      where: { id },
     });
 
     res.status(200).json(updatedService);
@@ -144,7 +104,7 @@ export const deleteLocalService = async (
   const { id } = req.params;
 
   try {
-    const service = await prisma.local_service.findUnique({
+    const service = await prisma.localService.findUnique({
       where: { id }
     });
 
@@ -152,7 +112,7 @@ export const deleteLocalService = async (
       throw createHttpError(404, 'Service local non trouvé');
     }
 
-    await prisma.local_service.delete({
+    await prisma.localService.delete({
       where: { id }
     });
 

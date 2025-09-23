@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '../prisma/client.js';
+import { PrismaClient } from '@/prisma/client.js';
 import createHttpError from 'http-errors';
 import ISkill from '@/@types/data/ISkill.js';
 
@@ -10,15 +10,10 @@ export const createSkill = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { name, category_id, description } = req.body;
 
   try {
     const newSkill = await prisma.skill.create({
-      data: {
-        name,
-        category_id,
-        description,
-      },
+      data: req.body,
     });
 
     res.status(201).json(newSkill);
@@ -72,7 +67,6 @@ export const updateSkill = async (
   next: NextFunction
 ) => {
   const id = req.params.id;
-  const { name, category_id, description } = req.body;
 
   try {
     const skill = await prisma.skill.findUnique({
@@ -83,16 +77,15 @@ export const updateSkill = async (
       throw createHttpError(404, 'Compétence non trouvée');
     }
 
-    const updatedSkill = await prisma.skill.update({
-      where: { id },
+    const skillToUpdate = await prisma.skill.update({
       data: {
-        name,
-        category_id,
-        description,
+        ...req.body,
+        updatedAt: new Date()
       },
+      where: { id },
     });
 
-    res.status(200).json(updatedSkill);
+    res.status(200).json(skillToUpdate);
   } catch (error) {
     next(error);
   }

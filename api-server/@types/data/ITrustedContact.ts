@@ -1,12 +1,13 @@
 export default interface ITrustedContact {
-  user_id: string
-  last_name: string
-  first_name: string
+  id?: string
+  userId: string
+  lastName: string
+  firstName: string
   email?: string
   phone: string
   relationship?: string
-  share_medications: boolean
-  share_health_indicators: boolean
-  share_wellness_activities: boolean
-  emergency_alerts: boolean
+  shareMedications: boolean
+  shareHealthIndicators: boolean
+  shareWellnessActivities: boolean
+  emergencyAlerts: boolean
 }
