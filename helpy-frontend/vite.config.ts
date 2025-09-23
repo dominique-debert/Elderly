@@ -23,9 +23,10 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'http://192.168.1.195:3000/api',
+        target: 'http://192.168.1.195:3000',
         changeOrigin: true,
         secure: false,
+        rewrite: (path) => path,
       },
     },
   },
