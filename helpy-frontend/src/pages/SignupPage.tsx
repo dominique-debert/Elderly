@@ -2,7 +2,10 @@ import React from 'react';
 import { useSignupStore } from '../stores/signup';
 import { useAuthStore } from '../stores/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import LoginPageVideo from '/videos/login.mp4'
+import LoginPageVideo from '/videos/login.mp4';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const SignupPage = () => {
   const { email, password, firstName, lastName, birthDate, isAdmin, setEmail, setPassword, setFirstName, setLastName, setBirthDate, setIsAdmin } = useSignupStore();
@@ -23,56 +26,63 @@ const SignupPage = () => {
         <source src={ LoginPageVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="card w-96 h-150 bg-base-100 shadow-xl mr-20 py-10 px-10 bg-opacity-85">
+      <div className="w-96 h-150 bg-card shadow-xl mr-20 py-10 px-10 bg-opacity-85 rounded-lg border">
         <h2 className="text-2xl font-bold mb-4 text-left text-primary">S'inscrire</h2>
         <p className="text-left text-sm mb-4">Inscrivez-vous gratuitement pour accéder à nos services.</p>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input
+          <Input
             type="email"
             placeholder="Email"
-            className="input input-bordered w-full rounded-md bg-white"
+            className="w-full rounded-md bg-background"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <input
+          <Input
             type="password"
             placeholder="Mot de passe"
-            className="input input-bordered w-full rounded-md bg-white"
+            className="w-full rounded-md bg-background"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <input
+          <Input
             type="text"
             placeholder="Prénom"
-            className="input input-bordered w-full rounded-md bg-white"
+            className="w-full rounded-md bg-background"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
           />
-          <input
+          <Input
             type="text"
             placeholder="Nom"
-            className="input input-bordered w-full rounded-md bg-white"
+            className="w-full rounded-md bg-background"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             required
           />
-          <input
+          <Input
             type="date"
             placeholder="Date de naissance"
-            className="input input-bordered w-full rounded-md bg-white"
+            className="w-full rounded-md bg-background"
             value={birthDate.toISOString().split('T')[0]}
             onChange={(e) => setBirthDate(new Date(e.target.value))}
             required
           />
-            <label className="label justify-normal text-start">
-              <input type="checkbox" onChange={(e) => setIsAdmin(e.target.checked)} checked={isAdmin} className="checkbox checkbox-primary rounded-md mr-3" defaultChecked={true} />
+          <div className="flex items-center space-x-2">
+            <Checkbox 
+              id="isAdmin"
+              checked={isAdmin}
+              onCheckedChange={(checked) => setIsAdmin(checked as boolean)}
+              className="rounded-md"
+            />
+            <label htmlFor="isAdmin" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
               Administrateur
             </label>
+          </div>
           <div className="flex justify-center items-center">
-            <button type="submit" className="btn btn-primary w-60 rounded-md">S'inscrire</button>
+            <Button type="submit" className="w-60 rounded-md">S'inscrire</Button>
           </div>
         </form>
         <p className="mt-4 text-center text-sm">

@@ -7,7 +7,7 @@ const Layout = () => {
   const { isAuthenticated } = useAuthStore();
 
   return (
-    <div className="h-dvh w-full overflow-hidden bg-100">
+    <div className="h-dvh w-full overflow-hidden bg-background">
       {isAuthenticated && <Navbar />}
 
       <div className="flex h-full"> {/* 4rem = hauteur de la navbar */}

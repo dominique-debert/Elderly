@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const GeneralMetricsCard = () => {
 
@@ -8,12 +9,15 @@ return (
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
-      className="card w-full bg-base-100 ml-4 pr-4 lg:mb-4 mt-4"
+      className="w-full ml-4 pr-4 lg:mb-4 mt-4"
     >
-      <div className="flex flex-col w-full h-full">
-        <h2 className="card-title mt-4 mb-4">Mesures générales</h2>
-        <div className="grid grid-cols-4 gap-4 h-full">
-        <div className="card flex justify-end items-center align-middle bg-pink-50 row-span-2 col-span-2 ml-1">
+      <Card className="w-full h-full">
+        <CardHeader>
+          <CardTitle>Mesures générales</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-4 gap-4 h-full">
+            <Card className="flex justify-end items-center align-middle bg-pink-50 row-span-2 col-span-2 ml-1">
           <span className="m-4 absolute top-2 left-2">Humeur</span>
           <div className="badge bg-green-600 m-2 p-4 rotate-12 text-white lg:text-base">concentré</div>
           <span>
@@ -25,22 +29,23 @@ return (
             <div className="badge bg-violet-400 text-white mt-6 p-4 lg:text-base">détendu</div>
             <div className="badge bg-cyan-400 text-white mt-6 p-4 rotate-45 lg:text-base mb-6">triste</div>
           </span>
-        </div>
-          {[
-            { id: 2, bg: "bg-indigo-50" },
-            { id: 3, bg: "bg-yellow-50" },
-            { id: 4, bg: "bg-blue-50", className: "col-span-2" },
-          ].map(({ id, bg, className }) => (
-            <div key={id} className={className}>
-              <div className={`card ${bg} text-neutral-content h-full`}>
-                <div className="card-body">
-                  <h2 className="card-title self-center">{id}</h2>
-                </div>
+            </Card>
+            {[
+              { id: 2, bg: "bg-indigo-50" },
+              { id: 3, bg: "bg-yellow-50" },
+              { id: 4, bg: "bg-blue-50", className: "col-span-2" },
+            ].map(({ id, bg, className }) => (
+              <div key={id} className={className}>
+                <Card className={`${bg} text-neutral-content h-full`}>
+                  <CardContent className="flex items-center justify-center h-full">
+                    <CardTitle className="self-center">{id}</CardTitle>
+                  </CardContent>
+                </Card>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </motion.div>
   </>
   );
