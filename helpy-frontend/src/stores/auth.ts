@@ -19,6 +19,7 @@ export const useAuthStore = create<IAuthState>()(
           localStorage.setItem('refreshToken', data.refreshToken); // Stocke le refreshToken également
 
           const user = {
+            id: data.id, // Add user ID from the response
             email: data.email,
             firstName: data.firstName,
             lastName: data.lastName,
@@ -53,12 +54,15 @@ export const useAuthStore = create<IAuthState>()(
             accessToken: data.accessToken,
             isAuthenticated: true,
             user: {
+              id: data.id, // Add user ID from the response
               email: data.email,
               firstName: data.firstName,
               lastName: data.lastName,
               avatar: data.avatar,
               birthDate: data.birthDate,
               isAdmin: data.isAdmin,
+              longitude: data.longitude,
+              latitude: data.latitude,
             },
           });
           toast.success('Inscription réussie');

@@ -5,7 +5,6 @@ import { fetchMenuItems } from '@/services/menuItems.service';
 import { useQuery } from '@tanstack/react-query';
 import { iconMap } from '@/constants/iconMap';
 import { ETabKey } from '@/@types/ETabKey';
-import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
 
 type AdminTabProps = {
   activeTab: ETabKey | null;
@@ -25,34 +24,33 @@ export const AdminTabBar: React.FC<AdminTabProps> = ({ activeTab, setActiveTab }
   }, [menuItems, activeTab, setActiveTab]);
 
   if (isLoading) {
-    return <div className="text-sm text-muted-foreground">Chargement...</div>;
+    return <div className="text-sm text-gray-500">Chargement...</div>;
   }
 
   if (isError) {
-    return <div className="text-sm text-destructive">Erreur lors du chargement du menu</div>;
+    return <div className="text-sm text-red-500">Erreur lors du chargement du menu</div>;
   }
 
   return (
-    <Tabs 
-      value={activeTab || undefined} 
-      onValueChange={(value) => setActiveTab(value as ETabKey)}
-      className="w-full"
-    >
-      <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-1 h-auto p-1 bg-muted">
-        {menuItems?.map(({ id, label, icon, key }) => (
-          <TabsTrigger
-            key={id}
-            value={key}
-            className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+    <ul className="menu bg-base-100 lg:menu-horizontal rounded-box p-0">
+      {menuItems?.map(({ id, label, icon, key }) => (
+        <li key={id}>
+          <button
+            type="button"
+            onClick={() => setActiveTab(key as ETabKey)}
+            className={`btn btn-ghost w-full justify-start ${
+              activeTab === key ? 'bg-primary text-white' : ''
+            }`}
+            aria-selected={activeTab === key}
           >
             {icon && iconMap[icon] && (
-              <Icon path={iconMap[icon]} size={0.7} className="flex-shrink-0" />
+              <Icon path={iconMap[icon]} size={0.8} className="mr-2 text-white-400" />
             )}
-            <span className="truncate">{label}</span>
-          </TabsTrigger>
-        ))}
-      </TabsList>
-    </Tabs>
+            {label}
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 };
 

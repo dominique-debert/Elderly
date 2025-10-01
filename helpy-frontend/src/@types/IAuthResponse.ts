@@ -1,5 +1,6 @@
 
 export interface IAuthResponse {
+  id: string;
   isAdmin: boolean;
   birthDate: Date;
   firstName: string;

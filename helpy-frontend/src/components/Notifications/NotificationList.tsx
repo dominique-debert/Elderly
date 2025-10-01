@@ -4,91 +4,90 @@ type NotificationListProps = {
   notifications: INotification[];
 };
 
-function NotificationList({ notifications }: NotificationListProps) {
-    
+function NotificationList({ notifications = [] }: NotificationListProps) {
+  // Filter unread notifications
+  const unreadNotifications = notifications.filter(n => !n.read);
+  const readNotifications = notifications.filter(n => n.read);
+  
+  const NotificationItem = ({ notification, isRead = false }: { notification: INotification; isRead?: boolean }) => (
+    <li key={notification.id} className={`p-4 hover:bg-base-200 transition-colors ${isRead ? 'opacity-70' : ''}`}>
+      <div className="flex gap-3 items-start">
+        <div className="flex-shrink-0">
+          <img 
+            className="w-8 h-8 rounded-full" 
+            src={`/images/notifications/${notification.type}.png`} 
+            alt={notification.type}
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = '/images/notifications/default.png';
+            }}
+          />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm text-gray-900 dark:text-gray-100">
+            {notification.content}
+          </p>
+          <p className="text-xs text-gray-500 mt-1">
+            {new Date(notification.createdAt || '').toLocaleString()}
+          </p>
+        </div>
+        {!isRead && (
+          <button 
+            className="btn btn-ghost btn-sm btn-square"
+            onClick={() => {
+              // Mark as read action
+              console.log('Mark as read', notification.id);
+            }}
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </button>
+        )}
+      </div>
+    </li>
+  );
+  
   return (
-    <div>
-
-      <ul className="bg-base-100 rounded-box shadow-md mt-3 p-2 w-[420px] max-w-screen">
+    <div className="bg-base-100 rounded-box shadow-md mt-3 w-[420px] max-w-screen">
+      <div className="p-4 pb-2">
+        <h3 className="text-2xl font-semibold mb-2">Notifications</h3>
+      </div>
+      
+      <div className="max-h-[500px] overflow-y-auto">
+        {/* Unread Notifications */}
+        {unreadNotifications.length > 0 ? (
+          <ul className="divide-y divide-base-200">
+            {unreadNotifications.map(notification => (
+              <NotificationItem key={notification.id} notification={notification} />
+            ))}
+          </ul>
+        ) : (
+          <div className="p-4 text-center text-gray-500">
+            <p>Pas de nouvelles notifications</p>
+          </div>
+        )}
         
-        <li className="p-4 pb-2 text-2xl tracking-wide font-semibold mb-2">
-          Notifications
-        </li>
-          
-        <div role="tablist" className="tabs tabs-border p-2">
-          <input type="radio" name="my_tabs_2" className="tab" aria-label="Non lues" defaultChecked />
-          <div className="tab-content bg-base-100 p-4 mt-4 max-h-[650px] overflow-y-auto">
-            <div className="list">
-              {notifications?.map((notification: INotification) => (
-                !notification.read && (
-                <div key={notification.id} className="mb-4 border-b border-base-200 pb-2 flex gap-2 items-start">
-                  <img className="size-8 mt-1" src={`/images/notifications/${notification.type}.png`} alt={notification.type} />
-                  <div className="flex-1">
-                    <div className="text-sm">{notification.content}</div>
-                    <p className="text-xs text-gray-500 mb-4">{notification.content}</p>
-                  </div>
-                  <div className="flex gap-1">
-                    <button className="btn btn-square btn-ghost">
-                      <svg className="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-                          <path d="M6 3L20 12 6 21 6 3z" />
-                        </g>
-                      </svg>
-                    </button>
-                    <button className="btn btn-square btn-ghost">
-                      <svg className="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-                          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                        </g>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                )
-              ))}
+        {/* Read Notifications */}
+        {readNotifications.length > 0 && (
+          <div className="border-t border-base-200 mt-2">
+            <div className="p-4">
+              <h4 className="text-sm font-medium text-gray-500 mb-2">Anciennes notifications</h4>
+              <ul className="space-y-2">
+                {readNotifications.map(notification => (
+                  <NotificationItem 
+                    key={notification.id} 
+                    notification={notification} 
+                    isRead={true} 
+                  />
+                ))}
+              </ul>
             </div>
           </div>
-
-          <input type="radio" name="my_tabs_2" className="tab" aria-label="Lues" />
-          <div className="tab-content bg-base-100 p-4 mt-4 max-h-[650px] overflow-y-auto">
-          <div className="list">
-              {notifications?.map((notification: INotification) => (
-                notification.read && (
-                <div key={notification.id} className="mb-4 border-b border-base-200 pb-2 flex gap-2 items-start">
-                  <img className="size-8 mt-1" src={`/images/notifications/${notification.type}.png`} alt={notification.type} />
-                  <div className="flex-1">
-                    <div className="text-sm">{notification.content}</div>
-                    <p className="text-xs text-gray-500">{notification.content}</p>
-                  </div>
-                  <div className="flex gap-1">
-                    <button className="btn btn-square btn-ghost">
-                      <svg className="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-                          <path d="M6 3L20 12 6 21 6 3z" />
-                        </g>
-                      </svg>
-                    </button>
-                    <button className="btn btn-square btn-ghost">
-                      <svg className="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-                          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                        </g>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                )
-              ))}
-            </div>          
-          </div>
-
-          <input type="radio" name="my_tabs_2" className="tab" aria-label="Archivées" />
-          <div className="tab-content text-gray-400 bg-base-100 p-4 max-h-[600px] overflow-y-auto mt-4">Aucune notification archivée</div>
-        </div>
-
-      </ul>    
+        )}
+      </div>
     </div>
-  )
+  );
 }
 
-export default NotificationList
+export default NotificationList;

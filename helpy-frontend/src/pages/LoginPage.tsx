@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { useAuthStore } from '../stores/auth';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import LoginPageVideo from '/videos/login.mp4';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 
 const LoginPage = () => {
   const { login, isAuthenticated } = useAuthStore();
@@ -22,41 +19,35 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex justify-end items-center w-screen h-screen bg-cover">
-      <video id="background-video" loop autoPlay>
-        <source src={ LoginPageVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="w-100 h-100 bg-card shadow-xl mr-20 py-10 px-10 bg-opacity-85 rounded-lg border">
+    <div className="flex justify-end items-center w-screen h-screen bg-[url(/images/background.webp)] bg-cover">
+      <div className="card w-100 h-100 bg-base-100 shadow-xl mr-20 py-10 px-10 bg-opacity-85">
         <h2 className="text-3xl font-bold text-left text-primary mb-8">Se connecter</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className='w-full'>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-            <Input
+            <label htmlFor="email">Email</label>
+            <input
               type="email"
               placeholder="Email"
-              className="w-full rounded-xl bg-background"
+              className="input input-bordered w-full rounded-xl bg-white"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
               name='email'
-              id='email'
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium mb-2">Mot de passe</label>
-            <Input
+            <label htmlFor="email">Mot de passe</label>
+            <input
               type="password"
               placeholder="Mot de passe"
-              className="w-full rounded-xl"
+              className="input input-bordered w-full rounded-xl"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              id='password'
             />
           </div>
           <div>
-            <Button type="submit" className="w-full rounded-xl">Se connecter</Button>
+            <button type="submit" className="btn btn-primary w-full rounded-xl">Se connecter</button>
           </div>
         </form>
         <p className="mt-8 text-center text-sm">

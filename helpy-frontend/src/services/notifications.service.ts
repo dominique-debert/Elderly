@@ -13,7 +13,7 @@ export const fetchNotifications = async (): Promise<INotification[]> => {
 
 export const fetchNotificationsByUserId = async (userId: string): Promise<INotification[]> => {
   const accessToken = localStorage.getItem('accessToken');
-  const { data } = await api.get(`/notifications/${userId}`, {
+  const { data } = await api.get(`/notifications/user/${userId}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -21,11 +21,14 @@ export const fetchNotificationsByUserId = async (userId: string): Promise<INotif
   return data.notifications;
 };
 
-export const createNotification = async (category: {
-  name: string;
-  description?: string;
+export const createNotification = async (notification: {
+  userId: string;
+  type: string;
+  content: string;
+  read?: boolean;
+  actionLink?: string;
 }) => {
-  const { data } = await api.post('/notifications', category, {
+  const { data } = await api.post('/notifications', notification, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
     },
@@ -33,30 +36,29 @@ export const createNotification = async (category: {
   return data;
 };
 
-export const updateMood = async (
+export const updateNotification = async (
   id: string,
-  data: {
-    id?: string
-    userId: string
-    type: string
-    content: string
-    read?: boolean
-    actionLink?: string
+  notification: {
+    userId: string;
+    type: string;
+    content: string;
+    read?: boolean;
+    actionLink?: string;
   }
 ) => {
-  const response = await api.put(`/notifications/${id}`, data, {
+  const { data } = await api.put(`/notifications/${id}`, notification, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
     },
   });
-  return response.data;
+  return data;
 };
 
-export const deleteMood = async (id: string) => {
-  const response = await api.delete(`/notifications/${id}`, {
+export const deleteNotification = async (id: string) => {
+  const { data } = await api.delete(`/notifications/${id}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
     },
   });
-  return response.data;
+  return data;
 };

@@ -5,20 +5,20 @@ import { Navigate } from 'react-router-dom';
 import { AdminTabBar } from '@/components/AdminTabBar';
 import { ETabKey } from '@/@types/ETabKey';
 
-import { ActivityList } from '@/components/ActivityCategories/ActivityList';
-import { BadgeList } from "@/components/BadgeCategories/BadgeList";
-import { CognitiveList } from '@/components/CognitiveCategories/CognitionList';
-import { ForumList } from "@/components/ForumCategories/ForumList";
-import { HelpList } from "@/components/HelpCategory/HelpList";
-import { MoodList } from '@/components/MoodCategories/MoodList'; 
-import { NutritionList } from '@/components/NutritionCategories/NutritionList';
-import { ProgramList } from "@/components/ProgramCategories/ProgramList";
-import { ProjectList } from "@/components/ProjectCategories/ProjectList";
-import { ResourceList } from '@/components/ResourceCategories/ResourceList';
-import { ServiceList } from "@/components/ServiceCategories/ServiceList";
-import { SkillList } from "@/components/SkillCategories/SkillList";
-import { UrbanIssueList } from "@/components/UrbanIssueCategories/UrbanIssueList";
-import { WellnessList } from '@/components/WellnessCategories/WellnessList';
+import { ActivityList } from '@/components/Activity/ActivityList';
+import { BadgeList } from '@/components/Badge/BadgeList';
+import { CognitiveList } from '@/components/Cognitive/CognitiveList';
+import { ForumList } from '@/components/Forum/ForumList';
+import { HelpList } from '@/components/Help/HelpList';
+import { MoodList } from '@/components/Mood/MoodList'; 
+import { NutritionalList } from '@/components/Nutrition/NutritionalList';
+import { ProgramList } from '@/components/Program/ProgramList';
+import { ProjectList } from '@/components/Project/ProjectList';
+import { ResourceList } from '@/components/Resource/ResourceList';
+import { ServiceList } from '@/components/Service/ServiceList';
+import { SkillList } from '@/components/Skill/SkillList';
+import { UrbanIssueList } from '@/components/UrbanIssue/UrbanIssueList';
+import { WellnessList } from '@/components/Wellness/WellnessList';
 
 const AdminPage = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -44,7 +44,7 @@ const AdminPage = () => {
       case ETabKey.Mood:
         return <MoodList />;
       case ETabKey.Nutritional:
-        return <NutritionList />;
+        return <NutritionalList />;
       case ETabKey.Program:
         return <ProgramList />;
       case ETabKey.Project:
@@ -68,8 +68,8 @@ const AdminPage = () => {
     <div className="w-full h-full px-4 pb-4 overflow-y-auto no-scrollbar">
       {user && user.isAdmin ? (
         <>
-          <div className="bg-background sticky top-0 z-30 pb-4 pt-4">
-            <h2 className="text-2xl font-semibold text-primary border-b border-border mb-4">
+          <div className="bg-base-100 sticky top-0 z-30 pb-4 pt-4">
+            <h2 className="text-2xl font-semibold text-primary border-b border-base-200 mb-4">
               Administration
             </h2>
             <AdminTabBar activeTab={activeTab} setActiveTab={setActiveTab} />

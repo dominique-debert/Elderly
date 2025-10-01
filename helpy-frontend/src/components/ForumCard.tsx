@@ -14,8 +14,6 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-import { Checkbox } from "@/components/ui/checkbox"
-
 const ForumCard = () => {
 
   return (
@@ -33,7 +31,9 @@ const ForumCard = () => {
             <TableHeader>
               <TableRow>
                 <TableHead>
-                  <Checkbox />
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
                 </TableHead>
                 <TableHead>Name</TableHead>
                 <TableHead>Job</TableHead>
@@ -44,7 +44,9 @@ const ForumCard = () => {
             <TableBody>
               <TableRow>
                 <TableHead>
-                  <Checkbox />
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
                 </TableHead>
                 <TableCell>
                   <div className="flex items-center gap-3">
@@ -73,7 +75,9 @@ const ForumCard = () => {
               </TableRow>
               <TableRow>
                 <TableHead>
-                  <Checkbox />
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
                 </TableHead>
                 <TableCell>
                   <div className="flex items-center gap-3">
@@ -102,7 +106,9 @@ const ForumCard = () => {
               </TableRow>
               <TableRow>
                 <TableHead>
-                  <Checkbox />
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
                 </TableHead>
                 <TableCell>
                   <div className="flex items-center gap-3">
@@ -131,7 +137,9 @@ const ForumCard = () => {
               </TableRow>
               <TableRow>
                 <TableHead>
-                  <Checkbox />
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
                 </TableHead>
                 <TableCell>
                   <div className="flex items-center gap-3">
@@ -160,7 +168,9 @@ const ForumCard = () => {
               </TableRow>
               <TableRow>
                 <TableHead>
-                  <Checkbox />
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
                 </TableHead>
                 <TableCell>
                   <div className="flex items-center gap-3">

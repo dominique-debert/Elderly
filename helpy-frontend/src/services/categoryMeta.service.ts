@@ -1,6 +1,6 @@
 import api from "@/lib/axios";
 
-export const fetchCategoryChapters = async () => {
+export const getCategoryChapters = async () => {
   const res = await api.get('/categories/chapters', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -9,7 +9,7 @@ export const fetchCategoryChapters = async () => {
   return res.data;
 };
 
-export const fetchCategoryTypes = async () => {
+export const getCategoryTypes = async () => {
   const res = await api.get('/categories/types', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
