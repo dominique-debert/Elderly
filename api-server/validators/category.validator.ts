@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 export const categorySchema = Joi.object({
-  name: Joi.string().required(),
+  categoryName: Joi.string().required(),
   description: Joi.string().allow(null, ''),
   typeId: Joi.string().required(),
   chapterId: Joi.number().required()

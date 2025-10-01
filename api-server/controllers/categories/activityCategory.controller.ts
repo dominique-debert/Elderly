@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError.js';
 import { ECategoryType } from '@/@types/data/categories/ECategory';
-import ICategory from '@/@types/data/categories/ICategory';
+import { ICategory } from '@/@types/data/categories/ICategory';
 
 const prisma = new PrismaClient();
 
@@ -114,13 +114,13 @@ export const fetchActivityCategoryById = async (
     next: NextFunction
   ) => {
     try {
-      const { categoryName, description, chapterId } = req.body;
+      const { name, description, chapterId, typeId } = req.body;
       
       const categoryToCreate = await prisma.category.create({
         data: {
-          categoryName,
+          categoryName: name,
           description,
-          typeId: ECategoryType.ACTIVITY,
+          typeId: typeId || ECategoryType.ACTIVITY,
           chapterId: chapterId
         }
       });

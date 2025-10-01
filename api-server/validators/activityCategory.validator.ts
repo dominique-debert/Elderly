@@ -20,5 +20,19 @@ export const activityCategorySchema = Joi.object({
     .messages({
       'string.base': 'La description doit être une chaîne de caractères.',
       'string.max': 'La description ne peut pas dépasser 255 caractères.'
+    }),
+    
+  chapterId: Joi.number()
+    .required()
+    .messages({
+      'number.base': 'Le chapitre est requis.',
+      'any.required': 'Le chapitre est obligatoire.'
+    }),
+    
+  typeId: Joi.number()
+    .required()
+    .messages({
+      'number.base': 'Le type est requis.',
+      'any.required': 'Le type est obligatoire.'
     })
 });

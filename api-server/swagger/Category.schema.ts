@@ -8,7 +8,7 @@
  *         id:
  *           type: integer
  *           example: 1
- *         name:
+ *         categoryName:
  *           type: string
  *           example: "Mémoire"
  *         description:
@@ -28,7 +28,7 @@
  *           example: "2025-04-29T10:00:00Z"
  *       required:
  *         - id
- *         - name
+ *         - categoryName
  *         - typeId
  *         - createdAt
  */

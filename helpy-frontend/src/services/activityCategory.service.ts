@@ -13,7 +13,7 @@ export const fetchActivityCategories = async (): Promise<ICategory> => {
   return data;
 };
 
-export const createActivityCategory = async (category: { categoryName: string; description?: string; chapterId: number; typeId: number }) => {
+export const createActivityCategory = async (category: { name: string; description?: string; chapterId: number; typeId: number }) => {
   const { data } = await api.post('/categories/activities', category, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -22,7 +22,7 @@ export const createActivityCategory = async (category: { categoryName: string; d
   return data;
 };
 
-export const updateActivityCategory = async (id: string, data: { categoryName: string; description?: string }) => {
+export const updateActivityCategory = async (id: string, data: { name: string; description?: string }) => {
   const response = await api.put(`/categories/activities/${id}`, data, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`,

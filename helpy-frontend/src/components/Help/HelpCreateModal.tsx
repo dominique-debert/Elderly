@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { createActivityCategory } from '@/services/activityCategory.service';
+import { createHelpCategory } from '@/services/helpCategory.service';
 import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
 import { IChapter } from "@/@types/IChapter";
 import { ICategoryType } from "@/@types/ICategoryType";
 
-type ActivityCreateModalProps = {
+type HelpCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
 };
 
-export const ActivityCreateModal: React.FC<ActivityCreateModalProps> = ({ onClose, onCreated }) => {
+export const HelpCreateModal: React.FC<HelpCreateModalProps> = ({ onClose, onCreated }) => {
   const [form, setForm] = useState({
-    name: '',
+    categoryName: '',
     description: '',
     chapterId: '',
     typeId: '',
@@ -30,24 +30,20 @@ export const ActivityCreateModal: React.FC<ActivityCreateModalProps> = ({ onClos
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setForm(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await createActivityCategory({
-        name: form.name,
-        description: form.description,
+      await createHelpCategory({
+        ...form,
         chapterId: Number(form.chapterId),
         typeId: Number(form.typeId),
       });
       toast.success('Catégorie créée');
       onClose();
-      onCreated?.(); 
+      onCreated?.();
     } catch (error: unknown) {
       if (error instanceof Error) {
         toast.error(`Erreur lors de la création : ${error.message}`);
@@ -60,7 +56,7 @@ export const ActivityCreateModal: React.FC<ActivityCreateModalProps> = ({ onClos
   return (
     <dialog className="modal modal-open">
       <div className="modal-box">
-        <h3 className="border-b border-base-300 font-medium text-xl">Créer une nouvelle catégorie</h3>
+        <h3 className="border-b border-base-300 font-medium text-xl">Créer une nouvelle catégorie d'aide</h3>
 
         <form method="dialog" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
 
@@ -69,8 +65,8 @@ export const ActivityCreateModal: React.FC<ActivityCreateModalProps> = ({ onClos
           <label className="text-sm -mb-2 mt-4">Nom</label>
           <input
             type="text"
-            name="name"
-            value={form.name}
+            name="categoryName"
+            value={form.categoryName}
             onChange={handleChange}
             className="input input-bordered w-full"
             placeholder="Nom de la catégorie"
