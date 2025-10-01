@@ -29,12 +29,27 @@ export const ActivityList = () => {
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
   if (isError) return <div className="text-center mt-10 text-red-500">Erreur de chargement</div>;
 
-  const filteredChapters = Object.entries(groupedActivities ?? {}).filter(([, types]) => {
-    const allActivities = Object.values(types).flat() as ICategory[];
-    return allActivities.some((category) =>
-      category.categoryName.toLowerCase().includes(search.toLowerCase())
-    );
-  });
+  // Process and sort the activities
+  const processedChapters = Object.entries(groupedActivities || {}).flatMap(([typeName, chapters]) => {
+    return Object.entries(chapters).map(([chapterId, activities]) => {
+      const chapterActivities = activities as ICategory[];
+      const chapterInfo = chapterActivities[0]?.categoryChapter || {
+        chapterName: `${chapterId}`,
+        chapterDescription: ''
+      };
+
+      return {
+        chapterName: chapterInfo.chapterName,
+        chapterDescription: chapterInfo.chapterDescription,
+        activities: [...chapterActivities]
+          .filter(activity => 
+            activity.categoryName.toLowerCase().includes(search.toLowerCase())
+          )
+          .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
+      };
+    });
+  }).filter(chapter => chapter.activities.length > 0)
+    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
 
   return (
     <div className="w-full p-4">
@@ -45,28 +60,26 @@ export const ActivityList = () => {
         setSearch={setSearch}
       />
 
-      {filteredChapters.length === 0 && (
+      {processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>
-      )}
-
-      {filteredChapters.map(([chapterName, types], index) => {
-        const allActivities = Object.values(types).flat() as ICategory[];
-        const filtered = allActivities.filter((activity) =>
-          activity.categoryName.toLowerCase().includes(search.toLowerCase())
-        );
-
-        return (
-          <div key={chapterName} className={index !== 0 ? 'mt-12' : 'mt-6'}>
-            <div className="text-xl font-semibold">{chapterName}</div>
-            <div className="divider mt-0"></div>
-            {mode === 'list' && <ActivityListView activities={filtered} />}
-            {mode === 'card' && <ActivityCardView activities={filtered} />}
-            {mode === 'table' && <ActivityTableView activities={filtered} />}
+      ) : (
+        processedChapters.map(({ chapterName, chapterDescription, activities }, index: number) => (
+          <div key={`${chapterName}-${index}`} className={index !== 0 ? 'mt-12' : 'mt-6'}>
+            <div className="mb-2">
+              <h2 className="text-2xl font-bold text-gray-800">{chapterName}</h2>
+              {chapterDescription && (
+                <p className="text-gray-600 mt-1">{chapterDescription}</p>
+              )}
+            </div>
+            <div className="divider mt-0 mb-6"></div>
+            {mode === 'list' && <ActivityListView activities={activities} />}
+            {mode === 'card' && <ActivityCardView activities={activities} />}
+            {mode === 'table' && <ActivityTableView activities={activities} />}
           </div>
-        );
-      })}
+        ))
+      )}
     </div>
   );
 };

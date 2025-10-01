@@ -10,6 +10,7 @@ export const fetchActivityCategories = async (): Promise<ICategory> => {
     },
   });
 
+  console.log('API Response:', data);
   return data;
 };
 

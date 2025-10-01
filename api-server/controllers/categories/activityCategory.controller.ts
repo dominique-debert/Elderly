@@ -75,7 +75,7 @@ export const fetchAllActivityCategories = async (
     });
     
     
-    res.status(200).json(grouped);
+    res.status(200).json(sortedGrouped);
   } catch (error) {
     next(error);
   }
