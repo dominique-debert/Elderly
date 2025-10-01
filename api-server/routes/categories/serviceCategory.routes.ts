@@ -7,7 +7,7 @@ import {
   deleteServiceCategory
 } from '@/controllers/index.controller';
 
-import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
+import { categorySchema } from '@/validators/category.validator';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -106,7 +106,7 @@ router.get('/', fetchAllServiceCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), fetchServiceCategoryById);
+router.get('/:id', fetchServiceCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), fetchServiceCatego
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), updateServiceCategory);
+router.put('/:id', updateServiceCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), updateServiceCateg
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteServiceCategory);
+router.delete('/:id', deleteServiceCategory);
 
 export default router;

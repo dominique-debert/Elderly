@@ -7,7 +7,7 @@ import {
   deleteHelpCategory
 } from '@/controllers/index.controller';
 
-import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
+import { categorySchema } from '@/validators/category.validator';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -32,17 +32,17 @@ const router = Router();
  *           schema:
  *             type: object
  *             required:
- *               - name
+ *               - categoryName
  *               - typeId
  *             properties:
- *               name:
+ *               categoryName:
  *                 type: string
  *               description:
  *                 type: string
  *               typeId:
  *                 type: integer
  *             example:
- *               name: "Aide à domicile"
+ *               categoryName: "Aide à domicile"
  *               description: "Catégorie pour les services d'aide à domicile"
  *               typeId: 4
  *     responses:
@@ -106,7 +106,7 @@ router.get('/', fetchAllHelpCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), fetchHelpCategoryById);
+router.get('/:id', fetchHelpCategoryById);
 
 /**
  * @swagger
@@ -128,14 +128,14 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), fetchHelpCategoryB
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               categoryName:
  *                 type: string
  *               description:
  *                 type: string
  *               typeId:
  *                 type: integer
  *             example:
- *               name: "Aide à domicile"
+ *               categoryName: "Aide à domicile"
  *               description: "Catégorie pour les services d'aide à domicile"
  *               typeId: 4
  *     responses:
@@ -148,7 +148,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), fetchHelpCategoryB
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), updateHelpCategory);
+router.put('/:id', updateHelpCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), updateHelpCategory
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteHelpCategory);
+router.delete('/:id', deleteHelpCategory);
 
 export default router;

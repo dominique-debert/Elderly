@@ -7,7 +7,7 @@ import {
   deleteSkillCategory
 } from '@/controllers/index.controller';
 
-import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
+import { categorySchema } from '@/validators/category.validator';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -106,7 +106,7 @@ router.get('/', fetchAllSkillCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), fetchSkillCategoryById);
+router.get('/:id', fetchSkillCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), fetchSkillCategory
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), updateSkillCategory);
+router.put('/:id', updateSkillCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), updateSkillCategor
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteSkillCategory);
+router.delete('/:id', deleteSkillCategory);
 
 export default router;

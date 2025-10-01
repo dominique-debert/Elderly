@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { PrismaClient } from "@/prisma/client";
 import { createHttpError } from "@/utils/httpError.js";
 import { ECategoryType } from "@/@types/data/categories/ECategory";
-import ICategory from "@/@types/data/categories/ICategory";
+import { ICategory } from "@/@types/data/categories/ICategory";
 
 const prisma = new PrismaClient({log: ['query']});
 
@@ -114,14 +114,21 @@ export const fetchHelpCategoryById = async (
     next: NextFunction
   ) => {
     try {
-      const { categoryName, description, chapterId } = req.body;
+      const { name, categoryName, description, chapterId } = req.body;
+      
+      // Use categoryName if provided, otherwise use name
+      const finalCategoryName = categoryName || name;
+      
+      if (!finalCategoryName) {
+        throw createHttpError(400, 'Le nom de la catégorie est requis');
+      }
       
       const categoryToCreate = await prisma.category.create({
         data: {
-          categoryName,
-          description,
+          categoryName: finalCategoryName,
+          description: description || null,
           typeId: ECategoryType.HELP,
-          chapterId: chapterId
+          chapterId: Number(chapterId)
         }
       });
       
@@ -137,6 +144,7 @@ export const fetchHelpCategoryById = async (
     next: NextFunction
   ) => {
     const { id } = req.params;
+    const { name, categoryName, ...rest } = req.body;
     
     try {
       const category = await prisma.category.findUnique({
@@ -144,20 +152,27 @@ export const fetchHelpCategoryById = async (
           id: Number(id)
         }});
         
-        if (!category) {
-          throw createHttpError(404, `Catégorie d'aide non trouvée`);
+      if (!category) {
+        throw createHttpError(404, `Catégorie d'aide non trouvée`);
+      }
+      
+      const updateData = { ...rest };
+      
+      // Update categoryName if either name or categoryName is provided
+      if (name || categoryName) {
+        updateData.categoryName = categoryName || name;
+      }
+      
+      const categoryToUpdate = await prisma.category.update({
+        data: {
+          ...updateData,
+          updatedAt: new Date()
+        },
+        where: {
+          id: Number(id),
+          typeId: ECategoryType.HELP
         }
-        
-        const categoryToUpdate = await prisma.category.update({
-          data: {
-            ...req.body,
-            updatedAt: new Date()
-          },
-          where: {
-            id: Number(id),
-            typeId: ECategoryType.HELP
-           }
-          });
+      });
           
           res.status(200).json(categoryToUpdate);
         } catch (error) {

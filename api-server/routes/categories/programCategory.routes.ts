@@ -7,7 +7,7 @@ import {
   deleteProgramCategory
 } from '@/controllers/index.controller';
 
-import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
+import { categorySchema } from '@/validators/category.validator';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -106,7 +106,7 @@ router.get('/', fetchAllProgramCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), fetchProgramCategoryById);
+router.get('/:id',  fetchProgramCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), fetchProgramCatego
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), updateProgramCategory);
+router.put('/:id', updateProgramCategory);
 
 /**
  * @swagger
@@ -157,7 +157,7 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), updateProgramCateg
  *     summary: Supprimer une catégorie de programme
  *     tags: [Program Categories]
  *     parameters:
- *       - in: path
+ *       - in: path 
  *         name: id
  *         required: true
  *         schema:
@@ -169,6 +169,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), updateProgramCateg
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteProgramCategory);
+router.delete('/:id', deleteProgramCategory);
 
 export default router;

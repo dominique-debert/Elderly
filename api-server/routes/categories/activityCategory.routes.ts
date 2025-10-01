@@ -7,7 +7,7 @@ import {
   deleteActivityCategory
 } from '@/controllers/index.controller';
 
-import { activityCategorySchema } from '../../validators/activityCategory.validator';
+import { categorySchema } from '@/validators/category.validator';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -35,7 +35,7 @@ const router = Router();
  *               - categoryName
  *               - typeId
  *             properties:
- *               name:
+ *               categoryName:
  *                 type: string
  *               description:
  *                 type: string
@@ -44,7 +44,7 @@ const router = Router();
  *               chapterId:
  *                 type: integer
  *             example:
- *               name: "Sport"
+ *               categoryName: "Sport"
  *               description: "Tout ce qui touche au sport"
  *               typeId: 1
  *               chapterId: 1
@@ -58,7 +58,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(activityCategorySchema), createActivityCategory);
+router.post('/', validate(categorySchema), createActivityCategory);
 
 /**
  * @swagger

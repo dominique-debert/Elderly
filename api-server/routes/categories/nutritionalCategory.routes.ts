@@ -7,7 +7,7 @@ import {
   deleteNutritionalCategory
 } from '@/controllers/index.controller';
 
-import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
+import { categorySchema } from '@/validators/category.validator';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -106,7 +106,7 @@ router.get('/', fetchAllNutritionalCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), fetchNutritionalCategoryById);
+router.get('/:id', fetchNutritionalCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), fetchNutritionalCa
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), updateNutritionalCategory);
+router.put('/:id', updateNutritionalCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), updateNutritionalC
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteNutritionalCategory);
+router.delete('/:id', deleteNutritionalCategory);
 
 export default router;

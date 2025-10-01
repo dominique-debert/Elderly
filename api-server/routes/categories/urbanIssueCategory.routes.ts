@@ -7,7 +7,7 @@ import {
   deleteUrbanIssueCategory
 } from '@/controllers/index.controller';
 
-import { categorySchema, idParamCategorySchema } from '../../validators/category.validator';
+import { categorySchema } from '@/validators/category.validator';
 import { validate } from '@/middlewares/validate';
 
 const router = Router();
@@ -106,7 +106,7 @@ router.get('/', fetchAllUrbanIssueCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamCategorySchema, 'params'), fetchUrbanIssueCategoryById);
+router.get('/:id', fetchUrbanIssueCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', validate(idParamCategorySchema, 'params'), fetchUrbanIssueCat
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamCategorySchema, 'params'), updateUrbanIssueCategory);
+router.put('/:id', updateUrbanIssueCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', validate(idParamCategorySchema, 'params'), updateUrbanIssueCa
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamCategorySchema, 'params'), deleteUrbanIssueCategory);
+router.delete('/:id', deleteUrbanIssueCategory);
 
 export default router;
