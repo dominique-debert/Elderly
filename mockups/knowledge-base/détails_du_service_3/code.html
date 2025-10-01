@@ -1,0 +1,461 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7eff3] px-10 py-3">
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#0d171b]">
+              <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="text-[#0d171b] text-lg font-bold leading-tight tracking-[-0.015em]">Neighborly</h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a class="text-[#0d171b] text-sm font-medium leading-normal" href="#">Home</a>
+              <a class="text-[#0d171b] text-sm font-medium leading-normal" href="#">Services</a>
+              <a class="text-[#0d171b] text-sm font-medium leading-normal" href="#">Directory</a>
+              <a class="text-[#0d171b] text-sm font-medium leading-normal" href="#">Events</a>
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-[#4c809a] flex border-none bg-[#e7eff3] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border-none bg-[#e7eff3] focus:border-none h-full placeholder:text-[#4c809a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e7eff3] text-[#0d171b] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-[#0d171b]" data-icon="Bell" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCspcN48SB7PpixLKKkxvB64vI1-JAiiVjrimxGNjeA2n6CWj4ECE_JmiJUcZy6bM1QwBZ0uchghdn1_Yzv9J0eKlSSCJkmocbGgYplfwlCGahBirCxHS23ifAxbqREyT25kgb4-OoL7HecYgkbH_uM2Cux2OEWKDP3LbjXt9s-MPp8DZYFmwck7VzM4vVvxtsEiAblnxtMKEqS923uTnt0vUMPb_ftxz-ql4fO_C314WcJWABlh1tbxwfB6J6MzlRXmY4lheDDycQC");'
+            ></div>
+          </div>
+        </header>
+        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[920px] flex-1">
+            <div class="flex flex-wrap gap-2 p-4">
+              <a class="text-[#4c809a] text-base font-medium leading-normal" href="#">Directory</a>
+              <span class="text-[#4c809a] text-base font-medium leading-normal">/</span>
+              <span class="text-[#0d171b] text-base font-medium leading-normal">Service Details</span>
+            </div>
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#0d171b] tracking-light text-[32px] font-bold leading-tight">Senior Care Services</p>
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Providing compassionate care and support for seniors in our community.</p>
+              </div>
+              <div class="flex items-center gap-4">
+                <button class="flex items-center gap-2 text-[#4c809a] hover:text-[#0d171b]">
+                  <div data-icon="ShareNetwork" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M240,160a16,16,0,0,1-16,16H103.43l11.3,11.31a8,8,0,0,1,1.17,8.64l-24,48a8,8,0,0,1-7.6,5.05H64a8,8,0,0,1,0-16h33.42l15.7-31.4a8,8,0,0,1,1.58-3.43l24-48A16,16,0,0,1,128,160Zm-104,48a24,24,0,1,0,24,24A24,24,0,0,0,136,208ZM224,112a24,24,0,1,0,24,24A24,24,0,0,0,224,112Zm-80-128-48,48a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V40A16,16,0,0,1,40,24H128a16,16,0,0,1,16,16V128A16,16,0,0,1,144,144H91.43l11.31,11.31a8,8,0,0,1,1.17,8.64l-24,48a8,8,0,0,1-7.6,5.05H64a8,8,0,0,1,0-16h33.42l15.7-31.4a8,8,0,0,1,1.58-3.43l24-48A16,16,0,0,1,128,128ZM32,160a24,24,0,1,0,24,24A24,24,0,0,0,32,160Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm font-semibold leading-normal">Share</span>
+                </button>
+              </div>
+            </div>
+            <h2 class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Contact Information</h2>
+            <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Phone</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">(555) 123-4567</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Email</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">care@seniorservices.com</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Address</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">123 Oak Street, Anytown, USA</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Website</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">seniorservices.com</p>
+              </div>
+            </div>
+            <h2 class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Hours</h2>
+            <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Monday</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">9 AM - 5 PM</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Tuesday</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">9 AM - 5 PM</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Wednesday</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">9 AM - 5 PM</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Thursday</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">9 AM - 5 PM</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Friday</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">9 AM - 5 PM</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Saturday</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">Closed</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cfdfe7] py-5">
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Sunday</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">Closed</p>
+              </div>
+            </div>
+            <h2 class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Reviews</h2>
+            <div class="flex flex-wrap gap-x-8 gap-y-6 p-4">
+              <div class="flex flex-col gap-2">
+                <p class="text-[#0d171b] text-4xl font-black leading-tight tracking-[-0.033em]">4.5</p>
+                <div class="flex gap-0.5">
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="18px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="18px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="18px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="18px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="18px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-[#0d171b] text-base font-normal leading-normal">120 reviews</p>
+              </div>
+              <div class="grid min-w-[200px] max-w-[400px] flex-1 grid-cols-[20px_1fr_40px] items-center gap-y-3">
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">5</p>
+                <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#cfdfe7]"><div class="rounded-full bg-[#1193d4]" style="width: 40%;"></div></div>
+                <p class="text-[#4c809a] text-sm font-normal leading-normal text-right">40%</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">4</p>
+                <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#cfdfe7]"><div class="rounded-full bg-[#1193d4]" style="width: 30%;"></div></div>
+                <p class="text-[#4c809a] text-sm font-normal leading-normal text-right">30%</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">3</p>
+                <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#cfdfe7]"><div class="rounded-full bg-[#1193d4]" style="width: 15%;"></div></div>
+                <p class="text-[#4c809a] text-sm font-normal leading-normal text-right">15%</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">2</p>
+                <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#cfdfe7]"><div class="rounded-full bg-[#1193d4]" style="width: 10%;"></div></div>
+                <p class="text-[#4c809a] text-sm font-normal leading-normal text-right">10%</p>
+                <p class="text-[#0d171b] text-sm font-normal leading-normal">1</p>
+                <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#cfdfe7]"><div class="rounded-full bg-[#1193d4]" style="width: 5%;"></div></div>
+                <p class="text-[#4c809a] text-sm font-normal leading-normal text-right">5%</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-8 overflow-x-hidden bg-slate-50 p-4">
+              <div class="flex flex-col gap-3 bg-slate-50">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1h6fAcPewhr2iziQPcIAzeOI_UqpttnOGUjtytWeZiqlsZ6BjqbGlRgnZ3bpvLmSMGUUoIkFYooXNqaNOPRGhpydJ1blfc-rPPpBOyf1aJMm9FhFBAQFVfUSQ93qAMN9sx6bIJHm5MWpPKeyD6naVHNdouvoqA-eAPjpHNY3WH6gAAiByuHrv91IJHSCea8l_o194ymfLddAKmD1_8V-_9lXqbEZqrDXaqq7b_25jg9cLfYaw_Vd9_qBfVrKHr4v10Lrwi8-v0JIR");'
+                  ></div>
+                  <div class="flex-1">
+                    <p class="text-[#0d171b] text-base font-medium leading-normal">Sophia Bennett</p>
+                    <p class="text-[#4c809a] text-sm font-normal leading-normal">2 weeks ago</p>
+                  </div>
+                </div>
+                <div class="flex gap-0.5">
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-[#0d171b] text-base font-normal leading-normal">
+                  The care provided by Senior Care Services is exceptional. The staff is kind, attentive, and truly cares about the well-being of their clients. I highly recommend
+                  their services.
+                </p>
+                <div class="flex gap-9 text-[#4c809a]">
+                  <button class="flex items-center gap-2">
+                    <div class="text-inherit" data-icon="ThumbsUp" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                          d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <p class="text-inherit">15</p>
+                  </button>
+                  <button class="flex items-center gap-2">
+                    <div class="text-inherit" data-icon="ThumbsDown" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                          d="M239.82,157l-12-96A24,24,0,0,0,204,40H32A16,16,0,0,0,16,56v88a16,16,0,0,0,16,16H75.06l37.78,75.58A8,8,0,0,0,120,240a40,40,0,0,0,40-40V184h56a24,24,0,0,0,23.82-27ZM72,144H32V56H72Zm150,21.29a7.88,7.88,0,0,1-6,2.71H152a8,8,0,0,0-8,8v24a24,24,0,0,1-19.29,23.54L88,150.11V56H204a8,8,0,0,1,7.94,7l12,96A7.87,7.87,0,0,1,222,165.29Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <p class="text-inherit">2</p>
+                  </button>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 bg-slate-50">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5ZQ_JDIkfNYJjAqeY8f9R8zxqHqATLYbSscnGGXJlCzzgPF-5lPr_LBTscya-4jYnpCQ18dIjNOprLAHym-OSMHqK8YSMTYyvuXyulM62J2r2m6ly8wNpk_TghRI6aZxrBDAJxB7LGbc4r5fERQmCcAtwTp5rCjBixKAX0ZEzTfH0RbuIFLTvdvMwzsGWMFyf0PNpnEyWEAxuCaPpCryzTF6A30Kq9yAPSSU5bLEcQJg_TpP1Ic0XToNo8_nSCVRYRH8oNrK1GCWJ");'
+                  ></div>
+                  <div class="flex-1">
+                    <p class="text-[#0d171b] text-base font-medium leading-normal">Liam Carter</p>
+                    <p class="text-[#4c809a] text-sm font-normal leading-normal">1 month ago</p>
+                  </div>
+                </div>
+                <div class="flex gap-0.5">
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#adc9d7]" data-icon="Star" data-size="20px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-[#0d171b] text-base font-normal leading-normal">
+                  I've been using Senior Care Services for my mother, and they've been a great help. The caregivers are reliable and professional, and my mother enjoys their
+                  company.
+                </p>
+                <div class="flex gap-9 text-[#4c809a]">
+                  <button class="flex items-center gap-2">
+                    <div class="text-inherit" data-icon="ThumbsUp" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                          d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <p class="text-inherit">8</p>
+                  </button>
+                  <button class="flex items-center gap-2">
+                    <div class="text-inherit" data-icon="ThumbsDown" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                          d="M239.82,157l-12-96A24,24,0,0,0,204,40H32A16,16,0,0,0,16,56v88a16,16,0,0,0,16,16H75.06l37.78,75.58A8,8,0,0,0,120,240a40,40,0,0,0,40-40V184h56a24,24,0,0,0,23.82-27ZM72,144H32V56H72Zm150,21.29a7.88,7.88,0,0,1-6,2.71H152a8,8,0,0,0-8,8v24a24,24,0,0,1-19.29,23.54L88,150.11V56H204a8,8,0,0,1,7.94,7l12,96A7.87,7.87,0,0,1,222,165.29Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <p class="text-inherit">1</p>
+                  </button>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 bg-slate-50">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnfkH1WBjTbbfEJVdrHiQw4F8PXO8t69GmttdRLlcRfJ6tom0aOXWiMYk-SuP5U2uBUBbaUkP-DQTYvTSM8DqwyNwUMyN_NLcEOehTnMBE39OR-wtMWkfhAsHWdr23AIwoONVqnauUyPK3pcrEFjaK7xrRCrjDYsI55ndBkoVGC56KKEyRh5lBzmOBhEo-saC1IMhdw8yCFxktaCmANFe1CFalNGIJAOvA6u50YLTbVRN-DTgDD8kJOQ5vFleRUMy1ENIVINYTup24");'
+                  ></div>
+                  <div class="flex-1">
+                    <p class="text-[#0d171b] text-base font-medium leading-normal">Olivia Davis</p>
+                    <p class="text-[#4c809a] text-sm font-normal leading-normal">2 months ago</p>
+                  </div>
+                </div>
+                <div class="flex gap-0.5">
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-[#1193d4]" data-icon="Star" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-[#0d171b] text-base font-normal leading-normal">
+                  Senior Care Services has been a lifesaver for our family. The team is responsive, and the care they provide is top-notch. We're grateful for their support.
+                </p>
+                <div class="flex gap-9 text-[#4c809a]">
+                  <button class="flex items-center gap-2">
+                    <div class="text-inherit" data-icon="ThumbsUp" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                          d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <p class="text-inherit">12</p>
+                  </button>
+                  <button class="flex items-center gap-2">
+                    <div class="text-inherit" data-icon="ThumbsDown" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                          d="M239.82,157l-12-96A24,24,0,0,0,204,40H32A16,16,0,0,0,16,56v88a16,16,0,0,0,16,16H75.06l37.78,75.58A8,8,0,0,0,120,240a40,40,0,0,0,40-40V184h56a24,24,0,0,0,23.82-27ZM72,144H32V56H72Zm150,21.29a7.88,7.88,0,0,1-6,2.71H152a8,8,0,0,0-8,8v24a24,24,0,0,1-19.29,23.54L88,150.11V56H204a8,8,0,0,1,7.94,7l12,96A7.87,7.87,0,0,1,222,165.29Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <p class="text-inherit">3</p>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="layout-content-container flex flex-col w-[360px]">
+            <div class="flex px-4 py-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg object-cover"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqOaLVkDT7Ss7gIXoVtsMHRC9aEgqYknu6PO-bJ_qPa7W1VRFe-qnYVzWhg5qeTXaFCVPZnisIHwPKj3I9Rbd8VH_aRIhXzqLBKjktIbCgBNasUSx90aaNfh4_yIwSVQLqZbcn-CZorv0ClBmY2b_0Vn5ra7SrZwGSPpLttW6SL_59W5LjOrI6qPWj2geoWDXRqkklpcP_9MH9q8Ip3f-QNSd1y2elMpJCC5PasgjZODoEsYt7TASJboh1ukpnU971Rw9lZIE6L5LZ");'
+              ></div>
+            </div>
+            <div class="flex px-4 py-3">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#1193d4] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Book Appointment</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,258 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7eff3] px-10 py-3 bg-white shadow-sm">
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#0d171b]">
+              <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="text-[#0d171b] text-lg font-bold leading-tight tracking-[-0.015em]">Neighborly</h2>
+            </div>
+          </div>
+          <div class="flex flex-1 justify-center gap-8">
+            <label class="flex flex-col min-w-72 !h-10 max-w-96">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-gray-100">
+                <div
+                  class="text-gray-500 flex border-none bg-transparent items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search articles, guides, and more..."
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border-none bg-transparent focus:border-none h-full placeholder:text-gray-500 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+          </div>
+          <div class="flex items-center gap-8">
+            <div class="relative group">
+              <button
+                class="flex items-center gap-1 text-sm font-medium leading-normal text-[#0d171b] focus:outline-none"
+              >
+                Quick Links
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 15L7 10L5.60001 11.4L12 17.8L18.4 11.4L17 10L12 15Z" fill="currentColor" />
+                </svg>
+              </button>
+              <div
+                class="absolute right-0 top-full z-10 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabindex="-1"
+              >
+                <div class="py-1" role="none">
+                  <a
+                    href="#"
+                    class="text-[#0d171b] block px-4 py-2 text-sm font-medium hover:bg-gray-100"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-0"
+                    >Articles</a
+                  >
+                  <a
+                    href="#"
+                    class="text-[#0d171b] block px-4 py-2 text-sm font-medium hover:bg-gray-100"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-1"
+                    >Guides</a
+                  >
+                  <a
+                    href="#"
+                    class="text-[#0d171b] block px-4 py-2 text-sm font-medium hover:bg-gray-100"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-2"
+                    >Tutorials</a
+                  >
+                  <a
+                    href="#"
+                    class="text-[#0d171b] block px-4 py-2 text-sm font-medium hover:bg-gray-100"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-3"
+                    >Community</a
+                  >
+                </div>
+              </div>
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-gray-100 text-[#0d171b] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-[#0d171b]" data-icon="Bell" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCM9PHC7vMZOFrt9VB35pG8275fpS-ye5EK3_O9CtuMw1jhduS94f_EzHJRmiKZq7a7kyJQYJ3NmttnZkHBSJXdDEdJbEZf26wM45qgdTarsLw0rpcYiGDpfhMJpzKBY9Ph8mdqDgVikHNAvjRzCRJJAUY_iQ84cf2ipdmR2wTLz-ZbppNlg4Oy46XkQujDWEaCXSpqfnukFhrvAnGQqHx57W-Bw0VDOf-rDf5NtWG90EbUzhuMkZvsQPjZc4j0Upt4sgo8_80zFOr");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#0d171b] tracking-light text-[32px] font-bold leading-tight">Welcome to Neighborly</p>
+                <p class="text-[#4c809a] text-sm font-normal leading-normal">Your trusted resource for information and support tailored for seniors.</p>
+              </div>
+            </div>
+            <div class="px-4 py-3">
+              <label class="flex flex-col min-w-40 h-12 w-full">
+                <div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-gray-100">
+                  <div
+                    class="text-gray-500 flex border-none bg-transparent items-center justify-center pl-4 rounded-l-lg border-r-0"
+                    data-icon="MagnifyingGlass"
+                    data-size="24px"
+                    data-weight="regular"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    placeholder="Search for articles, guides, or tutorials"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border-none bg-transparent focus:border-none h-full placeholder:text-gray-500 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                    value=""
+                  />
+                </div>
+              </label>
+            </div>
+            <h2 class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Popular Topics</h2>
+            <div class="flex gap-3 p-3 flex-wrap pr-4">
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7eff3] pl-4 pr-4">
+                <p class="text-[#0d171b] text-sm font-medium leading-normal">Health &amp; Wellness</p>
+              </div>
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7eff3] pl-4 pr-4">
+                <p class="text-[#0d171b] text-sm font-medium leading-normal">Legal Rights</p>
+              </div>
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7eff3] pl-4 pr-4">
+                <p class="text-[#0d171b] text-sm font-medium leading-normal">Retirement Planning</p>
+              </div>
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7eff3] pl-4 pr-4">
+                <p class="text-[#0d171b] text-sm font-medium leading-normal">Technology Assistance</p>
+              </div>
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7eff3] pl-4 pr-4">
+                <p class="text-[#0d171b] text-sm font-medium leading-normal">Financial Management</p>
+              </div>
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7eff3] pl-4 pr-4">
+                <p class="text-[#0d171b] text-sm font-medium leading-normal">Social Activities</p>
+              </div>
+            </div>
+            <h2 class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Featured Articles</h2>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#0d171b] text-base font-bold leading-tight">Understanding Your Rights as a Senior Citizen</p>
+                  <p class="text-[#4c809a] text-sm font-normal leading-normal">Learn about your legal protections and how to advocate for yourself.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAG6cD8xL7GQDe1n2oNInDoOGATS3-mN2MKrZuJ37lGQpI_nnCx2OdBR2ik43VYcF3kSsI7Q-YGlLcrxoI8qI5Q7929yIJkzzmih4HLhINZyQZdr4btUbGKIpsKqRtUUSQrBl4zBDzlFDhGEDNvdBp5bloMljUbtaMfpH11dgm6vtuarBtfaix9Mbal2MS6-kMOVriCwrZRPeos-fbtzGzksGCRpfF1Af4dnwY2I3v6wWg45-dShzOq64Y8l42o8ybhn0xQeGR1SJ_3");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#0d171b] text-base font-bold leading-tight">Staying Active and Healthy in Your Golden Years</p>
+                  <p class="text-[#4c809a] text-sm font-normal leading-normal">Tips and exercises to maintain physical and mental well-being.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBRzhhLdF7V3FubAi_pRrbAKY-x2np8JEz3jpz-yFRRbm56Uq8WIqxQdN7omnZosZnSGlk-KPVNRYlbMRFSci62PI6jXYEhaIaJSuZgcaSoQ1mGMT14XUpZB8K6EYoFdpypGLV0qcTSCNigvTm-deUL5IFtnxOQ6fiFDFBewAYnLFqxNJbi8iLWGwgxjVv0jiQ2ifyxNKs5CZAJkYuHdRDGzGtMGBdOzNAHky8JaJ9OOIfebu1y5ewVF2u5DIJyTCy3WktitWLG7GlW");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#0d171b] text-base font-bold leading-tight">Navigating Retirement Finances: A Comprehensive Guide</p>
+                  <p class="text-[#4c809a] text-sm font-normal leading-normal">Plan your retirement effectively with our expert financial advice.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCs6Pn2VDbCWp24iWAqfSPUrNvP5xtRqIxgDC6ylRoEcthm0MtApLdRIRifGPUe5lF490RqXF5Ffkc0u8K-UoRNsMtdn1-ad3AGcXo5svmPgGdeWVqRPDexOUt9FQfBPftDHeXl2HI1vt5TOljT4OegcuiND54ShabLIhYptwSZBNatLndJjhKLVVaP0MfYa4v_F4B9VJD2rMjUFbmep4kcwK6YZeSYCOFwLniOBNKUyS0-geGq_7MXBWoS-npaZ6GOYgUEywbUa28g");'
+                ></div>
+              </div>
+            </div>
+            <h2 class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Guides &amp; Tutorials</h2>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#0d171b] text-base font-bold leading-tight">Mastering Your Smartphone: A Step-by-Step Tutorial</p>
+                  <p class="text-[#4c809a] text-sm font-normal leading-normal">Learn to use your smartphone for communication, entertainment, and more.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBzHiP8i1jGS50qkshEr8OfiE27bpI29sm86NgKoekVAMnPu9FCQhJ3QtC6QYMQBFOWxROye7vKvRpKYUPzmQwAdAD_vbSIUxMnIIrTyb6iC5E8K-PQnOdHU3lxrhl9L5dnvwQzcg-9yoryZZCXOyaA8mDoXpS2vtZBAR4oWHcnS9y-jjQPCe512gi6gIuNdzolQq5k4qhJqlCgnTZlIB5UnTCTfvktCw5MXh4t0IDiADwQ8PihyIrggqljjeKt9ybpUXvq_GtZqph");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#0d171b] text-base font-bold leading-tight">Protecting Yourself from Scams and Fraud</p>
+                  <p class="text-[#4c809a] text-sm font-normal leading-normal">Stay safe online and offline with our guide to avoiding scams.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUAOHk6CnJg-FsOuOW6xfw1nYi0pIf2TQ89_pgQ-_CDbXiFWpShOMaTKVKxepST_fABLDiLB2Pb1oi92V6UmaWoUyoXeMWu1dDv_UfdOS1Y2Q1T1SFk_Qm4a7kxqQwkzwIl9x2GQY_5e7GnHdQgj2mHPMDfyW6fuIdkklwAUjsEhfedfa6mOTe4y32_VccUtr6B00deD5VuuijtuJR6wIN61cDsgE6Ibk9A_BuDPzyN-TWH148_sTxHo1-aThP_x-4nEIYHnrdjMMj");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#0d171b] text-base font-bold leading-tight">Connecting with Your Community: Social Activities and Groups</p>
+                  <p class="text-[#4c809a] text-sm font-normal leading-normal">Find local groups and activities to stay socially engaged.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQFoZAFSK5gEwuKGwEbl46oczrSy2zZYRDzNPcOzmjmu5nCBbKhu9Wcq1O6xVm0cMC9DoP64Hm4hLKqDqrHN7mylTUS0tPWq4rWxuvBGwxy5B2emBNzLWZyzxFdyxWODl8crCrp_VT2eJqGpZFgAnBND42eBRBuosYfursEzV7112XcSdSajyhXFpFb40AbX1FozqcQWBEkjL3k4dFaSbCH5EE4Lu9EpvqK9WV7fCuziOGmRK3x2dmMs507Vi1TAJk6--ltObkaquQ");'
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

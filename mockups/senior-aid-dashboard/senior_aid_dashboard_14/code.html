@@ -1,0 +1,192 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body class="dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-gray-900 group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-700 px-10 py-3 bg-gray-800">
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-white">
+              <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">SeniorAid</h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal" href="#">Home</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#">Requests</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#">Community</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#">Profile</a>
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-gray-700">
+                <div
+                  class="text-gray-300 flex border-none bg-gray-700 items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-gray-700 focus:border-none h-full placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-gray-700 text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-white" data-icon="Bell" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVfv_I5Y_25FiRLY0AG7yyDYzc4daE3gx4bgK5iNYDh8FIfGReh4r_SlNSDHCLKlAvV0TKQxw6cgcMHoIfvn7cqcvI2n3qAyC4B9IwuRsc3ZtOY2l9H4bYOfdpAMfWs1pgOqCa3zCqQmWEmdPtR78ybwbpzCbjbEP2xzT_qWfVnBpcD53Eqtx2pNohm8JJUx7a8LvdQ2ki6kfqAzAHdyvroAUwYXQvg29v6yZjlsbTHm59lZQk9oEoZco892afVzZxaWNg2QZaLJl7");'
+            ></div>
+          </div>
+        </header>
+        <div class="gap-1 px-6 flex flex-1 justify-center py-5 bg-gray-900">
+          <div class="layout-content-container flex flex-col w-80">
+            <div class="flex p-4 @container bg-gray-800 rounded-lg">
+              <div class="flex w-full flex-col gap-4 items-center">
+                <div class="flex gap-4 flex-col items-center">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBJhLdoWOEZZOH7Q-bohYgUN7aJ35GpnvXknPQL2KAc7j6I8hr2nDs8qrs0jSoiNup7VCBVJE9WNsNSontSTX1nS_IGv-vsjNZablS2QsPHAzyj_jXQ-494Vsr7TJqqw2p11_mJ0RPTn_a_lmQTg_StzGdl9JNlmF1NR0HRTqx-_ip3y52snQ8uMtOXLG54NhFwaM-1E0QYlgc5DrqIn9VD0dmpRjJ21S4p9ugYNkoOJAGfboseSoxhZZaICwWxCRDfib02LMP8Wfw");'
+                  ></div>
+                  <div class="flex flex-col items-center justify-center justify-center">
+                    <p class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Margaret</p>
+                    <p class="text-gray-400 text-base font-normal leading-normal text-center">Member since 2021</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-3 px-4 py-3">
+              <div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-2 rounded-lg border border-gray-700 p-3 items-center text-center bg-gray-800">
+                <p class="text-white tracking-light text-2xl font-bold leading-tight">12</p>
+                <div class="flex items-center gap-2"><p class="text-gray-400 text-sm font-normal leading-normal">Requests Posted</p></div>
+              </div>
+              <div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-2 rounded-lg border border-gray-700 p-3 items-center text-center bg-gray-800">
+                <p class="text-white tracking-light text-2xl font-bold leading-tight">5</p>
+                <div class="flex items-center gap-2"><p class="text-gray-400 text-sm font-normal leading-normal">Requests Fulfilled</p></div>
+              </div>
+              <div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-2 rounded-lg border border-gray-700 p-3 items-center text-center bg-gray-800">
+                <p class="text-white tracking-light text-2xl font-bold leading-tight">8</p>
+                <div class="flex items-center gap-2"><p class="text-gray-400 text-sm font-normal leading-normal">Community Contributions</p></div>
+              </div>
+            </div>
+            <div class="flex px-4 py-3">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-blue-500 text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Post a Request</span>
+              </button>
+            </div>
+          </div>
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">Dashboard</p></div>
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Weather</h2>
+            <div class="p-4 @container bg-gray-800 rounded-lg">
+              <div class="flex flex-col items-stretch justify-start rounded-lg @xl:flex-row @xl:items-start">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwCgO5Y0OfU3XlIooE21Z6uCPER9vMkOFy238GTOAsMgRlq-tc6O7ybaXdJtYR3j6eYZW-e17qltgWIfKi8qF8oq79-hJ7Dwb1_YJiszS3yV-sh_XAECc7sozAqoXaLqQG82YE-0SQ6kd8sIexHZ8HV6mqDySqlXoAhY8klt4_KjNizm6DVOMMNzeye0dU7sFufZklsAEBBL6BIwIQ321kPwn7Ib7fnw0EageynepREFzidzFGAprasYAJjgWvaFBPaP7XIHO9azKr");'
+                ></div>
+                <div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 @xl:px-4">
+                  <p class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Sunny, 22°C</p>
+                  <div class="flex items-end gap-3 justify-between">
+                    <p class="text-gray-400 text-base font-normal leading-normal">Today: Sunny with a high of 25°C. Tomorrow: Partly cloudy with a high of 23°C.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Your Activity</h2>
+            <div class="p-4 bg-gray-800 rounded-lg">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-gray-400 text-sm font-normal leading-normal">Posted Request</p>
+                  <p class="text-white text-base font-bold leading-tight">Help with Grocery Shopping</p>
+                  <p class="text-gray-400 text-sm font-normal leading-normal">Posted 2 days ago</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDD2K1xgg9qn0rOVVKYlVxCp0uiDk7UhhvkDr2KcXxrwEZPuFZO63ETEVA1W9HYcQt1e4sJkOLmjHTn1mTihBtrtauSzsf7ODletZ0FUWTPhqLworjH8APlYbKZEaEyPw4-dwne6N9LsutJoivurBHCyol5w6XUf4THMIyjpS2QjdCCJrjMtzM98Mg2TZT7mfewWxb8YcgEs3iN3m9qLLQssb5YNrAxogNyi2s7Kslzs7g_1A9VGIa47hOrEBPZyCiSDI1x9QRtrK0a");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4 bg-gray-800 rounded-lg">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-gray-400 text-sm font-normal leading-normal">Fulfilled Request</p>
+                  <p class="text-white text-base font-bold leading-tight">Assistance with Gardening</p>
+                  <p class="text-gray-400 text-sm font-normal leading-normal">Completed 1 week ago</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD04cVNaK8o4dhE2BwDWgFCxJswsSla2hCiqZhj5gE79b8x8sh4MhCUWJHNTcVrkIXnE89BwV-Ali0XHRiF_JlkYVaKm11PoASvR_HPRw2Pv8pXGd9o4Ayy2arNf1JKWnV-gGvhM8Rx5sGoXQvguyNZPjthy3U_wntQFe01eJN3ii9R2djpMTBXOMsLV9l_U3YB4XKLF05eYy44kUBK3bu3p_EL7vH7JNSCGBuqjCOLoC3QjhKA7P030nP4XVyA8H3C-KYDh-9WAwI_");'
+                ></div>
+              </div>
+            </div>
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Community Feed</h2>
+            <div class="p-4 bg-gray-800 rounded-lg">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-white text-base font-bold leading-tight">Need help with tech support</p>
+                  <p class="text-gray-400 text-sm font-normal leading-normal">Posted by Eleanor, 1 day ago</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeRoWU_AiL9eQUV5-lmCnAPjp7Npe182iAf1pfrMef8h1j7tWa7Twi6qpqAGijgbnsWKujDmq7-MRmYPyn9jyxJb_tJs9tTzwS5XJuX0afZw07v1IKblwJoGozs3DKfFY2_CadS9XirpemH2ERoXZZAD5t9p6cL3SflVKTg_4MTNWrx8-3SGgPQ8jPTllX6NOTC14QsQXcexBW0jGLg2HLetcuISiiJU_2CKukRken_tMwgAHpXfXB9YjbE7x0FHOt3ARtBO4T_yf0");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4 bg-gray-800 rounded-lg">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-white text-base font-bold leading-tight">Looking for a companion for a walk</p>
+                  <p class="text-gray-400 text-sm font-normal leading-normal">Posted by Robert, 3 days ago</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCTyIMajeGHO40hqSGnM1JWi5-fg4LMgyI13VeYPgHmyazt19xpJDjB9LnGEFxT-dqF-XPfzb3q2dUYJApz4n4xmrbDMGJuXFavOMhFGSYJ47-ZEk-emCgZO6DfKy8RrDmFP23e67fM4iDAtcrkUzIA4vtm69L1ZMTnUVlFAxpyNZ7_RrXq3aIfhsRFJ9iZLvBQZXP45tsP2uBx1ltBrog32InYGcinfl1AzkLPmB5u-iYQ44BbAvGayubhhcf6S5pwuZ4J69UD_a6C");'
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

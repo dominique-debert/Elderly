@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f4f0] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111811]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em]">Neighborly</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111811] text-sm font-medium leading-normal" href="#">Home</a>
+              <a class="text-[#111811] text-sm font-medium leading-normal" href="#">Community</a>
+              <a class="text-[#111811] text-sm font-medium leading-normal" href="#">Resources</a>
+              <a class="text-[#111811] text-sm font-medium leading-normal" href="#">Support</a>
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f4f0] text-[#111811] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-[#111811]" data-icon="Bell" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9R8476B3hX-EZLKV_XJfCPXsAlF_1wKCP2N8WUUQPvSlChkjM2k0zb8pSrp6qAQUhbqPeAZgbrYN8wYFCq5wSnO__nDd_37gZIzhElOGVOh3QpfAbiRhBISjYIvVGvPTWjBWGdJvp7OLbrP-pCHzWp7mOYPCTBU7ejmyFxRAcI6myeeKjyLn3xUvqpWAqQpybkrFNvzwwnbAzLGk-n1pJFLbWC2E-BkRn1CF7oXf_PasPjcre1X2gVtj9Bcg4kFapCULL-AnFVEc");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#111811] tracking-light text-[32px] font-bold leading-tight">Community Stories</p>
+                <p class="text-[#618961] text-sm font-normal leading-normal">Read inspiring stories from our members and share your own experience.</p>
+              </div>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f4f0] text-[#111811] text-sm font-medium leading-normal"
+              >
+                <span class="truncate">Submit Your Story</span>
+              </button>
+            </div>
+            <div class="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+              <div class="flex items-stretch p-4 gap-3">
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCFzYXvKXeVrrRgykYR1zVGAd09jaWF4D5riQ_pu68L3H6xEHliIaHy_QJr7vEDilxd3zGjb_C-k2-artjAmwpnuNGwS_njt6eKVkcOS0crfoRTg2TbLq7CTw8DDRyZxYR_xrmCdyAlp3NamDGtbcAOU3l31kQXuSbHfi5UOBeT2MJbhDPL5ylwtKifHw9QvdpsbP6ge0rF0Rmc6xxHscRPuA6nf7Brn9MFx1WtnWQlxqagzC1ZYv8crvJqeIYynRw0dcONl3WNlA8");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111811] text-base font-medium leading-normal">Finding Connection in My Golden Years</p>
+                    <p class="text-[#618961] text-sm font-normal leading-normal">
+                      After retiring, I felt isolated until I joined Neighborly. Now, I have a vibrant social life and feel more connected than ever.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBkiKrWpNd000FR0ZGCjBsVSBXOZ2WcpW825IP2miPuSWRANqF3bIdxyNmp11fNJEpVzQGXrWZL3alp3gyvnK6jPSuUZX5rla5OC-qAM0z4K6nmxwRDJAzbSvGOm7bthUuTtfjWp9K32Cj-nWaZIbE6tfQUwCwPdaOPYFHDrxzn4L6OO4WDh4IQgKLCfiFredED7ufADfENwO526ZKeISgNMIG8ftiAU0CmiGPjPOrZlHJzild63Cef03MZbGCF20FYVjL3rOZj0GM");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111811] text-base font-medium leading-normal">Rediscovering My Passion for Gardening</p>
+                    <p class="text-[#618961] text-sm font-normal leading-normal">
+                      Neighborly helped me find a local gardening group, and I've never felt more alive. It's like I've rediscovered my purpose.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7cPnEhmR8HL7lCYY8kNtFq0_-tLs8d0RneTzOF9U6OaLMGO2tstlpYviFSTCzn3EedQcZ88Yj_JCJuo0R-6kXIcyvlyltK18LtaBsKnIrvGGsR7KZAG5FNGwIyXJwVRkRbID_kxI6xoyOty41FaprkN4dTehMWyz3IvF_fgrQwoIxWwTD7Og__2-KbDLWm6wjBy6iPa5_uXPfzzpYFizaNcTIDqnK4Ld2-qC72NQijgavfKrS7_Rm23uUy2mXsNBQqG9Jc5WGl4M");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111811] text-base font-medium leading-normal">Building Lasting Friendships</p>
+                    <p class="text-[#618961] text-sm font-normal leading-normal">
+                      I was hesitant to join at first, but Neighborly has been a game-changer. I've met some incredible people and formed friendships that I cherish.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

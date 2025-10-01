@@ -1,0 +1,221 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      body {
+        background-color: #1a1a2e; /* Dark background */
+        color: #e0e0e0; /* Light text */
+        font-family: 'Press Start 2P', cursive; /* Pixel art font */
+      }
+      /* Apply pixelated effect to images and backgrounds */
+      .pixelated {
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: crisp-edges;
+      }
+      /* Chunky button styles */
+      .chunky-button {
+        border: 4px solid #ff6b6b; /* Bright border */
+        background-color: #f7b733; /* Vibrant button color */
+        color: #1a1a2e; /* Dark text on buttons */
+        padding: 12px 24px;
+        border-radius: 8px;
+        box-shadow: 4px 4px 0px #1a1a2e; /* Pixelated shadow */
+        transition: all 0.1s ease-in-out;
+      }
+      .chunky-button:hover {
+        box-shadow: 2px 2px 0px #1a1a2e;
+        transform: translate(2px, 2px);
+      }
+      .chunky-button:active {
+        box-shadow: 0px 0px 0px #1a1a2e;
+        transform: translate(4px, 4px);
+      }
+      /* Pixelated checkbox styling */
+      .pixel-checkbox::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        background-color: #1a1a2e; /* Dark background for checkbox */
+        border: 2px solid #e0e0e0; /* Light border */
+      }
+      .pixel-checkbox:checked::before {
+        content: '\\2714'; /* Tick mark */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        color: #f7b733; /* Tick color */
+        background-color: #1a1a2e;
+        border: 2px solid #f7b733;
+        width: 16px;
+        height: 16px;
+        transform: translate(-50%, -50%);
+      }
+      /* Limited color palette */
+      .bg-primary { background-color: #1a1a2e; } /* Dark blue */
+      .bg-secondary { background-color: #f7b733; } /* Yellow */
+      .bg-accent { background-color: #ff6b6b; } /* Red */
+      .text-primary { color: #e0e0e0; } /* Light gray */
+      .text-secondary { color: #f7b733; } /* Yellow */
+      .text-accent { color: #ff6b6b; } /* Red */
+      .border-primary { border-color: #e0e0e0; }
+      .border-secondary { border-color: #f7b733; }
+      .border-accent { border-color: #ff6b6b; }
+    </style>
+  </head>
+  <body class="bg-primary text-primary">
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
+      style='--checkbox-tick-svg: url(&apos;data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(248,250,252)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e&apos;); font-family: "Press Start 2P", cursive;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-accent px-10 py-3 bg-primary">
+          <div class="flex items-center gap-4 text-primary">
+            <div class="size-8">
+              <svg viewBox="0 0 48 48" fill="currentColor" class="pixelated">
+                <path
+                  d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-primary text-2xl font-bold">Neighborly</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-primary text-sm font-medium" href="#">Home</a>
+              <a class="text-primary text-sm font-medium" href="#">Services</a>
+              <a class="text-primary text-sm font-medium" href="#">Articles</a>
+              <a class="text-primary text-sm font-medium" href="#">Community</a>
+            </div>
+            <div class="flex gap-2">
+              <button class="chunky-button flex items-center justify-center size-10">
+                <div class="text-primary" data-icon="Bell" data-size="20px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+              <button class="chunky-button flex items-center justify-center size-10">
+                <div class="text-primary" data-icon="Gear" data-size="20px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14,8,8,0,0,0,5.1-2.64l22.58,2.51a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+            <div
+              class="aspect-square bg-cover rounded-full size-10 pixelated"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBY7HwMR93GtfAdpkPRUWkijGCiTAC0sBBW1FXWmuBR8kh7Dh8nNgsDrW-doFXuvZlKF7WdseLDoMQP9I29sCkALu1pNsAgc-QHarKN7jKJFItgojRdIzwLAZTpM50snsTNhvRI2NLY6ePZj2dMhoXca-DG8a-SPzv_IZLYmpW6wTQDWYpn0qWOReypTgfZWhXmJC83P7X7Yq-4xTrsH-kjMIL8ucYVr_rrkMl7h64x3mIlOT0UEOdbgNogC2LBeAmWpjcJQ2lGh3Nd");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p class="text-secondary text-[32px] font-bold leading-tight min-w-72">Notification Settings</p>
+            </div>
+            <h3 class="text-primary text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Categories</h3>
+            <div class="px-4">
+              <label class="flex items-center gap-x-3 py-3 flex-row cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="hidden pixel-checkbox"
+                />
+                <p class="text-primary text-base font-normal">Health &amp; Wellness</p>
+              </label>
+              <label class="flex items-center gap-x-3 py-3 flex-row cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="hidden pixel-checkbox"
+                />
+                <p class="text-primary text-base font-normal">Social Activities</p>
+              </label>
+              <label class="flex items-center gap-x-3 py-3 flex-row cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="hidden pixel-checkbox"
+                />
+                <p class="text-primary text-base font-normal">Financial Planning</p>
+              </label>
+              <label class="flex items-center gap-x-3 py-3 flex-row cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="hidden pixel-checkbox"
+                />
+                <p class="text-primary text-base font-normal">Technology Tips</p>
+              </label>
+            </div>
+            <h3 class="text-primary text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Frequency</h3>
+            <div class="flex flex-wrap gap-3 p-4">
+              <label
+                class="text-sm font-medium leading-normal flex items-center justify-center rounded-lg border-2 border-secondary px-4 h-11 text-secondary relative cursor-pointer chunky-button"
+              >
+                Daily
+                <input type="radio" class="invisible absolute" name="frequency-radio" />
+              </label>
+              <label
+                class="text-sm font-medium leading-normal flex items-center justify-center rounded-lg border-2 border-secondary px-4 h-11 text-secondary relative cursor-pointer chunky-button"
+              >
+                Weekly
+                <input type="radio" class="invisible absolute" name="frequency-radio" />
+              </label>
+              <label
+                class="text-sm font-medium leading-normal flex items-center justify-center rounded-lg border-2 border-secondary px-4 h-11 text-secondary relative cursor-pointer chunky-button"
+              >
+                Monthly
+                <input type="radio" class="invisible absolute" name="frequency-radio" />
+              </label>
+            </div>
+            <h3 class="text-primary text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Delivery Method</h3>
+            <div class="px-4">
+              <label class="flex items-center gap-x-3 py-3 flex-row cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="hidden pixel-checkbox"
+                />
+                <p class="text-primary text-base font-normal">In-App Notifications</p>
+              </label>
+              <label class="flex items-center gap-x-3 py-3 flex-row cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="hidden pixel-checkbox"
+                />
+                <p class="text-primary text-base font-normal">Email Notifications</p>
+              </label>
+            </div>
+            <div class="flex px-4 py-3 justify-end">
+              <button
+                class="chunky-button min-w-[84px] h-10 text-sm font-bold"
+              >
+                <span class="truncate">Save Changes</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  </body>
+</html>

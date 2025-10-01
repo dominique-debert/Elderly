@@ -1,0 +1,242 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col font-sans"
+      style='--select-button-svg: url(&quot;data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(97,117,137)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e&quot;');
+    "
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between px-10 py-4 text-neutral-800"
+        >
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-3 text-neutral-900">
+              <div class="size-5">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6_535)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z"
+                      fill="currentColor"
+                    ></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_6_535"><rect width="48" height="48" fill="white"></rect></clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-neutral-900 text-xl font-extrabold leading-tight tracking-tight">Senior Support Network</h2>
+            </div>
+            <nav class="flex items-center gap-6 text-sm font-medium text-neutral-700">
+              <a href="#" class="hover:text-primary transition-colors">Browse</a>
+              <a href="#" class="hover:text-primary transition-colors">My Requests</a>
+              <a href="#" class="hover:text-primary transition-colors">My Offers</a>
+              <a href="#" class="hover:text-primary transition-colors">Messages</a>
+            </nav>
+          </div>
+          <div class="flex flex-1 items-center justify-end gap-6">
+            <label class="flex h-10 min-w-[200px] max-w-64 items-center rounded-full bg-neutral-100 px-4">
+              <div class="text-neutral-500" data-icon="MagnifyingGlass" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                </svg>
+              </div>
+              <input
+                placeholder="Search"
+                class="flex-1 border-none bg-transparent px-3 text-neutral-800 outline-none placeholder:text-neutral-500 focus:ring-0 focus:outline-none"
+                value=""
+              />
+            </label>
+            <div class="relative size-10 cursor-pointer">
+              <img
+                alt="User profile avatar"
+                class="h-full w-full rounded-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWaLLU5CfRpTjqSDsjC0jb52zcv54uV0QpPyJpnypsIeOqLvIszJJr4JRYMnRBucmJuBV07jHuQsQ8ZH0PrUUgZIagoPvSWySKSxS9JFqUnD8jUhbEq7Fq68TH7Aigu7DJORq_pQhhKOBqkadSCMPNvzFjPQDrw87x9xoYVC3VtDQRPIzgYqiae4JtVZnv7kOGqgh51rYRlRfcHrXTQRpzUmKHhCZ86j-PdLIORktN9gdQHOhLI_EeWzdKk-wzWGVFZh7LaW5ZeD4e"
+              />
+            </div>
+          </div>
+        </header>
+        <main class="flex flex-1 gap-10 px-6 py-8">
+          <aside class="w-64 shrink-0">
+            <h3 class="mb-5 px-4 text-xl font-extrabold leading-tight tracking-tight text-neutral-900">Filter Requests</h3>
+            <div class="flex flex-col gap-4">
+              <label class="flex flex-col">
+                <span class="mb-2 text-sm font-semibold text-neutral-700">Category</span>
+                <select
+                  class="h-12 rounded-lg border border-neutral-300 bg-white px-4 text-base font-normal text-neutral-800 focus:border-primary focus:outline-none focus:ring-0"
+                >
+                  <option value="">Select a category</option>
+                  <option value="groceries">Groceries</option>
+                  <option value="transport">Transport</option>
+                  <option value="diy">DIY</option>
+                  <option value="it_help">IT Help</option>
+                </select>
+              </label>
+              <label class="flex flex-col">
+                <span class="mb-2 text-sm font-semibold text-neutral-700">Location</span>
+                <select
+                  class="h-12 rounded-lg border border-neutral-300 bg-white px-4 text-base font-normal text-neutral-800 focus:border-primary focus:outline-none focus:ring-0"
+                >
+                  <option value="">Select a location</option>
+                  <option value="any">Anywhere</option>
+                  <option value="nearby">Nearby</option>
+                </select>
+              </label>
+              <label class="flex flex-col">
+                <span class="mb-2 text-sm font-semibold text-neutral-700">Urgency</span>
+                <select
+                  class="h-12 rounded-lg border border-neutral-300 bg-white px-4 text-base font-normal text-neutral-800 focus:border-primary focus:outline-none focus:ring-0"
+                >
+                  <option value="">Select urgency</option>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </label>
+            </div>
+            <button
+              class="mt-6 w-full rounded-lg bg-primary py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            >
+              Apply Filters
+            </button>
+          </aside>
+          <section class="flex-1">
+            <div class="mb-6 flex items-center justify-between">
+              <p class="text-3xl font-extrabold leading-tight tracking-tight text-neutral-900">Browse Requests</p>
+              <button
+                class="rounded-lg bg-neutral-100 px-5 py-2 text-sm font-semibold text-neutral-800 transition-colors hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-neutral-300 focus:ring-offset-2"
+              >
+                Propose Services
+              </button>
+            </div>
+            <div class="mb-6">
+              <label class="flex h-12 w-full items-center rounded-full bg-neutral-100 px-4">
+                <div class="text-neutral-500" data-icon="MagnifyingGlass" data-size="20px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search requests..."
+                  class="flex-1 border-none bg-transparent px-3 text-neutral-800 outline-none placeholder:text-neutral-500 focus:ring-0 focus:outline-none"
+                  value=""
+                />
+              </label>
+            </div>
+            <h4 class="mb-4 px-4 text-lg font-bold leading-tight tracking-tight text-neutral-900">Active Requests</h4>
+            <div class="flex flex-col gap-6">
+              <article
+                class="flex items-stretch gap-6 rounded-xl bg-white p-5 shadow-soft transition-shadow hover:shadow-md"
+              >
+                <div class="flex flex-[2] flex-col justify-between gap-4">
+                  <div>
+                    <p class="text-sm font-medium text-neutral-500">Groceries</p>
+                    <p class="mt-1 text-lg font-bold leading-tight text-neutral-900">Grocery Shopping Assistance</p>
+                    <p class="mt-2 text-sm leading-normal text-neutral-600">Need help with weekly grocery shopping. Flexible on timing.</p>
+                  </div>
+                  <button
+                    class="w-fit rounded-md bg-neutral-100 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-800 transition-colors hover:bg-neutral-200"
+                  >
+                    View Details
+                  </button>
+                </div>
+                <div class="flex-1 rounded-xl">
+                  <img
+                    alt="Image representing grocery shopping"
+                    class="h-full w-full rounded-xl object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVqU_8O_LuFtwJHjC05eXzhHU2GYtYiVqQijPav5s1jAfR4GFo-CWrbCX_vPjKbU-P3BhhL35OWkh1FuVelR1nqko7TW4QgsDySDhQGHqqsO-waXeRFHRPSf--2HQn9B4iSyD_W-5BQ9snWWoLOvAeIxy4a6Xrv-xUPiEFllWUvFtf3vLOsUoBnZ2Ijs5NP78RrygK0Y_Oe-mBzSoBcJyT-G8rnrArKsHILTDIIHST67u2cJp8FDatWlI3lvN0HZD6qsgq3w19ew2n"
+                  />
+                </div>
+              </article>
+              <article
+                class="flex items-stretch gap-6 rounded-xl bg-white p-5 shadow-soft transition-shadow hover:shadow-md"
+              >
+                <div class="flex flex-[2] flex-col justify-between gap-4">
+                  <div>
+                    <p class="text-sm font-medium text-neutral-500">Transport</p>
+                    <p class="mt-1 text-lg font-bold leading-tight text-neutral-900">Transportation to Doctor's Appointment</p>
+                    <p class="mt-2 text-sm leading-normal text-neutral-600">Looking for a ride to a medical appointment next Tuesday at 2 PM.</p>
+                  </div>
+                  <button
+                    class="w-fit rounded-md bg-neutral-100 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-800 transition-colors hover:bg-neutral-200"
+                  >
+                    View Details
+                  </button>
+                </div>
+                <div class="flex-1 rounded-xl">
+                  <img
+                    alt="Image representing transportation for an appointment"
+                    class="h-full w-full rounded-xl object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5kHVmsdvP-L4S-zevM8bss_Ux4zI0f9dpyOGWluf_tln3FqTvLBrjyEKfbYj2fxi4R4CosvAWrwZ19xzY03zmcvNP_WnJ5wZIL39NZcKmqSfvs-JkezSDQFb02K_beR9ST5gBHjXlnUYKOC_JvqudMsJT06a-OWqcQYg9N96qQqKt9H-bWbapEijSufrrOovQgnaUhbh3CdQAw1xFyRp9_frDE-xJIHoAXbtQr7BBmMU8yT9vnAkY0npVb4Wp4nbNNKksqjeDCZcT"
+                  />
+                </div>
+              </article>
+              <article
+                class="flex items-stretch gap-6 rounded-xl bg-white p-5 shadow-soft transition-shadow hover:shadow-md"
+              >
+                <div class="flex flex-[2] flex-col justify-between gap-4">
+                  <div>
+                    <p class="text-sm font-medium text-neutral-500">DIY</p>
+                    <p class="mt-1 text-lg font-bold leading-tight text-neutral-900">Fixing a Leaky Faucet</p>
+                    <p class="mt-2 text-sm leading-normal text-neutral-600">Need assistance with a minor plumbing issue. Faucet in the kitchen is leaking.</p>
+                  </div>
+                  <button
+                    class="w-fit rounded-md bg-neutral-100 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-800 transition-colors hover:bg-neutral-200"
+                  >
+                    View Details
+                  </button>
+                </div>
+                <div class="flex-1 rounded-xl">
+                  <img
+                    alt="Image representing DIY plumbing assistance"
+                    class="h-full w-full rounded-xl object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgLUHCcx-LBiOi2sTMuTEIbeaSzJ2rkWUL55uF1x_qwl6Pvh1ofrNW4MrzwLgTUPQlG4FyrnX3eTRl-2cMQTf2H1BLn1502gOx6XuJZ0ixs6nXsfjEEMCJBXP8lw4XP_vKVuIdY0JS81xRBNu_XoongOetshNkn9j59wggCe0TUFKme6UvjRodeSZCm4ec0Iw3dZgOph5dbPsu28XpzP53matVx7lqrmjvPeqXhzcOuVoJ89nLg51wX5JZl-5tP85f2D1aCE0B1KVv"
+                  />
+                </div>
+              </article>
+              <article
+                class="flex items-stretch gap-6 rounded-xl bg-white p-5 shadow-soft transition-shadow hover:shadow-md"
+              >
+                <div class="flex flex-[2] flex-col justify-between gap-4">
+                  <div>
+                    <p class="text-sm font-medium text-neutral-500">IT Help</p>
+                    <p class="mt-1 text-lg font-bold leading-tight text-neutral-900">Setting Up a New Tablet</p>
+                    <p class="mt-2 text-sm leading-normal text-neutral-600">Need help setting up a new tablet and connecting to Wi-Fi.</p>
+                  </div>
+                  <button
+                    class="w-fit rounded-md bg-neutral-100 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-800 transition-colors hover:bg-neutral-200"
+                  >
+                    View Details
+                  </button>
+                </div>
+                <div class="flex-1 rounded-xl">
+                  <img
+                    alt="Image representing IT help for a tablet"
+                    class="h-full w-full rounded-xl object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg1myLnsIusJMKUQ4Yt9kEydzPx3ub1qMPwo2xnqTzpvB1k0287YWtq8jDY6gbLJCpDQN4ottfPuuHHT1-eqxmrTE8rZZE7zDu2CGACmiWCp1tEDzhTioMBEoSM4RiQqTKlPxr9F0OKn2XzOF0Un47jXWiDf3NJh7ZRDw4sftp4BibByxpZDuS77Km3xt6F0RHqei6AtriNrAlGOeriX_4zGX45gOJiDTmMooYjmUgK3fo_egNJgzvDBr9-8uW993e7EXIvxYf8Xwm"
+                  />
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

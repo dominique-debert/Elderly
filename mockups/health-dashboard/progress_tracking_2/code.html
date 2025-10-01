@@ -1,0 +1,302 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      .blob {
+        background: radial-gradient(circle, rgba(240, 244, 242, 0.8) 0%, rgba(240, 244, 242, 0) 70%);
+        animation: pulse 2s infinite ease-in-out;
+      }
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.05); opacity: 0.9; }
+        100% { transform: scale(1); opacity: 0.8; }
+      }
+      .bar-chart-container {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(0, 1fr);
+        gap: 1rem;
+        height: 180px;
+        align-items: end;
+        position: relative;
+      }
+      .bar {
+        background: #f0f4f2;
+        width: 100%;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        position: relative;
+        animation: scale-up 0.8s ease-out forwards;
+      }
+      .bar-label {
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.015em;
+        color: #648772;
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+      .progress-bar-container {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(0, 1fr);
+        gap: 1rem;
+        height: 180px;
+        align-items: end;
+        position: relative;
+      }
+      .progress-bar {
+        background: #f0f4f2;
+        width: 100%;
+        position: relative;
+        animation: scale-up 0.8s ease-out forwards;
+      }
+      .progress-label {
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.015em;
+        color: #648772;
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+      .radial-progress-container {
+          position: relative;
+          width: 150px;
+          height: 150px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      .radial-progress-circle {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: conic-gradient(#078829 0%, #e72a08 0%, #f0f4f2 0%); /* Initial state */
+          animation: draw-progress 2s ease-out forwards;
+      }
+      .radial-progress-value {
+          position: absolute;
+          text-align: center;
+          font-size: 2rem;
+          font-weight: 700;
+          color: #111714;
+      }
+      .radial-progress-label {
+          position: absolute;
+          bottom: 0;
+          transform: translateY(150%);
+          font-size: 0.8125rem;
+          font-weight: 700;
+          letter-spacing: 0.015em;
+          color: #648772;
+      }
+
+      @keyframes scale-up {
+        from {
+          transform: scaleY(0);
+        }
+        to {
+          transform: scaleY(1);
+        }
+      }
+
+       @keyframes draw-progress {
+        to {
+          background: conic-gradient(#078829 75%, #e72a08 75%, #f0f4f2 75%); /* Example: 75% green, adjust as needed */
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f4f2] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111714]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+              </svg>
+            </div>
+            <h2 class="text-[#111714] text-lg font-bold leading-tight tracking-[-0.015em]">Vitality Hub</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111714] text-sm font-medium leading-normal" href="#">Dashboard</a>
+              <a class="text-[#111714] text-sm font-medium leading-normal" href="#">Activities</a>
+              <a class="text-[#111714] text-sm font-medium leading-normal" href="#">Community</a>
+              <a class="text-[#111714] text-sm font-medium leading-normal" href="#">Support</a>
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#f0f4f2] text-[#111714] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-[#111714]" data-icon="Bell" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBiiu4IQ_lgydxsjKfnahcAJg9rQEJK97w8LUin6FuZ461tTGpVfBsQi4Z1hpgL9lfccRuVR5LCtFpHYfxmDE4XOij0KtMS8EpUrKMaDIVtxITIPprfBg4IjjuZNJLcGnvnQcm28b6y7w5JcrNzmzGrcRu2vRayrC2BVbkwTajcqduCR3T01genIxchFrFHyHakxP5RA1aUKhBwnLhMO5zcCv_uozoPXOc3btuxix3tZTxdJ-8o6wRB60eVhNVm-6RdiH_EIte8oz5I");'
+              alt="User profile avatar"
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#111714] tracking-light text-[32px] font-bold leading-tight">Progress Tracking</p>
+                <p class="text-[#648772] text-sm font-normal leading-normal">Monitor your health journey and celebrate your achievements.</p>
+              </div>
+            </div>
+            <div class="pb-3">
+              <div class="flex border-b border-[#dce5df] px-4 gap-8">
+                <a class="flex flex-col items-center justify-center border-b-[3px] border-b-[#111714] text-[#111714] pb-[13px] pt-4" href="#">
+                  <p class="text-[#111714] text-sm font-bold leading-normal tracking-[0.015em]">Physical Activities</p>
+                </a>
+                <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#648772] pb-[13px] pt-4" href="#">
+                  <p class="text-[#648772] text-sm font-bold leading-normal tracking-[0.015em]">Cognitive Activities</p>
+                </a>
+                <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#648772] pb-[13px] pt-4" href="#">
+                  <p class="text-[#648772] text-sm font-bold leading-normal tracking-[0.015em]">Subjective Evaluations</p>
+                </a>
+              </div>
+            </div>
+            <h2 class="text-[#111714] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Physical Activity Trends</h2>
+            <div class="flex flex-wrap gap-4 px-4 py-6">
+              <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-lg border border-[#dce5df] p-6">
+                <p class="text-[#111714] text-base font-medium leading-normal">Steps Taken Over Time</p>
+                <p class="text-[#111714] tracking-light text-[32px] font-bold leading-tight truncate">12,500</p>
+                <div class="flex gap-1">
+                  <p class="text-[#648772] text-base font-normal leading-normal">Last 30 Days</p>
+                  <p class="text-[#078829] text-base font-medium leading-normal">+15%</p>
+                </div>
+                <div class="flex min-h-[180px] flex-1 flex-col gap-8 py-4">
+                  <div class="flex justify-around items-end h-full">
+                    <div class="flex flex-col items-center">
+                      <div class="bar" style="height: 80%;"></div>
+                      <p class="bar-label">Week 1</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="bar" style="height: 95%;"></div>
+                      <p class="bar-label">Week 2</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="bar" style="height: 65%;"></div>
+                      <p class="bar-label">Week 3</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="bar" style="height: 90%;"></div>
+                      <p class="bar-label">Week 4</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-lg border border-[#dce5df] p-6">
+                <p class="text-[#111714] text-base font-medium leading-normal">Active Minutes Per Week</p>
+                <p class="text-[#111714] tracking-light text-[32px] font-bold leading-tight truncate">150</p>
+                <div class="flex gap-1">
+                  <p class="text-[#648772] text-base font-normal leading-normal">Last 4 Weeks</p>
+                  <p class="text-[#078829] text-base font-medium leading-normal">+10%</p>
+                </div>
+                <div class="bar-chart-container px-3">
+                  <div class="flex flex-col items-center">
+                    <div class="bar" style="height: 70%;"></div>
+                    <p class="bar-label">Week 1</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <div class="bar" style="height: 80%;"></div>
+                    <p class="bar-label">Week 2</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <div class="bar" style="height: 10%;"></div>
+                    <p class="bar-label">Week 3</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <div class="bar" style="height: 70%;"></div>
+                    <p class="bar-label">Week 4</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#111714] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Subjective Evaluations</h2>
+            <div class="flex flex-wrap gap-4 px-4 py-6">
+              <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-lg border border-[#dce5df] p-6">
+                <p class="text-[#111714] text-base font-medium leading-normal">Felt Difficulty</p>
+                <div class="radial-progress-container">
+                  <div class="radial-progress-circle"></div>
+                  <div class="radial-progress-value">2.5</div>
+                  <div class="radial-progress-label">Average Score</div>
+                </div>
+                <div class="flex gap-1">
+                  <p class="text-[#648772] text-base font-normal leading-normal">Average Score</p>
+                  <p class="text-[#e72a08] text-base font-medium leading-normal">-5%</p>
+                </div>
+                <div class="flex flex-col items-center mt-4">
+                  <div class="progress-bar-container">
+                    <div class="flex flex-col items-center">
+                      <div class="progress-bar" style="height: 100%;"></div>
+                      <p class="progress-label">Low</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="progress-bar" style="height: 10%;"></div>
+                      <p class="progress-label">Medium</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="progress-bar" style="height: 60%;"></div>
+                      <p class="progress-label">High</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-lg border border-[#dce5df] p-6">
+                <p class="text-[#111714] text-base font-medium leading-normal">Pleasure</p>
+                <div class="radial-progress-container">
+                  <div class="radial-progress-circle"></div>
+                  <div class="radial-progress-value">4.2</div>
+                  <div class="radial-progress-label">Average Score</div>
+                </div>
+                <div class="flex gap-1">
+                  <p class="text-[#648772] text-base font-normal leading-normal">Average Score</p>
+                  <p class="text-[#078829] text-base font-medium leading-normal">+8%</p>
+                </div>
+                <div class="flex flex-col items-center mt-4">
+                  <div class="progress-bar-container">
+                    <div class="flex flex-col items-center">
+                      <div class="progress-bar" style="height: 10%;"></div>
+                      <p class="progress-label">Low</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="progress-bar" style="height: 90%;"></div>
+                      <p class="progress-label">Medium</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="progress-bar" style="height: 80%;"></div>
+                      <p class="progress-label">High</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

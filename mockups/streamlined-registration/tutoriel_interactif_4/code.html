@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="flex flex-1 justify-center py-5">
+          <div class="flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1 items-center">
+            <div class="@container">
+              <div class="@[480px]:px-4 @[480px]:py-3">
+                <div class="w-full flex flex-col justify-end overflow-hidden min-h-[150px] rounded-lg bg-gray-100 flex items-center justify-center">
+                  <span class="text-4xl font-bold text-gray-700">Welcome</span>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#111418] tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">Welcome to Our Application</h2>
+            <p class="text-[#111418] text-base font-normal leading-normal pb-3 pt-1 px-4 text-center max-w-md">
+              Discover how to use the application to stay connected with your loved ones and enjoy all its features.
+            </p>
+            <div class="flex justify-center">
+              <div class="flex flex-1 gap-3 max-w-[480px] flex-col items-stretch px-4 py-3">
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1380ec] text-white text-sm font-bold leading-normal tracking-[0.015em] w-full"
+                >
+                  <span class="truncate">Start Tutorial</span>
+                </button>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-transparent text-[#1380ec] text-sm font-bold leading-normal tracking-[0.015em] w-full border border-[#1380ec]"
+                >
+                  <span class="truncate">Skip Tutorial</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

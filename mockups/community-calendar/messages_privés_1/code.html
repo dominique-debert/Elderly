@@ -1,0 +1,310 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="flex flex-col h-full w-full">
+          <div class="sticky top-0 z-10 bg-white p-3 border-b">
+            <div class="flex items-center gap-4">
+              <button class="text-[#637c88]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+              <div class="flex-grow flex items-center rounded-lg bg-[#f0f3f4] px-3 py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#637c88] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input
+                  placeholder="Rechercher"
+                  class="flex-1 border-none bg-transparent p-0 text-[#111518] placeholder:text-[#637c88] focus:outline-none focus:ring-0"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col flex-1 overflow-y-auto">
+            <div class="px-4 py-2 border-b bg-white">
+              <div class="flex items-center gap-3">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDps6DCpsdZVahjYrXV-4ESxz44UUmCskZvNKIlosP_RCP5PHutAM0hEz04_zPG0h-HktJdbMW-mOTKrAgQvdD8r3m6zpCg8_OpQSW8xuEvW5PRgV_UstYO_I6lWz7ptF5XJDOyM11_eNSqbKlpqj1FqjCPQNSYlZUuQxaGADVejkBq2CLakwC-LELBcQYm6KmGM4kxHQBrZulnE1N_uIHw9CznU0f4-kJ19Aeu4-WX99SY4T36YobA9dIChPlxtiEcuKRqaW0KVsgv");'
+                ></div>
+                <div class="flex flex-col justify-center flex-1">
+                  <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Sophie Martin</p>
+                  <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">Bonjour, comment allez-vous ?</p>
+                </div>
+                <span class="text-xs text-[#637c88] ml-auto">10:30 AM</span>
+              </div>
+            </div>
+            <div class="px-4 py-2 border-b bg-white">
+              <div class="flex items-center gap-3">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVd3Kafz_IT2bIOqZh97OQycNHRhtdO2YKCtB5cpymsfpKMpQjCbrFVMxB5GZfQENTh3jbFLYfgaxGVCoXy91Qlex69jG24_9ZA2DakSpKOLCSjvfty7auI7bBt6Oe9Smc7VjXBxSdVSuVPL5VyY9eI8iXfwTds8FT9ydS_IbMk9y5At_EJvbiWXDsz9k9Q_XuwrxiBNH0lI7JFeHMpHnlaL7ceyks7MVYmHOOjkvqRSy8vVcsr-8uoOP_gzm8iKEsBUAE7hHDtDsB");'
+                ></div>
+                <div class="flex flex-col justify-center flex-1">
+                  <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Jean Dupont</p>
+                  <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">Super ! On se voit demain ?</p>
+                </div>
+                <span class="text-xs text-[#637c88] ml-auto">Yesterday</span>
+              </div>
+            </div>
+            <div class="px-4 py-2 border-b bg-white">
+              <div class="flex items-center gap-3">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsTAAQ_4bLYN1m4I9aOzbTXACPo3j3aCWBrf5iueh2hVCBe3Dmi4Xnh330eBO5BI-436BSi5-yWq6NjjcstDpMKgcqooJXlL6Bsef_Rezf6W5sVn5YvQhG5M39VpqG5RSfleFcKGKCcLA4-RJiFcxeYdoHwUwAdWnK5j-2wAF4Wx4Uz4ruHTOOY9CFjaeXSLOJVvhOvTEq1CzPm4UW-y7sH3xE9Df3vKcjofOJ2RlhvqqowqgprJ-q0OfYmsKk4h6tOLeLC2EgYOjb");'
+                ></div>
+                <div class="flex flex-col justify-center flex-1">
+                  <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Groupe de marche</p>
+                  <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">J'ai hâte de vous retrouver !</p>
+                </div>
+                <span class="text-xs text-[#637c88] ml-auto">Mon</span>
+              </div>
+            </div>
+            <div class="px-4 py-2 border-b bg-white">
+              <div class="flex items-center gap-3">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATfkR54XkrbOB-WWH6NA6krJl_ZQpCBUdT5QhNz6EoQsrf-K-7yYg001umRA4Dmgjm72iT6bwJe2vdBA-T3EchiJett6NypqRdJemcYfCBiKgbVPKLI-5yjbAFDxNq26Mk3SRCe13ooNl5-NPojFurz5KO1XBaqU_m5hniKXhBX21kFFFxipaKKy3h_lu-WqFLL9tqyIKZoQSAJnt_mBPK8lZDpcLS3UfDHlHkdiy5TqUS9Yge0UZm7hYBbzXJNvthb_Gdjvg7bXrW");'
+                ></div>
+                <div class="flex flex-col justify-center flex-1">
+                  <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Marie Dubois</p>
+                  <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">Merci pour votre aide</p>
+                </div>
+                <span class="text-xs text-[#637c88] ml-auto">12/03/24</span>
+              </div>
+            </div>
+            <div class="px-4 py-2 border-b bg-white">
+              <div class="flex items-center gap-3">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMoPldAQZJcItKTsVyq_3aadEPzJMdpLZ6njbEFz-nFkxd2RxD0vtwUXu_ZOWkv-TECXnyRyN64azAfSILxkmBW-rluLMCuf2rgqrRZXplO_oCaogXnbKjbgxOmivKw_n00JAwIRfIYisFV6kalvP74GOXRLi-TpuxjXwoxM7iih5CLpuQZN67B-livmJoU-9kEji79S59nFJO3ylDU4L8y4qxMp07kXFkLNyFx-M7Neks-OcCaKb7ZV-uGBkxwCa84-WN3S5S8XtK");'
+                ></div>
+                <div class="flex flex-col justify-center flex-1">
+                  <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Pierre Lemaire</p>
+                  <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">C'est noté, à bientôt</p>
+                </div>
+                <span class="text-xs text-[#637c88] ml-auto">11/03/24</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"></div>
+        <div class="fixed inset-y-0 left-0 w-80 bg-white shadow-lg z-30 transform -translate-x-full transition-transform duration-300 ease-in-out">
+          <div class="flex flex-col h-full">
+            <div class="p-4 border-b">
+              <div class="flex items-center gap-4">
+                <button class="text-[#637c88]">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <div class="flex-grow flex items-center rounded-lg bg-[#f0f3f4] px-3 py-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#637c88] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  <input
+                    placeholder="Rechercher"
+                    class="flex-1 border-none bg-transparent p-0 text-[#111518] placeholder:text-[#637c88] focus:outline-none focus:ring-0"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col flex-1 overflow-y-auto">
+              <div class="px-4 py-3 border-b bg-white">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDps6DCpsdZVahjYrXV-4ESxz44UUmCskZvNKIlosP_RCP5PHutAM0hEz04_zPG0h-HktJdbMW-mOTKrAgQvdD8r3m6zpCg8_OpQSW8xuEvW5PRgV_UstYO_I6lWz7ptF5XJDOyM11_eNSqbKlpqj1FqjCPQNSYlZUuQxaGADVejkBq2CLakwC-LELBcQYm6KmGM4kxHQBrZulnE1N_uIHw9CznU0f4-kJ19Aeu4-WX99SY4T36YobA9dIChPlxtiEcuKRqaW0KVsgv");'
+                  ></div>
+                  <div class="flex flex-col justify-center flex-1">
+                    <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Sophie Martin</p>
+                    <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">Bonjour, comment allez-vous ?</p>
+                  </div>
+                  <span class="text-xs text-[#637c88] ml-auto">10:30 AM</span>
+                </div>
+              </div>
+              <div class="px-4 py-3 border-b bg-white">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVd3Kafz_IT2bIOqZh97OQycNHRhtdO2YKCtB5cpymsfpKMpQjCbrFVMxB5GZfQENTh3jbFLYfgaxGVCoXy91Qlex69jG24_9ZA2DakSpKOLCSjvfty7auI7bBt6Oe9Smc7VjXBxSdVSuVPL5VyY9eI8iXfwTds8FT9ydS_IbMk9y5At_EJvbiWXDsz9k9Q_XuwrxiBNH0lI7JFeHMpHnlaL7ceyks7MVYmHOOjkvqRSy8vVcsr-8uoOP_gzm8iKEsBUAE7hHDtDsB");'
+                  ></div>
+                  <div class="flex flex-col justify-center flex-1">
+                    <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Jean Dupont</p>
+                    <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">Super ! On se voit demain ?</p>
+                  </div>
+                  <span class="text-xs text-[#637c88] ml-auto">Yesterday</span>
+                </div>
+              </div>
+              <div class="px-4 py-3 border-b bg-white">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsTAAQ_4bLYN1m4I9aOzbTXACPo3j3aCWBrf5iueh2hVCBe3Dmi4Xnh330eBO5BI-436BSi5-yWq6NjjcstDpMKgcqooJXlL6Bsef_Rezf6W5sVn5YvQhG5M39VpqG5RSfleFcKGKCcLA4-RJiFcxeYdoHwUwAdWnK5j-2wAF4Wx4Uz4ruHTOOY9CFjaeXSLOJVvhOvTEq1CzPm4UW-y7sH3xE9Df3vKcjofOJ2RlhvqqowqgprJ-q0OfYmsKk4h6tOLeLC2EgYOjb");'
+                  ></div>
+                  <div class="flex flex-col justify-center flex-1">
+                    <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Groupe de marche</p>
+                    <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">J'ai hâte de vous retrouver !</p>
+                  </div>
+                  <span class="text-xs text-[#637c88] ml-auto">Mon</span>
+                </div>
+              </div>
+              <div class="px-4 py-3 border-b bg-white">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATfkR54XkrbOB-WWH6NA6krJl_ZQpCBUdT5QhNz6EoQsrf-K-7yYg001umRA4Dmgjm72iT6bwJe2vdBA-T3EchiJett6NypqRdJemcYfCBiKgbVPKLI-5yjbAFDxNq26Mk3SRCe13ooNl5-NPojFurz5KO1XBaqU_m5hniKXhBX21kFFFxipaKKy3h_lu-WqFLL9tqyIKZoQSAJnt_mBPK8lZDpcLS3UfDHlHkdiy5TqUS9Yge0UZm7hYBbzXJNvthb_Gdjvg7bXrW");'
+                  ></div>
+                  <div class="flex flex-col justify-center flex-1">
+                    <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Marie Dubois</p>
+                    <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">Merci pour votre aide</p>
+                  </div>
+                  <span class="text-xs text-[#637c88] ml-auto">12/03/24</span>
+                </div>
+              </div>
+              <div class="px-4 py-3 border-b bg-white">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 shrink-0"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMoPldAQZJcItKTsVyq_3aadEPzJMdpLZ6njbEFz-nFkxd2RxD0vtwUXu_ZOWkv-TECXnyRyN64azAfSILxkmBW-rluLMCuf2rgqrRZXplO_oCaogXnbKjbgxOmivKw_n00JAwIRfIYisFV6kalvP74GOXRLi-TpuxjXwoxM7iih5CLpuQZN67B-livmJoU-9kEji79S59nFJO3ylDU4L8y4qxMp07kXFkLNyFx-M7Neks-OcCaKb7ZV-uGBkxwCa84-WN3S5S8XtK");'
+                  ></div>
+                  <div class="flex flex-col justify-center flex-1">
+                    <p class="text-[#111518] text-base font-medium leading-normal line-clamp-1">Pierre Lemaire</p>
+                    <p class="text-[#637c88] text-sm font-normal leading-normal line-clamp-2">C'est noté, à bientôt</p>
+                  </div>
+                  <span class="text-xs text-[#637c88] ml-auto">11/03/24</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="layout-content-container flex flex-col flex-1 p-4 max-h-[calc(100vh-120px)] overflow-y-auto">
+          <div class="flex flex-wrap justify-between gap-3 mb-4">
+            <p class="text-[#111518] tracking-light text-2xl font-bold leading-tight min-w-72">Sophie Martin</p>
+            <button class="text-[#637c88] p-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 8h.01M12 11h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex items-start gap-3 mb-4">
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAr24uRk39lXou__FbqEKZeuNhR1rXAHlJmgmacYZggYeQedxi8xQyAqeMZFwcIpp8Coeo_7ckgLnE1ZWo8aT6maOqVgFsKueNBwrdd_3kPErpZkJeayxJP0Oj00zAvwKusPXW5ebT0ChqdnQ4THk6yxMmWSFj8DKGfzVS7vSMpAzkqmr1EHt8spT9-_LZGIDy_r9FWlSbHpT2xuwmeq1894uAeADrkrueIM_usXY5WZxV8-AVOWzBYWoRPo8YcUuOJUoD8evbRxkTS");'
+            ></div>
+            <div class="flex flex-1 flex-col gap-1 items-start">
+              <p class="text-[#637c88] text-xs font-normal leading-normal">Sophie Martin</p>
+              <p class="text-base font-normal leading-normal flex max-w-xs rounded-lg px-3 py-2 bg-[#f0f3f4] text-[#111518]">Bonjour, comment allez-vous ?</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 mb-4 justify-end">
+            <div class="flex flex-1 flex-col gap-1 items-end">
+              <p class="text-[#637c88] text-xs font-normal leading-normal">Moi</p>
+              <p class="text-base font-normal leading-normal flex max-w-xs rounded-lg px-3 py-2 bg-[#19a2e6] text-white">Bonjour Sophie, je vais bien, merci ! Et vous ?</p>
+            </div>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAe_uc575OJ4QEZuzIG2N2RMz-htSPecEnL5PWYantOUoid5HMz08KqaCSUknkJgrFVdLx7vgh0tzeuomhEnDuoEEmJPnRz0d4ccQ1XxDF5XtEXXj7DTG0WbDsqFP_HyfJVcy36VbQ6KMyWNA9S64bYBNY6KqtHugIf9GfhGepgFhhMgQK1ZEqqZsN0jZY77Dpn3j7T-RmHsWisI7YtiRgY0p8LNZjY_YX-EPb90gdhHPbbIwxbbRJlCfIxlw6kPYvzuLUwXKN0DV0j");'
+            ></div>
+          </div>
+          <div class="flex items-start gap-3 mb-4">
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAr24uRk39lXou__FbqEKZeuNhR1rXAHlJmgmacYZggYeQedxi8xQyAqeMZFwcIpp8Coeo_7ckgLnE1ZWo8aT6maOqVgFsKueNBwrdd_3kPErpZkJeayxJP0Oj00zAvwKusPXW5ebT0ChqdnQ4THk6yxMmWSFj8DKGfzVS7vSMpAzkqmr1EHt8spT9-_LZGIDy_r9FWlSbHpT2xuwmeq1894uAeADrkrueIM_usXY5WZxV8-AVOWzBYWoRPo8YcUuOJUoD8evbRxkTS");'
+            ></div>
+            <div class="flex flex-1 flex-col gap-1 items-start">
+              <p class="text-[#637c88] text-xs font-normal leading-normal">Sophie Martin</p>
+              <p class="text-base font-normal leading-normal flex max-w-xs rounded-lg px-3 py-2 bg-[#f0f3f4] text-[#111518]">Je vais très bien, merci ! Ravi de pouvoir discuter.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 mb-4 justify-end">
+            <div class="flex flex-1 flex-col gap-1 items-end">
+              <p class="text-[#637c88] text-xs font-normal leading-normal">Moi</p>
+              <p class="text-base font-normal leading-normal flex max-w-xs rounded-lg px-3 py-2 bg-[#19a2e6] text-white">Moi aussi. Que puis-je faire pour vous aujourd'hui ?</p>
+            </div>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAe_uc575OJ4QEZuzIG2N2RMz-htSPecEnL5PWYantOUoid5HMz08KqaCSUknkJgrFVdLx7vgh0tzeuomhEnDuoEEmJPnRz0d4ccQ1XxDF5XtEXXj7DTG0WbDsqFP_HyfJVcy36VbQ6KMyWNA9S64bYBNY6KqtHugIf9GfhGepgFhhMgQK1ZEqqZsN0jZY77Dpn3j7T-RmHsWisI7YtiRgY0p8LNZjY_YX-EPb90gdhHPbbIwxbbRJlCfIxlw6kPYvzuLUwXKN0DV0j");'
+            ></div>
+          </div>
+          
+          <div class="mt-auto sticky bottom-0 bg-white p-3 border-t">
+            <div class="flex items-center gap-3">
+              <button class="text-[#637c88] p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 000 2.828l6.586 6.586m-3.414-1.414l-1.414-1.414a2 2 0 00-2.828 0l-6.586 6.586" />
+                </svg>
+              </button>
+              <div class="flex-1 rounded-lg bg-[#f0f3f4] px-3 py-2 flex items-center">
+                <input
+                  placeholder="Tapez votre message..."
+                  class="flex-1 border-none bg-transparent p-0 text-[#111518] placeholder:text-[#637c88] focus:outline-none focus:ring-0"
+                  value=""
+                />
+                <button class="text-[#637c88] p-1.5 ml-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" />
+                  </svg>
+                </button>
+              </div>
+              <button class="bg-[#19a2e6] rounded-full p-3 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9-7-9-7M5 7l-3 3 3 3M5 7l3-3-3-3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const menuButton = document.querySelector('button[data-icon="Hamburger"]');
+      const closeButton = document.querySelector('button[data-icon="Close"]');
+      const overlay = document.querySelector('.fixed.inset-0.bg-black.bg-opacity-50');
+      const sidebar = document.querySelector('.fixed.inset-y-0.left-0.w-80');
+
+      if (menuButton && overlay && sidebar) {
+        menuButton.addEventListener('click', () => {
+          overlay.classList.remove('hidden');
+          sidebar.classList.remove('-translate-x-full');
+        });
+      }
+
+      if (closeButton && overlay && sidebar) {
+        closeButton.addEventListener('click', () => {
+          overlay.classList.add('hidden');
+          sidebar.classList.add('-translate-x-full');
+        });
+      }
+
+      if (overlay) {
+        overlay.addEventListener('click', () => {
+          overlay.classList.add('hidden');
+          sidebar.classList.add('-translate-x-full');
+        });
+      }
+    </script>
+  </body>
+</html>

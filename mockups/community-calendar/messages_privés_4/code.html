@@ -1,0 +1,339 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-gray-100 group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="flex h-full grow">
+        <!-- Sidebar for Navigation and Quick Actions -->
+        <aside class="w-64 bg-white shadow-lg flex flex-col p-4">
+          <div class="flex items-center justify-center mb-6">
+            <div class="text-2xl font-bold text-blue-600">Productivity Hub</div>
+          </div>
+          <nav class="flex flex-col space-y-4">
+            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-200 text-gray-700 font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M5 7v13a2 2 0 002 2h10a2 2 0 002-2V7" />
+              </svg>
+              Dashboard
+            </a>
+            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-200 text-gray-700 font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5a1 1 0 011 1 1v1H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V8a2 2 0 00-2-2h-1V6a1 1 0 112 0v1h1a2 2 0 002-2V5a1 1 0 011-1-1h-1a1 1 0 011-1-1H9a1 1 0 01-1 1z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5a1 1 0 011 1 1v1H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V8a2 2 0 00-2-2h-1V6a1 1 0 112 0v1h1a2 2 0 002-2V5a1 1 0 01-1-1H9a1 1 0 01-1 1z" />
+              </svg>
+              Calendar
+            </a>
+            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-200 text-gray-700 font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5a1 1 0 011 1 1v1H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V8a2 2 0 00-2-2h-1V6a1 1 0 112 0v1h1a2 2 0 002-2V5a1 1 0 01-1-1H9a1 1 0 01-1 1z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5a1 1 0 011 1 1v1H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V8a2 2 0 00-2-2h-1V6a1 1 0 112 0v1h1a2 2 0 002-2V5a1 1 0 01-1-1H9a1 1 0 01-1 1z" />
+              </svg>
+              Tasks
+            </a>
+            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-200 text-gray-700 font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              New Task
+            </a>
+          </nav>
+          <div class="mt-auto pt-4 border-t">
+            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Start Video Call
+            </button>
+          </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="flex flex-1 flex-col">
+          <div class="flex flex-1">
+            <!-- Left Panel: Chat List -->
+            <div class="w-80 border-r bg-white flex flex-col">
+              <div class="p-4">
+                <label class="flex items-center rounded-lg bg-gray-100 px-3 h-12">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  <input
+                    placeholder="Search chats"
+                    class="bg-transparent border-none focus:outline-none focus:ring-0 w-full text-gray-700 placeholder-gray-500"
+                    value=""
+                  />
+                </label>
+              </div>
+              <div class="flex-1 overflow-y-auto">
+                <div class="px-4 py-3 cursor-pointer hover:bg-gray-50 border-b border-gray-100">
+                  <div class="flex items-center gap-4">
+                    <div class="relative w-14 h-14 shrink-0">
+                      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDps6DCpsdZVahjYrXV-4ESxz44UUmCskZvNKIlosP_RCP5PHutAM0hEz04_zPG0h-HktJdbMW-mOTKrAgQvdD8r3m6zpCg8_OpQSW8xuEvW5PRgV_UstYO_I6lWz7ptF5XJDOyM11_eNSqbKlpqj1FqjCPQNSYlZUuQxaGADVejkBq2CLakwC-LELBcQYm6KmGM4kxHQBrZulnE1N_uIHw9CznU0f4-kJ19Aeu4-WX99SY4T36YobA9dIChPlxtiEcuKRqaW0KVsgv" alt="User Sophie Martin" class="w-full h-full rounded-full object-cover" />
+                      <span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-500 ring-2 ring-white"></span>
+                    </div>
+                    <div class="flex flex-col flex-1 overflow-hidden">
+                      <p class="text-[#111518] text-base font-medium leading-normal truncate">Sophie Martin</p>
+                      <p class="text-[#637c88] text-sm font-normal leading-normal truncate">Bonjour, comment allez-vous ?</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 py-3 cursor-pointer hover:bg-gray-50 border-b border-gray-100">
+                  <div class="flex items-center gap-4">
+                    <div class="relative w-14 h-14 shrink-0">
+                      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVd3Kafz_IT2bIOqZh97OQycNHRhtdO2YKCtB5cpymsfpKMpQjCbrFVMxB5GZfQENTh3jbFLYfgaxGVCoXy91Qlex69jG24_9ZA2DakSpKOLCSjvfty7auI7bBt6Oe9Smc7VjXBxSdVSuVPL5VyY9eI8iXfwTds8FT9ydS_IbMk9y5At_EJvbiWXDsz9k9Q_XuwrxiBNH0lI7JFeHMpHnlaL7ceyks7MVYmHOOjkvqRSy8vVcsr-8uoOP_gzm8iKEsBUAE7hHDtDsB" alt="User Jean Dupont" class="w-full h-full rounded-full object-cover" />
+                      <span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-500 ring-2 ring-white"></span>
+                    </div>
+                    <div class="flex flex-col flex-1 overflow-hidden">
+                      <p class="text-[#111518] text-base font-medium leading-normal truncate">Jean Dupont</p>
+                      <p class="text-[#637c88] text-sm font-normal leading-normal truncate">Super ! On se voit demain ?</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 py-3 cursor-pointer bg-blue-50 hover:bg-blue-100">
+                  <div class="flex items-center gap-4">
+                    <div class="relative w-14 h-14 shrink-0">
+                      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsTAAQ_4bLYN1m4I9aOzbTXACPo3j3aCWBrf5iueh2hVCBe3Dmi4Xnh330eBO5BI-436BSi5-yWq6NjjcstDpMKgcqooJXlL6Bsef_Rezf6W5sVn5YvQhG5M39VpqG5RSfleFcKGKCcLA4-RJiFcxeYdoHwUwAdWnK5j-2wAF4Wx4Uz4ruHTOOY9CFjaeXSLOJVvhOvTEq1CzPm4UW-y7sH3xE9Df3vKcjofOJ2RlhvqqowqgprJ-q0OfYmsKk4h6tOLeLC2EgYOjb" alt="Group Groupe de marche" class="w-full h-full rounded-full object-cover" />
+                      <span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-gray-400 ring-2 ring-white"></span>
+                    </div>
+                    <div class="flex flex-col flex-1 overflow-hidden">
+                      <p class="text-[#111518] text-base font-medium leading-normal truncate">Groupe de marche</p>
+                      <p class="text-[#637c88] text-sm font-normal leading-normal truncate">J'ai hâte de vous retrouver !</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 py-3 cursor-pointer hover:bg-gray-50 border-b border-gray-100">
+                  <div class="flex items-center gap-4">
+                    <div class="relative w-14 h-14 shrink-0">
+                      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuATfkR54XkrbOB-WWH6NA6krJl_ZQpCBUdT5QhNz6EoQsrf-K-7yYg001umRA4Dmgjm72iT6bwJe2vdBA-T3EchiJett6NypqRdJemcYfCBiKgbVPKLI-5yjbAFDxNq26Mk3SRCe13ooNl5-NPojFurz5KO1XBaqU_m5hniKXhBX21kFFFxipaKKy3h_lu-WqFLL9tqyIKZoQSAJnt_mBPK8lZDpcLS3UfDHlHkdiy5TqUS9Yge0UZm7hYBbzXJNvthb_Gdjvg7bXrW" alt="User Marie Dubois" class="w-full h-full rounded-full object-cover" />
+                      <span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-500 ring-2 ring-white"></span>
+                    </div>
+                    <div class="flex flex-col flex-1 overflow-hidden">
+                      <p class="text-[#111518] text-base font-medium leading-normal truncate">Marie Dubois</p>
+                      <p class="text-[#637c88] text-sm font-normal leading-normal truncate">Merci pour votre aide</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 py-3 cursor-pointer hover:bg-gray-50 border-b border-gray-100">
+                  <div class="flex items-center gap-4">
+                    <div class="relative w-14 h-14 shrink-0">
+                      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMoPldAQZJcItKTsVyq_3aadEPzJMdpLZ6njbEFz-nFkxd2RxD0vtwUXu_ZOWkv-TECXnyRyN64azAfSILxkmBW-rluLMCuf2rgqrRZXplO_oCaogXnbKjbgxOmivKw_n00JAwIRfIYisFV6kalvP74GOXRLi-TpuxjXwoxM7iih5CLpuQZN67B-livmJoU-9kEji79S59nFJO3ylDU4L8y4qxMp07kXFkLNyFx-M7Neks-OcCaKb7ZV-uGBkxwCa84-WN3S5S8XtK" alt="User Pierre Lemaire" class="w-full h-full rounded-full object-cover" />
+                      <span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-500 ring-2 ring-white"></span>
+                    </div>
+                    <div class="flex flex-col flex-1 overflow-hidden">
+                      <p class="text-[#111518] text-base font-medium leading-normal truncate">Pierre Lemaire</p>
+                      <p class="text-[#637c88] text-sm font-normal leading-normal truncate">C'est noté, à bientôt</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Middle Panel: Chat Window -->
+            <div class="flex flex-col flex-1 max-w-[800px] mx-auto">
+              <div class="bg-white p-4 border-b flex justify-between items-center">
+                <div class="flex items-center">
+                  <div class="w-12 h-12 shrink-0 mr-4">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr24uRk39lXou__FbqEKZeuNhR1rXAHlJmgmacYZggYeQedxi8xQyAqeMZFwcIpp8Coeo_7ckgLnE1ZWo8aT6maOqVgFsKueNBwrdd_3kPErpZkJeayxJP0Oj00zAvwKusPXW5ebT0ChqdnQ4THk6yxMmWSFj8DKGfzVS7vSMpAzkqmr1EHt8spT9-_LZGIDy_r9FWlSbHpT2xuwmeq1894uAeADrkrueIM_usXY5WZxV8-AVOWzBYWoRPo8YcUuOJUoD8evbRxkTS" alt="User Sophie Martin" class="w-full h-full rounded-full object-cover" />
+                  </div>
+                  <div>
+                    <p class="text-[#111518] text-lg font-semibold leading-normal">Sophie Martin</p>
+                    <span class="text-green-500 text-sm font-medium flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <circle cx="10" cy="10" r="8"></circle>
+                      </svg>
+                      Online
+                    </span>
+                  </div>
+                </div>
+                <div class="flex space-x-4">
+                  <button class="text-gray-600 hover:text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.066 2.066a8 8 0 008 8l2.066-2.066a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1.066A14.067 14.067 0 011 11 10.066V9.001a1.067 1.067 0 00-1.066-1.066H7.001a1.067 1.067 0 00-1.066 1.066v1.067A14.067 14.067 0 012 12.934V12a2 2 0 012-2z" />
+                    </svg>
+                  </button>
+                  <button class="text-gray-600 hover:text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l-3-3m0 0l-3 3m3-3v7c0 .552-.448 1-1 1H5a1 1 0 01-1-1v-6a1 1 0 011-1h2.586a1 1 0 00.707-.293l1.414-1.414a1 1 0 01.707-.293H13a1 1 0 01.707.293l1.414 1.414a1 1 0 00.707.293H19a1 1 0 011 1v6a1 1 0 01-1 1h-4a1 1 0 01-1-1v-7z" />
+                    </svg>
+                  </button>
+                  <button class="text-gray-600 hover:text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 8a1 1 0 011 1h.01M12 12a1 1 0 11.01 2H12a1 1 0 11-.01-2zM12 16a1 1 0 11.01 2H12a1 1 0 11-.01-2z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                <!-- Chat messages -->
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 shrink-0">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr24uRk39lXou__FbqEKZeuNhR1rXAHlJmgmacYZggYeQedxi8xQyAqeMZFwcIpp8Coeo_7ckgLnE1ZWo8aT6maOqVgFsKueNBwrdd_3kPErpZkJeayxJP0Oj00zAvwKusPXW5ebT0ChqdnQ4THk6yxMmWSFj8DKGfzVS7vSMpAzkqmr1EHt8spT9-_LZGIDy_r9FWlSbHpT2xuwmeq1894uAeADrkrueIM_usXY5WZxV8-AVOWzBYWoRPo8YcUuOJUoD8evbRxkTS" alt="User Sophie Martin" class="w-full h-full rounded-full object-cover" />
+                  </div>
+                  <div class="max-w-sm">
+                    <p class="text-sm text-gray-500 font-medium mb-1">Sophie Martin</p>
+                    <p class="bg-[#f0f3f4] text-[#111518] rounded-lg px-4 py-3 break-words">Bonjour, comment allez-vous ?</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3 justify-end">
+                  <div class="max-w-sm text-right">
+                    <p class="text-sm text-gray-500 font-medium mb-1">Moi</p>
+                    <p class="bg-[#19a2e6] text-white rounded-lg px-4 py-3 break-words">Bonjour Sophie, je vais bien, merci ! Et vous ?</p>
+                  </div>
+                  <div class="w-10 h-10 shrink-0">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe_uc575OJ4QEZuzIG2N2RMz-htSPecEnL5PWYantOUoid5HMz08KqaCSUknkJgrFVdLx7vgh0tzeuomhEnDuoEEmJPnRz0d4ccQ1XxDF5XtEXXj7DTG0WbDsqFP_HyfJVcy36VbQ6KMyWNA9S64bYBNY6KqtHugIf9GfhGepgFhhMgQK1ZEqqZsN0jZY77Dpn3j7T-RmHsWisI7YtiRgY0p8LNZjY_YX-EPb90gdhHPbbIwxbbRJlCfIxlw6kPYvzuLUwXKN0DV0j" alt="User Moi" class="w-full h-full rounded-full object-cover" />
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 shrink-0">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr24uRk39lXou__FbqEKZeuNhR1rXAHlJmgmacYZggYeQedxi8xQyAqeMZFwcIpp8Coeo_7ckgLnE1ZWo8aT6maOqVgFsKueNBwrdd_3kPErpZkJeayxJP0Oj00zAvwKusPXW5ebT0ChqdnQ4THk6yxMmWSFj8DKGfzVS7vSMpAzkqmr1EHt8spT9-_LZGIDy_r9FWlSbHpT2xuwmeq1894uAeADrkrueIM_usXY5WZxV8-AVOWzBYWoRPo8YcUuOJUoD8evbRxkTS" alt="User Sophie Martin" class="w-full h-full rounded-full object-cover" />
+                  </div>
+                  <div class="max-w-sm">
+                    <p class="text-sm text-gray-500 font-medium mb-1">Sophie Martin</p>
+                    <p class="bg-[#f0f3f4] text-[#111518] rounded-lg px-4 py-3 break-words">Je vais très bien aussi, merci. J'espère que tout va bien de votre côté.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3 justify-end">
+                  <div class="max-w-sm text-right">
+                    <p class="text-sm text-gray-500 font-medium mb-1">Moi</p>
+                    <p class="bg-[#19a2e6] text-white rounded-lg px-4 py-3 break-words">Tout va pour le mieux, merci ! Avons-nous besoin de discuter de quelque chose en particulier aujourd'hui ?</p>
+                  </div>
+                  <div class="w-10 h-10 shrink-0">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe_uc575OJ4QEZuzIG2N2RMz-htSPecEnL5PWYantOUoid5HMz08KqaCSUknkJgrFVdLx7vgh0tzeuomhEnDuoEEmJPnRz0d4ccQ1XxDF5XtEXXj7DTG0WbDsqFP_HyfJVcy36VbQ6KMyWNA9S64bYBNY6KqtHugIf9GfhGepgFhhMgQK1ZEqqZsN0jZY77Dpn3j7T-RmHsWisI7YtiRgY0p8LNZjY_YX-EPb90gdhHPbbIwxbbRJlCfIxlw6kPYvzuLUwXKN0DV0j" alt="User Moi" class="w-full h-full rounded-full object-cover" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Message Input Area -->
+              <div class="bg-white p-4 border-t">
+                <div class="flex items-center gap-3">
+                  <div class="flex-1 flex items-center rounded-lg bg-gray-100 px-3 h-12">
+                    <input
+                      placeholder="Type your message..."
+                      class="bg-transparent border-none focus:outline-none focus:ring-0 w-full text-gray-700 placeholder-gray-500"
+                      value=""
+                    />
+                    <button class="text-gray-500 hover:text-blue-600 p-1.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10.5h.01M15 10.5h.01M6.314 3.217C7.827 2.331 9.482 2 11 2c1.518 0 3.173.331 4.686 1.217m-4.686 10.5h.01M14 12h.01M10 16h.01" />
+                      </svg>
+                    </button>
+                    <button class="text-gray-500 hover:text-blue-600 p-1.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 00-.586.707v7.414a2 2 0 002 2h6.586a2 2 0 00.707-.586l6.586-6.586a2 2 0 00-2.829-2.829zm-9.25-8.001a4.5 4.5 0 016.364 0l0.707.707c.15.15.29.3.43.472l1.636 1.904c.487.569.784 1.223.784 1.904v1.634a1 1 0 01-.293.707l-2.647 2.647a1 1 0 00-.293.707v4.529a1 1 0 00.293.707l2.647 2.647a1 1 0 00.707.293h7.414a1 1 0 00.707-.293l2.647-2.647a1 1 0 00.293-.707v-4.529a1 1 0 00-.293-.707l-2.647-2.647a1 1 0 00-.707-.293h-1.634a1 1 0 00-.472.43l-1.904 1.636a4.5 4.5 0 01-6.364 0l-0.707-.707a4.5 4.5 0 01-6.364-6.364l0.707-.707a4.5 4.5 0 016.364-6.364zm-6.364 6.364a2 2 0 00-2.828 0l-.707.707a4.5 4.5 0 00-6.364 6.364l.707.707a4.5 4.5 0 006.364 0l.707-.707a4.5 4.5 0 000-6.364zm12.728 0a4.5 4.5 0 00-6.364-6.364l-.707.707a4.5 4.5 0 000 6.364l.707.707a4.5 4.5 0 006.364 0l.707-.707a4.5 4.5 0 000-6.364z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg h-12 flex items-center">
+                    Send
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Calendar/Tasks -->
+            <div class="w-96 bg-white shadow-lg p-6 flex flex-col space-y-6">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3">Upcoming Tasks</h3>
+                <ul class="space-y-3">
+                  <li class="flex items-center justify-between text-gray-700">
+                    <span>Prepare meeting notes</span>
+                    <span class="text-xs text-gray-500">Today</span>
+                  </li>
+                  <li class="flex items-center justify-between text-gray-700">
+                    <span>Review project proposal</span>
+                    <span class="text-xs text-gray-500">Tomorrow</span>
+                  </li>
+                  <li class="flex items-center justify-between text-gray-700">
+                    <span>Follow up with client</span>
+                    <span class="text-xs text-gray-500">Friday</span>
+                  </li>
+                </ul>
+                <button class="mt-3 text-blue-600 hover:text-blue-700 font-medium text-sm">View All Tasks</button>
+              </div>
+
+              <div class="bg-gray-50 p-4 rounded-lg flex-1">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3">Calendar</h3>
+                <div class="flex justify-between items-center mb-3">
+                  <span class="text-gray-700 font-medium">October 2023</span>
+                  <div class="flex space-x-2">
+                    <button class="text-gray-500 hover:text-gray-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <button class="text-gray-500 hover:text-gray-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center text-gray-600 text-sm font-medium">
+                  <div>Sun</div>
+                  <div>Mon</div>
+                  <div>Tue</div>
+                  <div>Wed</div>
+                  <div>Thu</div>
+                  <div>Fri</div>
+                  <div>Sat</div>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center mt-2 text-sm">
+                  <div class="text-gray-400">29</div>
+                  <div class="text-gray-400">30</div>
+                  <div class="text-gray-400">31</div>
+                  <div>1</div>
+                  <div>2</div>
+                  <div>3</div>
+                  <div>4</div>
+                  <div>5</div>
+                  <div>6</div>
+                  <div>7</div>
+                  <div>8</div>
+                  <div>9</div>
+                  <div>10</div>
+                  <div class="bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center mx-auto">11</div>
+                  <div>12</div>
+                  <div>13</div>
+                  <div>14</div>
+                  <div>15</div>
+                  <div>16</div>
+                  <div class="bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center mx-auto">17</div>
+                  <div>18</div>
+                  <div>19</div>
+                  <div>20</div>
+                  <div>21</div>
+                  <div>22</div>
+                  <div>23</div>
+                  <div>24</div>
+                  <div>25</div>
+                  <div>26</div>
+                  <div>27</div>
+                  <div class="bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center mx-auto">28</div>
+                  <div>29</div>
+                  <div>30</div>
+                  <div>31</div>
+                  <div class="text-gray-400">1</div>
+                  <div class="text-gray-400">2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
