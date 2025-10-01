@@ -1,8 +1,8 @@
 import type { ICategory } from '@/@types/ICategory'
 import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
-import HelpTableRow from './HelpTableRow';
+import BadgeTableRow from "./BadgeTableRow";
 
-export function HelpTableView({ helps }: { helps: ICategory[] }) {   
+export function BadgeTableView({ badges }: { badges: ICategory[] }) {   
   return (
     <Table className="table w-full table-zebra">
       <TableHeader className='text-semibold'>
@@ -12,8 +12,8 @@ export function HelpTableView({ helps }: { helps: ICategory[] }) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {helps?.map((help) => (
-          <HelpTableRow key={help.id} help={help}/>
+        {badges?.map((badge) => (
+          <BadgeTableRow key={badge.id} badge={badge}/>
         ))}
       </TableBody>
     </Table>

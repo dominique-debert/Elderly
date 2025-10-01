@@ -2,11 +2,11 @@ import type { ICategory } from '@/@types/ICategory';
 import Icon from '@mdi/react';
 import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
 import { useState } from 'react';
-import { HelpEditModal } from './HelpEditModal';
-import { ConfirmDeleteHelpModal } from './ConfirmDeleteHelpModal';
+import { BadgeEditModal } from './BadgeEditModal';
+import { BadgeDeleteModal } from './BadgeDeleteModal';
 import { useQueryClient } from '@tanstack/react-query';
 
-export default function HelpListItem({ help }: { help: ICategory }) {
+export default function BadgeListItem({ badge }: { badge: ICategory }) {
   
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
@@ -14,22 +14,22 @@ export default function HelpListItem({ help }: { help: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['helps'] });
+    queryClient.invalidateQueries({ queryKey: ['badges'] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['helps'] });
+    queryClient.invalidateQueries({ queryKey: ['badges'] });
   };
 
   return (
     <>
       <li
-        key={help.id}
+        key={badge.id}
         className="p-4 rounded shadow-md flex items-center gap-4"
       >
-        <span className="w-64 font-semibold">{help.categoryName}</span>
-        <span className="w-full">{help.description}</span>
+        <span className="w-64 font-semibold">{badge.categoryName}</span>
+        <span className="w-full">{badge.description}</span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"
@@ -53,16 +53,16 @@ export default function HelpListItem({ help }: { help: ICategory }) {
       </li>
 
       {isEditOpen && (
-        <HelpEditModal
-          help={help}
+        <BadgeEditModal
+          badge={badge}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <ConfirmDeleteHelpModal
-          category={help}
+        <BadgeDeleteModal
+          category={badge}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}
         />

@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { createHelpCategory } from '@/services/helpCategory.service';
+import { createBadgeCategory } from '@/services/badgeCategory.service';
 import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
 import { IChapter } from "@/@types/IChapter";
 import { ICategoryType } from "@/@types/ICategoryType";
 
-type HelpCreateModalProps = {
+type BadgeCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
 };
 
-export const HelpCreateModal: React.FC<HelpCreateModalProps> = ({ onClose, onCreated }) => {
+export const BadgeCreateModal: React.FC<BadgeCreateModalProps> = ({ onClose, onCreated }) => {
   const [form, setForm] = useState({
-    categoryName: '',
+    name: '',
     description: '',
     chapterId: '',
     typeId: '',
@@ -30,20 +30,24 @@ export const HelpCreateModal: React.FC<HelpCreateModalProps> = ({ onClose, onCre
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await createHelpCategory({
-        ...form,
+      await createBadgeCategory({
+        categoryName: form.name,
+        description: form.description,
         chapterId: Number(form.chapterId),
         typeId: Number(form.typeId),
       });
       toast.success('Catégorie créée');
       onClose();
-      onCreated?.();
+      onCreated?.(); 
     } catch (error: unknown) {
       if (error instanceof Error) {
         toast.error(`Erreur lors de la création : ${error.message}`);
@@ -56,7 +60,7 @@ export const HelpCreateModal: React.FC<HelpCreateModalProps> = ({ onClose, onCre
   return (
     <dialog className="modal modal-open">
       <div className="modal-box">
-        <h3 className="border-b border-base-300 font-medium text-xl">Créer une nouvelle catégorie d'aide</h3>
+        <h3 className="border-b border-base-300 font-medium text-xl">Créer une nouvelle catégorie</h3>
 
         <form method="dialog" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
 
@@ -65,8 +69,8 @@ export const HelpCreateModal: React.FC<HelpCreateModalProps> = ({ onClose, onCre
           <label className="text-sm -mb-2 mt-4">Nom</label>
           <input
             type="text"
-            name="categoryName"
-            value={form.categoryName}
+            name="name"
+            value={form.name}
             onChange={handleChange}
             className="input input-bordered w-full"
             placeholder="Nom de la catégorie"

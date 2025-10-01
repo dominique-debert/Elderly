@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
-import { updateHelpCategory } from '@/services/helpCategory.service';
+import { updateBadgeCategory } from '@/services/badgeCategory.service';
 import { toast } from 'react-hot-toast';
 import type { ICategory } from "@/@types/ICategory";
 import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
 import { IChapter } from "@/@types/IChapter";
 import { ICategoryType } from "@/@types/ICategoryType";
 
-type HelpModalProps = {
-  help: ICategory;
+type BadgeModalProps = {
+  badge: ICategory;
   onClose: () => void;
   onUpdated?: () => void;
 };
 
-export function HelpEditModal({ help, onClose, onUpdated }: HelpModalProps) {
+export function BadgeEditModal({ badge, onClose, onUpdated }: BadgeModalProps) {
   const [form, setForm] = useState<{
     categoryName: string;
     description: string;
@@ -46,10 +46,10 @@ export function HelpEditModal({ help, onClose, onUpdated }: HelpModalProps) {
         setTypes(typesFormatted);
   
         setForm({
-          categoryName: help.categoryName,
-          description: help.description || '',
-          chapterId: String(help.chapterId ?? chaptersFormatted[0]?.id ?? ''),
-          typeId: String(help.typeId ?? typesFormatted[0]?.id ?? ''),
+          categoryName: badge.categoryName,
+          description: badge.description || '',
+          chapterId: String(badge.chapterId ?? chaptersFormatted[0]?.id ?? ''),
+          typeId: String(badge.typeId ?? typesFormatted[0]?.id ?? ''),
         });
   
       } catch (error) {
@@ -60,7 +60,7 @@ export function HelpEditModal({ help, onClose, onUpdated }: HelpModalProps) {
     };
   
     fetchData();
-  }, [help]);
+  }, [badge]);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -74,7 +74,7 @@ export function HelpEditModal({ help, onClose, onUpdated }: HelpModalProps) {
     if (!form) return;
 
     try {
-      await updateHelpCategory(help.id.toString(), {
+      await updateBadgeCategory(badge.id.toString(), {
         categoryName: form.categoryName,
         description: form.description,
         chapterId: Number(form.chapterId),
@@ -90,17 +90,17 @@ export function HelpEditModal({ help, onClose, onUpdated }: HelpModalProps) {
   };
 
   if (loading || !form) {
-    const chapterName = chapters.find((c) => c.id === help.chapterId)?.name || `ID: ${help.chapterId}`;
-    const typeName = types.find((t) => t.id === help.typeId)?.name || `ID: ${help.typeId}`;
+    const chapterName = chapters.find((c) => c.id === badge.chapterId)?.name || `ID: ${badge.chapterId}`;
+    const typeName = types.find((t) => t.id === badge.typeId)?.name || `ID: ${badge.typeId}`;
     return (
-      <dialog className="modal modal-open" key={help.id}>
+      <dialog className="modal modal-open" key={badge.id}>
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Modifier l'aide</h3>
+          <h3 className="font-bold text-lg">Modifier le badge</h3>
           <form className="flex flex-col gap-4 mt-4 w-full">
             <label className="text-sm -mb-2 mt-4">Nom</label>
-            <input type="text" value={help.categoryName} disabled className="input input-bordered w-full bg-gray-100" />
+            <input type="text" value={badge.categoryName} disabled className="input input-bordered w-full bg-gray-100" />
             <label className="text-sm -mb-2 mt-4">Description</label>
-            <textarea value={help.description || ''} disabled className="textarea textarea-bordered w-full bg-gray-100" />
+            <textarea value={badge.description || ''} disabled className="textarea textarea-bordered w-full bg-gray-100" />
             <label className="text-sm -mb-2 mt-4">Chapitre</label>
             <input type="text" value={chapterName} disabled className="input input-bordered w-full bg-gray-100" />
             <label className="text-sm -mb-2 mt-4">Type</label>
@@ -115,9 +115,9 @@ export function HelpEditModal({ help, onClose, onUpdated }: HelpModalProps) {
   }
 
   return (
-    <dialog className="modal modal-open" key={help.id}>
+    <dialog className="modal modal-open" key={badge.id}>
       <div className="modal-box">
-        <h3 className="font-bold text-lg">Modifier l'aide</h3>
+        <h3 className="font-bold text-lg">Modifier le badge</h3>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
           <label className="text-sm -mb-2 mt-4">Nom</label>

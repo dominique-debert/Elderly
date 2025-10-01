@@ -1,25 +1,25 @@
 import Icon from '@mdi/react';
 import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
 import { useState } from 'react';
-import { ConfirmDeleteHelpModal } from './ConfirmDeleteHelpModal';
-import { HelpEditModal } from './HelpEditModal';
+import { BadgeDeleteModal } from './BadgeDeleteModal';
+import { BadgeEditModal } from './BadgeEditModal';
 import { TableCell, TableRow } from '../ui/table';
 import type { ICategory } from "@/@types/ICategory";
 
-export default function HelpTableRow({ help }: { help: ICategory }) {
+export default function BadgeTableRow({ badge }: { badge: ICategory }) {
 
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 
   return (
     <>
-    <TableRow key={help.id}>
+    <TableRow key={badge.id}>
       <TableCell>
         <div className='flex gap-4'>
-          {help.categoryName}
+          {badge.categoryName}
         </div>
       </TableCell>
-      <TableCell>{help.description}</TableCell>
+      <TableCell>{badge.description}</TableCell>
       <TableCell className='text-center w-0'>
         <button className='btn btn-ghost' onClick={() => setIsEditOpen(true)}>
           <Icon path={mdiPencilOutline} size={0.8} className='text-gray-500' />
@@ -33,15 +33,15 @@ export default function HelpTableRow({ help }: { help: ICategory }) {
     </TableRow>
 
     {isEditOpen && (
-      <HelpEditModal
-        help={help}
+      <BadgeEditModal
+        badge={badge}
         onClose={() => setIsEditOpen(false)}
       />
     )}
 
     {isConfirmDeleteOpen && (
-      <ConfirmDeleteHelpModal
-        category={help}
+      <BadgeDeleteModal
+        category={badge}
         onClose={() => setIsConfirmDeleteOpen(false)}
         onConfirm={() => {
           setIsConfirmDeleteOpen(false);

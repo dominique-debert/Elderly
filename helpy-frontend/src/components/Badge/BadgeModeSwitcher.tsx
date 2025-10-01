@@ -2,7 +2,7 @@ import Icon from '@mdi/react';
 import { mdiViewGrid, mdiViewList, mdiTable, mdiPlus, mdiMagnify, mdiClose } from '@mdi/js';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { HelpCreateModal } from './HelpCreateModal';
+import { BadgeCreateModal } from './BadgeCreateModal';
 
 type SwitchProps = {
   mode: 'card' | 'list' | 'table';
@@ -11,13 +11,13 @@ type SwitchProps = {
   setSearch: (value: string) => void;
 };
 
-export function HelpListSwitcher({ mode, setMode, search, setSearch }: SwitchProps) {
+export function BadgeModeSwitcher({ mode, setMode, search, setSearch }: SwitchProps) {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const queryClient = useQueryClient();
 
   const handleCreated = () => {
     setIsCreateOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['activities'] });
+    queryClient.invalidateQueries({ queryKey: ['badges'] });
   };
 
   return (
@@ -28,7 +28,7 @@ export function HelpListSwitcher({ mode, setMode, search, setSearch }: SwitchPro
           <Icon path={mdiMagnify} size={0.8} />
           <input
             type="search"
-            placeholder="Rechercher une aide..."
+            placeholder="Rechercher un badge..."
             className="grow"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -73,7 +73,7 @@ export function HelpListSwitcher({ mode, setMode, search, setSearch }: SwitchPro
       </div>
 
       {isCreateOpen && (
-        <HelpCreateModal
+        <BadgeCreateModal
           onClose={() => setIsCreateOpen(false)}
           onCreated={handleCreated}
         />
