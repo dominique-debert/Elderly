@@ -21,6 +21,6 @@ export interface IAuthState {
       isAdmin: boolean;
     },
     navigate: ReturnType<typeof useNavigate>
-  ) => Promise<void>;
+  ) => Promise<IUser>;
   logout: (navigate: ReturnType<typeof useNavigate>) => void;
 }

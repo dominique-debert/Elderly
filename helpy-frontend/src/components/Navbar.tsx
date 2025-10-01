@@ -52,8 +52,9 @@ const Navbar = () => {
       const userId = queryKey[1];
       console.log('Fetching notifications for user ID:', userId);
 
-      if (!userId) {
-        console.log('No user ID, returning empty array');
+      // Ensure userId is a non-empty string before making the API call
+      if (typeof userId !== 'string' || userId.trim() === '') {
+        console.log('Invalid or missing user ID, returning empty array');
         return [];
       }
 
