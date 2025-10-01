@@ -18,7 +18,7 @@ const router = Router();
 
 /**
  * @swagger
- * /api/forum-categories:
+ * /api/forum:
  *   post:
  *     summary: Crée une nouvelle catégorie de forum
  *     tags: [Forum categories]
@@ -41,7 +41,7 @@ router.post(
 
 /**
  * @swagger
- * /api/forum-categories:
+ * /api/forum:
  *   get:
  *     summary: Récupère la liste de toutes les catégories de forum
  *     tags: [Forum categories]
@@ -63,7 +63,7 @@ router.get(
 
 /**
  * @swagger
- * /api/forum-categories/{id}:
+ * /api/forum/{id}:
  *   get:
  *     summary: Récupère une catégorie de forum par son ID
  *     tags: [Forum categories]
@@ -93,7 +93,7 @@ router.get(
 
 /**
  * @swagger
- * /api/forum-categories/{id}:
+ * /api/forum/{id}:
  *   put:
  *     summary: Met à jour une catégorie de forum
  *     tags: [Forum categories]
@@ -125,7 +125,7 @@ router.put(
 
 /**
  * @swagger
- * /api/forum-categories/{id}:
+ * /api/forum/{id}:
  *   delete:
  *     summary: Supprime une catégorie de forum
  *     tags: [Forum categories]
