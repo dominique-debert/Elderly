@@ -11,7 +11,7 @@ import { CognitiveList } from '@/components/Cognitive/CognitiveList';
 import { ForumList } from '@/components/Forum/ForumList';
 import { HelpList } from '@/components/Help/HelpList';
 import { MoodList } from '@/components/Mood/MoodList'; 
-import { NutritionalList } from '@/components/Nutrition/NutritionalList';
+import { NutritionList } from '@/components/Nutrition/NutritionList';
 import { ProgramList } from '@/components/Program/ProgramList';
 import { ProjectList } from '@/components/Project/ProjectList';
 import { ResourceList } from '@/components/Resource/ResourceList';
@@ -43,8 +43,8 @@ const AdminPage = () => {
         return <HelpList />;
       case ETabKey.Mood:
         return <MoodList />;
-      case ETabKey.Nutritional:
-        return <NutritionalList />;
+      case ETabKey.Nutrition:
+        return <NutritionList />;
       case ETabKey.Program:
         return <ProgramList />;
       case ETabKey.Project:

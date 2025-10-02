@@ -5,7 +5,7 @@ export enum ETabKey {
   Forum = 'forum',
   Help = 'help',
   Mood = 'mood',
-  Nutritional = 'nutritional',
+  Nutrition = 'nutrition',
   Program = 'program',
   Project = 'project',
   Resource = 'resource',

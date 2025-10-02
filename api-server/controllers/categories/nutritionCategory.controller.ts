@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@/prisma/client';
 import { createHttpError } from '@/utils/httpError';
 import { ECategoryType } from '@/@types/data/categories/ECategory';
-import ICategory from '@/@types/data/categories/ICategory';
+import { ICategory } from '@/@types/data/categories/ICategory';
 
 const prisma = new PrismaClient();
 
@@ -14,7 +14,7 @@ const prisma = new PrismaClient();
 */
 
 // TOUTES LES CATÉGORIES DE CONSEILS NUTRITIONNELS
-export const fetchAllNutritionalCategories = async (
+export const fetchAllNutritionCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -82,7 +82,7 @@ export const fetchAllNutritionalCategories = async (
 };
 
 // CATÉGORIE DE CONSEIL NUTRITIONNEL PAR ID
-export const fetchNutritionalCategoryById = async (
+export const fetchNutritionCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -90,24 +90,24 @@ export const fetchNutritionalCategoryById = async (
   const { id } = req.params;
   
   try {
-    const nutritionalCategory = await prisma.category.findUnique({
+    const nutritionCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: ECategoryType.NUTRITIONAL }
+        typeId: ECategoryType.NUTRITION }
       });
       
-      if (!nutritionalCategory) {
+      if (!nutritionCategory) {
         throw createHttpError(404, 'Catégorie non trouvée');
       }
       
-      res.status(200).json(nutritionalCategory);
+      res.status(200).json(nutritionCategory);
     } catch (error) {
       next(error);
     }
   };
   
   // CRÉER UNE CATÉGORIE DE CONSEIL NUTRITIONNEL
-  export const createNutritionalCategory = async (
+  export const createNutritionCategory = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -122,7 +122,7 @@ export const fetchNutritionalCategoryById = async (
     }
   };
   
-  export const updateNutritionalCategory = async (
+  export const updateNutritionCategory = async (
     req: Request<{ id: string }, ICategory>,
     res: Response,
     next: NextFunction
@@ -133,7 +133,7 @@ export const fetchNutritionalCategoryById = async (
       const category = await prisma.category.findUnique({
         where: {
           id: Number(id),
-          typeId: ECategoryType.NUTRITIONAL }
+          typeId: ECategoryType.NUTRITION }
         });
         
         if (!category) {
@@ -147,7 +147,7 @@ export const fetchNutritionalCategoryById = async (
           },
           where: {
             id: Number(id),
-            typeId: ECategoryType.NUTRITIONAL }
+            typeId: ECategoryType.NUTRITION }
           });
           
           res.status(200).json(categoryToUpdate);
@@ -156,7 +156,7 @@ export const fetchNutritionalCategoryById = async (
         }
       };
       
-      export const deleteNutritionalCategory = async (
+      export const deleteNutritionCategory = async (
         req: Request<{ id: string }>,
         res: Response,
         next: NextFunction
@@ -167,7 +167,7 @@ export const fetchNutritionalCategoryById = async (
           const category = await prisma.category.findUnique({
             where: {
               id: Number(id),
-              typeId: ECategoryType.NUTRITIONAL }
+              typeId: ECategoryType.NUTRITION }
             });
             
             if (!category) {
@@ -177,7 +177,7 @@ export const fetchNutritionalCategoryById = async (
             await prisma.category.delete({
               where: {
                 id: Number(id),
-                typeId: ECategoryType.NUTRITIONAL }
+                typeId: ECategoryType.NUTRITION  }
               });
               
               res.status(200).json({ message: 'Catégorie supprimée avec succès' });

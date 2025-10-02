@@ -15,7 +15,7 @@ export enum ECategoryType {
   HELP = 5,
 
   // 🍏 Catégories nutritionnelles (alimentation, diététique)
-  NUTRITIONAL = 6,
+  NUTRITION = 6,
 
   // 📅 Programmes ou challenges planifiés
   PROGRAM = 7,

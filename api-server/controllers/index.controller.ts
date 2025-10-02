@@ -8,7 +8,7 @@ export * from './categories/cognitiveCategory.controller';
 export * from './categories/forumCategory.controller';
 export * from './categories/helpCategory.controller';
 export * from './categories/urbanIssueCategory.controller';
-export * from './categories/nutritionalCategory.controller';
+export * from './categories/nutritionCategory.controller';
 export * from './categories/programCategory.controller';
 export * from './categories/projectCategory.controller';
 export * from './categories/resourceCategory.controller';

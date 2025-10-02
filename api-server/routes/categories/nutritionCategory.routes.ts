@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-  createNutritionalCategory,
-  fetchAllNutritionalCategories,
-  fetchNutritionalCategoryById,
-  updateNutritionalCategory,
-  deleteNutritionalCategory
+  createNutritionCategory,
+  fetchAllNutritionCategories,
+  fetchNutritionCategoryById,
+  updateNutritionCategory,
+  deleteNutritionCategory
 } from '@/controllers/index.controller';
 
 import { categorySchema } from '@/validators/category.validator';
@@ -15,16 +15,16 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Nutritional Categories
+ *   name: Nutrition Categories
  *   description: Gestion des catégories pour les conseils nutritionnels
  */
 
 /**
  * @swagger
- * /api/categories/nutritional:
+ * /api/categories/nutrition:
  *   post:
  *     summary: Créer une nouvelle catégorie de conseils nutritionnels
- *     tags: [Nutritional Categories]
+ *     tags: [Nutrition Categories]
  *     requestBody:
  *       required: true
  *       content:
@@ -55,14 +55,14 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createNutritionalCategory);
+router.post('/', validate(categorySchema), createNutritionCategory);
 
 /**
  * @swagger
- * /api/categories/nutritional:
+ * /api/categories/nutrition:
  *   get:
  *     summary: Récupérer toutes les catégories de conseils nutritionnels
- *     tags: [Nutritional Categories]
+ *     tags: [Nutrition Categories]
  *     responses:
  *       200:
  *         description: Liste des catégories récupérée avec succès
@@ -78,14 +78,14 @@ router.post('/', validate(categorySchema), createNutritionalCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllNutritionalCategories);
+router.get('/', fetchAllNutritionCategories);
 
 /**
  * @swagger
- * /api/categories/nutritional/{id}:
+ * /api/categories/nutrition/{id}:
  *   get:
  *     summary: Récupérer une catégorie de conseils nutritionnels par ID
- *     tags: [Nutritional Categories]
+ *     tags: [Nutrition Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -106,14 +106,14 @@ router.get('/', fetchAllNutritionalCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchNutritionalCategoryById);
+router.get('/:id', fetchNutritionCategoryById);
 
 /**
  * @swagger
- * /api/categories/nutritional/{id}:
+ * /api/categories/nutrition/{id}:
  *   put:
  *     summary: Mettre à jour une catégorie de conseils nutritionnels
- *     tags: [Nutritional Categories]
+ *     tags: [Nutrition Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -148,14 +148,14 @@ router.get('/:id', fetchNutritionalCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateNutritionalCategory);
+router.put('/:id', updateNutritionCategory);
 
 /**
  * @swagger
- * /api/categories/nutritional/{id}:
+ * /api/categories/nutrition/{id}:
  *   delete:
  *     summary: Supprimer une catégorie de conseils nutritionnels
- *     tags: [Nutritional Categories]
+ *     tags: [Nutrition Categories]
  *     parameters:
  *       - in: path
  *         name: id
@@ -169,6 +169,6 @@ router.put('/:id', updateNutritionalCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteNutritionalCategory);
+router.delete('/:id', deleteNutritionCategory);
 
 export default router;
