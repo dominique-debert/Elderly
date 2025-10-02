@@ -1,7 +1,7 @@
 import Icon from '@mdi/react';
 import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
 import { useState } from 'react';
-import { ConfirmDeleteActivityModal } from './ConfirmDeleteActivityModal';
+import { ActivityDeleteModal } from './ActivityDeleteModal';
 import { ActivityEditModal } from './ActivityEditModal';
 import { TableCell, TableRow } from '../ui/table';
 import type { ICategory } from "@/@types/ICategory";
@@ -40,7 +40,7 @@ export default function ActivityTableRow({ activity }: { activity: ICategory }) 
     )}
 
     {isConfirmDeleteOpen && (
-      <ConfirmDeleteActivityModal
+      <ActivityDeleteModal
         category={activity}
         onClose={() => setIsConfirmDeleteOpen(false)}
         onConfirm={() => {

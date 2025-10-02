@@ -11,7 +11,7 @@ type Mode = 'card' | 'list' | 'table';
 export const MoodList = () => {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem('moodViewMode');
-    return (savedMode as Mode) || 'card';
+    return (savedMode as Mode) || 'list';
   });
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import Icon from '@mdi/react';
 import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
 import { useState } from 'react';
 import { ActivityEditModal } from './ActivityEditModal';
-import { ConfirmDeleteActivityModal } from './ConfirmDeleteActivityModal';
+import { ActivityDeleteModal } from './ActivityDeleteModal';
 import { useQueryClient } from '@tanstack/react-query';
 
 export default function ActivityListItem({ activity }: { activity: ICategory }) {
@@ -61,7 +61,7 @@ export default function ActivityListItem({ activity }: { activity: ICategory }) 
       )}
 
       {isConfirmDeleteOpen && (
-        <ConfirmDeleteActivityModal
+        <ActivityDeleteModal
           category={activity}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

@@ -12,7 +12,7 @@ type Mode = 'card' | 'list' | 'table';
 export const BadgeList = () => {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem('badgeViewMode');
-    return (savedMode as Mode) || 'card';
+    return (savedMode as Mode) || 'list';
   });
 
   const [search, setSearch] = useState('');

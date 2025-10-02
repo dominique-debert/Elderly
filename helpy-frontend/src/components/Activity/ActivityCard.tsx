@@ -3,7 +3,7 @@ import Icon from '@mdi/react';
 import type { ICategory } from '@/@types/ICategory';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { ConfirmDeleteActivityModal } from './ConfirmDeleteActivityModal';
+import { ActivityDeleteModal } from './ActivityDeleteModal';
 import { ActivityEditModal } from './ActivityEditModal';
 
 type ActivityCardProps = {
@@ -74,7 +74,7 @@ return (
     )}
 
     {isConfirmDeleteOpen && (
-      <ConfirmDeleteActivityModal
+      <ActivityDeleteModal
         category={activity}
         onClose={() => setIsConfirmDeleteOpen(false)}
         onConfirm={handleDeleted}

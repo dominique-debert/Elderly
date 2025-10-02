@@ -2,13 +2,13 @@ import type { ICategory } from '@/@types/ICategory';
 import { deleteActivityCategory } from '@/services/activityCategory.service'
 import { toast } from 'react-hot-toast';
 
-type ConfirmDeleteCategoryModalProps = {
+type ActivityDeleteModalProps = {
   category: ICategory;
   onClose: () => void;
   onConfirm?: () => void;
 };
 
-export function ConfirmDeleteActivityModal({ category, onClose, onConfirm }: ConfirmDeleteCategoryModalProps) {
+export function ActivityDeleteModal({ category, onClose, onConfirm }: ActivityDeleteModalProps) {
   const handleDelete = async () => {
     try {
       await deleteActivityCategory(category.id.toLocaleString());
