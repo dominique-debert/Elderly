@@ -1,0 +1,21 @@
+import type { ICategory } from '@/@types/ICategory'
+import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
+import UrbanIssueTableRow from "./UrbanIssueTableRow";
+
+export function UrbanIssueTableView({ urbanIssues }: { urbanIssues: ICategory[] }) {   
+  return (
+    <Table className="table w-full table-zebra">
+      <TableHeader className='text-semibold'>
+        <TableRow>
+          <TableHead>Titre</TableHead>
+          <TableHead>Description</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {urbanIssues?.map((urbanIssue) => (
+          <UrbanIssueTableRow key={urbanIssue.id} urbanIssue={urbanIssue}/>
+        ))}
+      </TableBody>
+    </Table>
+  );
+}
