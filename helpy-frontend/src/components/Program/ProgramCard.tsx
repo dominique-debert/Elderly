@@ -3,8 +3,8 @@ import Icon from '@mdi/react';
 import type { ICategory } from '@/@types/ICategory';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { HelpDeleteModal } from './HelpDeleteModal';
-import { HelpEditModal } from './HelpEditModal';
+import { ProgramDeleteModal } from './ProgramDeleteModal';
+import { ProgramEditModal } from './ProgramEditModal';
 
 type ProgramCardProps = {
   program: ICategory;
