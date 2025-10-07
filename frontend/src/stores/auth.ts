@@ -16,25 +16,32 @@ export const useAuthStore = create<IAuthState>()(
       login: async (email, password, navigate) => {
         try {
           const data = await loginUser({ email, password });
-          
-          if (!data.id) {
+          // Support both response shapes: { id, ... } or { user: { id, ... } }
+          const id = (data as any).id ?? (data as any).user?.id;
+
+          if (!id) {
             throw new Error('User ID not found in login response');
           }
 
-          localStorage.setItem('accessToken', data.accessToken);
-          localStorage.setItem('refreshToken', data.refreshToken);
-          localStorage.setItem('userId', data.id); // Store user ID in localStorage for easier access
+          const accessToken = (data as any).accessToken;
+          const refreshToken = (data as any).refreshToken;
+
+          localStorage.setItem('accessToken', accessToken);
+          localStorage.setItem('refreshToken', refreshToken);
+          localStorage.setItem('userId', id); // Store user ID in localStorage for easier access
+
+          const src = (data as any).user ?? data;
 
           const user = {
-            id: data.id,
-            email: data.email,
-            firstName: data.firstName,
-            lastName: data.lastName,
-            avatar: data.avatar,
-            birthDate: data.birthDate,
-            isAdmin: data.isAdmin,
-            longitude: data.longitude,
-            latitude: data.latitude,
+            id,
+            email: src.email,
+            firstName: src.firstName,
+            lastName: src.lastName,
+            avatar: src.avatar,
+            birthDate: src.birthDate,
+            isAdmin: src.isAdmin,
+            longitude: src.longitude,
+            latitude: src.latitude,
           };
 
           set({
@@ -55,30 +62,37 @@ export const useAuthStore = create<IAuthState>()(
       signup: async (userData, navigate) => {
         try {
           const data = await signupUser(userData);
-          
-          if (!data?.id) {
+          // Accept both { id, ... } or { user: { id, ... } }
+          const id = (data as any).id ?? (data as any).user?.id;
+
+          if (!id) {
             throw new Error('User ID not found in signup response');
           }
 
-          localStorage.setItem('accessToken', data.accessToken);
-          localStorage.setItem('refreshToken', data.refreshToken);
-          localStorage.setItem('userId', data.id);
+          const accessToken = (data as any).accessToken;
+          const refreshToken = (data as any).refreshToken;
+
+          localStorage.setItem('accessToken', accessToken);
+          localStorage.setItem('refreshToken', refreshToken);
+          localStorage.setItem('userId', id);
+
+          const src = (data as any).user ?? data;
 
           // Ensure all required fields are present
-          if (!data.email || !data.firstName || !data.lastName || !data.birthDate) {
+          if (!src.email || !src.firstName || !src.lastName || !src.birthDate) {
             throw new Error('Incomplete user data received from server');
           }
 
           const user: IUser = {
-            id: data.id,
-            email: data.email,
-            firstName: data.firstName,
-            lastName: data.lastName,
-            avatar: data.avatar,
-            birthDate: data.birthDate,
-            isAdmin: data.isAdmin,
-            longitude: data.longitude,
-            latitude: data.latitude,
+            id,
+            email: src.email,
+            firstName: src.firstName,
+            lastName: src.lastName,
+            avatar: src.avatar,
+            birthDate: src.birthDate,
+            isAdmin: src.isAdmin,
+            longitude: src.longitude,
+            latitude: src.latitude,
           };
 
           set({

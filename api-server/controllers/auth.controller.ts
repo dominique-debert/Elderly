@@ -60,19 +60,21 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
       },
     });
 
+    // Return tokens and flatten user fields at top-level so frontend can
+    // access data.id, data.email, etc. (keeps response consistent with signIn)
     res.status(201).json({
       accessToken,
       refreshToken,
       expiresIn: accessTokenExpiry,
-      user: {
-        id: user.id,
-        email: user.email,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        avatar: user.avatar,
-        birthDate: user.birthDate,
-        isAdmin: user.isAdmin,
-      },
+      id: user.id,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      avatar: user.avatar,
+      birthDate: user.birthDate,
+      isAdmin: user.isAdmin,
+      latitude: user.latitude,
+      longitude: user.longitude,
     });
   } catch (error) {
     next(error);
@@ -112,14 +114,16 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
       },
     });
 
-    // Retourner les informations du profil avec les tokens
+    // Return tokens and user fields including id at top-level so frontend
+    // login flow can rely on data.id and other fields directly.
     res.json({
       accessToken,
       refreshToken,
       expiresIn: accessTokenExpiry,
+      id: user.id,
+      email: user.email,
       firstName: user.firstName,
       lastName: user.lastName,
-      email: user.email,
       avatar: user.avatar,
       latitude: user.latitude,
       longitude: user.longitude,
