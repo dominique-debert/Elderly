@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { loginUser, signupUser } from "../services/auth.service";
+import { loginUser, signupUser, SignupPayload } from "../services/auth.service";
 import toast from "react-hot-toast";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import type { IAuthState } from "@/@types/IAuthState";
@@ -31,7 +31,7 @@ export const useAuthStore = create<IAuthState>()(
           localStorage.setItem("refreshToken", refreshToken);
           localStorage.setItem("userId", id); // Store user ID in localStorage for easier access
 
-          const src = loginData;
+          const src = loginData as IAuthResponse;
 
           set({
             accessToken: loginData.accessToken,
@@ -42,6 +42,7 @@ export const useAuthStore = create<IAuthState>()(
               firstName: src.firstName,
               lastName: src.lastName,
               avatar: src.avatar,
+              avatarUrl: (src as any).avatarUrl ?? null,
               birthDate: src.birthDate,
               isAdmin: src.isAdmin,
               longitude: src.longitude,
@@ -85,7 +86,7 @@ export const useAuthStore = create<IAuthState>()(
           localStorage.setItem("refreshToken", refreshToken);
           localStorage.setItem("userId", id);
 
-          const src = signupData;
+          const src = signupData as IAuthResponse;
 
           // Ensure all required fields are present
           if (!src.email || !src.firstName || !src.lastName || !src.birthDate) {
@@ -97,6 +98,7 @@ export const useAuthStore = create<IAuthState>()(
             firstName: src.firstName,
             lastName: src.lastName,
             avatar: src.avatar,
+            avatarUrl: (src as any).avatarUrl ?? null,
             birthDate: src.birthDate,
             isAdmin: src.isAdmin,
             longitude: src.longitude,
@@ -171,17 +173,9 @@ export const useAuth = (): UseAuthReturn => {
     user: user || null,
     login: (email: string, password: string) =>
       login(email, password, navigate),
-    signup: (userData: {
-      email: string;
-      password: string;
-      firstName: string;
-      lastName: string;
-      avatar?: string;
-      birthDate: Date;
-      isAdmin: boolean;
-      latitude?: string;
-      longitude?: string;
-    }) => signup(userData, navigate),
+    signup: (userData: SignupPayload) =>
+      signup(userData as SignupPayload, navigate),
+
     logout: () => logout(navigate),
   };
 };

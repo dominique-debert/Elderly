@@ -11,17 +11,19 @@ export interface IAuthState {
     navigate: ReturnType<typeof useNavigate>
   ) => Promise<IUser>;
   signup: (
-    userData: {
-      email: string;
-      password: string;
-      firstName: string;
-      lastName: string;
-      avatar?: string;
-      birthDate: Date;
-      isAdmin: boolean;
-      latitude?: string;
-      longitude?: string;
-    },
+    userData:
+      | FormData
+      | {
+          email: string;
+          password: string;
+          firstName: string;
+          lastName: string;
+          avatar?: string;
+          birthDate: Date;
+          isAdmin: boolean;
+          latitude?: string;
+          longitude?: string;
+        },
     navigate: ReturnType<typeof useNavigate>
   ) => Promise<IUser>;
   logout: (navigate: ReturnType<typeof useNavigate>) => void;

@@ -1,4 +1,3 @@
-
 export interface IAuthResponse {
   id: string;
   isAdmin: boolean;
@@ -6,6 +5,7 @@ export interface IAuthResponse {
   firstName: string;
   lastName: string;
   avatar?: string;
+  avatarUrl?: string | null;
   email: string;
   latitude: string;
   longitude: string;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSignupStore } from "../stores/signup";
 import { useAuthStore } from "../stores/auth";
 import { Link, useNavigate } from "react-router-dom";
@@ -44,40 +44,75 @@ const SignupPage = () => {
         alert(`Geolocation error: ${error.message}`);
       });
 
-    const avatar = ""; // Initialize avatar with a default value or fetch it dynamically
+    // Generate a unique filename for the uploaded avatar (preserve extension).
+    // Wrap the selected file into a new File with that generated name so
+    // the multipart upload carries the desired filename.
+    let avatarFileToUpload: File | undefined = undefined;
+    if (selectedFile) {
+      const ext = selectedFile.name.includes(".")
+        ? selectedFile.name.substring(selectedFile.name.lastIndexOf("."))
+        : "";
+      const generatedName = `${Date.now()}-${Math.random()
+        .toString(36)
+        .slice(2, 9)}${ext}`;
+      avatarFileToUpload = new File([selectedFile], generatedName, {
+        type: selectedFile.type,
+      });
+      // keep generated name in form data so server can use it explicitly
+      // when saving into /public/images
+      // (server should respect this field or use the uploaded filename)
+      // ...will append to FormData below...
+      // You can also log it for debugging:
+      console.debug("Generated avatar filename:", generatedName);
+    }
 
     if (!location) {
       alert("Impossible d'obtenir la géolocalisation. Veuillez réessayer.");
       return;
     }
 
-    const payload = {
-      email,
-      password,
-      firstName,
-      lastName,
-      birthDate: new Date(birthDate),
-      avatar,
-      isAdmin,
-      latitude: location.latitude,
-      longitude: location.longitude,
-    };
+    // Build FormData for multipart upload
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("birthDate", new Date(birthDate).toISOString());
+    formData.append("isAdmin", String(isAdmin));
+    formData.append("latitude", location.latitude);
+    formData.append("longitude", location.longitude);
+    if (avatarFileToUpload) {
+      formData.append("avatar", avatarFileToUpload, avatarFileToUpload.name);
+      formData.append("avatarFilename", avatarFileToUpload.name);
+    }
 
-    console.debug("Signup payload:", payload);
+    console.debug("Signup formData entries:");
+    for (const pair of Array.from(formData.entries()))
+      console.debug(pair[0], pair[1]);
 
     try {
-      await signup(payload, navigate);
-    } catch (err: any) {
-      // If Axios returned a validation error, show it to the developer/user
-      if (err?.response?.data) {
-        console.error("Signup error response:", err.response.data);
-        alert(`Signup failed: ${JSON.stringify(err.response.data)}`);
+      await signup(formData, navigate);
+    } catch (err: unknown) {
+      const anyErr = err as { response?: { data?: unknown }; message?: string };
+      if (anyErr?.response?.data) {
+        console.error("Signup error response:", anyErr.response.data);
+        alert(`Signup failed: ${JSON.stringify(anyErr.response.data)}`);
       } else {
-        console.error("Signup error:", err);
-        alert(`Signup failed: ${err?.message ?? err}`);
+        console.error("Signup error:", anyErr);
+        alert(`Signup failed: ${anyErr?.message ?? String(anyErr)}`);
       }
     }
   };
+
+  const [selectedFile, setSelectedFile] = useState<File | undefined>(undefined);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Revoke object URL on cleanup to avoid memory leaks
+    return () => {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+    };
+  }, [previewUrl]);
 
   return (
     <div className="container">
@@ -130,6 +165,35 @@ const SignupPage = () => {
               onChange={(e) => setBirthDate(new Date(e.target.value))}
               required
             />
+            <div className="flex flex-col">
+              <label className="label">Avatar (photo de profil)</label>
+              <input
+                id="avatar-input"
+                type="file"
+                accept="image/*"
+                className="file-input file-input-bordered w-full"
+                onChange={(e) => {
+                  const file =
+                    e.target.files && e.target.files[0]
+                      ? e.target.files[0]
+                      : undefined;
+                  setSelectedFile(file);
+                  if (file) {
+                    const url = URL.createObjectURL(file);
+                    setPreviewUrl(url);
+                  } else {
+                    setPreviewUrl(null);
+                  }
+                }}
+              />
+              {previewUrl && (
+                <img
+                  src={previewUrl}
+                  alt="Avatar preview"
+                  className="mt-2 w-24 h-24 object-cover rounded-full"
+                />
+              )}
+            </div>
             <label className="label justify-normal text-start">
               <input
                 type="checkbox"

@@ -4,6 +4,8 @@ import argon2 from "argon2";
 import { createHttpError } from "@/utils/httpError";
 import { generateToken } from "@/utils/jwt";
 import { signUpSchema, signInSchema } from "@/validators/auth.validator";
+import fs from "fs";
+import path from "path";
 
 const prisma = new PrismaClient();
 
@@ -13,14 +15,9 @@ const refreshTokenExpiryDays =
   7;
 
 const signToken = (userId: string, type: "access" | "refresh") => {
-  try {
-    const expiresIn =
-      type === "access" ? accessTokenExpiry : `${refreshTokenExpiryDays}d`;
-    return generateToken({ userId }, expiresIn);
-  } catch (error) {
-    console.error(`Error generating ${type} token:`, error);
-    throw new Error(`Failed to generate ${type} token`);
-  }
+  const expiresIn =
+    type === "access" ? accessTokenExpiry : `${refreshTokenExpiryDays}d`;
+  return generateToken({ userId }, expiresIn);
 };
 
 export const signUp = async (
@@ -29,9 +26,6 @@ export const signUp = async (
   next: NextFunction
 ) => {
   try {
-    // Log incoming payload for debugging missing coordinates
-    console.debug("signUp - incoming body:", JSON.stringify(req.body));
-
     const { error } = signUpSchema.validate(req.body);
     if (error) throw createHttpError(400, "Invalid data", error.details);
 
@@ -40,12 +34,61 @@ export const signUp = async (
       password,
       firstName,
       lastName,
-      avatar,
       birthDate,
       isAdmin,
       latitude,
       longitude,
-    } = req.body;
+    } = req.body as any;
+
+    const avatarFromBody = (req.body as any).avatar as string | undefined;
+    let uploadedAvatar = (req as any).file?.filename as string | undefined;
+
+    // If the client sent a desired filename (avatarFilename), try to move/rename
+    // the uploaded temp file (multer) to that name. This handles the case where
+    // multer processed the file before form fields were available in storage.filename.
+    const desiredFilename = (req.body as any).avatarFilename as
+      | string
+      | undefined;
+    if (uploadedAvatar && desiredFilename && (req as any).file?.path) {
+      try {
+        // sanitize desired filename
+        const safeBase = path
+          .basename(desiredFilename)
+          .replace(/[^a-zA-Z0-9._-]/g, "-");
+        const avatarsDir = path.join(
+          process.cwd(),
+          "public",
+          "images",
+          "avatars"
+        );
+        // ensure extension
+        const ext =
+          path.extname(safeBase) || path.extname(uploadedAvatar) || ".jpg";
+        const finalName = safeBase.endsWith(ext)
+          ? safeBase
+          : `${safeBase}${ext}`;
+        const oldPath = (req as any).file.path as string;
+        const newPath = path.join(avatarsDir, finalName);
+
+        // If destination already exists, avoid overwriting by adding a unique suffix
+        let uniqueNewPath = newPath;
+        let counter = 1;
+        while (fs.existsSync(uniqueNewPath)) {
+          const nameOnly = finalName.replace(/\.[^.]+$/, "");
+          uniqueNewPath = path.join(avatarsDir, `${nameOnly}-${counter}${ext}`);
+          counter++;
+        }
+
+        fs.renameSync(oldPath, uniqueNewPath);
+        uploadedAvatar = path.basename(uniqueNewPath);
+      } catch (err) {
+        console.warn(
+          "Could not rename uploaded avatar to desired filename:",
+          err
+        );
+        // keep uploadedAvatar as-is (multer-generated name)
+      }
+    }
 
     const existing = await prisma.user.findUnique({ where: { email } });
     if (existing) throw createHttpError(409, "Email already in use");
@@ -58,7 +101,7 @@ export const signUp = async (
         passwordHash,
         firstName,
         lastName,
-        avatar,
+        avatar: uploadedAvatar ?? avatarFromBody ?? null,
         birthDate,
         isAdmin,
         latitude: latitude ?? null,
@@ -84,8 +127,11 @@ export const signUp = async (
       },
     });
 
-    // Return tokens and flatten user fields at top-level so frontend can
-    // access data.id, data.email, etc. (keeps response consistent with signIn)
+    const serverBase = process.env.SERVER_BASE_URL || "http://localhost:3000";
+    const avatarUrl = user.avatar
+      ? `${serverBase}/public/images/avatars/${user.avatar}`
+      : null;
+
     res.status(201).json({
       accessToken,
       refreshToken,
@@ -95,6 +141,7 @@ export const signUp = async (
       firstName: user.firstName,
       lastName: user.lastName,
       avatar: user.avatar,
+      avatarUrl,
       birthDate: user.birthDate,
       isAdmin: user.isAdmin,
       latitude: user.latitude,
@@ -114,13 +161,11 @@ export const signIn = async (
     const { error } = signInSchema.validate(req.body);
     if (error) throw createHttpError(400, "Invalid data", error.details);
 
-    const { email, password } = req.body;
+    const { email, password } = req.body as any;
 
     const user = await prisma.user.findUnique({ where: { email } });
 
-    if (!user) {
-      throw createHttpError(401, "Utilisateur inconnu !");
-    }
+    if (!user) throw createHttpError(401, "Utilisateur inconnu !");
 
     if (!(await argon2.verify(user.passwordHash, password))) {
       throw createHttpError(401, "Mot de passe incorrect !");
@@ -142,8 +187,11 @@ export const signIn = async (
       },
     });
 
-    // Return tokens and user fields including id at top-level so frontend
-    // login flow can rely on data.id and other fields directly.
+    const serverBase = process.env.SERVER_BASE_URL || "http://localhost:3000";
+    const avatarUrl = user.avatar
+      ? `${serverBase}/public/images/avatars/${user.avatar}`
+      : null;
+
     res.json({
       accessToken,
       refreshToken,
@@ -153,6 +201,7 @@ export const signIn = async (
       firstName: user.firstName,
       lastName: user.lastName,
       avatar: user.avatar,
+      avatarUrl,
       latitude: user.latitude,
       longitude: user.longitude,
       birthDate: user.birthDate,
@@ -169,7 +218,7 @@ export const logout = async (
   next: NextFunction
 ) => {
   try {
-    const { refreshToken } = req.body;
+    const { refreshToken } = req.body as any;
     if (!refreshToken) throw createHttpError(400, "Refresh token required");
 
     await prisma.session.deleteMany({ where: { refreshToken } });
