@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 import type { IAuthState } from '@/@types/IAuthState';
 import type { IUser } from '@/@types/IUser';
+import { IAuthResponse } from "@/@types/IAuthResponse";
 
 export const useAuthStore = create<IAuthState>()(
   persist(
@@ -16,23 +17,41 @@ export const useAuthStore = create<IAuthState>()(
       login: async (email, password, navigate) => {
         try {
           const data = await loginUser({ email, password });
-          // Support both response shapes: { id, ... } or { user: { id, ... } }
-          const id = (data as any).id ?? (data as any).user?.id;
+          const loginData = data as IAuthResponse;
+          const id = loginData.id;
 
           if (!id) {
             throw new Error('User ID not found in login response');
           }
 
-          const accessToken = (data as any).accessToken;
-          const refreshToken = (data as any).refreshToken;
+          const accessToken = loginData.accessToken;
+          const refreshToken = loginData.refreshToken;
 
           localStorage.setItem('accessToken', accessToken);
           localStorage.setItem('refreshToken', refreshToken);
           localStorage.setItem('userId', id); // Store user ID in localStorage for easier access
 
-          const src = (data as any).user ?? data;
+          const src = loginData;
 
-          const user = {
+          set({
+            accessToken: loginData.accessToken,
+            isAuthenticated: true,
+            user: {
+              id,
+              email: src.email,
+              firstName: src.firstName,
+              lastName: src.lastName,
+              avatar: src.avatar,
+              birthDate: src.birthDate,
+              isAdmin: src.isAdmin,
+              longitude: src.longitude !== undefined ? String(src.longitude) : undefined,
+              latitude: src.latitude !== undefined ? String(src.latitude) : undefined,
+            },
+          });
+          
+          toast.success('Connexion réussie');
+          navigate('/');
+          return {
             id,
             email: src.email,
             firstName: src.firstName,
@@ -40,19 +59,9 @@ export const useAuthStore = create<IAuthState>()(
             avatar: src.avatar,
             birthDate: src.birthDate,
             isAdmin: src.isAdmin,
-            longitude: src.longitude,
-            latitude: src.latitude,
+            longitude: src.longitude !== undefined ? String(src.longitude) : undefined,
+            latitude: src.latitude !== undefined ? String(src.latitude) : undefined,
           };
-
-          set({
-            accessToken: data.accessToken,
-            isAuthenticated: true,
-            user,
-          });
-          
-          toast.success('Connexion réussie');
-          navigate('/');
-          return user;
         } catch (error) {
           toast.error('Erreur lors de la connexion: ' + error);
           throw error;
@@ -62,27 +71,26 @@ export const useAuthStore = create<IAuthState>()(
       signup: async (userData, navigate) => {
         try {
           const data = await signupUser(userData);
-          // Accept both { id, ... } or { user: { id, ... } }
-          const id = (data as any).id ?? (data as any).user?.id;
+          const signupData = data as IAuthResponse;
+          const id = signupData.id;
 
           if (!id) {
             throw new Error('User ID not found in signup response');
           }
 
-          const accessToken = (data as any).accessToken;
-          const refreshToken = (data as any).refreshToken;
+          const accessToken = signupData.accessToken;
+          const refreshToken = signupData.refreshToken;
 
           localStorage.setItem('accessToken', accessToken);
           localStorage.setItem('refreshToken', refreshToken);
           localStorage.setItem('userId', id);
 
-          const src = (data as any).user ?? data;
+          const src = signupData;
 
           // Ensure all required fields are present
           if (!src.email || !src.firstName || !src.lastName || !src.birthDate) {
             throw new Error('Incomplete user data received from server');
           }
-
           const user: IUser = {
             id,
             email: src.email,
@@ -91,10 +99,9 @@ export const useAuthStore = create<IAuthState>()(
             avatar: src.avatar,
             birthDate: src.birthDate,
             isAdmin: src.isAdmin,
-            longitude: src.longitude,
-            latitude: src.latitude,
+            longitude: src.longitude !== undefined ? String(src.longitude) : undefined,
+            latitude: src.latitude !== undefined ? String(src.latitude) : undefined,
           };
-
           set({
             accessToken: data.accessToken,
             isAuthenticated: true,
