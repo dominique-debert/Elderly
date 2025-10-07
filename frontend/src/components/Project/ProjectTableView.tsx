@@ -1,11 +1,17 @@
-import type { ICategory } from '@/@types/ICategory'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import ProjectTableRow from "./ProjectTableRow";
+import type { ICategory } from "@/@types";
 
-export function ProjectTableView({ projects }: { projects: ICategory[] }) {   
+export function ProjectTableView({ projects }: { projects: ICategory[] }) {
   return (
     <Table className="table w-full table-zebra">
-      <TableHeader className='text-semibold'>
+      <TableHeader className="text-semibold">
         <TableRow>
           <TableHead>Titre</TableHead>
           <TableHead>Description</TableHead>
@@ -13,7 +19,7 @@ export function ProjectTableView({ projects }: { projects: ICategory[] }) {
       </TableHeader>
       <TableBody>
         {projects?.map((project) => (
-          <ProjectTableRow key={project.id} project={project}/>
+          <ProjectTableRow key={project.id} project={project} />
         ))}
       </TableBody>
     </Table>

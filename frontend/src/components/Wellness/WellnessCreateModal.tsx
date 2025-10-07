@@ -1,33 +1,44 @@
-import { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
-import { createWellnessCategory } from '@/services/wellnessCategory.service';
-import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
-import { IChapter } from "@/@types/IChapter";
-import { ICategoryType } from "@/@types/ICategoryType";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { createWellnessCategory } from "@/services/wellnessCategory.service";
+import {
+  getCategoryChapters,
+  getCategoryTypes,
+} from "@/services/categoryMeta.service";
+import { ICategoryType, IChapter } from "@/@types";
 
 type WellnessCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
 };
 
-export const WellnessCreateModal: React.FC<WellnessCreateModalProps> = ({ onClose, onCreated }) => {
+export const WellnessCreateModal: React.FC<WellnessCreateModalProps> = ({
+  onClose,
+  onCreated,
+}) => {
   const [form, setForm] = useState({
-    categoryName: '',
-    description: '',
-    chapterId: '',
-    typeId: '',
+    categoryName: "",
+    description: "",
+    chapterId: "",
+    typeId: "",
   });
 
   const [chapters, setChapters] = useState<IChapter[]>([]);
   const [types, setTypes] = useState<ICategoryType[]>([]);
 
   useEffect(() => {
-    getCategoryChapters().then(setChapters).catch(() => toast.error("Erreur lors du chargement des chapitres"));
-    getCategoryTypes().then(setTypes).catch(() => toast.error("Erreur lors du chargement des types"));
+    getCategoryChapters()
+      .then(setChapters)
+      .catch(() => toast.error("Erreur lors du chargement des chapitres"));
+    getCategoryTypes()
+      .then(setTypes)
+      .catch(() => toast.error("Erreur lors du chargement des types"));
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -41,14 +52,16 @@ export const WellnessCreateModal: React.FC<WellnessCreateModalProps> = ({ onClos
         chapterId: Number(form.chapterId),
         typeId: Number(form.typeId),
       });
-      toast.success('Catégorie créée');
+      toast.success("Catégorie créée");
       onClose();
-      onCreated?.(); 
+      onCreated?.();
     } catch (error: unknown) {
       if (error instanceof Error) {
         toast.error(`Erreur lors de la création : ${error.message}`);
       } else {
-        toast.error('Erreur lors de la création : Une erreur inconnue est survenue');
+        toast.error(
+          "Erreur lors de la création : Une erreur inconnue est survenue"
+        );
       }
     }
   };
@@ -56,11 +69,21 @@ export const WellnessCreateModal: React.FC<WellnessCreateModalProps> = ({ onClos
   return (
     <dialog className="modal modal-open">
       <div className="modal-box">
-        <h3 className="border-b border-base-300 font-medium text-xl">Créer une nouvelle catégorie</h3>
+        <h3 className="border-b border-base-300 font-medium text-xl">
+          Créer une nouvelle catégorie
+        </h3>
 
-        <form method="dialog" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
-
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-4 top-5" onClick={onClose}>✕</button>
+        <form
+          method="dialog"
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4 mt-4 w-full"
+        >
+          <button
+            className="btn btn-sm btn-circle btn-ghost absolute right-4 top-5"
+            onClick={onClose}
+          >
+            ✕
+          </button>
 
           <label className="text-sm -mb-2 mt-4">Nom</label>
           <input
@@ -90,9 +113,13 @@ export const WellnessCreateModal: React.FC<WellnessCreateModalProps> = ({ onClos
             className="select select-bordered w-full"
             required
           >
-            <option value="" disabled>Choisir un chapitre</option>
+            <option value="" disabled>
+              Choisir un chapitre
+            </option>
             {chapters.map((ch) => (
-              <option key={ch.chapterId} value={ch.chapterId}>{ch.chapterName}</option>
+              <option key={ch.chapterId} value={ch.chapterId}>
+                {ch.chapterName}
+              </option>
             ))}
           </select>
 
@@ -104,15 +131,23 @@ export const WellnessCreateModal: React.FC<WellnessCreateModalProps> = ({ onClos
             className="select select-bordered w-full"
             required
           >
-            <option value="" disabled>Choisir un type</option>
+            <option value="" disabled>
+              Choisir un type
+            </option>
             {types.map((t) => (
-              <option key={t.id} value={t.id}>{t.name}</option>
+              <option key={t.id} value={t.id}>
+                {t.name}
+              </option>
             ))}
           </select>
 
           <div className="modal-action">
-            <button type="submit" className="btn btn-primary">Enregistrer</button>
-            <button type="button" className="btn" onClick={onClose}>Annuler</button>
+            <button type="submit" className="btn btn-primary">
+              Enregistrer
+            </button>
+            <button type="button" className="btn" onClick={onClose}>
+              Annuler
+            </button>
           </div>
         </form>
       </div>

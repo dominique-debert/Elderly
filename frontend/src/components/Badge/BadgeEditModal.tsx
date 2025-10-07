@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react';
-import { updateBadgeCategory } from '@/services/badgeCategory.service';
-import { toast } from 'react-hot-toast';
-import type { ICategory } from "@/@types/ICategory";
-import { getCategoryChapters, getCategoryTypes } from '@/services/categoryMeta.service';
-import { IChapter } from "@/@types/IChapter";
-import { ICategoryType } from "@/@types/ICategoryType";
+import { useEffect, useState } from "react";
+import { updateBadgeCategory } from "@/services/badgeCategory.service";
+import { toast } from "react-hot-toast";
+import {
+  getCategoryChapters,
+  getCategoryTypes,
+} from "@/services/categoryMeta.service";
+import type { ICategory } from "@/@types";
+import type { ICategoryType } from "@/@types";
+import type { IChapter } from "@/@types";
 
 type BadgeModalProps = {
   badge: ICategory;
@@ -31,38 +34,42 @@ export function BadgeEditModal({ badge, onClose, onUpdated }: BadgeModalProps) {
           getCategoryChapters(),
           getCategoryTypes(),
         ]);
-  
+
         const chaptersFormatted = chapterData.map((chapter: IChapter) => ({
           id: chapter.chapterId,
           name: chapter.chapterName,
         }));
-  
+
         const typesFormatted = typeData.map((type: ICategoryType) => ({
           id: type.id,
           name: type.name,
         }));
-  
+
         setChapters(chaptersFormatted);
         setTypes(typesFormatted);
-  
+
         setForm({
           categoryName: badge.categoryName,
-          description: badge.description || '',
-          chapterId: String(badge.chapterId ?? chaptersFormatted[0]?.id ?? ''),
-          typeId: String(badge.typeId ?? typesFormatted[0]?.id ?? ''),
+          description: badge.description || "",
+          chapterId: String(badge.chapterId ?? chaptersFormatted[0]?.id ?? ""),
+          typeId: String(badge.typeId ?? typesFormatted[0]?.id ?? ""),
         });
-  
       } catch (error) {
-        toast.error('Erreur lors du chargement des données : ' + (error instanceof Error ? error.message : 'Inconnue'));
+        toast.error(
+          "Erreur lors du chargement des données : " +
+            (error instanceof Error ? error.message : "Inconnue")
+        );
       } finally {
         setLoading(false);
       }
     };
-  
+
     fetchData();
   }, [badge]);
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     if (!form) return;
@@ -81,32 +88,59 @@ export function BadgeEditModal({ badge, onClose, onUpdated }: BadgeModalProps) {
         typeId: Number(form.typeId),
       } as ICategory);
 
-      toast.success('Activité mise à jour');
+      toast.success("Activité mise à jour");
       onClose();
       onUpdated?.();
     } catch (error: unknown) {
-      toast.error('Erreur lors de la mise à jour : ' + (error instanceof Error ? error.message : 'Inconnue'));
+      toast.error(
+        "Erreur lors de la mise à jour : " +
+          (error instanceof Error ? error.message : "Inconnue")
+      );
     }
   };
 
   if (loading || !form) {
-    const chapterName = chapters.find((c) => c.id === badge.chapterId)?.name || `ID: ${badge.chapterId}`;
-    const typeName = types.find((t) => t.id === badge.typeId)?.name || `ID: ${badge.typeId}`;
+    const chapterName =
+      chapters.find((c) => c.id === badge.chapterId)?.name ||
+      `ID: ${badge.chapterId}`;
+    const typeName =
+      types.find((t) => t.id === badge.typeId)?.name || `ID: ${badge.typeId}`;
     return (
       <dialog className="modal modal-open" key={badge.id}>
         <div className="modal-box">
           <h3 className="font-bold text-lg">Modifier le badge</h3>
           <form className="flex flex-col gap-4 mt-4 w-full">
             <label className="text-sm -mb-2 mt-4">Nom</label>
-            <input type="text" value={badge.categoryName} disabled className="input input-bordered w-full bg-gray-100" />
+            <input
+              type="text"
+              value={badge.categoryName}
+              disabled
+              className="input input-bordered w-full bg-gray-100"
+            />
             <label className="text-sm -mb-2 mt-4">Description</label>
-            <textarea value={badge.description || ''} disabled className="textarea textarea-bordered w-full bg-gray-100" />
+            <textarea
+              value={badge.description || ""}
+              disabled
+              className="textarea textarea-bordered w-full bg-gray-100"
+            />
             <label className="text-sm -mb-2 mt-4">Chapitre</label>
-            <input type="text" value={chapterName} disabled className="input input-bordered w-full bg-gray-100" />
+            <input
+              type="text"
+              value={chapterName}
+              disabled
+              className="input input-bordered w-full bg-gray-100"
+            />
             <label className="text-sm -mb-2 mt-4">Type</label>
-            <input type="text" value={typeName} disabled className="input input-bordered w-full bg-gray-100" />
+            <input
+              type="text"
+              value={typeName}
+              disabled
+              className="input input-bordered w-full bg-gray-100"
+            />
             <div className="modal-action">
-              <button type="button" className="btn" onClick={onClose}>Annuler</button>
+              <button type="button" className="btn" onClick={onClose}>
+                Annuler
+              </button>
             </div>
           </form>
         </div>
@@ -119,7 +153,10 @@ export function BadgeEditModal({ badge, onClose, onUpdated }: BadgeModalProps) {
       <div className="modal-box">
         <h3 className="font-bold text-lg">Modifier le badge</h3>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4 mt-4 w-full"
+        >
           <label className="text-sm -mb-2 mt-4">Nom</label>
           <input
             type="text"
@@ -171,8 +208,12 @@ export function BadgeEditModal({ badge, onClose, onUpdated }: BadgeModalProps) {
           </select>
 
           <div className="modal-action">
-            <button type="submit" className="btn btn-primary">Enregistrer</button>
-            <button type="button" className="btn" onClick={onClose}>Annuler</button>
+            <button type="submit" className="btn btn-primary">
+              Enregistrer
+            </button>
+            <button type="button" className="btn" onClick={onClose}>
+              Annuler
+            </button>
           </div>
         </form>
       </div>

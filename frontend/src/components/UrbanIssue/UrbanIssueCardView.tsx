@@ -1,5 +1,5 @@
-import type { ICategory } from '@/@types/ICategory';
-import { UrbanIssueCard } from './UrbanIssueCard';
+import { UrbanIssueCard } from "./UrbanIssueCard";
+import type { ICategory } from "@/@types";
 
 type UrbanIssueCardViewProps = {
   urbanIssues: ICategory[];

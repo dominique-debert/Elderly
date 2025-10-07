@@ -1,11 +1,17 @@
-import type { ICategory } from '@/@types/ICategory'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import HelpTableRow from "./HelpTableRow";
+import type { ICategory } from "@/@types";
 
-export function HelpTableView({ helps }: { helps: ICategory[] }) {   
+export function HelpTableView({ helps }: { helps: ICategory[] }) {
   return (
     <Table className="table w-full table-zebra">
-      <TableHeader className='text-semibold'>
+      <TableHeader className="text-semibold">
         <TableRow>
           <TableHead>Titre</TableHead>
           <TableHead>Description</TableHead>
@@ -13,7 +19,7 @@ export function HelpTableView({ helps }: { helps: ICategory[] }) {
       </TableHeader>
       <TableBody>
         {helps?.map((help) => (
-          <HelpTableRow key={help.id} help={help}/>
+          <HelpTableRow key={help.id} help={help} />
         ))}
       </TableBody>
     </Table>

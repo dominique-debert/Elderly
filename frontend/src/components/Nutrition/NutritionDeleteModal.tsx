@@ -1,6 +1,6 @@
-import type { ICategory } from '@/@types/ICategory';
-import { deleteNutritionCategory } from '@/services/nutritionCategory.service';
-import { toast } from 'react-hot-toast';
+import { deleteNutritionCategory } from "@/services/nutritionCategory.service";
+import { toast } from "react-hot-toast";
+import type { ICategory } from "@/@types";
 
 type NutritionDeleteModalProps = {
   category: ICategory;
@@ -8,11 +8,15 @@ type NutritionDeleteModalProps = {
   onConfirm?: () => void;
 };
 
-export function NutritionDeleteModal({ category, onClose, onConfirm }: NutritionDeleteModalProps) {
+export function NutritionDeleteModal({
+  category,
+  onClose,
+  onConfirm,
+}: NutritionDeleteModalProps) {
   const handleDelete = async () => {
     try {
       await deleteNutritionCategory(category.id.toLocaleString());
-      toast.success('Catégorie nutrition supprimée');
+      toast.success("Catégorie nutrition supprimée");
       onConfirm?.();
       onClose();
     } catch (error) {
@@ -23,11 +27,19 @@ export function NutritionDeleteModal({ category, onClose, onConfirm }: Nutrition
   return (
     <dialog className="modal modal-open">
       <div className="modal-box">
-        <h3 className="font-bold text-lg">Supprimer la catégorie de nutrition</h3>
-        <p className="py-4">Confirmer la suppression de <strong>{category.categoryName}</strong> ?</p>
+        <h3 className="font-bold text-lg">
+          Supprimer la catégorie de nutrition
+        </h3>
+        <p className="py-4">
+          Confirmer la suppression de <strong>{category.categoryName}</strong> ?
+        </p>
         <div className="modal-action">
-          <button className="btn btn-primary" onClick={handleDelete}>Supprimer</button>
-          <button className="btn btn-ghost" onClick={onClose}>Annuler</button>
+          <button className="btn btn-primary" onClick={handleDelete}>
+            Supprimer
+          </button>
+          <button className="btn btn-ghost" onClick={onClose}>
+            Annuler
+          </button>
         </div>
       </div>
     </dialog>

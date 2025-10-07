@@ -1,11 +1,17 @@
-import type { ICategory } from '@/@types/ICategory'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import ForumTableRow from "./ForumTableRow";
+import type { ICategory } from "@/@types";
 
-export function ForumTableView({ forums }: { forums: ICategory[] }) {   
+export function ForumTableView({ forums }: { forums: ICategory[] }) {
   return (
     <Table className="table w-full table-zebra">
-      <TableHeader className='text-semibold'>
+      <TableHeader className="text-semibold">
         <TableRow>
           <TableHead>Titre</TableHead>
           <TableHead>Description</TableHead>
@@ -13,7 +19,7 @@ export function ForumTableView({ forums }: { forums: ICategory[] }) {
       </TableHeader>
       <TableBody>
         {forums?.map((forum) => (
-          <ForumTableRow key={forum.id} forum={forum}/>
+          <ForumTableRow key={forum.id} forum={forum} />
         ))}
       </TableBody>
     </Table>

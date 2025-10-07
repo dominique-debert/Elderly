@@ -1,11 +1,21 @@
-import type { ICategory } from '@/@types/ICategory'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import NutritionTableRow from "./NutritionTableRow";
+import type { ICategory } from "@/@types";
 
-export function NutritionTableView({ nutritions }: { nutritions: ICategory[] }) {   
+export function NutritionTableView({
+  nutritions,
+}: {
+  nutritions: ICategory[];
+}) {
   return (
     <Table className="table w-full table-zebra">
-      <TableHeader className='text-semibold'>
+      <TableHeader className="text-semibold">
         <TableRow>
           <TableHead>Titre</TableHead>
           <TableHead>Description</TableHead>
@@ -13,7 +23,7 @@ export function NutritionTableView({ nutritions }: { nutritions: ICategory[] }) 
       </TableHeader>
       <TableBody>
         {nutritions?.map((nutrition) => (
-          <NutritionTableRow key={nutrition.id} nutrition={nutrition}/>
+          <NutritionTableRow key={nutrition.id} nutrition={nutrition} />
         ))}
       </TableBody>
     </Table>

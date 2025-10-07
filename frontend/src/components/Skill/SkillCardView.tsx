@@ -1,5 +1,5 @@
-import type { ICategory } from '@/@types/ICategory';
-import { SkillCard } from './SkillCard';
+import { SkillCard } from "./SkillCard";
+import type { ICategory } from "@/@types";
 
 type SkillCardViewProps = {
   skills: ICategory[];

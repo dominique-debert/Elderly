@@ -1,6 +1,6 @@
-import type { ICategory } from '@/@types/ICategory';
-import { deleteSkillCategory } from '@/services/skillCategory.service';
-import { toast } from 'react-hot-toast';
+import { deleteSkillCategory } from "@/services/skillCategory.service";
+import { toast } from "react-hot-toast";
+import type { ICategory } from "@/@types";
 
 type SkillDeleteModalProps = {
   category: ICategory;
@@ -8,11 +8,15 @@ type SkillDeleteModalProps = {
   onConfirm?: () => void;
 };
 
-export function SkillDeleteModal({ category, onClose, onConfirm }: SkillDeleteModalProps) {
+export function SkillDeleteModal({
+  category,
+  onClose,
+  onConfirm,
+}: SkillDeleteModalProps) {
   const handleDelete = async () => {
     try {
       await deleteSkillCategory(category.id.toLocaleString());
-      toast.success('Catégorie de compétence supprimée');
+      toast.success("Catégorie de compétence supprimée");
       onConfirm?.();
       onClose();
     } catch (error) {
@@ -24,10 +28,16 @@ export function SkillDeleteModal({ category, onClose, onConfirm }: SkillDeleteMo
     <dialog className="modal modal-open">
       <div className="modal-box">
         <h3 className="font-bold text-lg">Supprimer la catégorie d'aide</h3>
-        <p className="py-4">Confirmer la suppression de <strong>{category.categoryName}</strong> ?</p>
+        <p className="py-4">
+          Confirmer la suppression de <strong>{category.categoryName}</strong> ?
+        </p>
         <div className="modal-action">
-          <button className="btn btn-primary" onClick={handleDelete}>Supprimer</button>
-          <button className="btn btn-ghost" onClick={onClose}>Annuler</button>
+          <button className="btn btn-primary" onClick={handleDelete}>
+            Supprimer
+          </button>
+          <button className="btn btn-ghost" onClick={onClose}>
+            Annuler
+          </button>
         </div>
       </div>
     </dialog>

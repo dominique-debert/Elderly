@@ -1,8 +1,4 @@
-export enum EValence {
-  Positive = 'positive',
-  Neutral = 'neutre',
-  Negative = 'negative',
-}
+import { EValence } from "@/@types";
 
 export interface IMood {
   id: number;
@@ -12,4 +8,4 @@ export interface IMood {
   intensity: number;
   color: string;
   createdAt: Date;
-};
+}

@@ -1,11 +1,17 @@
-import type { ICategory } from '@/@types/ICategory'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import ResourceTableRow from "./ResourceTableRow";
+import type { ICategory } from "@/@types";
 
-export function ResourceTableView({ resources }: { resources: ICategory[] }) {   
+export function ResourceTableView({ resources }: { resources: ICategory[] }) {
   return (
     <Table className="table w-full table-zebra">
-      <TableHeader className='text-semibold'>
+      <TableHeader className="text-semibold">
         <TableRow>
           <TableHead>Titre</TableHead>
           <TableHead>Description</TableHead>
@@ -13,7 +19,7 @@ export function ResourceTableView({ resources }: { resources: ICategory[] }) {
       </TableHeader>
       <TableBody>
         {resources?.map((resource) => (
-          <ResourceTableRow key={resource.id} resource={resource}/>
+          <ResourceTableRow key={resource.id} resource={resource} />
         ))}
       </TableBody>
     </Table>

@@ -1,4 +1,4 @@
-export enum ECategoryType { 
+export enum ECategoryType {
   ACTIVITY = 1,
   BADGE = 2,
   COGNITIVE = 3,
@@ -11,5 +11,5 @@ export enum ECategoryType {
   SERVICE = 10,
   SKILL = 11,
   URBAN_ISSUE = 12,
-  WELLNESS = 13
+  WELLNESS = 13,
 }

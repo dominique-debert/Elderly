@@ -1,5 +1,5 @@
-import type { ICategory } from '@/@types/ICategory';
-import { ActivityCard } from './ActivityCard';
+import type { ICategory } from "@/@types";
+import { ActivityCard } from "./ActivityCard";
 
 type ActivityCardViewProps = {
   activities: ICategory[];

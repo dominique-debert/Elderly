@@ -1,4 +1,4 @@
-import type { ICategory } from './ICategory';
+import type { ICategory } from "@/@types";
 
 export interface ICategoryModalState {
   isOpen: boolean;

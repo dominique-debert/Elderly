@@ -3,9 +3,12 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import { loginUser, signupUser, SignupPayload } from "../services/auth.service";
 import toast from "react-hot-toast";
 import { useNavigate, NavigateFunction } from "react-router-dom";
-import type { IAuthState } from "@/@types/IAuthState";
-import type { IUser } from "@/@types/IUser";
-import { IAuthResponse } from "@/@types/IAuthResponse";
+import type {
+  IAuthResponse,
+  IAuthState,
+  IUseAuthReturn,
+  IUser,
+} from "@/@types";
 
 export const useAuthStore = create<IAuthState>()(
   persist(
@@ -42,7 +45,7 @@ export const useAuthStore = create<IAuthState>()(
               firstName: src.firstName,
               lastName: src.lastName,
               avatar: src.avatar,
-              avatarUrl: (src as any).avatarUrl ?? null,
+              avatarUrl: src.avatarUrl ?? null,
               birthDate: src.birthDate,
               isAdmin: src.isAdmin,
               longitude: src.longitude,
@@ -88,7 +91,6 @@ export const useAuthStore = create<IAuthState>()(
 
           const src = signupData as IAuthResponse;
 
-          // Ensure all required fields are present
           if (!src.email || !src.firstName || !src.lastName || !src.birthDate) {
             throw new Error("Incomplete user data received from server");
           }
@@ -98,7 +100,7 @@ export const useAuthStore = create<IAuthState>()(
             firstName: src.firstName,
             lastName: src.lastName,
             avatar: src.avatar,
-            avatarUrl: (src as any).avatarUrl ?? null,
+            avatarUrl: src.avatarUrl ?? null,
             birthDate: src.birthDate,
             isAdmin: src.isAdmin,
             longitude: src.longitude,
@@ -146,25 +148,7 @@ export const useAuthStore = create<IAuthState>()(
   )
 );
 
-interface UseAuthReturn {
-  isAuthenticated: boolean;
-  user: IUser | null;
-  login: (email: string, password: string) => Promise<IUser>;
-  signup: (userData: {
-    email: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    avatar?: string;
-    birthDate: Date;
-    isAdmin: boolean;
-    latitude?: string;
-    longitude?: string;
-  }) => Promise<IUser>;
-  logout: () => void;
-}
-
-export const useAuth = (): UseAuthReturn => {
+export const useAuth = (): IUseAuthReturn => {
   const navigate = useNavigate();
   const { isAuthenticated, user, login, signup, logout } = useAuthStore();
 

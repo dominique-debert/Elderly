@@ -1,4 +1,4 @@
-export  type IChapter = {
+export type IChapter = {
   chapterId: number;
-  chapterName: string
+  chapterName: string;
 };

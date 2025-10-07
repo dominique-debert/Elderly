@@ -1,5 +1,5 @@
-import type { ICategory } from '@/@types/ICategory';
-import { HelpCard } from './HelpCard';
+import { HelpCard } from "./HelpCard";
+import type { ICategory } from "@/@types";
 
 type HelpCardViewProps = {
   helps: ICategory[];

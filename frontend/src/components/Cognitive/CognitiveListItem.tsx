@@ -1,25 +1,28 @@
-import type { ICategory } from '@/@types/ICategory';
-import Icon from '@mdi/react';
-import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
-import { useState } from 'react';
-import { CognitiveEditModal } from './CognitiveEditModal';
-import { CognitiveDeleteModal } from './CognitiveDeleteModal';
-import { useQueryClient } from '@tanstack/react-query';
+import Icon from "@mdi/react";
+import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+import { useState } from "react";
+import { CognitiveEditModal } from "./CognitiveEditModal";
+import { CognitiveDeleteModal } from "./CognitiveDeleteModal";
+import { useQueryClient } from "@tanstack/react-query";
+import type { ICategory } from "@/@types";
 
-export default function CognitiveListItem({ cognitive }: { cognitive: ICategory }) {
-  
+export default function CognitiveListItem({
+  cognitive,
+}: {
+  cognitive: ICategory;
+}) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['cognitive'] });
+    queryClient.invalidateQueries({ queryKey: ["cognitive"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['cognitive'] });
+    queryClient.invalidateQueries({ queryKey: ["cognitive"] });
   };
 
   return (

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { IUser } from "./IUser";
+import type { IUser } from "@/@types";
 
 export interface IAuthState {
   accessToken: string | null;

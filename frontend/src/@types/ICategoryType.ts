@@ -1,4 +1,4 @@
-export  type ICategoryType = {
+export type ICategoryType = {
   id: number;
-  name: string
+  name: string;
 };

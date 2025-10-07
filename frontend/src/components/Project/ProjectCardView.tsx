@@ -1,5 +1,5 @@
-import type { ICategory } from '@/@types/ICategory';
-import { ProjectCard } from './ProjectCard';
+import { ProjectCard } from "./ProjectCard";
+import type { ICategory } from "@/@types";
 
 type ProjectCardViewProps = {
   projects: ICategory[];

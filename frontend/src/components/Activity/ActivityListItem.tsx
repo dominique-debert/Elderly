@@ -1,25 +1,28 @@
-import type { ICategory } from '@/@types/ICategory';
-import Icon from '@mdi/react';
-import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
-import { useState } from 'react';
-import { ActivityEditModal } from './ActivityEditModal';
-import { ActivityDeleteModal } from './ActivityDeleteModal';
-import { useQueryClient } from '@tanstack/react-query';
+import Icon from "@mdi/react";
+import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+import { useState } from "react";
+import { ActivityEditModal } from "./ActivityEditModal";
+import { ActivityDeleteModal } from "./ActivityDeleteModal";
+import { useQueryClient } from "@tanstack/react-query";
+import type { ICategory } from "@/@types";
 
-export default function ActivityListItem({ activity }: { activity: ICategory }) {
-  
+export default function ActivityListItem({
+  activity,
+}: {
+  activity: ICategory;
+}) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['activities'] });
+    queryClient.invalidateQueries({ queryKey: ["activities"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['activities'] });
+    queryClient.invalidateQueries({ queryKey: ["activities"] });
   };
 
   return (

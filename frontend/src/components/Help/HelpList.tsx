@@ -1,54 +1,63 @@
-import { useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { fetchHelpCategories } from '@/services/helpCategory.service';
-import type { ICategory } from '@/@types/ICategory';
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { fetchHelpCategories } from "@/services/helpCategory.service";
 import { HelpCardView } from "./HelpCardView";
 import { HelpModeSwitcher } from "./HelpModeSwitcher";
 import { HelpListView } from "./HelpListView";
 import { HelpTableView } from "./HelpTableView";
+import type { ICategory } from "@/@types";
 
-type Mode = 'card' | 'list' | 'table';
+type Mode = "card" | "list" | "table";
 
 export const HelpList = () => {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem('helpViewMode');
-    return (savedMode as Mode) || 'list';
+    const savedMode = localStorage.getItem("helpViewMode");
+    return (savedMode as Mode) || "list";
   });
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem('helpViewMode', mode);
+    localStorage.setItem("helpViewMode", mode);
   }, [mode]);
 
-  const { data: groupedHelps, isLoading, isError } = useQuery({
-    queryKey: ['helps'],
+  const {
+    data: groupedHelps,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["helps"],
     queryFn: fetchHelpCategories,
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError) return <div className="text-center mt-10 text-red-500">Erreur de chargement</div>;
+  if (isError)
+    return (
+      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+    );
 
   // Process and sort the badges
-  const processedChapters = Object.entries(groupedHelps || {}).flatMap(([typeName, chapters]) => {
-    return Object.entries(chapters).map(([chapterId, helps]) => {
-      const chapterHelps = helps as ICategory[];
-      const chapterInfo = chapterHelps[0]?.categoryChapter || {
-        chapterName: `${chapterId}`,
-        chapterDescription: ''
-      };
+  const processedChapters = Object.entries(groupedHelps || {})
+    .flatMap(([typeName, chapters]) => {
+      return Object.entries(chapters).map(([chapterId, helps]) => {
+        const chapterHelps = helps as ICategory[];
+        const chapterInfo = chapterHelps[0]?.categoryChapter || {
+          chapterName: `${chapterId}`,
+          chapterDescription: "",
+        };
 
-      return {
-        chapterName: chapterInfo.chapterName,
-        chapterDescription: chapterInfo.chapterDescription,
-        helps: [...chapterHelps]
-          .filter(help => 
-            help.categoryName.toLowerCase().includes(search.toLowerCase())
-          )
-          .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
-      };
-    });
-  }).filter(chapter => chapter.helps.length > 0)
+        return {
+          chapterName: chapterInfo.chapterName,
+          chapterDescription: chapterInfo.chapterDescription,
+          helps: [...chapterHelps]
+            .filter((help) =>
+              help.categoryName.toLowerCase().includes(search.toLowerCase())
+            )
+            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+        };
+      });
+    })
+    .filter((chapter) => chapter.helps.length > 0)
     .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
 
   return (
@@ -65,20 +74,27 @@ export const HelpList = () => {
           Aucun résultat ne correspond à la recherche.
         </div>
       ) : (
-        processedChapters.map(({ chapterName, chapterDescription, helps }, index: number) => (
-          <div key={`${chapterName}-${index}`} className={index !== 0 ? 'mt-12' : 'mt-6'}>
-            <div className="mb-2">
-              <h2 className="text-2xl font-bold text-gray-800">{chapterName}</h2>
-              {chapterDescription && (
-                <p className="text-gray-600 mt-1">{chapterDescription}</p>
-              )}
+        processedChapters.map(
+          ({ chapterName, chapterDescription, helps }, index: number) => (
+            <div
+              key={`${chapterName}-${index}`}
+              className={index !== 0 ? "mt-12" : "mt-6"}
+            >
+              <div className="mb-2">
+                <h2 className="text-2xl font-bold text-gray-800">
+                  {chapterName}
+                </h2>
+                {chapterDescription && (
+                  <p className="text-gray-600 mt-1">{chapterDescription}</p>
+                )}
+              </div>
+              <div className="divider mt-0 mb-6"></div>
+              {mode === "list" && <HelpListView helps={helps} />}
+              {mode === "card" && <HelpCardView helps={helps} />}
+              {mode === "table" && <HelpTableView helps={helps} />}
             </div>
-            <div className="divider mt-0 mb-6"></div>
-            {mode === 'list' && <HelpListView helps={helps} />}
-            {mode === 'card' && <HelpCardView helps={helps} />}
-            {mode === 'table' && <HelpTableView helps={helps} />}
-          </div>
-        ))
+          )
+        )
       )}
     </div>
   );

@@ -1,25 +1,28 @@
-import type { ICategory } from '@/@types/ICategory';
-import Icon from '@mdi/react';
-import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
-import { useState } from 'react';
-import { NutritionEditModal } from './NutritionEditModal';
-import { NutritionDeleteModal } from './NutritionDeleteModal';
-import { useQueryClient } from '@tanstack/react-query';
+import Icon from "@mdi/react";
+import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+import { useState } from "react";
+import { NutritionEditModal } from "./NutritionEditModal";
+import { NutritionDeleteModal } from "./NutritionDeleteModal";
+import { useQueryClient } from "@tanstack/react-query";
+import type { ICategory } from "@/@types";
 
-export default function NutritionListItem({ nutrition }: { nutrition: ICategory }) {
-  
+export default function NutritionListItem({
+  nutrition,
+}: {
+  nutrition: ICategory;
+}) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['nutritions'] });
+    queryClient.invalidateQueries({ queryKey: ["nutritions"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['nutritions'] });
+    queryClient.invalidateQueries({ queryKey: ["nutritions"] });
   };
 
   return (

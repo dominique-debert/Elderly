@@ -1,25 +1,24 @@
-import type { ICategory } from '@/@types/ICategory';
-import Icon from '@mdi/react';
-import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
-import { useState } from 'react';
-import { ProgramEditModal } from './ProgramEditModal';
-import { ProgramDeleteModal } from './ProgramDeleteModal';
-import { useQueryClient } from '@tanstack/react-query';
+import Icon from "@mdi/react";
+import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+import { useState } from "react";
+import { ProgramEditModal } from "./ProgramEditModal";
+import { ProgramDeleteModal } from "./ProgramDeleteModal";
+import { useQueryClient } from "@tanstack/react-query";
+import type { ICategory } from "@/@types";
 
 export default function ProgramListItem({ program }: { program: ICategory }) {
-  
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['programs'] });
+    queryClient.invalidateQueries({ queryKey: ["programs"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['programs'] });
+    queryClient.invalidateQueries({ queryKey: ["programs"] });
   };
 
   return (

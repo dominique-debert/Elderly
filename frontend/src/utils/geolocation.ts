@@ -1,4 +1,4 @@
-import { IGeolocationResponse } from "@/@types/IGeolocationResponse";
+import { IGeolocationResponse } from "@/@types";
 
 const getGeolocationData = (): Promise<IGeolocationResponse> => {
   return new Promise((resolve, reject) => {

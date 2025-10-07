@@ -1,5 +1,5 @@
 import api from "@/lib/axios";
-import type { IAuthResponse } from "@/@types/IAuthResponse";
+import type { IAuthResponse } from "@/@types";
 
 export const loginUser = async (data: {
   email: string;

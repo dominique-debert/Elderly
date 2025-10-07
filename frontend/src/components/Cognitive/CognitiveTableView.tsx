@@ -1,11 +1,21 @@
-import type { ICategory } from '@/@types/ICategory'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import CognitiveTableRow from "./CognitiveTableRow";
+import type { ICategory } from "@/@types";
 
-export default function CognitiveTableView({ cognitives }: { cognitives: ICategory[] }) {   
+export default function CognitiveTableView({
+  cognitives,
+}: {
+  cognitives: ICategory[];
+}) {
   return (
     <Table className="table w-full table-zebra">
-      <TableHeader className='text-semibold'>
+      <TableHeader className="text-semibold">
         <TableRow>
           <TableHead>Titre</TableHead>
           <TableHead>Description</TableHead>
@@ -13,7 +23,7 @@ export default function CognitiveTableView({ cognitives }: { cognitives: ICatego
       </TableHeader>
       <TableBody>
         {cognitives?.map((cognitive) => (
-          <CognitiveTableRow key={cognitive.id} cognitive={cognitive}/>
+          <CognitiveTableRow key={cognitive.id} cognitive={cognitive} />
         ))}
       </TableBody>
     </Table>

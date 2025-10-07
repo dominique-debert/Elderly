@@ -1,11 +1,17 @@
-import type { ICategory } from '@/@types/ICategory'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import BadgeTableRow from "./BadgeTableRow";
+import type { ICategory } from "@/@types";
 
-export function BadgeTableView({ badges }: { badges: ICategory[] }) {   
+export function BadgeTableView({ badges }: { badges: ICategory[] }) {
   return (
     <Table className="table w-full table-zebra">
-      <TableHeader className='text-semibold'>
+      <TableHeader className="text-semibold">
         <TableRow>
           <TableHead>Titre</TableHead>
           <TableHead>Description</TableHead>
@@ -13,7 +19,7 @@ export function BadgeTableView({ badges }: { badges: ICategory[] }) {
       </TableHeader>
       <TableBody>
         {badges?.map((badge) => (
-          <BadgeTableRow key={badge.id} badge={badge}/>
+          <BadgeTableRow key={badge.id} badge={badge} />
         ))}
       </TableBody>
     </Table>

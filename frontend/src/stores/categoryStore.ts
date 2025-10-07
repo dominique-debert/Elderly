@@ -1,20 +1,7 @@
-import { create } from 'zustand';
-import type { ICategory } from '../@types/ICategory';
+import { create } from "zustand";
+import { ICategoryState } from "@/@types";
 
-interface CategoryState {
-  selectedCategory: ICategory | null;
-  isMenuOpen: boolean;
-  isUpdateModalOpen: boolean;
-  isDeleteModalOpen: boolean;
-  openMenu: (category: ICategory, position: { top: number; left: number }) => void;
-  closeMenu: () => void;
-  openUpdateModal: () => void;
-  closeUpdateModal: () => void;
-  openDeleteModal: () => void;
-  closeDeleteModal: () => void;
-}
-
-export const useCategoryStore = create<CategoryState>((set) => ({
+export const useCategoryStore = create<ICategoryState>((set) => ({
   selectedCategory: null,
   isMenuOpen: false,
   isUpdateModalOpen: false,
