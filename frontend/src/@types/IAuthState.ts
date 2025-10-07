@@ -19,6 +19,8 @@ export interface IAuthState {
       avatar?: string;
       birthDate: Date;
       isAdmin: boolean;
+      latitude?: string;
+      longitude?: string;
     },
     navigate: ReturnType<typeof useNavigate>
   ) => Promise<IUser>;

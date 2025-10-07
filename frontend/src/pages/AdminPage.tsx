@@ -1,24 +1,24 @@
-import { useState } from 'react';
-import { useAuthStore } from '@/stores/auth';
-import { Navigate } from 'react-router-dom';
+import { useState } from "react";
+import { useAuthStore } from "@/stores/auth";
+import { Navigate } from "react-router-dom";
 
-import { AdminTabBar } from '@/components/AdminTabBar';
-import { ETabKey } from '@/@types/ETabKey';
+import { AdminTabBar } from "@/components/AdminTabBar";
+import { ETabKey } from "@/@types/ETabKey";
 
-import { ActivityList } from '@/components/Activity/ActivityList';
-import { BadgeList } from '@/components/Badge/BadgeList';
-import { CognitiveList } from '@/components/Cognitive/CognitiveList';
-import { ForumList } from '@/components/Forum/ForumList';
-import { HelpList } from '@/components/Help/HelpList';
-import { MoodList } from '@/components/Mood/MoodList'; 
-import { NutritionList } from '@/components/Nutrition/NutritionList';
-import { ProgramList } from '@/components/Program/ProgramList';
-import { ProjectList } from '@/components/Project/ProjectList';
-import { ResourceList } from '@/components/Resource/ResourceList';
-import { ServiceList } from '@/components/Service/ServiceList';
-import { SkillList } from '@/components/Skill/SkillList';
-import { UrbanIssueList } from '@/components/UrbanIssue/UrbanIssueList';
-import { WellnessList } from '@/components/Wellness/WellnessList';
+import { ActivityList } from "@/components/Activity/ActivityList";
+import { BadgeList } from "@/components/Badge/BadgeList";
+import { CognitiveList } from "@/components/Cognitive/CognitiveList";
+import { ForumList } from "@/components/Forum/ForumList";
+import { HelpList } from "@/components/Help/HelpList";
+import { MoodList } from "@/components/Mood/MoodList";
+import { NutritionList } from "@/components/Nutrition/NutritionList";
+import { ProgramList } from "@/components/Program/ProgramList";
+import { ProjectList } from "@/components/Project/ProjectList";
+import { ResourceList } from "@/components/Resource/ResourceList";
+import { ServiceList } from "@/components/Service/ServiceList";
+import { SkillList } from "@/components/Skill/SkillList";
+import { UrbanIssueList } from "@/components/UrbanIssue/UrbanIssueList";
+import { WellnessList } from "@/components/Wellness/WellnessList";
 
 const AdminPage = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -60,7 +60,7 @@ const AdminPage = () => {
       case ETabKey.Wellness:
         return <WellnessList />;
       default:
-      return null;
+        return null;
     }
   };
 
@@ -75,9 +75,7 @@ const AdminPage = () => {
             <AdminTabBar activeTab={activeTab} setActiveTab={setActiveTab} />
           </div>
 
-          <div className="pt-2">
-            {renderContent()}
-          </div>
+          <div className="pt-2">{renderContent()}</div>
         </>
       ) : (
         <p>Vous n'avez pas les droits d'administrateurs.</p>

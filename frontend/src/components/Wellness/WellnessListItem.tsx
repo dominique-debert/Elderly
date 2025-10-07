@@ -1,25 +1,28 @@
-import type { ICategory } from '@/@types/ICategory';
-import Icon from '@mdi/react';
-import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
-import { useState } from 'react';
-import { WellnessEditModal } from './WellnessEditModal';
-import { ConfirmDeleteWellnessModal } from './ConfirmDeleteWellnessModal';
-import { useQueryClient } from '@tanstack/react-query';
+import type { ICategory } from "@/@types/ICategory";
+import Icon from "@mdi/react";
+import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+import { useState } from "react";
+import { WellnessEditModal } from "./WellnessEditModal";
+import { ConfirmDeleteWellnessModal } from "./WellnessDeleteModal";
+import { useQueryClient } from "@tanstack/react-query";
 
-export default function WellnessListItem({ wellnessCategory }: { wellnessCategory: ICategory }) {
-  
+export default function WellnessListItem({
+  wellnessCategory,
+}: {
+  wellnessCategory: ICategory;
+}) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['wellness'] });
+    queryClient.invalidateQueries({ queryKey: ["wellness"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['wellness'] });
+    queryClient.invalidateQueries({ queryKey: ["wellness"] });
   };
 
   return (
@@ -28,7 +31,9 @@ export default function WellnessListItem({ wellnessCategory }: { wellnessCategor
         key={wellnessCategory.id}
         className="p-4 rounded shadow-md flex items-center gap-4"
       >
-        <span className="w-64 font-semibold">{wellnessCategory.categoryName}</span>
+        <span className="w-64 font-semibold">
+          {wellnessCategory.categoryName}
+        </span>
         <span className="w-full">{wellnessCategory.description}</span>
         <div className="ml-auto flex gap-2">
           <button

@@ -1,18 +1,21 @@
-import { NextFunction, Request, Response } from 'express';
-import { PrismaClient } from '@/prisma/client';
-import argon2 from 'argon2';
-import { createHttpError } from '@/utils/httpError';
-import { generateToken } from '@/utils/jwt';
-import { signUpSchema, signInSchema } from '@/validators/auth.validator';
+import { NextFunction, Request, Response } from "express";
+import { PrismaClient } from "@/prisma/client";
+import argon2 from "argon2";
+import { createHttpError } from "@/utils/httpError";
+import { generateToken } from "@/utils/jwt";
+import { signUpSchema, signInSchema } from "@/validators/auth.validator";
 
 const prisma = new PrismaClient();
 
-const accessTokenExpiry = process.env.JWT_EXPIRES_IN || '15m';
-const refreshTokenExpiryDays = parseInt((process.env.REFRESH_TOKEN_EXPIRES_IN || '7d').replace(/\D/g, '')) || 7;
+const accessTokenExpiry = process.env.JWT_EXPIRES_IN || "15m";
+const refreshTokenExpiryDays =
+  parseInt((process.env.REFRESH_TOKEN_EXPIRES_IN || "7d").replace(/\D/g, "")) ||
+  7;
 
-const signToken = (userId: string, type: 'access' | 'refresh') => {
+const signToken = (userId: string, type: "access" | "refresh") => {
   try {
-    const expiresIn = type === 'access' ? accessTokenExpiry : `${refreshTokenExpiryDays}d`;
+    const expiresIn =
+      type === "access" ? accessTokenExpiry : `${refreshTokenExpiryDays}d`;
     return generateToken({ userId }, expiresIn);
   } catch (error) {
     console.error(`Error generating ${type} token:`, error);
@@ -20,15 +23,32 @@ const signToken = (userId: string, type: 'access' | 'refresh') => {
   }
 };
 
-export const signUp = async (req: Request, res: Response, next: NextFunction) => {
+export const signUp = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
-    const { error } = signUpSchema.validate(req.body);
-    if (error) throw createHttpError(400, 'Invalid data', error.details);
+    // Log incoming payload for debugging missing coordinates
+    console.debug("signUp - incoming body:", JSON.stringify(req.body));
 
-    const { email, password, firstName, lastName, avatar, birthDate, isAdmin } = req.body;
+    const { error } = signUpSchema.validate(req.body);
+    if (error) throw createHttpError(400, "Invalid data", error.details);
+
+    const {
+      email,
+      password,
+      firstName,
+      lastName,
+      avatar,
+      birthDate,
+      isAdmin,
+      latitude,
+      longitude,
+    } = req.body;
 
     const existing = await prisma.user.findUnique({ where: { email } });
-    if (existing) throw createHttpError(409, 'Email already in use');
+    if (existing) throw createHttpError(409, "Email already in use");
 
     const passwordHash = await argon2.hash(password);
 
@@ -41,11 +61,15 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
         avatar,
         birthDate,
         isAdmin,
+        latitude: latitude ?? null,
+        longitude: longitude ?? null,
       },
     });
 
-    const accessToken = signToken(user.id, 'access');
-    const refreshToken = signToken(user.id, 'refresh');
+    console.debug("signUp - created user (raw):", JSON.stringify(user));
+
+    const accessToken = signToken(user.id, "access");
+    const refreshToken = signToken(user.id, "refresh");
 
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + refreshTokenExpiryDays);
@@ -56,7 +80,7 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
         userId: user.id,
         expiresAt,
         ipAddress: req.ip,
-        userAgent: req.headers['user-agent'],
+        userAgent: req.headers["user-agent"],
       },
     });
 
@@ -81,36 +105,40 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
   }
 };
 
-export const signIn = async (req: Request, res: Response, next: NextFunction) => {
+export const signIn = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const { error } = signInSchema.validate(req.body);
-    if (error) throw createHttpError(400, 'Invalid data', error.details);
-    
+    if (error) throw createHttpError(400, "Invalid data", error.details);
+
     const { email, password } = req.body;
-    
+
     const user = await prisma.user.findUnique({ where: { email } });
 
     if (!user) {
-        throw createHttpError(401, 'Utilisateur inconnu !');
+      throw createHttpError(401, "Utilisateur inconnu !");
     }
 
     if (!(await argon2.verify(user.passwordHash, password))) {
-      throw createHttpError(401, 'Mot de passe incorrect !');
+      throw createHttpError(401, "Mot de passe incorrect !");
     }
-    
-    const accessToken = signToken(user.id, 'access');
-    const refreshToken = signToken(user.id, 'refresh');
-    
+
+    const accessToken = signToken(user.id, "access");
+    const refreshToken = signToken(user.id, "refresh");
+
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + refreshTokenExpiryDays);
-    
+
     await prisma.session.create({
       data: {
         refreshToken,
         userId: user.id,
         expiresAt,
         ipAddress: req.ip,
-        userAgent: req.headers['user-agent'],
+        userAgent: req.headers["user-agent"],
       },
     });
 
@@ -135,14 +163,17 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
   }
 };
 
-
-export const logout = async (req: Request, res: Response, next: NextFunction) => {
+export const logout = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const { refreshToken } = req.body;
-    if (!refreshToken) throw createHttpError(400, 'Refresh token required');
-    
+    if (!refreshToken) throw createHttpError(400, "Refresh token required");
+
     await prisma.session.deleteMany({ where: { refreshToken } });
-    
+
     res.status(204).send();
   } catch (error) {
     next(error);
