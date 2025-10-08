@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  exerciseProgramSchema,
-  idParamExerciseProgramSchema,
-} from "@/validators/exerciseProgram.validator";
+import { exerciseProgramSchema } from "@/validators";
 
 import {
   getAllExercisePrograms,
@@ -70,11 +67,7 @@ exerciseProgramRouter.get("/", getAllExercisePrograms);
  *       404:
  *         description: Programme d'exercice non trouvé
  */
-exerciseProgramRouter.get(
-  "/:id",
-  validate(idParamExerciseProgramSchema, "params"),
-  getExerciseProgramById
-);
+exerciseProgramRouter.get("/:id", getExerciseProgramById);
 
 /**
  * @swagger
@@ -101,11 +94,7 @@ exerciseProgramRouter.get(
  *       404:
  *         description: Programme d'exercice non trouvé
  */
-exerciseProgramRouter.put(
-  "/:id",
-  validate(idParamExerciseProgramSchema, "params"),
-  updateExerciseProgram
-);
+exerciseProgramRouter.put("/:id", updateExerciseProgram);
 
 /**
  * @swagger
@@ -126,10 +115,6 @@ exerciseProgramRouter.put(
  *       404:
  *         description: Programme d'exercice non trouvé
  */
-exerciseProgramRouter.delete(
-  "/:id",
-  validate(idParamExerciseProgramSchema, "params"),
-  deleteExerciseProgram
-);
+exerciseProgramRouter.delete("/:id", deleteExerciseProgram);
 
 export default exerciseProgramRouter;

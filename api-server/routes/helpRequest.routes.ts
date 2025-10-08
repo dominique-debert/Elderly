@@ -7,10 +7,7 @@ import {
   deleteHelpRequest,
 } from "@/controllers";
 
-import {
-  helpRequestSchema,
-  idParamHelpRequestSchema,
-} from "@/validators/helpRequest.validator";
+import { helpRequestSchema } from "@/validators";
 
 import { validate } from "@/middlewares";
 
@@ -92,11 +89,7 @@ router.get("/", getAllHelpRequests);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamHelpRequestSchema, "params"),
-  getHelpRequestById
-);
+router.get("/:id", getHelpRequestById);
 
 /**
  * @swagger
@@ -123,11 +116,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamHelpRequestSchema, "params"),
-  updateHelpRequest
-);
+router.put("/:id", updateHelpRequest);
 
 /**
  * @swagger
@@ -148,10 +137,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamHelpRequestSchema, "params"),
-  deleteHelpRequest
-);
+router.delete("/:id", deleteHelpRequest);
 
 export default router;

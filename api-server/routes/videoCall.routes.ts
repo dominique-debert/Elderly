@@ -7,10 +7,7 @@ import {
   deleteVideoCall,
 } from "@/controllers";
 
-import {
-  videoCallSchema,
-  idParamVideoCallSchema,
-} from "@/validators/videoCall.validator";
+import { videoCallSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllVideoCalls);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamVideoCallSchema, "params"),
-  getVideoCallById
-);
+router.get("/:id", getVideoCallById);
 
 /**
  * @swagger
@@ -122,7 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", validate(idParamVideoCallSchema, "params"), updateVideoCall);
+router.put("/:id", updateVideoCall);
 
 /**
  * @swagger
@@ -143,10 +136,6 @@ router.put("/:id", validate(idParamVideoCallSchema, "params"), updateVideoCall);
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamVideoCallSchema, "params"),
-  deleteVideoCall
-);
+router.delete("/:id", deleteVideoCall);
 
 export default router;

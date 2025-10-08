@@ -7,10 +7,7 @@ import {
   deleteServiceCompleted,
 } from "@/controllers";
 
-import {
-  serviceCompletedSchema,
-  idParamServiceCompletedSchema,
-} from "@/validators/serviceCompleted.validator";
+import { serviceCompletedSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllServiceCompleted);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamServiceCompletedSchema, "params"),
-  getServiceCompletedById
-);
+router.get("/:id", getServiceCompletedById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamServiceCompletedSchema, "params"),
-  updateServiceCompleted
-);
+router.put("/:id", updateServiceCompleted);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamServiceCompletedSchema, "params"),
-  deleteServiceCompleted
-);
+router.delete("/:id", deleteServiceCompleted);
 
 export default router;

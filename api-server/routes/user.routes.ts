@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import { userSchema, idParamUserSchema } from "@/validators/user.validator";
+import { userSchema } from "@/validators";
 
 import {
   createUser,
@@ -73,7 +73,7 @@ userRouter.get("/", getAllUsers);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.get("/:id", validate(idParamUserSchema, "params"), getUserById);
+userRouter.get("/:id", getUserById);
 
 /**
  * @swagger
@@ -105,7 +105,7 @@ userRouter.get("/:id", validate(idParamUserSchema, "params"), getUserById);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.put("/:id", validate(idParamUserSchema, "params"), updateUser);
+userRouter.put("/:id", updateUser);
 
 /**
  * @swagger
@@ -127,6 +127,6 @@ userRouter.put("/:id", validate(idParamUserSchema, "params"), updateUser);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.delete("/:id", validate(idParamUserSchema, "params"), deleteUser);
+userRouter.delete("/:id", deleteUser);
 
 export default userRouter;

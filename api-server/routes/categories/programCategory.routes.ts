@@ -7,7 +7,7 @@ import {
   deleteProgramCategory,
 } from "@/controllers";
 
-import { categorySchema } from "@/validators/category.validator";
+import { categorySchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();

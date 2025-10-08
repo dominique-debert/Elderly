@@ -7,10 +7,7 @@ import {
   deleteSatisfactionSurvey,
 } from "@/controllers";
 
-import {
-  satisfactionSurveySchema,
-  idParamSatisfactionSurveySchema,
-} from "@/validators/satisfactionSurvey.validator";
+import { satisfactionSurveySchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllSatisfactionSurveys);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamSatisfactionSurveySchema, "params"),
-  getSatisfactionSurveyById
-);
+router.get("/:id", getSatisfactionSurveyById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamSatisfactionSurveySchema, "params"),
-  updateSatisfactionSurvey
-);
+router.put("/:id", updateSatisfactionSurvey);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamSatisfactionSurveySchema, "params"),
-  deleteSatisfactionSurvey
-);
+router.delete("/:id", deleteSatisfactionSurvey);
 
 export default router;

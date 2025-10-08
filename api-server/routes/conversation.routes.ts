@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  conversationSchema,
-  idParamConversationSchema,
-} from "@/validators/conversation.validator";
+import { conversationSchema } from "@/validators";
 
 import {
   createConversation,
@@ -76,11 +73,7 @@ router.get("/", getAllConversations);
  *       404:
  *         description: Conversation non trouvée
  */
-router.get(
-  "/:id",
-  validate(idParamConversationSchema, "params"),
-  getConversationById
-);
+router.get("/:id", getConversationById);
 
 /**
  * @swagger
@@ -107,11 +100,7 @@ router.get(
  *       404:
  *         description: Conversation non trouvée
  */
-router.put(
-  "/:id",
-  validate(idParamConversationSchema, "params"),
-  updateConversation
-);
+router.put("/:id", updateConversation);
 
 /**
  * @swagger
@@ -133,10 +122,6 @@ router.put(
  *       404:
  *         description: Conversation non trouvée
  */
-router.delete(
-  "/:id",
-  validate(idParamConversationSchema, "params"),
-  deleteConversation
-);
+router.delete("/:id", deleteConversation);
 
 export default router;

@@ -8,16 +8,13 @@ import {
   deleteActivity,
 } from "@/controllers";
 
-import {
-  activitySchema,
-  idParamActivitySchema,
-} from "@/validators/activity.validator";
+import { activitySchema } from "@/validators";
 
 const router = Router();
 
 router.post("/", validate(activitySchema), createActivity);
 router.get("/", getAllActivities);
-router.get("/:id", validate(idParamActivitySchema, "params"), getActivityById);
+router.get("/:id", getActivityById);
 
 /**
  * @swagger
@@ -48,7 +45,7 @@ router.get("/:id", validate(idParamActivitySchema, "params"), getActivityById);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", validate(idParamActivitySchema, "params"), getActivityById);
+router.get("/:id", getActivityById);
 
 /**
  * @swagger
@@ -79,7 +76,7 @@ router.get("/:id", validate(idParamActivitySchema, "params"), getActivityById);
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", validate(idParamActivitySchema, "params"), updateActivity);
+router.put("/:id", updateActivity);
 
 /**
  * @swagger
@@ -104,10 +101,6 @@ router.put("/:id", validate(idParamActivitySchema, "params"), updateActivity);
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamActivitySchema, "params"),
-  deleteActivity
-);
+router.delete("/:id", deleteActivity);
 
 export default router;

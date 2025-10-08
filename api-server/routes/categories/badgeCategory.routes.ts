@@ -8,7 +8,7 @@ import {
 } from "@/controllers";
 
 import { validate } from "@/middlewares";
-import { categorySchema } from "@/validators/category.validator";
+import { categorySchema } from "@/validators";
 
 const router = Router();
 

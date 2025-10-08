@@ -7,10 +7,7 @@ import {
   deleteUrbanIssueReport,
 } from "@/controllers";
 
-import {
-  urbanIssueReportSchema,
-  idParamUrbanIssueReportSchema,
-} from "@/validators/urbanIssueReport.validator";
+import { urbanIssueReportSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllUrbanIssueReports);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamUrbanIssueReportSchema, "params"),
-  getUrbanIssueReportById
-);
+router.get("/:id", getUrbanIssueReportById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamUrbanIssueReportSchema, "params"),
-  updateUrbanIssueReport
-);
+router.put("/:id", updateUrbanIssueReport);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamUrbanIssueReportSchema, "params"),
-  deleteUrbanIssueReport
-);
+router.delete("/:id", deleteUrbanIssueReport);
 
 export default router;

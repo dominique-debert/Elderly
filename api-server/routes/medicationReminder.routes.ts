@@ -7,10 +7,7 @@ import {
   deleteMedicationReminder,
 } from "@/controllers";
 
-import {
-  medicationReminderSchema,
-  idParamMedicationReminderSchema,
-} from "@/validators/medicationReminder.validator";
+import { medicationReminderSchema } from "@/validators";
 
 import { validate } from "@/middlewares";
 
@@ -92,11 +89,7 @@ router.get("/", getAllMedicationReminders);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamMedicationReminderSchema, "params"),
-  getMedicationReminderById
-);
+router.get("/:id", getMedicationReminderById);
 
 /**
  * @swagger
@@ -123,11 +116,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamMedicationReminderSchema, "params"),
-  updateMedicationReminder
-);
+router.put("/:id", updateMedicationReminder);
 
 /**
  * @swagger
@@ -148,10 +137,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamMedicationReminderSchema, "params"),
-  deleteMedicationReminder
-);
+router.delete("/:id", deleteMedicationReminder);
 
 export default router;

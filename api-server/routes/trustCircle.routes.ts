@@ -7,10 +7,7 @@ import {
   deleteTrustCircle,
 } from "@/controllers";
 
-import {
-  trustCircleSchema,
-  idParamTrustCircleSchema,
-} from "@/validators/trustCircle.validator";
+import { trustCircleSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllTrustCircle);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamTrustCircleSchema, "params"),
-  getTrustCircleById
-);
+router.get("/:id", getTrustCircleById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamTrustCircleSchema, "params"),
-  updateTrustCircle
-);
+router.put("/:id", updateTrustCircle);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamTrustCircleSchema, "params"),
-  deleteTrustCircle
-);
+router.delete("/:id", deleteTrustCircle);
 
 export default router;

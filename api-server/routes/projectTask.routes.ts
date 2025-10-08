@@ -7,10 +7,7 @@ import {
   deleteProjectTask,
 } from "@/controllers";
 
-import {
-  projectTaskSchema,
-  idParamProjectTaskSchema,
-} from "@/validators/projectTask.validator";
+import { projectTaskSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllProjectTasks);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamProjectTaskSchema, "params"),
-  getProjectTaskById
-);
+router.get("/:id", getProjectTaskById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamProjectTaskSchema, "params"),
-  updateProjectTask
-);
+router.put("/:id", updateProjectTask);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamProjectTaskSchema, "params"),
-  deleteProjectTask
-);
+router.delete("/:id", deleteProjectTask);
 
 export default router;

@@ -7,10 +7,7 @@ import {
   deleteResource,
 } from "@/controllers";
 
-import {
-  resourceSchema,
-  idParamResourceSchema,
-} from "@/validators/resource.validator";
+import { resourceSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,7 +88,7 @@ router.get("/", getAllResources);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", validate(idParamResourceSchema, "params"), getResourceById);
+router.get("/:id", getResourceById);
 
 /**
  * @swagger
@@ -118,7 +115,7 @@ router.get("/:id", validate(idParamResourceSchema, "params"), getResourceById);
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", validate(idParamResourceSchema, "params"), updateResource);
+router.put("/:id", updateResource);
 
 /**
  * @swagger
@@ -139,10 +136,6 @@ router.put("/:id", validate(idParamResourceSchema, "params"), updateResource);
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamResourceSchema, "params"),
-  deleteResource
-);
+router.delete("/:id", deleteResource);
 
 export default router;

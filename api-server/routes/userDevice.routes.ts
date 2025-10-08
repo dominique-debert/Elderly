@@ -7,10 +7,7 @@ import {
   deleteUserDevice,
 } from "@/controllers";
 
-import {
-  userDeviceSchema,
-  idParamUserDeviceSchema,
-} from "@/validators/userDevice.validator";
+import { userDeviceSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllUserDevices);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamUserDeviceSchema, "params"),
-  getUserDeviceById
-);
+router.get("/:id", getUserDeviceById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamUserDeviceSchema, "params"),
-  updateUserDevice
-);
+router.put("/:id", updateUserDevice);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamUserDeviceSchema, "params"),
-  deleteUserDevice
-);
+router.delete("/:id", deleteUserDevice);
 
 export default router;

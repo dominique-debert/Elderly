@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  cognitiveExerciseSchema,
-  idParamCognitiveExerciseSchema,
-} from "@/validators/cognitiveExercise.validator";
+import { cognitiveExerciseSchema } from "@/validators";
 
 import {
   createCognitiveExercise,
@@ -76,11 +73,7 @@ router.get("/", getAllCognitiveExercises);
  *       404:
  *         description: Exercice non trouvé
  */
-router.get(
-  "/:id",
-  validate(idParamCognitiveExerciseSchema, "params"),
-  getCognitiveExerciseById
-);
+router.get("/:id", getCognitiveExerciseById);
 
 /**
  * @swagger
@@ -107,11 +100,7 @@ router.get(
  *       404:
  *         description: Exercice non trouvé
  */
-router.put(
-  "/:id",
-  validate(idParamCognitiveExerciseSchema, "params"),
-  updateCognitiveExercise
-);
+router.put("/:id", updateCognitiveExercise);
 
 /**
  * @swagger
@@ -133,10 +122,6 @@ router.put(
  *       404:
  *         description: Exercice non trouvé
  */
-router.delete(
-  "/:id",
-  validate(idParamCognitiveExerciseSchema, "params"),
-  deleteCognitiveExercise
-);
+router.delete("/:id", deleteCognitiveExercise);
 
 export default router;

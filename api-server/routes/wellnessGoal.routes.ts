@@ -7,10 +7,7 @@ import {
   deleteWellnessGoal,
 } from "@/controllers";
 
-import {
-  wellnessGoalSchema,
-  idParamWellnessGoalSchema,
-} from "@/validators/wellnessGoal.validator";
+import { wellnessGoalSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllWellnessGoals);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamWellnessGoalSchema, "params"),
-  getWellnessGoalById
-);
+router.get("/:id", getWellnessGoalById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamWellnessGoalSchema, "params"),
-  updateWellnessGoal
-);
+router.put("/:id", updateWellnessGoal);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamWellnessGoalSchema, "params"),
-  deleteWellnessGoal
-);
+router.delete("/:id", deleteWellnessGoal);
 
 export default router;

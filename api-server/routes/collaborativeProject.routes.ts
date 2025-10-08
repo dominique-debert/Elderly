@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  projectSchema,
-  idParamProjectSchema,
-} from "@/validators/collaborativeProject.validator";
+import { projectSchema } from "@/validators";
 
 import {
   createCollaborativeProject,
@@ -76,11 +73,7 @@ router.get("/", getAllCollaborativeProjects);
  *       404:
  *         description: Projet non trouvé
  */
-router.get(
-  "/:id",
-  validate(idParamProjectSchema, "params"),
-  getCollaborativeProjectById
-);
+router.get("/:id", getCollaborativeProjectById);
 
 /**
  * @swagger
@@ -107,11 +100,7 @@ router.get(
  *       404:
  *         description: Projet non trouvé
  */
-router.put(
-  "/:id",
-  validate(idParamProjectSchema, "params"),
-  updateCollaborativeProject
-);
+router.put("/:id", updateCollaborativeProject);
 
 /**
  * @swagger
@@ -133,10 +122,6 @@ router.put(
  *       404:
  *         description: Projet non trouvé
  */
-router.delete(
-  "/:id",
-  validate(idParamProjectSchema, "params"),
-  deleteCollaborativeProject
-);
+router.delete("/:id", deleteCollaborativeProject);
 
 export default router;

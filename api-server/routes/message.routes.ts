@@ -7,10 +7,7 @@ import {
   deleteMessage,
 } from "@/controllers";
 
-import {
-  messageSchema,
-  idParamMessageSchema,
-} from "@/validators/message.validator";
+import { messageSchema } from "@/validators";
 
 import { validate } from "@/middlewares";
 
@@ -88,7 +85,7 @@ router.get("/", getAllMessages);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", validate(idParamMessageSchema, "params"), getMessageById);
+router.get("/:id", getMessageById);
 
 /**
  * @swagger
@@ -113,7 +110,7 @@ router.get("/:id", validate(idParamMessageSchema, "params"), getMessageById);
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", validate(idParamMessageSchema, "params"), updateMessage);
+router.put("/:id", updateMessage);
 
 /**
  * @swagger
@@ -132,6 +129,6 @@ router.put("/:id", validate(idParamMessageSchema, "params"), updateMessage);
  *       500:
  *         description: Erreur serveur
  */
-router.delete("/:id", validate(idParamMessageSchema, "params"), deleteMessage);
+router.delete("/:id", deleteMessage);
 
 export default router;

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { signUp, signIn, logout } from "@/controllers";
 import { validate } from "@/middlewares";
-import { signUpSchema, signInSchema } from "@/validators/auth.validator";
+import { signUpSchema, signInSchema } from "@/validators";
 import multer from "multer";
 import path from "path";
 import fs from "fs";

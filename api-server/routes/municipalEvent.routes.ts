@@ -7,10 +7,7 @@ import {
   deleteMunicipalEvent,
 } from "@/controllers";
 
-import {
-  municipalEventSchema,
-  idParamMunicipalEventSchema,
-} from "@/validators/municipalEvent.validator";
+import { municipalEventSchema } from "@/validators";
 
 import { validate } from "@/middlewares";
 
@@ -88,11 +85,7 @@ router.get("/", getAllMunicipalEvents);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamMunicipalEventSchema, "params"),
-  getMunicipalEventById
-);
+router.get("/:id", getMunicipalEventById);
 
 /**
  * @swagger
@@ -117,11 +110,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamMunicipalEventSchema, "params"),
-  updateMunicipalEvent
-);
+router.put("/:id", updateMunicipalEvent);
 
 /**
  * @swagger
@@ -140,10 +129,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamMunicipalEventSchema, "params"),
-  deleteMunicipalEvent
-);
+router.delete("/:id", deleteMunicipalEvent);
 
 export default router;

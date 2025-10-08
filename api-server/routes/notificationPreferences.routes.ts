@@ -7,10 +7,7 @@ import {
   deleteNotificationPreferences,
 } from "@/controllers";
 
-import {
-  notificationPreferencesSchema,
-  idParamNotificationPreferencesSchema,
-} from "@/validators/notificationPreferences.validator";
+import { notificationPreferencesSchema } from "@/validators";
 
 import { validate } from "@/middlewares";
 
@@ -92,11 +89,7 @@ router.get("/", getAllNotificationPreferences);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamNotificationPreferencesSchema, "params"),
-  getNotificationPreferencesById
-);
+router.get("/:id", getNotificationPreferencesById);
 
 /**
  * @swagger
@@ -121,11 +114,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamNotificationPreferencesSchema, "params"),
-  updateNotificationPreferences
-);
+router.put("/:id", updateNotificationPreferences);
 
 /**
  * @swagger
@@ -144,10 +133,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamNotificationPreferencesSchema, "params"),
-  deleteNotificationPreferences
-);
+router.delete("/:id", deleteNotificationPreferences);
 
 export default router;

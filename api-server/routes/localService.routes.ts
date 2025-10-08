@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  localServiceSchema,
-  idParamLocalServiceSchema,
-} from "@/validators/localService.validator";
+import { localServiceSchema } from "@/validators";
 
 import {
   createLocalService,
@@ -65,11 +62,7 @@ localServiceRouter.get("/", getAllLocalServices);
  *       404:
  *         description: Service local introuvable
  */
-localServiceRouter.get(
-  "/:id",
-  validate(idParamLocalServiceSchema, "params"),
-  getLocalServiceById
-);
+localServiceRouter.get("/:id", getLocalServiceById);
 
 /**
  * @swagger
@@ -96,11 +89,7 @@ localServiceRouter.get(
  *       404:
  *         description: Service local introuvable
  */
-localServiceRouter.put(
-  "/:id",
-  validate(idParamLocalServiceSchema, "params"),
-  updateLocalService
-);
+localServiceRouter.put("/:id", updateLocalService);
 
 /**
  * @swagger
@@ -121,10 +110,6 @@ localServiceRouter.put(
  *       404:
  *         description: Service local introuvable
  */
-localServiceRouter.delete(
-  "/:id",
-  validate(idParamLocalServiceSchema, "params"),
-  deleteLocalService
-);
+localServiceRouter.delete("/:id", deleteLocalService);
 
 export default localServiceRouter;

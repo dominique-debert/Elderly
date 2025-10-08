@@ -1,4 +1,4 @@
-import Joi from 'joi';
+import Joi from "joi";
 
 export const serviceCompletedSchema = Joi.object({
   requestId: Joi.string().required(),
@@ -11,17 +11,3 @@ export const serviceCompletedSchema = Joi.object({
   helperRating: Joi.number(),
   pointsExchanged: Joi.number(),
 });
-
-export const idParamServiceCompletedSchema = Joi.object({
-  id: Joi.string().required()
-});
-
-// requestId       String      @map("request_id")
-// helperId        String      @map("helper_id")
-// completionDate  DateTime    @map("completion_date") @db.Timestamp(6)
-// actualDuration  Int?        @map("actual_duration")
-// creatorComment  String?     @map("creator_comment")
-// helperComment   String?     @map("helper_comment")
-// creatorRating   Int?        @map("creator_rating")
-// helperRating    Int?        @map("helper_rating")
-// pointsExchanged Int?        @map("points_exchanged")

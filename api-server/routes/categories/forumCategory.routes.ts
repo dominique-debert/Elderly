@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  forumCategorySchema,
-  idParamForumCategorySchema,
-} from "@/validators/forumCategory.validator";
+import { forumCategorySchema } from "@/validators";
 
 import {
   createForumCategory,
@@ -32,12 +29,7 @@ const router = Router();
  *       201:
  *         description: Catégorie créée
  */
-router.post(
-  "/",
-  validate(forumCategorySchema),
-
-  createForumCategory
-);
+router.post("/", validate(forumCategorySchema), createForumCategory);
 
 /**
  * @swagger
@@ -55,11 +47,7 @@ router.post(
  *               items:
  *                 $ref: '#/components/schemas/ForumCategory'
  */
-router.get(
-  "/",
-
-  getAllForumCategories
-);
+router.get("/", getAllForumCategories);
 
 /**
  * @swagger
@@ -85,11 +73,7 @@ router.get(
  *       404:
  *         description: Catégorie non trouvée
  */
-router.get(
-  "/:id",
-  validate(idParamForumCategorySchema, "params"),
-  getForumCategoryById
-);
+router.get("/:id", getForumCategoryById);
 
 /**
  * @swagger
@@ -116,12 +100,7 @@ router.get(
  *       404:
  *         description: Catégorie non trouvée
  */
-router.put(
-  "/:id",
-  validate(idParamForumCategorySchema, "params"),
-
-  updateForumCategory
-);
+router.put("/:id", updateForumCategory);
 
 /**
  * @swagger
@@ -143,11 +122,6 @@ router.put(
  *       404:
  *         description: Catégorie non trouvée
  */
-router.delete(
-  "/:id",
-  validate(idParamForumCategorySchema, "params"),
-
-  deleteForumCategory
-);
+router.delete("/:id", deleteForumCategory);
 
 export default router;

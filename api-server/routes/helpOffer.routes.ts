@@ -7,10 +7,7 @@ import {
   deleteHelpOffer,
 } from "@/controllers";
 
-import {
-  helpOfferSchema,
-  idParamHelpOfferSchema,
-} from "@/validators/helpOffer.validator";
+import { helpOfferSchema } from "@/validators";
 
 import { validate } from "@/middlewares";
 
@@ -92,11 +89,7 @@ router.get("/", getAllHelpOffers);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamHelpOfferSchema, "params"),
-  getHelpOfferById
-);
+router.get("/:id", getHelpOfferById);
 
 /**
  * @swagger
@@ -135,7 +128,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", validate(idParamHelpOfferSchema, "params"), updateHelpOffer);
+router.put("/:id", updateHelpOffer);
 
 /**
  * @swagger
@@ -156,10 +149,6 @@ router.put("/:id", validate(idParamHelpOfferSchema, "params"), updateHelpOffer);
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamHelpOfferSchema, "params"),
-  deleteHelpOffer
-);
+router.delete("/:id", deleteHelpOffer);
 
 export default router;

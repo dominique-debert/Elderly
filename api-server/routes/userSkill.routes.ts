@@ -7,10 +7,7 @@ import {
   deleteUserSkill,
 } from "@/controllers";
 
-import {
-  userSkillSchema,
-  idParamUserSkillSchema,
-} from "@/validators/userSkill.validator";
+import { userSkillSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllUserSkills);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamUserSkillSchema, "params"),
-  getUserSkillById
-);
+router.get("/:id", getUserSkillById);
 
 /**
  * @swagger
@@ -122,7 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", validate(idParamUserSkillSchema, "params"), updateUserSkill);
+router.put("/:id", updateUserSkill);
 
 /**
  * @swagger
@@ -143,10 +136,6 @@ router.put("/:id", validate(idParamUserSkillSchema, "params"), updateUserSkill);
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamUserSkillSchema, "params"),
-  deleteUserSkill
-);
+router.delete("/:id", deleteUserSkill);
 
 export default router;

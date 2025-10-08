@@ -1,7 +1,7 @@
 // routes/badgeRoutes.ts
 import { Router } from "express";
 import { validate } from "@/middlewares";
-import { badgeSchema, idParamSchema } from "@/validators/badge.validator";
+import { badgeSchema } from "@/validators";
 
 import {
   createBadge,
@@ -107,7 +107,7 @@ router.get("/", getAllBadges);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", validate(idParamSchema, "params"), getBadgeById);
+router.get("/:id", getBadgeById);
 
 /**
  * @swagger
@@ -158,7 +158,7 @@ router.get("/:id", validate(idParamSchema, "params"), getBadgeById);
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", validate(idParamSchema, "params"), updateBadge);
+router.put("/:id", updateBadge);
 
 /**
  * @swagger
@@ -183,6 +183,6 @@ router.put("/:id", validate(idParamSchema, "params"), updateBadge);
  *       500:
  *         description: Erreur serveur
  */
-router.delete("/:id", validate(idParamSchema, "params"), deleteBadge);
+router.delete("/:id", deleteBadge);
 
 export default router;

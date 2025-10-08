@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  forumMessageSchema,
-  idParamForumMessageSchema,
-} from "@/validators/forumMessage.validator";
+import { forumMessageSchema } from "@/validators";
 
 import {
   createForumMessage,
@@ -76,11 +73,7 @@ router.get("/", getAllForumMessages);
  *       404:
  *         description: Message non trouvé
  */
-router.get(
-  "/:id",
-  validate(idParamForumMessageSchema, "params"),
-  getForumMessageById
-);
+router.get("/:id", getForumMessageById);
 
 /**
  * @swagger
@@ -107,11 +100,7 @@ router.get(
  *       404:
  *         description: Message non trouvé
  */
-router.put(
-  "/:id",
-  validate(idParamForumMessageSchema, "params"),
-  updateForumMessage
-);
+router.put("/:id", updateForumMessage);
 
 /**
  * @swagger
@@ -133,10 +122,6 @@ router.put(
  *       404:
  *         description: Message non trouvé
  */
-router.delete(
-  "/:id",
-  validate(idParamForumMessageSchema, "params"),
-  deleteForumMessage
-);
+router.delete("/:id", deleteForumMessage);
 
 export default router;

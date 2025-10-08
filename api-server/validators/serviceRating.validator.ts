@@ -1,4 +1,4 @@
-import Joi from 'joi';
+import Joi from "joi";
 
 export const serviceRatingSchema = Joi.object({
   serviceId: Joi.string().required(),
@@ -7,13 +7,3 @@ export const serviceRatingSchema = Joi.object({
   comment: Joi.string(),
   ratingDate: Joi.date(),
 });
-
-export const idParamServiceRatingSchema = Joi.object({
-  id: Joi.string().required()
-});
-
-// serviceId    String       @map("service_id")
-// userId       String       @map("user_id")
-// rating       Int
-// comment      String?
-// ratingDate   DateTime?    @map("rating_date") @db.Timestamp(6)

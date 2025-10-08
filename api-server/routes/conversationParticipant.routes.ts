@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  conversationParticipantSchema,
-  idParamConversationParticipantSchema,
-} from "@/validators/conversationParticipant.validator";
+import { conversationParticipantSchema } from "@/validators";
 
 import {
   createConversationParticipant,
@@ -80,11 +77,7 @@ router.get("/", getAllConversationParticipants);
  *       404:
  *         description: Participant de conversation non trouvé
  */
-router.get(
-  "/:id",
-  validate(idParamConversationParticipantSchema, "params"),
-  getConversationParticipantById
-);
+router.get("/:id", getConversationParticipantById);
 
 /**
  * @swagger
@@ -111,11 +104,7 @@ router.get(
  *       404:
  *         description: Participant de conversation non trouvé
  */
-router.put(
-  "/:id",
-  validate(idParamConversationParticipantSchema, "params"),
-  updateConversationParticipant
-);
+router.put("/:id", updateConversationParticipant);
 
 /**
  * @swagger
@@ -137,10 +126,6 @@ router.put(
  *       404:
  *         description: Participant de conversation non trouvé
  */
-router.delete(
-  "/:id",
-  validate(idParamConversationParticipantSchema, "params"),
-  deleteConversationParticipant
-);
+router.delete("/:id", deleteConversationParticipant);
 
 export default router;

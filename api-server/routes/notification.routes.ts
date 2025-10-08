@@ -8,10 +8,7 @@ import {
   deleteNotification,
 } from "@/controllers";
 
-import {
-  notificationSchema,
-  idParamNotificationSchema,
-} from "@/validators/notification.validator";
+import { notificationSchema } from "@/validators";
 
 import { validate } from "@/middlewares";
 
@@ -112,11 +109,7 @@ router.get("/:userId", getAllNotificationsByUserId);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamNotificationSchema, "params"),
-  getNotificationById
-);
+router.get("/:id", getNotificationById);
 
 /**
  * @swagger
@@ -141,11 +134,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamNotificationSchema, "params"),
-  updateNotification
-);
+router.put("/:id", updateNotification);
 
 /**
  * @swagger
@@ -164,10 +153,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamNotificationSchema, "params"),
-  deleteNotification
-);
+router.delete("/:id", deleteNotification);
 
 export default router;

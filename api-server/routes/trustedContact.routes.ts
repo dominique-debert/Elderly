@@ -7,10 +7,7 @@ import {
   deleteTrustedContact,
 } from "@/controllers";
 
-import {
-  trustedContactSchema,
-  idParamTrustedContactSchema,
-} from "@/validators/trustedContact.validator";
+import { trustedContactSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllTrustedContacts);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamTrustedContactSchema, "params"),
-  getTrustedContactById
-);
+router.get("/:id", getTrustedContactById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamTrustedContactSchema, "params"),
-  updateTrustedContact
-);
+router.put("/:id", updateTrustedContact);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamTrustedContactSchema, "params"),
-  deleteTrustedContact
-);
+router.delete("/:id", deleteTrustedContact);
 
 export default router;

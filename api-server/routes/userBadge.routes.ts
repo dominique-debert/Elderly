@@ -7,10 +7,7 @@ import {
   deleteUserBadge,
 } from "@/controllers";
 
-import {
-  userBadgeSchema,
-  idParamUserBadgeSchema,
-} from "@/validators/userBadge.validator";
+import { userBadgeSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllUserBadges);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamUserBadgeSchema, "params"),
-  getUserBadgeById
-);
+router.get("/:id", getUserBadgeById);
 
 /**
  * @swagger
@@ -122,7 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", validate(idParamUserBadgeSchema, "params"), updateUserBadge);
+router.put("/:id", updateUserBadge);
 
 /**
  * @swagger
@@ -143,10 +136,6 @@ router.put("/:id", validate(idParamUserBadgeSchema, "params"), updateUserBadge);
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamUserBadgeSchema, "params"),
-  deleteUserBadge
-);
+router.delete("/:id", deleteUserBadge);
 
 export default router;

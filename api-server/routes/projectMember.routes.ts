@@ -7,10 +7,7 @@ import {
   deleteProjectMember,
 } from "@/controllers";
 
-import {
-  projectMemberSchema,
-  idParamProjectMemberSchema,
-} from "@/validators/projectMember.validator";
+import { projectMemberSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllProjectMembers);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamProjectMemberSchema, "params"),
-  getProjectMemberById
-);
+router.get("/:id", getProjectMemberById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamProjectMemberSchema, "params"),
-  updateProjectMember
-);
+router.put("/:id", updateProjectMember);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamProjectMemberSchema, "params"),
-  deleteProjectMember
-);
+router.delete("/:id", deleteProjectMember);
 
 export default router;

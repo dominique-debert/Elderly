@@ -3,7 +3,7 @@ import { PrismaClient } from "@/prisma/client";
 import argon2 from "argon2";
 import { createHttpError } from "@/utils/httpError";
 import { generateToken } from "@/utils/jwt";
-import { signUpSchema, signInSchema } from "@/validators/auth.validator";
+import { signUpSchema, signInSchema } from "@/validators";
 import fs from "fs";
 import path from "path";
 

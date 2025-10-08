@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  wellnessBadgeSchema,
-  idParamWellnessBadgeSchema,
-} from "@/validators/wellnessBadge.validator";
+import { wellnessBadgeSchema } from "@/validators";
 
 import {
   createWellnessBadge,
@@ -65,11 +62,7 @@ router.get("/", getAllWellnessBadges);
  *       404:
  *         description: Badge introuvable
  */
-router.get(
-  "/:id",
-  validate(idParamWellnessBadgeSchema, "params"),
-  getWellnessBadgeById
-);
+router.get("/:id", getWellnessBadgeById);
 
 /**
  * @swagger
@@ -96,11 +89,7 @@ router.get(
  *       404:
  *         description: Badge introuvable
  */
-router.put(
-  "/:id",
-  validate(idParamWellnessBadgeSchema, "params"),
-  updateWellnessBadge
-);
+router.put("/:id", updateWellnessBadge);
 
 /**
  * @swagger
@@ -121,10 +110,6 @@ router.put(
  *       404:
  *         description: Badge introuvable
  */
-router.delete(
-  "/:id",
-  validate(idParamWellnessBadgeSchema, "params"),
-  deleteWellnessBadge
-);
+router.delete("/:id", deleteWellnessBadge);
 
 export default router;

@@ -7,10 +7,7 @@ import {
   deleteServiceRating,
 } from "@/controllers";
 
-import {
-  serviceRatingSchema,
-  idParamServiceRatingSchema,
-} from "@/validators/serviceRating.validator";
+import { serviceRatingSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllServiceRating);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamServiceRatingSchema, "params"),
-  getServiceRatingById
-);
+router.get("/:id", getServiceRatingById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamServiceRatingSchema, "params"),
-  updateServiceRating
-);
+router.put("/:id", updateServiceRating);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamServiceRatingSchema, "params"),
-  deleteServiceRating
-);
+router.delete("/:id", deleteServiceRating);
 
 export default router;

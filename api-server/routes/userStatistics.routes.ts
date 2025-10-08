@@ -7,10 +7,7 @@ import {
   deleteUserStatistics,
 } from "@/controllers";
 
-import {
-  userStatisticsSchema,
-  idParamUserStatisticsSchema,
-} from "@/validators/userStatistics.validator";
+import { userStatisticsSchema } from "@/validators";
 import { validate } from "@/middlewares";
 
 const router = Router();
@@ -91,11 +88,7 @@ router.get("/", getAllUserStatistics);
  *       500:
  *         description: Erreur serveur
  */
-router.get(
-  "/:id",
-  validate(idParamUserStatisticsSchema, "params"),
-  getUserStatisticsById
-);
+router.get("/:id", getUserStatisticsById);
 
 /**
  * @swagger
@@ -122,11 +115,7 @@ router.get(
  *       500:
  *         description: Erreur serveur
  */
-router.put(
-  "/:id",
-  validate(idParamUserStatisticsSchema, "params"),
-  updateUserStatistics
-);
+router.put("/:id", updateUserStatistics);
 
 /**
  * @swagger
@@ -147,10 +136,6 @@ router.put(
  *       500:
  *         description: Erreur serveur
  */
-router.delete(
-  "/:id",
-  validate(idParamUserStatisticsSchema, "params"),
-  deleteUserStatistics
-);
+router.delete("/:id", deleteUserStatistics);
 
 export default router;

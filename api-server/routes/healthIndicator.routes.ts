@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  healthIndicatorSchema,
-  idParamHealthIndicatorSchema,
-} from "@/validators/healthIndicator.validator";
+import { healthIndicatorSchema } from "@/validators";
 
 import {
   createHealthIndicator,
@@ -76,11 +73,7 @@ router.get("/", getAllHealthIndicators);
  *       404:
  *         description: Indicateur non trouvé
  */
-router.get(
-  "/:id",
-  validate(idParamHealthIndicatorSchema, "params"),
-  getHealthIndicatorById
-);
+router.get("/:id", getHealthIndicatorById);
 
 /**
  * @swagger
@@ -107,11 +100,7 @@ router.get(
  *       404:
  *         description: Indicateur non trouvé
  */
-router.put(
-  "/:id",
-  validate(idParamHealthIndicatorSchema, "params"),
-  updateHealthIndicator
-);
+router.put("/:id", updateHealthIndicator);
 
 /**
  * @swagger
@@ -133,10 +122,6 @@ router.put(
  *       404:
  *         description: Indicateur non trouvé
  */
-router.delete(
-  "/:id",
-  validate(idParamHealthIndicatorSchema, "params"),
-  deleteHealthIndicator
-);
+router.delete("/:id", deleteHealthIndicator);
 
 export default router;

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import { skillSchema, idParamSkillSchema } from "@/validators/skill.validator";
+import { skillSchema } from "@/validators";
 
 import {
   createSkill,
@@ -69,7 +69,7 @@ skillRouter.get("/", getAllSkills);
  *       404:
  *         description: Compétence non trouvée
  */
-skillRouter.get("/:id", validate(idParamSkillSchema, "params"), getSkillById);
+skillRouter.get("/:id", getSkillById);
 
 /**
  * @swagger
@@ -101,7 +101,7 @@ skillRouter.get("/:id", validate(idParamSkillSchema, "params"), getSkillById);
  *       400:
  *         description: Données invalides
  */
-skillRouter.put("/:id", validate(idParamSkillSchema, "params"), updateSkill);
+skillRouter.put("/:id", updateSkill);
 
 /**
  * @swagger
@@ -123,6 +123,6 @@ skillRouter.put("/:id", validate(idParamSkillSchema, "params"), updateSkill);
  *       404:
  *         description: Compétence non trouvée
  */
-skillRouter.delete("/:id", validate(idParamSkillSchema, "params"), deleteSkill);
+skillRouter.delete("/:id", deleteSkill);
 
 export default skillRouter;

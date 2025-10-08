@@ -1,10 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import {
-  nutritionalAdviceSchema,
-  idParamNutritionalAdviceSchema,
-} from "@/validators/nutritionalAdvice.validator";
+import { nutritionalAdviceSchema } from "@/validators";
 
 import {
   createNutritionalAdvice,
@@ -70,11 +67,7 @@ nutritionalAdviceRouter.get("/nutrition-advices", getAllNutritionalAdvices);
  *       404:
  *         description: Avis non trouvé
  */
-nutritionalAdviceRouter.get(
-  "/nutrition-advices/:id",
-  validate(idParamNutritionalAdviceSchema, "params"),
-  getNutritionalAdviceById
-);
+nutritionalAdviceRouter.get("/nutrition-advices/:id", getNutritionalAdviceById);
 
 /**
  * @swagger
@@ -99,11 +92,7 @@ nutritionalAdviceRouter.get(
  *       200:
  *         description: Avis mis à jour
  */
-nutritionalAdviceRouter.put(
-  "/nutrition-advices/:id",
-  validate(idParamNutritionalAdviceSchema, "params"),
-  updateNutritionalAdvice
-);
+nutritionalAdviceRouter.put("/nutrition-advices/:id", updateNutritionalAdvice);
 
 /**
  * @swagger
@@ -124,7 +113,6 @@ nutritionalAdviceRouter.put(
  */
 nutritionalAdviceRouter.delete(
   "/nutrition-advices/:id",
-  validate(idParamNutritionalAdviceSchema, "params"),
   deleteNutritionalAdvice
 );
 

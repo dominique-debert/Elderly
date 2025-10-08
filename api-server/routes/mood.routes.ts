@@ -7,7 +7,7 @@ import {
   deleteMood,
 } from "@/controllers";
 
-import { moodSchema, idParamMoodSchema } from "@/validators/mood.validator";
+import { moodSchema } from "@/validators";
 
 import { validate } from "@/middlewares";
 
@@ -85,7 +85,7 @@ router.get("/", getAllMoods);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", validate(idParamMoodSchema, "params"), getMoodById);
+router.get("/:id", getMoodById);
 
 /**
  * @swagger
@@ -110,7 +110,7 @@ router.get("/:id", validate(idParamMoodSchema, "params"), getMoodById);
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", validate(idParamMoodSchema, "params"), updateMood);
+router.put("/:id", updateMood);
 
 /**
  * @swagger
@@ -129,6 +129,6 @@ router.put("/:id", validate(idParamMoodSchema, "params"), updateMood);
  *       500:
  *         description: Erreur serveur
  */
-router.delete("/:id", validate(idParamMoodSchema, "params"), deleteMood);
+router.delete("/:id", deleteMood);
 
 export default router;
