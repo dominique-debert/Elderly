@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { createHttpError } from "@/utils/httpError.js";
-import { PrismaClient } from "@/prisma/client.js";
-import ITrustCircle from "@/types/data/trust/ITrustCircle";
+import { PrismaClient } from "@/prisma";
+import { createHttpError } from "@/utils";
+import { ITrustCircle } from "@/types";
 
 const prisma = new PrismaClient();
 

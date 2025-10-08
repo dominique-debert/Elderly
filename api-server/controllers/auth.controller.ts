@@ -1,8 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { PrismaClient } from "@/prisma/client";
 import argon2 from "argon2";
-import { createHttpError } from "@/utils/httpError";
-import { generateToken } from "@/utils/jwt";
+import { createHttpError, generateToken } from "@/utils";
 import { signUpSchema, signInSchema } from "@/validators";
 import fs from "fs";
 import path from "path";

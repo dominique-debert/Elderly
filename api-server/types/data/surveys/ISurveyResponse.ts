@@ -1,9 +1,9 @@
-import { JsonObject } from "@/prisma/runtime/library"
+import { JsonObject } from "@/prisma/runtime/library";
 
-export default interface ISurveyResponse {
-  id?: string
-  surveyId: string
-  userId: string
-  responses: JsonObject
-  responseDate: Date
+export interface ISurveyResponse {
+  id?: string;
+  surveyId: string;
+  userId: string;
+  responses: JsonObject;
+  responseDate: Date;
 }

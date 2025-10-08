@@ -1,4 +1,4 @@
-export default interface helpOffer {
+export interface IHelpOffer {
   requestId: string;
   helperId: string;
   offerDate: Date;

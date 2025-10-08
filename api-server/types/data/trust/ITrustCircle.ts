@@ -1,6 +1,6 @@
-export default interface ITrustCircle {
-  userId: string
-  contactId: string
-  dateAdded: Date
-  accessLevel: string
+export interface ITrustCircle {
+  userId: string;
+  contactId: string;
+  dateAdded: Date;
+  accessLevel: string;
 }

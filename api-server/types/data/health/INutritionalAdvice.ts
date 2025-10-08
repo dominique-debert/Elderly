@@ -1,4 +1,4 @@
-export default interface INutritionalAdvice {
+export interface INutritionalAdvice {
   id?: string;
   title: string;
   description?: string;

@@ -1,12 +1,12 @@
-export default interface INotification {
-  id?: string
-  userId: string
-  type: string
-  content: string
-  read?: boolean
-  actionLink?: string
-  createdAt?: string
-  updatedAt?: string
+export interface INotification {
+  id?: string;
+  userId: string;
+  type: string;
+  content: string;
+  read?: boolean;
+  actionLink?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 // id         String    @id @default(cuid())

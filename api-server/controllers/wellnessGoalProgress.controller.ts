@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { createHttpError } from "@/utils/httpError.js";
-import { PrismaClient } from "@/prisma/client.js";
-import IWellnessGoalProgress from "@/types/data/wellness/IWellnessGoalProgress";
+import { PrismaClient } from "@/prisma";
+import { createHttpError } from "@/utils";
+import { IWellnessGoalProgress } from "@/types";
 
 const prisma = new PrismaClient();
 
@@ -118,11 +118,9 @@ export const deleteWellnessGoalProgress = async (
       where: { id },
     });
 
-    res
-      .status(200)
-      .json({
-        message: "Progrès de l'objectif bien-être supprimé avec succès",
-      });
+    res.status(200).json({
+      message: "Progrès de l'objectif bien-être supprimé avec succès",
+    });
   } catch (error) {
     next(error);
   }

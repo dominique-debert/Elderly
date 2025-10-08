@@ -1,10 +1,10 @@
-export default interface IServiceRating {
-  id?: string
-  serviceId: string
-  userId: string
-  rating: number
-  comment?: string
-  ratingDate?: Date
+export interface IServiceRating {
+  id?: string;
+  serviceId: string;
+  userId: string;
+  rating: number;
+  comment?: string;
+  ratingDate?: Date;
 }
 
 // id           String       @id @default(cuid())

@@ -1,5 +1,5 @@
-export default interface IBadge {
-  id?: string; 
+export interface IBadge {
+  id?: string;
   name: string;
   description: string;
   icon: string;

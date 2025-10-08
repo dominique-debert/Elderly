@@ -1,17 +1,17 @@
 enum EValence {
-  positive = 'positive',
-  negative = 'negative',
-  neutre = 'neutre'
+  positive = "positive",
+  negative = "negative",
+  neutre = "neutre",
 }
 
-export default interface IMood {
-  name: string
-  description?: string
-  valence: EValence
-  intensity: number
-  color: string
-  createdAt?: Date
-  updatedAt?: Date
+export interface IMood {
+  name: string;
+  description?: string;
+  valence: EValence;
+  intensity: number;
+  color: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // model mood {

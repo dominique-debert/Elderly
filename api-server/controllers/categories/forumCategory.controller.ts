@@ -1,8 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@/prisma/client.js";
-import { createHttpError } from "@/utils/httpError.js";
-import IForumCategory from "@/types/data/forums/IForumCategory";
-import { ECategoryType } from "@/types/data/categories/ECategory";
+import { PrismaClient } from "@/prisma";
+import { createHttpError } from "@/utils";
+import { ECategoryType, IForumCategory } from "@/types";
 
 const prisma = new PrismaClient();
 

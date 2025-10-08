@@ -1,4 +1,4 @@
-export default interface IExerciseProgram {
+export interface IExerciseProgram {
   name: string;
   categoryId: number;
   difficultyLevel: number;

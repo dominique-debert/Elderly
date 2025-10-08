@@ -1,5 +1,5 @@
-export default interface IConversation {
-  type: string
-  creation_date: Date
-  title: string
+export interface IConversation {
+  type: string;
+  creation_date: Date;
+  title: string;
 }

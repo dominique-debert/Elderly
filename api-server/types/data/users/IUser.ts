@@ -1,5 +1,5 @@
 // Définition des types pour la requête
-export default interface IUser {
+export interface IUser {
   email: string;
   passwordHash: string;
   firstName: string;

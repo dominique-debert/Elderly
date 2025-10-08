@@ -1,12 +1,12 @@
-export default interface IVideoCall {
-  id?: string
-  conversationId: string
-  initiatorId: string
-  startDate: Date
-  endDate: Date
-  status: string
-  createdAt?: string
-  updatedAt?: string
+export interface IVideoCall {
+  id?: string;
+  conversationId: string;
+  initiatorId: string;
+  startDate: Date;
+  endDate: Date;
+  status: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 // id             String        @id @default(cuid())

@@ -1,4 +1,4 @@
-export default interface IMedicationReminder {
+export interface IMedicationReminder {
   id?: string;
   userId: string;
   medicationName: string;

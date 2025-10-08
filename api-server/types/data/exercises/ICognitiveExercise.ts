@@ -1,4 +1,4 @@
-export default interface ICognitiveExercise {
+export interface ICognitiveExercise {
   name: string;
   categoryId: number;
   difficultyLevel: number;

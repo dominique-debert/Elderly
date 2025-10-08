@@ -1,4 +1,4 @@
-export default interface ILocalService {
+export interface ILocalService {
   name: string;
   categoryId: number;
   address?: string;

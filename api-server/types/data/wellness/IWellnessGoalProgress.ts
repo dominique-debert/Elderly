@@ -1,11 +1,11 @@
-export default interface IWellnessGoalProgress {
-  id?: string
-  goalId: string
-  recordingDate: Date
-  achievedValue: number
-  goalAchieved: boolean
-  createdAt?: Date
-  updatedAt?: Date
+export interface IWellnessGoalProgress {
+  id?: string;
+  goalId: string;
+  recordingDate: Date;
+  achievedValue: number;
+  goalAchieved: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // id            String       @id @default(cuid())

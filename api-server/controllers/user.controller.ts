@@ -1,7 +1,7 @@
-import { PrismaClient } from "@/prisma/client";
 import { Request, Response, NextFunction } from "express";
-import { createHttpError } from "@/utils/httpError";
-import IUser from "@/types/data/users/IUser";
+import { PrismaClient } from "@/prisma";
+import { createHttpError } from "@/utils";
+import { IUser } from "@/types";
 
 const prisma = new PrismaClient();
 

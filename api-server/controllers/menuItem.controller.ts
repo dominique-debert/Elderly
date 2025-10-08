@@ -1,6 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client';
-import { createHttpError } from '@/utils/httpError';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma";
 
 const prisma = new PrismaClient();
 
@@ -11,7 +10,7 @@ export const getAllMenuItems = async (
 ) => {
   try {
     const menuItems = await prisma.menuItem.findMany({
-      orderBy: { label: 'asc' },
+      orderBy: { label: "asc" },
     });
     res.status(200).json({ menuItems });
   } catch (error) {

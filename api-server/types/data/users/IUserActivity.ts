@@ -1,15 +1,15 @@
-export default interface IUserActivity {
-  id?: string
-  userId: string
-  completionDate: Date
-  exerciseProgramId?: string
-  cognitiveExerciseId?: string
-  durationMinutes?: number
-  perceivedDifficultyLevel?: number
-  enjoymentLevel?: number
-  comment?: string
-  createdAt?: Date
-  updatedAt?: Date
+export interface IUserActivity {
+  id?: string;
+  userId: string;
+  completionDate: Date;
+  exerciseProgramId?: string;
+  cognitiveExerciseId?: string;
+  durationMinutes?: number;
+  perceivedDifficultyLevel?: number;
+  enjoymentLevel?: number;
+  comment?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // id                       String             @id @default(cuid())

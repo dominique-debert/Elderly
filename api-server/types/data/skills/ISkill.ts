@@ -1,4 +1,4 @@
-export default interface ISkill {
+export interface ISkill {
   name: string;
   categoryId: number;
   description?: string;

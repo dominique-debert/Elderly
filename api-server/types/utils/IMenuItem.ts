@@ -1,5 +1,5 @@
-export default interface IMenuItem {
-  label: string
-  icon?: string
-  key: string
+export interface IMenuItem {
+  label: string;
+  icon?: string;
+  key: string;
 }

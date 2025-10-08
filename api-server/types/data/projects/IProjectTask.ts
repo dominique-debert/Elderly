@@ -1,14 +1,14 @@
-export default interface IProjectTask {
-  id?: string
-  projectId: string
-  title: string
-  description?: string
-  creationDate: Date
-  dueDate?: Date
-  status?: string
-  assigneeId?: string
-  createdAt?: Date
-  updatedAt?: Date
+export interface IProjectTask {
+  id?: string;
+  projectId: string;
+  title: string;
+  description?: string;
+  creationDate: Date;
+  dueDate?: Date;
+  status?: string;
+  assigneeId?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // id                   String                @id @default(cuid())

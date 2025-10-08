@@ -1,13 +1,13 @@
-export default interface IUserDevice {
-  id?: string
-  userId: string
-  deviceType: string
-  deviceName?: string
-  operatingSystem?: string
-  notificationToken: string
-  lastConnection: Date
-  createdAt?: Date
-  updatedAt?: Date
+export interface IUserDevice {
+  id?: string;
+  userId: string;
+  deviceType: string;
+  deviceName?: string;
+  operatingSystem?: string;
+  notificationToken: string;
+  lastConnection: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // id                String    @id @default(cuid())

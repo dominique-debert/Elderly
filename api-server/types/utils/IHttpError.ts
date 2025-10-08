@@ -1,4 +1,4 @@
-export default interface IHttpError extends Error {
+export interface IHttpError extends Error {
   status?: number;
   details?: any;
 }

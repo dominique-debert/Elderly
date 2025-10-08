@@ -1,10 +1,10 @@
-export default interface IUserSkill {
-  id?: string
-  userId: string
-  skillId: string
-  level?: number
-  createdAt?: Date
-  updatedAt?: Date
+export interface IUserSkill {
+  id?: string;
+  userId: string;
+  skillId: string;
+  level?: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // id        String    @id @default(cuid())

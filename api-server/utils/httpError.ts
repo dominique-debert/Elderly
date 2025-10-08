@@ -1,4 +1,4 @@
-import IHttpError from "@/types/utils/IHttpError";
+import { IHttpError } from "@/types";
 
 export const createHttpError = (
   status: number,

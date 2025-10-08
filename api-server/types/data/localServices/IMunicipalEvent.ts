@@ -1,16 +1,16 @@
-export default interface IMunicipalEvent {
-  id?: string
-  title: string
-  description?: string
-  startDate: Date
-  endDate: Date
-  location: string
-  gpsCoordinates?: string
-  organizer?: string
-  contact?: string
-  officialLink?: string
-  createdAt?: Date
-  updatedAt?: Date
+export interface IMunicipalEvent {
+  id?: string;
+  title: string;
+  description?: string;
+  startDate: Date;
+  endDate: Date;
+  location: string;
+  gpsCoordinates?: string;
+  organizer?: string;
+  contact?: string;
+  officialLink?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // id             String    @id @default(cuid())

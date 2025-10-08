@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@/prisma/client";
-import { createHttpError } from "@/utils/httpError";
-import IActivity from "@/types/data/activities/IActivity";
+import { PrismaClient } from "@/prisma";
+import { createHttpError } from "@/utils";
+import { IActivity } from "@/types";
 
 const prisma = new PrismaClient();
 

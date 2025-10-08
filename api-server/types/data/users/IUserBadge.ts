@@ -1,10 +1,10 @@
-export default interface IUserBadge {
-  id?: string
-  userId: string
-  badgeId: string
-  achievementDate: Date
-  createdAt?: Date
-  updatedAt?: Date
+export interface IUserBadge {
+  id?: string;
+  userId: string;
+  badgeId: string;
+  achievementDate: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // id              String    @id @default(cuid())

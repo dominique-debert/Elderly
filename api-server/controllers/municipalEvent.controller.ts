@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { createHttpError } from "@/utils/httpError.js";
-import { PrismaClient } from "@/prisma/client.js";
-import IMunicipalEvent from "@/types/data/localServices/IMunicipalEvent";
+import { PrismaClient } from "@/prisma";
+import { createHttpError } from "@/utils";
+import { IMunicipalEvent } from "@/types";
 
 const prisma = new PrismaClient();
 

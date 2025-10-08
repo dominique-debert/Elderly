@@ -1,6 +1,6 @@
-export default interface IForumMessage {
-  topicId: string
-  authorId: string
-  content: string
-  solutionMessage?: boolean
+export interface IForumMessage {
+  topicId: string;
+  authorId: string;
+  content: string;
+  solutionMessage?: boolean;
 }

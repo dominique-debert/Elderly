@@ -1,15 +1,15 @@
-export default interface IUserStatistics {
-  id?: string
-  userId: string
-  servicesProvided?: number
-  servicesReceived?: number
-  activitiesParticipated?: number
-  activitiesOrganized?: number
-  forumMessages?: number
-  totalHelpPoints?: number
-  networkSize?: number
-  createdAt?: Date
-  updatedAt?: Date
+export interface IUserStatistics {
+  id?: string;
+  userId: string;
+  servicesProvided?: number;
+  servicesReceived?: number;
+  activitiesParticipated?: number;
+  activitiesOrganized?: number;
+  forumMessages?: number;
+  totalHelpPoints?: number;
+  networkSize?: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // userId                 String    @id @map("user_id")

@@ -1,10 +1,9 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@/prisma/client";
-import { createHttpError } from "@/utils/httpError.js";
-import { ECategoryType } from "@/types/data/categories/ECategory";
-import { ICategory } from "@/types/data/categories/ICategory";
+import { PrismaClient } from "@/prisma";
+import { createHttpError } from "@/utils";
+import { ECategoryType, ICategory } from "@/types";
 
-const prisma = new PrismaClient({ log: ["query"] });
+const prisma = new PrismaClient();
 
 /**
  * @swagger
