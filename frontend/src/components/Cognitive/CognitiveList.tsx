@@ -37,7 +37,7 @@ export const CognitiveList = () => {
     );
 
   const processedChapters = Object.entries(groupedCognitive || {})
-    .flatMap(([typeName, chapters]) => {
+    .flatMap(([, chapters]) => {
       return Object.entries(chapters).map(([chapterId, cognitives]) => {
         const chapterCognitives = cognitives as ICategory[];
         const chapterInfo = chapterCognitives[0]?.categoryChapter || {

@@ -38,7 +38,7 @@ export const ProgramList = () => {
 
   // Process and sort the badges
   const processedChapters = Object.entries(groupedPrograms || {})
-    .flatMap(([typeName, chapters]) => {
+    .flatMap(([, chapters]) => {
       return Object.entries(chapters).map(([chapterId, programs]) => {
         const chapterPrograms = programs as ICategory[];
         const chapterInfo = chapterPrograms[0]?.categoryChapter || {

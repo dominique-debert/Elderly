@@ -38,7 +38,7 @@ export const NutritionList = () => {
 
   // Process and sort the badges
   const processedChapters = Object.entries(groupedNutritions || {})
-    .flatMap(([typeName, chapters]) => {
+    .flatMap(([, chapters]) => {
       return Object.entries(chapters).map(([chapterId, nutritions]) => {
         const chapterNutritions = nutritions as ICategory[];
         const chapterInfo = chapterNutritions[0]?.categoryChapter || {

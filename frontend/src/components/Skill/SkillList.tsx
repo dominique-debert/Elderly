@@ -37,7 +37,7 @@ export const SkillList = () => {
     );
 
   const processedChapters = Object.entries(groupedSkills || {})
-    .flatMap(([typeName, chapters]) => {
+    .flatMap(([, chapters]) => {
       return Object.entries(chapters).map(([chapterId, skills]) => {
         const chapterSkills = skills as ICategory[];
         const chapterInfo = chapterSkills[0]?.categoryChapter || {

@@ -38,7 +38,7 @@ export const ServiceList = () => {
 
   // Process and sort the badges
   const processedChapters = Object.entries(groupedServices || {})
-    .flatMap(([typeName, chapters]) => {
+    .flatMap(([, chapters]) => {
       return Object.entries(chapters).map(([chapterId, services]) => {
         const chapterServices = services as ICategory[];
         const chapterInfo = chapterServices[0]?.categoryChapter || {
