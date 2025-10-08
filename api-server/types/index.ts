@@ -42,7 +42,6 @@ export * from "./data/localServices/IMunicipalEvent";
 export * from "./data/localServices/IUrbanIssueReport";
 
 // Notifications
-export * from "./data/notifications/IMedicationReminder";
 export * from "./data/notifications/INotification";
 export * from "./data/notifications/INotificationPreferences";
 
