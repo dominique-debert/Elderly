@@ -1,6 +1,12 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 
-type Theme = 'cmyk' | 'dim';
+type Theme = "cmyk" | "dim";
 
 type ThemeContextType = {
   theme: Theme;
@@ -11,20 +17,20 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setThemeState] = useState<Theme>('cmyk');
+  const [theme, setThemeState] = useState<Theme>("cmyk");
 
   // Initialize theme from localStorage
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme | null;
-    setThemeState(savedTheme || 'cmyk');
+    const savedTheme = localStorage.getItem("theme") as Theme | null;
+    setThemeState(savedTheme || "cmyk");
   }, []);
 
   // Update document attribute and save to localStorage when theme changes
   useEffect(() => {
     const htmlElement = document.documentElement;
     if (htmlElement) {
-      htmlElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
+      htmlElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
     }
   }, [theme]);
 
@@ -33,7 +39,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const toggleTheme = () => {
-    setThemeState(prevTheme => (prevTheme === 'cmyk' ? 'dim' : 'cmyk'));
+    setThemeState((prevTheme) => (prevTheme === "cmyk" ? "dim" : "cmyk"));
   };
 
   return (
@@ -46,7 +52,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 };

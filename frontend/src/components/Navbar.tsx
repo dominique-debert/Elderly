@@ -13,7 +13,7 @@ import {
   mdiWeatherSunny,
 } from "@mdi/js";
 import Icon from "@mdi/react";
-import { useTheme } from "@/context/ThemeContext";
+import { useTheme } from "@/context/themeContext";
 import { useAuth } from "@/stores/auth";
 import { useQuery } from "@tanstack/react-query";
 import { fetchNotificationsByUserId } from "@/services";
