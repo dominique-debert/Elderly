@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchHelpCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { HelpCardView } from "./HelpCardView";
-import { HelpModeSwitcher } from "./HelpModeSwitcher";
-import { HelpListView } from "./HelpListView";
-import { HelpTableView } from "./HelpTableView";
+
+import {
+  HelpCardView,
+  HelpModeSwitcher,
+  HelpListView,
+  HelpTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const HelpList = () => {
+export function HelpList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("helpViewMode");
     return (savedMode as Mode) || "list";
@@ -36,7 +40,7 @@ export const HelpList = () => {
       <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
     );
 
-  // Process and sort the badges
+  // Process and sort the helps into chapters
   const processedChapters = Object.entries(groupedHelps || {})
     .flatMap(([, chapters]) => {
       return Object.entries(chapters).map(([chapterId, helps]) => {
@@ -98,4 +102,4 @@ export const HelpList = () => {
       )}
     </div>
   );
-};
+}

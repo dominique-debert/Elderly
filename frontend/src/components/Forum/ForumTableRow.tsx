@@ -1,12 +1,17 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
-import { ForumDeleteModal } from "./ForumDeleteModal";
-import { ForumEditModal } from "./ForumEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
+
 import type { ICategory } from "@/types";
 
-export default function ForumTableRow({ forum }: { forum: ICategory }) {
+import {
+  ForumDeleteModal,
+  ForumEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function ForumTableRow({ forum }: { forum: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 

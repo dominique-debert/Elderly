@@ -1,12 +1,13 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
-import { MoodEditModal } from "./MoodEditModal";
-import { ConfirmDeleteMoodModal } from "./MoodDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
+
 import type { IMood } from "@/types";
 
-export default function MoodListItem({ mood }: { mood: IMood }) {
+import { MoodDeleteModal, MoodEditModal } from "@/components";
+
+export function MoodListItem({ mood }: { mood: IMood }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();
@@ -63,7 +64,7 @@ export default function MoodListItem({ mood }: { mood: IMood }) {
       )}
 
       {isConfirmDeleteOpen && (
-        <ConfirmDeleteMoodModal
+        <MoodDeleteModal
           mood={mood}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

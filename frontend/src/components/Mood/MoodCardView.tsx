@@ -1,5 +1,5 @@
 import { IMood } from "@/types/IMood";
-import { MoodCard } from "./MoodCard";
+import { MoodCard } from "@/components";
 
 type MoodCardViewProps = {
   moods: IMood[];

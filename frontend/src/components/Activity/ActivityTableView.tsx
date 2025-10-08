@@ -1,12 +1,12 @@
+import type { ICategory } from "@/types";
 import {
+  ActivityTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import ActivityTableRow from "./ActivityTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
 export function ActivityTableView({ activities }: { activities: ICategory[] }) {
   return (

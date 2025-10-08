@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchForumCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { ForumCardView } from "./ForumCardView";
-import { ForumModeSwitcher } from "./ForumModeSwitcher";
-import { ForumListView } from "./ForumListView";
-import { ForumTableView } from "./ForumTableView";
+
+import {
+  ForumCardView,
+  ForumModeSwitcher,
+  ForumListView,
+  ForumTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const ForumList = () => {
+export function ForumList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("forumViewMode");
     return (savedMode as Mode) || "list";
@@ -36,7 +40,7 @@ export const ForumList = () => {
       <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
     );
 
-  // Process and sort the badges
+  // Process and sort the forum categories
   const processedChapters = Object.entries(groupedForums || {})
     .flatMap(([, chapters]) => {
       return Object.entries(chapters).map(([chapterId, forums]) => {
@@ -98,4 +102,4 @@ export const ForumList = () => {
       )}
     </div>
   );
-};
+}

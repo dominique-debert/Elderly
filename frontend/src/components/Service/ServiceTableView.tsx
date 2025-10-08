@@ -1,12 +1,12 @@
+import type { ICategory } from "@/types";
 import {
+  ServiceTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import ServiceTableRow from "./ServiceTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
 export function ServiceTableView({ services }: { services: ICategory[] }) {
   return (

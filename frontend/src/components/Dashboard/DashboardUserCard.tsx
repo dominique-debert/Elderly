@@ -1,10 +1,11 @@
 import Icon from "@mdi/react";
 import { mdiCakeVariantOutline, mdiEmailOutline } from "@mdi/js";
-import { formatDate } from "@/utils";
-import { useAuthStore } from "@/stores";
 import { motion } from "framer-motion";
 
-const UserCard = () => {
+import { formatDate } from "@/utils";
+import { useAuthStore } from "@/stores";
+
+export function DashboardUserCard() {
   const { user } = useAuthStore();
 
   return (
@@ -73,6 +74,4 @@ const UserCard = () => {
       </figure>
     </motion.div>
   );
-};
-
-export default UserCard;
+}

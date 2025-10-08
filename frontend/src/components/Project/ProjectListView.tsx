@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import ProjectListItem from "./ProjectListItem";
+import { ProjectListItem } from "@/components";
 
 type ProjectListViewProps = {
   projects: ICategory[];

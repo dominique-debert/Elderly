@@ -1,16 +1,17 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { NutritionDeleteModal } from "./NutritionDeleteModal";
-import { NutritionEditModal } from "./NutritionEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 import type { ICategory } from "@/types";
 
-export default function NutritionTableRow({
-  nutrition,
-}: {
-  nutrition: ICategory;
-}) {
+import {
+  NutritionDeleteModal,
+  NutritionEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function NutritionTableRow({ nutrition }: { nutrition: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 

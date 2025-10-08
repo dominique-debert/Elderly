@@ -1,12 +1,12 @@
+import type { ICategory } from "@/types";
 import {
+  ProgramTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import ProgramTableRow from "./ProgramTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
 export function ProgramTableView({ programs }: { programs: ICategory[] }) {
   return (

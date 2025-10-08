@@ -1,10 +1,11 @@
 import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
+
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { ProjectDeleteModal } from "./ProjectDeleteModal";
-import { ProjectEditModal } from "./ProjectEditModal";
 import type { ICategory } from "@/types";
+
+import { ProjectDeleteModal, ProjectEditModal } from "@/components";
 
 type ProjectCardProps = {
   project: ICategory;

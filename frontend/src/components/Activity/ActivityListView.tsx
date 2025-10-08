@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import ActivityListItem from "./ActivityListItem";
+import { ActivityListItem } from "@/components";
 
 type ActivityListViewProps = {
   activities: ICategory[];

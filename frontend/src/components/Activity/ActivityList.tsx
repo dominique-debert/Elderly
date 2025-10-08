@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchActivityCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { ActivityCardView } from "./ActivityCardView";
-import { ActivityListSwitcher } from "./ActivityModeSwitcher";
-import { ActivityListView } from "./ActivityListView";
-import { ActivityTableView } from "./ActivityTableView";
+
+import {
+  ActivityCardView,
+  ActivityListSwitcher,
+  ActivityListView,
+  ActivityTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const ActivityList = () => {
+export function ActivityList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("activityViewMode");
     return (savedMode as Mode) || "list";
@@ -100,4 +104,4 @@ export const ActivityList = () => {
       )}
     </div>
   );
-};
+}

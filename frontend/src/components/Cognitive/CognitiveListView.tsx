@@ -1,13 +1,11 @@
 import { ICategory } from "@/types/ICategory";
-import CognitiveListItem from "./CognitiveListItem";
+import { CognitiveListItem } from "@/components";
 
 type CognitiveListViewProps = {
   cognitives: ICategory[];
 };
 
-export default function CognitiveListView({
-  cognitives,
-}: CognitiveListViewProps) {
+export function CognitiveListView({ cognitives }: CognitiveListViewProps) {
   return (
     <ul className="space-y-2 mt-10">
       {cognitives?.map((cognitive) => (

@@ -12,10 +12,10 @@ type ResourceCreateModalProps = {
   onCreated: () => void;
 };
 
-export const ResourceCreateModal = ({
+export function ResourceCreateModal({
   onClose,
   onCreated,
-}: ResourceCreateModalProps) => {
+}: ResourceCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +157,4 @@ export const ResourceCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

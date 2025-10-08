@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import ForumListItem from "./ForumListItem";
+import { ForumListItem } from "@/components";
 
 type ForumListViewProps = {
   forums: ICategory[];

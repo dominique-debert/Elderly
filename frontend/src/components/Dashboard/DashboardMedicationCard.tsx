@@ -1,8 +1,8 @@
 import Icon from "@mdi/react";
 import { mdiClockOutline } from "@mdi/js";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components";
 
-const MedicationCard = () => {
+export function DashboardMedicationCard() {
   return (
     <Card className="lg:w-full bg-base-100 border border-base-200">
       <CardHeader>
@@ -76,6 +76,4 @@ const MedicationCard = () => {
       </CardContent>
     </Card>
   );
-};
-
-export default MedicationCard;
+}

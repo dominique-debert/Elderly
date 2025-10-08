@@ -12,10 +12,10 @@ type NutritionCreateModalProps = {
   onCreated: () => void;
 };
 
-export const NutritionCreateModal = ({
+export function NutritionCreateModal({
   onClose,
   onCreated,
-}: NutritionCreateModalProps) => {
+}: NutritionCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +157,4 @@ export const NutritionCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

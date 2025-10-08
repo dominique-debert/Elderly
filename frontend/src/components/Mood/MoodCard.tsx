@@ -1,10 +1,11 @@
 import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
-import { IMood } from "@/types";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { ConfirmDeleteMoodModal } from "./MoodDeleteModal";
-import { MoodEditModal } from "./MoodEditModal";
+
+import { IMood } from "@/types";
+
+import { MoodDeleteModal, MoodEditModal } from "@/components";
 
 type MoodCardProps = {
   mood: IMood;
@@ -70,7 +71,7 @@ export function MoodCard({ mood }: MoodCardProps) {
       )}
 
       {isConfirmDeleteOpen && (
-        <ConfirmDeleteMoodModal
+        <MoodDeleteModal
           mood={mood}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

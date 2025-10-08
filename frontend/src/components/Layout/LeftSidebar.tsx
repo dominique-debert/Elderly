@@ -9,7 +9,7 @@ import {
 import { useAuthStore } from "@/stores";
 import { Link, useNavigate } from "react-router-dom";
 
-const Sidebar = () => {
+export function LeftSidebar() {
   const { logout } = useAuthStore();
   const navigate = useNavigate();
 
@@ -107,6 +107,4 @@ const Sidebar = () => {
       </div>
     </aside>
   );
-};
-
-export default Sidebar;
+}

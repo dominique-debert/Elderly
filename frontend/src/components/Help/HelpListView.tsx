@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import HelpListItem from "./HelpListItem";
+import { HelpListItem } from "@/components";
 
 type HelpListViewProps = {
   helps: ICategory[];

@@ -1,12 +1,13 @@
+import type { ICategory } from "@/types";
+
 import {
+  ForumTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import ForumTableRow from "./ForumTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
 export function ForumTableView({ forums }: { forums: ICategory[] }) {
   return (

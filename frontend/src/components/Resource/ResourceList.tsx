@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchResourceCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { ResourceCardView } from "./ResourceCardView";
-import { ResourceModeSwitcher } from "./ResourceModeSwitcher";
-import { ResourceListView } from "./ResourceListView";
-import { ResourceTableView } from "./ResourceTableView";
+
+import {
+  ResourceCardView,
+  ResourceListView,
+  ResourceModeSwitcher,
+  ResourceTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const ResourceList = () => {
+export function ResourceList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("resourceViewMode");
     return (savedMode as Mode) || "list";
@@ -98,4 +102,4 @@ export const ResourceList = () => {
       )}
     </div>
   );
-};
+}

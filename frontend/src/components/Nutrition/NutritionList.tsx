@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchNutritionCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { NutritionCardView } from "./NutritionCardView";
-import { NutritionModeSwitcher } from "./NutritionModeSwitcher";
-import { NutritionListView } from "./NutritionListView";
-import { NutritionTableView } from "./NutritionTableView";
+
+import {
+  NutritionCardView,
+  NutritionListView,
+  NutritionModeSwitcher,
+  NutritionTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const NutritionList = () => {
+export function NutritionList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("nutritionViewMode");
     return (savedMode as Mode) || "list";
@@ -102,4 +106,4 @@ export const NutritionList = () => {
       )}
     </div>
   );
-};
+}

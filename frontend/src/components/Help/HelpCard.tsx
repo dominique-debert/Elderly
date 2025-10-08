@@ -1,10 +1,12 @@
-import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import Icon from "@mdi/react";
+import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
+
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { HelpDeleteModal } from "./HelpDeleteModal";
-import { HelpEditModal } from "./HelpEditModal";
+
 import type { ICategory } from "@/types";
+
+import { HelpDeleteModal, HelpEditModal } from "@/components";
 
 type HelpCardProps = {
   help: ICategory;

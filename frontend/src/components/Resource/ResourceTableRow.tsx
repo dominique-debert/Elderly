@@ -1,16 +1,17 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { ResourceDeleteModal } from "./ResourceDeleteModal";
-import { ResourceEditModal } from "./ResourceEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 import type { ICategory } from "@/types";
 
-export default function ResourceTableRow({
-  resource,
-}: {
-  resource: ICategory;
-}) {
+import {
+  ResourceDeleteModal,
+  ResourceEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function ResourceTableRow({ resource }: { resource: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 

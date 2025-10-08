@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 import { ETabKey } from "@/types";
 
-import { AdminTabBar } from "@/components/AdminTabBar";
+import { AdminTabBar } from "@/components/Layout/AdminTabBar";
 import { ActivityList } from "@/components/Activity/ActivityList";
 import { BadgeList } from "@/components/Badge/BadgeList";
 import { CognitiveList } from "@/components/Cognitive/CognitiveList";

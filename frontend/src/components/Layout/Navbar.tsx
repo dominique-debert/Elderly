@@ -11,17 +11,20 @@ import {
   mdiViewDashboardOutline,
   mdiWeatherSunny,
 } from "@mdi/js";
+
 import axios, { AxiosError } from "axios";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+
 import { useTheme } from "@/context";
 import { useAuth } from "@/stores";
-import { useQuery } from "@tanstack/react-query";
 import { fetchNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
-import NotificationList from "./Notifications/NotificationList";
 
-const Navbar = () => {
+import { NotificationList } from "@/components";
+
+export function Navbar() {
   const { user, isAuthenticated } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const [isNotifOpen, setIsNotifOpen] = useState(false);
@@ -216,6 +219,4 @@ const Navbar = () => {
       </div>
     </header>
   );
-};
-
-export default Navbar;
+}

@@ -1,10 +1,12 @@
 import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
+
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { ForumDeleteModal } from "./ForumDeleteModal";
-import { ForumEditModal } from "./ForumEditModal";
+
 import type { ICategory } from "@/types";
+
+import { ForumDeleteModal, ForumEditModal } from "@/components";
 
 type ForumCardProps = {
   forum: ICategory;

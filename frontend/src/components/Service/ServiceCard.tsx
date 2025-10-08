@@ -1,10 +1,11 @@
-import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import Icon from "@mdi/react";
+import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
+
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { ServiceDeleteModal } from "./ServiceDeleteModal";
-import { ServiceEditModal } from "./ServiceEditModal";
 import type { ICategory } from "@/types";
+
+import { ServiceDeleteModal, ServiceEditModal } from "@/components";
 
 type ServiceCardProps = {
   service: ICategory;

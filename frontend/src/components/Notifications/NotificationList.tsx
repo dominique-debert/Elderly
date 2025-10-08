@@ -4,8 +4,9 @@ type NotificationListProps = {
   notifications: INotification[];
 };
 
-function NotificationList({ notifications = [] }: NotificationListProps) {
-  // Filter unread notifications
+export function NotificationList({
+  notifications = [],
+}: NotificationListProps) {
   const unreadNotifications = notifications.filter((n) => !n.read);
   const readNotifications = notifications.filter((n) => n.read);
 
@@ -115,5 +116,3 @@ function NotificationList({ notifications = [] }: NotificationListProps) {
     </div>
   );
 }
-
-export default NotificationList;

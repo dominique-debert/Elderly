@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import NutritionListItem from "./NutritionListItem";
+import { NutritionListItem } from "@/components";
 
 type NutritionListViewProps = {
   nutritions: ICategory[];

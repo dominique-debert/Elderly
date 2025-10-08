@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchMoods } from "@/services";
-import { MoodListView } from "./MoodListView";
-import { MoodTableView } from "./MoodTableView";
-import { MoodListSwitcher } from "./MoodListSwitcher";
-import { MoodCardView } from "./MoodCardView";
+
+import {
+  MoodCardView,
+  MoodListView,
+  MoodModeSwitcher,
+  MoodTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const MoodList = () => {
+export function MoodList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("moodViewMode");
     return (savedMode as Mode) || "list";
@@ -44,7 +48,7 @@ export const MoodList = () => {
   return (
     <div className="w-full relative">
       {moods && moods.length > 0 && (
-        <MoodListSwitcher
+        <MoodModeSwitcher
           mode={mode}
           setMode={setMode}
           search={search}
@@ -57,4 +61,4 @@ export const MoodList = () => {
       {mode === "table" && <MoodTableView moods={filteredMoods} />}
     </div>
   );
-};
+}

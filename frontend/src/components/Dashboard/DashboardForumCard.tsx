@@ -3,28 +3,24 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-
-import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components";
 
-const ForumCard = () => {
-
+export function DashboardForumCard() {
   return (
-    <Card
-      className="border border-base-200 w-full bg-base-100"
-    >
+    <Card className="border border-base-200 w-full bg-base-100">
       <CardHeader>
         <CardTitle>
-          <h2 className="text-primary text-2xl">Derniers sujets dans le forum</h2>
+          <h2 className="text-primary text-2xl">
+            Derniers sujets dans le forum
+          </h2>
         </CardTitle>
-      </CardHeader>        
+      </CardHeader>
       <CardContent>
         <div className="overflow-x-auto">
           <Table>
@@ -54,7 +50,8 @@ const ForumCard = () => {
                       <div className="mask mask-squircle h-12 w-12">
                         <img
                           src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                          alt="Avatar Tailwind CSS Component" />
+                          alt="Avatar Tailwind CSS Component"
+                        />
                       </div>
                     </div>
                     <div>
@@ -66,7 +63,9 @@ const ForumCard = () => {
                 <TableCell>
                   Zemlak, Daniel and Leannon
                   <br />
-                  <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                  <span className="badge badge-ghost badge-sm">
+                    Desktop Support Technician
+                  </span>
                 </TableCell>
                 <TableCell>Purple</TableCell>
                 <TableHead>
@@ -85,7 +84,8 @@ const ForumCard = () => {
                       <div className="mask mask-squircle h-12 w-12">
                         <img
                           src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                          alt="Avatar Tailwind CSS Component" />
+                          alt="Avatar Tailwind CSS Component"
+                        />
                       </div>
                     </div>
                     <div>
@@ -97,7 +97,9 @@ const ForumCard = () => {
                 <TableCell>
                   Carroll Group
                   <br />
-                  <span className="badge badge-ghost badge-sm">Tax Accountant</span>
+                  <span className="badge badge-ghost badge-sm">
+                    Tax Accountant
+                  </span>
                 </TableCell>
                 <TableCell>Red</TableCell>
                 <TableHead>
@@ -116,7 +118,8 @@ const ForumCard = () => {
                       <div className="mask mask-squircle h-12 w-12">
                         <img
                           src="https://img.daisyui.com/images/profile/demo/4@94.webp"
-                          alt="Avatar Tailwind CSS Component" />
+                          alt="Avatar Tailwind CSS Component"
+                        />
                       </div>
                     </div>
                     <div>
@@ -128,7 +131,9 @@ const ForumCard = () => {
                 <TableCell>
                   Rowe-Schoen
                   <br />
-                  <span className="badge badge-ghost badge-sm">Office Assistant I</span>
+                  <span className="badge badge-ghost badge-sm">
+                    Office Assistant I
+                  </span>
                 </TableCell>
                 <TableCell>Crimson</TableCell>
                 <TableHead>
@@ -147,7 +152,8 @@ const ForumCard = () => {
                       <div className="mask mask-squircle h-12 w-12">
                         <img
                           src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                          alt="Avatar Tailwind CSS Component" />
+                          alt="Avatar Tailwind CSS Component"
+                        />
                       </div>
                     </div>
                     <div>
@@ -159,7 +165,9 @@ const ForumCard = () => {
                 <TableCell>
                   Zemlak, Daniel and Leannon
                   <br />
-                  <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                  <span className="badge badge-ghost badge-sm">
+                    Desktop Support Technician
+                  </span>
                 </TableCell>
                 <TableCell>Purple</TableCell>
                 <TableHead>
@@ -178,7 +186,8 @@ const ForumCard = () => {
                       <div className="mask mask-squircle h-12 w-12">
                         <img
                           src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                          alt="Avatar Tailwind CSS Component" />
+                          alt="Avatar Tailwind CSS Component"
+                        />
                       </div>
                     </div>
                     <div>
@@ -190,19 +199,19 @@ const ForumCard = () => {
                 <TableCell>
                   Carroll Group
                   <br />
-                  <span className="badge badge-ghost badge-sm">Tax Accountant</span>
+                  <span className="badge badge-ghost badge-sm">
+                    Tax Accountant
+                  </span>
                 </TableCell>
                 <TableCell>Red</TableCell>
                 <TableHead>
                   <button className="btn btn-ghost btn-xs">details</button>
                 </TableHead>
-              </TableRow>                     
+              </TableRow>
             </TableBody>
           </Table>
         </div>
       </CardContent>
     </Card>
   );
-};
-
-export default ForumCard;
+}

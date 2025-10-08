@@ -1,16 +1,15 @@
+import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
-import { useState } from "react";
-import { ActivityDeleteModal } from "@/components/Activity/ActivityDeleteModal";
-import { ActivityEditModal } from "@/components/Activity/ActivityEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 import type { ICategory } from "@/types";
+import {
+  ActivityDeleteModal,
+  ActivityEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
 
-export default function ActivityTableRow({
-  activity,
-}: {
-  activity: ICategory;
-}) {
+export function ActivityTableRow({ activity }: { activity: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 

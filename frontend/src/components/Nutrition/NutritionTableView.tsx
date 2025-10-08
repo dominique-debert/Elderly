@@ -1,12 +1,13 @@
+import type { ICategory } from "@/types";
+
 import {
+  NutritionTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import NutritionTableRow from "./NutritionTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
 export function NutritionTableView({
   nutritions,

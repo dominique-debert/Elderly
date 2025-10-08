@@ -1,12 +1,13 @@
 import { IMood } from "@/types/IMood";
+
 import {
+  MoodTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import MoodTableRow from "./MoodTableRow";
+} from "@/components";
 
 export function MoodTableView({ moods }: { moods: IMood[] }) {
   return (

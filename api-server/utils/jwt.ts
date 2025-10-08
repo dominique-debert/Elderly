@@ -1,15 +1,35 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || '';
+const getJwtSecret = (): string => {
+  const secret = process.env.JWT_SECRET || process.env.SECRET;
+  if (!secret) {
+    throw new Error(
+      "JWT secret is not set. Set JWT_SECRET (or SECRET) in your environment or .env file."
+    );
+  }
+  return secret;
+};
 
-export function generateToken(payload: object, expiresIn?: string): string {
-  // Create options object with expiresIn only if it's provided
-  const options: jwt.SignOptions = expiresIn ? { expiresIn: expiresIn as jwt.SignOptions['expiresIn'] } : {};
-  
-  // Pass the options object (which might be empty but never undefined)
-  return jwt.sign(payload, JWT_SECRET, options);
-}
+// Accept either a SignOptions object or a string (expiresIn)
+export const generateToken = (
+  payload: object,
+  expiresInOrOptions?: string | jwt.SignOptions
+) => {
+  const secret = getJwtSecret();
+
+  let signOptions: jwt.SignOptions | undefined;
+  if (typeof expiresInOrOptions === "string") {
+    signOptions = {
+      expiresIn: expiresInOrOptions as jwt.SignOptions["expiresIn"],
+    };
+  } else {
+    signOptions = expiresInOrOptions;
+  }
+
+  return jwt.sign(payload, secret, signOptions);
+};
 
 export function verifyToken(token: string) {
-  return jwt.verify(token, JWT_SECRET);
+  const secret = getJwtSecret();
+  return jwt.verify(token, secret);
 }

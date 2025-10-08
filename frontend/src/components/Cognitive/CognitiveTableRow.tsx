@@ -1,16 +1,17 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { CognitiveDeleteModal } from "./CognitiveDeleteModal";
-import { CognitiveEditModal } from "./CognitiveEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 import type { ICategory } from "@/types";
 
-export default function CognitiveTableRow({
-  cognitive,
-}: {
-  cognitive: ICategory;
-}) {
+import {
+  CognitiveDeleteModal,
+  CognitiveEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function CognitiveTableRow({ cognitive }: { cognitive: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 

@@ -1,5 +1,5 @@
-import { ForumCard } from "./ForumCard";
 import type { ICategory } from "@/types";
+import { ForumCard } from "./ForumCard";
 
 type ForumCardViewProps = {
   forums: ICategory[];

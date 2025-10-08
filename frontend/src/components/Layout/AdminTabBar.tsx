@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import Icon from "@mdi/react";
-import { Dispatch, SetStateAction } from "react";
-import { fetchMenuItems } from "@/services";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { iconMap } from "@/constants/iconMap";
+
+import { iconMap } from "@/constants";
+import { fetchMenuItems } from "@/services";
 import { ETabKey } from "@/types/ETabKey";
 
 type AdminTabProps = {
@@ -11,7 +11,7 @@ type AdminTabProps = {
   setActiveTab: Dispatch<SetStateAction<ETabKey | null>>;
 };
 
-export const AdminTabBar = ({ activeTab, setActiveTab }: AdminTabProps) => {
+export function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
   const {
     data: menuItems,
     isLoading,
@@ -64,4 +64,4 @@ export const AdminTabBar = ({ activeTab, setActiveTab }: AdminTabProps) => {
       ))}
     </ul>
   );
-};
+}

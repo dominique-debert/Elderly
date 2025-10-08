@@ -1,9 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import Sidebar from "./Sidebar";
-import Navbar from "./Navbar";
+import { Navbar, Sidebar } from "@/components";
 
-const Layout = () => {
+export function Layout() {
   const { isAuthenticated } = useAuthStore();
 
   return (
@@ -20,6 +19,4 @@ const Layout = () => {
       </div>
     </div>
   );
-};
-
-export default Layout;
+}

@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import {
   createActivityCategory,
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services";
 import { ICategoryType, IChapter } from "@/types";
+import toast from "react-hot-toast";
 
 type ActivityCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
 };
 
-export const ActivityCreateModal = ({
+export function ActivityCreateModal({
   onClose,
   onCreated,
-}: ActivityCreateModalProps) => {
+}: ActivityCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +157,4 @@ export const ActivityCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

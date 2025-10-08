@@ -2,10 +2,10 @@ import Icon from "@mdi/react";
 import * as mdi from "@mdi/js";
 import { useAuthStore } from "@/stores";
 import { useWeather } from "@/hooks";
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
-import { Skeleton } from "./ui/skeleton";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components";
+import { Skeleton } from "../ui/skeleton";
 
-export const MeteoWidget = () => {
+export const WeatherWidget = () => {
   const { user } = useAuthStore();
   const latitude = user?.latitude;
   const longitude = user?.longitude;

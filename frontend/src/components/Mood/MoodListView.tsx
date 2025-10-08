@@ -1,5 +1,5 @@
 import { IMood } from "@/types/IMood";
-import MoodListItem from "./MoodListItem";
+import { MoodListItem } from "@/components";
 
 export function MoodListView({ moods }: { moods: IMood[] }) {
   return (

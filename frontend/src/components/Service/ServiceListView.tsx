@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import ServiceListItem from "./ServiceListItem";
+import { ServiceListItem } from "@/components";
 
 type ServiceListViewProps = {
   services: ICategory[];

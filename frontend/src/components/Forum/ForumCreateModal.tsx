@@ -12,10 +12,10 @@ type ForumCreateModalProps = {
   onCreated: () => void;
 };
 
-export const ForumCreateModal = ({
+export function ForumCreateModal({
   onClose,
   onCreated,
-}: ForumCreateModalProps) => {
+}: ForumCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +157,4 @@ export const ForumCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

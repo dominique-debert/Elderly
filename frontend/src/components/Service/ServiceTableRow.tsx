@@ -1,12 +1,17 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { ServiceDeleteModal } from "./ServiceDeleteModal";
-import { ServiceEditModal } from "./ServiceEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 import type { ICategory } from "@/types";
 
-export default function ServiceTableRow({ service }: { service: ICategory }) {
+import {
+  ServiceDeleteModal,
+  ServiceEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function ServiceTableRow({ service }: { service: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 

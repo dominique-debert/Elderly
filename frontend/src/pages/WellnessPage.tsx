@@ -1,12 +1,12 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 
-import ActivityGoals from "@/components/ActivityGoals";
-import AIAssistantCard from "@/components/AIAssistantCard";
-import GeneralMetricsCard from "@/components/GeneralMetricsCard";
-import HealthGoalsCard from "@/components/HealthGoalsCard";
-import MealPlan from "@/components/MealPlan";
-import MedicationPlanning from "@/components/MedicationPlanning";
+import { ActivityGoals } from "@/components/";
+import { AIAssistantCard } from "@/components";
+import { GeneralMetricsCard } from "@/components";
+import { HealthGoalsCard } from "@/components";
+import { MealPlan } from "@/components";
+import { MedicationPlanner } from "@/components";
 
 const WellnessPage = () => {
   const { isAuthenticated } = useAuthStore();
@@ -29,7 +29,7 @@ const WellnessPage = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row w-full">
-        <MedicationPlanning />
+        <MedicationPlanner />
       </div>
     </div>
   );

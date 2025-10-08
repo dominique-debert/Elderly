@@ -1,10 +1,11 @@
 import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
-import { useQueryClient } from "@tanstack/react-query";
+
 import { useState } from "react";
-import { NutritionDeleteModal } from "./NutritionDeleteModal";
-import { NutritionEditModal } from "./NutritionEditModal";
+import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
+
+import { NutritionDeleteModal, NutritionEditModal } from "@/components";
 
 type NutritionCardProps = {
   nutrition: ICategory;

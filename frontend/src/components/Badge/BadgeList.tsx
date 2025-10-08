@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchBadgeCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { BadgeCardView } from "./BadgeCardView";
-import { BadgeModeSwitcher } from "./BadgeModeSwitcher";
-import { BadgeListView } from "./BadgeListView";
-import { BadgeTableView } from "./BadgeTableView";
+
+import {
+  BadgeCardView,
+  BadgeModeSwitcher,
+  BadgeListView,
+  BadgeTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const BadgeList = () => {
+export function BadgeList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("badgeViewMode");
     return (savedMode as Mode) || "list";
@@ -98,4 +102,4 @@ export const BadgeList = () => {
       )}
     </div>
   );
-};
+}

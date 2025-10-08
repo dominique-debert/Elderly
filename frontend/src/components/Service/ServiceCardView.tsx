@@ -1,5 +1,5 @@
-import { ServiceCard } from "./ServiceCard";
 import type { ICategory } from "@/types";
+import { ServiceCard } from "@/components";
 
 type ServiceCardViewProps = {
   services: ICategory[];

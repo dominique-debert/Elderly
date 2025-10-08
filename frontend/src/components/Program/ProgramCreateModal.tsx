@@ -12,10 +12,10 @@ type ProgramCreateModalProps = {
   onCreated: () => void;
 };
 
-export const ProgramCreateModal = ({
+export function ProgramCreateModal({
   onClose,
   onCreated,
-}: ProgramCreateModalProps) => {
+}: ProgramCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +157,4 @@ export const ProgramCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

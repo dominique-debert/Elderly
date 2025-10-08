@@ -1,12 +1,14 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { BadgeEditModal } from "./BadgeEditModal";
-import { BadgeDeleteModal } from "./BadgeDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
+
 import type { ICategory } from "@/types";
 
-export default function BadgeListItem({ badge }: { badge: ICategory }) {
+import { BadgeDeleteModal, BadgeEditModal } from "@/components";
+
+export function BadgeListItem({ badge }: { badge: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();

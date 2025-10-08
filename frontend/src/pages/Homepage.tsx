@@ -1,12 +1,14 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import ActivityCard from "@/components/ActivityDashboardCard";
-import ForumCard from "@/components/ForumCard";
-import HealthCard from "@/components/HealthCard";
-import UserCard from "@/components/UserCard";
-import ServiceCard from "@/components/ServiceCard";
-import MedicationCard from "@/components/MedicationCard";
-import { MeteoWidget } from "@/components/MeteoWidget";
+import {
+  DashboardActivityCard,
+  DashboardForumCard,
+  DashboardHealthCard,
+  DashboardMedicationCard,
+  DashboardUserCard,
+  DashboardServiceCard,
+  WeatherWidget,
+} from "@/components";
 
 const HomePage = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -21,23 +23,23 @@ const HomePage = () => {
         <div className="lg:flex lg:flex-row gap-4 mt-4">
           {user ? (
             <>
-              <UserCard />
-              <MeteoWidget />
+              <DashboardUserCard />
+              <WeatherWidget />
             </>
           ) : (
             <p>Les informations de profil sont introuvables.</p>
           )}
-          <ForumCard />
+          <DashboardForumCard />
         </div>
 
         <div className="lg:flex lg:flex-row gap-4">
-          <ActivityCard />
-          <HealthCard />
-          <ServiceCard />
+          <DashboardActivityCard />
+          <DashboardHealthCard />
+          <DashboardServiceCard />
         </div>
 
         <div className="lg:flex lg:flex-row">
-          <MedicationCard />
+          <DashboardMedicationCard />
         </div>
       </div>
     </>

@@ -1,12 +1,13 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { ProjectEditModal } from "./ProjectEditModal";
-import { ProjectDeleteModal } from "./ProjectDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
 
-export default function ProjectListItem({ project }: { project: ICategory }) {
+import { ProjectDeleteModal, ProjectEditModal } from "@/components";
+
+export function ProjectListItem({ project }: { project: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();

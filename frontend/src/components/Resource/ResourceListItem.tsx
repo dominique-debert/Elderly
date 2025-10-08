@@ -1,16 +1,13 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { ResourceEditModal } from "./ResourceEditModal";
-import { ResourceDeleteModal } from "./ResourceDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
 
-export default function ResourceListItem({
-  resource,
-}: {
-  resource: ICategory;
-}) {
+import { ResourceDeleteModal, ResourceEditModal } from "@/components";
+
+export function ResourceListItem({ resource }: { resource: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();

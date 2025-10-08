@@ -1,5 +1,5 @@
-import { ProjectCard } from "./ProjectCard";
 import type { ICategory } from "@/types";
+import { ProjectCard } from "@/components";
 
 type ProjectCardViewProps = {
   projects: ICategory[];

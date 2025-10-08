@@ -1,10 +1,12 @@
-import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import Icon from "@mdi/react";
-import { useQueryClient } from "@tanstack/react-query";
+import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { CognitiveDeleteModal } from "./CognitiveDeleteModal";
-import { CognitiveEditModal } from "./CognitiveEditModal";
+import { useQueryClient } from "@tanstack/react-query";
+
 import type { ICategory } from "@/types";
+
+import { CognitiveDeleteModal, CognitiveEditModal } from "@/components";
 
 type CognitiveCardProps = {
   cognitive: ICategory;

@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import ProgramListItem from "./ProgramListItem";
+import { ProgramListItem } from "@/components";
 
 type ProgramListViewProps = {
   programs: ICategory[];

@@ -1,10 +1,11 @@
 import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
+
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { ResourceDeleteModal } from "./ResourceDeleteModal";
-import { ResourceEditModal } from "./ResourceEditModal";
 import type { ICategory } from "@/types";
+
+import { ResourceDeleteModal, ResourceEditModal } from "@/components";
 
 type ResourceCardProps = {
   resource: ICategory;

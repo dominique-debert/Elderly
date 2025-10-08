@@ -5,6 +5,18 @@ import { errorHandler } from "@/middlewares";
 import routes from "@/routes/index.routes";
 import cors from "cors";
 import path from "path";
+import dotenv from "dotenv";
+
+// Load .env as early as possible
+dotenv.config();
+
+// Fail fast if JWT secret is missing
+if (!process.env.JWT_SECRET && !process.env.SECRET) {
+  console.error(
+    "FATAL: JWT secret is not set. Set JWT_SECRET (or SECRET) in api-server/.env or your environment."
+  );
+  process.exit(1);
+}
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT || "3000", 10);

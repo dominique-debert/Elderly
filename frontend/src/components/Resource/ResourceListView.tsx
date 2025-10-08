@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import ResourceListItem from "./ResourceListItem";
+import { ResourceListItem } from "@/components";
 
 type ResourceListViewProps = {
   resources: ICategory[];

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { IChapter, ICategoryType } from "@/types";
 import {
   createCognitiveCategory,
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services";
-import { IChapter, ICategoryType } from "@/types";
 import toast from "react-hot-toast";
 
 type CognitiveCreateModalProps = {
@@ -12,10 +12,10 @@ type CognitiveCreateModalProps = {
   onCreated: () => void;
 };
 
-export const CognitiveCreateModal = ({
+export function CognitiveCreateModal({
   onClose,
   onCreated,
-}: CognitiveCreateModalProps) => {
+}: CognitiveCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +157,4 @@ export const CognitiveCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

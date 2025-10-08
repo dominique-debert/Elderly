@@ -1,14 +1,15 @@
+import type { ICategory } from "@/types";
+
 import {
+  CognitiveTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import CognitiveTableRow from "./CognitiveTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
-export default function CognitiveTableView({
+export function CognitiveTableView({
   cognitives,
 }: {
   cognitives: ICategory[];

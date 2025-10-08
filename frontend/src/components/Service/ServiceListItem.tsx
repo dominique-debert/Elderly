@@ -1,12 +1,13 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { ServiceEditModal } from "./ServiceEditModal";
-import { ServiceDeleteModal } from "./ServiceDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
 
-export default function ServiceListItem({ service }: { service: ICategory }) {
+import { ServiceDeleteModal, ServiceEditModal } from "@/components";
+
+export function ServiceListItem({ service }: { service: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();

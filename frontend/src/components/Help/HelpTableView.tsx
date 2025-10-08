@@ -1,12 +1,13 @@
+import type { ICategory } from "@/types";
+
 import {
+  HelpTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import HelpTableRow from "./HelpTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
 export function HelpTableView({ helps }: { helps: ICategory[] }) {
   return (

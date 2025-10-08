@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchCognitiveCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { CognitiveCardView } from "./CognitiveCardView";
-import { CognitiveModeSwitcher } from "./CognitiveModeSwitcher";
-import CognitiveListView from "./CognitiveListView";
-import CognitiveTableView from "./CognitiveTableView";
+
+import {
+  CognitiveCardView,
+  CognitiveListView,
+  CognitiveModeSwitcher,
+  CognitiveTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const CognitiveList = () => {
+export function CognitiveList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("cognitiveViewMode");
     return (savedMode as Mode) || "list";
@@ -101,4 +105,4 @@ export const CognitiveList = () => {
       )}
     </div>
   );
-};
+}

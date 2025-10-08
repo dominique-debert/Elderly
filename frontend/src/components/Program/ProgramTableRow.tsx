@@ -1,12 +1,17 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { ProgramDeleteModal } from "./ProgramDeleteModal";
-import { ProgramEditModal } from "./ProgramEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 import type { ICategory } from "@/types";
 
-export default function ProgramTableRow({ program }: { program: ICategory }) {
+import {
+  ProgramDeleteModal,
+  ProgramEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function ProgramTableRow({ program }: { program: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 

@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchProgramCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { ProgramCardView } from "./ProgramCardView";
-import { ProgramModeSwitcher } from "./ProgramModeSwitcher";
-import { ProgramListView } from "./ProgramListView";
-import { ProgramTableView } from "./ProgramTableView";
+
+import {
+  ProgramCardView,
+  ProgramListView,
+  ProgramModeSwitcher,
+  ProgramTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const ProgramList = () => {
+export function ProgramList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("programViewMode");
     return (savedMode as Mode) || "list";
@@ -98,4 +102,4 @@ export const ProgramList = () => {
       )}
     </div>
   );
-};
+}

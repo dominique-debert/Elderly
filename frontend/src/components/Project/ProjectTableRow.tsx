@@ -1,12 +1,17 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { ProjectDeleteModal } from "./ProjectDeleteModal";
-import { ProjectEditModal } from "./ProjectEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 import type { ICategory } from "@/types";
 
-export default function ProjectTableRow({ project }: { project: ICategory }) {
+import {
+  ProjectDeleteModal,
+  ProjectEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function ProjectTableRow({ project }: { project: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 

@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+
 import {
   createBadgeCategory,
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services";
+
 import { ICategoryType, IChapter } from "@/types";
+
 import toast from "react-hot-toast";
 
 type BadgeCreateModalProps = {
@@ -12,10 +15,10 @@ type BadgeCreateModalProps = {
   onCreated: () => void;
 };
 
-export const BadgeCreateModal = ({
+export function BadgeCreateModal({
   onClose,
   onCreated,
-}: BadgeCreateModalProps) => {
+}: BadgeCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +160,4 @@ export const BadgeCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

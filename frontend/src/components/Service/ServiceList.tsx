@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchServiceCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { ServiceCardView } from "./ServiceCardView";
-import { ServiceModeSwitcher } from "./ServiceModeSwitcher";
-import { ServiceListView } from "./ServiceListView";
-import { ServiceTableView } from "./ServiceTableView";
+
+import {
+  ServiceCardView,
+  ServiceListView,
+  ServiceModeSwitcher,
+  ServiceTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const ServiceList = () => {
+export function ServiceList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("serviceViewMode");
     return (savedMode as Mode) || "list";
@@ -98,4 +102,4 @@ export const ServiceList = () => {
       )}
     </div>
   );
-};
+}

@@ -1,12 +1,12 @@
+import type { ICategory } from "@/types";
 import {
+  ProjectTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import ProjectTableRow from "./ProjectTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
 export function ProjectTableView({ projects }: { projects: ICategory[] }) {
   return (

@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import {
   createProjectCategory,
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services";
 import { ICategoryType, IChapter } from "@/types";
+import toast from "react-hot-toast";
 
 type ProjectCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
 };
 
-export const ProjectCreateModal = ({
+export function ProjectCreateModal({
   onClose,
   onCreated,
-}: ProjectCreateModalProps) => {
+}: ProjectCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +157,4 @@ export const ProjectCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

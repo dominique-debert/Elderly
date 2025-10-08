@@ -4,7 +4,7 @@ import HomePage from "./pages/Homepage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ProfilePage from "./pages/ProfilePage";
-import Layout from "./components/Layout";
+import { Layout } from "@/components";
 import WellnessPage from "./pages/WellnessPage";
 import AdminPage from "./pages/AdminPage";
 import "./App.css";

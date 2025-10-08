@@ -1,12 +1,13 @@
+import type { ICategory } from "@/types";
+
 import {
+  ResourceTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import ResourceTableRow from "./ResourceTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
 export function ResourceTableView({ resources }: { resources: ICategory[] }) {
   return (

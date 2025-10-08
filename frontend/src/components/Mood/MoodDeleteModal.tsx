@@ -8,7 +8,7 @@ type ConfirmDeleteMoodModalProps = {
   onConfirm?: () => void;
 };
 
-export function ConfirmDeleteMoodModal({
+export function MoodDeleteModal({
   mood,
   onClose,
   onConfirm,

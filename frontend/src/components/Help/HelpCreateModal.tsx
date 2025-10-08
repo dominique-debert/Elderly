@@ -12,10 +12,7 @@ type HelpCreateModalProps = {
   onCreated: () => void;
 };
 
-export const HelpCreateModal = ({
-  onClose,
-  onCreated,
-}: HelpCreateModalProps) => {
+export function HelpCreateModal({ onClose, onCreated }: HelpCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +154,4 @@ export const HelpCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

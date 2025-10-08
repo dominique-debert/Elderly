@@ -1,12 +1,17 @@
-import type { IMood } from "@/types/IMood";
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiCircle, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
-import { ConfirmDeleteMoodModal } from "./MoodDeleteModal";
-import { MoodEditModal } from "./MoodEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 
-export default function MoodTableRow({ mood }: { mood: IMood }) {
+import type { IMood } from "@/types/IMood";
+
+import {
+  MoodDeleteModal,
+  MoodEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function MoodTableRow({ mood }: { mood: IMood }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 
@@ -49,7 +54,7 @@ export default function MoodTableRow({ mood }: { mood: IMood }) {
       )}
 
       {isConfirmDeleteOpen && (
-        <ConfirmDeleteMoodModal
+        <MoodDeleteModal
           mood={mood}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={() => {

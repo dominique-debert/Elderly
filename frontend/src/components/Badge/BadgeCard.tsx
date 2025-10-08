@@ -1,10 +1,12 @@
-import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import Icon from "@mdi/react";
-import { useQueryClient } from "@tanstack/react-query";
+import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { BadgeDeleteModal } from "./BadgeDeleteModal";
-import { BadgeEditModal } from "./BadgeEditModal";
+import { useQueryClient } from "@tanstack/react-query";
+
 import type { ICategory } from "@/types";
+
+import { BadgeDeleteModal, BadgeEditModal } from "@/components";
 
 type BadgeCardProps = {
   badge: ICategory;

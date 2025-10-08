@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+
 import {
   createServiceCategory,
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services";
 import { ICategoryType, IChapter } from "@/types";
+
 import toast from "react-hot-toast";
 
 type ServiceCreateModalProps = {
@@ -12,10 +14,10 @@ type ServiceCreateModalProps = {
   onCreated: () => void;
 };
 
-export const ServiceCreateModal = ({
+export function ServiceCreateModal({
   onClose,
   onCreated,
-}: ServiceCreateModalProps) => {
+}: ServiceCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +159,4 @@ export const ServiceCreateModal = ({
       </div>
     </dialog>
   );
-};
+}
