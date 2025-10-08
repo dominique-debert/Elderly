@@ -5,13 +5,13 @@ import {
   getResourceById,
   updateResource,
   deleteResource,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   resourceSchema,
   idParamResourceSchema,
 } from "@/validators/resource.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

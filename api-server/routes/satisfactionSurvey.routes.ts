@@ -5,13 +5,13 @@ import {
   getSatisfactionSurveyById,
   updateSatisfactionSurvey,
   deleteSatisfactionSurvey,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   satisfactionSurveySchema,
   idParamSatisfactionSurveySchema,
 } from "@/validators/satisfactionSurvey.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

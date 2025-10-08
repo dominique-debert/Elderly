@@ -1,9 +1,7 @@
 // routes/badgeRoutes.ts
-import { Router } from 'express';
+import { Router } from "express";
 
-import {
-  getAllMenuItems,
-} from '@/controllers/index.controller';
+import { getAllMenuItems } from "@/controllers";
 
 const router = Router();
 
@@ -29,6 +27,6 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllMenuItems);
+router.get("/", getAllMenuItems);
 
 export default router;

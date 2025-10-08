@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 import {
   conversationSchema,
@@ -12,7 +12,7 @@ import {
   getConversationById,
   updateConversation,
   deleteConversation,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 const router = Router();
 

@@ -1,14 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createWellnessCategory,
   fetchAllWellnessCategories,
   fetchWellnessCategoryById,
   updateWellnessCategory,
-  deleteWellnessCategory
-} from '@/controllers/index.controller';
+  deleteWellnessCategory,
+} from "@/controllers";
 
-import { categorySchema } from '@/validators/category.validator';
-import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -59,7 +59,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createWellnessCategory);
+router.post("/", validate(categorySchema), createWellnessCategory);
 
 /**
  * @swagger
@@ -82,7 +82,7 @@ router.post('/', validate(categorySchema), createWellnessCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllWellnessCategories);
+router.get("/", fetchAllWellnessCategories);
 
 /**
  * @swagger
@@ -109,7 +109,7 @@ router.get('/', fetchAllWellnessCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchWellnessCategoryById);
+router.get("/:id", fetchWellnessCategoryById);
 
 /**
  * @swagger
@@ -154,7 +154,7 @@ router.get('/:id', fetchWellnessCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateWellnessCategory);
+router.put("/:id", updateWellnessCategory);
 
 /**
  * @swagger
@@ -175,6 +175,6 @@ router.put('/:id', updateWellnessCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteWellnessCategory);
+router.delete("/:id", deleteWellnessCategory);
 
 export default router;

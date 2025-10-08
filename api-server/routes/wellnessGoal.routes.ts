@@ -5,13 +5,13 @@ import {
   getWellnessGoalById,
   updateWellnessGoal,
   deleteWellnessGoal,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   wellnessGoalSchema,
   idParamWellnessGoalSchema,
 } from "@/validators/wellnessGoal.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

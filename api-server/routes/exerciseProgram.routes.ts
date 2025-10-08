@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 import {
   exerciseProgramSchema,
@@ -12,7 +12,7 @@ import {
   createExerciseProgram,
   updateExerciseProgram,
   deleteExerciseProgram,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 const exerciseProgramRouter = Router();
 

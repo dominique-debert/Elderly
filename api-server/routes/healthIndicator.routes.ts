@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 import {
   healthIndicatorSchema,
@@ -12,7 +12,7 @@ import {
   getHealthIndicatorById,
   updateHealthIndicator,
   deleteHealthIndicator,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 const router = Router();
 

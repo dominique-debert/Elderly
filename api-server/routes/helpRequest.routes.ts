@@ -5,14 +5,14 @@ import {
   getHelpRequestById,
   updateHelpRequest,
   deleteHelpRequest,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   helpRequestSchema,
   idParamHelpRequestSchema,
 } from "@/validators/helpRequest.validator";
 
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

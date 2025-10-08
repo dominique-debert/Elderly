@@ -1,14 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createHelpCategory,
   fetchAllHelpCategories,
   fetchHelpCategoryById,
   updateHelpCategory,
-  deleteHelpCategory
-} from '@/controllers/index.controller';
+  deleteHelpCategory,
+} from "@/controllers";
 
-import { categorySchema } from '@/validators/category.validator';
-import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -55,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createHelpCategory);
+router.post("/", validate(categorySchema), createHelpCategory);
 
 /**
  * @swagger
@@ -78,7 +78,7 @@ router.post('/', validate(categorySchema), createHelpCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllHelpCategories);
+router.get("/", fetchAllHelpCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get('/', fetchAllHelpCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchHelpCategoryById);
+router.get("/:id", fetchHelpCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', fetchHelpCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateHelpCategory);
+router.put("/:id", updateHelpCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', updateHelpCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteHelpCategory);
+router.delete("/:id", deleteHelpCategory);
 
 export default router;

@@ -5,13 +5,13 @@ import {
   getUserActivityById,
   updateUserActivity,
   deleteUserActivity,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   userActivitySchema,
   idParamUserActivitySchema,
 } from "@/validators/userActivity.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

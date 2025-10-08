@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 import {
   localServiceSchema,
@@ -12,7 +12,7 @@ import {
   getLocalServiceById,
   updateLocalService,
   deleteLocalService,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 const localServiceRouter = Router();
 

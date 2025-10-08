@@ -1,20 +1,15 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares";
+
+import { skillSchema, idParamSkillSchema } from "@/validators/skill.validator";
 
 import {
-  skillSchema,
-  idParamSkillSchema
-}
-from '@/validators/skill.validator'
-
-import { 
   createSkill,
   getAllSkills,
   getSkillById,
   updateSkill,
-  deleteSkill
-}
-from '@/controllers/index.controller';
+  deleteSkill,
+} from "@/controllers";
 
 const skillRouter = Router();
 /**
@@ -39,16 +34,16 @@ const skillRouter = Router();
  *       400:
  *         description: Données invalides
  */
-skillRouter.post('/', validate(skillSchema), createSkill);
+skillRouter.post("/", validate(skillSchema), createSkill);
 
 /**
  * @swagger
  * /api/skills:
  *   get:
  *     summary: Récupérer la liste des compétences
- *     tags: [Skills]       
- */ 
-skillRouter.get('/', getAllSkills);
+ *     tags: [Skills]
+ */
+skillRouter.get("/", getAllSkills);
 
 /**
  * @swagger
@@ -74,7 +69,7 @@ skillRouter.get('/', getAllSkills);
  *       404:
  *         description: Compétence non trouvée
  */
-skillRouter.get('/:id', validate(idParamSkillSchema, 'params'), getSkillById);
+skillRouter.get("/:id", validate(idParamSkillSchema, "params"), getSkillById);
 
 /**
  * @swagger
@@ -106,7 +101,7 @@ skillRouter.get('/:id', validate(idParamSkillSchema, 'params'), getSkillById);
  *       400:
  *         description: Données invalides
  */
-skillRouter.put('/:id', validate(idParamSkillSchema, 'params'), updateSkill);
+skillRouter.put("/:id", validate(idParamSkillSchema, "params"), updateSkill);
 
 /**
  * @swagger
@@ -128,6 +123,6 @@ skillRouter.put('/:id', validate(idParamSkillSchema, 'params'), updateSkill);
  *       404:
  *         description: Compétence non trouvée
  */
-skillRouter.delete('/:id', validate(idParamSkillSchema, 'params'), deleteSkill);
+skillRouter.delete("/:id", validate(idParamSkillSchema, "params"), deleteSkill);
 
 export default skillRouter;

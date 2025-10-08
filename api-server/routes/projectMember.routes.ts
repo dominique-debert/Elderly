@@ -5,13 +5,13 @@ import {
   getProjectMemberById,
   updateProjectMember,
   deleteProjectMember,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   projectMemberSchema,
   idParamProjectMemberSchema,
 } from "@/validators/projectMember.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

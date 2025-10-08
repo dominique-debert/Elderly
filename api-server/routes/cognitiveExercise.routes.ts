@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 import {
   cognitiveExerciseSchema,
@@ -12,7 +12,7 @@ import {
   getCognitiveExerciseById,
   updateCognitiveExercise,
   deleteCognitiveExercise,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 const router = Router();
 

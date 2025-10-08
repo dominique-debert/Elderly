@@ -5,13 +5,13 @@ import {
   getTrustedContactById,
   updateTrustedContact,
   deleteTrustedContact,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   trustedContactSchema,
   idParamTrustedContactSchema,
 } from "@/validators/trustedContact.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

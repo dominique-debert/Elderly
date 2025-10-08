@@ -1,14 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createServiceCategory,
   fetchAllServiceCategories,
   fetchServiceCategoryById,
   updateServiceCategory,
-  deleteServiceCategory
-} from '@/controllers/index.controller';
+  deleteServiceCategory,
+} from "@/controllers";
 
-import { categorySchema } from '@/validators/category.validator';
-import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -55,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createServiceCategory);
+router.post("/", validate(categorySchema), createServiceCategory);
 
 /**
  * @swagger
@@ -78,7 +78,7 @@ router.post('/', validate(categorySchema), createServiceCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllServiceCategories);
+router.get("/", fetchAllServiceCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get('/', fetchAllServiceCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchServiceCategoryById);
+router.get("/:id", fetchServiceCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', fetchServiceCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateServiceCategory);
+router.put("/:id", updateServiceCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', updateServiceCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteServiceCategory);
+router.delete("/:id", deleteServiceCategory);
 
 export default router;

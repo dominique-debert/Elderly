@@ -5,14 +5,14 @@ import {
   getNotificationPreferencesById,
   updateNotificationPreferences,
   deleteNotificationPreferences,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   notificationPreferencesSchema,
   idParamNotificationPreferencesSchema,
 } from "@/validators/notificationPreferences.validator";
 
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

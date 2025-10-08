@@ -1,19 +1,15 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares";
 
-import {
-  userSchema,
-  idParamUserSchema
-} from '@/validators/user.validator';
+import { userSchema, idParamUserSchema } from "@/validators/user.validator";
 
 import {
   createUser,
   getAllUsers,
   getUserById,
   updateUser,
-  deleteUser
-} 
-from '@/controllers/index.controller';
+  deleteUser,
+} from "@/controllers";
 
 const userRouter = Router();
 
@@ -39,7 +35,7 @@ const userRouter = Router();
  *       400:
  *         description: Données invalides
  */
-userRouter.post('/', validate(userSchema), createUser);
+userRouter.post("/", validate(userSchema), createUser);
 
 /**
  * @swagger
@@ -51,7 +47,7 @@ userRouter.post('/', validate(userSchema), createUser);
  *       200:
  *         description: Liste des utilisateurs
  */
-userRouter.get('/', getAllUsers);
+userRouter.get("/", getAllUsers);
 
 /**
  * @swagger
@@ -77,7 +73,7 @@ userRouter.get('/', getAllUsers);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.get('/:id', validate(idParamUserSchema, 'params'), getUserById);
+userRouter.get("/:id", validate(idParamUserSchema, "params"), getUserById);
 
 /**
  * @swagger
@@ -109,7 +105,7 @@ userRouter.get('/:id', validate(idParamUserSchema, 'params'), getUserById);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.put('/:id', validate(idParamUserSchema, 'params'), updateUser);
+userRouter.put("/:id", validate(idParamUserSchema, "params"), updateUser);
 
 /**
  * @swagger
@@ -131,6 +127,6 @@ userRouter.put('/:id', validate(idParamUserSchema, 'params'), updateUser);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.delete('/:id', validate(idParamUserSchema, 'params'), deleteUser);
+userRouter.delete("/:id", validate(idParamUserSchema, "params"), deleteUser);
 
 export default userRouter;

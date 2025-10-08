@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { validate } from "@/middlewares/validate.js";
+import { validate } from "@/middlewares";
 
 import {
   nutritionalAdviceSchema,
   idParamNutritionalAdviceSchema,
-} from "@/validators/nutritionalAdvice.validator.js";
+} from "@/validators/nutritionalAdvice.validator";
 
 import {
   createNutritionalAdvice,
@@ -12,7 +12,7 @@ import {
   getNutritionalAdviceById,
   updateNutritionalAdvice,
   deleteNutritionalAdvice,
-} from "@/controllers/index.controller.js";
+} from "@/controllers/index.js";
 
 const nutritionalAdviceRouter = Router();
 

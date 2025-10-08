@@ -1,6 +1,6 @@
 // routes/badgeRoutes.ts
 import { Router } from "express";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 import { badgeSchema, idParamSchema } from "@/validators/badge.validator";
 
 import {
@@ -9,7 +9,7 @@ import {
   getBadgeById,
   updateBadge,
   deleteBadge,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 const router = Router();
 

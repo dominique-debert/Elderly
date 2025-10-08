@@ -1,14 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createSkillCategory,
   fetchAllSkillCategories,
   fetchSkillCategoryById,
   updateSkillCategory,
-  deleteSkillCategory
-} from '@/controllers/index.controller';
+  deleteSkillCategory,
+} from "@/controllers";
 
-import { categorySchema } from '@/validators/category.validator';
-import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -55,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createSkillCategory);
+router.post("/", validate(categorySchema), createSkillCategory);
 
 /**
  * @swagger
@@ -78,7 +78,7 @@ router.post('/', validate(categorySchema), createSkillCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllSkillCategories);
+router.get("/", fetchAllSkillCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get('/', fetchAllSkillCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchSkillCategoryById);
+router.get("/:id", fetchSkillCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', fetchSkillCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateSkillCategory);
+router.put("/:id", updateSkillCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', updateSkillCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteSkillCategory);
+router.delete("/:id", deleteSkillCategory);
 
 export default router;

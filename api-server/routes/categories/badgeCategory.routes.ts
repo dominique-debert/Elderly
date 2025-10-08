@@ -1,13 +1,13 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createBadgeCategory,
   fetchAllBadgeCategories,
   fetchBadgeCategoryById,
   updateBadgeCategory,
-  deleteBadgeCategory
-} from '@/controllers/index.controller';
+  deleteBadgeCategory,
+} from "@/controllers";
 
-import { validate } from '@/middlewares/validate';
+import { validate } from "@/middlewares";
 import { categorySchema } from "@/validators/category.validator";
 
 const router = Router();
@@ -58,7 +58,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createBadgeCategory);
+router.post("/", validate(categorySchema), createBadgeCategory);
 
 /**
  * @swagger
@@ -81,7 +81,7 @@ router.post('/', validate(categorySchema), createBadgeCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllBadgeCategories);
+router.get("/", fetchAllBadgeCategories);
 
 /**
  * @swagger
@@ -108,7 +108,7 @@ router.get('/', fetchAllBadgeCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchBadgeCategoryById);
+router.get("/:id", fetchBadgeCategoryById);
 
 /**
  * @swagger
@@ -152,7 +152,7 @@ router.get('/:id', fetchBadgeCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateBadgeCategory);
+router.put("/:id", updateBadgeCategory);
 
 /**
  * @swagger
@@ -173,6 +173,6 @@ router.put('/:id', updateBadgeCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteBadgeCategory);
+router.delete("/:id", deleteBadgeCategory);
 
 export default router;

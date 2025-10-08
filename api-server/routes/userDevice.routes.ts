@@ -5,13 +5,13 @@ import {
   getUserDeviceById,
   updateUserDevice,
   deleteUserDevice,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   userDeviceSchema,
   idParamUserDeviceSchema,
 } from "@/validators/userDevice.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

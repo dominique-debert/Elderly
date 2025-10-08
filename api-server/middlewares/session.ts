@@ -1,10 +1,10 @@
-import session from 'express-session';
-import dotenv from 'dotenv';
+import session from "express-session";
+import dotenv from "dotenv";
 
 dotenv.config();
 
-const currentSession = session({
-  secret: process.env.JWT_SECRET || 'default_secret', // fallback au cas où la variable n'est pas définie
+export const currentSession = session({
+  secret: process.env.JWT_SECRET || "default_secret", // fallback au cas où la variable n'est pas définie
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -13,5 +13,3 @@ const currentSession = session({
     maxAge: 1000 * 60 * 60 * 24, // 1 jour
   },
 });
-
-export default currentSession;

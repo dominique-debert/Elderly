@@ -1,14 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createProgramCategory,
   fetchAllProgramCategories,
   fetchProgramCategoryById,
   updateProgramCategory,
-  deleteProgramCategory
-} from '@/controllers/index.controller';
+  deleteProgramCategory,
+} from "@/controllers";
 
-import { categorySchema } from '@/validators/category.validator';
-import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -55,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createProgramCategory);
+router.post("/", validate(categorySchema), createProgramCategory);
 
 /**
  * @swagger
@@ -78,7 +78,7 @@ router.post('/', validate(categorySchema), createProgramCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllProgramCategories);
+router.get("/", fetchAllProgramCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get('/', fetchAllProgramCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id',  fetchProgramCategoryById);
+router.get("/:id", fetchProgramCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id',  fetchProgramCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateProgramCategory);
+router.put("/:id", updateProgramCategory);
 
 /**
  * @swagger
@@ -157,7 +157,7 @@ router.put('/:id', updateProgramCategory);
  *     summary: Supprimer une catégorie de programme
  *     tags: [Program Categories]
  *     parameters:
- *       - in: path 
+ *       - in: path
  *         name: id
  *         required: true
  *         schema:
@@ -169,6 +169,6 @@ router.put('/:id', updateProgramCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteProgramCategory);
+router.delete("/:id", deleteProgramCategory);
 
 export default router;

@@ -1,14 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createResourceCategory,
   fetchAllResourceCategories,
   fetchResourceCategoryById,
   updateResourceCategory,
-  deleteResourceCategory
-} from '@/controllers/index.controller';
+  deleteResourceCategory,
+} from "@/controllers";
 
-import { categorySchema } from '@/validators/category.validator';
-import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -55,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createResourceCategory);
+router.post("/", validate(categorySchema), createResourceCategory);
 
 /**
  * @swagger
@@ -78,7 +78,7 @@ router.post('/', validate(categorySchema), createResourceCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllResourceCategories);
+router.get("/", fetchAllResourceCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get('/', fetchAllResourceCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchResourceCategoryById);
+router.get("/:id", fetchResourceCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', fetchResourceCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateResourceCategory);
+router.put("/:id", updateResourceCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', updateResourceCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteResourceCategory);
+router.delete("/:id", deleteResourceCategory);
 
 export default router;

@@ -5,13 +5,13 @@ import {
   getVideoCallById,
   updateVideoCall,
   deleteVideoCall,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   videoCallSchema,
   idParamVideoCallSchema,
 } from "@/validators/videoCall.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

@@ -5,13 +5,13 @@ import {
   getTrustCircleById,
   updateTrustCircle,
   deleteTrustCircle,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   trustCircleSchema,
   idParamTrustCircleSchema,
 } from "@/validators/trustCircle.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

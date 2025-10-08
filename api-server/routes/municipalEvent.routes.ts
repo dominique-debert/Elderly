@@ -5,14 +5,14 @@ import {
   getMunicipalEventById,
   updateMunicipalEvent,
   deleteMunicipalEvent,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   municipalEventSchema,
   idParamMunicipalEventSchema,
 } from "@/validators/municipalEvent.validator";
 
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

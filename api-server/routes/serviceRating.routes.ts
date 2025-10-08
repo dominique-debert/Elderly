@@ -5,13 +5,13 @@ import {
   getServiceRatingById,
   updateServiceRating,
   deleteServiceRating,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   serviceRatingSchema,
   idParamServiceRatingSchema,
 } from "@/validators/serviceRating.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

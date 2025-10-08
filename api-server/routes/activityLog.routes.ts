@@ -1,11 +1,11 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createActivityLog,
   getAllActivityLogs,
   getActivityLogById,
   updateActivityLog,
-  deleteActivityLog
-} from '@/controllers/index.controller';
+  deleteActivityLog,
+} from "@/controllers";
 
 const router = Router();
 
@@ -64,7 +64,7 @@ const router = Router();
  *             schema:
  *               $ref: '#/components/schemas/ActivityLog'
  */
-router.post('/', createActivityLog);
+router.post("/", createActivityLog);
 
 /**
  * @swagger
@@ -85,7 +85,7 @@ router.post('/', createActivityLog);
  *                   items:
  *                     $ref: '#/components/schemas/ActivityLog'
  */
-router.get('/', getAllActivityLogs);
+router.get("/", getAllActivityLogs);
 
 /**
  * @swagger
@@ -110,7 +110,7 @@ router.get('/', getAllActivityLogs);
  *       404:
  *         description: Journal non trouvé
  */
-router.get('/:id', getActivityLogById);
+router.get("/:id", getActivityLogById);
 
 /**
  * @swagger
@@ -138,7 +138,7 @@ router.get('/:id', getActivityLogById);
  *             schema:
  *               $ref: '#/components/schemas/ActivityLog'
  */
-router.put('/:id', updateActivityLog);
+router.put("/:id", updateActivityLog);
 
 /**
  * @swagger
@@ -156,6 +156,6 @@ router.put('/:id', updateActivityLog);
  *       200:
  *         description: Journal supprimé
  */
-router.delete('/:id', deleteActivityLog);
+router.delete("/:id", deleteActivityLog);
 
 export default router;

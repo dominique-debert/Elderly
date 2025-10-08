@@ -5,13 +5,13 @@ import {
   getUserSkillById,
   updateUserSkill,
   deleteUserSkill,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   userSkillSchema,
   idParamUserSkillSchema,
 } from "@/validators/userSkill.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

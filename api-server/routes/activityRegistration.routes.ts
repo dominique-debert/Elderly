@@ -1,12 +1,11 @@
-
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createActivityRegistration,
   getAllActivityRegistrations,
   getActivityRegistrationById,
   updateActivityRegistration,
-  deleteActivityRegistration
-} from '@/controllers/index.controller';
+  deleteActivityRegistration,
+} from "@/controllers";
 
 const router = Router();
 
@@ -50,7 +49,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', createActivityRegistration);
+router.post("/", createActivityRegistration);
 
 /**
  * @swagger
@@ -64,7 +63,7 @@ router.post('/', createActivityRegistration);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllActivityRegistrations);
+router.get("/", getAllActivityRegistrations);
 
 /**
  * @swagger
@@ -87,7 +86,7 @@ router.get('/', getAllActivityRegistrations);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', getActivityRegistrationById);
+router.get("/:id", getActivityRegistrationById);
 
 /**
  * @swagger
@@ -119,7 +118,7 @@ router.get('/:id', getActivityRegistrationById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateActivityRegistration);
+router.put("/:id", updateActivityRegistration);
 
 /**
  * @swagger
@@ -140,6 +139,6 @@ router.put('/:id', updateActivityRegistration);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteActivityRegistration);
+router.delete("/:id", deleteActivityRegistration);
 
 export default router;

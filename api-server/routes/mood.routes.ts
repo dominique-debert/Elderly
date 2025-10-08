@@ -5,11 +5,11 @@ import {
   getMoodById,
   updateMood,
   deleteMood,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import { moodSchema, idParamMoodSchema } from "@/validators/mood.validator";
 
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 import {
   createActivity,
   getAllActivities,
   getActivityById,
   updateActivity,
   deleteActivity,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   activitySchema,

@@ -5,13 +5,13 @@ import {
   getProjectTaskById,
   updateProjectTask,
   deleteProjectTask,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   projectTaskSchema,
   idParamProjectTaskSchema,
 } from "@/validators/projectTask.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

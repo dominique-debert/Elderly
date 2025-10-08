@@ -5,14 +5,14 @@ import {
   getHelpOfferById,
   updateHelpOffer,
   deleteHelpOffer,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   helpOfferSchema,
   idParamHelpOfferSchema,
 } from "@/validators/helpOffer.validator";
 
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

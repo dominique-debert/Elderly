@@ -5,13 +5,13 @@ import {
   getUserStatisticsById,
   updateUserStatistics,
   deleteUserStatistics,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   userStatisticsSchema,
   idParamUserStatisticsSchema,
 } from "@/validators/userStatistics.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

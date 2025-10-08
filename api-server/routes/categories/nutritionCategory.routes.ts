@@ -1,14 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createNutritionCategory,
   fetchAllNutritionCategories,
   fetchNutritionCategoryById,
   updateNutritionCategory,
-  deleteNutritionCategory
-} from '@/controllers/index.controller';
+  deleteNutritionCategory,
+} from "@/controllers";
 
-import { categorySchema } from '@/validators/category.validator';
-import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -55,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createNutritionCategory);
+router.post("/", validate(categorySchema), createNutritionCategory);
 
 /**
  * @swagger
@@ -78,7 +78,7 @@ router.post('/', validate(categorySchema), createNutritionCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllNutritionCategories);
+router.get("/", fetchAllNutritionCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get('/', fetchAllNutritionCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchNutritionCategoryById);
+router.get("/:id", fetchNutritionCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', fetchNutritionCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateNutritionCategory);
+router.put("/:id", updateNutritionCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', updateNutritionCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteNutritionCategory);
+router.delete("/:id", deleteNutritionCategory);
 
 export default router;

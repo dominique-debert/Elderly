@@ -5,13 +5,13 @@ import {
   getServiceCompletedById,
   updateServiceCompleted,
   deleteServiceCompleted,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   serviceCompletedSchema,
   idParamServiceCompletedSchema,
 } from "@/validators/serviceCompleted.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

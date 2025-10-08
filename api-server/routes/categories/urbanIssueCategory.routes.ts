@@ -1,14 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createUrbanIssueCategory,
   fetchAllUrbanIssueCategories,
   fetchUrbanIssueCategoryById,
   updateUrbanIssueCategory,
-  deleteUrbanIssueCategory
-} from '@/controllers/index.controller';
+  deleteUrbanIssueCategory,
+} from "@/controllers";
 
-import { categorySchema } from '@/validators/category.validator';
-import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -55,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createUrbanIssueCategory);
+router.post("/", validate(categorySchema), createUrbanIssueCategory);
 
 /**
  * @swagger
@@ -78,7 +78,7 @@ router.post('/', validate(categorySchema), createUrbanIssueCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllUrbanIssueCategories);
+router.get("/", fetchAllUrbanIssueCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get('/', fetchAllUrbanIssueCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchUrbanIssueCategoryById);
+router.get("/:id", fetchUrbanIssueCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', fetchUrbanIssueCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateUrbanIssueCategory);
+router.put("/:id", updateUrbanIssueCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', updateUrbanIssueCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteUrbanIssueCategory);
+router.delete("/:id", deleteUrbanIssueCategory);
 
 export default router;

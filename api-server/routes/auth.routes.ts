@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { signUp, signIn, logout } from "@/controllers/index.controller";
-import { validate } from "@/middlewares/validate";
+import { signUp, signIn, logout } from "@/controllers";
+import { validate } from "@/middlewares";
 import { signUpSchema, signInSchema } from "@/validators/auth.validator";
 import multer from "multer";
 import path from "path";

@@ -5,13 +5,13 @@ import {
   getUrbanIssueReportById,
   updateUrbanIssueReport,
   deleteUrbanIssueReport,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   urbanIssueReportSchema,
   idParamUrbanIssueReportSchema,
 } from "@/validators/urbanIssueReport.validator";
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 

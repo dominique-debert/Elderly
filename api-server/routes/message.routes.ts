@@ -1,18 +1,18 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createMessage,
   getAllMessages,
   getMessageById,
   updateMessage,
-  deleteMessage
-} from '@/controllers/index.controller';
+  deleteMessage,
+} from "@/controllers";
 
 import {
   messageSchema,
-  idParamMessageSchema
-} from '@/validators/message.validator';
+  idParamMessageSchema,
+} from "@/validators/message.validator";
 
-import { validate } from '@/middlewares/validate';
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -41,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(messageSchema), createMessage);
+router.post("/", validate(messageSchema), createMessage);
 
 /**
  * @swagger
@@ -64,7 +64,7 @@ router.post('/', validate(messageSchema), createMessage);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllMessages);
+router.get("/", getAllMessages);
 
 /**
  * @swagger
@@ -88,7 +88,7 @@ router.get('/', getAllMessages);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamMessageSchema, 'params'), getMessageById);
+router.get("/:id", validate(idParamMessageSchema, "params"), getMessageById);
 
 /**
  * @swagger
@@ -113,7 +113,7 @@ router.get('/:id', validate(idParamMessageSchema, 'params'), getMessageById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamMessageSchema, 'params'), updateMessage);
+router.put("/:id", validate(idParamMessageSchema, "params"), updateMessage);
 
 /**
  * @swagger
@@ -132,6 +132,6 @@ router.put('/:id', validate(idParamMessageSchema, 'params'), updateMessage);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamMessageSchema, 'params'), deleteMessage);
+router.delete("/:id", validate(idParamMessageSchema, "params"), deleteMessage);
 
 export default router;

@@ -1,14 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createCognitiveCategory,
   fetchAllCognitiveCategories,
   fetchCognitiveCategoryById,
   updateCognitiveCategory,
-  deleteCognitiveCategory
-} from '@/controllers/index.controller';
+  deleteCognitiveCategory,
+} from "@/controllers";
 
-import { categorySchema } from '@/validators/category.validator';
-import { validate } from '@/middlewares/validate';
+import { categorySchema } from "@/validators/category.validator";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
@@ -55,7 +55,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(categorySchema), createCognitiveCategory);
+router.post("/", validate(categorySchema), createCognitiveCategory);
 
 /**
  * @swagger
@@ -78,7 +78,7 @@ router.post('/', validate(categorySchema), createCognitiveCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', fetchAllCognitiveCategories);
+router.get("/", fetchAllCognitiveCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get('/', fetchAllCognitiveCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', fetchCognitiveCategoryById);
+router.get("/:id", fetchCognitiveCategoryById);
 
 /**
  * @swagger
@@ -148,7 +148,7 @@ router.get('/:id', fetchCognitiveCategoryById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', updateCognitiveCategory);
+router.put("/:id", updateCognitiveCategory);
 
 /**
  * @swagger
@@ -169,6 +169,6 @@ router.put('/:id', updateCognitiveCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', deleteCognitiveCategory);
+router.delete("/:id", deleteCognitiveCategory);
 
 export default router;

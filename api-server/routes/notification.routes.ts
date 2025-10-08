@@ -6,14 +6,14 @@ import {
   getNotificationById,
   updateNotification,
   deleteNotification,
-} from "@/controllers/index.controller";
+} from "@/controllers";
 
 import {
   notificationSchema,
   idParamNotificationSchema,
 } from "@/validators/notification.validator";
 
-import { validate } from "@/middlewares/validate";
+import { validate } from "@/middlewares";
 
 const router = Router();
 
