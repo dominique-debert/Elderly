@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useAuthStore } from "@/stores/auth";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useAuthStore } from "@/stores";
 
 const LoginPage = () => {
   const { login, isAuthenticated } = useAuthStore();

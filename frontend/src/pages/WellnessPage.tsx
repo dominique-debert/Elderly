@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuthStore } from "@/stores/auth";
+import { useAuthStore } from "@/stores";
 
 import ActivityGoals from "@/components/ActivityGoals";
 import AIAssistantCard from "@/components/AIAssistantCard";

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
+import { useAuthStore } from "@/stores";
 import Sidebar from "./Sidebar";
-import { useAuthStore } from "@/stores/auth";
 import Navbar from "./Navbar";
 
 const Layout = () => {

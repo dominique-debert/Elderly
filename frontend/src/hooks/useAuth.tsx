@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "@/stores/auth";
+import { useAuthStore } from "@/stores";
 
 export const useAuth = () => {
   const navigate = useNavigate();

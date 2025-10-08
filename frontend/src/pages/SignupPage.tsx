@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useSignupStore } from "@/stores/signup";
-import { useAuthStore } from "@/stores/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { getGeolocationData } from "@/utils/geolocation";
+import React, { useState, useEffect } from "react";
+import { useAuthStore, useSignupStore } from "@/stores";
+import { getGeolocationData } from "@/utils";
 
 const SignupPage = () => {
   const {

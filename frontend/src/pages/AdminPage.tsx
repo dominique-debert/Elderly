@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useAuthStore } from "@/stores/auth";
 import { Navigate } from "react-router-dom";
+import { useAuthStore } from "@/stores";
+import { ETabKey } from "@/types";
 
 import { AdminTabBar } from "@/components/AdminTabBar";
-import { ETabKey } from "@/types/ETabKey";
-
 import { ActivityList } from "@/components/Activity/ActivityList";
 import { BadgeList } from "@/components/Badge/BadgeList";
 import { CognitiveList } from "@/components/Cognitive/CognitiveList";

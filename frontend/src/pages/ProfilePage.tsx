@@ -1,6 +1,6 @@
-import { useAuthStore } from "@/stores/auth";
-import { formatDate } from "@/utils/formatDate";
 import { Navigate } from "react-router-dom";
+import { useAuthStore } from "@/stores";
+import { formatDate } from "@/utils";
 
 const ProfilePage = () => {
   const { user, isAuthenticated } = useAuthStore();
@@ -35,9 +35,6 @@ const ProfilePage = () => {
               <p>
                 {user.birthDate ? formatDate(user.birthDate) : "Non disponible"}
               </p>
-              {/* <div className="card-actions justify-end">
-                <button className="btn btn-primary">Learn now!</button>
-              </div> */}
             </div>
           </div>
         </>

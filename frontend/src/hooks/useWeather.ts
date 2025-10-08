@@ -1,18 +1,18 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import { useAuthStore } from '@/stores/auth'; 
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useAuthStore } from "@/stores";
 
 export const useWeather = () => {
   const { user } = useAuthStore();
   const accessToken = useAuthStore.getState().accessToken;
 
   return useQuery({
-    queryKey: ['weather'],
+    queryKey: ["weather"],
     queryFn: async () => {
       if (!user) {
-        throw new Error('User is not available');
+        throw new Error("User is not available");
       }
-      const res = await axios.get('http://localhost:3000/api/weather', {
+      const res = await axios.get("http://localhost:3000/api/weather", {
         params: {
           longitude: user.longitude,
           latitude: user.latitude,
@@ -25,4 +25,4 @@ export const useWeather = () => {
     },
     enabled: !!accessToken, // La requête n'est activée que si l'utilisateur est connecté
   });
-}
+};

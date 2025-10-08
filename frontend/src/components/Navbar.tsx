@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import Icon from "@mdi/react";
 import {
   mdiAccount,
   mdiBellOutline,
@@ -12,14 +11,15 @@ import {
   mdiViewDashboardOutline,
   mdiWeatherSunny,
 } from "@mdi/js";
-import Icon from "@mdi/react";
-import { useTheme } from "@/context/themeContext";
-import { useAuth } from "@/stores/auth";
+import axios, { AxiosError } from "axios";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { useTheme } from "@/context";
+import { useAuth } from "@/stores";
 import { useQuery } from "@tanstack/react-query";
 import { fetchNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
 import NotificationList from "./Notifications/NotificationList";
-import axios, { AxiosError } from "axios";
 
 const Navbar = () => {
   const { user, isAuthenticated } = useAuth();
