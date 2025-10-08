@@ -12,10 +12,10 @@ type UrbanIssueCreateModalProps = {
   onCreated: () => void;
 };
 
-export const UrbanIssueCreateModal: React.FC<UrbanIssueCreateModalProps> = ({
+export const UrbanIssueCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: UrbanIssueCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

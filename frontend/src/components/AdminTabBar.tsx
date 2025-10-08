@@ -11,10 +11,7 @@ type AdminTabProps = {
   setActiveTab: Dispatch<SetStateAction<ETabKey | null>>;
 };
 
-export const AdminTabBar: React.FC<AdminTabProps> = ({
-  activeTab,
-  setActiveTab,
-}) => {
+export const AdminTabBar = ({ activeTab, setActiveTab }: AdminTabProps) => {
   const {
     data: menuItems,
     isLoading,

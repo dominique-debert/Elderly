@@ -12,10 +12,10 @@ type ResourceCreateModalProps = {
   onCreated: () => void;
 };
 
-export const ResourceCreateModal: React.FC<ResourceCreateModalProps> = ({
+export const ResourceCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: ResourceCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

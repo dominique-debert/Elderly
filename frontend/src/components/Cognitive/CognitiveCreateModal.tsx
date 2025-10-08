@@ -12,10 +12,10 @@ type CognitiveCreateModalProps = {
   onCreated: () => void;
 };
 
-export const CognitiveCreateModal: React.FC<CognitiveCreateModalProps> = ({
+export const CognitiveCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: CognitiveCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

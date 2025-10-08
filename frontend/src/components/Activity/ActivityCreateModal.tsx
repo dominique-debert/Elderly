@@ -12,10 +12,10 @@ type ActivityCreateModalProps = {
   onCreated: () => void;
 };
 
-export const ActivityCreateModal: React.FC<ActivityCreateModalProps> = ({
+export const ActivityCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: ActivityCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

@@ -12,10 +12,10 @@ type ProgramCreateModalProps = {
   onCreated: () => void;
 };
 
-export const ProgramCreateModal: React.FC<ProgramCreateModalProps> = ({
+export const ProgramCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: ProgramCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

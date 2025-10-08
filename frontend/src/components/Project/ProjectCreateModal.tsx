@@ -12,10 +12,10 @@ type ProjectCreateModalProps = {
   onCreated: () => void;
 };
 
-export const ProjectCreateModal: React.FC<ProjectCreateModalProps> = ({
+export const ProjectCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: ProjectCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

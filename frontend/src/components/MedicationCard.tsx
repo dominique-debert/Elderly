@@ -1,14 +1,15 @@
-import Icon from '@mdi/react';
-import { mdiClockOutline } from '@mdi/js';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import Icon from "@mdi/react";
+import { mdiClockOutline } from "@mdi/js";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
-const MedicationCard: React.FC = () => {
-
+const MedicationCard = () => {
   return (
     <Card className="lg:w-full bg-base-100 border border-base-200">
       <CardHeader>
         <CardTitle>
-          <h2 className="text-2xl font-semibold mb-6 text-center text-primary">Prise de médicaments</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-center text-primary">
+            Prise de médicaments
+          </h2>
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -17,7 +18,8 @@ const MedicationCard: React.FC = () => {
             <li>
               <div className="timeline-start">Matin</div>
               <div className="timeline-middle">
-                <Icon path={mdiClockOutline}
+                <Icon
+                  path={mdiClockOutline}
                   title="Parler"
                   size={1}
                   className="text-primary"
@@ -30,7 +32,8 @@ const MedicationCard: React.FC = () => {
               <hr />
               <div className="timeline-start">Midi</div>
               <div className="timeline-middle">
-                <Icon path={mdiClockOutline}
+                <Icon
+                  path={mdiClockOutline}
                   title="Parler"
                   size={1}
                   className="text-primary"
@@ -43,13 +46,14 @@ const MedicationCard: React.FC = () => {
               <hr />
               <div className="timeline-start">Soir</div>
               <div className="timeline-middle">
-              <div className="timeline-middle">
-                <Icon path={mdiClockOutline}
-                  title="Parler"
-                  size={1}
-                  className="text-primary"
-                />
-              </div>
+                <div className="timeline-middle">
+                  <Icon
+                    path={mdiClockOutline}
+                    title="Parler"
+                    size={1}
+                    className="text-primary"
+                  />
+                </div>
               </div>
               <div className="timeline-end timeline-box">Médicament 3</div>
               <hr />
@@ -58,7 +62,8 @@ const MedicationCard: React.FC = () => {
               <hr />
               <div className="timeline-start">Nuit</div>
               <div className="timeline-middle">
-                <Icon path={mdiClockOutline}
+                <Icon
+                  path={mdiClockOutline}
                   title="Parler"
                   size={1}
                   className="text-primary"
@@ -66,7 +71,7 @@ const MedicationCard: React.FC = () => {
               </div>
               <div className="timeline-end timeline-box">Médicament 4</div>
             </li>
-          </ul>        
+          </ul>
         </div>
       </CardContent>
     </Card>
@@ -74,4 +79,3 @@ const MedicationCard: React.FC = () => {
 };
 
 export default MedicationCard;
-

@@ -12,10 +12,10 @@ type ForumCreateModalProps = {
   onCreated: () => void;
 };
 
-export const ForumCreateModal: React.FC<ForumCreateModalProps> = ({
+export const ForumCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: ForumCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

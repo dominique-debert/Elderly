@@ -12,10 +12,10 @@ type NutritionCreateModalProps = {
   onCreated: () => void;
 };
 
-export const NutritionCreateModal: React.FC<NutritionCreateModalProps> = ({
+export const NutritionCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: NutritionCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",
