@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { updateHelpCategory } from "@/services/helpCategory.service";
-import { toast } from "react-hot-toast";
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+  updateHelpCategory,
+} from "@/services";
 import type { ICategory, ICategoryType, IChapter } from "@/types";
+import { toast } from "react-hot-toast";
 
 type HelpModalProps = {
   help: ICategory;

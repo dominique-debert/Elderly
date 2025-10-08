@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchServiceCategories } from "@/services/serviceCategory.service";
+import { fetchServiceCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { ServiceCardView } from "./ServiceCardView";
 import { ServiceModeSwitcher } from "./ServiceModeSwitcher";
 import { ServiceListView } from "./ServiceListView";
 import { ServiceTableView } from "./ServiceTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { createUrbanIssueCategory } from "@/services/urbanIssueCategory.service";
 import {
+  createUrbanIssueCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+} from "@/services";
 import { ICategoryType, IChapter } from "@/types";
+import toast from "react-hot-toast";
 
 type UrbanIssueCreateModalProps = {
   onClose: () => void;

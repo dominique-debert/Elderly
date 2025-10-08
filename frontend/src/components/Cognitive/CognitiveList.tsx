@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchCognitiveCategories } from "@/services/cognitiveCategory.service";
+import { fetchCognitiveCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { CognitiveCardView } from "./CognitiveCardView";
 import { CognitiveModeSwitcher } from "./CognitiveModeSwitcher";
 import CognitiveListView from "./CognitiveListView";
 import CognitiveTableView from "./CognitiveTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

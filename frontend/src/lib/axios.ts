@@ -1,5 +1,5 @@
 import axios from "axios";
-import { refreshAccessToken } from "@/services/auth.service";
+import { refreshAccessToken } from "@/services";
 
 const api = axios.create({
   baseURL: "http://localhost:3000/api", // Point to your backend server

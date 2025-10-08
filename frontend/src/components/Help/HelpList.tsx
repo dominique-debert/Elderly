@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchHelpCategories } from "@/services/helpCategory.service";
+import { fetchHelpCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { HelpCardView } from "./HelpCardView";
 import { HelpModeSwitcher } from "./HelpModeSwitcher";
 import { HelpListView } from "./HelpListView";
 import { HelpTableView } from "./HelpTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

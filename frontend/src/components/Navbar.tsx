@@ -16,7 +16,7 @@ import Icon from "@mdi/react";
 import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/stores/auth";
 import { useQuery } from "@tanstack/react-query";
-import { fetchNotificationsByUserId } from "@/services/notifications.service";
+import { fetchNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
 import NotificationList from "./Notifications/NotificationList";
 import axios, { AxiosError } from "axios";

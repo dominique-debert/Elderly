@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { createForumCategory } from "@/services/forumCategory.service";
 import {
+  createForumCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+} from "@/services";
 import { ICategoryType, IChapter } from "@/types";
+import toast from "react-hot-toast";
 
 type ForumCreateModalProps = {
   onClose: () => void;

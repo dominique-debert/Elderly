@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchProjectCategories } from "@/services/projectCategory.service";
+import { fetchProjectCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { ProjectCardView } from "./ProjectCardView";
 import { ProjectModeSwitcher } from "./ProjectModeSwitcher";
 import { ProjectListView } from "./ProjectListView";
 import { ProjectTableView } from "./ProjectTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

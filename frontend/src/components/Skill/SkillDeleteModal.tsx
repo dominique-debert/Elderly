@@ -1,6 +1,6 @@
-import { deleteSkillCategory } from "@/services/skillCategory.service";
-import { toast } from "react-hot-toast";
+import { deleteSkillCategory } from "@/services";
 import type { ICategory } from "@/types";
+import { toast } from "react-hot-toast";
 
 type SkillDeleteModalProps = {
   category: ICategory;

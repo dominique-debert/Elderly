@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { fetchForumCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { ForumCardView } from "./ForumCardView";
 import { ForumModeSwitcher } from "./ForumModeSwitcher";
 import { ForumListView } from "./ForumListView";
 import { ForumTableView } from "./ForumTableView";
-import { fetchForumCategories } from "@/services/forumCategory.service";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

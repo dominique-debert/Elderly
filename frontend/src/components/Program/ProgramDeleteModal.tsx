@@ -1,5 +1,5 @@
 import type { ICategory } from "@/types";
-import { deleteProgramCategory } from "@/services/programCategory.service";
+import { deleteProgramCategory } from "@/services";
 import { toast } from "react-hot-toast";
 
 type ProgramDeleteModalProps = {

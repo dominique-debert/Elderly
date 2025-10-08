@@ -1,9 +1,9 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { loginUser, signupUser, SignupPayload } from "@/services/auth.service";
-import toast from "react-hot-toast";
-import { useNavigate, NavigateFunction } from "react-router-dom";
+import { loginUser, signupUser, SignupPayload } from "@/services";
 import type { IAuthResponse, IAuthState, IUseAuthReturn, IUser } from "@/types";
+import { useNavigate, NavigateFunction } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export const useAuthStore = create<IAuthState>()(
   persist(

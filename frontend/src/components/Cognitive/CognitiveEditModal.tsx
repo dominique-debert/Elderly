@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { updateCognitiveCategory } from "@/services/cognitiveCategory.service";
-import { toast } from "react-hot-toast";
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+  updateCognitiveCategory,
+} from "@/services";
 import type { ICategory, ICategoryType, IChapter } from "@/types";
+import { toast } from "react-hot-toast";
 
 type CognitiveModalProps = {
   cognitive: ICategory;

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { createMood } from "@/services/moods.service";
-import { toast } from "react-hot-toast";
+import { createMood } from "@/services";
 import { EValence } from "@/types";
+import { toast } from "react-hot-toast";
 
 type MoodCreateModalProps = {
   onClose: () => void;
@@ -12,7 +12,7 @@ export function MoodCreateModal({ onClose, onCreated }: MoodCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
-    valence: EValence.Neutral, // ou une autre valeur par défaut
+    valence: EValence.Neutral,
     intensity: 1,
     color: "#000000",
   });

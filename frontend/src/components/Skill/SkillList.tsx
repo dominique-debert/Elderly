@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchSkillCategories } from "@/services/skillCategory.service";
+import { fetchSkillCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { SkillCardView } from "./SkillCardView";
 import { SkillModeSwitcher } from "./SkillModeSwitcher";
 import { SkillListView } from "./SkillListView";
 import { SkillTableView } from "./SkillTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

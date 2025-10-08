@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { updateProgramCategory } from "@/services/programCategory.service";
-import { toast } from "react-hot-toast";
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+  updateProgramCategory,
+} from "@/services";
 import type { ICategory, ICategoryType, IChapter } from "@/types";
+import { toast } from "react-hot-toast";
 
 type ProgramModalProps = {
   program: ICategory;

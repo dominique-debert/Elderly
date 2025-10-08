@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { createProjectCategory } from "@/services/projectCategory.service";
 import {
+  createProjectCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+} from "@/services";
 import { ICategoryType, IChapter } from "@/types";
 
 type ProjectCreateModalProps = {

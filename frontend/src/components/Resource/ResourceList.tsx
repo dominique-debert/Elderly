@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchResourceCategories } from "@/services/resourceCategory.service";
+import { fetchResourceCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { ResourceCardView } from "./ResourceCardView";
 import { ResourceModeSwitcher } from "./ResourceModeSwitcher";
 import { ResourceListView } from "./ResourceListView";
 import { ResourceTableView } from "./ResourceTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { createResourceCategory } from "@/services/resourceCategory.service";
 import {
+  createResourceCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+} from "@/services";
 import { ICategoryType, IChapter } from "@/types";
+import toast from "react-hot-toast";
 
 type ResourceCreateModalProps = {
   onClose: () => void;

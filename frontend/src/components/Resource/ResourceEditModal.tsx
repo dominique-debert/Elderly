@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { updateResourceCategory } from "@/services/resourceCategory.service";
-import { toast } from "react-hot-toast";
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+  updateResourceCategory,
+} from "@/services";
 import type { ICategory, ICategoryType, IChapter } from "@/types";
+import { toast } from "react-hot-toast";
 
 type ResourceModalProps = {
   resource: ICategory;

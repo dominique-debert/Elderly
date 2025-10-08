@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { createActivityCategory } from "@/services/activityCategory.service";
 import {
+  createActivityCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
-import { IChapter } from "@/types";
-import { ICategoryType } from "@/types";
+} from "@/services";
+import { ICategoryType, IChapter } from "@/types";
 
 type ActivityCreateModalProps = {
   onClose: () => void;

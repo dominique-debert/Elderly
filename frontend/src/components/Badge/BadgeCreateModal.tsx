@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { createBadgeCategory } from "@/services/badgeCategory.service";
 import {
+  createBadgeCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
-import { IChapter } from "@/types";
-import { ICategoryType } from "@/types";
+} from "@/services";
+import { ICategoryType, IChapter } from "@/types";
 
 type BadgeCreateModalProps = {
   onClose: () => void;

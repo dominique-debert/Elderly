@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { updateForumCategory } from "@/services/forumCategory.service";
-import { toast } from "react-hot-toast";
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+  updateForumCategory,
+} from "@/services";
 import type { ICategory, ICategoryType, IChapter } from "@/types";
+import { toast } from "react-hot-toast";
 
 type ForumModalProps = {
   forum: ICategory;

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { createCognitiveCategory } from "@/services/cognitiveCategory.service";
 import {
+  createCognitiveCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+} from "@/services";
 import { IChapter, ICategoryType } from "@/types";
+import toast from "react-hot-toast";
 
 type CognitiveCreateModalProps = {
   onClose: () => void;

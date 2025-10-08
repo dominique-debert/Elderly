@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { updateBadgeCategory } from "@/services/badgeCategory.service";
-import { toast } from "react-hot-toast";
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
-import type { ICategory } from "@/types";
-import type { ICategoryType } from "@/types";
-import type { IChapter } from "@/types";
+  updateBadgeCategory,
+} from "@/services";
+import type { ICategory, ICategoryType, IChapter } from "@/types";
+import { toast } from "react-hot-toast";
 
 type BadgeModalProps = {
   badge: ICategory;

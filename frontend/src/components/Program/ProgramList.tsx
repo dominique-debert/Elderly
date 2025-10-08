@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchProgramCategories } from "@/services/programCategory.service";
+import { fetchProgramCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { ProgramCardView } from "./ProgramCardView";
 import { ProgramModeSwitcher } from "./ProgramModeSwitcher";
 import { ProgramListView } from "./ProgramListView";
 import { ProgramTableView } from "./ProgramTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { createServiceCategory } from "@/services/serviceCategory.service";
 import {
+  createServiceCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+} from "@/services";
 import { ICategoryType, IChapter } from "@/types";
+import toast from "react-hot-toast";
 
 type ServiceCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
 };
 
-export const ServiceCreateModal: React.FC<ServiceCreateModalProps> = ({
+export const ServiceCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: ServiceCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

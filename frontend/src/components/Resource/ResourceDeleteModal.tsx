@@ -1,6 +1,6 @@
-import { deleteResourceCategory } from "@/services/resourceCategory.service";
-import { toast } from "react-hot-toast";
+import { deleteResourceCategory } from "@/services";
 import type { ICategory } from "@/types";
+import { toast } from "react-hot-toast";
 
 type ResourceDeleteModalProps = {
   category: ICategory;

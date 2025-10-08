@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { createSkillCategory } from "@/services/skillCategory.service";
 import {
+  createSkillCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+} from "@/services";
 import { ICategoryType, IChapter } from "@/types";
+import toast from "react-hot-toast";
 
 type SkillCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
 };
 
-export const SkillCreateModal: React.FC<SkillCreateModalProps> = ({
+export const SkillCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: SkillCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

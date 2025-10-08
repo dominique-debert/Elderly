@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { updateUrbanIssueCategory } from "@/services/urbanIssueCategory.service";
-import { toast } from "react-hot-toast";
-
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+  updateUrbanIssueCategory,
+} from "@/services";
+import { toast } from "react-hot-toast";
 
 import type { ICategory, ICategoryType, IChapter } from "@/types";
 

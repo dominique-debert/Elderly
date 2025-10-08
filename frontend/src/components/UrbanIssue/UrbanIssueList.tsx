@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchUrbanIssueCategories } from "@/services/urbanIssueCategory.service";
+import { fetchUrbanIssueCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { UrbanIssueCardView } from "./UrbanIssueCardView";
 import { UrbanIssueModeSwitcher } from "./UrbanIssueModeSwitcher";
 import { UrbanIssueListView } from "./UrbanIssueListView";
 import { UrbanIssueTableView } from "./UrbanIssueTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

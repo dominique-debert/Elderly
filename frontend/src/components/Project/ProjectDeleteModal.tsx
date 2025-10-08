@@ -1,6 +1,6 @@
-import { deleteProjectCategory } from "@/services/projectCategory.service";
-import { toast } from "react-hot-toast";
+import { deleteProjectCategory } from "@/services";
 import type { ICategory } from "@/types";
+import { toast } from "react-hot-toast";
 
 type ProjectDeleteModalProps = {
   category: ICategory;

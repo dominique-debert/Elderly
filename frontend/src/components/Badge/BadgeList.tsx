@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchBadgeCategories } from "@/services/badgeCategory.service";
+import { fetchBadgeCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { BadgeCardView } from "./BadgeCardView";
 import { BadgeModeSwitcher } from "./BadgeModeSwitcher";
 import { BadgeListView } from "./BadgeListView";
 import { BadgeTableView } from "./BadgeTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

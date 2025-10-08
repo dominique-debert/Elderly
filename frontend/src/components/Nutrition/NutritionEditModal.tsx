@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { updateNutritionCategory } from "@/services/nutritionCategory.service";
-import { toast } from "react-hot-toast";
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+  updateNutritionCategory,
+} from "@/services";
 import type { ICategory, ICategoryType, IChapter } from "@/types";
+import { toast } from "react-hot-toast";
 
 type NutritionModalProps = {
   nutrition: ICategory;

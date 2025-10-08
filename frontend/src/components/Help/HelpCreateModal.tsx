@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { createBadgeCategory } from "@/services/badgeCategory.service";
 import {
+  createBadgeCategory,
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+} from "@/services";
 import { ICategoryType, IChapter } from "@/types";
+import toast from "react-hot-toast";
 
 type HelpCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
 };
 
-export const HelpCreateModal: React.FC<HelpCreateModalProps> = ({
+export const HelpCreateModal = ({
   onClose,
   onCreated,
-}) => {
+}: HelpCreateModalProps) => {
   const [form, setForm] = useState({
     name: "",
     description: "",

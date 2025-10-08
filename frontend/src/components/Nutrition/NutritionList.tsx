@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchNutritionCategories } from "@/services/nutritionCategory.service";
+import { fetchNutritionCategories } from "@/services";
+import type { ICategory } from "@/types";
 import { NutritionCardView } from "./NutritionCardView";
 import { NutritionModeSwitcher } from "./NutritionModeSwitcher";
 import { NutritionListView } from "./NutritionListView";
 import { NutritionTableView } from "./NutritionTableView";
-import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

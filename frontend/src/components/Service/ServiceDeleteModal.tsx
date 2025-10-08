@@ -1,6 +1,6 @@
-import { deleteServiceCategory } from "@/services/serviceCategory.service";
-import { toast } from "react-hot-toast";
+import { deleteServiceCategory } from "@/services";
 import type { ICategory } from "@/types";
+import { toast } from "react-hot-toast";
 
 type ServiceDeleteModalProps = {
   category: ICategory;

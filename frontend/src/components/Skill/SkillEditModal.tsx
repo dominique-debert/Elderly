@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { updateSkillCategory } from "@/services/skillCategory.service";
-import { toast } from "react-hot-toast";
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
+  updateSkillCategory,
+} from "@/services";
 import type { ICategory, ICategoryType, IChapter } from "@/types";
+import { toast } from "react-hot-toast";
 
 type SkillModalProps = {
   skill: ICategory;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchMoods } from "@/services/moods.service";
+import { fetchMoods } from "@/services";
 import { MoodListView } from "./MoodListView";
 import { MoodTableView } from "./MoodTableView";
 import { MoodListSwitcher } from "./MoodListSwitcher";

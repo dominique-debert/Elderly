@@ -1,80 +1,37 @@
-// prisma/seed/menuItems.seed.ts
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@/prisma/client';
 
-// This is a workaround for the Prisma client in ES modules
-const prisma = new (PrismaClient as any)({
-  log: ['query', 'info', 'warn', 'error'],
-});
+const prisma = new PrismaClient();
 
-const menuItems = [
-    {
-        label: 'Dashboard',
-        path: '/dashboard',
-        icon: 'mdi:view-dashboard',
-        order: 1,
-        isActive: true,
-        roles: ['admin', 'user'],
-    },
-    {
-        label: 'Admin',
-        path: '/admin',
-        icon: 'mdi:shield-account',
-        order: 2,
-        isActive: true,
-        roles: ['admin'],
-        children: [
-            {
-                label: 'Users',
-                path: '/admin/users',
-                icon: 'mdi:account-group',
-                order: 1,
-                isActive: true,
-                roles: ['admin'],
-            },
-            {
-                label: 'Settings',
-                path: '/admin/settings',
-                icon: 'mdi:cog',
-                order: 2,
-                isActive: true,
-                roles: ['admin'],
-            },
-        ],
-    },
-    // Add more menu items as needed
-];
+const seedMenuItems = async () => {
+  const items = [
+    { label: 'Humeurs', icon: 'mdiHeartSettingsOutline', key: 'mood' },
+    { label: 'Activités', icon: 'mdiRunFast', key: 'activity' },
+    { label: 'Badges', icon: 'mdiBadgeAccountOutline', key: 'badge' },
+    { label: 'Cognition', icon: 'mdiBrain', key: 'cognitive' },
+    { label: 'Forum', icon: 'mdiForumOutline', key: 'forum' },
+    { label: 'Aide', icon: 'mdiHelpCircleOutline', key: 'help' },
+    { label: 'Nutrition', icon: 'mdiFoodAppleOutline', key: 'nutritional' },
+    { label: 'Programmes', icon: 'mdiCalendarCheckOutline', key: 'program' },
+    { label: 'Projets', icon: 'mdiLightbulbOnOutline', key: 'project' },
+    { label: 'Ressources', icon: 'mdiBookOpenPageVariantOutline', key: 'resource' },
+    { label: 'Services', icon: 'mdiHandHeartOutline', key: 'service' },
+    { label: 'Compétences', icon: 'mdiAccountTieHatOutline', key: 'skill' },
+    { label: 'Problème urbain', icon: 'mdiMapMarkerAlertOutline', key: 'urban_issue' },
+    { label: 'Bien-être', icon: 'mdiSpaOutline', key: 'wellness' },
+  ];
 
-async function seedMenuItems() {
-    console.log('🌱 Seeding menu items...');
-
-    for (const item of menuItems) {
-        const { children, ...menuItemData } = item;
-
-        const createdItem = await prisma.menuItem.upsert({
-            where: { path: menuItemData.path },
-            update: menuItemData,
-            create: menuItemData,
-        });
-
-        if (children && children.length > 0) {
-            for (const child of children) {
-                await prisma.menuItem.upsert({
-                    where: { path: child.path },
-                    update: { ...child, parentId: createdItem.id },
-                    create: { ...child, parentId: createdItem.id },
-                });
-            }
-        }
-    }
-
-    console.log('✅ Menu items seeded successfully');
-}
-
-seedMenuItems()
-    .catch((e) => {
-        console.error('Error seeding menu items:', e);
-        process.exit(1);
-    })
-    .finally(async () => {
-        await prisma.$disconnect();
+  try {
+    await prisma.menuItem.deleteMany();
+    await prisma.menuItem.createMany({
+      data: items,
     });
+    console.log('✅ Seed des items du menu terminé.');
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
+seedMenuItems();

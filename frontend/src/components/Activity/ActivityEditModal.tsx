@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { updateActivityCategory } from "@/services/activityCategory.service";
 import { toast } from "react-hot-toast";
 import {
   getCategoryChapters,
   getCategoryTypes,
-} from "@/services/categoryMeta.service";
-import type { ICategory } from "@/types";
-import type { ICategoryType } from "@/types";
-import type { IChapter } from "@/types";
+  updateActivityCategory,
+} from "@/services";
+import type { ICategory, ICategoryType, IChapter } from "@/types";
 
 type ActivityModalProps = {
   activity: ICategory;
