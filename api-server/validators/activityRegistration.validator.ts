@@ -1,15 +1,19 @@
 import Joi from "joi";
 
 export const registrationSchema = Joi.object({
-  activityId: Joi.string().allow(null, ""),
-  userId: Joi.string().allow(null, ""),
-  registrationDate: Joi.date().allow(null, ""),
-  status: Joi.string().allow(null, ""),
-  attendanceConfirmed: Joi.boolean().default(false),
+  activityId: Joi.string().allow(null, "").messages({
+    "string.base": "L'ID de l'activité doit être une chaîne de caractères.",
+  }),
+  userId: Joi.string().allow(null, "").messages({
+    "string.base": "L'ID de l'utilisateur doit être une chaîne de caractères.",
+  }),
+  registrationDate: Joi.date().allow(null, "").messages({
+    "date.base": "La date d'inscription doit être une date valide.",
+  }),
+  status: Joi.string().allow(null, "").messages({
+    "string.base": "Le statut doit être une chaîne de caractères.",
+  }),
+  attendanceConfirmed: Joi.boolean().default(false).messages({
+    "boolean.base": "Le champ 'attendanceConfirmed' doit être un booléen.",
+  }),
 });
-
-// activityId          String    @map("activity_id")
-// userId              String    @map("user_id")
-// registrationDate    DateTime  @map("registration_date") @db.Timestamp(6)
-// status              String?   @db.VarChar(50)
-// attendanceConfirmed Boolean?  @default(false) @map("attendance_confirmed")

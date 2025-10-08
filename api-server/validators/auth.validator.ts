@@ -1,15 +1,63 @@
 import Joi from "joi";
 
 export const signUpSchema = Joi.object({
-  email: Joi.string().email().required(),
-  password: Joi.string().min(6).required(),
-  firstName: Joi.string().required(),
-  lastName: Joi.string().required(),
-  avatar: Joi.string().uri().allow("", null).optional(),
-  // optional filename provided by client when uploading via multipart/form-data
-  avatarFilename: Joi.string().allow("", null).optional(),
-  birthDate: Joi.date().iso().required(), // par exemple au format YYYY-MM-DD
-  isAdmin: Joi.boolean().default(false),
-  longitude: Joi.string(),
-  latitude: Joi.string(),
+  email: Joi.string().email().required().messages({
+    "string.base": "L'email doit être une chaîne de caractères.",
+    "string.empty": "L'email est requis.",
+    "string.email": "L'email doit être une adresse email valide.",
+    "any.required": "L'email est obligatoire.",
+  }),
+  password: Joi.string().min(6).required().messages({
+    "string.base": "Le mot de passe doit être une chaîne de caractères.",
+    "string.empty": "Le mot de passe est requis.",
+    "string.min": "Le mot de passe doit contenir au moins 6 caractères.",
+    "any.required": "Le mot de passe est obligatoire.",
+  }),
+  firstName: Joi.string().required().messages({
+    "string.base": "Le prénom doit être une chaîne de caractères.",
+    "string.empty": "Le prénom est requis.",
+    "any.required": "Le prénom est obligatoire.",
+  }),
+  lastName: Joi.string().required().messages({
+    "string.base": "Le nom doit être une chaîne de caractères.",
+    "string.empty": "Le nom est requis.",
+    "any.required": "Le nom est obligatoire.",
+  }),
+  avatar: Joi.string().uri().allow("", null).optional().messages({
+    "string.base": "L'URL de l'avatar doit être une chaîne de caractères.",
+    "string.uri": "L'URL de l'avatar doit être une URL valide.",
+  }),
+  avatarFilename: Joi.string().allow("", null).optional().messages({
+    "string.base":
+      "Le nom de fichier de l'avatar doit être une chaîne de caractères.",
+  }),
+  birthDate: Joi.date().iso().required().messages({
+    "date.base": "La date de naissance doit être une date valide.",
+    "date.format": "La date de naissance doit être au format ISO (YYYY-MM-DD).",
+    "any.required": "La date de naissance est obligatoire.",
+  }),
+  isAdmin: Joi.boolean().default(false).messages({
+    "boolean.base": "Le champ 'isAdmin' doit être un booléen.",
+  }),
+  longitude: Joi.string().optional().messages({
+    "string.base": "La longitude doit être une chaîne de caractères.",
+  }),
+  latitude: Joi.string().optional().messages({
+    "string.base": "La latitude doit être une chaîne de caractères.",
+  }),
+});
+
+export const signInSchema = Joi.object({
+  email: Joi.string().email().required().messages({
+    "string.base": "L'email doit être une chaîne de caractères.",
+    "string.empty": "L'email est requis.",
+    "string.email": "L'email doit être une adresse email valide.",
+    "any.required": "L'email est obligatoire.",
+  }),
+  password: Joi.string().min(6).required().messages({
+    "string.base": "Le mot de passe doit être une chaîne de caractères.",
+    "string.empty": "Le mot de passe est requis.",
+    "string.min": "Le mot de passe doit contenir au moins 6 caractères.",
+    "any.required": "Le mot de passe est obligatoire.",
+  }),
 });
