@@ -58,12 +58,6 @@ const SignupPage = () => {
       avatarFileToUpload = new File([selectedFile], generatedName, {
         type: selectedFile.type,
       });
-      // keep generated name in form data so server can use it explicitly
-      // when saving into /public/images
-      // (server should respect this field or use the uploaded filename)
-      // ...will append to FormData below...
-      // You can also log it for debugging:
-      console.debug("Generated avatar filename:", generatedName);
     }
 
     if (!location) {
@@ -85,10 +79,6 @@ const SignupPage = () => {
       formData.append("avatar", avatarFileToUpload, avatarFileToUpload.name);
       formData.append("avatarFilename", avatarFileToUpload.name);
     }
-
-    console.debug("Signup formData entries:");
-    for (const pair of Array.from(formData.entries()))
-      console.debug(pair[0], pair[1]);
 
     try {
       await signup(formData, navigate);
@@ -166,7 +156,7 @@ const SignupPage = () => {
               required
             />
             <div className="flex flex-col">
-              <label className="label">Avatar (photo de profil)</label>
+              <label className="label">Photo de profil</label>
               <input
                 id="avatar-input"
                 type="file"
@@ -190,7 +180,7 @@ const SignupPage = () => {
                 <img
                   src={previewUrl}
                   alt="Avatar preview"
-                  className="mt-2 w-24 h-24 object-cover rounded-full"
+                  className="absolute top-[-45px] left-[156px] mt-2 w-18 h-18 object-cover border-2 border-primary rounded-xl"
                 />
               )}
             </div>

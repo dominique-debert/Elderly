@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import type { IMood } from '../../@types/IMood';
-import { updateMood } from '../../services/moods.service';
-import { toast } from 'react-hot-toast';
-import { EValence } from '../../@types/IMood';
+import { useState } from "react";
+import type { IMood } from "../../@types/IMood";
+import { updateMood } from "../../services/moods.service";
+import { toast } from "react-hot-toast";
+import { EValence } from "@/@types";
 
 type MoodEditModalProps = {
   mood: IMood;
@@ -10,7 +10,11 @@ type MoodEditModalProps = {
   onUpdated?: () => void;
 };
 
-export function MoodEditModal({ mood, onClose, onUpdated }: MoodEditModalProps) {
+export function MoodEditModal({
+  mood,
+  onClose,
+  onUpdated,
+}: MoodEditModalProps) {
   const [form, setForm] = useState({
     name: mood.name,
     description: mood.description,
@@ -34,14 +38,16 @@ export function MoodEditModal({ mood, onClose, onUpdated }: MoodEditModalProps) 
     e.preventDefault();
     try {
       await updateMood(mood.id.toString(), form);
-      toast.success('Humeur mise à jour');
+      toast.success("Humeur mise à jour");
       onClose();
-      onUpdated?.(); 
+      onUpdated?.();
     } catch (error: unknown) {
       if (error instanceof Error) {
         toast.error(`Erreur lors de la mise à jour : ${error.message}`);
       } else {
-        toast.error('Erreur lors de la mise à jour : Une erreur inconnue est survenue');
+        toast.error(
+          "Erreur lors de la mise à jour : Une erreur inconnue est survenue"
+        );
       }
     }
   };
@@ -50,9 +56,13 @@ export function MoodEditModal({ mood, onClose, onUpdated }: MoodEditModalProps) 
     <dialog className="modal modal-open">
       <div className="modal-box">
         <h3 className="font-bold text-lg">Modifier l'humeur</h3>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4 w-full">
-
-          <label className="text-sm -mb-2 mt-4" htmlFor="name">Nom</label>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4 mt-4 w-full"
+        >
+          <label className="text-sm -mb-2 mt-4" htmlFor="name">
+            Nom
+          </label>
           <input
             type="text"
             name="name"
@@ -62,8 +72,10 @@ export function MoodEditModal({ mood, onClose, onUpdated }: MoodEditModalProps) 
             placeholder="Nom"
             required
           />
-          
-          <label className="text-sm -mb-2 mt-4" htmlFor="description">Description</label>
+
+          <label className="text-sm -mb-2 mt-4" htmlFor="description">
+            Description
+          </label>
           <textarea
             name="description"
             value={form.description}
@@ -94,11 +106,12 @@ export function MoodEditModal({ mood, onClose, onUpdated }: MoodEditModalProps) 
               </div>
             ))}
           </div>
-          
-          <div className="flex justify-between items-center gap-4 mt-4 w-full">
 
+          <div className="flex justify-between items-center gap-4 mt-4 w-full">
             <div>
-              <label className="text-sm mr-4" htmlFor="intensity">Intensité</label>
+              <label className="text-sm mr-4" htmlFor="intensity">
+                Intensité
+              </label>
               <input
                 type="number"
                 name="intensity"
@@ -109,24 +122,30 @@ export function MoodEditModal({ mood, onClose, onUpdated }: MoodEditModalProps) 
                 min={1}
                 max={5}
                 required
-                />
+              />
             </div>
-            <div className='flex items-center'>
-              <label className="text-sm mr-4" htmlFor="color">Couleur</label>
+            <div className="flex items-center">
+              <label className="text-sm mr-4" htmlFor="color">
+                Couleur
+              </label>
               <input
-                className='cursor-pointer rounded-lg border border-base-300'
+                className="cursor-pointer rounded-lg border border-base-300"
                 type="color"
                 name="color"
                 value={form.color}
                 onChange={handleChange}
                 required
-                />
+              />
             </div>
-          </div>  
+          </div>
 
           <div className="modal-action">
-            <button type="submit" className="btn btn-primary">Enregistrer</button>
-            <button type="button" className="btn" onClick={onClose}>Annuler</button>
+            <button type="submit" className="btn btn-primary">
+              Enregistrer
+            </button>
+            <button type="button" className="btn" onClick={onClose}>
+              Annuler
+            </button>
           </div>
         </form>
       </div>

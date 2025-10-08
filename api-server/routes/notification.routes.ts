@@ -1,19 +1,19 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createNotification,
   getAllNotifications,
   getAllNotificationsByUserId,
   getNotificationById,
   updateNotification,
-  deleteNotification
-} from '@/controllers/index.controller';
+  deleteNotification,
+} from "@/controllers/index.controller";
 
 import {
   notificationSchema,
-  idParamNotificationSchema
-} from '../validators/notification.validator';
+  idParamNotificationSchema,
+} from "../validators/notification.validator";
 
-import { validate } from '@/middlewares/validate';
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -42,7 +42,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(notificationSchema), createNotification);
+router.post("/", validate(notificationSchema), createNotification);
 
 /**
  * @swagger
@@ -65,11 +65,11 @@ router.post('/', validate(notificationSchema), createNotification);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllNotifications);
+router.get("/", getAllNotifications);
 
 /**
  * @swagger
- * /api/notifications{userId}:
+ * /api/notifications/{userId}:
  *   get:
  *     summary: Récupérer toutes les notifications d'un utilisateur
  *     tags: [Notifications]
@@ -88,7 +88,7 @@ router.get('/', getAllNotifications);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:userId', getAllNotificationsByUserId);
+router.get("/:userId", getAllNotificationsByUserId);
 
 /**
  * @swagger
@@ -112,7 +112,11 @@ router.get('/:userId', getAllNotificationsByUserId);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamNotificationSchema, 'params'), getNotificationById);
+router.get(
+  "/:id",
+  validate(idParamNotificationSchema, "params"),
+  getNotificationById
+);
 
 /**
  * @swagger
@@ -137,7 +141,11 @@ router.get('/:id', validate(idParamNotificationSchema, 'params'), getNotificatio
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamNotificationSchema, 'params'), updateNotification);
+router.put(
+  "/:id",
+  validate(idParamNotificationSchema, "params"),
+  updateNotification
+);
 
 /**
  * @swagger
@@ -156,6 +164,10 @@ router.put('/:id', validate(idParamNotificationSchema, 'params'), updateNotifica
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamNotificationSchema, 'params'), deleteNotification);
+router.delete(
+  "/:id",
+  validate(idParamNotificationSchema, "params"),
+  deleteNotification
+);
 
 export default router;

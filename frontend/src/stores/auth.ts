@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { loginUser, signupUser, SignupPayload } from "../services/auth.service";
+import { loginUser, signupUser, SignupPayload } from "@/services/auth.service";
 import toast from "react-hot-toast";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import type {
@@ -13,8 +13,8 @@ import type {
 export const useAuthStore = create<IAuthState>()(
   persist(
     (set) => ({
-      accessToken: localStorage.getItem("accessToken"), // On récupère le token du localStorage
-      isAuthenticated: Boolean(localStorage.getItem("accessToken")), // On vérifie si le token existe pour déterminer si l'utilisateur est authentifié
+      accessToken: localStorage.getItem("accessToken"),
+      isAuthenticated: Boolean(localStorage.getItem("accessToken")),
       user: null,
 
       login: async (email, password, navigate) => {
@@ -32,7 +32,7 @@ export const useAuthStore = create<IAuthState>()(
 
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
-          localStorage.setItem("userId", id); // Store user ID in localStorage for easier access
+          localStorage.setItem("userId", id);
 
           const src = loginData as IAuthResponse;
 

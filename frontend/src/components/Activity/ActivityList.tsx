@@ -38,28 +38,24 @@ export const ActivityList = () => {
 
   // Process and sort the activities
   const processedChapters = Object.entries(groupedActivities || {})
-    .flatMap(([chapters]) => {
-      return Object.entries(chapters as unknown as Record<string, unknown>).map(
-        ([chapterId, activities]) => {
-          const chapterActivities = activities as ICategory[];
-          const chapterInfo = chapterActivities[0]?.categoryChapter || {
-            chapterName: `${chapterId}`,
-            chapterDescription: "",
-          };
+    .flatMap(([, chapters]) => {
+      return Object.entries(chapters).map(([chapterId, activities]) => {
+        const chapterActivities = activities as ICategory[];
+        const chapterInfo = chapterActivities[0]?.categoryChapter || {
+          chapterName: `${chapterId}`,
+          chapterDescription: "",
+        };
 
-          return {
-            chapterName: chapterInfo.chapterName,
-            chapterDescription: chapterInfo.chapterDescription,
-            activities: [...chapterActivities]
-              .filter((activity) =>
-                activity.categoryName
-                  .toLowerCase()
-                  .includes(search.toLowerCase())
-              )
-              .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
-          };
-        }
-      );
+        return {
+          chapterName: chapterInfo.chapterName,
+          chapterDescription: chapterInfo.chapterDescription,
+          activities: [...chapterActivities]
+            .filter((activity) =>
+              activity.categoryName.toLowerCase().includes(search.toLowerCase())
+            )
+            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+        };
+      });
     })
     .filter((chapter) => chapter.activities.length > 0)
     .sort((a, b) => a.chapterName.localeCompare(b.chapterName));

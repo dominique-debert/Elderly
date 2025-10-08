@@ -1,9 +1,9 @@
-import api from '../lib/axios';
-import type { INotification } from '../@types/INotification';
+import api from "../lib/axios";
+import type { INotification } from "../@types/INotification";
 
 export const fetchNotifications = async (): Promise<INotification[]> => {
-  const accessToken = localStorage.getItem('accessToken');
-  const { data } = await api.get('/notifications', {
+  const accessToken = localStorage.getItem("accessToken");
+  const { data } = await api.get("/notifications", {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -11,9 +11,11 @@ export const fetchNotifications = async (): Promise<INotification[]> => {
   return data.notifications;
 };
 
-export const fetchNotificationsByUserId = async (userId: string): Promise<INotification[]> => {
-  const accessToken = localStorage.getItem('accessToken');
-  const { data } = await api.get(`/notifications/user/${userId}`, {
+export const fetchNotificationsByUserId = async (
+  userId: string
+): Promise<INotification[]> => {
+  const accessToken = localStorage.getItem("accessToken");
+  const { data } = await api.get(`/notifications/${userId}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -28,9 +30,9 @@ export const createNotification = async (notification: {
   read?: boolean;
   actionLink?: string;
 }) => {
-  const { data } = await api.post('/notifications', notification, {
+  const { data } = await api.post("/notifications", notification, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
   });
   return data;
@@ -48,7 +50,7 @@ export const updateNotification = async (
 ) => {
   const { data } = await api.put(`/notifications/${id}`, notification, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
   });
   return data;
@@ -57,7 +59,7 @@ export const updateNotification = async (
 export const deleteNotification = async (id: string) => {
   const { data } = await api.delete(`/notifications/${id}`, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
   });
   return data;

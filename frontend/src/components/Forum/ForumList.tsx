@@ -38,7 +38,7 @@ export const ForumList = () => {
 
   // Process and sort the badges
   const processedChapters = Object.entries(groupedForums || {})
-    .flatMap(([typeName, chapters]) => {
+    .flatMap(([, chapters]) => {
       return Object.entries(chapters).map(([chapterId, forums]) => {
         const chapterForums = forums as ICategory[];
         const chapterInfo = chapterForums[0]?.categoryChapter || {
