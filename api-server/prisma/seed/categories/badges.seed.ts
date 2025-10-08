@@ -1,8 +1,5 @@
-import {
-  ECategoryChapter,
-  ECategoryType,
-} from "@/types/data/categories/ECategory";
 import { PrismaClient } from "@/prisma/client";
+import { ECategoryChapter, ECategoryType } from "@/types";
 
 const prisma = new PrismaClient();
 
@@ -679,4 +676,4 @@ seedBadges()
     await prisma.$disconnect();
   });
 
-export default seedBadges;
+export { seedBadges };

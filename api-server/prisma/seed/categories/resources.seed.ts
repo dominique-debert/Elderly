@@ -1,8 +1,5 @@
-import {
-  ECategoryChapter,
-  ECategoryType,
-} from "@/types/data/categories/ECategory";
-import { PrismaClient } from "@/prisma/client";
+import { PrismaClient } from "@/prisma";
+import { ECategoryChapter, ECategoryType } from "@/types";
 
 const prisma = new PrismaClient();
 
@@ -2051,35 +2048,35 @@ async function seedResources() {
         chapterId: ECategoryChapter.MANUAL_SKILL,
       },
 
-      // 57. NUTRITIONAL_SKILL (Compétences nutritionnelles)
+      // 57. NUTRITION_SKILL (Compétences nutritionnelles)
       {
         id: 1442,
         categoryName:
           "Guides pour apprendre la planification des repas équilibrés",
         description: "Principes, outils, exemples.",
         typeId: ECategoryType.RESOURCE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 1443,
         categoryName: "Manuels sur la lecture des étiquettes alimentaires",
         description: "Comprendre les ingrédients et additifs.",
         typeId: ECategoryType.RESOURCE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 1444,
         categoryName: "Fiches pratiques pour cuisiner sain et économique",
         description: "Recettes, astuces, substitution d’ingrédients.",
         typeId: ECategoryType.RESOURCE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 1445,
         categoryName: "Ressources pour éduquer aux régimes spécifiques",
         description: "Végétarien, sans gluten, diabète.",
         typeId: ECategoryType.RESOURCE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 1446,
@@ -2087,7 +2084,7 @@ async function seedResources() {
           "Informations sur les formations en diététique et nutrition",
         description: "Cursus, certifications, webinars.",
         typeId: ECategoryType.RESOURCE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
 
       // 58. CREATIVE_SKILL (Compétences créatives)
@@ -2375,4 +2372,4 @@ seedResources()
     await prisma.$disconnect();
   });
 
-export default seedResources;
+export { seedResources };

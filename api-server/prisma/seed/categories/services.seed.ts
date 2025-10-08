@@ -1,8 +1,5 @@
-import {
-  ECategoryChapter,
-  ECategoryType,
-} from "@/types/data/categories/ECategory";
-import { PrismaClient } from "@/prisma/client";
+import { PrismaClient } from "@/prisma";
+import { ECategoryChapter, ECategoryType } from "@/types";
 
 const prisma = new PrismaClient();
 
@@ -2161,35 +2158,35 @@ async function seedServices() {
         categoryName: "Cuisine équilibrée",
         description: "Techniques culinaires pour repas sains.",
         typeId: ECategoryType.SERVICE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 1762,
         categoryName: "Lecture des étiquettes",
         description: "Apprendre à déchiffrer les ingrédients.",
         typeId: ECategoryType.SERVICE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 1763,
         categoryName: "Planification des repas",
         description: "Organisation hebdomadaire pour une bonne nutrition.",
         typeId: ECategoryType.SERVICE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 1764,
         categoryName: "Conservation des aliments",
         description: "Méthodes pour éviter le gaspillage.",
         typeId: ECategoryType.SERVICE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 1765,
         categoryName: "Alimentation durable",
         description: "Choix écologiques et responsables.",
         typeId: ECategoryType.SERVICE,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
 
       // CREATIVE_SKILL (Compétences créatives)
@@ -2466,4 +2463,4 @@ seedServices()
     await prisma.$disconnect();
   });
 
-export default seedServices;
+export { seedServices };

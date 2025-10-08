@@ -1,8 +1,5 @@
-import {
-  ECategoryChapter,
-  ECategoryType,
-} from "@/types/data/categories/ECategory";
-import { PrismaClient } from "@/prisma/client";
+import { ECategoryChapter, ECategoryType } from "@/types";
+import { PrismaClient } from "@/prisma";
 
 const prisma = new PrismaClient();
 
@@ -888,4 +885,4 @@ seedPrograms()
     await prisma.$disconnect();
   });
 
-export default seedPrograms;
+export { seedPrograms };

@@ -1,8 +1,5 @@
-import {
-  ECategoryChapter,
-  ECategoryType,
-} from "@/types/data/categories/ECategory";
-import { PrismaClient } from "@/prisma/client";
+import { PrismaClient } from "@/prisma";
+import { ECategoryChapter, ECategoryType } from "@/types";
 
 const prisma = new PrismaClient();
 
@@ -1928,35 +1925,35 @@ async function seedSkills() {
         categoryName: "Cuisine saine",
         description: "Préparation de plats équilibrés.",
         typeId: ECategoryType.SKILL,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 2046,
         categoryName: "Préparation de repas équilibrés",
         description: "Composition de menus nutritifs.",
         typeId: ECategoryType.SKILL,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 2047,
         categoryName: "Lecture des étiquettes nutritionnelles",
         description: "Analyse des composants alimentaires.",
         typeId: ECategoryType.SKILL,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 2048,
         categoryName: "Conservation des aliments",
         description: "Techniques pour garder la fraîcheur.",
         typeId: ECategoryType.SKILL,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 2049,
         categoryName: "Planification des menus",
         description: "Organisation des repas sur la semaine.",
         typeId: ECategoryType.SKILL,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
 
       // 58. CREATIVE_SKILL
@@ -2233,4 +2230,4 @@ seedSkills()
     await prisma.$disconnect();
   });
 
-export default seedSkills;
+export { seedSkills };

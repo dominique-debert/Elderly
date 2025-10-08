@@ -1,8 +1,5 @@
-import {
-  ECategoryChapter,
-  ECategoryType,
-} from "@/types/data/categories/ECategory";
-import { PrismaClient } from "@/prisma/client";
+import { PrismaClient } from "@/prisma";
+import { ECategoryChapter, ECategoryType } from "@/types";
 
 const prisma = new PrismaClient();
 
@@ -1942,7 +1939,7 @@ async function seedWellness() {
         categoryName: "Cuisine équilibrée",
         description: "Apprendre à préparer des repas sains et variés.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 2448,
@@ -1950,28 +1947,28 @@ async function seedWellness() {
         description:
           "Organisation hebdomadaire pour une alimentation équilibrée.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 2449,
         categoryName: "Techniques de conservation",
         description: "Méthodes pour préserver la qualité des aliments.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 2450,
         categoryName: "Éducation aux portions",
         description: "Comprendre les quantités adaptées selon les besoins.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 2451,
         categoryName: "Cuisine adaptée aux régimes spécifiques",
         description: "Techniques pour allergies, diabète, etc.",
         typeId: ECategoryType.WELLNESS,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
 
       // 58. CREATIVE_SKILL
@@ -2214,4 +2211,4 @@ seedWellness()
     await prisma.$disconnect();
   });
 
-export default seedWellness;
+export { seedWellness };

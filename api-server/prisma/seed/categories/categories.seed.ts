@@ -1,21 +1,19 @@
+import { PrismaClient } from "@/prisma";
 import {
-  ECategoryChapter,
-  ECategoryType,
-} from "@/types/data/categories/ECategory";
-import { PrismaClient } from "@/prisma/client";
-import seedActivities from "./activities.seed";
-import seedBadges from "./badges.seed";
-import seedCognitions from "./cognitions.seed";
-import seedForum from "./forum.seed";
-import seedHelp from "./help.seed";
-import seedNutritional from "./nutritional.seed";
-import seedPrograms from "./programs.seed";
-import seedProjects from "./projects.seed";
-import seedResources from "./resources.seed";
-import seedServices from "./services.seed";
-import seedSkills from "./skills.seed";
-import seedUrbanIssues from "./urbanIssues.seed";
-import seedWellness from "./wellness.seed";
+  seedActivities,
+  seedBadges,
+  seedCognitions,
+  seedForum,
+  seedHelp,
+  seedNutritional,
+  seedPrograms,
+  seedProjects,
+  seedResources,
+  seedServices,
+  seedSkills,
+  seedUrbanIssues,
+  seedWellness,
+} from "@/prisma/seed/";
 
 const prisma = new PrismaClient();
 

@@ -1,121 +1,121 @@
-import { PrismaClient } from "..";
+import { PrismaClient } from "@/prisma";
 
 const prisma = new PrismaClient();
 
 async function seedNotifications() {
-  const userId = 'cmacrpeoy0000tbi65kzh17sd';
+  const userId = "cmacrpeoy0000tbi65kzh17sd";
   await prisma.notification.deleteMany();
   await prisma.notification.createMany({
     data: [
       {
         userId,
-        type: 'INFO',
-        content: 'Bienvenue sur Helpy !',
+        type: "INFO",
+        content: "Bienvenue sur Helpy !",
         read: false,
         actionLink: null,
       },
       {
         userId,
-        type: 'ALERT',
-        content: 'Nouvelle mise à jour disponible.',
+        type: "ALERT",
+        content: "Nouvelle mise à jour disponible.",
         read: false,
-        actionLink: '/updates',
+        actionLink: "/updates",
       },
       {
         userId,
-        type: 'REMINDER',
-        content: 'N\'oubliez pas de vérifier vos paramètres de notification.',
+        type: "REMINDER",
+        content: "N'oubliez pas de vérifier vos paramètres de notification.",
         read: true,
-        actionLink: '/settings/notifications',
+        actionLink: "/settings/notifications",
       },
       {
         userId,
-        type: 'INFO',
-        content: 'Vous avez atteint un nouveau niveau de contribution.',
+        type: "INFO",
+        content: "Vous avez atteint un nouveau niveau de contribution.",
         read: false,
-        actionLink: '/profile/achievements',
+        actionLink: "/profile/achievements",
       },
       {
         userId,
-        type: 'ALERT',
-        content: 'Une tâche urgente est en attente.',
+        type: "ALERT",
+        content: "Une tâche urgente est en attente.",
         read: false,
-        actionLink: '/tasks',
+        actionLink: "/tasks",
       },
       {
         userId,
-        type: 'REMINDER',
-        content: 'Rappel : votre abonnement expire bientôt.',
+        type: "REMINDER",
+        content: "Rappel : votre abonnement expire bientôt.",
         read: true,
-        actionLink: '/billing',
+        actionLink: "/billing",
       },
       {
         userId,
-        type: 'INFO',
-        content: 'Une nouvelle fonctionnalité est disponible.',
+        type: "INFO",
+        content: "Une nouvelle fonctionnalité est disponible.",
         read: false,
-        actionLink: '/features',
+        actionLink: "/features",
       },
       {
         userId,
-        type: 'ALERT',
-        content: 'Problème détecté sur votre compte.',
+        type: "ALERT",
+        content: "Problème détecté sur votre compte.",
         read: false,
-        actionLink: '/support',
+        actionLink: "/support",
       },
       {
         userId,
-        type: 'REMINDER',
-        content: 'Pensez à inviter vos amis pour gagner des points.',
+        type: "REMINDER",
+        content: "Pensez à inviter vos amis pour gagner des points.",
         read: true,
-        actionLink: '/referral',
+        actionLink: "/referral",
       },
       {
         userId,
-        type: 'INFO',
-        content: 'Votre profil a été mis à jour avec succès.',
+        type: "INFO",
+        content: "Votre profil a été mis à jour avec succès.",
         read: true,
-        actionLink: '/profile',
+        actionLink: "/profile",
       },
       {
         userId,
-        type: 'ALERT',
-        content: 'Un administrateur vous a mentionné dans un commentaire.',
+        type: "ALERT",
+        content: "Un administrateur vous a mentionné dans un commentaire.",
         read: false,
-        actionLink: '/notifications/mentions',
+        actionLink: "/notifications/mentions",
       },
       {
         userId,
-        type: 'REMINDER',
-        content: 'Votre rapport hebdomadaire est prêt.',
+        type: "REMINDER",
+        content: "Votre rapport hebdomadaire est prêt.",
         read: false,
-        actionLink: '/reports/weekly',
+        actionLink: "/reports/weekly",
       },
       {
         userId,
-        type: 'INFO',
-        content: 'Succès déverrouillé : 7 jours de connexion.',
+        type: "INFO",
+        content: "Succès déverrouillé : 7 jours de connexion.",
         read: true,
-        actionLink: '/profile/achievements',
+        actionLink: "/profile/achievements",
       },
       {
         userId,
-        type: 'ALERT',
-        content: 'Activité inhabituelle détectée sur votre compte.',
+        type: "ALERT",
+        content: "Activité inhabituelle détectée sur votre compte.",
         read: false,
-        actionLink: '/security',
+        actionLink: "/security",
       },
       {
         userId,
-        type: 'REMINDER',
-        content: 'Nouveau sondage disponible : donnez votre avis.',
+        type: "REMINDER",
+        content: "Nouveau sondage disponible : donnez votre avis.",
         read: true,
-        actionLink: '/surveys',
+        actionLink: "/surveys",
       },
     ],
   });
 
-  console.log('✅ 15 notifications seeded avec succès.');
+  console.log("✅ 15 notifications seeded avec succès.");
 }
 
 seedNotifications()
