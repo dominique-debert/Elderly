@@ -1,5 +1,5 @@
-import { IMood } from '@/@types/IMood';
-import { MoodCard } from './MoodCard';
+import { IMood } from "@/types/IMood";
+import { MoodCard } from "./MoodCard";
 
 type MoodCardViewProps = {
   moods: IMood[];

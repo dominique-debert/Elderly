@@ -1,18 +1,18 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate";
 
 import {
   cognitiveExerciseSchema,
-  idParamCognitiveExerciseSchema
-} from '../validators/cognitiveExercise.validator';
+  idParamCognitiveExerciseSchema,
+} from "@/validators/cognitiveExercise.validator";
 
 import {
   createCognitiveExercise,
   getAllCognitiveExercises,
   getCognitiveExerciseById,
   updateCognitiveExercise,
-  deleteCognitiveExercise
-} from '@/controllers/index.controller';
+  deleteCognitiveExercise,
+} from "@/controllers/index.controller";
 
 const router = Router();
 
@@ -32,11 +32,7 @@ const router = Router();
  *       201:
  *         description: Exercice créé
  */
-router.post(
-  '/',
-  validate(cognitiveExerciseSchema),
-  createCognitiveExercise
-);
+router.post("/", validate(cognitiveExerciseSchema), createCognitiveExercise);
 
 /**
  * @swagger
@@ -54,10 +50,7 @@ router.post(
  *               items:
  *                 $ref: '#/components/schemas/CognitiveExercise'
  */
-router.get(
-  '/',
-  getAllCognitiveExercises
-);
+router.get("/", getAllCognitiveExercises);
 
 /**
  * @swagger
@@ -84,8 +77,8 @@ router.get(
  *         description: Exercice non trouvé
  */
 router.get(
-  '/:id',
-  validate(idParamCognitiveExerciseSchema, 'params'),
+  "/:id",
+  validate(idParamCognitiveExerciseSchema, "params"),
   getCognitiveExerciseById
 );
 
@@ -115,8 +108,8 @@ router.get(
  *         description: Exercice non trouvé
  */
 router.put(
-  '/:id',
-  validate(idParamCognitiveExerciseSchema, 'params'),
+  "/:id",
+  validate(idParamCognitiveExerciseSchema, "params"),
   updateCognitiveExercise
 );
 
@@ -141,8 +134,8 @@ router.put(
  *         description: Exercice non trouvé
  */
 router.delete(
-  '/:id',
-  validate(idParamCognitiveExerciseSchema, 'params'),
+  "/:id",
+  validate(idParamCognitiveExerciseSchema, "params"),
   deleteCognitiveExercise
 );
 

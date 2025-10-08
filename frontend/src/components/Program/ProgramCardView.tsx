@@ -1,5 +1,5 @@
 import { ProgramCard } from "./ProgramCard";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type ProgramCardViewProps = {
   programs: ICategory[];

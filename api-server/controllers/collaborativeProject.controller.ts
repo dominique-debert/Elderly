@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import { createHttpError } from '@/utils/httpError.js';
-import ICollaborativeProject from '@/@types/data/projects/ICollaborativeProject';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client.js";
+import { createHttpError } from "@/utils/httpError.js";
+import ICollaborativeProject from "@/types/data/projects/ICollaborativeProject";
 
 const prisma = new PrismaClient();
 
@@ -19,7 +19,7 @@ export const createCollaborativeProject = async (
 ) => {
   try {
     const projectToCreate = await prisma.collaborativeProject.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(projectToCreate);
   } catch (error) {
@@ -35,8 +35,8 @@ export const getAllCollaborativeProjects = async (
   try {
     const projects = await prisma.collaborativeProject.findMany({
       orderBy: {
-        title: 'asc'
-      }
+        title: "asc",
+      },
     });
 
     res.status(200).json({ projects });
@@ -54,11 +54,11 @@ export const getCollaborativeProjectById = async (
 
   try {
     const project = await prisma.collaborativeProject.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!project) {
-      throw createHttpError(404, 'Projet collaboratif non trouvé');
+      throw createHttpError(404, "Projet collaboratif non trouvé");
     }
 
     res.status(200).json(project);
@@ -76,19 +76,19 @@ export const updateCollaborativeProject = async (
 
   try {
     const project = await prisma.collaborativeProject.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!project) {
-      throw createHttpError(404, 'Projet collaboratif non trouvé');
+      throw createHttpError(404, "Projet collaboratif non trouvé");
     }
 
     const projectToUpdate = await prisma.collaborativeProject.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(projectToUpdate);
@@ -106,18 +106,20 @@ export const deleteCollaborativeProject = async (
 
   try {
     const project = await prisma.collaborativeProject.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!project) {
-      throw createHttpError(404, 'Projet collaboratif non trouvé');
+      throw createHttpError(404, "Projet collaboratif non trouvé");
     }
 
     await prisma.collaborativeProject.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Projet collaboratif supprimé avec succès' });
+    res
+      .status(200)
+      .json({ message: "Projet collaboratif supprimé avec succès" });
   } catch (error) {
     next(error);
   }

@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IMunicipalEvent from '@/@types/data/IMunicipalEvent';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IMunicipalEvent from "@/types/data/IMunicipalEvent";
 
 const prisma = new PrismaClient();
 
@@ -16,10 +16,9 @@ export const createMunicipalEvent = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const municipalEvent = await prisma.municipalEvent.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(municipalEvent);
   } catch (error) {
@@ -33,10 +32,10 @@ export const getAllMunicipalEvents = async (
   next: NextFunction
 ) => {
   try {
-    const municipalEvents  = await prisma.municipalEvent.findMany({
+    const municipalEvents = await prisma.municipalEvent.findMany({
       orderBy: {
-        startDate: 'desc'
-      }
+        startDate: "desc",
+      },
     });
     res.status(200).json({ municipalEvents });
   } catch (error) {
@@ -53,11 +52,11 @@ export const getMunicipalEventById = async (
 
   try {
     const municipalEvent = await prisma.municipalEvent.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!municipalEvent) {
-      throw createHttpError(404, 'Evénement municipal non trouvé');
+      throw createHttpError(404, "Evénement municipal non trouvé");
     }
 
     res.status(200).json(municipalEvent);
@@ -75,17 +74,17 @@ export const updateMunicipalEvent = async (
 
   try {
     const municipalEvent = await prisma.municipalEvent.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!municipalEvent) {
-      throw createHttpError(404, 'Evénement municipal non trouvé');
+      throw createHttpError(404, "Evénement municipal non trouvé");
     }
 
     const updatedMunicipalEvent = await prisma.municipalEvent.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       where: { id },
     });
@@ -105,18 +104,20 @@ export const deleteMunicipalEvent = async (
 
   try {
     const municipalEvent = await prisma.municipalEvent.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!municipalEvent) {
-      throw createHttpError(404, 'Evénement municipal non trouvé');
+      throw createHttpError(404, "Evénement municipal non trouvé");
     }
 
     await prisma.municipalEvent.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Evénement municipal supprimé avec succès' });
+    res
+      .status(200)
+      .json({ message: "Evénement municipal supprimé avec succès" });
   } catch (error) {
     next(error);
   }

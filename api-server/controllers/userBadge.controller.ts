@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IUserBadge from '@/@types/data/users/IUserBadge';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IUserBadge from "@/types/data/users/IUserBadge";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createUserBadge = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const userBadge = await prisma.userBadge.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(userBadge);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllUserBadges = async (
   try {
     const userBadges = await prisma.userBadge.findMany({
       orderBy: {
-        achievementDate: 'desc'
-      }
+        achievementDate: "desc",
+      },
     });
     res.status(200).json({ userBadges });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getUserBadgeById = async (
 
   try {
     const userBadge = await prisma.userBadge.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userBadge) {
-      throw createHttpError(404, 'Badge utilisateur non trouvé');
+      throw createHttpError(404, "Badge utilisateur non trouvé");
     }
 
     res.status(200).json(userBadge);
@@ -77,19 +76,19 @@ export const updateUserBadge = async (
 
   try {
     const userBadge = await prisma.userBadge.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userBadge) {
-      throw createHttpError(404, 'Badge utilisateur non trouvé');
+      throw createHttpError(404, "Badge utilisateur non trouvé");
     }
 
     const updatedUserBadge = await prisma.userBadge.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updatedUserBadge);
@@ -107,18 +106,18 @@ export const deleteUserBadge = async (
 
   try {
     const userBadge = await prisma.userBadge.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userBadge) {
-      throw createHttpError(404, 'Badge utilisateur non trouvé');
+      throw createHttpError(404, "Badge utilisateur non trouvé");
     }
 
     await prisma.userBadge.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Badge utilisateur supprimé avec succès' });
+    res.status(200).json({ message: "Badge utilisateur supprimé avec succès" });
   } catch (error) {
     next(error);
   }

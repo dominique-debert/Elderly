@@ -1,5 +1,5 @@
 import { ResourceCard } from "./ResourceCard";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type ResourceCardViewProps = {
   resources: ICategory[];

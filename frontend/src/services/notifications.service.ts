@@ -1,5 +1,5 @@
-import api from "../lib/axios";
-import type { INotification } from "../@types/INotification";
+import api from "@/lib/axios";
+import type { INotification } from "@/types";
 
 export const fetchNotifications = async (): Promise<INotification[]> => {
   const accessToken = localStorage.getItem("accessToken");

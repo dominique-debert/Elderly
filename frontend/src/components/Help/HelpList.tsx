@@ -5,7 +5,7 @@ import { HelpCardView } from "./HelpCardView";
 import { HelpModeSwitcher } from "./HelpModeSwitcher";
 import { HelpListView } from "./HelpListView";
 import { HelpTableView } from "./HelpTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

@@ -3,8 +3,8 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 import { NutritionDeleteModal } from "./NutritionDeleteModal";
 import { NutritionEditModal } from "./NutritionEditModal";
-import { TableCell, TableRow } from "../ui/table";
-import type { ICategory } from "@/@types";
+import { TableCell, TableRow } from "@/components/ui/table";
+import type { ICategory } from "@/types";
 
 export default function NutritionTableRow({
   nutrition,

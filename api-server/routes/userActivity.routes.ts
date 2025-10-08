@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createUserActivity,
   getAllUserActivities,
   getUserActivityById,
   updateUserActivity,
-  deleteUserActivity
-} from '@/controllers/index.controller';
+  deleteUserActivity,
+} from "@/controllers/index.controller";
 
-import { userActivitySchema, idParamUserActivitySchema } from '../validators/userActivity.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  userActivitySchema,
+  idParamUserActivitySchema,
+} from "@/validators/userActivity.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(userActivitySchema), createUserActivity);
+router.post("/", validate(userActivitySchema), createUserActivity);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(userActivitySchema), createUserActivity);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllUserActivities);
+router.get("/", getAllUserActivities);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllUserActivities);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUserActivitySchema, 'params'), getUserActivityById);
+router.get(
+  "/:id",
+  validate(idParamUserActivitySchema, "params"),
+  getUserActivityById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamUserActivitySchema, 'params'), getUserActivit
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUserActivitySchema, 'params'), updateUserActivity);
+router.put(
+  "/:id",
+  validate(idParamUserActivitySchema, "params"),
+  updateUserActivity
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamUserActivitySchema, 'params'), updateUserActi
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUserActivitySchema, 'params'), deleteUserActivity);
+router.delete(
+  "/:id",
+  validate(idParamUserActivitySchema, "params"),
+  deleteUserActivity
+);
 
 export default router;

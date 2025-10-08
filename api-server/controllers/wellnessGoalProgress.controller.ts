@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IWellnessGoalProgress from '@/@types/data/wellness/IWellnessGoalProgress';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IWellnessGoalProgress from "@/types/data/wellness/IWellnessGoalProgress";
 
 const prisma = new PrismaClient();
 
@@ -19,8 +19,8 @@ export const createWellnessGoalProgress = async (
   try {
     const wellnessGoalProgress = await prisma.wellnessGoalProgress.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(wellnessGoalProgress);
   } catch (error) {
@@ -36,8 +36,8 @@ export const getAllWellnessGoalsProgress = async (
   try {
     const wellnessGoalsProgress = await prisma.wellnessGoalProgress.findMany({
       orderBy: {
-        createdAt: 'desc'
-      }
+        createdAt: "desc",
+      },
     });
     res.status(200).json({ wellnessGoalsProgress });
   } catch (error) {
@@ -54,11 +54,11 @@ export const getWellnessGoalProgressById = async (
 
   try {
     const wellnessGoalProgress = await prisma.wellnessGoalProgress.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!wellnessGoalProgress) {
-      throw createHttpError(404, 'Progrès de l\'objectif bien-être non trouvé');
+      throw createHttpError(404, "Progrès de l'objectif bien-être non trouvé");
     }
 
     res.status(200).json(wellnessGoalProgress);
@@ -76,20 +76,21 @@ export const updateWellnessGoalProgress = async (
 
   try {
     const wellnessGoalProgress = await prisma.wellnessGoalProgress.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!wellnessGoalProgress) {
-      throw createHttpError(404, 'Progrès de l\'objectif bien-être non trouvé');
+      throw createHttpError(404, "Progrès de l'objectif bien-être non trouvé");
     }
 
-    const updatedWellnessGoalProgress = await prisma.wellnessGoalProgress.update({
-      data: {
-        ...req.body,
-        updatedAt: new Date()
-      },
-      where: { id }
-    });
+    const updatedWellnessGoalProgress =
+      await prisma.wellnessGoalProgress.update({
+        data: {
+          ...req.body,
+          updatedAt: new Date(),
+        },
+        where: { id },
+      });
 
     res.status(200).json(updatedWellnessGoalProgress);
   } catch (error) {
@@ -106,18 +107,22 @@ export const deleteWellnessGoalProgress = async (
 
   try {
     const wellnessGoalProgress = await prisma.wellnessGoalProgress.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!wellnessGoalProgress) {
-      throw createHttpError(404, 'Progrès de l\'objectif bien-être non trouvé');
+      throw createHttpError(404, "Progrès de l'objectif bien-être non trouvé");
     }
 
     await prisma.wellnessGoalProgress.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Progrès de l\'objectif bien-être supprimé avec succès' });
+    res
+      .status(200)
+      .json({
+        message: "Progrès de l'objectif bien-être supprimé avec succès",
+      });
   } catch (error) {
     next(error);
   }

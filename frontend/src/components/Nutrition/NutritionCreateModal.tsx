@@ -5,7 +5,7 @@ import {
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services/categoryMeta.service";
-import { ICategoryType, IChapter } from "@/@types";
+import { ICategoryType, IChapter } from "@/types";
 
 type NutritionCreateModalProps = {
   onClose: () => void;

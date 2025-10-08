@@ -1,18 +1,18 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createHelpOffer,
   getAllHelpOffers,
   getHelpOfferById,
   updateHelpOffer,
-  deleteHelpOffer
-} from '@/controllers/index.controller';
+  deleteHelpOffer,
+} from "@/controllers/index.controller";
 
 import {
   helpOfferSchema,
-  idParamHelpOfferSchema
-} from '../validators/helpOffer.validator';
+  idParamHelpOfferSchema,
+} from "@/validators/helpOffer.validator";
 
-import { validate } from '@/middlewares/validate';
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -41,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(helpOfferSchema), createHelpOffer);
+router.post("/", validate(helpOfferSchema), createHelpOffer);
 
 /**
  * @swagger
@@ -64,7 +64,7 @@ router.post('/', validate(helpOfferSchema), createHelpOffer);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllHelpOffers);
+router.get("/", getAllHelpOffers);
 
 /**
  * @swagger
@@ -92,7 +92,11 @@ router.get('/', getAllHelpOffers);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamHelpOfferSchema, 'params'), getHelpOfferById);
+router.get(
+  "/:id",
+  validate(idParamHelpOfferSchema, "params"),
+  getHelpOfferById
+);
 
 /**
  * @swagger
@@ -131,7 +135,7 @@ router.get('/:id', validate(idParamHelpOfferSchema, 'params'), getHelpOfferById)
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamHelpOfferSchema, 'params'), updateHelpOffer);
+router.put("/:id", validate(idParamHelpOfferSchema, "params"), updateHelpOffer);
 
 /**
  * @swagger
@@ -152,6 +156,10 @@ router.put('/:id', validate(idParamHelpOfferSchema, 'params'), updateHelpOffer);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamHelpOfferSchema, 'params'), deleteHelpOffer);
+router.delete(
+  "/:id",
+  validate(idParamHelpOfferSchema, "params"),
+  deleteHelpOffer
+);
 
 export default router;

@@ -1,18 +1,18 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createMunicipalEvent,
   getAllMunicipalEvents,
   getMunicipalEventById,
   updateMunicipalEvent,
-  deleteMunicipalEvent
-} from '@/controllers/index.controller';
+  deleteMunicipalEvent,
+} from "@/controllers/index.controller";
 
 import {
   municipalEventSchema,
-  idParamMunicipalEventSchema
-} from '../validators/municipalEvent.validator';
+  idParamMunicipalEventSchema,
+} from "@/validators/municipalEvent.validator";
 
-import { validate } from '@/middlewares/validate';
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -41,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(municipalEventSchema), createMunicipalEvent);
+router.post("/", validate(municipalEventSchema), createMunicipalEvent);
 
 /**
  * @swagger
@@ -64,7 +64,7 @@ router.post('/', validate(municipalEventSchema), createMunicipalEvent);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllMunicipalEvents);
+router.get("/", getAllMunicipalEvents);
 
 /**
  * @swagger
@@ -88,7 +88,11 @@ router.get('/', getAllMunicipalEvents);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamMunicipalEventSchema, 'params'), getMunicipalEventById);
+router.get(
+  "/:id",
+  validate(idParamMunicipalEventSchema, "params"),
+  getMunicipalEventById
+);
 
 /**
  * @swagger
@@ -113,7 +117,11 @@ router.get('/:id', validate(idParamMunicipalEventSchema, 'params'), getMunicipal
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamMunicipalEventSchema, 'params'), updateMunicipalEvent);
+router.put(
+  "/:id",
+  validate(idParamMunicipalEventSchema, "params"),
+  updateMunicipalEvent
+);
 
 /**
  * @swagger
@@ -132,6 +140,10 @@ router.put('/:id', validate(idParamMunicipalEventSchema, 'params'), updateMunici
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamMunicipalEventSchema, 'params'), deleteMunicipalEvent);
+router.delete(
+  "/:id",
+  validate(idParamMunicipalEventSchema, "params"),
+  deleteMunicipalEvent
+);
 
 export default router;

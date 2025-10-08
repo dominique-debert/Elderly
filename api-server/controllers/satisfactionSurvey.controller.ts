@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import ISatisfactionSurvey from '@/@types/data/ISatisfactionSurvey';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import ISatisfactionSurvey from "@/types/data/ISatisfactionSurvey";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createSatisfactionSurvey = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const satifactionSurvey = await prisma.satisfactionSurvey.create({
       data: {
         ...req.body,
-      }
+      },
     });
     res.status(201).json(satifactionSurvey);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllSatisfactionSurveys = async (
   try {
     const satisfactionSurveys = await prisma.satisfactionSurvey.findMany({
       orderBy: {
-        title: 'asc'
-      }
+        title: "asc",
+      },
     });
     res.status(200).json({ satisfactionSurveys });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getSatisfactionSurveyById = async (
 
   try {
     const resource = await prisma.satisfactionSurvey.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!resource) {
-      throw createHttpError(404, 'Sondage de satisfaction non trouvé');
+      throw createHttpError(404, "Sondage de satisfaction non trouvé");
     }
 
     res.status(200).json(resource);
@@ -77,19 +76,19 @@ export const updateSatisfactionSurvey = async (
 
   try {
     const resource = await prisma.satisfactionSurvey.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!resource) {
-      throw createHttpError(404, 'Sondage de satisfaction non trouvé');
+      throw createHttpError(404, "Sondage de satisfaction non trouvé");
     }
 
     const updateSatisfactionSurvey = await prisma.satisfactionSurvey.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updateSatisfactionSurvey);
@@ -107,18 +106,20 @@ export const deleteSatisfactionSurvey = async (
 
   try {
     const resource = await prisma.satisfactionSurvey.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!resource) {
-      throw createHttpError(404, 'Sondage de satisfaction non trouvé');
+      throw createHttpError(404, "Sondage de satisfaction non trouvé");
     }
 
     await prisma.satisfactionSurvey.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Sondage de satisfaction supprimé avec succès' });
+    res
+      .status(200)
+      .json({ message: "Sondage de satisfaction supprimé avec succès" });
   } catch (error) {
     next(error);
   }

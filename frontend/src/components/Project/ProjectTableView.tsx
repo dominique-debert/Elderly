@@ -4,9 +4,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import ProjectTableRow from "./ProjectTableRow";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export function ProjectTableView({ projects }: { projects: ICategory[] }) {
   return (

@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import { createHttpError } from '@/utils/httpError.js';
-import IHelpRequest from '@/@types/data/IHelpRequest';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client.js";
+import { createHttpError } from "@/utils/httpError.js";
+import IHelpRequest from "@/types/data/IHelpRequest";
 
 const prisma = new PrismaClient();
 
@@ -19,7 +19,7 @@ export const createHelpRequest = async (
 ) => {
   try {
     const helpRequestToCreate = await prisma.helpRequest.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(helpRequestToCreate);
   } catch (error) {
@@ -35,8 +35,8 @@ export const getAllHelpRequests = async (
   try {
     const helpRequests = await prisma.helpRequest.findMany({
       orderBy: {
-        neededDate: 'desc'
-      }
+        neededDate: "desc",
+      },
     });
 
     res.status(200).json({ helpRequests });
@@ -54,11 +54,11 @@ export const getHelpRequestById = async (
 
   try {
     const helpRequest = await prisma.helpRequest.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!helpRequest) {
-      throw createHttpError(404, 'Demande non trouvée');
+      throw createHttpError(404, "Demande non trouvée");
     }
 
     res.status(200).json(helpRequest);
@@ -76,19 +76,19 @@ export const updateHelpRequest = async (
 
   try {
     const helpRequest = await prisma.helpRequest.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!helpRequest) {
-      throw createHttpError(404, 'Demande non trouvée');
+      throw createHttpError(404, "Demande non trouvée");
     }
 
     const helpRequestToUpdate = await prisma.helpRequest.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(helpRequestToUpdate);
@@ -106,18 +106,18 @@ export const deleteHelpRequest = async (
 
   try {
     const helpRequest = await prisma.helpRequest.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!helpRequest) {
-      throw createHttpError(404, 'Demande non trouvée');
+      throw createHttpError(404, "Demande non trouvée");
     }
 
     await prisma.helpRequest.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Demande supprimée avec succès' });
+    res.status(200).json({ message: "Demande supprimée avec succès" });
   } catch (error) {
     next(error);
   }

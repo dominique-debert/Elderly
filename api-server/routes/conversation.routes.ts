@@ -1,18 +1,18 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate";
 
 import {
   conversationSchema,
-  idParamConversationSchema
-} from '../validators/conversation.validator';
+  idParamConversationSchema,
+} from "@/validators/conversation.validator";
 
 import {
   createConversation,
   getAllConversations,
   getConversationById,
   updateConversation,
-  deleteConversation
-} from '@/controllers/index.controller';
+  deleteConversation,
+} from "@/controllers/index.controller";
 
 const router = Router();
 
@@ -32,11 +32,7 @@ const router = Router();
  *       201:
  *         description: Conversation créée
  */
-router.post(
-  '/',
-  validate(conversationSchema),
-  createConversation
-);
+router.post("/", validate(conversationSchema), createConversation);
 
 /**
  * @swagger
@@ -54,10 +50,7 @@ router.post(
  *               items:
  *                 $ref: '#/components/schemas/Conversation'
  */
-router.get(
-  '/',
-  getAllConversations
-);
+router.get("/", getAllConversations);
 
 /**
  * @swagger
@@ -84,8 +77,8 @@ router.get(
  *         description: Conversation non trouvée
  */
 router.get(
-  '/:id',
-  validate(idParamConversationSchema, 'params'),
+  "/:id",
+  validate(idParamConversationSchema, "params"),
   getConversationById
 );
 
@@ -115,8 +108,8 @@ router.get(
  *         description: Conversation non trouvée
  */
 router.put(
-  '/:id',
-  validate(idParamConversationSchema, 'params'),
+  "/:id",
+  validate(idParamConversationSchema, "params"),
   updateConversation
 );
 
@@ -141,8 +134,8 @@ router.put(
  *         description: Conversation non trouvée
  */
 router.delete(
-  '/:id',
-  validate(idParamConversationSchema, 'params'),
+  "/:id",
+  validate(idParamConversationSchema, "params"),
   deleteConversation
 );
 

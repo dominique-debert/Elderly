@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import createHttpError from 'http-errors';
-import INutritionalAdvice from '@/@types/data/INutritionalAdvice.js';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client.js";
+import createHttpError from "http-errors";
+import INutritionalAdvice from "@/types/data/INutritionalAdvice.js";
 
 const prisma = new PrismaClient();
 
@@ -16,7 +16,6 @@ export const createNutritionalAdvice = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const newAdvice = await prisma.nutritionalAdvice.create({
       data: req.body,
@@ -35,7 +34,7 @@ export const getAllNutritionalAdvices = async (
   try {
     const advices = await prisma.nutritionalAdvice.findMany({
       orderBy: {
-        title: 'asc', // corrected from `name: 'title'`
+        title: "asc", // corrected from `name: 'title'`
       },
     });
 
@@ -58,7 +57,7 @@ export const getNutritionalAdviceById = async (
     });
 
     if (!advice) {
-      throw createHttpError(404, 'Conseil nutritionnel non trouvé');
+      throw createHttpError(404, "Conseil nutritionnel non trouvé");
     }
 
     res.status(200).json(advice);
@@ -80,13 +79,13 @@ export const updateNutritionalAdvice = async (
     });
 
     if (!advice) {
-      throw createHttpError(404, 'Avis nutritionnel non trouvé');
+      throw createHttpError(404, "Avis nutritionnel non trouvé");
     }
 
     const updatedAdvice = await prisma.nutritionalAdvice.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       where: { id },
     });
@@ -110,14 +109,14 @@ export const deleteNutritionalAdvice = async (
     });
 
     if (!advice) {
-      throw createHttpError(404, 'Avis nutritionnel non trouvé');
+      throw createHttpError(404, "Avis nutritionnel non trouvé");
     }
 
     await prisma.nutritionalAdvice.delete({
       where: { id },
     });
 
-    res.status(200).json({ message: 'Avis nutritionnel supprimé avec succès' });
+    res.status(200).json({ message: "Avis nutritionnel supprimé avec succès" });
   } catch (error) {
     next(error);
   }

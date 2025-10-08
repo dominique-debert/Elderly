@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createUserDevice,
   getAllUserDevices,
   getUserDeviceById,
   updateUserDevice,
-  deleteUserDevice
-} from '@/controllers/index.controller';
+  deleteUserDevice,
+} from "@/controllers/index.controller";
 
-import { userDeviceSchema, idParamUserDeviceSchema } from '../validators/userDevice.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  userDeviceSchema,
+  idParamUserDeviceSchema,
+} from "@/validators/userDevice.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(userDeviceSchema), createUserDevice);
+router.post("/", validate(userDeviceSchema), createUserDevice);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(userDeviceSchema), createUserDevice);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllUserDevices);
+router.get("/", getAllUserDevices);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllUserDevices);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUserDeviceSchema, 'params'), getUserDeviceById);
+router.get(
+  "/:id",
+  validate(idParamUserDeviceSchema, "params"),
+  getUserDeviceById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamUserDeviceSchema, 'params'), getUserDeviceByI
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUserDeviceSchema, 'params'), updateUserDevice);
+router.put(
+  "/:id",
+  validate(idParamUserDeviceSchema, "params"),
+  updateUserDevice
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamUserDeviceSchema, 'params'), updateUserDevice
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUserDeviceSchema, 'params'), deleteUserDevice);
+router.delete(
+  "/:id",
+  validate(idParamUserDeviceSchema, "params"),
+  deleteUserDevice
+);
 
 export default router;

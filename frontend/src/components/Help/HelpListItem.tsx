@@ -4,7 +4,7 @@ import { useState } from "react";
 import { HelpEditModal } from "./HelpEditModal";
 import { HelpDeleteModal } from "./HelpDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function HelpListItem({ help }: { help: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

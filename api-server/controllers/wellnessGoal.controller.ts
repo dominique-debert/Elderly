@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IWellnessGoal from '@/@types/data/wellness/IWellnessGoal';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IWellnessGoal from "@/types/data/wellness/IWellnessGoal";
 
 const prisma = new PrismaClient();
 
@@ -19,8 +19,8 @@ export const createWellnessGoal = async (
   try {
     const wellnessGoal = await prisma.wellnessGoal.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(wellnessGoal);
   } catch (error) {
@@ -36,8 +36,8 @@ export const getAllWellnessGoals = async (
   try {
     const wellnessGoals = await prisma.wellnessGoal.findMany({
       orderBy: {
-        createdAt: 'desc'
-      }
+        createdAt: "desc",
+      },
     });
     res.status(200).json({ wellnessGoals });
   } catch (error) {
@@ -54,11 +54,11 @@ export const getWellnessGoalById = async (
 
   try {
     const wellnessGoal = await prisma.wellnessGoal.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!wellnessGoal) {
-      throw createHttpError(404, 'Objectif bien-être non trouvé');
+      throw createHttpError(404, "Objectif bien-être non trouvé");
     }
 
     res.status(200).json(wellnessGoal);
@@ -76,19 +76,19 @@ export const updateWellnessGoal = async (
 
   try {
     const wellnessGoal = await prisma.wellnessGoal.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!wellnessGoal) {
-      throw createHttpError(404, 'Objectif bien-être non trouvé');
+      throw createHttpError(404, "Objectif bien-être non trouvé");
     }
 
     const updatedWellnessGoal = await prisma.wellnessGoal.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updatedWellnessGoal);
@@ -106,18 +106,20 @@ export const deleteWellnessGoal = async (
 
   try {
     const wellnessGoal = await prisma.wellnessGoal.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!wellnessGoal) {
-      throw createHttpError(404, 'Objectif bien-être non trouvé');
+      throw createHttpError(404, "Objectif bien-être non trouvé");
     }
 
     await prisma.wellnessGoal.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Objectif bien-être supprimé avec succès' });
+    res
+      .status(200)
+      .json({ message: "Objectif bien-être supprimé avec succès" });
   } catch (error) {
     next(error);
   }

@@ -1,18 +1,18 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate";
 
 import {
   projectSchema,
-  idParamProjectSchema
-} from '../validators/collaborativeProject.validator';
+  idParamProjectSchema,
+} from "@/validators/collaborativeProject.validator";
 
 import {
   createCollaborativeProject,
   getAllCollaborativeProjects,
   getCollaborativeProjectById,
   updateCollaborativeProject,
-  deleteCollaborativeProject
-} from '@/controllers/index.controller';
+  deleteCollaborativeProject,
+} from "@/controllers/index.controller";
 
 const router = Router();
 
@@ -32,11 +32,7 @@ const router = Router();
  *       201:
  *         description: Exercice créé
  */
-router.post(
-  '/',
-  validate(projectSchema),
-  createCollaborativeProject
-);
+router.post("/", validate(projectSchema), createCollaborativeProject);
 
 /**
  * @swagger
@@ -54,10 +50,7 @@ router.post(
  *               items:
  *                 $ref: '#/components/schemas/CollaborativeProject'
  */
-router.get(
-  '/',
-  getAllCollaborativeProjects
-);
+router.get("/", getAllCollaborativeProjects);
 
 /**
  * @swagger
@@ -84,8 +77,8 @@ router.get(
  *         description: Projet non trouvé
  */
 router.get(
-  '/:id',
-  validate(idParamProjectSchema, 'params'),
+  "/:id",
+  validate(idParamProjectSchema, "params"),
   getCollaborativeProjectById
 );
 
@@ -115,8 +108,8 @@ router.get(
  *         description: Projet non trouvé
  */
 router.put(
-  '/:id',
-  validate(idParamProjectSchema, 'params'),
+  "/:id",
+  validate(idParamProjectSchema, "params"),
   updateCollaborativeProject
 );
 
@@ -141,8 +134,8 @@ router.put(
  *         description: Projet non trouvé
  */
 router.delete(
-  '/:id',
-  validate(idParamProjectSchema, 'params'),
+  "/:id",
+  validate(idParamProjectSchema, "params"),
   deleteCollaborativeProject
 );
 

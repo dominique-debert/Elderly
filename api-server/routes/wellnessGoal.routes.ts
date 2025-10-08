@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createWellnessGoal,
   getAllWellnessGoals,
   getWellnessGoalById,
   updateWellnessGoal,
-  deleteWellnessGoal
-} from '@/controllers/index.controller';
+  deleteWellnessGoal,
+} from "@/controllers/index.controller";
 
-import { wellnessGoalSchema, idParamWellnessGoalSchema } from '../validators/wellnessGoal.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  wellnessGoalSchema,
+  idParamWellnessGoalSchema,
+} from "@/validators/wellnessGoal.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(wellnessGoalSchema), createWellnessGoal);
+router.post("/", validate(wellnessGoalSchema), createWellnessGoal);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(wellnessGoalSchema), createWellnessGoal);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllWellnessGoals);
+router.get("/", getAllWellnessGoals);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllWellnessGoals);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamWellnessGoalSchema, 'params'), getWellnessGoalById);
+router.get(
+  "/:id",
+  validate(idParamWellnessGoalSchema, "params"),
+  getWellnessGoalById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamWellnessGoalSchema, 'params'), getWellnessGoa
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamWellnessGoalSchema, 'params'), updateWellnessGoal);
+router.put(
+  "/:id",
+  validate(idParamWellnessGoalSchema, "params"),
+  updateWellnessGoal
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamWellnessGoalSchema, 'params'), updateWellness
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamWellnessGoalSchema, 'params'), deleteWellnessGoal);
+router.delete(
+  "/:id",
+  validate(idParamWellnessGoalSchema, "params"),
+  deleteWellnessGoal
+);
 
 export default router;

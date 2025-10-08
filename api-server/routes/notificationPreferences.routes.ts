@@ -1,18 +1,18 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createNotificationPreferences,
   getAllNotificationPreferences,
   getNotificationPreferencesById,
   updateNotificationPreferences,
-  deleteNotificationPreferences
-} from '@/controllers/index.controller';
+  deleteNotificationPreferences,
+} from "@/controllers/index.controller";
 
 import {
   notificationPreferencesSchema,
-  idParamNotificationPreferencesSchema
-} from '../validators/notificationPreferences.validator';
+  idParamNotificationPreferencesSchema,
+} from "@/validators/notificationPreferences.validator";
 
-import { validate } from '@/middlewares/validate';
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -41,7 +41,11 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(notificationPreferencesSchema), createNotificationPreferences);
+router.post(
+  "/",
+  validate(notificationPreferencesSchema),
+  createNotificationPreferences
+);
 
 /**
  * @swagger
@@ -64,7 +68,7 @@ router.post('/', validate(notificationPreferencesSchema), createNotificationPref
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllNotificationPreferences);
+router.get("/", getAllNotificationPreferences);
 
 /**
  * @swagger
@@ -88,7 +92,11 @@ router.get('/', getAllNotificationPreferences);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamNotificationPreferencesSchema, 'params'), getNotificationPreferencesById);
+router.get(
+  "/:id",
+  validate(idParamNotificationPreferencesSchema, "params"),
+  getNotificationPreferencesById
+);
 
 /**
  * @swagger
@@ -113,7 +121,11 @@ router.get('/:id', validate(idParamNotificationPreferencesSchema, 'params'), get
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamNotificationPreferencesSchema, 'params'), updateNotificationPreferences);
+router.put(
+  "/:id",
+  validate(idParamNotificationPreferencesSchema, "params"),
+  updateNotificationPreferences
+);
 
 /**
  * @swagger
@@ -132,6 +144,10 @@ router.put('/:id', validate(idParamNotificationPreferencesSchema, 'params'), upd
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamNotificationPreferencesSchema, 'params'), deleteNotificationPreferences);
+router.delete(
+  "/:id",
+  validate(idParamNotificationPreferencesSchema, "params"),
+  deleteNotificationPreferences
+);
 
 export default router;

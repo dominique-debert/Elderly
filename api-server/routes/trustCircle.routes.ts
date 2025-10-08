@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createTrustCircle,
   getAllTrustCircle,
   getTrustCircleById,
   updateTrustCircle,
-  deleteTrustCircle
-} from '@/controllers/index.controller';
+  deleteTrustCircle,
+} from "@/controllers/index.controller";
 
-import { trustCircleSchema, idParamTrustCircleSchema } from '../validators/trustCircle.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  trustCircleSchema,
+  idParamTrustCircleSchema,
+} from "@/validators/trustCircle.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(trustCircleSchema), createTrustCircle);
+router.post("/", validate(trustCircleSchema), createTrustCircle);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(trustCircleSchema), createTrustCircle);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllTrustCircle);
+router.get("/", getAllTrustCircle);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllTrustCircle);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamTrustCircleSchema, 'params'), getTrustCircleById);
+router.get(
+  "/:id",
+  validate(idParamTrustCircleSchema, "params"),
+  getTrustCircleById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamTrustCircleSchema, 'params'), getTrustCircleB
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamTrustCircleSchema, 'params'), updateTrustCircle);
+router.put(
+  "/:id",
+  validate(idParamTrustCircleSchema, "params"),
+  updateTrustCircle
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamTrustCircleSchema, 'params'), updateTrustCirc
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamTrustCircleSchema, 'params'), deleteTrustCircle);
+router.delete(
+  "/:id",
+  validate(idParamTrustCircleSchema, "params"),
+  deleteTrustCircle
+);
 
 export default router;

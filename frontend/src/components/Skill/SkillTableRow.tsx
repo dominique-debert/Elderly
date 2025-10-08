@@ -3,8 +3,8 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 import { SkillDeleteModal } from "./SkillDeleteModal";
 import { SkillEditModal } from "./SkillEditModal";
-import { TableCell, TableRow } from "../ui/table";
-import type { ICategory } from "@/@types";
+import { TableCell, TableRow } from "@/components/ui/table";
+import type { ICategory } from "@/types";
 
 export default function SkillTableRow({ skill }: { skill: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IServiceRating from '@/@types/data/IServiceRating';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IServiceRating from "@/types/data/IServiceRating";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createServiceRating = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const serviceRating = await prisma.serviceRating.create({
       data: {
         ...req.body,
-      }
+      },
     });
     res.status(201).json(serviceRating);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllServiceRating = async (
   try {
     const serviceRating = await prisma.serviceRating.findMany({
       orderBy: {
-        ratingDate: 'desc'
-      }
+        ratingDate: "desc",
+      },
     });
     res.status(200).json({ serviceRating });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getServiceRatingById = async (
 
   try {
     const serviceRating = await prisma.serviceRating.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!serviceRating) {
-      throw createHttpError(404, 'Service non trouvé');
+      throw createHttpError(404, "Service non trouvé");
     }
 
     res.status(200).json(serviceRating);
@@ -77,19 +76,19 @@ export const updateServiceRating = async (
 
   try {
     const serviceRating = await prisma.serviceRating.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!serviceRating) {
-      throw createHttpError(404, 'Service non trouvé');
+      throw createHttpError(404, "Service non trouvé");
     }
 
     const updateServiceRating = await prisma.serviceRating.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updateServiceRating);
@@ -107,18 +106,18 @@ export const deleteServiceRating = async (
 
   try {
     const serviceRating = await prisma.serviceRating.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!serviceRating) {
-      throw createHttpError(404, 'Service non trouvé');
+      throw createHttpError(404, "Service non trouvé");
     }
 
     await prisma.serviceRating.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Service supprimé avec succès' });
+    res.status(200).json({ message: "Service supprimé avec succès" });
   } catch (error) {
     next(error);
   }

@@ -1,6 +1,6 @@
 import { deleteUrbanIssueCategory } from "@/services/urbanIssueCategory.service";
 import { toast } from "react-hot-toast";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type UrbanIssueDeleteModalProps = {
   category: ICategory;

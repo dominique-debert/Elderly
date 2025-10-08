@@ -1,18 +1,18 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate";
 
 import {
   healthIndicatorSchema,
-  idParamHealthIndicatorSchema
-} from '../validators/healthIndicator.validator';
+  idParamHealthIndicatorSchema,
+} from "@/validators/healthIndicator.validator";
 
 import {
   createHealthIndicator,
   getAllHealthIndicators,
   getHealthIndicatorById,
   updateHealthIndicator,
-  deleteHealthIndicator
-} from '@/controllers/index.controller';
+  deleteHealthIndicator,
+} from "@/controllers/index.controller";
 
 const router = Router();
 
@@ -32,11 +32,7 @@ const router = Router();
  *       201:
  *         description: Indicateur créé
  */
-router.post(
-  '/',
-  validate(healthIndicatorSchema),
-  createHealthIndicator
-);
+router.post("/", validate(healthIndicatorSchema), createHealthIndicator);
 
 /**
  * @swagger
@@ -54,10 +50,7 @@ router.post(
  *               items:
  *                 $ref: '#/components/schemas/HealthIndicator'
  */
-router.get(
-  '/',
-  getAllHealthIndicators
-);
+router.get("/", getAllHealthIndicators);
 
 /**
  * @swagger
@@ -84,8 +77,8 @@ router.get(
  *         description: Indicateur non trouvé
  */
 router.get(
-  '/:id',
-  validate(idParamHealthIndicatorSchema, 'params'),
+  "/:id",
+  validate(idParamHealthIndicatorSchema, "params"),
   getHealthIndicatorById
 );
 
@@ -115,8 +108,8 @@ router.get(
  *         description: Indicateur non trouvé
  */
 router.put(
-  '/:id',
-  validate(idParamHealthIndicatorSchema, 'params'),
+  "/:id",
+  validate(idParamHealthIndicatorSchema, "params"),
   updateHealthIndicator
 );
 
@@ -141,8 +134,8 @@ router.put(
  *         description: Indicateur non trouvé
  */
 router.delete(
-  '/:id',
-  validate(idParamHealthIndicatorSchema, 'params'),
+  "/:id",
+  validate(idParamHealthIndicatorSchema, "params"),
   deleteHealthIndicator
 );
 

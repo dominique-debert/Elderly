@@ -1,18 +1,18 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate";
 
 import {
   forumCategorySchema,
-  idParamForumCategorySchema
-} from '../../validators/forumCategory.validator';
+  idParamForumCategorySchema,
+} from "@/validators/forumCategory.validator";
 
 import {
   createForumCategory,
   getAllForumCategories,
   getForumCategoryById,
   updateForumCategory,
-  deleteForumCategory
-} from '@/controllers/index.controller';
+  deleteForumCategory,
+} from "@/controllers/index.controller";
 
 const router = Router();
 
@@ -33,9 +33,9 @@ const router = Router();
  *         description: Catégorie créée
  */
 router.post(
-  '/',
+  "/",
   validate(forumCategorySchema),
- 
+
   createForumCategory
 );
 
@@ -56,8 +56,8 @@ router.post(
  *                 $ref: '#/components/schemas/ForumCategory'
  */
 router.get(
-  '/',
- 
+  "/",
+
   getAllForumCategories
 );
 
@@ -86,8 +86,8 @@ router.get(
  *         description: Catégorie non trouvée
  */
 router.get(
-  '/:id',
-  validate(idParamForumCategorySchema, 'params'),
+  "/:id",
+  validate(idParamForumCategorySchema, "params"),
   getForumCategoryById
 );
 
@@ -117,9 +117,9 @@ router.get(
  *         description: Catégorie non trouvée
  */
 router.put(
-  '/:id',
-  validate(idParamForumCategorySchema, 'params'),
- 
+  "/:id",
+  validate(idParamForumCategorySchema, "params"),
+
   updateForumCategory
 );
 
@@ -144,9 +144,9 @@ router.put(
  *         description: Catégorie non trouvée
  */
 router.delete(
-  '/:id',
-  validate(idParamForumCategorySchema, 'params'),
- 
+  "/:id",
+  validate(idParamForumCategorySchema, "params"),
+
   deleteForumCategory
 );
 

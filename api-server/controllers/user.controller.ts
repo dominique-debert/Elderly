@@ -1,18 +1,20 @@
 import { PrismaClient } from "@/prisma/client";
 import { Request, Response, NextFunction } from "express";
 import { createHttpError } from "@/utils/httpError";
-import IUser from '@/@types/data/users/IUser'
+import IUser from "@/types/data/users/IUser";
 
 const prisma = new PrismaClient();
 
 // Créer un nouvel utilisateur
 export const createUser = async (
-  req: Request<{}, {}, IUser>, res: Response, next: NextFunction) => {
-
+  req: Request<{}, {}, IUser>,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const userToCreate = await prisma.user.create({
-      data: req.body
-    })
+      data: req.body,
+    });
     res.status(201).json(userToCreate);
   } catch (error) {
     next(error);
@@ -20,12 +22,16 @@ export const createUser = async (
 };
 
 // Récupérer tous les utilisateurs avec pagination et filtres optionnels
-export const getAllUsers = async (req: Request, res: Response, next: NextFunction) => {
+export const getAllUsers = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const users = await prisma.user.findMany({
       orderBy: {
-        lastName: 'asc',
-        firstName: 'asc' // Ascending order (A-Z)
+        lastName: "asc",
+        firstName: "asc", // Ascending order (A-Z)
       },
     });
 
@@ -37,10 +43,10 @@ export const getAllUsers = async (req: Request, res: Response, next: NextFunctio
 
 // Récupérer un utilisateur par son ID
 export const getUserById = async (
-  req: Request<{ id: string }>, 
-  res: Response, 
-  next: NextFunction) => {
-  
+  req: Request<{ id: string }>,
+  res: Response,
+  next: NextFunction
+) => {
   const { id } = req.params;
 
   try {
@@ -59,7 +65,11 @@ export const getUserById = async (
 };
 
 // Mettre à jour un utilisateur
-export const updateUser = async (req: Request<{ id: string }, {}, IUser>, res: Response, next: NextFunction) => {
+export const updateUser = async (
+  req: Request<{ id: string }, {}, IUser>,
+  res: Response,
+  next: NextFunction
+) => {
   const { id } = req.params;
 
   try {
@@ -74,7 +84,7 @@ export const updateUser = async (req: Request<{ id: string }, {}, IUser>, res: R
     const userToUpdate = await prisma.user.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       where: { id },
     });
@@ -84,7 +94,11 @@ export const updateUser = async (req: Request<{ id: string }, {}, IUser>, res: R
   }
 };
 
-export const deleteUser = async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
+export const deleteUser = async (
+  req: Request<{ id: string }>,
+  res: Response,
+  next: NextFunction
+) => {
   const { id } = req.params;
   try {
     const user = await prisma.user.findUnique({
@@ -95,9 +109,9 @@ export const deleteUser = async (req: Request<{ id: string }>, res: Response, ne
       throw createHttpError(404, `Utilisateur non trouvé`);
     }
     await prisma.user.delete({
-      where: { id }
-    })
-    res.status(200).json({ message: 'Utilisateur supprimé avec succès' });
+      where: { id },
+    });
+    res.status(200).json({ message: "Utilisateur supprimé avec succès" });
   } catch (error) {
     next(error);
   }

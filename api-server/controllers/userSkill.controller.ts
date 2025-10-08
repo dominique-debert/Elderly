@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IUserSkill from '@/@types/data/users/IUserSkill';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IUserSkill from "@/types/data/users/IUserSkill";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createUserSkill = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const userSkill = await prisma.userSkill.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(userSkill);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllUserSkills = async (
   try {
     const userSkills = await prisma.userSkill.findMany({
       orderBy: {
-        createdAt: 'desc'
-      }
+        createdAt: "desc",
+      },
     });
     res.status(200).json({ userSkills });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getUserSkillById = async (
 
   try {
     const userSkill = await prisma.userSkill.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userSkill) {
-      throw createHttpError(404, 'Compétence utilisateur non trouvée');
+      throw createHttpError(404, "Compétence utilisateur non trouvée");
     }
 
     res.status(200).json(userSkill);
@@ -77,19 +76,19 @@ export const updateUserSkill = async (
 
   try {
     const userSkill = await prisma.userSkill.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userSkill) {
-      throw createHttpError(404, 'Compétence utilisateur non trouvée');
+      throw createHttpError(404, "Compétence utilisateur non trouvée");
     }
 
     const updatedUserSkill = await prisma.userSkill.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updatedUserSkill);
@@ -107,18 +106,20 @@ export const deleteUserSkill = async (
 
   try {
     const userSkill = await prisma.userSkill.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userSkill) {
-      throw createHttpError(404, 'Compétence utilisateur non trouvée');
+      throw createHttpError(404, "Compétence utilisateur non trouvée");
     }
 
     await prisma.userSkill.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Compétence utilisateur supprimée avec succès' });
+    res
+      .status(200)
+      .json({ message: "Compétence utilisateur supprimée avec succès" });
   } catch (error) {
     next(error);
   }

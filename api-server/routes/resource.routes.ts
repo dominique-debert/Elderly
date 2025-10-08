@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createResource,
   getAllResources,
   getResourceById,
   updateResource,
-  deleteResource
-} from '@/controllers/index.controller';
+  deleteResource,
+} from "@/controllers/index.controller";
 
-import { resourceSchema, idParamResourceSchema } from '../validators/resource.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  resourceSchema,
+  idParamResourceSchema,
+} from "@/validators/resource.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(resourceSchema), createResource);
+router.post("/", validate(resourceSchema), createResource);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(resourceSchema), createResource);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllResources);
+router.get("/", getAllResources);
 
 /**
  * @swagger
@@ -88,7 +91,7 @@ router.get('/', getAllResources);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamResourceSchema, 'params'), getResourceById);
+router.get("/:id", validate(idParamResourceSchema, "params"), getResourceById);
 
 /**
  * @swagger
@@ -115,7 +118,7 @@ router.get('/:id', validate(idParamResourceSchema, 'params'), getResourceById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamResourceSchema, 'params'), updateResource);
+router.put("/:id", validate(idParamResourceSchema, "params"), updateResource);
 
 /**
  * @swagger
@@ -136,6 +139,10 @@ router.put('/:id', validate(idParamResourceSchema, 'params'), updateResource);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamResourceSchema, 'params'), deleteResource);
+router.delete(
+  "/:id",
+  validate(idParamResourceSchema, "params"),
+  deleteResource
+);
 
 export default router;

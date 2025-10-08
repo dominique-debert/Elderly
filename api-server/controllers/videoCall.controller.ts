@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IVideoCall from '@/@types/data/conversations/IVideoCall';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IVideoCall from "@/types/data/conversations/IVideoCall";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createVideoCall = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const userStatistics = await prisma.videoCall.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(userStatistics);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllVideoCalls = async (
   try {
     const userStatistics = await prisma.videoCall.findMany({
       orderBy: {
-        createdAt: 'desc'
-      }
+        createdAt: "desc",
+      },
     });
     res.status(200).json({ userStatistics });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getVideoCallById = async (
 
   try {
     const userStatistics = await prisma.videoCall.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userStatistics) {
-      throw createHttpError(404, 'Appel vidéo non trouvé');
+      throw createHttpError(404, "Appel vidéo non trouvé");
     }
 
     res.status(200).json(userStatistics);
@@ -77,19 +76,19 @@ export const updateVideoCall = async (
 
   try {
     const userStatistics = await prisma.videoCall.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userStatistics) {
-      throw createHttpError(404, 'Appel vidéo non trouvé');
+      throw createHttpError(404, "Appel vidéo non trouvé");
     }
 
     const updatedUserStatistics = await prisma.videoCall.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updatedUserStatistics);
@@ -107,18 +106,18 @@ export const deleteVideoCall = async (
 
   try {
     const userStatistics = await prisma.videoCall.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userStatistics) {
-      throw createHttpError(404, 'Appel vidéo non trouvé');
+      throw createHttpError(404, "Appel vidéo non trouvé");
     }
 
     await prisma.videoCall.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Appel vidéo supprimé avec succès' });
+    res.status(200).json({ message: "Appel vidéo supprimé avec succès" });
   } catch (error) {
     next(error);
   }

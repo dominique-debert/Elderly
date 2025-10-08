@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import INotification from '@/@types/data/notifications/INotification.js';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import INotification from "@/types/data/notifications/INotification.js";
 
 const prisma = new PrismaClient();
 
@@ -16,10 +16,9 @@ export const createNotification = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const notification = await prisma.notification.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(notification);
   } catch (error) {
@@ -35,8 +34,8 @@ export const getAllNotifications = async (
   try {
     const notifications = await prisma.notification.findMany({
       orderBy: {
-        createdAt: 'desc'
-      }
+        createdAt: "desc",
+      },
     });
     res.status(200).json({ notifications });
   } catch (error) {
@@ -52,11 +51,12 @@ export const getAllNotificationsByUserId = async (
   try {
     const notifications = await prisma.notification.findMany({
       orderBy: {
-        createdAt: 'asc'
+        createdAt: "asc",
       },
       where: {
-        userId: typeof req.query.userId === 'string' ? req.query.userId : undefined
-      }
+        userId:
+          typeof req.query.userId === "string" ? req.query.userId : undefined,
+      },
     });
     res.status(200).json({ notifications });
   } catch (error) {
@@ -73,11 +73,11 @@ export const getNotificationById = async (
 
   try {
     const notification = await prisma.notification.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!notification) {
-      throw createHttpError(404, 'Notification non trouvée');
+      throw createHttpError(404, "Notification non trouvée");
     }
 
     res.status(200).json(notification);
@@ -95,17 +95,17 @@ export const updateNotification = async (
 
   try {
     const notification = await prisma.notification.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!notification) {
-      throw createHttpError(404, 'Notification non trouvée');
+      throw createHttpError(404, "Notification non trouvée");
     }
 
     const updatedNotification = await prisma.notification.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       where: { id },
     });
@@ -125,18 +125,18 @@ export const deleteNotification = async (
 
   try {
     const notification = await prisma.notification.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!notification) {
-      throw createHttpError(404, 'Notification non trouvée');
+      throw createHttpError(404, "Notification non trouvée");
     }
 
     await prisma.notification.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Notification supprimée avec succès' });
+    res.status(200).json({ message: "Notification supprimée avec succès" });
   } catch (error) {
     next(error);
   }

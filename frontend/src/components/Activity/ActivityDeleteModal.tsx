@@ -1,4 +1,4 @@
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 import { deleteActivityCategory } from "@/services/activityCategory.service";
 import { toast } from "react-hot-toast";
 

@@ -5,7 +5,7 @@ import { ForumModeSwitcher } from "./ForumModeSwitcher";
 import { ForumListView } from "./ForumListView";
 import { ForumTableView } from "./ForumTableView";
 import { fetchForumCategories } from "@/services/forumCategory.service";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

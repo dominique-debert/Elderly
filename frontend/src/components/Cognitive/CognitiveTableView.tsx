@@ -4,9 +4,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import CognitiveTableRow from "./CognitiveTableRow";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function CognitiveTableView({
   cognitives,

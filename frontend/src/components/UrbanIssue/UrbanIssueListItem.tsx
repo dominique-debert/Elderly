@@ -4,7 +4,7 @@ import { useState } from "react";
 import { UrbanIssueEditModal } from "./UrbanIssueEditModal";
 import { UrbanIssueDeleteModal } from "./UrbanIssueDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function UrbanIssueListItem({
   urbanIssue,

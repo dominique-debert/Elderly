@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { DeleteWellnessModal } from "./WellnessDeleteModal";
 import { WellnessEditModal } from "./WellnessEditModal";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type WellnessCardProps = {
   wellnessCategory: ICategory;

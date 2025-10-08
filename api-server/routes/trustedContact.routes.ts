@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createTrustedContact,
   getAllTrustedContacts,
   getTrustedContactById,
   updateTrustedContact,
-  deleteTrustedContact
-} from '@/controllers/index.controller';
+  deleteTrustedContact,
+} from "@/controllers/index.controller";
 
-import { trustedContactSchema, idParamTrustedContactSchema } from '../validators/trustedContact.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  trustedContactSchema,
+  idParamTrustedContactSchema,
+} from "@/validators/trustedContact.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(trustedContactSchema), createTrustedContact);
+router.post("/", validate(trustedContactSchema), createTrustedContact);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(trustedContactSchema), createTrustedContact);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllTrustedContacts);
+router.get("/", getAllTrustedContacts);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllTrustedContacts);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamTrustedContactSchema, 'params'), getTrustedContactById);
+router.get(
+  "/:id",
+  validate(idParamTrustedContactSchema, "params"),
+  getTrustedContactById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamTrustedContactSchema, 'params'), getTrustedCo
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamTrustedContactSchema, 'params'), updateTrustedContact);
+router.put(
+  "/:id",
+  validate(idParamTrustedContactSchema, "params"),
+  updateTrustedContact
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamTrustedContactSchema, 'params'), updateTruste
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamTrustedContactSchema, 'params'), deleteTrustedContact);
+router.delete(
+  "/:id",
+  validate(idParamTrustedContactSchema, "params"),
+  deleteTrustedContact
+);
 
 export default router;

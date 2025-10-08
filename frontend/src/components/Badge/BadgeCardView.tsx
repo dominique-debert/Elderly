@@ -1,5 +1,5 @@
 import { BadgeCard } from "./BadgeCard";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type BadgeCardViewProps = {
   badges: ICategory[];

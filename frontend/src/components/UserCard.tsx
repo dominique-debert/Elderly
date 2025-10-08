@@ -1,7 +1,7 @@
-import { mdiCakeVariantOutline, mdiEmailOutline } from "@mdi/js";
-import { formatDate } from "../utils/formatDate";
 import Icon from "@mdi/react";
-import { useAuthStore } from "../stores/auth";
+import { mdiCakeVariantOutline, mdiEmailOutline } from "@mdi/js";
+import { formatDate } from "@/utils/formatDate";
+import { useAuthStore } from "@/stores/auth";
 import { motion } from "framer-motion";
 
 const UserCard = () => {
@@ -53,9 +53,6 @@ const UserCard = () => {
                     : "Non disponible"}
                 </span>
               </div>
-              {/* <div className="card-actions justify-end">
-              <button className="btn btn-primary">Learn now!</button>
-              </div> */}
             </div>
           </div>
           <div className="p-4 card w-full backdrop-blur-md z-30 bg-primary/10 col-3">

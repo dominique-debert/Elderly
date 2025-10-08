@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IProjectTask from '@/@types/data/projects/IProjectTask.js';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IProjectTask from "@/types/data/projects/IProjectTask.js";
 
 const prisma = new PrismaClient();
 
@@ -16,10 +16,9 @@ export const createProjectTask = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const projectTask = await prisma.projectTask.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(projectTask);
   } catch (error) {
@@ -35,8 +34,8 @@ export const getAllProjectTasks = async (
   try {
     const projectTasks = await prisma.projectTask.findMany({
       orderBy: {
-        dueDate: 'desc'
-      }
+        dueDate: "desc",
+      },
     });
     res.status(200).json({ projectTasks });
   } catch (error) {
@@ -53,11 +52,11 @@ export const getProjectTaskById = async (
 
   try {
     const projectTask = await prisma.projectTask.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!projectTask) {
-      throw createHttpError(404, 'Tâche de projet non trouvée');
+      throw createHttpError(404, "Tâche de projet non trouvée");
     }
 
     res.status(200).json(projectTask);
@@ -75,19 +74,19 @@ export const updateProjectTask = async (
 
   try {
     const projectTask = await prisma.projectTask.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!projectTask) {
-      throw createHttpError(404, 'Tâche de projet non trouvée');
+      throw createHttpError(404, "Tâche de projet non trouvée");
     }
 
     const updatedProjectTask = await prisma.projectTask.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updatedProjectTask);
@@ -105,18 +104,18 @@ export const deleteProjectTask = async (
 
   try {
     const projectTask = await prisma.projectTask.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!projectTask) {
-      throw createHttpError(404, 'Tâche de projet non trouvée');
+      throw createHttpError(404, "Tâche de projet non trouvée");
     }
 
     await prisma.projectTask.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Tâche de projet supprimée avec succès' });
+    res.status(200).json({ message: "Tâche de projet supprimée avec succès" });
   } catch (error) {
     next(error);
   }

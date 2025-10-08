@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createVideoCall,
   getAllVideoCalls,
   getVideoCallById,
   updateVideoCall,
-  deleteVideoCall
-} from '@/controllers/index.controller';
+  deleteVideoCall,
+} from "@/controllers/index.controller";
 
-import { videoCallSchema, idParamVideoCallSchema } from '../validators/videoCall.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  videoCallSchema,
+  idParamVideoCallSchema,
+} from "@/validators/videoCall.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(videoCallSchema), createVideoCall);
+router.post("/", validate(videoCallSchema), createVideoCall);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(videoCallSchema), createVideoCall);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllVideoCalls);
+router.get("/", getAllVideoCalls);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllVideoCalls);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamVideoCallSchema, 'params'), getVideoCallById);
+router.get(
+  "/:id",
+  validate(idParamVideoCallSchema, "params"),
+  getVideoCallById
+);
 
 /**
  * @swagger
@@ -115,7 +122,7 @@ router.get('/:id', validate(idParamVideoCallSchema, 'params'), getVideoCallById)
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamVideoCallSchema, 'params'), updateVideoCall);
+router.put("/:id", validate(idParamVideoCallSchema, "params"), updateVideoCall);
 
 /**
  * @swagger
@@ -136,6 +143,10 @@ router.put('/:id', validate(idParamVideoCallSchema, 'params'), updateVideoCall);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamVideoCallSchema, 'params'), deleteVideoCall);
+router.delete(
+  "/:id",
+  validate(idParamVideoCallSchema, "params"),
+  deleteVideoCall
+);
 
 export default router;

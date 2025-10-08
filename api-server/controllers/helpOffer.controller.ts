@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import { createHttpError } from '@/utils/httpError.js';
-import IHelpOffer from '@/@types/data/IHelpOffer';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client.js";
+import { createHttpError } from "@/utils/httpError.js";
+import IHelpOffer from "@/types/data/IHelpOffer";
 
 const prisma = new PrismaClient();
 
@@ -19,7 +19,7 @@ export const createHelpOffer = async (
 ) => {
   try {
     const helpOfferToCreate = await prisma.helpOffer.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(helpOfferToCreate);
   } catch (error) {
@@ -35,8 +35,8 @@ export const getAllHelpOffers = async (
   try {
     const helpOffers = await prisma.helpOffer.findMany({
       orderBy: {
-        offerDate: 'desc'
-      }
+        offerDate: "desc",
+      },
     });
 
     res.status(200).json({ helpOffers });
@@ -54,11 +54,11 @@ export const getHelpOfferById = async (
 
   try {
     const helpOffer = await prisma.helpOffer.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!helpOffer) {
-      throw createHttpError(404, 'Offre non trouvée');
+      throw createHttpError(404, "Offre non trouvée");
     }
 
     res.status(200).json(helpOffer);
@@ -76,19 +76,19 @@ export const updateHelpOffer = async (
 
   try {
     const helpOffer = await prisma.helpOffer.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!helpOffer) {
-      throw createHttpError(404, 'Offre non trouvée');
+      throw createHttpError(404, "Offre non trouvée");
     }
 
     const helpOfferToUpdate = await prisma.helpOffer.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(helpOfferToUpdate);
@@ -106,18 +106,18 @@ export const deleteHelpOffer = async (
 
   try {
     const helpOffer = await prisma.helpOffer.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!helpOffer) {
-      throw createHttpError(404, 'Offre non trouvée');
+      throw createHttpError(404, "Offre non trouvée");
     }
 
     await prisma.helpOffer.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Offre supprimée avec succès' });
+    res.status(200).json({ message: "Offre supprimée avec succès" });
   } catch (error) {
     next(error);
   }

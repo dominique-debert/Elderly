@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { SkillDeleteModal } from "./SkillDeleteModal";
 import { SkillEditModal } from "./SkillEditModal";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type SkillCardProps = {
   skill: ICategory;

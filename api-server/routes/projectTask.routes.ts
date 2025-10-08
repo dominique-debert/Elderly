@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createProjectTask,
   getAllProjectTasks,
   getProjectTaskById,
   updateProjectTask,
-  deleteProjectTask
-} from '@/controllers/index.controller';
+  deleteProjectTask,
+} from "@/controllers/index.controller";
 
-import { projectTaskSchema, idParamProjectTaskSchema } from '../validators/projectTask.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  projectTaskSchema,
+  idParamProjectTaskSchema,
+} from "@/validators/projectTask.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(projectTaskSchema), createProjectTask);
+router.post("/", validate(projectTaskSchema), createProjectTask);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(projectTaskSchema), createProjectTask);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllProjectTasks);
+router.get("/", getAllProjectTasks);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllProjectTasks);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamProjectTaskSchema, 'params'), getProjectTaskById);
+router.get(
+  "/:id",
+  validate(idParamProjectTaskSchema, "params"),
+  getProjectTaskById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamProjectTaskSchema, 'params'), getProjectTaskB
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamProjectTaskSchema, 'params'), updateProjectTask);
+router.put(
+  "/:id",
+  validate(idParamProjectTaskSchema, "params"),
+  updateProjectTask
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamProjectTaskSchema, 'params'), updateProjectTa
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamProjectTaskSchema, 'params'), deleteProjectTask);
+router.delete(
+  "/:id",
+  validate(idParamProjectTaskSchema, "params"),
+  deleteProjectTask
+);
 
 export default router;

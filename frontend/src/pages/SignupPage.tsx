@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useSignupStore } from "../stores/signup";
-import { useAuthStore } from "../stores/auth";
+import { useSignupStore } from "@/stores/signup";
+import { useAuthStore } from "@/stores/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { getGeolocationData } from "@/utils/geolocation";
 

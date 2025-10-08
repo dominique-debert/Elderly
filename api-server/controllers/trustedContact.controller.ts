@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import ITrustedContact from '@/@types/data/ITrustedContact';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import ITrustedContact from "@/types/data/ITrustedContact";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createTrustedContact = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const trustedContact = await prisma.trustedContact.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(trustedContact);
   } catch (error) {
@@ -37,9 +36,9 @@ export const getAllTrustedContacts = async (
   try {
     const trustedContacts = await prisma.trustedContact.findMany({
       orderBy: {
-        lastName: 'desc',
-        firstName: 'desc'
-      }
+        lastName: "desc",
+        firstName: "desc",
+      },
     });
     res.status(200).json({ trustedContacts });
   } catch (error) {
@@ -56,11 +55,11 @@ export const getTrustedContactById = async (
 
   try {
     const trustedContact = await prisma.trustedContact.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!trustedContact) {
-      throw createHttpError(404, 'Contact de confiance non trouvé');
+      throw createHttpError(404, "Contact de confiance non trouvé");
     }
 
     res.status(200).json(trustedContact);
@@ -78,19 +77,19 @@ export const updateTrustedContact = async (
 
   try {
     const trustedContact = await prisma.trustedContact.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!trustedContact) {
-      throw createHttpError(404, 'Contact de confiance non trouvé');
+      throw createHttpError(404, "Contact de confiance non trouvé");
     }
 
     const updatedTrustedContact = await prisma.trustedContact.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updatedTrustedContact);
@@ -108,18 +107,20 @@ export const deleteTrustedContact = async (
 
   try {
     const trustedContact = await prisma.trustedContact.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!trustedContact) {
-      throw createHttpError(404, 'Contact de confiance non trouvé');
+      throw createHttpError(404, "Contact de confiance non trouvé");
     }
 
     await prisma.trustedContact.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Contact de confiance supprimé avec succès' });
+    res
+      .status(200)
+      .json({ message: "Contact de confiance supprimé avec succès" });
   } catch (error) {
     next(error);
   }

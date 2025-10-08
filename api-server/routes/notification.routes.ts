@@ -11,7 +11,7 @@ import {
 import {
   notificationSchema,
   idParamNotificationSchema,
-} from "../validators/notification.validator";
+} from "@/validators/notification.validator";
 
 import { validate } from "@/middlewares/validate";
 

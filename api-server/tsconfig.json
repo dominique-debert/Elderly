@@ -9,7 +9,7 @@
     "rootDir": "./",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-     "baseUrl": "./",
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./*"]
     }

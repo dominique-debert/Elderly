@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IUserStatistics from '@/@types/data/users/IUserStatistics';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IUserStatistics from "@/types/data/users/IUserStatistics";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createUserStatistics = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const userStatistics = await prisma.userStatistics.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(userStatistics);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllUserStatistics = async (
   try {
     const userStatistics = await prisma.userStatistics.findMany({
       orderBy: {
-        createdAt: 'desc'
-      }
+        createdAt: "desc",
+      },
     });
     res.status(200).json({ userStatistics });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getUserStatisticsById = async (
 
   try {
     const userStatistics = await prisma.userStatistics.findUnique({
-      where: { userId }
+      where: { userId },
     });
 
     if (!userStatistics) {
-      throw createHttpError(404, 'Statistiques utilisateur non trouvées');
+      throw createHttpError(404, "Statistiques utilisateur non trouvées");
     }
 
     res.status(200).json(userStatistics);
@@ -77,19 +76,19 @@ export const updateUserStatistics = async (
 
   try {
     const userStatistics = await prisma.userStatistics.findUnique({
-      where: { userId }
+      where: { userId },
     });
 
     if (!userStatistics) {
-      throw createHttpError(404, 'Statistiques utilisateur non trouvées');
+      throw createHttpError(404, "Statistiques utilisateur non trouvées");
     }
 
     const updatedUserStatistics = await prisma.userStatistics.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { userId }
+      where: { userId },
     });
 
     res.status(200).json(updatedUserStatistics);
@@ -107,18 +106,20 @@ export const deleteUserStatistics = async (
 
   try {
     const userStatistics = await prisma.userStatistics.findUnique({
-      where: { userId }
+      where: { userId },
     });
 
     if (!userStatistics) {
-      throw createHttpError(404, 'Statistiques utilisateur non trouvées');
+      throw createHttpError(404, "Statistiques utilisateur non trouvées");
     }
 
     await prisma.userStatistics.delete({
-      where: { userId }
+      where: { userId },
     });
 
-    res.status(200).json({ message: 'Statistiques utilisateur supprimées avec succès' });
+    res
+      .status(200)
+      .json({ message: "Statistiques utilisateur supprimées avec succès" });
   } catch (error) {
     next(error);
   }

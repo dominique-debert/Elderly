@@ -5,7 +5,7 @@ import {
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services/categoryMeta.service";
-import type { ICategory, ICategoryType, IChapter } from "@/@types";
+import type { ICategory, ICategoryType, IChapter } from "@/types";
 
 type ForumModalProps = {
   forum: ICategory;

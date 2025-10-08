@@ -4,9 +4,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import ProgramTableRow from "./ProgramTableRow";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export function ProgramTableView({ programs }: { programs: ICategory[] }) {
   return (

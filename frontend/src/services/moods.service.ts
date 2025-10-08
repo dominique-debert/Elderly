@@ -1,9 +1,9 @@
-import api from '../lib/axios';
-import type { IMood, EValence } from '../@types/IMood';
+import api from "@/lib/axios";
+import type { IMood, EValence } from "@/types";
 
 export const fetchMoods = async (): Promise<IMood[]> => {
-  const accessToken = localStorage.getItem('accessToken');
-  const { data } = await api.get('/moods', {
+  const accessToken = localStorage.getItem("accessToken");
+  const { data } = await api.get("/moods", {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -11,17 +11,16 @@ export const fetchMoods = async (): Promise<IMood[]> => {
   return data.moods;
 };
 
-export const createMood = async (
-  mood: {
-    name: string;
-    description?: string;
-    valence: EValence;
-    intensity: number;
-    color?: string;
+export const createMood = async (mood: {
+  name: string;
+  description?: string;
+  valence: EValence;
+  intensity: number;
+  color?: string;
 }) => {
-  const { data } = await api.post('/moods', mood, {
+  const { data } = await api.post("/moods", mood, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
   });
   return data;
@@ -39,7 +38,7 @@ export const updateMood = async (
 ) => {
   const response = await api.put(`/moods/${id}`, data, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
   });
   return response.data;
@@ -48,7 +47,7 @@ export const updateMood = async (
 export const deleteMood = async (id: string) => {
   const response = await api.delete(`/moods/${id}`, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
   });
   return response.data;

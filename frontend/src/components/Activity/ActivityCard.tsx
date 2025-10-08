@@ -2,7 +2,7 @@ import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 import { ActivityDeleteModal } from "./ActivityDeleteModal";
 import { ActivityEditModal } from "./ActivityEditModal";
 

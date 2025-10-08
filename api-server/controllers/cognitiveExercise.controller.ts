@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import { createHttpError } from '@/utils/httpError.js';
-import ICognitiveExercise from '@/@types/data/exercises/ICognitiveExercise.js';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client.js";
+import { createHttpError } from "@/utils/httpError.js";
+import ICognitiveExercise from "@/types/data/exercises/ICognitiveExercise.js";
 
 const prisma = new PrismaClient();
 
@@ -19,7 +19,7 @@ export const createCognitiveExercise = async (
 ) => {
   try {
     const exerciseToCreate = await prisma.cognitiveExercise.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(exerciseToCreate);
   } catch (error) {
@@ -35,8 +35,8 @@ export const getAllCognitiveExercises = async (
   try {
     const exercises = await prisma.cognitiveExercise.findMany({
       orderBy: {
-        name: 'asc'
-      }
+        name: "asc",
+      },
     });
 
     res.status(200).json({ exercises });
@@ -54,11 +54,11 @@ export const getCognitiveExerciseById = async (
 
   try {
     const exercise = await prisma.cognitiveExercise.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!exercise) {
-      throw createHttpError(404, 'Exercice cognitif non trouvé');
+      throw createHttpError(404, "Exercice cognitif non trouvé");
     }
 
     res.status(200).json(exercise);
@@ -76,19 +76,19 @@ export const updateCognitiveExercise = async (
 
   try {
     const exercise = await prisma.cognitiveExercise.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!exercise) {
-      throw createHttpError(404, 'Exercice cognitif non trouvé');
+      throw createHttpError(404, "Exercice cognitif non trouvé");
     }
 
     const exerciseToUpdate = await prisma.cognitiveExercise.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(exerciseToUpdate);
@@ -106,18 +106,18 @@ export const deleteCognitiveExercise = async (
 
   try {
     const exercise = await prisma.cognitiveExercise.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!exercise) {
-      throw createHttpError(404, 'Exercice cognitif non trouvé');
+      throw createHttpError(404, "Exercice cognitif non trouvé");
     }
 
     await prisma.cognitiveExercise.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Exercice cognitif supprimé avec succès' });
+    res.status(200).json({ message: "Exercice cognitif supprimé avec succès" });
   } catch (error) {
     next(error);
   }

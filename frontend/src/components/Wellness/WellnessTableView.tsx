@@ -4,9 +4,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import WellnessTableRow from "./WellnessTableRow";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export function WellnessTableView({
   wellnessCategories,

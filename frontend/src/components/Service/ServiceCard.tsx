@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { ServiceDeleteModal } from "./ServiceDeleteModal";
 import { ServiceEditModal } from "./ServiceEditModal";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type ServiceCardProps = {
   service: ICategory;

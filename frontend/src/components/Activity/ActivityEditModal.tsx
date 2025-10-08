@@ -5,9 +5,9 @@ import {
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services/categoryMeta.service";
-import type { ICategory } from "@/@types";
-import type { ICategoryType } from "@/@types";
-import type { IChapter } from "@/@types";
+import type { ICategory } from "@/types";
+import type { ICategoryType } from "@/types";
+import type { IChapter } from "@/types";
 
 type ActivityModalProps = {
   activity: ICategory;

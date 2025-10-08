@@ -3,8 +3,8 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 import { ServiceDeleteModal } from "./ServiceDeleteModal";
 import { ServiceEditModal } from "./ServiceEditModal";
-import { TableCell, TableRow } from "../ui/table";
-import type { ICategory } from "@/@types";
+import { TableCell, TableRow } from "@/components/ui/table";
+import type { ICategory } from "@/types";
 
 export default function ServiceTableRow({ service }: { service: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

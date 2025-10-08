@@ -1,10 +1,10 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate.js';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate.js";
 
-import { 
+import {
   nutritionalAdviceSchema,
-  idParamNutritionalAdviceSchema
-} from '../validators/nutritionalAdvice.validator.js';
+  idParamNutritionalAdviceSchema,
+} from "@/validators/nutritionalAdvice.validator.js";
 
 import {
   createNutritionalAdvice,
@@ -12,7 +12,7 @@ import {
   getNutritionalAdviceById,
   updateNutritionalAdvice,
   deleteNutritionalAdvice,
-} from '@/controllers/index.controller.js';
+} from "@/controllers/index.controller.js";
 
 const nutritionalAdviceRouter = Router();
 
@@ -32,7 +32,11 @@ const nutritionalAdviceRouter = Router();
  *       201:
  *         description: Avis créé
  */
-nutritionalAdviceRouter.post('/nutrition-advices', validate(nutritionalAdviceSchema), createNutritionalAdvice);
+nutritionalAdviceRouter.post(
+  "/nutrition-advices",
+  validate(nutritionalAdviceSchema),
+  createNutritionalAdvice
+);
 
 /**
  * @swagger
@@ -43,8 +47,8 @@ nutritionalAdviceRouter.post('/nutrition-advices', validate(nutritionalAdviceSch
  *     responses:
  *       200:
  *         description: Liste des avis
-*/
-nutritionalAdviceRouter.get('/nutrition-advices', getAllNutritionalAdvices);
+ */
+nutritionalAdviceRouter.get("/nutrition-advices", getAllNutritionalAdvices);
 
 /**
  * @swagger
@@ -66,7 +70,11 @@ nutritionalAdviceRouter.get('/nutrition-advices', getAllNutritionalAdvices);
  *       404:
  *         description: Avis non trouvé
  */
-nutritionalAdviceRouter.get('/nutrition-advices/:id', validate(idParamNutritionalAdviceSchema, 'params'), getNutritionalAdviceById);
+nutritionalAdviceRouter.get(
+  "/nutrition-advices/:id",
+  validate(idParamNutritionalAdviceSchema, "params"),
+  getNutritionalAdviceById
+);
 
 /**
  * @swagger
@@ -91,7 +99,11 @@ nutritionalAdviceRouter.get('/nutrition-advices/:id', validate(idParamNutritiona
  *       200:
  *         description: Avis mis à jour
  */
-nutritionalAdviceRouter.put('/nutrition-advices/:id', validate(idParamNutritionalAdviceSchema, 'params'), updateNutritionalAdvice);
+nutritionalAdviceRouter.put(
+  "/nutrition-advices/:id",
+  validate(idParamNutritionalAdviceSchema, "params"),
+  updateNutritionalAdvice
+);
 
 /**
  * @swagger
@@ -110,6 +122,10 @@ nutritionalAdviceRouter.put('/nutrition-advices/:id', validate(idParamNutritiona
  *       204:
  *         description: Supprimé avec succès
  */
-nutritionalAdviceRouter.delete('/nutrition-advices/:id', validate(idParamNutritionalAdviceSchema, 'params'), deleteNutritionalAdvice);
+nutritionalAdviceRouter.delete(
+  "/nutrition-advices/:id",
+  validate(idParamNutritionalAdviceSchema, "params"),
+  deleteNutritionalAdvice
+);
 
 export default nutritionalAdviceRouter;

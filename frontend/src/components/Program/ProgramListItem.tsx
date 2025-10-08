@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ProgramEditModal } from "./ProgramEditModal";
 import { ProgramDeleteModal } from "./ProgramDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function ProgramListItem({ program }: { program: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

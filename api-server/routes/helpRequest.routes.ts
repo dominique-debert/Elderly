@@ -1,18 +1,18 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createHelpRequest,
   getAllHelpRequests,
   getHelpRequestById,
   updateHelpRequest,
-  deleteHelpRequest
-} from '@/controllers/index.controller';
+  deleteHelpRequest,
+} from "@/controllers/index.controller";
 
 import {
   helpRequestSchema,
-  idParamHelpRequestSchema
-} from '../validators/helpRequest.validator';
+  idParamHelpRequestSchema,
+} from "@/validators/helpRequest.validator";
 
-import { validate } from '@/middlewares/validate';
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -41,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(helpRequestSchema), createHelpRequest);
+router.post("/", validate(helpRequestSchema), createHelpRequest);
 
 /**
  * @swagger
@@ -64,7 +64,7 @@ router.post('/', validate(helpRequestSchema), createHelpRequest);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllHelpRequests);
+router.get("/", getAllHelpRequests);
 
 /**
  * @swagger
@@ -92,7 +92,11 @@ router.get('/', getAllHelpRequests);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamHelpRequestSchema, 'params'), getHelpRequestById);
+router.get(
+  "/:id",
+  validate(idParamHelpRequestSchema, "params"),
+  getHelpRequestById
+);
 
 /**
  * @swagger
@@ -119,7 +123,11 @@ router.get('/:id', validate(idParamHelpRequestSchema, 'params'), getHelpRequestB
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamHelpRequestSchema, 'params'), updateHelpRequest);
+router.put(
+  "/:id",
+  validate(idParamHelpRequestSchema, "params"),
+  updateHelpRequest
+);
 
 /**
  * @swagger
@@ -140,6 +148,10 @@ router.put('/:id', validate(idParamHelpRequestSchema, 'params'), updateHelpReque
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamHelpRequestSchema, 'params'), deleteHelpRequest);
+router.delete(
+  "/:id",
+  validate(idParamHelpRequestSchema, "params"),
+  deleteHelpRequest
+);
 
 export default router;

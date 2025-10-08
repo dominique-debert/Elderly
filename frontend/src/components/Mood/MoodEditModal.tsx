@@ -1,8 +1,8 @@
 import { useState } from "react";
-import type { IMood } from "../../@types/IMood";
-import { updateMood } from "../../services/moods.service";
+import { updateMood } from "@/services/moods.service";
 import { toast } from "react-hot-toast";
-import { EValence } from "@/@types";
+import type { IMood } from "@/types";
+import type { EValence } from "@/types";
 
 type MoodEditModalProps = {
   mood: IMood;

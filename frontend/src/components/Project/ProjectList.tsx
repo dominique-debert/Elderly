@@ -5,7 +5,7 @@ import { ProjectCardView } from "./ProjectCardView";
 import { ProjectModeSwitcher } from "./ProjectModeSwitcher";
 import { ProjectListView } from "./ProjectListView";
 import { ProjectTableView } from "./ProjectTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

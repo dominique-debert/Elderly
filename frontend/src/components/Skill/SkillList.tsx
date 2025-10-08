@@ -5,7 +5,7 @@ import { SkillCardView } from "./SkillCardView";
 import { SkillModeSwitcher } from "./SkillModeSwitcher";
 import { SkillListView } from "./SkillListView";
 import { SkillTableView } from "./SkillTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

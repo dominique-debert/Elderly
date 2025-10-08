@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { UrbanIssueDeleteModal } from "./UrbanIssueDeleteModal";
 import { UrbanIssueEditModal } from "./UrbanIssueEditModal";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type UrbanIssueCardProps = {
   urbanIssue: ICategory;

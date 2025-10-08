@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import createHttpError from 'http-errors';
-import { PrismaClient } from '@/prisma/client';
-import IExerciseProgram from '@/@types/data/exercises/IExerciseProgram';
+import { Request, Response, NextFunction } from "express";
+import createHttpError from "http-errors";
+import { PrismaClient } from "@/prisma/client";
+import IExerciseProgram from "@/types/data/exercises/IExerciseProgram";
 
 const prisma = new PrismaClient();
 
@@ -34,7 +34,7 @@ export const getAllExercisePrograms = async (
 ) => {
   try {
     const programs = await prisma.exerciseProgram.findMany({
-      orderBy: { name: 'asc' },
+      orderBy: { name: "asc" },
     });
     res.status(200).json({ programs });
   } catch (error) {
@@ -83,7 +83,7 @@ export const updateExerciseProgram = async (
     const updatedProgram = await prisma.exerciseProgram.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       where: { id },
     });
@@ -107,14 +107,14 @@ export const deleteExerciseProgram = async (
     });
 
     if (!program) {
-      throw createHttpError(404, 'Programme non trouvé');
+      throw createHttpError(404, "Programme non trouvé");
     }
 
     await prisma.exerciseProgram.delete({
       where: { id },
     });
 
-    res.status(200).json({ message: 'Programme supprimé avec succès' });
+    res.status(200).json({ message: "Programme supprimé avec succès" });
   } catch (error) {
     next(error);
   }

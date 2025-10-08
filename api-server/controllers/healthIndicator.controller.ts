@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import { createHttpError } from '@/utils/httpError.js';
-import IHealthIndicator from '@/@types/data/IHealthIndicator';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client.js";
+import { createHttpError } from "@/utils/httpError.js";
+import IHealthIndicator from "@/types/data/IHealthIndicator";
 
 const prisma = new PrismaClient();
 
@@ -19,7 +19,7 @@ export const createHealthIndicator = async (
 ) => {
   try {
     const healthIndicatorToCreate = await prisma.healthIndicator.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(healthIndicatorToCreate);
   } catch (error) {
@@ -35,8 +35,8 @@ export const getAllHealthIndicators = async (
   try {
     const healthIndicators = await prisma.healthIndicator.findMany({
       orderBy: {
-        createdAt: 'asc'
-      }
+        createdAt: "asc",
+      },
     });
 
     res.status(200).json({ healthIndicators });
@@ -54,11 +54,11 @@ export const getHealthIndicatorById = async (
 
   try {
     const healthIndicator = await prisma.healthIndicator.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!healthIndicator) {
-      throw createHttpError(404, 'Indicateur non trouvé');
+      throw createHttpError(404, "Indicateur non trouvé");
     }
 
     res.status(200).json(healthIndicator);
@@ -68,7 +68,7 @@ export const getHealthIndicatorById = async (
 };
 
 export const updateHealthIndicator = async (
-  req: Request< { id: string }, IHealthIndicator>,
+  req: Request<{ id: string }, IHealthIndicator>,
   res: Response,
   next: NextFunction
 ) => {
@@ -76,19 +76,19 @@ export const updateHealthIndicator = async (
 
   try {
     const healthIndicator = await prisma.healthIndicator.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!healthIndicator) {
-      throw createHttpError(404, 'Indicateur non trouvé');
+      throw createHttpError(404, "Indicateur non trouvé");
     }
 
     const healthIndicatorToUpdate = await prisma.healthIndicator.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(healthIndicatorToUpdate);
@@ -106,18 +106,18 @@ export const deleteHealthIndicator = async (
 
   try {
     const healthIndicator = await prisma.healthIndicator.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!healthIndicator) {
-      throw createHttpError(404, 'Indicateur non trouvé');
+      throw createHttpError(404, "Indicateur non trouvé");
     }
 
     await prisma.healthIndicator.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Indicateur supprimé avec succès' });
+    res.status(200).json({ message: "Indicateur supprimé avec succès" });
   } catch (error) {
     next(error);
   }

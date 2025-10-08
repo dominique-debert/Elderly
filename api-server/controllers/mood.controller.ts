@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError';
-import { PrismaClient } from '@/prisma/client'
-import IMood from '@/@types/data/IMood';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError";
+import { PrismaClient } from "@/prisma/client";
+import IMood from "@/types/data/IMood";
 
 const prisma = new PrismaClient();
 
@@ -18,7 +18,7 @@ export const createMood = async (
 ) => {
   try {
     const newMood = await prisma.mood.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(newMood);
   } catch (error) {
@@ -34,8 +34,8 @@ export const getAllMoods = async (
   try {
     const moods = await prisma.mood.findMany({
       orderBy: {
-        name: 'asc'
-      }
+        name: "asc",
+      },
     });
     res.status(200).json({ moods });
   } catch (error) {
@@ -52,11 +52,11 @@ export const getMoodById = async (
 
   try {
     const mood = await prisma.mood.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!mood) {
-      throw createHttpError(404, 'Mood non trouvé');
+      throw createHttpError(404, "Mood non trouvé");
     }
 
     res.status(200).json(mood);
@@ -70,21 +70,21 @@ export const updateMood = async (
   res: Response,
   next: NextFunction
 ) => {
-    const id = parseInt(req.params.id);
+  const id = parseInt(req.params.id);
 
   try {
     const mood = await prisma.mood.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!mood) {
-      throw createHttpError(404, 'Mood non trouvé');
+      throw createHttpError(404, "Mood non trouvé");
     }
 
     const updatedMood = await prisma.mood.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       where: { id },
     });
@@ -100,22 +100,22 @@ export const deleteMood = async (
   res: Response,
   next: NextFunction
 ) => {
-    const id = parseInt(req.params.id);
+  const id = parseInt(req.params.id);
 
   try {
     const mood = await prisma.mood.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!mood) {
-      throw createHttpError(404, 'Humeur non trouvée');
+      throw createHttpError(404, "Humeur non trouvée");
     }
 
     await prisma.mood.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Humeur supprimée avec succès' });
+    res.status(200).json({ message: "Humeur supprimée avec succès" });
   } catch (error) {
     next(error);
   }

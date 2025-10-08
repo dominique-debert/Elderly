@@ -1,18 +1,18 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate.js';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate";
 
 import {
   localServiceSchema,
-  idParamLocalServiceSchema }
-from '../validators/localService.validator.js';
+  idParamLocalServiceSchema,
+} from "@/validators/localService.validator";
 
 import {
   createLocalService,
   getAllLocalServices,
   getLocalServiceById,
   updateLocalService,
-  deleteLocalService
-} from '@/controllers/index.controller.js';
+  deleteLocalService,
+} from "@/controllers/index.controller";
 
 const localServiceRouter = Router();
 
@@ -32,7 +32,7 @@ const localServiceRouter = Router();
  *       201:
  *         description: Service local créé
  */
-localServiceRouter.post('/', validate(localServiceSchema), createLocalService);
+localServiceRouter.post("/", validate(localServiceSchema), createLocalService);
 
 /**
  * @swagger
@@ -44,7 +44,7 @@ localServiceRouter.post('/', validate(localServiceSchema), createLocalService);
  *       200:
  *         description: Liste des services locaux
  */
-localServiceRouter.get('/', getAllLocalServices);
+localServiceRouter.get("/", getAllLocalServices);
 
 /**
  * @swagger
@@ -65,7 +65,11 @@ localServiceRouter.get('/', getAllLocalServices);
  *       404:
  *         description: Service local introuvable
  */
-localServiceRouter.get('/:id', validate(idParamLocalServiceSchema, 'params'), getLocalServiceById);
+localServiceRouter.get(
+  "/:id",
+  validate(idParamLocalServiceSchema, "params"),
+  getLocalServiceById
+);
 
 /**
  * @swagger
@@ -92,7 +96,11 @@ localServiceRouter.get('/:id', validate(idParamLocalServiceSchema, 'params'), ge
  *       404:
  *         description: Service local introuvable
  */
-localServiceRouter.put('/:id', validate(idParamLocalServiceSchema, 'params'), updateLocalService);
+localServiceRouter.put(
+  "/:id",
+  validate(idParamLocalServiceSchema, "params"),
+  updateLocalService
+);
 
 /**
  * @swagger
@@ -113,6 +121,10 @@ localServiceRouter.put('/:id', validate(idParamLocalServiceSchema, 'params'), up
  *       404:
  *         description: Service local introuvable
  */
-localServiceRouter.delete('/:id', validate(idParamLocalServiceSchema, 'params'), deleteLocalService);
+localServiceRouter.delete(
+  "/:id",
+  validate(idParamLocalServiceSchema, "params"),
+  deleteLocalService
+);
 
 export default localServiceRouter;

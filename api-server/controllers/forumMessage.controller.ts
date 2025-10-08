@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import { createHttpError } from '@/utils/httpError.js';
-import IForumMessage from '@/@types/data/forums/IForumMessage';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client.js";
+import { createHttpError } from "@/utils/httpError.js";
+import IForumMessage from "@/types/data/forums/IForumMessage";
 
 const prisma = new PrismaClient();
 
@@ -19,7 +19,7 @@ export const createForumMessage = async (
 ) => {
   try {
     const forumMessageToCreate = await prisma.forumMessage.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(forumMessageToCreate);
   } catch (error) {
@@ -35,8 +35,8 @@ export const getAllForumMessages = async (
   try {
     const forumMessages = await prisma.forumMessage.findMany({
       orderBy: {
-        createdAt: 'asc'
-      }
+        createdAt: "asc",
+      },
     });
 
     res.status(200).json({ forumMessages });
@@ -54,11 +54,11 @@ export const getForumMessageById = async (
 
   try {
     const forumMessage = await prisma.forumMessage.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!forumMessage) {
-      throw createHttpError(404, 'Message non trouvé');
+      throw createHttpError(404, "Message non trouvé");
     }
 
     res.status(200).json(forumMessage);
@@ -68,7 +68,7 @@ export const getForumMessageById = async (
 };
 
 export const updateForumMessage = async (
-  req: Request< { id: string }, IForumMessage>,
+  req: Request<{ id: string }, IForumMessage>,
   res: Response,
   next: NextFunction
 ) => {
@@ -76,19 +76,19 @@ export const updateForumMessage = async (
 
   try {
     const forumMessage = await prisma.forumMessage.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!forumMessage) {
-      throw createHttpError(404, 'Message non trouvé');
+      throw createHttpError(404, "Message non trouvé");
     }
 
     const forumMessageToUpdate = await prisma.forumMessage.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(forumMessageToUpdate);
@@ -106,18 +106,18 @@ export const deleteForumMessage = async (
 
   try {
     const forumMessage = await prisma.forumMessage.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!forumMessage) {
-      throw createHttpError(404, 'Message non trouvé');
+      throw createHttpError(404, "Message non trouvé");
     }
 
     await prisma.forumMessage.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Message supprimé avec succès' });
+    res.status(200).json({ message: "Message supprimé avec succès" });
   } catch (error) {
     next(error);
   }

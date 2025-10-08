@@ -5,7 +5,7 @@ import { CognitiveCardView } from "./CognitiveCardView";
 import { CognitiveModeSwitcher } from "./CognitiveModeSwitcher";
 import CognitiveListView from "./CognitiveListView";
 import CognitiveTableView from "./CognitiveTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

@@ -1,4 +1,4 @@
-import { EValence } from "@/@types";
+import { EValence } from "@/types";
 
 export interface IMood {
   id: number;

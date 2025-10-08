@@ -1,10 +1,10 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
-import { BadgeDeleteModal } from "./BadgeDeleteModal";
-import { BadgeEditModal } from "./BadgeEditModal";
-import { TableCell, TableRow } from "../ui/table";
-import type { ICategory } from "@/@types";
+import { BadgeDeleteModal } from "@/components/Badge/BadgeDeleteModal";
+import { BadgeEditModal } from "@/components/Badge/BadgeEditModal";
+import { TableCell, TableRow } from "@/components/ui/table";
+import type { ICategory } from "@/types";
 
 export default function BadgeTableRow({ badge }: { badge: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

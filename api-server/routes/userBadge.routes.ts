@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createUserBadge,
   getAllUserBadges,
   getUserBadgeById,
   updateUserBadge,
-  deleteUserBadge
-} from '@/controllers/index.controller';
+  deleteUserBadge,
+} from "@/controllers/index.controller";
 
-import { userBadgeSchema, idParamUserBadgeSchema } from '../validators/userBadge.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  userBadgeSchema,
+  idParamUserBadgeSchema,
+} from "@/validators/userBadge.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(userBadgeSchema), createUserBadge);
+router.post("/", validate(userBadgeSchema), createUserBadge);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(userBadgeSchema), createUserBadge);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllUserBadges);
+router.get("/", getAllUserBadges);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllUserBadges);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUserBadgeSchema, 'params'), getUserBadgeById);
+router.get(
+  "/:id",
+  validate(idParamUserBadgeSchema, "params"),
+  getUserBadgeById
+);
 
 /**
  * @swagger
@@ -115,7 +122,7 @@ router.get('/:id', validate(idParamUserBadgeSchema, 'params'), getUserBadgeById)
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUserBadgeSchema, 'params'), updateUserBadge);
+router.put("/:id", validate(idParamUserBadgeSchema, "params"), updateUserBadge);
 
 /**
  * @swagger
@@ -136,6 +143,10 @@ router.put('/:id', validate(idParamUserBadgeSchema, 'params'), updateUserBadge);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUserBadgeSchema, 'params'), deleteUserBadge);
+router.delete(
+  "/:id",
+  validate(idParamUserBadgeSchema, "params"),
+  deleteUserBadge
+);
 
 export default router;

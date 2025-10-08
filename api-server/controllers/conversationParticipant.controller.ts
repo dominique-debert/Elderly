@@ -1,8 +1,7 @@
-
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import { createHttpError } from '@/utils/httpError.js';
-import IConversationParticipant from '@/@types/data/conversations/IConversationParticipant';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client.js";
+import { createHttpError } from "@/utils/httpError.js";
+import IConversationParticipant from "@/types/data/conversations/IConversationParticipant";
 
 const prisma = new PrismaClient();
 
@@ -19,9 +18,10 @@ export const createConversationParticipant = async (
   next: NextFunction
 ) => {
   try {
-    const conversationParticipantToCreate = await prisma.conversationParticipant.create({
-      data: req.body
-    });
+    const conversationParticipantToCreate =
+      await prisma.conversationParticipant.create({
+        data: req.body,
+      });
     res.status(201).json(conversationParticipantToCreate);
   } catch (error) {
     next(error);
@@ -34,11 +34,12 @@ export const getAllConversationParticipants = async (
   next: NextFunction
 ) => {
   try {
-    const conversationParticipants = await prisma.conversationParticipant.findMany({
-      orderBy: {
-        dateAdded: 'asc'
-      }
-    });
+    const conversationParticipants =
+      await prisma.conversationParticipant.findMany({
+        orderBy: {
+          dateAdded: "asc",
+        },
+      });
 
     res.status(200).json({ conversationParticipants });
   } catch (error) {
@@ -54,12 +55,13 @@ export const getConversationParticipantById = async (
   const { id } = req.params;
 
   try {
-    const conversationParticipant = await prisma.conversationParticipant.findUnique({
-      where: { id }
-    });
+    const conversationParticipant =
+      await prisma.conversationParticipant.findUnique({
+        where: { id },
+      });
 
     if (!conversationParticipant) {
-      throw createHttpError(404, 'Conversation non trouvée');
+      throw createHttpError(404, "Conversation non trouvée");
     }
 
     res.status(200).json(conversationParticipant);
@@ -69,28 +71,30 @@ export const getConversationParticipantById = async (
 };
 
 export const updateConversationParticipant = async (
-  req: Request<{ id: string },IConversationParticipant>,
+  req: Request<{ id: string }, IConversationParticipant>,
   res: Response,
   next: NextFunction
 ) => {
   const { id } = req.params;
 
   try {
-    const conversationParticipant = await prisma.conversationParticipant.findUnique({
-      where: { id }
-    });
+    const conversationParticipant =
+      await prisma.conversationParticipant.findUnique({
+        where: { id },
+      });
 
     if (!conversationParticipant) {
-      throw createHttpError(404, 'Conversation non trouvée');
+      throw createHttpError(404, "Conversation non trouvée");
     }
 
-    const conversationParticipantToUpdate = await prisma.conversationParticipant.update({
-      data: {
-        ...req.body,
-        updatedAt: new Date()
-      },
-      where: { id }
-    });
+    const conversationParticipantToUpdate =
+      await prisma.conversationParticipant.update({
+        data: {
+          ...req.body,
+          updatedAt: new Date(),
+        },
+        where: { id },
+      });
 
     res.status(200).json(conversationParticipantToUpdate);
   } catch (error) {
@@ -106,19 +110,20 @@ export const deleteConversationParticipant = async (
   const { id } = req.params;
 
   try {
-    const conversationParticipant = await prisma.conversationParticipant.findUnique({
-      where: { id }
-    });
+    const conversationParticipant =
+      await prisma.conversationParticipant.findUnique({
+        where: { id },
+      });
 
     if (!conversationParticipant) {
-      throw createHttpError(404, 'Conversation non trouvée');
+      throw createHttpError(404, "Conversation non trouvée");
     }
 
     await prisma.conversationParticipant.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Conversation supprimée avec succès' });
+    res.status(200).json({ message: "Conversation supprimée avec succès" });
   } catch (error) {
     next(error);
   }

@@ -5,7 +5,7 @@ import { ActivityCardView } from "./ActivityCardView";
 import { ActivityListSwitcher } from "./ActivityModeSwitcher";
 import { ActivityListView } from "./ActivityListView";
 import { ActivityTableView } from "./ActivityTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

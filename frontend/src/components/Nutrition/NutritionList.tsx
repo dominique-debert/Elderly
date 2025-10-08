@@ -5,7 +5,7 @@ import { NutritionCardView } from "./NutritionCardView";
 import { NutritionModeSwitcher } from "./NutritionModeSwitcher";
 import { NutritionListView } from "./NutritionListView";
 import { NutritionTableView } from "./NutritionTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

@@ -1,17 +1,17 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client';
-import { createHttpError } from '@/utils/httpError';
-import { ECategoryType } from '@/@types/data/categories/ECategory';
-import ICategory from '@/@types/data/categories/ICategory';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client";
+import { createHttpError } from "@/utils/httpError";
+import { ECategoryType } from "@/types/data/categories/ECategory";
+import ICategory from "@/types/data/categories/ICategory";
 
 const prisma = new PrismaClient();
 
 /**
-* @swagger
-* tags:
-*   name: Service Categories
-*   description: API pour gérer les catégories de services
-*/
+ * @swagger
+ * tags:
+ *   name: Service Categories
+ *   description: API pour gérer les catégories de services
+ */
 
 // TOUTES LES CATÉGORIES DE SERVICES
 export const fetchAllServiceCategories = async (
@@ -22,63 +22,67 @@ export const fetchAllServiceCategories = async (
   try {
     const categories = await prisma.category.findMany({
       where: {
-        typeId: ECategoryType.HELP
+        typeId: ECategoryType.HELP,
       },
       orderBy: {
-        categoryName: 'asc',
+        categoryName: "asc",
       },
       include: {
-        categoryType:{
+        categoryType: {
           select: {
             id: true,
-            name: true
+            name: true,
           },
         },
         categoryChapter: {
           select: {
             chapterId: true,
-            chapterName: true, 
+            chapterName: true,
             chapterDescription: true,
           },
         },
-      }
+      },
     });
-    
+
     const grouped: Record<string, Record<string, any[]>> = {};
-    
+
     // Étape 1 : Regrouper d'abord par typeName → chapterName
     categories.forEach((category) => {
-      const typeName = category.categoryType?.name ?? 'Sans type';
-      const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
-      
+      const typeName = category.categoryType?.name ?? "Sans type";
+      const chapterName =
+        category.categoryChapter?.chapterName ?? "Sans chapitre";
+
       if (!grouped[typeName]) grouped[typeName] = {};
       if (!grouped[typeName][chapterName]) grouped[typeName][chapterName] = [];
-      
+
       grouped[typeName][chapterName].push({
         id: category.id,
         categoryName: category.categoryName,
         description: category.description,
       });
     });
-    
+
     // Étape 2 : Trier par typeName > chapterName > categoryName
     const sortedGrouped: Record<string, Record<string, any[]>> = {};
-    
-    Object.keys(grouped).sort().forEach((typeName) => {
-      sortedGrouped[typeName] = {};
-      
-      Object.keys(grouped[typeName]).sort().forEach((chapterName) => {
-        sortedGrouped[typeName][chapterName] = grouped[typeName][chapterName].sort((a, b) =>
-          a.categoryName.localeCompare(b.categoryName)
-      );
-    });
-  });
-  
-  
-  res.status(200).json(grouped);
-} catch (error) {
-  next(error);
-}
+
+    Object.keys(grouped)
+      .sort()
+      .forEach((typeName) => {
+        sortedGrouped[typeName] = {};
+
+        Object.keys(grouped[typeName])
+          .sort()
+          .forEach((chapterName) => {
+            sortedGrouped[typeName][chapterName] = grouped[typeName][
+              chapterName
+            ].sort((a, b) => a.categoryName.localeCompare(b.categoryName));
+          });
+      });
+
+    res.status(200).json(grouped);
+  } catch (error) {
+    next(error);
+  }
 };
 
 // CATÉGORIE DE SERVICE PAR ID
@@ -93,11 +97,12 @@ export const fetchServiceCategoryById = async (
     const serviceCategory = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: ECategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE,
+      },
     });
 
     if (!serviceCategory) {
-      throw createHttpError(404, 'Catégorie non trouvée');
+      throw createHttpError(404, "Catégorie non trouvée");
     }
 
     res.status(200).json(serviceCategory);
@@ -114,7 +119,7 @@ export const createServiceCategory = async (
 ) => {
   try {
     const categoryToCreate = await prisma.category.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(categoryToCreate);
   } catch (error) {
@@ -133,21 +138,23 @@ export const updateServiceCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: ECategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE,
+      },
     });
 
     if (!category) {
-      throw createHttpError(404, 'Catégorie non trouvée');
+      throw createHttpError(404, "Catégorie non trouvée");
     }
 
     const categoryToUpdate = await prisma.category.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       where: {
         id: Number(id),
-        typeId: ECategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE,
+      },
     });
 
     res.status(200).json(categoryToUpdate);
@@ -167,20 +174,22 @@ export const deleteServiceCategory = async (
     const category = await prisma.category.findUnique({
       where: {
         id: Number(id),
-        typeId: ECategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE,
+      },
     });
 
     if (!category) {
-      throw createHttpError(404, 'Catégorie non trouvée');
+      throw createHttpError(404, "Catégorie non trouvée");
     }
 
     await prisma.category.delete({
       where: {
         id: Number(id),
-        typeId: ECategoryType.SERVICE }
+        typeId: ECategoryType.SERVICE,
+      },
     });
 
-    res.status(200).json({ message: 'Catégorie supprimée avec succès' });
+    res.status(200).json({ message: "Catégorie supprimée avec succès" });
   } catch (error) {
     next(error);
   }

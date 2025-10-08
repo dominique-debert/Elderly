@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SkillEditModal } from "./SkillEditModal";
 import { SkillDeleteModal } from "./SkillDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function SkillListItem({ skill }: { skill: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

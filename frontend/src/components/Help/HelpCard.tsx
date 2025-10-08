@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { HelpDeleteModal } from "./HelpDeleteModal";
 import { HelpEditModal } from "./HelpEditModal";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type HelpCardProps = {
   help: ICategory;

@@ -4,9 +4,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import UrbanIssueTableRow from "./UrbanIssueTableRow";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export function UrbanIssueTableView({
   urbanIssues,

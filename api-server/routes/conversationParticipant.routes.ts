@@ -1,18 +1,18 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate";
 
 import {
   conversationParticipantSchema,
-  idParamConversationParticipantSchema
-} from '../validators/conversationParticipant.validator';
+  idParamConversationParticipantSchema,
+} from "@/validators/conversationParticipant.validator";
 
 import {
   createConversationParticipant,
   getAllConversationParticipants,
   getConversationParticipantById,
   updateConversationParticipant,
-  deleteConversationParticipant
-} from '@/controllers/index.controller';
+  deleteConversationParticipant,
+} from "@/controllers/index.controller";
 
 const router = Router();
 
@@ -33,7 +33,7 @@ const router = Router();
  *         description: Participant de conversation créé
  */
 router.post(
-  '/',
+  "/",
   validate(conversationParticipantSchema),
   createConversationParticipant
 );
@@ -54,10 +54,7 @@ router.post(
  *               items:
  *                 $ref: '#/components/schemas/ConversationParticipant'
  */
-router.get(
-  '/',
-  getAllConversationParticipants
-);
+router.get("/", getAllConversationParticipants);
 
 /**
  * @swagger
@@ -84,8 +81,8 @@ router.get(
  *         description: Participant de conversation non trouvé
  */
 router.get(
-  '/:id',
-  validate(idParamConversationParticipantSchema, 'params'),
+  "/:id",
+  validate(idParamConversationParticipantSchema, "params"),
   getConversationParticipantById
 );
 
@@ -115,8 +112,8 @@ router.get(
  *         description: Participant de conversation non trouvé
  */
 router.put(
-  '/:id',
-  validate(idParamConversationParticipantSchema, 'params'),
+  "/:id",
+  validate(idParamConversationParticipantSchema, "params"),
   updateConversationParticipant
 );
 
@@ -141,8 +138,8 @@ router.put(
  *         description: Participant de conversation non trouvé
  */
 router.delete(
-  '/:id',
-  validate(idParamConversationParticipantSchema, 'params'),
+  "/:id",
+  validate(idParamConversationParticipantSchema, "params"),
   deleteConversationParticipant
 );
 

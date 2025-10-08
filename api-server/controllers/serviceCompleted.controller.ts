@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IServiceCompleted from '@/@types/data/IServiceCompleted';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IServiceCompleted from "@/types/data/IServiceCompleted";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createServiceCompleted = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const serviceCompleted = await prisma.serviceCompleted.create({
       data: {
         ...req.body,
-      }
+      },
     });
     res.status(201).json(serviceCompleted);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllServiceCompleted = async (
   try {
     const serviceCompleted = await prisma.serviceCompleted.findMany({
       orderBy: {
-        completionDate: 'desc'
-      }
+        completionDate: "desc",
+      },
     });
     res.status(200).json({ serviceCompleted });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getServiceCompletedById = async (
 
   try {
     const serviceCompleted = await prisma.serviceCompleted.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!serviceCompleted) {
-      throw createHttpError(404, 'Service non trouvé');
+      throw createHttpError(404, "Service non trouvé");
     }
 
     res.status(200).json(serviceCompleted);
@@ -77,19 +76,19 @@ export const updateServiceCompleted = async (
 
   try {
     const serviceCompleted = await prisma.serviceCompleted.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!serviceCompleted) {
-      throw createHttpError(404, 'Service non trouvé');
+      throw createHttpError(404, "Service non trouvé");
     }
 
     const updateServiceCompleted = await prisma.serviceCompleted.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updateServiceCompleted);
@@ -107,18 +106,18 @@ export const deleteServiceCompleted = async (
 
   try {
     const serviceCompleted = await prisma.serviceCompleted.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!serviceCompleted) {
-      throw createHttpError(404, 'Service non trouvé');
+      throw createHttpError(404, "Service non trouvé");
     }
 
     await prisma.serviceCompleted.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Service supprimé avec succès' });
+    res.status(200).json({ message: "Service supprimé avec succès" });
   } catch (error) {
     next(error);
   }

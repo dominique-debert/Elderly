@@ -1,5 +1,5 @@
 import { CognitiveCard } from "./CognitiveCard";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type CognitiveCardViewProps = {
   cognitives: ICategory[];

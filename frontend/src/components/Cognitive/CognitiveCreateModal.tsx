@@ -5,7 +5,7 @@ import {
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services/categoryMeta.service";
-import { IChapter, ICategoryType } from "@/@types";
+import { IChapter, ICategoryType } from "@/types";
 
 type CognitiveCreateModalProps = {
   onClose: () => void;

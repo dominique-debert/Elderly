@@ -1,6 +1,6 @@
 import { deleteBadgeCategory } from "@/services/badgeCategory.service";
 import { toast } from "react-hot-toast";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type BadgeDeleteModalProps = {
   category: ICategory;

@@ -1,5 +1,5 @@
 import { NutritionCard } from "./NutritionCard";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type NutritionCardViewProps = {
   nutritions: ICategory[];

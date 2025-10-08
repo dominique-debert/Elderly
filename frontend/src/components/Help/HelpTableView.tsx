@@ -4,9 +4,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import HelpTableRow from "./HelpTableRow";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export function HelpTableView({ helps }: { helps: ICategory[] }) {
   return (

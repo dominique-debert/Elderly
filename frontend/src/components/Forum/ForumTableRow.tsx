@@ -3,8 +3,8 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 import { ForumDeleteModal } from "./ForumDeleteModal";
 import { ForumEditModal } from "./ForumEditModal";
-import { TableCell, TableRow } from "../ui/table";
-import type { ICategory } from "@/@types";
+import { TableCell, TableRow } from "@/components/ui/table";
+import type { ICategory } from "@/types";
 
 export default function ForumTableRow({ forum }: { forum: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

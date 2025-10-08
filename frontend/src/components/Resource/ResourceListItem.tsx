@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ResourceEditModal } from "./ResourceEditModal";
 import { ResourceDeleteModal } from "./ResourceDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function ResourceListItem({
   resource,

@@ -1,10 +1,10 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate";
 
 import {
   wellnessBadgeSchema,
-  idParamWellnessBadgeSchema 
-} from '../validators/wellnessBadge.validator';
+  idParamWellnessBadgeSchema,
+} from "@/validators/wellnessBadge.validator";
 
 import {
   createWellnessBadge,
@@ -12,7 +12,7 @@ import {
   getWellnessBadgeById,
   updateWellnessBadge,
   deleteWellnessBadge,
-} from '@/controllers/index.controller';
+} from "@/controllers/index.controller";
 
 const router = Router();
 
@@ -32,7 +32,7 @@ const router = Router();
  *       201:
  *         description: Badge créé
  */
-router.post('/', validate(wellnessBadgeSchema), createWellnessBadge);
+router.post("/", validate(wellnessBadgeSchema), createWellnessBadge);
 
 /**
  * @swagger
@@ -44,7 +44,7 @@ router.post('/', validate(wellnessBadgeSchema), createWellnessBadge);
  *       200:
  *         description: Liste des badges
  */
-router.get('/', getAllWellnessBadges);
+router.get("/", getAllWellnessBadges);
 
 /**
  * @swagger
@@ -65,7 +65,11 @@ router.get('/', getAllWellnessBadges);
  *       404:
  *         description: Badge introuvable
  */
-router.get('/:id', validate(idParamWellnessBadgeSchema, 'params'), getWellnessBadgeById);
+router.get(
+  "/:id",
+  validate(idParamWellnessBadgeSchema, "params"),
+  getWellnessBadgeById
+);
 
 /**
  * @swagger
@@ -92,7 +96,11 @@ router.get('/:id', validate(idParamWellnessBadgeSchema, 'params'), getWellnessBa
  *       404:
  *         description: Badge introuvable
  */
-router.put('/:id', validate(idParamWellnessBadgeSchema, 'params'), updateWellnessBadge);
+router.put(
+  "/:id",
+  validate(idParamWellnessBadgeSchema, "params"),
+  updateWellnessBadge
+);
 
 /**
  * @swagger
@@ -113,6 +121,10 @@ router.put('/:id', validate(idParamWellnessBadgeSchema, 'params'), updateWellnes
  *       404:
  *         description: Badge introuvable
  */
-router.delete('/:id', validate(idParamWellnessBadgeSchema, 'params'), deleteWellnessBadge);
+router.delete(
+  "/:id",
+  validate(idParamWellnessBadgeSchema, "params"),
+  deleteWellnessBadge
+);
 
 export default router;

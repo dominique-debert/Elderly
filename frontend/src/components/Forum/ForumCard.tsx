@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { ForumDeleteModal } from "./ForumDeleteModal";
 import { ForumEditModal } from "./ForumEditModal";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type ForumCardProps = {
   forum: ICategory;

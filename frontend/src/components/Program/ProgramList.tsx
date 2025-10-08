@@ -5,7 +5,7 @@ import { ProgramCardView } from "./ProgramCardView";
 import { ProgramModeSwitcher } from "./ProgramModeSwitcher";
 import { ProgramListView } from "./ProgramListView";
 import { ProgramTableView } from "./ProgramTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

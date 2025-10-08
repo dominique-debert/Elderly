@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@/prisma/client.js';
-import createHttpError from 'http-errors';
-import ISkill from '@/@types/data/ISkill.js';
+import { Request, Response, NextFunction } from "express";
+import { PrismaClient } from "@/prisma/client.js";
+import createHttpError from "http-errors";
+import ISkill from "@/types/data/ISkill.js";
 
 const prisma = new PrismaClient();
 
@@ -10,7 +10,6 @@ export const createSkill = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const newSkill = await prisma.skill.create({
       data: req.body,
@@ -30,8 +29,8 @@ export const getAllSkills = async (
   try {
     const skills = await prisma.skill.findMany({
       orderBy: {
-        name: 'asc'
-      }
+        name: "asc",
+      },
     });
     res.status(200).json({ skills });
   } catch (error) {
@@ -48,11 +47,11 @@ export const getSkillById = async (
 
   try {
     const skill = await prisma.skill.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!skill) {
-      throw createHttpError(404, 'Compétence non trouvée');
+      throw createHttpError(404, "Compétence non trouvée");
     }
 
     res.status(200).json(skill);
@@ -74,13 +73,13 @@ export const updateSkill = async (
     });
 
     if (!skill) {
-      throw createHttpError(404, 'Compétence non trouvée');
+      throw createHttpError(404, "Compétence non trouvée");
     }
 
     const skillToUpdate = await prisma.skill.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       where: { id },
     });
@@ -100,18 +99,18 @@ export const deleteSkill = async (
 
   try {
     const skill = await prisma.skill.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!skill) {
-      throw createHttpError(404, 'Compétence non trouvée');
+      throw createHttpError(404, "Compétence non trouvée");
     }
 
     await prisma.skill.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Compétence supprimée avec succès' });
+    res.status(200).json({ message: "Compétence supprimée avec succès" });
   } catch (error) {
     next(error);
   }

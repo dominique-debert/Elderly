@@ -5,7 +5,7 @@ import { ServiceCardView } from "./ServiceCardView";
 import { ServiceModeSwitcher } from "./ServiceModeSwitcher";
 import { ServiceListView } from "./ServiceListView";
 import { ServiceTableView } from "./ServiceTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

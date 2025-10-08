@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createSurveyResponse,
   getAllSurveyResponse,
   getSurveyResponseById,
   updateSurveyResponse,
-  deleteSurveyResponse
-} from '@/controllers/index.controller';
+  deleteSurveyResponse,
+} from "@/controllers/index.controller";
 
-import { surveyResponseSchema, idParamSurveyResponseSchema } from '../validators/surveyResponse.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  surveyResponseSchema,
+  idParamSurveyResponseSchema,
+} from "@/validators/surveyResponse.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(surveyResponseSchema), createSurveyResponse);
+router.post("/", validate(surveyResponseSchema), createSurveyResponse);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(surveyResponseSchema), createSurveyResponse);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllSurveyResponse);
+router.get("/", getAllSurveyResponse);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllSurveyResponse);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamSurveyResponseSchema, 'params'), getSurveyResponseById);
+router.get(
+  "/:id",
+  validate(idParamSurveyResponseSchema, "params"),
+  getSurveyResponseById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamSurveyResponseSchema, 'params'), getSurveyRes
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamSurveyResponseSchema, 'params'), updateSurveyResponse);
+router.put(
+  "/:id",
+  validate(idParamSurveyResponseSchema, "params"),
+  updateSurveyResponse
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamSurveyResponseSchema, 'params'), updateSurvey
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamSurveyResponseSchema, 'params'), deleteSurveyResponse);
+router.delete(
+  "/:id",
+  validate(idParamSurveyResponseSchema, "params"),
+  deleteSurveyResponse
+);
 
 export default router;

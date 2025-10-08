@@ -1,6 +1,6 @@
 import { deleteCognitiveCategory } from "@/services/cognitiveCategory.service";
 import { toast } from "react-hot-toast";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type CognitiveDeleteModalProps = {
   category: ICategory;

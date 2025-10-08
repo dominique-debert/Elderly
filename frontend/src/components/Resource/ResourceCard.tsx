@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { ResourceDeleteModal } from "./ResourceDeleteModal";
 import { ResourceEditModal } from "./ResourceEditModal";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type ResourceCardProps = {
   resource: ICategory;

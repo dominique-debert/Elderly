@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ActivityEditModal } from "./ActivityEditModal";
 import { ActivityDeleteModal } from "./ActivityDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function ActivityListItem({
   activity,

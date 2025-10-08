@@ -4,7 +4,7 @@ import { useState } from "react";
 import { NutritionEditModal } from "./NutritionEditModal";
 import { NutritionDeleteModal } from "./NutritionDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function NutritionListItem({
   nutrition,

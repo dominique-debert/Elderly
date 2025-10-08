@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IUserDevice from '@/@types/data/users/IUserDevice';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IUserDevice from "@/types/data/users/IUserDevice";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createUserDevice = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const userDevice = await prisma.userDevice.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(userDevice);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllUserDevices = async (
   try {
     const userDevices = await prisma.userDevice.findMany({
       orderBy: {
-        lastConnection: 'desc'
-      }
+        lastConnection: "desc",
+      },
     });
     res.status(200).json({ userDevices });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getUserDeviceById = async (
 
   try {
     const userDevice = await prisma.userDevice.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userDevice) {
-      throw createHttpError(404, 'Appareil utilisateur non trouvé');
+      throw createHttpError(404, "Appareil utilisateur non trouvé");
     }
 
     res.status(200).json(userDevice);
@@ -77,19 +76,19 @@ export const updateUserDevice = async (
 
   try {
     const userDevice = await prisma.userDevice.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userDevice) {
-      throw createHttpError(404, 'Appareil utilisateur non trouvé');
+      throw createHttpError(404, "Appareil utilisateur non trouvé");
     }
 
     const updatedUserDevice = await prisma.userDevice.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updatedUserDevice);
@@ -107,18 +106,20 @@ export const deleteUserDevice = async (
 
   try {
     const userDevice = await prisma.userDevice.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!userDevice) {
-      throw createHttpError(404, 'Appareil utilisateur non trouvé');
+      throw createHttpError(404, "Appareil utilisateur non trouvé");
     }
 
     await prisma.userDevice.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Appareil utilisateur supprimé avec succès' });
+    res
+      .status(200)
+      .json({ message: "Appareil utilisateur supprimé avec succès" });
   } catch (error) {
     next(error);
   }

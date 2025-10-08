@@ -1,19 +1,26 @@
-import { useEffect } from 'react';
-import Icon from '@mdi/react';
-import { Dispatch, SetStateAction } from 'react';
-import { fetchMenuItems } from '@/services/menuItems.service';
-import { useQuery } from '@tanstack/react-query';
-import { iconMap } from '@/constants/iconMap';
-import { ETabKey } from '@/@types/ETabKey';
+import { useEffect } from "react";
+import Icon from "@mdi/react";
+import { Dispatch, SetStateAction } from "react";
+import { fetchMenuItems } from "@/services/menuItems.service";
+import { useQuery } from "@tanstack/react-query";
+import { iconMap } from "@/constants/iconMap";
+import { ETabKey } from "@/types/ETabKey";
 
 type AdminTabProps = {
   activeTab: ETabKey | null;
   setActiveTab: Dispatch<SetStateAction<ETabKey | null>>;
 };
 
-export const AdminTabBar: React.FC<AdminTabProps> = ({ activeTab, setActiveTab }) => {
-  const { data: menuItems, isLoading, isError } = useQuery({
-    queryKey: ['menuItems'],
+export const AdminTabBar: React.FC<AdminTabProps> = ({
+  activeTab,
+  setActiveTab,
+}) => {
+  const {
+    data: menuItems,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["menuItems"],
     queryFn: fetchMenuItems,
   });
 
@@ -28,7 +35,11 @@ export const AdminTabBar: React.FC<AdminTabProps> = ({ activeTab, setActiveTab }
   }
 
   if (isError) {
-    return <div className="text-sm text-red-500">Erreur lors du chargement du menu</div>;
+    return (
+      <div className="text-sm text-red-500">
+        Erreur lors du chargement du menu
+      </div>
+    );
   }
 
   return (
@@ -39,12 +50,16 @@ export const AdminTabBar: React.FC<AdminTabProps> = ({ activeTab, setActiveTab }
             type="button"
             onClick={() => setActiveTab(key as ETabKey)}
             className={`btn btn-ghost w-full justify-start ${
-              activeTab === key ? 'bg-primary text-white' : ''
+              activeTab === key ? "bg-primary text-white" : ""
             }`}
             aria-selected={activeTab === key}
           >
             {icon && iconMap[icon] && (
-              <Icon path={iconMap[icon]} size={0.8} className="mr-2 text-white-400" />
+              <Icon
+                path={iconMap[icon]}
+                size={0.8}
+                className="mr-2 text-white-400"
+              />
             )}
             {label}
           </button>
@@ -53,4 +68,3 @@ export const AdminTabBar: React.FC<AdminTabProps> = ({ activeTab, setActiveTab }
     </ul>
   );
 };
-

@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createServiceRating,
   getAllServiceRating,
   getServiceRatingById,
   updateServiceRating,
-  deleteServiceRating
-} from '@/controllers/index.controller';
+  deleteServiceRating,
+} from "@/controllers/index.controller";
 
-import { serviceRatingSchema, idParamServiceRatingSchema } from '../validators/serviceRating.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  serviceRatingSchema,
+  idParamServiceRatingSchema,
+} from "@/validators/serviceRating.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(serviceRatingSchema), createServiceRating);
+router.post("/", validate(serviceRatingSchema), createServiceRating);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(serviceRatingSchema), createServiceRating);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllServiceRating);
+router.get("/", getAllServiceRating);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllServiceRating);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamServiceRatingSchema, 'params'), getServiceRatingById);
+router.get(
+  "/:id",
+  validate(idParamServiceRatingSchema, "params"),
+  getServiceRatingById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamServiceRatingSchema, 'params'), getServiceRat
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamServiceRatingSchema, 'params'), updateServiceRating);
+router.put(
+  "/:id",
+  validate(idParamServiceRatingSchema, "params"),
+  updateServiceRating
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamServiceRatingSchema, 'params'), updateService
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamServiceRatingSchema, 'params'), deleteServiceRating);
+router.delete(
+  "/:id",
+  validate(idParamServiceRatingSchema, "params"),
+  deleteServiceRating
+);
 
 export default router;

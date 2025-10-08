@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import ISurveyResponse from '@/@types/data/ISurveyResponse';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import ISurveyResponse from "@/types/data/ISurveyResponse";
 
 const prisma = new PrismaClient();
 
@@ -16,13 +16,12 @@ export const createSurveyResponse = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const surveyResponse = await prisma.surveyResponse.create({
       data: {
         ...req.body,
-        responseDate: new Date()
-      }
+        responseDate: new Date(),
+      },
     });
     res.status(201).json(surveyResponse);
   } catch (error) {
@@ -38,8 +37,8 @@ export const getAllSurveyResponse = async (
   try {
     const surveyResponse = await prisma.surveyResponse.findMany({
       orderBy: {
-        responseDate: 'desc'
-      }
+        responseDate: "desc",
+      },
     });
     res.status(200).json({ surveyResponse });
   } catch (error) {
@@ -56,11 +55,11 @@ export const getSurveyResponseById = async (
 
   try {
     const surveyResponse = await prisma.surveyResponse.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!surveyResponse) {
-      throw createHttpError(404, 'Réponse à l\'enquête non trouvée');
+      throw createHttpError(404, "Réponse à l'enquête non trouvée");
     }
 
     res.status(200).json(surveyResponse);
@@ -78,20 +77,20 @@ export const updateSurveyResponse = async (
 
   try {
     const surveyResponse = await prisma.surveyResponse.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!surveyResponse) {
-      throw createHttpError(404, 'Réponse à l\'enquête non trouvée');
+      throw createHttpError(404, "Réponse à l'enquête non trouvée");
     }
 
     const updateSurveyResponse = await prisma.surveyResponse.update({
       data: {
         ...req.body,
         responseDate: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updateSurveyResponse);
@@ -109,18 +108,20 @@ export const deleteSurveyResponse = async (
 
   try {
     const surveyResponse = await prisma.surveyResponse.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!surveyResponse) {
-      throw createHttpError(404, 'Réponse à l\'enquête non trouvée');
+      throw createHttpError(404, "Réponse à l'enquête non trouvée");
     }
 
     await prisma.surveyResponse.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Réponse à l\'enquête supprimée avec succès' });
+    res
+      .status(200)
+      .json({ message: "Réponse à l'enquête supprimée avec succès" });
   } catch (error) {
     next(error);
   }

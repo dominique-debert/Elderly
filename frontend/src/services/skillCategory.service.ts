@@ -1,5 +1,5 @@
 import api from "@/lib/axios";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export const fetchSkillCategories = async (): Promise<ICategory> => {
   const accessToken = localStorage.getItem("accessToken");

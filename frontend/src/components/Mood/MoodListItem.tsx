@@ -1,10 +1,10 @@
-import type { IMood } from '../../@types/IMood';
-import Icon from '@mdi/react';
-import { mdiPencilOutline, mdiDeleteOutline } from '@mdi/js';
-import { useState } from 'react';
-import { MoodEditModal } from './MoodEditModal';
-import { ConfirmDeleteMoodModal } from './ConfirmDeleteMoodModal';
-import { useQueryClient } from '@tanstack/react-query';
+import Icon from "@mdi/react";
+import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+import { useState } from "react";
+import { MoodEditModal } from "./MoodEditModal";
+import { ConfirmDeleteMoodModal } from "./MoodDeleteModal";
+import { useQueryClient } from "@tanstack/react-query";
+import type { IMood } from "@/types";
 
 export default function MoodListItem({ mood }: { mood: IMood }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -13,12 +13,12 @@ export default function MoodListItem({ mood }: { mood: IMood }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['moods'] });
+    queryClient.invalidateQueries({ queryKey: ["moods"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ['moods'] });
+    queryClient.invalidateQueries({ queryKey: ["moods"] });
   };
 
   return (

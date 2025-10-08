@@ -1,5 +1,5 @@
-import { useAuthStore } from "../stores/auth";
-import { formatDate } from "../utils/formatDate";
+import { useAuthStore } from "@/stores/auth";
+import { formatDate } from "@/utils/formatDate";
 import { Navigate } from "react-router-dom";
 
 const ProfilePage = () => {

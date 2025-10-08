@@ -1,18 +1,18 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createMedicationReminder,
   getAllMedicationReminders,
   getMedicationReminderById,
   updateMedicationReminder,
-  deleteMedicationReminder
-} from '@/controllers/index.controller';
+  deleteMedicationReminder,
+} from "@/controllers/index.controller";
 
 import {
   medicationReminderSchema,
-  idParamMedicationReminderSchema
-} from '../validators/medicationReminder.validator';
+  idParamMedicationReminderSchema,
+} from "@/validators/medicationReminder.validator";
 
-import { validate } from '@/middlewares/validate';
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -41,7 +41,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(medicationReminderSchema), createMedicationReminder);
+router.post("/", validate(medicationReminderSchema), createMedicationReminder);
 
 /**
  * @swagger
@@ -64,7 +64,7 @@ router.post('/', validate(medicationReminderSchema), createMedicationReminder);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllMedicationReminders);
+router.get("/", getAllMedicationReminders);
 
 /**
  * @swagger
@@ -92,7 +92,11 @@ router.get('/', getAllMedicationReminders);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamMedicationReminderSchema, 'params'), getMedicationReminderById);
+router.get(
+  "/:id",
+  validate(idParamMedicationReminderSchema, "params"),
+  getMedicationReminderById
+);
 
 /**
  * @swagger
@@ -119,7 +123,11 @@ router.get('/:id', validate(idParamMedicationReminderSchema, 'params'), getMedic
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamMedicationReminderSchema, 'params'), updateMedicationReminder);
+router.put(
+  "/:id",
+  validate(idParamMedicationReminderSchema, "params"),
+  updateMedicationReminder
+);
 
 /**
  * @swagger
@@ -140,6 +148,10 @@ router.put('/:id', validate(idParamMedicationReminderSchema, 'params'), updateMe
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamMedicationReminderSchema, 'params'), deleteMedicationReminder);
+router.delete(
+  "/:id",
+  validate(idParamMedicationReminderSchema, "params"),
+  deleteMedicationReminder
+);
 
 export default router;

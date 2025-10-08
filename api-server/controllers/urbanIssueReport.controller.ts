@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IUrbanIssueReport from '@/@types/data/IUrbanIssueReport';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IUrbanIssueReport from "@/types/data/IUrbanIssueReport";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createUrbanIssueReport = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const urbanIssueReport = await prisma.urbanIssueReport.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(urbanIssueReport);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllUrbanIssueReports = async (
   try {
     const urbanIssueReports = await prisma.urbanIssueReport.findMany({
       orderBy: {
-        reportDate: 'desc'
-      }
+        reportDate: "desc",
+      },
     });
     res.status(200).json({ urbanIssueReports });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getUrbanIssueReportById = async (
 
   try {
     const urbanIssueReport = await prisma.urbanIssueReport.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!urbanIssueReport) {
-      throw createHttpError(404, 'Rapport de problème urbain non trouvé');
+      throw createHttpError(404, "Rapport de problème urbain non trouvé");
     }
 
     res.status(200).json(urbanIssueReport);
@@ -77,19 +76,19 @@ export const updateUrbanIssueReport = async (
 
   try {
     const urbanIssueReport = await prisma.urbanIssueReport.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!urbanIssueReport) {
-      throw createHttpError(404, 'Rapport de problème urbain non trouvé');
+      throw createHttpError(404, "Rapport de problème urbain non trouvé");
     }
 
     const updatedUrbanIssueReport = await prisma.urbanIssueReport.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updatedUrbanIssueReport);
@@ -107,18 +106,20 @@ export const deleteUrbanIssueReport = async (
 
   try {
     const urbanIssueReport = await prisma.urbanIssueReport.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!urbanIssueReport) {
-      throw createHttpError(404, 'Rapport de problème urbain non trouvé');
+      throw createHttpError(404, "Rapport de problème urbain non trouvé");
     }
 
     await prisma.urbanIssueReport.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Rapport de problème urbain supprimé avec succès' });
+    res
+      .status(200)
+      .json({ message: "Rapport de problème urbain supprimé avec succès" });
   } catch (error) {
     next(error);
   }

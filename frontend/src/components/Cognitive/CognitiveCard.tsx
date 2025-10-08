@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { CognitiveDeleteModal } from "./CognitiveDeleteModal";
 import { CognitiveEditModal } from "./CognitiveEditModal";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type CognitiveCardProps = {
   cognitive: ICategory;

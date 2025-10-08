@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import { useAuthStore } from '../stores/auth';
-import Navbar from './Navbar';
+import { Outlet } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import { useAuthStore } from "@/stores/auth";
+import Navbar from "./Navbar";
 
 const Layout = () => {
   const { isAuthenticated } = useAuthStore();
@@ -10,9 +10,10 @@ const Layout = () => {
     <div className="h-dvh w-full overflow-hidden bg-100">
       {isAuthenticated && <Navbar />}
 
-      <div className="flex h-full"> {/* 4rem = hauteur de la navbar */}
+      <div className="flex h-full">
+        {" "}
+        {/* 4rem = hauteur de la navbar */}
         {isAuthenticated && <Sidebar />}
-
         <main className="flex-1 overflow-y-auto no-scrollbar mt-16 ml-2 mr-4">
           <Outlet />
         </main>

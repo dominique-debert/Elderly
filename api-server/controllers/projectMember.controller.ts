@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import IProjectMember from '@/@types/data/projects/IProjectMember.js';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import IProjectMember from "@/types/data/projects/IProjectMember.js";
 
 const prisma = new PrismaClient();
 
@@ -16,10 +16,9 @@ export const createProjectMember = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const projectMember = await prisma.projectMember.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(projectMember);
   } catch (error) {
@@ -35,8 +34,8 @@ export const getAllProjectMembers = async (
   try {
     const projectMembers = await prisma.projectMember.findMany({
       orderBy: {
-        joinDate: 'desc'
-      }
+        joinDate: "desc",
+      },
     });
     res.status(200).json({ projectMembers });
   } catch (error) {
@@ -53,11 +52,11 @@ export const getProjectMemberById = async (
 
   try {
     const projectMember = await prisma.projectMember.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!projectMember) {
-      throw createHttpError(404, 'Membre de projet non trouvé');
+      throw createHttpError(404, "Membre de projet non trouvé");
     }
 
     res.status(200).json(projectMember);
@@ -75,19 +74,19 @@ export const updateProjectMember = async (
 
   try {
     const projectMember = await prisma.projectMember.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!projectMember) {
-      throw createHttpError(404, 'Membre de projet non trouvé');
+      throw createHttpError(404, "Membre de projet non trouvé");
     }
 
     const updatedProjectMember = await prisma.projectMember.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updatedProjectMember);
@@ -105,18 +104,18 @@ export const deleteProjectMember = async (
 
   try {
     const projectMember = await prisma.projectMember.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!projectMember) {
-      throw createHttpError(404, 'Membre de projet non trouvé');
+      throw createHttpError(404, "Membre de projet non trouvé");
     }
 
     await prisma.projectMember.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Membre de projet supprimé avec succès' });
+    res.status(200).json({ message: "Membre de projet supprimé avec succès" });
   } catch (error) {
     next(error);
   }

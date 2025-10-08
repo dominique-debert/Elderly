@@ -5,7 +5,7 @@ import { WellnessCardView } from "./WellnessCardView";
 import { WellnessListSwitcher } from "./WellnessModeSwitcher";
 import { WellnessListView } from "./WellnessListView";
 import { WellnessTableView } from "./WellnessTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

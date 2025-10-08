@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ForumEditModal } from "./ForumEditModal";
 import { ForumDeleteModal } from "./ForumDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function ForumListItem({ forum }: { forum: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

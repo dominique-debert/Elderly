@@ -3,8 +3,8 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 import { ProjectDeleteModal } from "./ProjectDeleteModal";
 import { ProjectEditModal } from "./ProjectEditModal";
-import { TableCell, TableRow } from "../ui/table";
-import type { ICategory } from "@/@types";
+import { TableCell, TableRow } from "@/components/ui/table";
+import type { ICategory } from "@/types";
 
 export default function ProjectTableRow({ project }: { project: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

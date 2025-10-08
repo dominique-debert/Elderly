@@ -1,18 +1,15 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createMood,
   getAllMoods,
   getMoodById,
   updateMood,
-  deleteMood
-} from '@/controllers/index.controller';
+  deleteMood,
+} from "@/controllers/index.controller";
 
-import {
-  moodSchema,
-  idParamMoodSchema
-} from '../validators/mood.validator';
+import { moodSchema, idParamMoodSchema } from "@/validators/mood.validator";
 
-import { validate } from '@/middlewares/validate';
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -41,7 +38,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(moodSchema), createMood);
+router.post("/", validate(moodSchema), createMood);
 
 /**
  * @swagger
@@ -64,7 +61,7 @@ router.post('/', validate(moodSchema), createMood);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllMoods);
+router.get("/", getAllMoods);
 
 /**
  * @swagger
@@ -88,7 +85,7 @@ router.get('/', getAllMoods);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamMoodSchema, 'params'), getMoodById);
+router.get("/:id", validate(idParamMoodSchema, "params"), getMoodById);
 
 /**
  * @swagger
@@ -113,7 +110,7 @@ router.get('/:id', validate(idParamMoodSchema, 'params'), getMoodById);
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamMoodSchema, 'params'), updateMood);
+router.put("/:id", validate(idParamMoodSchema, "params"), updateMood);
 
 /**
  * @swagger
@@ -132,6 +129,6 @@ router.put('/:id', validate(idParamMoodSchema, 'params'), updateMood);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamMoodSchema, 'params'), deleteMood);
+router.delete("/:id", validate(idParamMoodSchema, "params"), deleteMood);
 
 export default router;

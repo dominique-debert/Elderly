@@ -4,9 +4,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import BadgeTableRow from "./BadgeTableRow";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export function BadgeTableView({ badges }: { badges: ICategory[] }) {
   return (

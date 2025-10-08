@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createSatisfactionSurvey,
   getAllSatisfactionSurveys,
   getSatisfactionSurveyById,
   updateSatisfactionSurvey,
-  deleteSatisfactionSurvey
-} from '@/controllers/index.controller';
+  deleteSatisfactionSurvey,
+} from "@/controllers/index.controller";
 
-import { satisfactionSurveySchema, idParamSatisfactionSurveySchema } from '../validators/satisfactionSurvey.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  satisfactionSurveySchema,
+  idParamSatisfactionSurveySchema,
+} from "@/validators/satisfactionSurvey.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(satisfactionSurveySchema), createSatisfactionSurvey);
+router.post("/", validate(satisfactionSurveySchema), createSatisfactionSurvey);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(satisfactionSurveySchema), createSatisfactionSurvey);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllSatisfactionSurveys);
+router.get("/", getAllSatisfactionSurveys);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllSatisfactionSurveys);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamSatisfactionSurveySchema, 'params'), getSatisfactionSurveyById);
+router.get(
+  "/:id",
+  validate(idParamSatisfactionSurveySchema, "params"),
+  getSatisfactionSurveyById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamSatisfactionSurveySchema, 'params'), getSatis
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamSatisfactionSurveySchema, 'params'), updateSatisfactionSurvey);
+router.put(
+  "/:id",
+  validate(idParamSatisfactionSurveySchema, "params"),
+  updateSatisfactionSurvey
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamSatisfactionSurveySchema, 'params'), updateSa
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamSatisfactionSurveySchema, 'params'), deleteSatisfactionSurvey);
+router.delete(
+  "/:id",
+  validate(idParamSatisfactionSurveySchema, "params"),
+  deleteSatisfactionSurvey
+);
 
 export default router;

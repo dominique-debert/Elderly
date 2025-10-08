@@ -3,8 +3,8 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 import { HelpDeleteModal } from "./HelpDeleteModal";
 import { HelpEditModal } from "./HelpEditModal";
-import { TableCell, TableRow } from "../ui/table";
-import type { ICategory } from "@/@types";
+import { TableCell, TableRow } from "@/components/ui/table";
+import type { ICategory } from "@/types";
 
 export default function HelpTableRow({ help }: { help: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

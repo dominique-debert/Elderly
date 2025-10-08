@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createProjectMember,
   getAllProjectMembers,
   getProjectMemberById,
   updateProjectMember,
-  deleteProjectMember
-} from '@/controllers/index.controller';
+  deleteProjectMember,
+} from "@/controllers/index.controller";
 
-import { projectMemberSchema, idParamProjectMemberSchema } from '../validators/projectMember.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  projectMemberSchema,
+  idParamProjectMemberSchema,
+} from "@/validators/projectMember.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(projectMemberSchema), createProjectMember);
+router.post("/", validate(projectMemberSchema), createProjectMember);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(projectMemberSchema), createProjectMember);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllProjectMembers);
+router.get("/", getAllProjectMembers);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllProjectMembers);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamProjectMemberSchema, 'params'), getProjectMemberById);
+router.get(
+  "/:id",
+  validate(idParamProjectMemberSchema, "params"),
+  getProjectMemberById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamProjectMemberSchema, 'params'), getProjectMem
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamProjectMemberSchema, 'params'), updateProjectMember);
+router.put(
+  "/:id",
+  validate(idParamProjectMemberSchema, "params"),
+  updateProjectMember
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamProjectMemberSchema, 'params'), updateProject
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamProjectMemberSchema, 'params'), deleteProjectMember);
+router.delete(
+  "/:id",
+  validate(idParamProjectMemberSchema, "params"),
+  deleteProjectMember
+);
 
 export default router;

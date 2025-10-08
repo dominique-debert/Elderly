@@ -7,7 +7,7 @@ import {
   getCategoryTypes,
 } from "@/services/categoryMeta.service";
 
-import type { ICategory, ICategoryType, IChapter } from "@/@types";
+import type { ICategory, ICategoryType, IChapter } from "@/types";
 
 type UrbanIssueModalProps = {
   urbanIssue: ICategory;

@@ -5,7 +5,7 @@ import { UrbanIssueCardView } from "./UrbanIssueCardView";
 import { UrbanIssueModeSwitcher } from "./UrbanIssueModeSwitcher";
 import { UrbanIssueListView } from "./UrbanIssueListView";
 import { UrbanIssueTableView } from "./UrbanIssueTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

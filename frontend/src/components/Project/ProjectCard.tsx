@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { ProjectDeleteModal } from "./ProjectDeleteModal";
 import { ProjectEditModal } from "./ProjectEditModal";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type ProjectCardProps = {
   project: ICategory;

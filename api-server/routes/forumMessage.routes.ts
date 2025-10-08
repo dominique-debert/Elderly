@@ -1,18 +1,18 @@
-import { Router } from 'express';
-import { validate } from '@/middlewares/validate';
+import { Router } from "express";
+import { validate } from "@/middlewares/validate";
 
 import {
   forumMessageSchema,
-  idParamForumMessageSchema
-} from '../validators/forumMessage.validator';
+  idParamForumMessageSchema,
+} from "@/validators/forumMessage.validator";
 
 import {
   createForumMessage,
   getAllForumMessages,
   getForumMessageById,
   updateForumMessage,
-  deleteForumMessage
-} from '@/controllers/index.controller';
+  deleteForumMessage,
+} from "@/controllers/index.controller";
 
 const router = Router();
 
@@ -32,11 +32,7 @@ const router = Router();
  *       201:
  *         description: Message créé
  */
-router.post(
-  '/',
-  validate(forumMessageSchema),
-  createForumMessage
-);
+router.post("/", validate(forumMessageSchema), createForumMessage);
 
 /**
  * @swagger
@@ -54,10 +50,7 @@ router.post(
  *               items:
  *                 $ref: '#/components/schemas/ForumMessage'
  */
-router.get(
-  '/',
-  getAllForumMessages
-);
+router.get("/", getAllForumMessages);
 
 /**
  * @swagger
@@ -84,8 +77,8 @@ router.get(
  *         description: Message non trouvé
  */
 router.get(
-  '/:id',
-  validate(idParamForumMessageSchema, 'params'),
+  "/:id",
+  validate(idParamForumMessageSchema, "params"),
   getForumMessageById
 );
 
@@ -115,8 +108,8 @@ router.get(
  *         description: Message non trouvé
  */
 router.put(
-  '/:id',
-  validate(idParamForumMessageSchema, 'params'),
+  "/:id",
+  validate(idParamForumMessageSchema, "params"),
   updateForumMessage
 );
 
@@ -141,8 +134,8 @@ router.put(
  *         description: Message non trouvé
  */
 router.delete(
-  '/:id',
-  validate(idParamForumMessageSchema, 'params'),
+  "/:id",
+  validate(idParamForumMessageSchema, "params"),
   deleteForumMessage
 );
 

@@ -17,7 +17,7 @@ import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/stores/auth";
 import { useQuery } from "@tanstack/react-query";
 import { fetchNotificationsByUserId } from "@/services/notifications.service";
-import { INotification } from "@/@types";
+import { INotification } from "@/types";
 import NotificationList from "./Notifications/NotificationList";
 import axios, { AxiosError } from "axios";
 

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { ICategoryState } from "@/@types";
+import { ICategoryState } from "@/types";
 
 export const useCategoryStore = create<ICategoryState>((set) => ({
   selectedCategory: null,

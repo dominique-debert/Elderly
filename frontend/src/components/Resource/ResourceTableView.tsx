@@ -4,9 +4,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import ResourceTableRow from "./ResourceTableRow";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export function ResourceTableView({ resources }: { resources: ICategory[] }) {
   return (

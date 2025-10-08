@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ProjectEditModal } from "./ProjectEditModal";
 import { ProjectDeleteModal } from "./ProjectDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function ProjectListItem({ project }: { project: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

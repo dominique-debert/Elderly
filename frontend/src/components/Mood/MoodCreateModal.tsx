@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createMood } from "@/services/moods.service";
 import { toast } from "react-hot-toast";
-import { EValence } from "@/@types";
+import { EValence } from "@/types";
 
 type MoodCreateModalProps = {
   onClose: () => void;

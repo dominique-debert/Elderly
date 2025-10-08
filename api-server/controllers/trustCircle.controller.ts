@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { createHttpError } from '@/utils/httpError.js';
-import { PrismaClient } from '@/prisma/client.js';
-import ITrustCircle from '@/@types/data/ITrustCircle';
+import { Request, Response, NextFunction } from "express";
+import { createHttpError } from "@/utils/httpError.js";
+import { PrismaClient } from "@/prisma/client.js";
+import ITrustCircle from "@/types/data/ITrustCircle";
 
 const prisma = new PrismaClient();
 
@@ -16,12 +16,11 @@ export const createTrustCircle = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const trustCircle = await prisma.trustCircle.create({
       data: {
-        ...req.body
-      }
+        ...req.body,
+      },
     });
     res.status(201).json(trustCircle);
   } catch (error) {
@@ -37,8 +36,8 @@ export const getAllTrustCircle = async (
   try {
     const trustCircle = await prisma.trustCircle.findMany({
       orderBy: {
-        dateAdded: 'desc'
-      }
+        dateAdded: "desc",
+      },
     });
     res.status(200).json({ trustCircle });
   } catch (error) {
@@ -55,11 +54,11 @@ export const getTrustCircleById = async (
 
   try {
     const trustCircle = await prisma.trustCircle.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!trustCircle) {
-      throw createHttpError(404, 'Cercle de confiance non trouvé');
+      throw createHttpError(404, "Cercle de confiance non trouvé");
     }
 
     res.status(200).json(trustCircle);
@@ -77,19 +76,19 @@ export const updateTrustCircle = async (
 
   try {
     const trustCircle = await prisma.trustCircle.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!trustCircle) {
-      throw createHttpError(404, 'Cercle de confiance non trouvé');
+      throw createHttpError(404, "Cercle de confiance non trouvé");
     }
 
     const updateTrustCircle = await prisma.trustCircle.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
-      where: { id }
+      where: { id },
     });
 
     res.status(200).json(updateTrustCircle);
@@ -107,18 +106,20 @@ export const deleteTrustCircle = async (
 
   try {
     const trustCircle = await prisma.trustCircle.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!trustCircle) {
-      throw createHttpError(404, 'Cercle de confiance non trouvé');
+      throw createHttpError(404, "Cercle de confiance non trouvé");
     }
 
     await prisma.trustCircle.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Cercle de confiance supprimé avec succès' });
+    res
+      .status(200)
+      .json({ message: "Cercle de confiance supprimé avec succès" });
   } catch (error) {
     next(error);
   }

@@ -1,6 +1,6 @@
 import { deleteForumCategory } from "@/services/forumCategory.service";
 import { toast } from "react-hot-toast";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type ForumDeleteModalProps = {
   category: ICategory;

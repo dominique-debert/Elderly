@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createUserStatistics,
   getAllUserStatistics,
   getUserStatisticsById,
   updateUserStatistics,
-  deleteUserStatistics
-} from '@/controllers/index.controller';
+  deleteUserStatistics,
+} from "@/controllers/index.controller";
 
-import { userStatisticsSchema, idParamUserStatisticsSchema } from '../validators/userStatistics.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  userStatisticsSchema,
+  idParamUserStatisticsSchema,
+} from "@/validators/userStatistics.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(userStatisticsSchema), createUserStatistics);
+router.post("/", validate(userStatisticsSchema), createUserStatistics);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(userStatisticsSchema), createUserStatistics);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllUserStatistics);
+router.get("/", getAllUserStatistics);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllUserStatistics);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUserStatisticsSchema, 'params'), getUserStatisticsById);
+router.get(
+  "/:id",
+  validate(idParamUserStatisticsSchema, "params"),
+  getUserStatisticsById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamUserStatisticsSchema, 'params'), getUserStati
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUserStatisticsSchema, 'params'), updateUserStatistics);
+router.put(
+  "/:id",
+  validate(idParamUserStatisticsSchema, "params"),
+  updateUserStatistics
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamUserStatisticsSchema, 'params'), updateUserSt
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUserStatisticsSchema, 'params'), deleteUserStatistics);
+router.delete(
+  "/:id",
+  validate(idParamUserStatisticsSchema, "params"),
+  deleteUserStatistics
+);
 
 export default router;

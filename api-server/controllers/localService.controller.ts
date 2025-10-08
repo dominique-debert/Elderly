@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import createHttpError from 'http-errors';
-import { PrismaClient } from '@/prisma/client.js'; // ou '@/prisma/client' si tu utilises des alias
-import ILocalService from '@/@types/data/ILocalService.js';
+import { Request, Response, NextFunction } from "express";
+import createHttpError from "http-errors";
+import { PrismaClient } from "@/prisma/client.js"; // ou '@/prisma/client' si tu utilises des alias
+import ILocalService from "@/types/data/ILocalService.js";
 
 const prisma = new PrismaClient();
 
@@ -16,10 +16,9 @@ export const createLocalService = async (
   res: Response,
   next: NextFunction
 ) => {
-
   try {
     const newService = await prisma.localService.create({
-      data: req.body
+      data: req.body,
     });
     res.status(201).json(newService);
   } catch (error) {
@@ -35,8 +34,8 @@ export const getAllLocalServices = async (
   try {
     const localServices = await prisma.localService.findMany({
       orderBy: {
-        name: 'asc'
-      }
+        name: "asc",
+      },
     });
     res.status(200).json({ localServices });
   } catch (error) {
@@ -53,11 +52,11 @@ export const getLocalServiceById = async (
 
   try {
     const service = await prisma.localService.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!service) {
-      throw createHttpError(404, 'Service local non trouvé');
+      throw createHttpError(404, "Service local non trouvé");
     }
 
     res.status(200).json(service);
@@ -75,17 +74,17 @@ export const updateLocalService = async (
 
   try {
     const service = await prisma.localService.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!service) {
-      throw createHttpError(404, 'Service local non trouvé');
+      throw createHttpError(404, "Service local non trouvé");
     }
 
     const updatedService = await prisma.localService.update({
       data: {
         ...req.body,
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       where: { id },
     });
@@ -105,18 +104,18 @@ export const deleteLocalService = async (
 
   try {
     const service = await prisma.localService.findUnique({
-      where: { id }
+      where: { id },
     });
 
     if (!service) {
-      throw createHttpError(404, 'Service local non trouvé');
+      throw createHttpError(404, "Service local non trouvé");
     }
 
     await prisma.localService.delete({
-      where: { id }
+      where: { id },
     });
 
-    res.status(200).json({ message: 'Service supprimé avec succès' });
+    res.status(200).json({ message: "Service supprimé avec succès" });
   } catch (error) {
     next(error);
   }

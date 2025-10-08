@@ -1,10 +1,10 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
-import { ActivityDeleteModal } from "./ActivityDeleteModal";
-import { ActivityEditModal } from "./ActivityEditModal";
-import { TableCell, TableRow } from "../ui/table";
-import type { ICategory } from "@/@types";
+import { ActivityDeleteModal } from "@/components/Activity/ActivityDeleteModal";
+import { ActivityEditModal } from "@/components/Activity/ActivityEditModal";
+import { TableCell, TableRow } from "@/components/ui/table";
+import type { ICategory } from "@/types";
 
 export default function ActivityTableRow({
   activity,

@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createUserSkill,
   getAllUserSkills,
   getUserSkillById,
   updateUserSkill,
-  deleteUserSkill
-} from '@/controllers/index.controller';
+  deleteUserSkill,
+} from "@/controllers/index.controller";
 
-import { userSkillSchema, idParamUserSkillSchema } from '../validators/userSkill.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  userSkillSchema,
+  idParamUserSkillSchema,
+} from "@/validators/userSkill.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(userSkillSchema), createUserSkill);
+router.post("/", validate(userSkillSchema), createUserSkill);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(userSkillSchema), createUserSkill);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllUserSkills);
+router.get("/", getAllUserSkills);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllUserSkills);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamUserSkillSchema, 'params'), getUserSkillById);
+router.get(
+  "/:id",
+  validate(idParamUserSkillSchema, "params"),
+  getUserSkillById
+);
 
 /**
  * @swagger
@@ -115,7 +122,7 @@ router.get('/:id', validate(idParamUserSkillSchema, 'params'), getUserSkillById)
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamUserSkillSchema, 'params'), updateUserSkill);
+router.put("/:id", validate(idParamUserSkillSchema, "params"), updateUserSkill);
 
 /**
  * @swagger
@@ -136,6 +143,10 @@ router.put('/:id', validate(idParamUserSkillSchema, 'params'), updateUserSkill);
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamUserSkillSchema, 'params'), deleteUserSkill);
+router.delete(
+  "/:id",
+  validate(idParamUserSkillSchema, "params"),
+  deleteUserSkill
+);
 
 export default router;

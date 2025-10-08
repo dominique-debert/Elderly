@@ -4,7 +4,7 @@ import { useState } from "react";
 import { BadgeEditModal } from "./BadgeEditModal";
 import { BadgeDeleteModal } from "./BadgeDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function BadgeListItem({ badge }: { badge: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

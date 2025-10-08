@@ -5,8 +5,8 @@ import {
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services/categoryMeta.service";
-import { IChapter } from "@/@types";
-import { ICategoryType } from "@/@types";
+import { IChapter } from "@/types";
+import { ICategoryType } from "@/types";
 
 type ActivityCreateModalProps = {
   onClose: () => void;

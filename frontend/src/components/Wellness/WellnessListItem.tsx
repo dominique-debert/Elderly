@@ -4,7 +4,7 @@ import { useState } from "react";
 import { WellnessEditModal } from "./WellnessEditModal";
 import { DeleteWellnessModal } from "./WellnessDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function WellnessListItem({
   wellnessCategory,

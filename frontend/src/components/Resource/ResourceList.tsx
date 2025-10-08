@@ -5,7 +5,7 @@ import { ResourceCardView } from "./ResourceCardView";
 import { ResourceModeSwitcher } from "./ResourceModeSwitcher";
 import { ResourceListView } from "./ResourceListView";
 import { ResourceTableView } from "./ResourceTableView";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 type Mode = "card" | "list" | "table";
 

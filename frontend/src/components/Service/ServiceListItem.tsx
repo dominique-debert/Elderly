@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ServiceEditModal } from "./ServiceEditModal";
 import { ServiceDeleteModal } from "./ServiceDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function ServiceListItem({ service }: { service: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);

@@ -1,14 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   createServiceCompleted,
   getAllServiceCompleted,
   getServiceCompletedById,
   updateServiceCompleted,
-  deleteServiceCompleted
-} from '@/controllers/index.controller';
+  deleteServiceCompleted,
+} from "@/controllers/index.controller";
 
-import { serviceCompletedSchema, idParamServiceCompletedSchema } from '../validators/serviceCompleted.validator';
-import { validate } from '@/middlewares/validate';
+import {
+  serviceCompletedSchema,
+  idParamServiceCompletedSchema,
+} from "@/validators/serviceCompleted.validator";
+import { validate } from "@/middlewares/validate";
 
 const router = Router();
 
@@ -37,7 +40,7 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post('/', validate(serviceCompletedSchema), createServiceCompleted);
+router.post("/", validate(serviceCompletedSchema), createServiceCompleted);
 
 /**
  * @swagger
@@ -60,7 +63,7 @@ router.post('/', validate(serviceCompletedSchema), createServiceCompleted);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/', getAllServiceCompleted);
+router.get("/", getAllServiceCompleted);
 
 /**
  * @swagger
@@ -88,7 +91,11 @@ router.get('/', getAllServiceCompleted);
  *       500:
  *         description: Erreur serveur
  */
-router.get('/:id', validate(idParamServiceCompletedSchema, 'params'), getServiceCompletedById);
+router.get(
+  "/:id",
+  validate(idParamServiceCompletedSchema, "params"),
+  getServiceCompletedById
+);
 
 /**
  * @swagger
@@ -115,7 +122,11 @@ router.get('/:id', validate(idParamServiceCompletedSchema, 'params'), getService
  *       500:
  *         description: Erreur serveur
  */
-router.put('/:id', validate(idParamServiceCompletedSchema, 'params'), updateServiceCompleted);
+router.put(
+  "/:id",
+  validate(idParamServiceCompletedSchema, "params"),
+  updateServiceCompleted
+);
 
 /**
  * @swagger
@@ -136,6 +147,10 @@ router.put('/:id', validate(idParamServiceCompletedSchema, 'params'), updateServ
  *       500:
  *         description: Erreur serveur
  */
-router.delete('/:id', validate(idParamServiceCompletedSchema, 'params'), deleteServiceCompleted);
+router.delete(
+  "/:id",
+  validate(idParamServiceCompletedSchema, "params"),
+  deleteServiceCompleted
+);
 
 export default router;

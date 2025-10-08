@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CognitiveEditModal } from "./CognitiveEditModal";
 import { CognitiveDeleteModal } from "./CognitiveDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/@types";
+import type { ICategory } from "@/types";
 
 export default function CognitiveListItem({
   cognitive,
