@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { createHttpError } from "@/utils/httpError.js";
 import { PrismaClient } from "@/prisma/client.js";
-import IResource from "@/types/data/IResource";
+import IResource from "@/types/data/resources/IResource";
 
 const prisma = new PrismaClient();
 

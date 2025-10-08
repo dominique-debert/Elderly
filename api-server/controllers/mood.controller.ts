@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { createHttpError } from "@/utils/httpError";
 import { PrismaClient } from "@/prisma/client";
-import IMood from "@/types/data/IMood";
+import IMood from "@/types/data/health/IMood";
 
 const prisma = new PrismaClient();
 

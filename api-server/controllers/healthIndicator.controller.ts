@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { PrismaClient } from "@/prisma/client.js";
 import { createHttpError } from "@/utils/httpError.js";
-import IHealthIndicator from "@/types/data/IHealthIndicator";
+import IHealthIndicator from "@/types/data/health/IHealthIndicator";
 
 const prisma = new PrismaClient();
 
