@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { createHttpError } from "@/utils";
+import createHttpError from "http-errors";
 import { PrismaClient } from "@/prisma";
 import { IWellnessGoal } from "@/types";
 

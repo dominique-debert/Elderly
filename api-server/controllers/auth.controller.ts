@@ -1,10 +1,12 @@
 import { NextFunction, Request, Response } from "express";
-import { PrismaClient } from "@/prisma/client";
 import argon2 from "argon2";
-import { createHttpError, generateToken } from "@/utils";
-import { signUpSchema, signInSchema } from "@/validators";
+import createHttpError from "http-errors";
 import fs from "fs";
 import path from "path";
+
+import { PrismaClient } from "@/prisma";
+import { generateToken } from "@/utils";
+import { signUpSchema, signInSchema } from "@/validators";
 
 const prisma = new PrismaClient();
 
