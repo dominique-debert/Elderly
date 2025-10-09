@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import { Navbar, Sidebar } from "@/components";
+import { Navbar, LeftSidebar } from "@/components";
 
 export function Layout() {
   const { isAuthenticated } = useAuthStore();
@@ -12,7 +12,7 @@ export function Layout() {
       <div className="flex h-full">
         {" "}
         {/* 4rem = hauteur de la navbar */}
-        {isAuthenticated && <Sidebar />}
+        {isAuthenticated && <LeftSidebar />}
         <main className="flex-1 overflow-y-auto no-scrollbar mt-16 ml-2 mr-4">
           <Outlet />
         </main>

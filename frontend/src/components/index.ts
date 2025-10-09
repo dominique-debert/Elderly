@@ -4,7 +4,6 @@ export * from "./ui/card";
 export * from "./ui/input";
 export * from "./ui/separator";
 export * from "./ui/sheet";
-export * from "./ui/sidebar";
 export * from "./ui/skeleton";
 export * from "./ui/switch";
 export * from "./ui/table";
@@ -100,7 +99,7 @@ export * from "./Help/HelpTableView";
 // Layout
 export * from "./Layout/AdminTabBar";
 export * from "./Layout/Layout";
-export * from "./Layout/LeftSidebar";
+export * from "./Layout/LeftSidebar.tsx";
 export * from "./Layout/Navbar";
 
 // Mood Components
