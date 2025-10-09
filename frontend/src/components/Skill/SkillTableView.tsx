@@ -1,12 +1,12 @@
+import type { ICategory } from "@/types";
 import {
+  SkillTableRow,
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import SkillTableRow from "./SkillTableRow";
-import type { ICategory } from "@/types";
+} from "@/components";
 
 export function SkillTableView({ skills }: { skills: ICategory[] }) {
   return (

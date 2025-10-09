@@ -1,12 +1,13 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { WellnessEditModal } from "./WellnessEditModal";
-import { DeleteWellnessModal } from "./WellnessDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
 
-export default function WellnessListItem({
+import { WellnessDeleteModal, WellnessEditModal } from "@/components";
+
+export function WellnessListItem({
   wellnessCategory,
 }: {
   wellnessCategory: ICategory;
@@ -66,7 +67,7 @@ export default function WellnessListItem({
       )}
 
       {isConfirmDeleteOpen && (
-        <DeleteWellnessModal
+        <WellnessDeleteModal
           category={wellnessCategory}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

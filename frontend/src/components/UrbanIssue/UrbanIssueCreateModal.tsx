@@ -12,10 +12,10 @@ type UrbanIssueCreateModalProps = {
   onCreated: () => void;
 };
 
-export const UrbanIssueCreateModal = ({
+export function UrbanIssueCreateModal({
   onClose,
   onCreated,
-}: UrbanIssueCreateModalProps) => {
+}: UrbanIssueCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +157,4 @@ export const UrbanIssueCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

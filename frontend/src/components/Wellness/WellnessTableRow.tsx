@@ -1,12 +1,17 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { DeleteWellnessModal } from "./WellnessDeleteModal";
-import { WellnessEditModal } from "./WellnessEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 import type { ICategory } from "@/types";
 
-export default function WellnessTableRow({
+import {
+  WellnessDeleteModal,
+  WellnessEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function WellnessTableRow({
   wellnessCategory,
 }: {
   wellnessCategory: ICategory;
@@ -48,7 +53,7 @@ export default function WellnessTableRow({
       )}
 
       {isConfirmDeleteOpen && (
-        <DeleteWellnessModal
+        <WellnessDeleteModal
           category={wellnessCategory}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={() => {

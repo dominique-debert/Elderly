@@ -1,16 +1,17 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { UrbanIssueDeleteModal } from "./UrbanIssueDeleteModal";
-import { UrbanIssueEditModal } from "./UrbanIssueEditModal";
-import { TableCell, TableRow } from "@/components/ui/table";
 import type { ICategory } from "@/types";
 
-export default function UrbanIssueTableRow({
-  urbanIssue,
-}: {
-  urbanIssue: ICategory;
-}) {
+import {
+  UrbanIssueDeleteModal,
+  UrbanIssueEditModal,
+  TableCell,
+  TableRow,
+} from "@/components";
+
+export function UrbanIssueTableRow({ urbanIssue }: { urbanIssue: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
 

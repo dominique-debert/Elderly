@@ -1,5 +1,5 @@
-import { UrbanIssueCard } from "./UrbanIssueCard";
 import type { ICategory } from "@/types";
+import { UrbanIssueCard } from "@/components";
 
 type UrbanIssueCardViewProps = {
   urbanIssues: ICategory[];

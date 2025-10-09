@@ -1,12 +1,12 @@
+import type { ICategory } from "@/types";
 import {
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import UrbanIssueTableRow from "./UrbanIssueTableRow";
-import type { ICategory } from "@/types";
+  UrbanIssueTableRow,
+} from "@/components";
 
 export function UrbanIssueTableView({
   urbanIssues,

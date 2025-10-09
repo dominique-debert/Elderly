@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import SkillListItem from "./SkillListItem";
+import { SkillListItem } from "@/components";
 
 type SkillListViewProps = {
   skills: ICategory[];

@@ -1,10 +1,11 @@
 import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
-import { useQueryClient } from "@tanstack/react-query";
+
 import { useState } from "react";
-import { DeleteWellnessModal } from "./WellnessDeleteModal";
-import { WellnessEditModal } from "./WellnessEditModal";
+import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
+
+import { WellnessDeleteModal, WellnessEditModal } from "@/components";
 
 type WellnessCardProps = {
   wellnessCategory: ICategory;
@@ -77,7 +78,7 @@ export function WellnessCard({ wellnessCategory }: WellnessCardProps) {
         )}
 
         {isConfirmDeleteOpen && (
-          <DeleteWellnessModal
+          <WellnessDeleteModal
             category={wellnessCategory}
             onClose={() => setIsConfirmDeleteOpen(false)}
             onConfirm={handleDeleted}

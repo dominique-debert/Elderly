@@ -8,7 +8,7 @@ type DeleteWellnessModalProps = {
   onConfirm?: () => void;
 };
 
-export function DeleteWellnessModal({
+export function WellnessDeleteModal({
   category,
   onClose,
   onConfirm,

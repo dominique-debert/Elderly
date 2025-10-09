@@ -1,12 +1,13 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { SkillEditModal } from "./SkillEditModal";
-import { SkillDeleteModal } from "./SkillDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
 
-export default function SkillListItem({ skill }: { skill: ICategory }) {
+import { SkillDeleteModal, SkillEditModal } from "@/components";
+
+export function SkillListItem({ skill }: { skill: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();

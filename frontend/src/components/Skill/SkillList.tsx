@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchSkillCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { SkillCardView } from "./SkillCardView";
-import { SkillModeSwitcher } from "./SkillModeSwitcher";
-import { SkillListView } from "./SkillListView";
-import { SkillTableView } from "./SkillTableView";
+
+import {
+  SkillCardView,
+  SkillListView,
+  SkillModeSwitcher,
+  SkillTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const SkillList = () => {
+export function SkillList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("skillViewMode");
     return (savedMode as Mode) || "list";
@@ -97,4 +101,4 @@ export const SkillList = () => {
       )}
     </div>
   );
-};
+}

@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchUrbanIssueCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { UrbanIssueCardView } from "./UrbanIssueCardView";
-import { UrbanIssueModeSwitcher } from "./UrbanIssueModeSwitcher";
-import { UrbanIssueListView } from "./UrbanIssueListView";
-import { UrbanIssueTableView } from "./UrbanIssueTableView";
+
+import {
+  UrbanIssueCardView,
+  UrbanIssueModeSwitcher,
+  UrbanIssueListView,
+  UrbanIssueTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const UrbanIssueList = () => {
+export function UrbanIssueList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("urbanIssueViewMode");
     return (savedMode as Mode) || "list";
@@ -106,4 +110,4 @@ export const UrbanIssueList = () => {
       )}
     </div>
   );
-};
+}

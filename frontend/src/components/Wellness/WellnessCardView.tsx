@@ -1,5 +1,5 @@
-import { WellnessCard } from "./WellnessCard";
 import type { ICategory } from "@/types";
+import { WellnessCard } from "@/components";
 
 type WellnessCardViewProps = {
   wellnessCategories: ICategory[];

@@ -1,10 +1,11 @@
-import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import Icon from "@mdi/react";
-import { useQueryClient } from "@tanstack/react-query";
+import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { SkillDeleteModal } from "./SkillDeleteModal";
-import { SkillEditModal } from "./SkillEditModal";
+import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
+
+import { SkillDeleteModal, SkillEditModal } from "@/components";
 
 type SkillCardProps = {
   skill: ICategory;

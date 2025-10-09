@@ -1,10 +1,11 @@
 import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
-import { useQueryClient } from "@tanstack/react-query";
+
 import { useState } from "react";
-import { UrbanIssueDeleteModal } from "./UrbanIssueDeleteModal";
-import { UrbanIssueEditModal } from "./UrbanIssueEditModal";
+import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
+
+import { UrbanIssueDeleteModal, UrbanIssueEditModal } from "@/components";
 
 type UrbanIssueCardProps = {
   urbanIssue: ICategory;

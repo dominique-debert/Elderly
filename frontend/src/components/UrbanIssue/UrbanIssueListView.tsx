@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import UrbanIssueListItem from "./UrbanIssueListItem";
+import { UrbanIssueListItem } from "@/components";
 
 type UrbanIssueListViewProps = {
   urbanIssues: ICategory[];

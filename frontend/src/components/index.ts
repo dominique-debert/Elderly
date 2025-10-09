@@ -192,6 +192,7 @@ export * from "./Skill/SkillEditModal";
 export * from "./Skill/SkillList";
 export * from "./Skill/SkillListItem";
 export * from "./Skill/SkillListView";
+export * from "./Skill/SkillModeSwitcher";
 export * from "./Skill/SkillTableRow";
 export * from "./Skill/SkillTableView";
 
@@ -204,6 +205,7 @@ export * from "./UrbanIssue/UrbanIssueEditModal";
 export * from "./UrbanIssue/UrbanIssueList";
 export * from "./UrbanIssue/UrbanIssueListItem";
 export * from "./UrbanIssue/UrbanIssueListView";
+export * from "./UrbanIssue/UrbanIssueModeSwitcher";
 export * from "./UrbanIssue/UrbanIssueTableRow";
 export * from "./UrbanIssue/UrbanIssueTableView";
 
@@ -219,5 +221,6 @@ export * from "./Wellness/WellnessEditModal";
 export * from "./Wellness/WellnessList";
 export * from "./Wellness/WellnessListItem";
 export * from "./Wellness/WellnessListView";
+export * from "./Wellness/WellnessModeSwitcher";
 export * from "./Wellness/WellnessTableRow";
 export * from "./Wellness/WellnessTableView";

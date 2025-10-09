@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchWellnessCategories } from "@/services";
 import type { ICategory } from "@/types";
-import { WellnessCardView } from "./WellnessCardView";
-import { WellnessListSwitcher } from "./WellnessModeSwitcher";
-import { WellnessListView } from "./WellnessListView";
-import { WellnessTableView } from "./WellnessTableView";
+
+import {
+  WellnessCardView,
+  WellnessListSwitcher,
+  WellnessListView,
+  WellnessTableView,
+} from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export const WellnessList = () => {
+export function WellnessList() {
   const [mode, setMode] = useState<Mode>(() => {
     const savedMode = localStorage.getItem("wellnessViewMode");
     return (savedMode as Mode) || "list";
@@ -84,4 +88,4 @@ export const WellnessList = () => {
       })}
     </div>
   );
-};
+}

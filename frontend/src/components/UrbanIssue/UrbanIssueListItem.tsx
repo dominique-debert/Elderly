@@ -1,16 +1,13 @@
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+
 import { useState } from "react";
-import { UrbanIssueEditModal } from "./UrbanIssueEditModal";
-import { UrbanIssueDeleteModal } from "./UrbanIssueDeleteModal";
 import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
 
-export default function UrbanIssueListItem({
-  urbanIssue,
-}: {
-  urbanIssue: ICategory;
-}) {
+import { UrbanIssueDeleteModal, UrbanIssueEditModal } from "@/components";
+
+export function UrbanIssueListItem({ urbanIssue }: { urbanIssue: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();

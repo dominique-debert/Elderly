@@ -1,5 +1,5 @@
 import { ICategory } from "@/types/ICategory";
-import WellnessListItem from "./WellnessListItem";
+import { WellnessListItem } from "@/components";
 
 type WellnessListViewProps = {
   wellnessCategories: ICategory[];

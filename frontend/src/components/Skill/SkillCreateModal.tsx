@@ -12,10 +12,10 @@ type SkillCreateModalProps = {
   onCreated: () => void;
 };
 
-export const SkillCreateModal = ({
+export function SkillCreateModal({
   onClose,
   onCreated,
-}: SkillCreateModalProps) => {
+}: SkillCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -157,4 +157,4 @@ export const SkillCreateModal = ({
       </div>
     </dialog>
   );
-};
+}

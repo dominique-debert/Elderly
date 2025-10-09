@@ -40,7 +40,9 @@ const SignupPage = () => {
         return location;
       })
       .catch((error: GeolocationError) => {
-        alert(`Geolocation error: ${error.message}`);
+        // alert(`Geolocation error: ${error.message}`);
+        console.error("Geolocation error:", error);
+        return null;
       });
 
     // Generate a unique filename for the uploaded avatar (preserve extension).
