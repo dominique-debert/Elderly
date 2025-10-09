@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 
-const LoginPage = () => {
+export function LoginPage() {
   const { login, isAuthenticated } = useAuthStore();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -63,6 +63,4 @@ const LoginPage = () => {
       </div>
     </div>
   );
-};
-
-export default LoginPage;
+}

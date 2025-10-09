@@ -3,23 +3,25 @@ import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 import { ETabKey } from "@/types";
 
-import { AdminTabBar } from "@/components/Layout/AdminTabBar";
-import { ActivityList } from "@/components/Activity/ActivityList";
-import { BadgeList } from "@/components/Badge/BadgeList";
-import { CognitiveList } from "@/components/Cognitive/CognitiveList";
-import { ForumList } from "@/components/Forum/ForumList";
-import { HelpList } from "@/components/Help/HelpList";
-import { MoodList } from "@/components/Mood/MoodList";
-import { NutritionList } from "@/components/Nutrition/NutritionList";
-import { ProgramList } from "@/components/Program/ProgramList";
-import { ProjectList } from "@/components/Project/ProjectList";
-import { ResourceList } from "@/components/Resource/ResourceList";
-import { ServiceList } from "@/components/Service/ServiceList";
-import { SkillList } from "@/components/Skill/SkillList";
-import { UrbanIssueList } from "@/components/UrbanIssue/UrbanIssueList";
-import { WellnessList } from "@/components/Wellness/WellnessList";
+import {
+  AdminTabBar,
+  ActivityList,
+  BadgeList,
+  CognitiveList,
+  ForumList,
+  HelpList,
+  MoodList,
+  NutritionList,
+  ProgramList,
+  ProjectList,
+  ResourceList,
+  ServiceList,
+  SkillList,
+  UrbanIssueList,
+  WellnessList,
+} from "@/components";
 
-const AdminPage = () => {
+export function AdminPage() {
   const { user, isAuthenticated } = useAuthStore();
   const [activeTab, setActiveTab] = useState<ETabKey | null>(ETabKey.Mood);
 
@@ -81,6 +83,4 @@ const AdminPage = () => {
       )}
     </div>
   );
-};
-
-export default AdminPage;
+}

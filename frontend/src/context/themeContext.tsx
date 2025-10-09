@@ -16,21 +16,25 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setThemeState] = useState<Theme>("cmyk");
+// Use a lazy initializer that reads localStorage synchronously so the initial render
+// reflects the stored value (avoids immediately overwriting it with the default).
+const getInitialTheme = (): Theme => {
+  if (typeof window === "undefined") return "cmyk";
+  const saved = localStorage.getItem("theme");
+  return saved === "dim" ? "dim" : "cmyk";
+};
 
-  // Initialize theme from localStorage
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    setThemeState(savedTheme || "cmyk");
-  }, []);
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
   // Update document attribute and save to localStorage when theme changes
   useEffect(() => {
-    const htmlElement = document.documentElement;
-    if (htmlElement) {
-      htmlElement.setAttribute("data-theme", theme);
+    if (typeof document === "undefined") return;
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
       localStorage.setItem("theme", theme);
+    } catch {
+      /* ignore storage errors (private mode, etc.) */
     }
   }, [theme]);
 
@@ -47,14 +51,12 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </ThemeContext.Provider>
   );
-};
+}
 
-export const useTheme = () => {
+export function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
-};
-
-export default ThemeContext;
+}

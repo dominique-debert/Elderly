@@ -10,7 +10,7 @@ import {
   WeatherWidget,
 } from "@/components";
 
-const HomePage = () => {
+export function HomePage() {
   const { user, isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
@@ -44,6 +44,4 @@ const HomePage = () => {
       </div>
     </>
   );
-};
-
-export default HomePage;
+}

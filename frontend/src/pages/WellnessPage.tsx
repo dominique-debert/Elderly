@@ -1,14 +1,16 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 
-import { ActivityGoals } from "@/components/";
-import { AIAssistantCard } from "@/components";
-import { GeneralMetricsCard } from "@/components";
-import { HealthGoalsCard } from "@/components";
-import { MealPlan } from "@/components";
-import { MedicationPlanner } from "@/components";
+import {
+  ActivityGoals,
+  AIAssistantCard,
+  GeneralMetricsCard,
+  HealthGoalsCard,
+  MealPlan,
+  MedicationPlanner,
+} from "@/components/";
 
-const WellnessPage = () => {
+export function WellnessPage() {
   const { isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
@@ -33,6 +35,4 @@ const WellnessPage = () => {
       </div>
     </div>
   );
-};
-
-export default WellnessPage;
+}

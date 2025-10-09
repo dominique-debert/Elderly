@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useAuthStore, useSignupStore } from "@/stores";
 import { getGeolocationData } from "@/utils";
 
-const SignupPage = () => {
+export function SignupPage() {
   const {
     email,
     password,
@@ -211,6 +211,4 @@ const SignupPage = () => {
       </div>
     </div>
   );
-};
-
-export default SignupPage;
+}

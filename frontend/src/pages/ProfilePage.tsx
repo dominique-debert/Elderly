@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 import { formatDate } from "@/utils";
 
-const ProfilePage = () => {
+export function ProfilePage() {
   const { user, isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
@@ -43,6 +43,4 @@ const ProfilePage = () => {
       )}
     </div>
   );
-};
-
-export default ProfilePage;
+}

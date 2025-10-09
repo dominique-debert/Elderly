@@ -1,12 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/context";
-import HomePage from "./pages/Homepage";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
-import ProfilePage from "./pages/ProfilePage";
+
 import { Layout } from "@/components";
-import WellnessPage from "./pages/WellnessPage";
-import AdminPage from "./pages/AdminPage";
+
+import {
+  AdminPage,
+  HomePage,
+  LoginPage,
+  ProfilePage,
+  SignupPage,
+  WellnessPage,
+} from "@/pages";
 import "./App.css";
 
 const App = () => {
