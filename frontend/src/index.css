@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+@import url("https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
 layer(base);
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @import "tw-animate-css";
 
@@ -16,14 +16,14 @@ layer(base);
   ::before,
   ::backdrop,
   ::file-selector-button {
-    --color-primary: rgba(230, 30, 90, 1);
+    --color-primary: #137fec;
     /* --color-base-content: rgba(230, 30, 90, 1); */
-    --text-primary: rgba(230, 30, 90, 1);
-    --primary: rgba(230, 30, 90, 1);
-    --font-display: 'Fira Sans', sans-serif;
-    --menu-active-bg: rgba(230, 30, 90, 1);
+    --text-primary: white;
+    --primary: #0f172a;
+    --font-display: "Lexend", sans-serif;
+    --menu-active-bg: #137fec;
     --menu-active-fg: white;
-    --menu-hover: rgba(230, 30, 90, 1);
+    --menu-hover: #137fec;
   }
 }
 
@@ -108,4 +108,9 @@ layer(base);
 
 .m-none {
   margin: 0 !important;
+}
+
+body,
+html {
+  background-color: var(--primary);
 }
