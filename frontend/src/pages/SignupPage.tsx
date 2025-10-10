@@ -1,7 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import { useAuthStore, useSignupStore } from "@/stores";
-import { getGeolocationData } from "@/utils";
+import { getGeolocationDataWithFallback } from "@/utils";
+import toast from "react-hot-toast";
+import Icon from "@mdi/react";
+import { mdiCloudUploadOutline } from "@mdi/js";
 
 // Step 1: Account Creation
 function Step1({ onNext }: { onNext: () => void }) {
@@ -10,118 +13,127 @@ function Step1({ onNext }: { onNext: () => void }) {
 
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email || !password) {
+      toast.error("Veuillez remplir tous les champs");
+      return;
+    }
     if (password !== confirmPassword) {
-      alert("Les mots de passe ne correspondent pas");
+      toast.error("Les mots de passe ne correspondent pas");
       return;
     }
     onNext();
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-between px-16">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-light text-gray-600 mb-8">
-            Créez votre compte
-          </h1>
+    <div className="h-vh bg-[#0F172A] text-white flex flex-col items-center justify-center pt-6">
+      <h1 className="text-3xl font-light text-white mt-[80px] mb-8 text-center">
+        Créez votre compte
+      </h1>
 
-          {/* Progress Steps */}
-          <div className="flex items-center justify-center mb-12">
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-medium">
-                1
-              </div>
-              <span className="ml-2 text-sm text-blue-500 font-medium">
-                Compte
-              </span>
-            </div>
-            <div className="w-16 h-px bg-gray-300 mx-4"></div>
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-gray-300 text-gray-500 rounded-full flex items-center justify-center text-sm">
-                2
-              </div>
-              <span className="ml-2 text-sm text-gray-500">
-                Informations personnelles
-              </span>
-            </div>
-            <div className="w-16 h-px bg-gray-300 mx-4"></div>
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-gray-300 text-gray-500 rounded-full flex items-center justify-center text-sm">
-                3
-              </div>
-              <span className="ml-2 text-sm text-gray-500">Confirmation</span>
-            </div>
+      {/* Progress Steps */}
+      <div className="flex items-start justify-center mb-12 w-full">
+        <div className="flex flex-col items-center">
+          <div className="font-medium w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm">
+            <span className="mt-[-1px]">1</span>
           </div>
+          <span className="ml-2 text-sm text-blue-500 font-medium mt-4">
+            Compte
+          </span>
         </div>
-
-        <form onSubmit={handleNext} className="space-y-4">
-          <input
-            type="email"
-            placeholder="Votre email"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Saisissez un mot de passe"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Confirmez le mot de passe"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-          <button
-            type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg"
-          >
-            Suivant
-          </button>
-        </form>
-
-        <p className="text-center text-sm text-blue-500 mt-6">
-          <Link to="/login">Déjà un compte ? Connectez-vous</Link>
-        </p>
+        <div className="w-16 h-px bg-gray-600 mx-4 mt-3.5"></div>
+        <div className="flex flex-col items-center">
+          <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
+            <span className="mt-[-1px]">2</span>
+          </div>
+          <span className="ml-2 text-sm text-gray-400 mt-4">
+            Informations <br /> personnelles
+          </span>
+        </div>
+        <div className="w-16 h-px bg-gray-600 mx-4 mt-3.5"></div>
+        <div className="flex flex-col items-center">
+          <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
+            <span className="mt-[-1px]">3</span>
+          </div>
+          <span className="ml-2 text-sm text-gray-400 mt-4">Confirmation</span>
+        </div>
       </div>
 
-      <div className="hidden lg:block flex-shrink-0 ml-16">
-        <div className="w-96 h-96 rounded-2xl overflow-hidden">
+      <main className="flex flex-col lg:flex-row items-center justify-between w-[1164px] h-full mt-[60px] gap-24">
+        <div className="text-left flex flex-col h-full w-full">
+          <form onSubmit={handleNext} className="space-y-4 flex flex-col">
+            <input
+              type="email"
+              placeholder="Votre email"
+              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Choisissez un mot de passe (8 caractères minimum)"
+              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Confirmez le mot de passe"
+              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            <button
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors cursor-pointer"
+            >
+              Suivant
+            </button>
+          </form>
+
+          <p className="text-center text-sm text-blue-400 mt-6">
+            <Link to="/login" className="hover:text-blue-300">
+              Déjà un compte ? Connectez-vous
+            </Link>
+          </p>
+        </div>
+
+        <div className="h-[335px] w-full mt-12 lg:mt-0 lg:ml-12 rounded-2xl overflow-hidden border border-slate-600">
           <img
             src="/images/landing-illustration.jpg"
             alt="Personnes âgées et jeunes cuisinant ensemble"
-            className="w-full h-full object-cover"
+            className="object-cover lg:h-full w-full"
           />
         </div>
-      </div>
+      </main>
     </div>
   );
 }
 
 // Step 2: Personal Information
-function Step2({ onNext, onBack }: { onNext: () => void; onBack: () => void }) {
+function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
   const {
     firstName,
     lastName,
     birthDate,
+    phoneNumber,
     setFirstName,
     setLastName,
     setBirthDate,
+    setPhoneNumber,
   } = useSignupStore();
-  const [selectedFile, setSelectedFile] = useState<File | undefined>(undefined);
+  const [, setSelectedFile] = useState<File | undefined>(undefined);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [phoneNumber, setPhoneNumber] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!firstName || !lastName) {
+      toast.error("Veuillez remplir tous les champs obligatoires");
+      return;
+    }
     onNext();
   };
 
@@ -136,244 +148,309 @@ function Step2({ onNext, onBack }: { onNext: () => void; onBack: () => void }) {
   }, [previewUrl]);
 
   return (
-    <div className="min-h-screen flex items-center justify-between px-16">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-light text-gray-600 mb-8">
-            Créez votre compte
-          </h1>
+    <div className="h-vh bg-[#0F172A] text-white flex flex-col items-center justify-center pt-6">
+      <h1 className="text-3xl font-light text-white mb-8 mt-15 gap-24">
+        Créez votre compte
+      </h1>
 
-          {/* Progress Steps */}
-          <div className="flex items-center justify-center mb-12">
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-gray-300 text-gray-500 rounded-full flex items-center justify-center text-sm">
-                1
-              </div>
-              <span className="ml-2 text-sm text-gray-500">Compte</span>
-            </div>
-            <div className="w-16 h-px bg-blue-500 mx-4"></div>
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-medium">
-                2
-              </div>
-              <span className="ml-2 text-sm text-blue-500 font-medium">
-                Informations personnelles
-              </span>
-            </div>
-            <div className="w-16 h-px bg-gray-300 mx-4"></div>
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-gray-300 text-gray-500 rounded-full flex items-center justify-center text-sm">
-                3
-              </div>
-              <span className="ml-2 text-sm text-gray-500">Confirmation</span>
-            </div>
+      {/* Progress Steps */}
+      <div className="flex items-start justify-center w-full">
+        <div className="flex flex-col items-center">
+          <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
+            <span className="mt-[-1px]">1</span>
           </div>
+          <span className="ml-2 text-sm text-slate-400 font-medium mt-4">
+            Compte
+          </span>
         </div>
+        <div className="w-16 h-px bg-gray-600 mx-4 mt-4.5"></div>
+        <div className="flex flex-col items-center">
+          <div className="font-medium w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-sm">
+            <span className="mt-[-1px]">2</span>
+          </div>
+          <span className="ml-2 text-sm text-gray-400 mt-4">
+            Informations <br /> personnelles
+          </span>
+        </div>
+        <div className="w-16 h-px bg-gray-600 mx-4 mt-4.5"></div>
+        <div className="flex flex-col items-center">
+          <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
+            <span className="mt-[-1px]">3</span>
+          </div>
+          <span className="ml-2 text-sm text-gray-400 mt-4">Confirmation</span>
+        </div>
+      </div>
 
-        <div className="flex gap-8">
-          <form onSubmit={handleNext} className="space-y-4 flex-1">
+      <main className="flex flex-col lg:flex-row items-center justify-between max-w-full w-[1164px] h-full mt-[60px] gap-24">
+        <form onSubmit={handleNext} className="space-y-4 w-full">
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Votre prénom
+            </label>
             <input
+              placeholder="Jean"
               type="text"
-              placeholder="Votre prénom"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
             />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Votre nom
+            </label>
             <input
               type="text"
-              placeholder="Votre nom"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Durand"
+              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
             />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Votre date de naissance
+            </label>
             <input
               type="date"
-              placeholder="Votre date de naissance"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              lang="fr"
+              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={birthDate.toISOString().split("T")[0]}
               onChange={(e) => setBirthDate(new Date(e.target.value))}
               required
             />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Votre numéro de téléphone (facultatif)
+            </label>
             <input
+              pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
               type="tel"
-              placeholder="Votre numéro de téléphone (facultatif)"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="06 12 34 56 78"
+              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
-            <button
-              type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg"
-            >
-              Suivant
-            </button>
-          </form>
-
-          {/* Photo Upload Section */}
-          <div className="w-48">
-            {previewUrl ? (
-              <div className="relative">
-                <img
-                  src={previewUrl}
-                  alt="Photo de profil"
-                  className="w-full h-64 object-cover rounded-lg"
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    setPreviewUrl(null);
-                    setSelectedFile(undefined);
-                    if (fileInputRef.current) {
-                      fileInputRef.current.value = "";
-                    }
-                  }}
-                  className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold"
-                >
-                  ×
-                </button>
-                <button
-                  type="button"
-                  onClick={handleFileClick}
-                  className="absolute bottom-2 left-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-3 py-1 text-xs"
-                >
-                  Changer
-                </button>
-              </div>
-            ) : (
-              <div
-                className="bg-gray-800 rounded-lg p-6 h-64 flex flex-col items-center justify-center text-center text-white cursor-pointer hover:bg-gray-700 transition-colors"
-                onClick={handleFileClick}
-              >
-                <div className="w-16 h-16 border-2 border-dashed border-gray-500 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-8 h-8 text-gray-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <p className="text-sm text-gray-300">
-                  Déposez votre photo ici ou cliquez sur la flèche pour
-                  l'envoyer depuis votre ordinateur (facultatif)
-                </p>
-              </div>
-            )}
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/*"
-              className="hidden"
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                setSelectedFile(file);
-                if (file) {
-                  const url = URL.createObjectURL(file);
-                  setPreviewUrl(url);
-                }
-              }}
-            />
           </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors mt-6 cursor-pointer"
+          >
+            Suivant
+          </button>
+          <p className="text-center text-sm text-blue-400 mt-6">
+            <Link to="/login" className="hover:text-blue-300">
+              Déjà un compte ? Connectez-vous
+            </Link>
+          </p>
+        </form>
+
+        {/* Photo Upload Section */}
+        <div className="w-1/2">
+          {previewUrl ? (
+            <div className="relative">
+              <img
+                src={previewUrl}
+                alt="Photo de profil"
+                className="w-full h-64 object-cover rounded-lg"
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  setPreviewUrl(null);
+                  setSelectedFile(undefined);
+                  if (fileInputRef.current) {
+                    fileInputRef.current.value = "";
+                  }
+                }}
+                className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold"
+              >
+                ×
+              </button>
+              <button
+                type="button"
+                onClick={handleFileClick}
+                className="absolute bottom-2 left-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-3 py-1 text-xs"
+              >
+                Changer
+              </button>
+            </div>
+          ) : (
+            <div
+              className="border-2 border-dashed border-gray-500 rounded-lg p-6 h-64 flex flex-col items-center justify-start text-center text-slate-400 cursor-pointer hover:bg-slate-800 transition-colors"
+              onClick={handleFileClick}
+            >
+              <div className="w-16 h-16 flex items-center justify-center mb-4">
+                <Icon path={mdiCloudUploadOutline} size={1.5} />
+              </div>
+              <p className="text-sm text-slate-300">
+                Déposez votre photo ici ou cliquez sur la flèche pour l'envoyer
+                depuis votre ordinateur (facultatif)
+              </p>
+            </div>
+          )}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              setSelectedFile(file);
+              if (file) {
+                const url = URL.createObjectURL(file);
+                setPreviewUrl(url);
+              }
+            }}
+          />
         </div>
 
-        <p className="text-center text-sm text-blue-500 mt-6">
-          <Link to="/login">Déjà un compte ? Connectez-vous</Link>
-        </p>
-      </div>
-
-      <div className="hidden lg:block flex-shrink-0 ml-16">
-        <div className="w-96 h-96 rounded-2xl overflow-hidden">
+        <div className="h-[335px] w-full mt-12 lg:mt-0 rounded-2xl overflow-hidden border border-slate-600">
           <img
             src="/images/landing-illustration.jpg"
             alt="Personnes âgées et jeunes cuisinant ensemble"
-            className="w-full h-full object-cover"
+            className="object-cover lg:h-full w-full"
           />
         </div>
-      </div>
+      </main>
     </div>
   );
 }
 
 // Step 3: Confirmation
-function Step3({
-  onSubmit,
-  onBack,
-}: {
-  onSubmit: () => void;
-  onBack: () => void;
-}) {
+function Step3({ onBack }: { onBack: () => void }) {
+  const signupStore = useSignupStore(); // Get the whole store
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [acceptNewsletter, setAcceptNewsletter] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { signup } = useAuthStore();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!acceptTerms) {
-      alert("Vous devez accepter les conditions générales");
+      toast.error("Vous devez accepter les conditions générales");
       return;
     }
-    onSubmit();
+
+    setIsLoading(true);
+
+    try {
+      // Get the user's geolocation data
+      const geolocationData = await getGeolocationDataWithFallback();
+
+      const signupData = {
+        email: signupStore.email,
+        password: signupStore.password,
+        firstName: signupStore.firstName,
+        lastName: signupStore.lastName,
+        birthDate: signupStore.birthDate,
+        phone: signupStore.phoneNumber,
+        isAdmin: false,
+        latitude: geolocationData.latitude,
+        longitude: geolocationData.longitude,
+      };
+
+      // Log the data being sent
+      console.log("Signup data being sent:", signupData);
+
+      // Validate that required fields are filled
+      if (
+        !signupData.email ||
+        !signupData.password ||
+        !signupData.firstName ||
+        !signupData.lastName
+      ) {
+        toast.error("Veuillez remplir tous les champs obligatoires");
+        return;
+      }
+
+      // Sign up the user with all data including geolocation
+      await signup(signupData, navigate);
+
+      // Show success message
+      toast.success(
+        "Compte créé avec succès ! Vous pouvez maintenant vous connecter."
+      );
+
+      // Navigate to login page
+      navigate("/login");
+    } catch (error: any) {
+      console.error("Error during signup:", error);
+      console.error("Error response:", error?.response?.data);
+
+      // Show the actual error message from backend
+      const errorMessage =
+        error?.response?.data?.message ||
+        error?.message ||
+        "Une erreur s'est produite lors de la création de votre compte.";
+      toast.error(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-between px-16">
+    <div className="h-vh bg-[#0F172A] text-white flex flex-col items-center justify-center pt-6">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-light text-gray-600 mb-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-light text-white mb-8">
             Créez votre compte
           </h1>
 
           {/* Progress Steps */}
-          <div className="flex items-center justify-center mb-12">
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-gray-300 text-gray-500 rounded-full flex items-center justify-center text-sm">
-                1
+          <div className="flex items-start justify-center w-full">
+            <div className="flex flex-col items-center">
+              <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
+                <span className="mt-[-1px]">1</span>
               </div>
-              <span className="ml-2 text-sm text-gray-500">Compte</span>
-            </div>
-            <div className="w-16 h-px bg-blue-500 mx-4"></div>
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-gray-300 text-gray-500 rounded-full flex items-center justify-center text-sm">
-                2
-              </div>
-              <span className="ml-2 text-sm text-gray-500">
-                Informations personnelles
+              <span className="ml-2 text-sm text-slate-400 font-medium mt-4">
+                Compte
               </span>
             </div>
-            <div className="w-16 h-px bg-blue-500 mx-4"></div>
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-medium">
-                3
+            <div className="w-16 h-px bg-gray-600 mx-4 mt-4.5"></div>
+            <div className="flex flex-col items-center">
+              <div className="font-medium w-10 h-10 border border-slate-500 text-slate-500 rounded-full flex items-center justify-center text-sm">
+                <span className="mt-[-1px]">2</span>
               </div>
-              <span className="ml-2 text-sm text-blue-500 font-medium">
+              <span className="ml-2 text-sm text-slate-400 mt-4">
+                Informations <br /> personnelles
+              </span>
+            </div>
+            <div className="w-16 h-px bg-blue-600 mx-4 mt-4.5"></div>
+            <div className="flex flex-col items-center">
+              <div className="font-medium w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-sm">
+                <span className="mt-[-1px]">3</span>
+              </div>
+              <span className="ml-2 text-sm text-blue-500 mt-4">
                 Confirmation
               </span>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mb-8">
-          <p className="text-gray-600 text-sm leading-relaxed">
-            Votre compte est prêt à être créé. Vous devez enfin accepter les
-            conditions d'utilisation.
-          </p>
-        </div>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
+      <main className="flex flex-col lg:flex-row items-center justify-between max-w-full w-[1164px] h-full mt-[60px] gap-24">
+        <form onSubmit={handleSubmit} className="space-y-6 w-full">
+          <div className="mb-8">
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Votre compte est prêt à être créé. Vous devez enfin accepter les
+              conditions d'utilisation.
+            </p>
+          </div>
           <div className="space-y-4">
             <label className="flex items-start gap-3">
               <input
                 type="checkbox"
                 checked={acceptTerms}
                 onChange={(e) => setAcceptTerms(e.target.checked)}
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1"
+                className="w-4 h-4 text-blue-600 bg-transparent border-gray-600 rounded focus:ring-blue-500 mt-1"
               />
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-400">
                 En cliquant ici, je déclare avoir lu et compris les conditions
                 générales.
               </span>
@@ -384,9 +461,9 @@ function Step3({
                 type="checkbox"
                 checked={acceptNewsletter}
                 onChange={(e) => setAcceptNewsletter(e.target.checked)}
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1"
+                className="w-4 h-4 text-blue-600 bg-transparent border-gray-600 rounded focus:ring-blue-500 mt-1"
               />
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-400">
                 J'accepte de recevoir la newsletter Neighborly chaque semaine.
               </span>
             </label>
@@ -394,79 +471,46 @@ function Step3({
 
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors disabled:opacity-50"
+            disabled={isLoading}
           >
-            Terminer l'inscription
+            {isLoading ? "Création du compte..." : "Terminer l'inscription"}
           </button>
+          <p className="text-center text-sm text-blue-400 mt-6">
+            <Link to="/login" className="hover:text-blue-300">
+              Déjà un compte ? Connectez-vous
+            </Link>
+          </p>
         </form>
 
-        <p className="text-center text-sm text-blue-500 mt-6">
-          <Link to="/login">Déjà un compte ? Connectez-vous</Link>
-        </p>
-      </div>
-
-      <div className="hidden lg:block flex-shrink-0 ml-16">
-        <div className="w-96 h-96 rounded-2xl overflow-hidden">
+        <div className="h-[335px] w-full mt-12 lg:mt-0 rounded-2xl overflow-hidden border border-slate-600">
           <img
             src="/images/landing-illustration.jpg"
             alt="Personnes âgées et jeunes cuisinant ensemble"
-            className="w-full h-full object-cover"
+            className="object-cover lg:h-full w-full"
           />
         </div>
-      </div>
+      </main>
     </div>
   );
 }
 
-// Main SignupPage Component
 export function SignupPage() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const { signup } = useAuthStore();
-  const navigate = useNavigate();
-  const signupStore = useSignupStore();
+  const [step, setStep] = useState(1);
 
-  const handleFinalSubmit = async () => {
-    const location = await getGeolocationData().catch(() => null);
-
-    if (!location) {
-      alert("Impossible d'obtenir la géolocalisation. Veuillez réessayer.");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("email", signupStore.email);
-    formData.append("password", signupStore.password);
-    formData.append("firstName", signupStore.firstName);
-    formData.append("lastName", signupStore.lastName);
-    formData.append("birthDate", new Date(signupStore.birthDate).toISOString());
-    formData.append("isAdmin", String(signupStore.isAdmin));
-    formData.append("latitude", location.latitude);
-    formData.append("longitude", location.longitude);
-
-    try {
-      await signup(formData, navigate);
-    } catch (err: unknown) {
-      const anyErr = err as { response?: { data?: unknown }; message?: string };
-      console.error("Signup error:", anyErr);
-      alert(`Signup failed: ${anyErr?.message ?? String(anyErr)}`);
-    }
+  const handleNext = () => {
+    setStep((prev) => prev + 1);
   };
 
-  switch (currentStep) {
-    case 1:
-      return <Step1 onNext={() => setCurrentStep(2)} />;
-    case 2:
-      return (
-        <Step2
-          onNext={() => setCurrentStep(3)}
-          onBack={() => setCurrentStep(1)}
-        />
-      );
-    case 3:
-      return (
-        <Step3 onSubmit={handleFinalSubmit} onBack={() => setCurrentStep(2)} />
-      );
-    default:
-      return <Step1 onNext={() => setCurrentStep(2)} />;
-  }
+  const handleBack = () => {
+    setStep((prev) => prev - 1);
+  };
+
+  return (
+    <div>
+      {step === 1 && <Step1 onNext={handleNext} />}
+      {step === 2 && <Step2 onNext={handleNext} onBack={handleBack} />}
+      {step === 3 && <Step3 onBack={handleBack} />}
+    </div>
+  );
 }

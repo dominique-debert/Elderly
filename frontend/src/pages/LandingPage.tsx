@@ -8,9 +8,6 @@ export function LandingPage() {
           <img src="/images/logo.png" alt="Logo" className="h-10" />
         </div>
         <div className="flex gap-3 mb-6 mr-6">
-          <button className="px-4 py-2 border border-gray-500 rounded-xl text-sm">
-            <Link to="/signup">S’inscrire</Link>
-          </button>
           <button className="px-4 py-2 bg-white text-black rounded-xl text-sm font-medium">
             <Link to="/login">Se connecter</Link>
           </button>
@@ -29,7 +26,7 @@ export function LandingPage() {
             familles.
           </p>
           <button className="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium w-50">
-            Démarrer
+            <Link to="/signup">Démarrer</Link>
           </button>
         </div>
 

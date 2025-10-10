@@ -6,6 +6,7 @@ export const loginUser = async (data: {
   password: string;
 }): Promise<IAuthResponse> => {
   const response = await api.post("/auth/login", data);
+
   return response.data;
 };
 
@@ -18,6 +19,9 @@ export type SignupPayload =
       lastName: string;
       birthDate: Date;
       isAdmin: boolean;
+      latitude?: string;
+      longitude?: string;
+      phone?: string;
       avatar?: string;
     };
 

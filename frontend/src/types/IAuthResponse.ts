@@ -9,6 +9,7 @@ export interface IAuthResponse {
   email: string;
   latitude: string;
   longitude: string;
+  phone?: string;
   accessToken: string;
   refreshToken: string;
 }

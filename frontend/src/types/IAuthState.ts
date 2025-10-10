@@ -21,6 +21,7 @@ export interface IAuthState {
           avatar?: string;
           birthDate: Date;
           isAdmin: boolean;
+          phoneNumber?: string;
           latitude?: string;
           longitude?: string;
         },

@@ -1,21 +1,30 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
+import toast from "react-hot-toast";
 
 export function LoginPage() {
-  const { login, isAuthenticated } = useAuthStore();
+  const { login } = useAuthStore();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  if (isAuthenticated) {
-    return <Navigate to="/Profile" />;
-  }
+  const [, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await login(email, password, navigate);
-    navigate("/dashboard");
+    setIsLoading(true);
+
+    try {
+      await login(email, password, navigate);
+      navigate("/dashboard");
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error: unknown) {
+      toast.error(
+        "Connexion impossible.\nVérifiez votre identifiant et votre mot de passe."
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -36,7 +45,7 @@ export function LoginPage() {
             </label>
             <input
               type="email"
-              // placeholder="jane.doe@gmail.com"
+              placeholder="jean.durand@gmail.com"
               className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -50,7 +59,7 @@ export function LoginPage() {
             </label>
             <input
               type="password"
-              // placeholder="••••••••"
+              placeholder="••••••••"
               className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

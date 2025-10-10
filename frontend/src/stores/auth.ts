@@ -1,10 +1,9 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { loginUser, signupUser, SignupPayload } from "@/services";
+import { loginUser, SignupPayload } from "@/services";
 import type { IAuthResponse, IAuthState, IUseAuthReturn, IUser } from "@/types";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import toast from "react-hot-toast";
-import createHttpError from "http-errors";
 
 export const useAuthStore = create<IAuthState>()(
   persist(
@@ -14,69 +13,100 @@ export const useAuthStore = create<IAuthState>()(
       user: null,
 
       login: async (email, password, navigate) => {
-        try {
-          const data = await loginUser({ email, password });
-          const loginData = data as IAuthResponse;
-          const id = loginData.id;
+        const data = await loginUser({ email, password });
 
-          if (!id) {
-            throw new Error("User ID not found in login response");
-          }
+        const loginData = data as IAuthResponse;
+        const id = loginData.id;
 
-          const accessToken = loginData.accessToken;
-          const refreshToken = loginData.refreshToken;
+        if (!id) {
+          toast.error("Connexion échouée");
+        }
 
-          localStorage.setItem("accessToken", accessToken);
-          localStorage.setItem("refreshToken", refreshToken);
-          localStorage.setItem("userId", id);
+        const accessToken = loginData.accessToken;
+        const refreshToken = loginData.refreshToken;
 
-          const src = loginData as IAuthResponse;
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+        localStorage.setItem("userId", id);
 
-          set({
-            accessToken: loginData.accessToken,
-            isAuthenticated: true,
-            user: {
-              id,
-              email: src.email,
-              firstName: src.firstName,
-              lastName: src.lastName,
-              avatar: src.avatar,
-              avatarUrl: src.avatarUrl ?? null,
-              birthDate: src.birthDate,
-              isAdmin: src.isAdmin,
-              longitude: src.longitude,
-              latitude: src.latitude,
-            },
-          });
+        const src = loginData as IAuthResponse;
 
-          toast.success("Connexion réussie");
-          navigate("/");
-          return {
+        set({
+          accessToken: loginData.accessToken,
+          isAuthenticated: true,
+          user: {
             id,
             email: src.email,
             firstName: src.firstName,
             lastName: src.lastName,
             avatar: src.avatar,
+            avatarUrl: src.avatarUrl ?? null,
             birthDate: src.birthDate,
+            phone: src.phone, // Changed from phoneNumber to phone
             isAdmin: src.isAdmin,
             longitude: src.longitude,
             latitude: src.latitude,
-          };
-        } catch (error) {
-          const httpError = error as createHttpError.HttpError;
-          toast.error(httpError.message || "Erreur lors de la connexion");
-          throw error;
-        }
+          },
+        });
+
+        toast.success("Connexion réussie");
+        navigate("/");
+        return {
+          id,
+          email: src.email,
+          firstName: src.firstName,
+          lastName: src.lastName,
+          avatar: src.avatar,
+          birthDate: src.birthDate,
+          phoneNumber: src.phoneNumber,
+          avatarUrl: src.avatarUrl ?? null,
+          isAdmin: src.isAdmin,
+          longitude: src.longitude,
+          latitude: src.latitude,
+        };
       },
 
       signup: async (userData, navigate) => {
         try {
-          const data = await signupUser(userData);
+          console.log("Auth store - userData received:", userData);
+
+          // Make sure birthDate is formatted correctly
+          let formattedData: SignupPayload | FormData;
+          if (userData instanceof FormData) {
+            formattedData = userData;
+          } else {
+            formattedData = {
+              ...userData,
+              birthDate: new Date(userData.birthDate),
+            };
+          }
+
+          console.log("Auth store - formatted data:", formattedData);
+
+          // Fix the API URL - use your backend server URL
+          const response = await fetch(
+            "http://localhost:3000/api/auth/signup",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formattedData),
+            }
+          );
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            console.error("Signup error response:", errorData);
+            throw new Error(errorData.message || "Signup failed");
+          }
+
+          const data = await response.json();
           const signupData = data as IAuthResponse;
           const id = signupData.id;
 
           if (!id) {
-            throw new Error("User ID not found in signup response");
+            throw Error;
           }
 
           const accessToken = signupData.accessToken;
@@ -89,7 +119,7 @@ export const useAuthStore = create<IAuthState>()(
           const src = signupData as IAuthResponse;
 
           if (!src.email || !src.firstName || !src.lastName || !src.birthDate) {
-            throw new Error("Incomplete user data received from server");
+            throw Error;
           }
           const user: IUser = {
             id,
@@ -102,6 +132,7 @@ export const useAuthStore = create<IAuthState>()(
             isAdmin: src.isAdmin,
             longitude: src.longitude,
             latitude: src.latitude,
+            phone: src.phone, // Changed from phoneNumber to phone
           };
           set({
             accessToken: data.accessToken,
@@ -113,6 +144,7 @@ export const useAuthStore = create<IAuthState>()(
           navigate("/profile");
           return user;
         } catch (error) {
+          console.error("Signup error in auth store:", error);
           toast.error("Erreur lors de l'inscription: " + error);
           throw error;
         }
