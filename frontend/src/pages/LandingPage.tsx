@@ -9,7 +9,7 @@ export function LandingPage() {
         </div>
         <div className="flex gap-3 mb-6 mr-6">
           <button className="px-4 py-2 border border-gray-500 rounded-xl text-sm">
-            S’inscrire
+            <Link to="/signup">S’inscrire</Link>
           </button>
           <button className="px-4 py-2 bg-white text-black rounded-xl text-sm font-medium">
             <Link to="/login">Se connecter</Link>

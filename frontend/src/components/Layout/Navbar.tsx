@@ -113,7 +113,6 @@ export function Navbar() {
             <div className="p-2">
               <img src="/images/logo.png" alt="Logo" className="h-10" />
             </div>
-            Helpy
           </Link>
 
           {/* Mobile menu items */}

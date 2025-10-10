@@ -10,7 +10,7 @@ import {
   WeatherWidget,
 } from "@/components";
 
-export function HomePage() {
+export function DashboardPage() {
   const { user, isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {

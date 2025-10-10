@@ -1,5 +1,5 @@
 export * from "./AdminPage";
-export * from "./Homepage";
+export * from "./DashboardPage";
 export * from "./LandingPage";
 export * from "./LoginPage";
 export * from "./NotFoundPage";

@@ -5,7 +5,7 @@ import { Layout } from "@/components";
 
 import {
   AdminPage,
-  HomePage,
+  DashboardPage,
   LandingPage,
   LoginPage,
   ProfilePage,
@@ -19,9 +19,8 @@ const App = () => {
     <AuthProvider>
       <Routes>
         <Route element={<Layout />}>
-          {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/" element={<LandingPage />} />
-          <Route path="/homepage" element={<HomePage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/admin-page" element={<AdminPage />} />
           <Route path="/wellness" element={<WellnessPage />} />
           <Route path="/login" element={<LoginPage />} />
