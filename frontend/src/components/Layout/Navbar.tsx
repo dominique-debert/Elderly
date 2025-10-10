@@ -111,7 +111,7 @@ export function Navbar() {
             className="btn btn-ghost text-2xl text-primary hover:bg-primary/30 rounded-xl"
           >
             <div className="p-2">
-              <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />
+              <img src="/images/logo.png" alt="Logo" className="h-10" />
             </div>
             Helpy
           </Link>

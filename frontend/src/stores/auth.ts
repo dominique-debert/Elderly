@@ -4,6 +4,7 @@ import { loginUser, signupUser, SignupPayload } from "@/services";
 import type { IAuthResponse, IAuthState, IUseAuthReturn, IUser } from "@/types";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import toast from "react-hot-toast";
+import createHttpError from "http-errors";
 
 export const useAuthStore = create<IAuthState>()(
   persist(
@@ -62,7 +63,8 @@ export const useAuthStore = create<IAuthState>()(
             latitude: src.latitude,
           };
         } catch (error) {
-          toast.error("Erreur lors de la connexion: " + error);
+          const httpError = error as createHttpError.HttpError;
+          toast.error(httpError.message || "Erreur lors de la connexion");
           throw error;
         }
       },

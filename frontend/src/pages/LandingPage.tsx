@@ -1,23 +1,18 @@
+import { Link } from "react-router-dom";
+
 export function LandingPage() {
   return (
     <div className="h-vh bg-[#0F172A] text-white flex flex-col items-center justify-center pt-6">
       <header className="w-full flex justify-between items-center mb-12 border-b border-slate-800">
         <div className="flex items-center gap-2 text-xl font-semibold mb-6 ml-6">
-          <div className="w-6 h-6 rounded-full bg-blue-400" />
-          Neighborly
+          <img src="/images/logo.png" alt="Logo" className="h-10" />
         </div>
-        <nav className="flex gap-8 text-sm text-gray-300 mb-6">
-          <a href="#">Accueil</a>
-          <a href="#">Fonctionnalités</a>
-          <a href="#">A propos</a>
-          <a href="#">Contact</a>
-        </nav>
         <div className="flex gap-3 mb-6 mr-6">
           <button className="px-4 py-2 border border-gray-500 rounded-xl text-sm">
             S’inscrire
           </button>
           <button className="px-4 py-2 bg-white text-black rounded-xl text-sm font-medium">
-            Se connecter
+            <Link to="/login">Se connecter</Link>
           </button>
         </div>
       </header>
@@ -38,7 +33,7 @@ export function LandingPage() {
           </button>
         </div>
 
-        <div className="mt-12 lg:mt-0 lg:ml-12 rounded-2xl overflow-hidden border border-gray-700 shadow-xl">
+        <div className="mt-12 lg:mt-0 lg:ml-12 rounded-2xl overflow-hidden border border-slate-600 shadow-xl">
           <img
             src="/images/landing-illustration.jpg"
             alt="Personnes âgées et jeunes cuisinant ensemble"
