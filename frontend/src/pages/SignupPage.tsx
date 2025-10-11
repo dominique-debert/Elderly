@@ -398,7 +398,7 @@ function Step3({ onBack }: { onBack: () => void }) {
     <div className="h-vh bg-[#0F172A] text-white flex flex-col items-center justify-center pt-6">
       <div className="w-full max-w-md">
         <div className="mb-8">
-          <h1 className="text-3xl font-light text-white mb-8">
+          <h1 className="text-3xl font-light text-white mb-8 mt-15 text-center">
             Créez votre compte
           </h1>
 
@@ -437,7 +437,7 @@ function Step3({ onBack }: { onBack: () => void }) {
       <main className="flex flex-col lg:flex-row items-center justify-between max-w-full w-[1164px] h-full mt-[60px] gap-24">
         <form onSubmit={handleSubmit} className="space-y-6 w-full">
           <div className="mb-8">
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed">
               Votre compte est prêt à être créé. Vous devez enfin accepter les
               conditions d'utilisation.
             </p>
