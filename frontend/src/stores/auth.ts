@@ -58,7 +58,7 @@ export const useAuthStore = create<IAuthState>()(
           lastName: src.lastName,
           avatar: src.avatar,
           birthDate: src.birthDate,
-          phoneNumber: src.phoneNumber,
+          phone: src.phone,
           avatarUrl: src.avatarUrl ?? null,
           isAdmin: src.isAdmin,
           longitude: src.longitude,
@@ -132,7 +132,7 @@ export const useAuthStore = create<IAuthState>()(
             isAdmin: src.isAdmin,
             longitude: src.longitude,
             latitude: src.latitude,
-            phone: src.phone, // Changed from phoneNumber to phone
+            phone: src.phone,
           };
           set({
             accessToken: data.accessToken,
@@ -145,7 +145,7 @@ export const useAuthStore = create<IAuthState>()(
           return user;
         } catch (error) {
           console.error("Signup error in auth store:", error);
-          toast.error("Erreur lors de l'inscription: " + error);
+          // toast.error("Erreur lors de l'inscription: " + error);
           throw error;
         }
       },

@@ -383,7 +383,6 @@ function Step3({ onBack }: { onBack: () => void }) {
       console.error("Error during signup:", error);
       console.error("Error response:", error?.response?.data);
 
-      // Show the actual error message from backend
       const errorMessage =
         error?.response?.data?.message ||
         error?.message ||
@@ -471,7 +470,7 @@ function Step3({ onBack }: { onBack: () => void }) {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors disabled:opacity-50"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
             disabled={isLoading}
           >
             {isLoading ? "Création du compte..." : "Terminer l'inscription"}

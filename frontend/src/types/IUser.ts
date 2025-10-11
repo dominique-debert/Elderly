@@ -8,6 +8,6 @@ export interface IUser {
   birthDate: Date;
   latitude?: string;
   longitude?: string;
-  phoneNumber?: string;
+  phone?: string;
   isAdmin: boolean;
 }
