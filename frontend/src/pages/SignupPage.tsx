@@ -118,11 +118,13 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
     firstName,
     lastName,
     birthDate,
-    phoneNumber,
+    phone,
     setFirstName,
     setLastName,
     setBirthDate,
-    setPhoneNumber,
+    setPhone,
+    setAvatarFilename,
+    setAvatarFile,
   } = useSignupStore();
   const [, setSelectedFile] = useState<File | undefined>(undefined);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -231,8 +233,8 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
               type="tel"
               placeholder="06 12 34 56 78"
               className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
           <button
@@ -262,6 +264,8 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
                 onClick={() => {
                   setPreviewUrl(null);
                   setSelectedFile(undefined);
+                  setAvatarFilename("");
+                  setAvatarFile(null);
                   if (fileInputRef.current) {
                     fileInputRef.current.value = "";
                   }
@@ -303,6 +307,11 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
               if (file) {
                 const url = URL.createObjectURL(file);
                 setPreviewUrl(url);
+                setAvatarFilename(file.name);
+                setAvatarFile(file);
+              } else {
+                setAvatarFilename("");
+                setAvatarFile(null);
               }
             }}
           />
@@ -343,13 +352,61 @@ function Step3({ onBack }: { onBack: () => void }) {
       // Get the user's geolocation data
       const geolocationData = await getGeolocationDataWithFallback();
 
+      // Upload avatar to backend and send avatarFilename (backend expects filename)
+      const API_BASE =
+        (import.meta as any).env?.VITE_API_URL ?? "http://localhost:3000";
+      const uploadAvatarAndGetFilename = async (file: File) => {
+        const fd = new FormData();
+        fd.append("file", file);
+        const res = await fetch(`${API_BASE}/api/uploads`, {
+          method: "POST",
+          body: fd,
+        });
+        if (!res.ok) throw new Error("Avatar upload failed");
+        const data = await res.json();
+        // expect { filename, url } from backend upload route
+        return {
+          filename: data.filename || data.fileName || data.key || null,
+          url: data.url || null,
+        } as { filename: string | null; url: string | null };
+      };
+
+      let avatarFilename: string | null = signupStore.avatarFilename ?? null;
+      // If we have a file, upload and persist both filename and url in the store
+      if (signupStore.avatarFile) {
+        try {
+          const uploaded = await uploadAvatarAndGetFilename(
+            signupStore.avatarFile
+          );
+          console.log("Uploaded avatar response:", uploaded);
+          if (uploaded.filename) {
+            avatarFilename = uploaded.filename;
+            // persist returned filename and url into the signup store (if store exposes setters)
+            if (typeof signupStore.setAvatarFilename === "function") {
+              signupStore.setAvatarFilename(uploaded.filename);
+            }
+            if (
+              uploaded.url &&
+              typeof signupStore.setAvatarUrl === "function"
+            ) {
+              signupStore.setAvatarUrl(uploaded.url);
+            }
+          }
+        } catch (err) {
+          console.error("Avatar upload error:", err);
+          // fallback: keep original client filename if upload fails
+          avatarFilename = signupStore.avatarFilename ?? null;
+        }
+      }
+
       const signupData = {
         email: signupStore.email,
         password: signupStore.password,
         firstName: signupStore.firstName,
         lastName: signupStore.lastName,
         birthDate: signupStore.birthDate,
-        phone: signupStore.phoneNumber,
+        // backend expects avatarFilename (not avatarUrl)
+        avatarFilename: avatarFilename ?? null,
         isAdmin: false,
         latitude: geolocationData.latitude,
         longitude: geolocationData.longitude,

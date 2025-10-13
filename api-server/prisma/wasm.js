@@ -785,7 +785,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Volumes/Development/E1N/helpy/api-server/prisma",
+      "value": "/media/dominique/Development/E1N/helpy/api-server/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -794,12 +794,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Volumes/Development/E1N/helpy/api-server/prisma/schema.prisma",
+    "sourceFilePath": "/media/dominique/Development/E1N/helpy/api-server/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

@@ -41,7 +41,16 @@ export const signUp = async (
       longitude,
     } = req.body as any;
 
-    const avatarFromBody = (req.body as any).avatar as string | undefined;
+    // accept several possible names coming from the client:
+    // avatar (legacy), avatarFilename, fileName, key
+    const bodyAny = req.body as any;
+    const avatarFromBody =
+      bodyAny.avatar ||
+      bodyAny.avatarFilename ||
+      bodyAny.fileName ||
+      bodyAny.filename ||
+      bodyAny.key ||
+      undefined;
     let uploadedAvatar = (req as any).file?.filename as string | undefined;
 
     // If the client sent a desired filename (avatarFilename), try to move/rename
@@ -129,8 +138,9 @@ export const signUp = async (
     });
 
     const serverBase = process.env.SERVER_BASE_URL || "http://localhost:3000";
+    // avatar files are served at /images/avatars/<filename>
     const avatarUrl = user.avatar
-      ? `${serverBase}/public/images/avatars/${user.avatar}`
+      ? `${serverBase}/images/avatars/${user.avatar}`
       : null;
 
     res.status(201).json({
@@ -142,7 +152,7 @@ export const signUp = async (
       firstName: user.firstName,
       lastName: user.lastName,
       avatar: user.avatar,
-      avatarUrl,
+      avatarUrl: user.avatar ? avatarUrl : null,
       birthDate: user.birthDate,
       isAdmin: user.isAdmin,
       latitude: user.latitude,

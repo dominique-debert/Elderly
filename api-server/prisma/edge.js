@@ -785,7 +785,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Volumes/Development/E1N/helpy/api-server/prisma",
+      "value": "/media/dominique/Development/E1N/helpy/api-server/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -799,7 +799,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Volumes/Development/E1N/helpy/api-server/prisma/schema.prisma",
+    "sourceFilePath": "/media/dominique/Development/E1N/helpy/api-server/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

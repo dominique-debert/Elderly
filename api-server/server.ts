@@ -61,6 +61,15 @@ app.use("/api", routes);
 const publicPath = path.join(process.cwd(), "public");
 app.use("/public", express.static(publicPath));
 
+// Serve files under /images/... from the public/images folder
+app.use(
+  "/images",
+  express.static(path.join(process.cwd(), "public", "images"), {
+    // optional: set correct cache and headers
+    maxAge: "1d",
+  })
+);
+
 // Error handling middleware
 app.use(errorHandler);
 

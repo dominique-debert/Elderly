@@ -45,6 +45,7 @@ import videoCallRouter from "./videoCall.routes";
 import weatherRouter from "./weather.routes";
 import wellnessGoalRouter from "./wellnessGoal.routes";
 import moodRouter from "./mood.routes";
+import uploadsRoutes from "./uploads.routes";
 
 // Import all categories routers
 import categoryMetaRouter from "./categories/categoryMeta.routes";
@@ -116,6 +117,7 @@ router.use("/skills", skillRouter);
 router.use("/survey-response", surveyResponseRouter);
 router.use("/trust-circle", trustCircleRouter);
 router.use("/trusted-contacts", trustedContactRouter);
+router.use("/uploads", uploadsRoutes);
 router.use("/urban-issue-reports", urbanIssueReportRouter);
 router.use("/users", userRouter);
 router.use("/user-activities", userActivityRouter);
