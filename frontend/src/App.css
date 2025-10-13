@@ -32,7 +32,7 @@ layer(base);
     --font-display: "Lexend", sans-serif;
     --menu-active-bg: #137fec;
     --menu-active-fg: white;
-    --menu-hover: #137fec;
+    --menu-hover: #0f58a1;
   }
 }
 
@@ -71,8 +71,8 @@ layer(base);
 }
 
 .btn-primary:hover {
-  background-color: white;
-  color: var(--color-primary);
+  background-color: var(--menu-hover);
+  color: white;
   border-color: var(--color-primary);
 }
 

@@ -7,7 +7,7 @@ import {
   DashboardMedicationCard,
   DashboardUserCard,
   DashboardServiceCard,
-  WeatherWidget,
+  DashboardWeatherWidget,
 } from "@/components";
 
 export function DashboardPage() {
@@ -24,7 +24,7 @@ export function DashboardPage() {
           {user ? (
             <>
               <DashboardUserCard />
-              <WeatherWidget />
+              <DashboardWeatherWidget />
             </>
           ) : (
             <p>Les informations de profil sont introuvables.</p>

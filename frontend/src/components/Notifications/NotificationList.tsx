@@ -71,9 +71,12 @@ export function NotificationList({
   );
 
   return (
-    <div className="bg-base-100 rounded-box shadow-md mt-3 w-[420px] max-w-screen">
-      <div className="p-4 pb-2">
-        <h3 className="text-2xl font-semibold mb-2">Notifications</h3>
+    <div className="dark:bg-card bg-white border border-slate-300 dark:border-slate-800 rounded-2xl mt-3 w-[420px] max-w-screen">
+      <div className="p-6 pb-0">
+        <h3 className="text-2xl font-semibold mb-2 text-primary">
+          Notifications
+        </h3>
+        <div className="divider mb-0 mt-0"></div>
       </div>
 
       <div className="max-h-[500px] overflow-y-auto">

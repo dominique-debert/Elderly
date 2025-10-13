@@ -1,14 +1,8 @@
 import Icon from "@mdi/react";
 import {
-  mdiAccount,
   mdiBellOutline,
-  mdiBottleTonicPlusOutline,
   mdiCogOutline,
-  mdiForumOutline,
-  mdiHeadHeartOutline,
-  mdiHeartOutline,
   mdiMoonWaxingCrescent,
-  mdiViewDashboardOutline,
   mdiWeatherSunny,
 } from "@mdi/js";
 

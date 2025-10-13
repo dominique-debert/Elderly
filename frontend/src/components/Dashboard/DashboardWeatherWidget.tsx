@@ -10,7 +10,7 @@ import {
   Skeleton,
 } from "@/components";
 
-export const WeatherWidget = () => {
+export const DashboardWeatherWidget = () => {
   const { user } = useAuthStore();
   const latitude = user?.latitude;
   const longitude = user?.longitude;
@@ -29,14 +29,14 @@ export const WeatherWidget = () => {
 
   return (
     <Card
-      style={{
-        backgroundImage: `url(${data?.background})`,
-        backgroundSize: "cover",
-      }}
-      className="lg:w-2/3 border border-base-200 xs:mt-4"
+      // style={{
+      //   backgroundImage: `url(${data?.background})`,
+      //   backgroundSize: "object-cover",
+      // }}
+      className="lg:w-2/3 xs:mt-4 rounded-xl"
     >
       <CardHeader>
-        <CardTitle className="text-2xl text-center text-gray-600">
+        <CardTitle className="text-3xl text-center text-primary">
           {isLoading ? <Skeleton className="h-6 w-24 ml-auto" /> : data?.city}
         </CardTitle>
       </CardHeader>
@@ -47,10 +47,9 @@ export const WeatherWidget = () => {
             <Skeleton className="h-5 w-40 ml-auto mb-2" />
             <Skeleton className="h-10 w-20 ml-auto" />
 
-            <div className="divider mt-4 mb-2" />
             <div className="grid grid-cols-3 gap-2 text-center">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="p-2 rounded-lg bg-base-200">
+                <div key={i} className="p-2 rounded-lg">
                   <Skeleton className="h-4 w-12 mx-auto mb-1" />
                   <Skeleton className="h-4 w-16 mx-auto mb-1" />
                   <Skeleton className="h-4 w-10 mx-auto" />
@@ -60,7 +59,7 @@ export const WeatherWidget = () => {
           </>
         ) : (
           <>
-            <div className="flex flex-col justify-end items-center gap-2 text-gray-600 text-lg">
+            <div className="flex flex-col justify-end items-center gap-2 text-xl mt-4">
               {renderIcon(data.icone)}
               <p className="w-full text-center mb-3">{data.description}</p>
             </div>
@@ -68,9 +67,9 @@ export const WeatherWidget = () => {
               {data.temperature}°C
             </div>
 
-            <div className="divider mt-4 mb-2" />
+            {/* <div className="divider mt-4 mb-2" /> */}
 
-            <div className="grid grid-cols-3 gap-2 text-center text-sm">
+            <div className="mt-12 grid grid-cols-3 gap-2 text-center text-sm">
               {data.forecast.map(
                 (
                   day: {
@@ -83,32 +82,19 @@ export const WeatherWidget = () => {
                   },
                   i: number
                 ) => (
-                  <div
-                    style={{
-                      backgroundImage: `url(${day.background})`,
-                      backgroundSize: "cover",
-                      backgroundColor: "rgba(255,255,255,0.6)",
-                      backgroundBlendMode: "lighten",
-                    }}
-                    key={i}
-                    className={`p-4 rounded-lg ${i === 0 ? "bg-blue-100" : ""}`}
-                  >
-                    <div className="font-semibold mb-2">
+                  <div key={i}>
+                    <div className="text-lg capitalize">
                       {new Date(day.date).toLocaleDateString("fr-FR", {
                         weekday: "long",
                       })}
                     </div>
-                    <div className="flex flex-col justify-center items-center gap-4 text-xs text-gray-700">
+                    <div className="flex flex-col justify-center items-center gap-4 text-md mt-4">
                       {renderIcon(day.icone)}
-                      <p className="mb-2">{day.description}</p>
+                      <p className="mt-4">{day.description}</p>
                     </div>
-                    <div className="mt-1 text-sm">
-                      <div className="text-gray-700">
-                        Min: {day.temperature_min}°
-                      </div>
-                      <div className="font-semibold">
-                        Max: {day.temperature_max}°
-                      </div>
+                    <div className="mt-4 text-md">
+                      <div>Min: {day.temperature_min}°</div>
+                      <div>Max: {day.temperature_max}°</div>
                     </div>
                   </div>
                 )
