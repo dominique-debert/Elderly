@@ -84,7 +84,7 @@ export function SkillList() {
               className={index !== 0 ? "mt-12" : "mt-6"}
             >
               <div className="mb-2">
-                <h2 className="text-2xl font-bold text-gray-800">
+                <h2 className="text-2xl font-light text-primary">
                   {chapterName}
                 </h2>
                 {chapterDescription && (

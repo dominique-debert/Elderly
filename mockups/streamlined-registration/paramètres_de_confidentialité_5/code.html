@@ -17,13 +17,23 @@
   <body>
     <div
       class="relative flex h-auto min-h-screen w-full flex-col bg-slate-100 group/design-root overflow-x-hidden"
-      style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(248,250,252)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e'); --radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(19,128,236)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e'); font-family: Lexend, &quot;Noto Sans&quot;, sans-serif;"
+      style="
+        --checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(248,250,252)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e');
+        --radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(19,128,236)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e');
+        font-family: Lexend, 'Noto Sans', sans-serif;
+      "
     >
       <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200 px-10 py-3 bg-white">
-          <div class="flex items-center gap-4 text-gray-800">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200 px-10 py-3 bg-white"
+        >
+          <div class="flex items-center gap-4text-primary">
             <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z"
                   fill="currentColor"
@@ -36,29 +46,65 @@
                 ></path>
               </svg>
             </div>
-            <h2 class="text-gray-800 text-lg font-bold leading-tight tracking-[-0.015em]">SeniorConnect</h2>
+            <h2
+              class="text-gray-800 text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              SeniorConnect
+            </h2>
           </div>
           <div class="flex flex-1 justify-end gap-8">
             <div class="flex items-center gap-9">
-              <a class="text-gray-700 text-sm font-medium leading-normal" href="#">Home</a>
-              <a class="text-gray-700 text-sm font-medium leading-normal" href="#">Messages</a>
-              <a class="text-gray-700 text-sm font-medium leading-normal" href="#">Notifications</a>
-              <a class="text-gray-700 text-sm font-medium leading-normal" href="#">Contacts</a>
+              <a
+                class="text-gray-700 text-sm font-medium leading-normal"
+                href="#"
+                >Home</a
+              >
+              <a
+                class="text-gray-700 text-sm font-medium leading-normal"
+                href="#"
+                >Messages</a
+              >
+              <a
+                class="text-gray-700 text-sm font-medium leading-normal"
+                href="#"
+                >Notifications</a
+              >
+              <a
+                class="text-gray-700 text-sm font-medium leading-normal"
+                href="#"
+                >Contacts</a
+              >
             </div>
             <div
               class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCd_QZhloppZtlcFz5L399vP3lz9TCFf3habiOfxALxGDSLre5WDcd7JJg3wrKr7_WqZrOpu8bjr2QJyCWtCIhuIXseQOJtYgg3A17lRVu61p25etYMq7WRBmjo8P01GGgsPRL3o7PO0cJPW-ni_w3yRIgtxCt1wMo1xq9JO-1HdGIlIq4O5pCjf7tPQVbUgRu0IEUc7RLr6VZfbgE8h-PoKAhYDK7kT23PRhHNBG39Ook2eoUIF-wX5giNNU3fm4bLQ0S7vgqBQqJI");'
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCd_QZhloppZtlcFz5L399vP3lz9TCFf3habiOfxALxGDSLre5WDcd7JJg3wrKr7_WqZrOpu8bjr2QJyCWtCIhuIXseQOJtYgg3A17lRVu61p25etYMq7WRBmjo8P01GGgsPRL3o7PO0cJPW-ni_w3yRIgtxCt1wMo1xq9JO-1HdGIlIq4O5pCjf7tPQVbUgRu0IEUc7RLr6VZfbgE8h-PoKAhYDK7kT23PRhHNBG39Ook2eoUIF-wX5giNNU3fm4bLQ0S7vgqBQqJI');
+              "
             ></div>
           </div>
         </header>
         <div class="px-40 flex flex-1 justify-center py-12">
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-8">
-            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-gray-800 tracking-light text-[32px] font-bold leading-tight min-w-72">Privacy Settings</p></div>
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-8"
+          >
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p
+                class="text-gray-800 tracking-light text-[32px] font-bold leading-tight min-w-72"
+              >
+                Privacy Settings
+              </p>
+            </div>
             <div class="flex flex-col gap-6">
               <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-gray-800 text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Profile Visibility</h3>
+                <h3
+                  class="text-gray-800 text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+                >
+                  Profile Visibility
+                </h3>
                 <div class="flex flex-col gap-3 px-4 pt-3">
-                  <label class="flex items-center gap-4 rounded-lg border border-solid border-gray-300 p-[15px] cursor-pointer hover:bg-gray-50">
+                  <label
+                    class="flex items-center gap-4 rounded-lg border border-solid border-gray-300 p-[15px] cursor-pointer hover:bg-gray-50"
+                  >
                     <input
                       type="radio"
                       class="h-5 w-5 border-2 border-gray-400 bg-transparent text-transparent checked:border-blue-600 checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-blue-600"
@@ -66,57 +112,107 @@
                       checked=""
                     />
                     <div class="flex grow flex-col">
-                      <p class="text-gray-800 text-sm font-medium leading-normal">Public</p>
-                      <p class="text-gray-600 text-sm font-normal leading-normal">Everyone can see your profile information.</p>
+                      <p
+                        class="text-gray-800 text-sm font-medium leading-normal"
+                      >
+                        Public
+                      </p>
+                      <p
+                        class="text-gray-600 text-sm font-normal leading-normal"
+                      >
+                        Everyone can see your profile information.
+                      </p>
                     </div>
                   </label>
-                  <label class="flex items-center gap-4 rounded-lg border border-solid border-gray-300 p-[15px] cursor-pointer hover:bg-gray-50">
+                  <label
+                    class="flex items-center gap-4 rounded-lg border border-solid border-gray-300 p-[15px] cursor-pointer hover:bg-gray-50"
+                  >
                     <input
                       type="radio"
                       class="h-5 w-5 border-2 border-gray-400 bg-transparent text-transparent checked:border-blue-600 checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-blue-600"
                       name="c127f30c-2149-43f4-ab1d-2508135e6085"
                     />
                     <div class="flex grow flex-col">
-                      <p class="text-gray-800 text-sm font-medium leading-normal">Friends Only</p>
-                      <p class="text-gray-600 text-sm font-normal leading-normal">Only your friends can see your profile information.</p>
+                      <p
+                        class="text-gray-800 text-sm font-medium leading-normal"
+                      >
+                        Friends Only
+                      </p>
+                      <p
+                        class="text-gray-600 text-sm font-normal leading-normal"
+                      >
+                        Only your friends can see your profile information.
+                      </p>
                     </div>
                   </label>
-                  <label class="flex items-center gap-4 rounded-lg border border-solid border-gray-300 p-[15px] cursor-pointer hover:bg-gray-50">
+                  <label
+                    class="flex items-center gap-4 rounded-lg border border-solid border-gray-300 p-[15px] cursor-pointer hover:bg-gray-50"
+                  >
                     <input
                       type="radio"
                       class="h-5 w-5 border-2 border-gray-400 bg-transparent text-transparent checked:border-blue-600 checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-blue-600"
                       name="c127f30c-2149-43f4-ab1d-2508135e6085"
                     />
                     <div class="flex grow flex-col">
-                      <p class="text-gray-800 text-sm font-medium leading-normal">Private</p>
-                      <p class="text-gray-600 text-sm font-normal leading-normal">Only you can see your profile information.</p>
+                      <p
+                        class="text-gray-800 text-sm font-medium leading-normal"
+                      >
+                        Private
+                      </p>
+                      <p
+                        class="text-gray-600 text-sm font-normal leading-normal"
+                      >
+                        Only you can see your profile information.
+                      </p>
                     </div>
                   </label>
                 </div>
               </div>
               <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-gray-800 text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Notification Preferences</h3>
+                <h3
+                  class="text-gray-800 text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+                >
+                  Notification Preferences
+                </h3>
                 <div class="px-4 py-3">
-                  <label class="flex gap-x-3 py-3 flex-row items-center cursor-pointer">
+                  <label
+                    class="flex gap-x-3 py-3 flex-row items-center cursor-pointer"
+                  >
                     <input
                       type="checkbox"
                       class="h-5 w-5 rounded border-gray-400 border-2 bg-transparent text-blue-600 checked:bg-blue-600 checked:border-blue-600 checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-blue-600 focus:outline-none"
                     />
-                    <p class="text-gray-700 text-base font-normal leading-normal">Receive notifications for new messages</p>
+                    <p
+                      class="text-gray-700 text-base font-normal leading-normal"
+                    >
+                      Receive notifications for new messages
+                    </p>
                   </label>
-                  <label class="flex gap-x-3 py-3 flex-row items-center cursor-pointer">
+                  <label
+                    class="flex gap-x-3 py-3 flex-row items-center cursor-pointer"
+                  >
                     <input
                       type="checkbox"
                       class="h-5 w-5 rounded border-gray-400 border-2 bg-transparent text-blue-600 checked:bg-blue-600 checked:border-blue-600 checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-blue-600 focus:outline-none"
                     />
-                    <p class="text-gray-700 text-base font-normal leading-normal">Receive notifications for friend requests</p>
+                    <p
+                      class="text-gray-700 text-base font-normal leading-normal"
+                    >
+                      Receive notifications for friend requests
+                    </p>
                   </label>
-                  <label class="flex gap-x-3 py-3 flex-row items-center cursor-pointer">
+                  <label
+                    class="flex gap-x-3 py-3 flex-row items-center cursor-pointer"
+                  >
                     <input
                       type="checkbox"
                       class="h-5 w-5 rounded border-gray-400 border-2 bg-transparent text-blue-600 checked:bg-blue-600 checked:border-blue-600 checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-blue-600 focus:outline-none"
                     />
-                    <p class="text-gray-700 text-base font-normal leading-normal">Receive notifications for group activities</p>
+                    <p
+                      class="text-gray-700 text-base font-normal leading-normal"
+                    >
+                      Receive notifications for group activities
+                    </p>
                   </label>
                 </div>
               </div>

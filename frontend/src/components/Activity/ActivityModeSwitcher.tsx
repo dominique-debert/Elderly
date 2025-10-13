@@ -18,7 +18,7 @@ type SwitchProps = {
   setSearch: (value: string) => void;
 };
 
-export function ActivityListSwitcher({
+export function ActivityModeSwitcher({
   mode,
   setMode,
   search,

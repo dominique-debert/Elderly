@@ -66,11 +66,11 @@ export function AdminPage() {
   };
 
   return (
-    <div className="w-full h-full px-4 pb-4 overflow-y-auto no-scrollbar">
+    <div className="w-full h-full px-4 pb-4 overflow-y-auto no-scrollbar mt-18">
       {user && user.isAdmin ? (
         <>
-          <div className="bg-base-100 sticky top-0 z-30 pb-4 pt-4">
-            <h2 className="text-2xl font-semibold text-primary border-b border-base-200 mb-4">
+          <div className="sticky top-0 z-30 pb-4 pt-4">
+            <h2 className="text-2xl font-semibold text-primary border-b border-slate-800 mb-4">
               Administration
             </h2>
             <AdminTabBar activeTab={activeTab} setActiveTab={setActiveTab} />

@@ -332,6 +332,8 @@ model menuItem {
   label String
   icon  String?
   key   String  @default("undefined")
+
+  @@map("menu_item")
 }
 
 model message {
