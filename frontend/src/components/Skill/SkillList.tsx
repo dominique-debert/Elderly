@@ -91,7 +91,7 @@ export function SkillList() {
                   <p className="text-gray-600 mt-1">{chapterDescription}</p>
                 )}
               </div>
-              <div className="divider mt-0 mb-6"></div>
+              <div className="divider mt-0 mb-0"></div>
               {mode === "list" && <SkillListView skills={skills} />}
               {mode === "card" && <SkillCardView skills={skills} />}
               {mode === "table" && <SkillTableView skills={skills} />}

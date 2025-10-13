@@ -7,7 +7,7 @@ type SkillListViewProps = {
 
 export function SkillListView({ skills }: SkillListViewProps) {
   return (
-    <ul className="space-y-2 mt-10">
+    <ul className="space-y-2 mt-4">
       {skills?.map((skill) => (
         <SkillListItem key={skill.id} skill={skill} />
       ))}

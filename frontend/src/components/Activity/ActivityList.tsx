@@ -34,16 +34,7 @@ export function ActivityList() {
     queryFn: fetchActivityCategories,
   });
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError)
-    return (
-      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
-    );
-
   const processedChapters = (() => {
-    console.debug("ActivityList - groupedactivities:", groupedactivities);
-
-    // normalize: if the query returned an axios response object, use its .data
     const source =
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       groupedactivities && (groupedactivities as any).data
@@ -54,7 +45,6 @@ export function ActivityList() {
     return Object.entries(source || {})
       .flatMap(([, chapters]) => {
         return Object.entries(chapters || {}).map(([chapterId, activities]) => {
-          // Normalize activities to an array (handle array, object map or single item)
           let chapteractivities: ICategory[] = [];
           if (Array.isArray(activities)) {
             chapteractivities = activities as ICategory[];
@@ -105,7 +95,13 @@ export function ActivityList() {
         setSearch={setSearch}
       />
 
-      {processedChapters.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center mt-40">Chargement...</div>
+      ) : isError ? (
+        <div className="text-center mt-10 text-red-500">
+          Erreur de chargement
+        </div>
+      ) : processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>
@@ -124,7 +120,8 @@ export function ActivityList() {
                   <p className="text-gray-600 mt-1">{chapterDescription}</p>
                 )}
               </div>
-              <div className="divider mt-0 mb-6"></div>
+              <div className="divider mt-0 mb-0"></div>
+
               {mode === "list" && <ActivityListView activities={activities} />}
               {mode === "card" && <ActivityCardView activities={activities} />}
               {mode === "table" && (

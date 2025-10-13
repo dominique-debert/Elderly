@@ -8,7 +8,7 @@ type BadgeListViewProps = {
 
 export function BadgeListView({ badges }: BadgeListViewProps) {
   return (
-    <ul className="space-y-2 mt-10">
+    <ul className="space-y-2 mt-4">
       {badges?.map((badge) => (
         <BadgeListItem key={badge.id} badge={badge} />
       ))}

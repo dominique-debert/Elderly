@@ -46,7 +46,7 @@ export function MoodList() {
     ) || [];
 
   return (
-    <div className="w-full relative">
+    <div className="w-full p-4">
       {moods && moods.length > 0 && (
         <MoodModeSwitcher
           mode={mode}

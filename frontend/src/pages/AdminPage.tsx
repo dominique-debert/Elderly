@@ -23,7 +23,7 @@ import {
 
 export function AdminPage() {
   const { user, isAuthenticated } = useAuthStore();
-  const [activeTab, setActiveTab] = useState<ETabKey | null>(ETabKey.Mood);
+  const [activeTab, setActiveTab] = useState<ETabKey | null>(ETabKey.Activity);
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
@@ -46,10 +46,10 @@ export function AdminPage() {
         return <MoodList />;
       case ETabKey.Nutrition:
         return <NutritionList />;
-      case ETabKey.Program:
-        return <ProgramList />;
       case ETabKey.Project:
         return <ProjectList />;
+      case ETabKey.Program:
+        return <ProgramList />;
       case ETabKey.Resource:
         return <ResourceList />;
       case ETabKey.Service:
@@ -66,7 +66,7 @@ export function AdminPage() {
   };
 
   return (
-    <div className="w-full h-full px-4 pb-4 overflow-y-auto no-scrollbar mt-18">
+    <div className="w-full h-full px-4 pb-4 overflow-y-auto no-scrollbar mt-12">
       {user && user.isAdmin ? (
         <>
           <div className="sticky top-0 z-30 pb-4 pt-4">

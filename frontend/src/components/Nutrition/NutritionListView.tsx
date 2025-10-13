@@ -7,7 +7,7 @@ type NutritionListViewProps = {
 
 export function NutritionListView({ nutritions }: NutritionListViewProps) {
   return (
-    <ul className="space-y-2 mt-10">
+    <ul className="space-y-2 mt-4">
       {nutritions?.map((nutrition) => (
         <NutritionListItem key={nutrition.id} nutrition={nutrition} />
       ))}

@@ -14,22 +14,24 @@ export function UrbanIssueListItem({ urbanIssue }: { urbanIssue: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: ["urban-issues"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: ["urban-issues"] });
   };
 
   return (
     <>
       <li
         key={urbanIssue.id}
-        className="p-4 rounded shadow-md flex items-center gap-4"
+        className="p-4 rounded shadow-md flex items-center gap-4 border-b border-slate-800 hover:bg-slate-900/40 cursor-pointer"
       >
-        <span className="w-64 font-semibold">{urbanIssue.categoryName}</span>
-        <span className="w-full">{urbanIssue.description}</span>
+        <span className="w-full font-medium">{urbanIssue.categoryName}</span>
+        <span className="w-full font-light text-slate-400">
+          {urbanIssue.description}
+        </span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"

@@ -35,7 +35,7 @@ export function MoodTableRow({ mood }: { mood: IMood }) {
             <Icon
               path={mdiPencilOutline}
               size={0.8}
-              className="text-gray-500"
+              className="text-slate-400"
             />
           </button>
         </TableCell>

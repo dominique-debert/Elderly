@@ -92,7 +92,7 @@ export function ProjectList() {
                   <p className="text-gray-600 mt-1">{chapterDescription}</p>
                 )}
               </div>
-              <div className="divider mt-0 mb-6"></div>
+              <div className="divider mt-0 mb-0"></div>
               {mode === "list" && <ProjectListView projects={projects} />}
               {mode === "card" && <ProjectCardView projects={projects} />}
               {mode === "table" && <ProjectTableView projects={projects} />}

@@ -7,7 +7,7 @@ type ForumListViewProps = {
 
 export function ForumListView({ forums }: ForumListViewProps) {
   return (
-    <ul className="space-y-2 mt-10">
+    <ul className="space-y-2 mt-4">
       {forums?.map((forum) => (
         <ForumListItem key={forum.id} forum={forum} />
       ))}

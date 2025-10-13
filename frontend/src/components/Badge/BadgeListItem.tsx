@@ -1,12 +1,9 @@
+import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
-
-import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-
 import type { ICategory } from "@/types";
-
-import { BadgeDeleteModal, BadgeEditModal } from "@/components";
+import { BadgeEditModal, BadgeDeleteModal } from "@/components";
 
 export function BadgeListItem({ badge }: { badge: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -15,22 +12,24 @@ export function BadgeListItem({ badge }: { badge: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: ["activities"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: ["activities"] });
   };
 
   return (
     <>
       <li
         key={badge.id}
-        className="p-4 rounded shadow-md flex items-center gap-4"
+        className="p-4 rounded shadow-md flex items-center gap-4 border-b border-slate-800 hover:bg-slate-900/40 cursor-pointer"
       >
-        <span className="w-64 font-semibold">{badge.categoryName}</span>
-        <span className="w-full">{badge.description}</span>
+        <span className="w-full font-medium">{badge.categoryName}</span>
+        <span className="w-full font-light text-slate-400">
+          {badge.description}
+        </span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"

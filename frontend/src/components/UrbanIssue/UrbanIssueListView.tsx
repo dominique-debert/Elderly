@@ -7,7 +7,7 @@ type UrbanIssueListViewProps = {
 
 export function UrbanIssueListView({ urbanIssues }: UrbanIssueListViewProps) {
   return (
-    <ul className="space-y-2 mt-10">
+    <ul className="space-y-2 mt-4">
       {urbanIssues?.map((urbanIssue) => (
         <UrbanIssueListItem key={urbanIssue.id} urbanIssue={urbanIssue} />
       ))}

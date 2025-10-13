@@ -1,13 +1,14 @@
 // UI Components
-export * from "./ui/button";
+export * from "./ui/Button.tsx";
 export * from "./ui/Card.tsx";
-export * from "./ui/input";
-export * from "./ui/separator";
-export * from "./ui/sheet";
-export * from "./ui/skeleton";
-export * from "./ui/switch";
-export * from "./ui/table";
-export * from "./ui/tooltip";
+export * from "./ui/Input.tsx";
+export * from "./ui/Separator.tsx";
+export * from "./ui/Sheet.tsx";
+export * from "./ui/Skeleton.tsx";
+export * from "./ui/Switch.tsx";
+export * from "./ui/SwitchButtons.tsx";
+export * from "./ui/Table.tsx";
+export * from "./ui/Tooltip.tsx";
 
 // Activity Components
 export * from "./Activity/ActivityCard";
@@ -127,7 +128,7 @@ export * from "./Nutrition/NutritionEditModal";
 export * from "./Nutrition/NutritionList";
 export * from "./Nutrition/NutritionListItem";
 export * from "./Nutrition/NutritionListView";
-export * from "./Nutrition/NutritionModeSwitcher";
+export { NutritionModeSwitcher } from "./Nutrition/NutritionModeSwitcher";
 export * from "./Nutrition/NutritionTableRow";
 export * from "./Nutrition/NutritionTableView";
 
@@ -169,6 +170,9 @@ export * from "./Resource/ResourceListView";
 export * from "./Resource/ResourceModeSwitcher";
 export * from "./Resource/ResourceTableRow";
 export * from "./Resource/ResourceTableView";
+
+// Search Component
+export { Search } from "./ui/Search.tsx";
 
 // Service Components
 export * from "./Service/ServiceCard";

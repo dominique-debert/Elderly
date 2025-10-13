@@ -92,7 +92,7 @@ export function ServiceList() {
                   <p className="text-gray-600 mt-1">{chapterDescription}</p>
                 )}
               </div>
-              <div className="divider mt-0 mb-6"></div>
+              <div className="divider mt-0 mb-0"></div>
               {mode === "list" && <ServiceListView services={services} />}
               {mode === "card" && <ServiceCardView services={services} />}
               {mode === "table" && <ServiceTableView services={services} />}

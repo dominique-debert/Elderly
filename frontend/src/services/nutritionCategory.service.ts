@@ -9,7 +9,6 @@ export const fetchNutritionCategories = async (): Promise<ICategory> => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-
   return data;
 };
 

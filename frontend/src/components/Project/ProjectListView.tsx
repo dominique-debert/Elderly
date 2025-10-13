@@ -7,7 +7,7 @@ type ProjectListViewProps = {
 
 export function ProjectListView({ projects }: ProjectListViewProps) {
   return (
-    <ul className="space-y-2 mt-10">
+    <ul className="space-y-2 mt-4">
       {projects?.map((project) => (
         <ProjectListItem key={project.id} project={project} />
       ))}
