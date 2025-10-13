@@ -15,7 +15,7 @@ export function LeftSidebar() {
 
   return (
     <aside className="hidden w-20 mr-2 lg:block">
-      <div className="fixed z-60 top-16 left-0 w-20 h-[calc(100vh-4rem)] border-r border-base-300 flex flex-col items-center py-4">
+      <div className="fixed bg-white dark:bg-card z-60 top-16 left-0 w-20 h-[calc(100vh-4rem)] border-r border-base-300 flex flex-col items-center py-4">
         <div className="flex flex-row gap-2">
           <div className="dropdown dropdown-right">
             <div
@@ -39,7 +39,7 @@ export function LeftSidebar() {
 
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content rounded-box mt-3 w-52 p-2 shadow-md"
+              className="menu menu-sm dropdown-content bg-white dark:bg-card rounded-box mt-3 w-52 p-2 shadow-md"
             >
               <li>
                 <a>Tes préférences</a>
