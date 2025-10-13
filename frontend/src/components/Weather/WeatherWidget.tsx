@@ -32,10 +32,8 @@ export const WeatherWidget = () => {
       style={{
         backgroundImage: `url(${data?.background})`,
         backgroundSize: "cover",
-        backgroundColor: "rgba(255,255,255,0.3)",
-        backgroundBlendMode: "lighten",
       }}
-      className="lg:w-2/3 bg-base-100 border border-base-200 xs:mt-4"
+      className="lg:w-2/3 border border-base-200 xs:mt-4"
     >
       <CardHeader>
         <CardTitle className="text-2xl text-center text-gray-600">
@@ -93,9 +91,7 @@ export const WeatherWidget = () => {
                       backgroundBlendMode: "lighten",
                     }}
                     key={i}
-                    className={`p-4 rounded-lg bg-base-100 ${
-                      i === 0 ? "bg-blue-100" : ""
-                    }`}
+                    className={`p-4 rounded-lg ${i === 0 ? "bg-blue-100" : ""}`}
                   >
                     <div className="font-semibold mb-2">
                       {new Date(day.date).toLocaleDateString("fr-FR", {

@@ -13,7 +13,7 @@ import {
 
 export function DashboardForumCard() {
   return (
-    <Card className="border border-base-200 w-full bg-base-100">
+    <Card className="border border-base-200 w-full">
       <CardHeader>
         <CardTitle>
           <h2 className="text-primary text-2xl">

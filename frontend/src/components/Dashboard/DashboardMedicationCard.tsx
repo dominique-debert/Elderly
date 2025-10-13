@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components";
 
 export function DashboardMedicationCard() {
   return (
-    <Card className="lg:w-full bg-base-100 border border-base-200">
+    <Card className="lg:w-full border border-base-200">
       <CardHeader>
         <CardTitle>
           <h2 className="text-2xl font-semibold mb-6 text-center text-primary">

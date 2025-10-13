@@ -6,7 +6,7 @@ import {
   ReactNode,
 } from "react";
 
-type Theme = "cmyk" | "dim";
+type Theme = "cmyk" | "dark";
 
 type ThemeContextType = {
   theme: Theme;
@@ -21,7 +21,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 const getInitialTheme = (): Theme => {
   if (typeof window === "undefined") return "cmyk";
   const saved = localStorage.getItem("theme");
-  return saved === "dim" ? "dim" : "cmyk";
+  return saved === "dark" ? "dark" : "cmyk";
 };
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -43,7 +43,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleTheme = () => {
-    setThemeState((prevTheme) => (prevTheme === "cmyk" ? "dim" : "cmyk"));
+    setThemeState((prevTheme) => (prevTheme === "cmyk" ? "dark" : "cmyk"));
   };
 
   return (

@@ -40,7 +40,7 @@ export function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
   }
 
   return (
-    <ul className="menu bg-base-100 lg:menu-horizontal rounded-box p-0">
+    <ul className="menu lg:menu-horizontal rounded-box p-0">
       {menuItems?.map(({ id, label, icon, key }) => (
         <li key={id}>
           <button

@@ -9,7 +9,7 @@ export function ActivityGoals() {
         transition={{ duration: 0.5 }}
         className="flex flex-col w-full h-full lg:ml-8 ml-4 lg:mb-4 mt-8"
       >
-        <div className="card bg-base-100 h-full">
+        <div className="card h-full">
           <h2 className="card-title mb-4">Objectifs d'activité</h2>
 
           <div className="grid grid-cols-2 grid-rows-2 gap-4 h-full">

@@ -17,7 +17,7 @@ export function ProfilePage() {
             Bienvenue sur votre profil
           </h1>
 
-          <div className="card w-96 bg-base-100 glass shadow-lg">
+          <div className="card w-96 glass shadow-lg">
             <figure>
               <img
                 src={

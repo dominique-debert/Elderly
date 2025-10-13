@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/context";
-
 import { Layout } from "@/components";
 
 import {

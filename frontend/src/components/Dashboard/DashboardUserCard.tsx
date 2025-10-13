@@ -1,28 +1,23 @@
 import Icon from "@mdi/react";
 import { mdiCakeVariantOutline, mdiEmailOutline } from "@mdi/js";
-import { motion } from "framer-motion";
 
 import { formatDate } from "@/utils";
 import { useAuthStore } from "@/stores";
+import { Card } from "../ui/Card";
 
 export function DashboardUserCard() {
   const { user } = useAuthStore();
 
   return (
-    <motion.div
-      className="card self-center bg-base-100 border border-base-200 w-2/3 h-full"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <figure className="relative rounded-xl w-full top-0 object-cover">
+    <Card className="self-center border border-base-200 w-2/3 h-full">
+      <figure className="relative rounded-xl top-0">
         {user && (
           <img
             src={
               user.avatarUrl ?? `/images/${user.avatar || "default-avatar.svg"}`
             }
             alt="Photo utilisateur"
-            className="h-120 w-full object-cover rounded-t-xl"
+            className="object-cover rounded-xl"
           />
         )}
         <div className="grid grid-cols-3 my-4 bottom-0 gap-4 absolute w-100">
@@ -73,6 +68,6 @@ export function DashboardUserCard() {
           </div>
         </div>
       </figure>
-    </motion.div>
+    </Card>
   );
 }

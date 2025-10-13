@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
+layer(base);
+
+@import "tailwindcss";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-card: #0d141b;
+  --color-background-light: hsl(0 0% 100%);
+  --color-background-dark: #0d141b;
+  --color-background-custom: hsl(187 71% 82%);
+  --color-background-pastel: hsl(279 100% 93%);
+}
+
+@plugin "daisyui" {
+  themes: all;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    --color-primary: #137fec;
+    /* --color-base-content: rgba(230, 30, 90, 1); */
+    --text-primary: white;
+    --primary: #0f172a;
+    --font-display: "Lexend", sans-serif;
+    --menu-active-bg: #137fec;
+    --menu-active-fg: white;
+    --menu-hover: #137fec;
+  }
+}
+
+@layer base {
+  [data-theme="light"] {
+    --color-card: hsl(207 97% 12%);
+  }
+  [data-theme="dark"] {
+    --color-card: hsl(0 0% 96%);
+  }
+  [data-theme="custom"] {
+    --color-card: hsl(182, 87%, 39%);
+  }
+  [data-theme="pastel"] {
+    --color-card: hsl(291 46% 83%);
+  }
+}
+
+@utility no-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+* {
+  font-family: var(--font-display);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* 
+
+.input, .input-bordered {
+  background-color: white;
+}
+
+.link, .link:hover {
+  color: var(--color-primary);
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.border-primary {
+  border-color: var(--color-primary) !important;
+}
+
+.ring-primary {
+  border-color: var(--color-primary);  
+}
+
+.checkbox-primary, .checkbox-primary:not(checked) {
+  --chkfg: white;
+  --chkbx: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.checkbox-primary:checked {
+  --chkbg: var(--color-primary);
+}
+
+.btn-active {
+  background-color: rgba(230, 30, 90, .1);  
+}
+
+.white {
+  color: white;
+} */
+
+.backdrop-blur-md {
+  --tw-backdrop-blur: blur(14px);
+}
+
+.m-none {
+  margin: 0 !important;
+}
+
+:root[data-theme="dark"] {
+  background-color: var(--color-background-dark);
+}
+
+/* body,
+html {
+  background-color: var(--primary);
+} */

@@ -9,7 +9,7 @@ export function MealPlan() {
         transition={{ duration: 0.5 }}
         className="flex flex-col w-full h-full mr-4 mt-8"
       >
-        <div className="card bg-base-100 h-full ml-4">
+        <div className="card h-full ml-4">
           <h2 className="card-title mb-4">Planification des repas</h2>
 
           {[

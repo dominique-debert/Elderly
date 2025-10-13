@@ -104,7 +104,7 @@ export function Navbar() {
 
   return (
     <header className="header-area">
-      <div className="navbar fixed top-0 z-50 h-16 w-full bg-base-100 shadow-sm border-b border-base-200">
+      <div className="navbar bg-white fixed top-0 z-50 h-16 w-full shadow-sm border-b dark:bg-card border-base-200">
         <div className="flex justify-between w-full items-center">
           <Link
             to="/"
@@ -164,7 +164,7 @@ export function Navbar() {
                 <input
                   type="checkbox"
                   onChange={handleToggle}
-                  checked={theme === "dim"}
+                  checked={theme === "dark"}
                 />
                 <Icon
                   path={mdiWeatherSunny}
