@@ -13,7 +13,7 @@ import {
 
 export function DashboardForumCard() {
   return (
-    <Card className="border border-base-200 w-full">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>
           <h2 className="text-primary text-2xl">
@@ -26,25 +26,29 @@ export function DashboardForumCard() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>
+                <TableHead className="border-b border-slate-800">
                   <label>
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Job</TableHead>
-                <TableHead>Favorite Color</TableHead>
-                <TableHead></TableHead>
+                <TableHead className="border-b border-slate-800">
+                  Name
+                </TableHead>
+                <TableHead className="border-b border-slate-800">Job</TableHead>
+                <TableHead className="border-b border-slate-800">
+                  Favorite Color
+                </TableHead>
+                <TableHead className="border-b border-slate-800"></TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableHead>
+                <TableHead className="border-b border-slate-800">
                   <label>
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </TableHead>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
@@ -60,25 +64,27 @@ export function DashboardForumCard() {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   Zemlak, Daniel and Leannon
                   <br />
                   <span className="badge badge-ghost badge-sm">
                     Desktop Support Technician
                   </span>
                 </TableCell>
-                <TableCell>Purple</TableCell>
-                <TableHead>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <TableCell className="border-b border-slate-800">
+                  Purple
+                </TableCell>
+                <TableHead className="border-b border-slate-800">
+                  <button className="btn btn-primary btn-sm">details</button>
                 </TableHead>
               </TableRow>
               <TableRow>
-                <TableHead>
+                <TableHead className="border-b border-slate-800">
                   <label>
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </TableHead>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
@@ -94,25 +100,25 @@ export function DashboardForumCard() {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   Carroll Group
                   <br />
                   <span className="badge badge-ghost badge-sm">
                     Tax Accountant
                   </span>
                 </TableCell>
-                <TableCell>Red</TableCell>
-                <TableHead>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <TableCell className="border-b border-slate-800">Red</TableCell>
+                <TableHead className="border-b border-slate-800">
+                  <button className="btn btn-primary btn-sm">details</button>
                 </TableHead>
               </TableRow>
               <TableRow>
-                <TableHead>
+                <TableHead className="border-b border-slate-800">
                   <label>
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </TableHead>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
@@ -128,25 +134,27 @@ export function DashboardForumCard() {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   Rowe-Schoen
                   <br />
                   <span className="badge badge-ghost badge-sm">
                     Office Assistant I
                   </span>
                 </TableCell>
-                <TableCell>Crimson</TableCell>
-                <TableHead>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <TableCell className="border-b border-slate-800">
+                  Crimson
+                </TableCell>
+                <TableHead className="border-b border-slate-800">
+                  <button className="btn btn-primary btn-sm">details</button>
                 </TableHead>
               </TableRow>
               <TableRow>
-                <TableHead>
+                <TableHead className="border-b border-slate-800">
                   <label>
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </TableHead>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
@@ -162,25 +170,27 @@ export function DashboardForumCard() {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   Zemlak, Daniel and Leannon
                   <br />
                   <span className="badge badge-ghost badge-sm">
                     Desktop Support Technician
                   </span>
                 </TableCell>
-                <TableCell>Purple</TableCell>
-                <TableHead>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <TableCell className="border-b border-slate-800">
+                  Purple
+                </TableCell>
+                <TableHead className="border-b border-slate-800">
+                  <button className="btn btn-primary btn-sm">details</button>
                 </TableHead>
               </TableRow>
               <TableRow>
-                <TableHead>
+                <TableHead className="border-b border-slate-800">
                   <label>
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </TableHead>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
@@ -196,16 +206,16 @@ export function DashboardForumCard() {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="border-b border-slate-800">
                   Carroll Group
                   <br />
                   <span className="badge badge-ghost badge-sm">
                     Tax Accountant
                   </span>
                 </TableCell>
-                <TableCell>Red</TableCell>
-                <TableHead>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <TableCell className="border-b border-slate-800">Red</TableCell>
+                <TableHead className="border-b border-slate-800">
+                  <button className="btn btn-primary btn-sm">details</button>
                 </TableHead>
               </TableRow>
             </TableBody>

@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components";
 
 export function DashboardServiceCard() {
   return (
-    <Card className="lg:w-full border border-base-200">
+    <Card className="lg:w-full">
       <CardHeader>
         <CardTitle className="text-primary text-2xl">Services</CardTitle>
       </CardHeader>

@@ -8,9 +8,9 @@ layer(base);
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
-  --color-card: #0d141b;
+  --color-card: #0f111a;
   --color-background-light: hsl(0 0% 100%);
-  --color-background-dark: #0d141b;
+  --color-background-dark: #0c0e15;
   --color-background-custom: hsl(187 71% 82%);
   --color-background-pastel: hsl(279 100% 93%);
 }
@@ -28,11 +28,11 @@ layer(base);
     --color-primary: #137fec;
     /* --color-base-content: rgba(230, 30, 90, 1); */
     --text-primary: white;
-    --primary: #0f172a;
+    --primary: #0c0e15;
     --font-display: "Lexend", sans-serif;
     --menu-active-bg: #137fec;
     --menu-active-fg: white;
-    --menu-hover: #137fec;
+    --menu-hover: #0f58a1;
   }
 }
 
@@ -71,8 +71,8 @@ layer(base);
 }
 
 .btn-primary:hover {
-  background-color: white;
-  color: var(--color-primary);
+  background-color: var(--menu-hover);
+  color: white;
   border-color: var(--color-primary);
 }
 
@@ -86,46 +86,6 @@ layer(base);
   color: white;
 }
 
-/* 
-
-.input, .input-bordered {
-  background-color: white;
-}
-
-.link, .link:hover {
-  color: var(--color-primary);
-}
-
-.text-primary {
-  color: var(--color-primary) !important;
-}
-
-.border-primary {
-  border-color: var(--color-primary) !important;
-}
-
-.ring-primary {
-  border-color: var(--color-primary);  
-}
-
-.checkbox-primary, .checkbox-primary:not(checked) {
-  --chkfg: white;
-  --chkbx: var(--color-primary);
-  border: 1px solid var(--color-primary);
-}
-
-.checkbox-primary:checked {
-  --chkbg: var(--color-primary);
-}
-
-.btn-active {
-  background-color: rgba(230, 30, 90, .1);  
-}
-
-.white {
-  color: white;
-} */
-
 .backdrop-blur-md {
   --tw-backdrop-blur: blur(14px);
 }
@@ -137,8 +97,3 @@ layer(base);
 :root[data-theme="dark"] {
   background-color: var(--color-background-dark);
 }
-
-/* body,
-html {
-  background-color: var(--primary);
-} */

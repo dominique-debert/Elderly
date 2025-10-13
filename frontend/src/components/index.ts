@@ -210,7 +210,7 @@ export * from "./UrbanIssue/UrbanIssueTableRow";
 export * from "./UrbanIssue/UrbanIssueTableView";
 
 // Weather Components
-export * from "./Weather/WeatherWidget";
+export * from "./Dashboard/DashboardWeatherWidget.tsx";
 
 // Wellness Components
 export * from "./Wellness/WellnessCard";

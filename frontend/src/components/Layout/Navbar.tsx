@@ -1,14 +1,8 @@
 import Icon from "@mdi/react";
 import {
-  mdiAccount,
   mdiBellOutline,
-  mdiBottleTonicPlusOutline,
   mdiCogOutline,
-  mdiForumOutline,
-  mdiHeadHeartOutline,
-  mdiHeartOutline,
   mdiMoonWaxingCrescent,
-  mdiViewDashboardOutline,
   mdiWeatherSunny,
 } from "@mdi/js";
 
@@ -104,59 +98,16 @@ export function Navbar() {
 
   return (
     <header className="header-area">
-      <div className="navbar bg-white fixed top-0 z-50 h-16 w-full shadow-sm border-b dark:bg-card border-base-200">
+      <div className="navbar bg-white dark:bg-card fixed top-0 z-50 h-16 w-full shadow-sm border-b border-base-200">
         <div className="flex justify-between w-full items-center">
           <Link
-            to="/"
+            to="/dashboard"
             className="btn btn-ghost text-2xl text-primary hover:bg-primary/30 rounded-xl"
           >
             <div className="p-2">
               <img src="/images/logo.png" alt="Logo" className="h-10" />
             </div>
           </Link>
-
-          {/* Mobile menu items */}
-          <div className="flex space-x-2 xs:block lg:hidden">
-            <Link to={"/"}>
-              <button className="btn-active w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-                <Icon
-                  path={mdiViewDashboardOutline}
-                  size={1}
-                  className="text-primary"
-                />
-              </button>
-            </Link>
-
-            <Link to="/profile" className="justify-between">
-              <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-                {user?.avatarUrl ? (
-                  <img
-                    src={user.avatarUrl}
-                    alt="avatar"
-                    className="w-6 h-6 rounded-full"
-                  />
-                ) : (
-                  <Icon path={mdiAccount} title="Profil" size={1} />
-                )}
-              </button>
-            </Link>
-
-            <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-              <Icon path={mdiBottleTonicPlusOutline} title="Profil" size={1} />
-            </button>
-
-            <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-              <Icon path={mdiHeartOutline} title="Profil" size={1} />
-            </button>
-
-            <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-              <Icon path={mdiHeadHeartOutline} title="Profil" size={1} />
-            </button>
-
-            <button className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30">
-              <Icon path={mdiForumOutline} title="Profil" size={1} />
-            </button>
-          </div>
 
           <div className="flex items-center gap-4">
             <div className="tooltip tooltip-bottom" data-tip="Changer de thème">
@@ -182,7 +133,7 @@ export function Navbar() {
             <div className="relative" ref={notifRef}>
               <button
                 role="button"
-                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom mr-3"
                 data-tip="Notifications"
                 onClick={() => setIsNotifOpen(!isNotifOpen)}
               >
@@ -208,7 +159,7 @@ export function Navbar() {
             {user?.isAdmin && (
               <Link
                 to="/admin-page"
-                className="btn btn-ghost btn-circle avatar tooltip tooltip-left"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-left mr-3"
                 data-tip="Espace administration"
               >
                 <Icon path={mdiCogOutline} size={1.3} />
