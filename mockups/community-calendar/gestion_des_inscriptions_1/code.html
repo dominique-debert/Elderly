@@ -97,43 +97,64 @@
         transition: transform 0.2s ease-in-out;
       }
       .button-active-state {
-          filter: brightness(90%);
+        filter: brightness(90%);
       }
     </style>
   </head>
-  <body class="bg-gradient-to-br from-blue-100 to-purple-200" style='font-family: "Manrope", "Noto Sans", sans-serif;'>
-    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden group/design-root">
+  <body
+    class="bg-gradient-to-br from-blue-100 to-purple-200"
+    style="font-family: 'Manrope', 'Noto Sans', sans-serif"
+  >
+    <div
+      class="relative flex min-h-screen w-full flex-col overflow-x-hidden group/design-root"
+    >
       <div class="layout-container flex h-full grow flex-col py-10">
         <div class="flex flex-1 justify-center gap-1 px-6">
           <div class="layout-content-container w-80 flex flex-col">
-            <div class="flex min-h-[700px] flex-col justify-between rounded-2xl bg-white p-6 shadow-lg">
+            <div
+              class="flex min-h-[700px] flex-col justify-between rounded-2xl bg-white p-6 shadow-lg"
+            >
               <div class="flex flex-col gap-4">
-                <h1 class="text-2xl font-bold text-gray-800">Neighborly</h1>
+                <h1 class="text-2xl font-light text-primary">Neighborly</h1>
                 <div class="flex flex-col gap-2">
-                  <div class="flex items-center gap-3 rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gray-100">
+                  <div
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gray-100"
+                  >
                     <div class="icon-house text-blue-500"></div>
                     <p class="text-sm font-medium text-gray-700">Accueil</p>
                   </div>
-                  <div class="flex items-center gap-3 rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gray-100">
+                  <div
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gray-100"
+                  >
                     <div class="icon-calendar text-green-500"></div>
                     <p class="text-sm font-medium text-gray-700">Activités</p>
                   </div>
-                  <div class="flex items-center gap-3 rounded-lg bg-blue-100 px-3 py-2">
+                  <div
+                    class="flex items-center gap-3 rounded-lg bg-blue-100 px-3 py-2"
+                  >
                     <div class="icon-users text-blue-600"></div>
-                    <p class="text-sm font-medium text-blue-700">Participants</p>
+                    <p class="text-sm font-medium text-blue-700">
+                      Participants
+                    </p>
                   </div>
-                  <div class="flex items-center gap-3 rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gray-100">
+                  <div
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gray-100"
+                  >
                     <div class="icon-chat text-pink-500"></div>
                     <p class="text-sm font-medium text-gray-700">Messages</p>
                   </div>
-                  <div class="flex items-center gap-3 rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gray-100">
+                  <div
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gray-100"
+                  >
                     <div class="icon-gear text-yellow-500"></div>
                     <p class="text-sm font-medium text-gray-700">Paramètres</p>
                   </div>
                 </div>
               </div>
               <div class="flex flex-col gap-1">
-                <div class="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-gray-600 transition-all duration-200 hover:bg-gray-100 hover:text-blue-500">
+                <div
+                  class="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-gray-600 transition-all duration-200 hover:bg-gray-100 hover:text-blue-500"
+                >
                   <div class="icon-arrow-left text-gray-500"></div>
                   <p class="text-sm font-medium">Retour à l'accueil</p>
                 </div>
@@ -142,89 +163,230 @@
           </div>
           <div class="layout-content-container flex-1 max-w-[960px] flex-col">
             <div class="flex flex-wrap justify-between gap-3 p-4">
-              <p class="text-[32px] font-bold leading-tight tracking-[-0.015em] text-gray-800 min-w-72">Participants</p>
+              <p
+                class="text-[32px] font-bold leading-tight tracking-[-0.015em]text-primary min-w-72"
+              >
+                Participants
+              </p>
             </div>
-            <h2 class="px-4 pb-3 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-800">Activité : Atelier de peinture</h2>
+            <h2
+              class="px-4 pb-3 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em]text-primary"
+            >
+              Activité : Atelier de peinture
+            </h2>
             <div class="px-4 py-3 @container">
-              <div class="flex overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg">
+              <div
+                class="flex overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg"
+              >
                 <table class="flex-1">
                   <thead>
                     <tr class="bg-gradient-to-r from-blue-50 to-purple-50">
-                      <th class="w-[400px] px-4 py-3 text-left text-sm font-semibold leading-normal text-gray-700">Nom</th>
-                      <th class="w-[400px] px-4 py-3 text-left text-sm font-semibold leading-normal text-gray-700">Contact</th>
-                      <th class="w-60 px-4 py-3 text-left text-sm font-semibold leading-normal text-gray-700">Statut</th>
-                      <th class="w-60 px-4 py-3 text-left text-sm font-semibold leading-normal text-gray-700">Actions</th>
+                      <th
+                        class="w-[400px] px-4 py-3 text-left text-sm font-semibold leading-normal text-gray-700"
+                      >
+                        Nom
+                      </th>
+                      <th
+                        class="w-[400px] px-4 py-3 text-left text-sm font-semibold leading-normal text-gray-700"
+                      >
+                        Contact
+                      </th>
+                      <th
+                        class="w-60 px-4 py-3 text-left text-sm font-semibold leading-normal text-gray-700"
+                      >
+                        Statut
+                      </th>
+                      <th
+                        class="w-60 px-4 py-3 text-left text-sm font-semibold leading-normal text-gray-700"
+                      >
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr class="border-t border-t-gray-200">
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-800">Sophie Tremblay</td>
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500">sophie.t@email.com</td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normaltext-primary"
+                      >
+                        Sophie Tremblay
+                      </td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500"
+                      >
+                        sophie.t@email.com
+                      </td>
                       <td class="h-[72px] w-60 px-4 py-2 text-sm font-normal">
-                        <button class="flex w-full items-center justify-center overflow-hidden rounded-full bg-blue-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-blue-800 button-hover-effect">
+                        <button
+                          class="flex w-full items-center justify-center overflow-hidden rounded-full bg-blue-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-blue-800 button-hover-effect"
+                        >
                           <span class="truncate">Inscrit</span>
                         </button>
                       </td>
-                      <td class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600">
-                        <span class="hover:text-blue-500 cursor-pointer transition-colors duration-200">Approuver</span> |
-                        <span class="hover:text-red-500 cursor-pointer transition-colors duration-200">Refuser</span> |
-                        <span class="hover:text-green-500 cursor-pointer transition-colors duration-200">Message</span>
+                      <td
+                        class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600"
+                      >
+                        <span
+                          class="hover:text-blue-500 cursor-pointer transition-colors duration-200"
+                          >Approuver</span
+                        >
+                        |
+                        <span
+                          class="hover:text-red-500 cursor-pointer transition-colors duration-200"
+                          >Refuser</span
+                        >
+                        |
+                        <span
+                          class="hover:text-green-500 cursor-pointer transition-colors duration-200"
+                          >Message</span
+                        >
                       </td>
                     </tr>
                     <tr class="border-t border-t-gray-200">
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-800">Jean-Pierre Dubois</td>
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500">jp.dubois@email.com</td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normaltext-primary"
+                      >
+                        Jean-Pierre Dubois
+                      </td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500"
+                      >
+                        jp.dubois@email.com
+                      </td>
                       <td class="h-[72px] w-60 px-4 py-2 text-sm font-normal">
-                        <button class="flex w-full items-center justify-center overflow-hidden rounded-full bg-yellow-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-yellow-800 button-hover-effect">
+                        <button
+                          class="flex w-full items-center justify-center overflow-hidden rounded-full bg-yellow-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-yellow-800 button-hover-effect"
+                        >
                           <span class="truncate">En attente</span>
                         </button>
                       </td>
-                      <td class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600">
-                        <span class="hover:text-blue-500 cursor-pointer transition-colors duration-200">Approuver</span> |
-                        <span class="hover:text-red-500 cursor-pointer transition-colors duration-200">Refuser</span> |
-                        <span class="hover:text-green-500 cursor-pointer transition-colors duration-200">Message</span>
+                      <td
+                        class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600"
+                      >
+                        <span
+                          class="hover:text-blue-500 cursor-pointer transition-colors duration-200"
+                          >Approuver</span
+                        >
+                        |
+                        <span
+                          class="hover:text-red-500 cursor-pointer transition-colors duration-200"
+                          >Refuser</span
+                        >
+                        |
+                        <span
+                          class="hover:text-green-500 cursor-pointer transition-colors duration-200"
+                          >Message</span
+                        >
                       </td>
                     </tr>
                     <tr class="border-t border-t-gray-200">
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-800">Marie Leclerc</td>
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500">marie.l@email.com</td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normaltext-primary"
+                      >
+                        Marie Leclerc
+                      </td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500"
+                      >
+                        marie.l@email.com
+                      </td>
                       <td class="h-[72px] w-60 px-4 py-2 text-sm font-normal">
-                        <button class="flex w-full items-center justify-center overflow-hidden rounded-full bg-blue-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-blue-800 button-hover-effect">
+                        <button
+                          class="flex w-full items-center justify-center overflow-hidden rounded-full bg-blue-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-blue-800 button-hover-effect"
+                        >
                           <span class="truncate">Inscrit</span>
                         </button>
                       </td>
-                      <td class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600">
-                        <span class="hover:text-blue-500 cursor-pointer transition-colors duration-200">Approuver</span> |
-                        <span class="hover:text-red-500 cursor-pointer transition-colors duration-200">Refuser</span> |
-                        <span class="hover:text-green-500 cursor-pointer transition-colors duration-200">Message</span>
+                      <td
+                        class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600"
+                      >
+                        <span
+                          class="hover:text-blue-500 cursor-pointer transition-colors duration-200"
+                          >Approuver</span
+                        >
+                        |
+                        <span
+                          class="hover:text-red-500 cursor-pointer transition-colors duration-200"
+                          >Refuser</span
+                        >
+                        |
+                        <span
+                          class="hover:text-green-500 cursor-pointer transition-colors duration-200"
+                          >Message</span
+                        >
                       </td>
                     </tr>
                     <tr class="border-t border-t-gray-200">
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-800">André Martin</td>
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500">andre.m@email.com</td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normaltext-primary"
+                      >
+                        André Martin
+                      </td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500"
+                      >
+                        andre.m@email.com
+                      </td>
                       <td class="h-[72px] w-60 px-4 py-2 text-sm font-normal">
-                        <button class="flex w-full items-center justify-center overflow-hidden rounded-full bg-red-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-red-800 button-hover-effect">
+                        <button
+                          class="flex w-full items-center justify-center overflow-hidden rounded-full bg-red-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-red-800 button-hover-effect"
+                        >
                           <span class="truncate">Refusé</span>
                         </button>
                       </td>
-                      <td class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600">
-                        <span class="hover:text-blue-500 cursor-pointer transition-colors duration-200">Approuver</span> |
-                        <span class="hover:text-red-500 cursor-pointer transition-colors duration-200">Refuser</span> |
-                        <span class="hover:text-green-500 cursor-pointer transition-colors duration-200">Message</span>
+                      <td
+                        class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600"
+                      >
+                        <span
+                          class="hover:text-blue-500 cursor-pointer transition-colors duration-200"
+                          >Approuver</span
+                        >
+                        |
+                        <span
+                          class="hover:text-red-500 cursor-pointer transition-colors duration-200"
+                          >Refuser</span
+                        >
+                        |
+                        <span
+                          class="hover:text-green-500 cursor-pointer transition-colors duration-200"
+                          >Message</span
+                        >
                       </td>
                     </tr>
                     <tr class="border-t border-t-gray-200">
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-800">Isabelle Roy</td>
-                      <td class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500">isabelle.r@email.com</td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normaltext-primary"
+                      >
+                        Isabelle Roy
+                      </td>
+                      <td
+                        class="h-[72px] w-[400px] px-4 py-2 text-sm font-normal text-gray-500"
+                      >
+                        isabelle.r@email.com
+                      </td>
                       <td class="h-[72px] w-60 px-4 py-2 text-sm font-normal">
-                        <button class="flex w-full items-center justify-center overflow-hidden rounded-full bg-blue-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-blue-800 button-hover-effect">
+                        <button
+                          class="flex w-full items-center justify-center overflow-hidden rounded-full bg-blue-200 px-4 py-2 text-sm font-bold tracking-[0.015em] text-blue-800 button-hover-effect"
+                        >
                           <span class="truncate">Inscrit</span>
                         </button>
                       </td>
-                      <td class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600">
-                        <span class="hover:text-blue-500 cursor-pointer transition-colors duration-200">Approuver</span> |
-                        <span class="hover:text-red-500 cursor-pointer transition-colors duration-200">Refuser</span> |
-                        <span class="hover:text-green-500 cursor-pointer transition-colors duration-200">Message</span>
+                      <td
+                        class="h-[72px] w-60 px-4 py-2 text-sm font-bold tracking-[0.015em] text-gray-600"
+                      >
+                        <span
+                          class="hover:text-blue-500 cursor-pointer transition-colors duration-200"
+                          >Approuver</span
+                        >
+                        |
+                        <span
+                          class="hover:text-red-500 cursor-pointer transition-colors duration-200"
+                          >Refuser</span
+                        >
+                        |
+                        <span
+                          class="hover:text-green-500 cursor-pointer transition-colors duration-200"
+                          >Message</span
+                        >
                       </td>
                     </tr>
                   </tbody>
@@ -254,11 +416,17 @@
               </style>
             </div>
             <div class="flex justify-stretch py-4 px-4">
-              <div class="flex flex-1 flex-wrap items-center justify-start gap-3">
-                <button class="rounded-full-button h-10 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden bg-gray-200 px-4 text-sm font-bold tracking-[0.015em] text-gray-800 button-hover-effect transition-all duration-200 hover:bg-gray-300">
+              <div
+                class="flex flex-1 flex-wrap items-center justify-start gap-3"
+              >
+                <button
+                  class="rounded-full-button h-10 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden bg-gray-200 px-4 text-sm font-bold tracking-[0.015em]text-primary button-hover-effect transition-all duration-200 hover:bg-gray-300"
+                >
                   <span class="truncate">Envoyer un message à tous</span>
                 </button>
-                <button class="rounded-full-button h-10 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden bg-vibrant-blue px-4 text-sm font-bold tracking-[0.015em] text-white button-hover-effect">
+                <button
+                  class="rounded-full-button h-10 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden bg-vibrant-blue px-4 text-sm font-bold tracking-[0.015em] text-white button-hover-effect"
+                >
                   <span class="truncate">Exporter la liste</span>
                 </button>
               </div>

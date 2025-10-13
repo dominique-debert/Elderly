@@ -14,12 +14,21 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
   <body>
-    <div class="relative flex h-auto min-h-screen w-full flex-col bg-slate-100 group/design-root overflow-x-hidden" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-slate-100 group/design-root overflow-x-hidden"
+      style="font-family: Lexend, 'Noto Sans', sans-serif"
+    >
       <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200 px-10 py-5 bg-white">
-          <div class="flex items-center gap-4 text-gray-800">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200 px-10 py-5 bg-white"
+        >
+          <div class="flex items-center gap-4text-primary">
             <div class="size-6">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z"
                   fill="currentColor"
@@ -32,13 +41,29 @@
                 ></path>
               </svg>
             </div>
-            <h2 class="text-gray-800 text-xl font-bold leading-tight tracking-[-0.015em]">EnterpriseConnect</h2>
+            <h2
+              class="text-gray-800 text-xl font-bold leading-tight tracking-[-0.015em]"
+            >
+              EnterpriseConnect
+            </h2>
           </div>
           <div class="flex items-center gap-8">
             <nav class="flex items-center gap-6">
-              <a class="text-gray-600 text-sm font-medium leading-normal hover:text-blue-600 transition-colors duration-200" href="#">Features</a>
-              <a class="text-gray-600 text-sm font-medium leading-normal hover:text-blue-600 transition-colors duration-200" href="#">Pricing</a>
-              <a class="text-gray-600 text-sm font-medium leading-normal hover:text-blue-600 transition-colors duration-200" href="#">Support</a>
+              <a
+                class="text-gray-600 text-sm font-medium leading-normal hover:text-blue-600 transition-colors duration-200"
+                href="#"
+                >Features</a
+              >
+              <a
+                class="text-gray-600 text-sm font-medium leading-normal hover:text-blue-600 transition-colors duration-200"
+                href="#"
+                >Pricing</a
+              >
+              <a
+                class="text-gray-600 text-sm font-medium leading-normal hover:text-blue-600 transition-colors duration-200"
+                href="#"
+                >Support</a
+              >
             </nav>
             <button
               class="flex min-w-[100px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-blue-600 text-white text-base font-semibold leading-normal tracking-[0.015em] hover:bg-blue-700 transition-colors duration-200"
@@ -48,13 +73,24 @@
           </div>
         </header>
         <main class="flex flex-1 justify-center py-12 px-6">
-          <div class="w-full max-w-[600px] rounded-xl bg-white shadow-lg p-8 border border-gray-200">
-            <h2 class="text-gray-800 tracking-tight text-3xl font-bold leading-tight text-center mb-8">Create Your Enterprise Account</h2>
-            <p class="text-gray-600 text-center mb-8">Secure your access and streamline your workflow. Enter your details below to get started.</p>
+          <div
+            class="w-full max-w-[600px] rounded-xl bg-white shadow-lg p-8 border border-gray-200"
+          >
+            <h2
+              class="text-gray-800 tracking-tight text-3xl font-bold leading-tight text-center mb-8"
+            >
+              Create Your Enterprise Account
+            </h2>
+            <p class="text-gray-600 text-center mb-8">
+              Secure your access and streamline your workflow. Enter your
+              details below to get started.
+            </p>
 
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div class="sm:col-span-1">
-                <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >First Name</label
+                >
                 <input
                   type="text"
                   placeholder="e.g. Jane"
@@ -62,7 +98,9 @@
                 />
               </div>
               <div class="sm:col-span-1">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Last Name</label
+                >
                 <input
                   type="text"
                   placeholder="e.g. Doe"
@@ -70,38 +108,68 @@
                 />
               </div>
               <div class="sm:col-span-2">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Company Email</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Company Email</label
+                >
                 <div class="relative rounded-lg shadow-sm">
                   <input
                     type="email"
                     placeholder="you@yourcompany.com"
                     class="form-input block w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 text-lg text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 placeholder:text-gray-400"
                   />
-                  <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M2 3a1 1 0 00-1 1v12a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1H2zm16 6a1 1 0 00-1 1v4a1 1 0 001 1h1a1 1 0 001-1v-4a1 1 0 00-1-1h-1zm-4 4a1 1 0 00-1 1v2a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 00-1-1h-2zM7 8a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1V9a1 1 0 00-1-1H7zm0 8a1 1 0 01 1 1v2a1 1 0 01-1 1h2a1 1 0 01-1-1v-2a1 1 0 011-1H7z" clip-rule="evenodd"></path>
+                  <div
+                    class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
+                  >
+                    <svg
+                      class="h-5 w-5 text-gray-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2 3a1 1 0 00-1 1v12a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1H2zm16 6a1 1 0 00-1 1v4a1 1 0 001 1h1a1 1 0 001-1v-4a1 1 0 00-1-1h-1zm-4 4a1 1 0 00-1 1v2a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 00-1-1h-2zM7 8a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1V9a1 1 0 00-1-1H7zm0 8a1 1 0 01 1 1v2a1 1 0 01-1 1h2a1 1 0 01-1-1v-2a1 1 0 011-1H7z"
+                        clip-rule="evenodd"
+                      ></path>
                     </svg>
                   </div>
                 </div>
               </div>
               <div class="sm:col-span-1">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Password</label
+                >
                 <div class="relative">
                   <input
                     type="password"
                     placeholder="********"
                     class="form-input block w-full rounded-lg border border-gray-300 px-4 py-3 text-lg text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 placeholder:text-gray-400"
                   />
-                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
-                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <div
+                    class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                  >
+                    <svg
+                      class="h-5 w-5 text-gray-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
                       <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                      <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a12 12 0 010-12 12 12 0 010 12z" clip-rule="evenodd" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a12 12 0 010-12 12 12 0 010 12z"
+                        clip-rule="evenodd"
+                      />
                     </svg>
                   </div>
                 </div>
               </div>
               <div class="sm:col-span-1">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Confirm Password</label
+                >
                 <input
                   type="password"
                   placeholder="********"
@@ -111,37 +179,90 @@
             </div>
 
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-gray-800 mb-3">Multi-Factor Authentication (MFA)</h3>
-              <p class="text-gray-600 text-sm mb-4">Enhance your account security by enabling MFA. We recommend setting this up now.</p>
+              <h3 class="text-lg font-semiboldtext-primary mb-3">
+                Multi-Factor Authentication (MFA)
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Enhance your account security by enabling MFA. We recommend
+                setting this up now.
+              </p>
               <div class="flex items-center justify-between">
                 <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
-                  <span class="ml-2 text-gray-700">Enable Two-Factor Authentication</span>
+                  <input
+                    type="checkbox"
+                    class="form-checkbox rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700"
+                    >Enable Two-Factor Authentication</span
+                  >
                 </label>
-                <button class="text-blue-600 hover:underline text-sm font-medium">Configure Later</button>
+                <button
+                  class="text-blue-600 hover:underline text-sm font-medium"
+                >
+                  Configure Later
+                </button>
               </div>
             </div>
 
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-gray-800 mb-3">Security & Compliance</h3>
+              <h3 class="text-lg font-semiboldtext-primary mb-3">
+                Security & Compliance
+              </h3>
               <div class="flex items-start gap-2">
-                <svg class="h-5 w-5 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.06-1.06l-4.143 4.143-1.214-1.214a.75.75 0 10-1.06 1.06l2 2 .75.75.75-.75 5-5z" clip-rule="evenodd"></path>
+                <svg
+                  class="h-5 w-5 text-green-500 shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.06-1.06l-4.143 4.143-1.214-1.214a.75.75 0 10-1.06 1.06l2 2 .75.75.75-.75 5-5z"
+                    clip-rule="evenodd"
+                  ></path>
                 </svg>
-                <span class="text-gray-600 text-sm">All data is encrypted in transit and at rest.</span>
+                <span class="text-gray-600 text-sm"
+                  >All data is encrypted in transit and at rest.</span
+                >
               </div>
               <div class="flex items-start gap-2 mt-1">
-                <svg class="h-5 w-5 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.06-1.06l-4.143 4.143-1.214-1.214a.75.75 0 10-1.06 1.06l2 2 .75.75.75-.75 5-5z" clip-rule="evenodd"></path>
+                <svg
+                  class="h-5 w-5 text-green-500 shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.06-1.06l-4.143 4.143-1.214-1.214a.75.75 0 10-1.06 1.06l2 2 .75.75.75-.75 5-5z"
+                    clip-rule="evenodd"
+                  ></path>
                 </svg>
-                <span class="text-gray-600 text-sm">Compliant with industry-leading security standards.</span>
+                <span class="text-gray-600 text-sm"
+                  >Compliant with industry-leading security standards.</span
+                >
               </div>
             </div>
 
             <div class="mt-8">
               <label class="inline-flex items-center">
-                <input type="checkbox" class="form-checkbox rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
-                <span class="ml-2 text-gray-700 text-sm">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>.</span>
+                <input
+                  type="checkbox"
+                  class="form-checkbox rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                />
+                <span class="ml-2 text-gray-700 text-sm"
+                  >I agree to the
+                  <a href="#" class="text-blue-600 hover:underline"
+                    >Terms of Service</a
+                  >
+                  and
+                  <a href="#" class="text-blue-600 hover:underline"
+                    >Privacy Policy</a
+                  >.</span
+                >
               </label>
             </div>
 
@@ -152,7 +273,12 @@
                 Create Account
               </button>
             </div>
-            <p class="text-center text-sm text-gray-500 mt-6">Already have an account? <a href="#" class="text-blue-600 font-medium hover:underline">Log In</a></p>
+            <p class="text-center text-sm text-gray-500 mt-6">
+              Already have an account?
+              <a href="#" class="text-blue-600 font-medium hover:underline"
+                >Log In</a
+              >
+            </p>
           </div>
         </main>
       </div>

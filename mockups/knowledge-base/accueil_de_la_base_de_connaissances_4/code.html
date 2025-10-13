@@ -16,16 +16,28 @@
     <style>
       /* Custom animations */
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       .animate-fadeIn {
         animation: fadeIn 0.8s ease-out forwards;
       }
 
       @keyframes slideInFromLeft {
-        from { transform: translateX(-100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
+        from {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
       .animate-slideInLeft {
         animation: slideInFromLeft 0.8s ease-out forwards;
@@ -40,32 +52,76 @@
       }
     </style>
   </head>
-  <body class="bg-gradient-to-br from-purple-100 via-blue-100 to-cyan-100 text-gray-900 font-sans" style='font-family: "Inter", "Poppins", sans-serif;'>
-    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden group/design-root">
-      <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap bg-white/90 px-10 py-4 shadow-md backdrop-blur-sm">
+  <body
+    class="bg-gradient-to-br from-purple-100 via-blue-100 to-cyan-100 text-gray-900 font-sans"
+    style="font-family: 'Inter', 'Poppins', sans-serif"
+  >
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden group/design-root"
+    >
+      <header
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap bg-white/90 px-10 py-4 shadow-md backdrop-blur-sm"
+      >
         <div class="flex items-center gap-8">
           <div class="flex items-center gap-3 text-blue-600">
             <div class="size-6 animate-pulse">
-              <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 48 48"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
                   fill="currentColor"
                 ></path>
               </svg>
             </div>
-            <h2 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-gray-800">NextGen Hub</h2>
+            <h2
+              class="text-2xl font-bold leading-tight tracking-[-0.015em]text-primary"
+            >
+              NextGen Hub
+            </h2>
           </div>
           <nav class="flex items-center gap-6">
-            <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-500 transition duration-300">Explore</a>
-            <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-500 transition duration-300">Skills</a>
-            <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-500 transition duration-300">Projects</a>
-            <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-500 transition duration-300">Community</a>
+            <a
+              href="#"
+              class="text-sm font-medium text-gray-700 hover:text-blue-500 transition duration-300"
+              >Explore</a
+            >
+            <a
+              href="#"
+              class="text-sm font-medium text-gray-700 hover:text-blue-500 transition duration-300"
+              >Skills</a
+            >
+            <a
+              href="#"
+              class="text-sm font-medium text-gray-700 hover:text-blue-500 transition duration-300"
+              >Projects</a
+            >
+            <a
+              href="#"
+              class="text-sm font-medium text-gray-700 hover:text-blue-500 transition duration-300"
+              >Community</a
+            >
           </nav>
         </div>
         <div class="flex flex-1 items-center justify-end gap-6">
-          <label class="flex items-center rounded-full bg-gray-100 px-4 py-2 focus-within:ring-2 focus-within:ring-blue-500">
-            <div class="text-gray-500" data-icon="MagnifyingGlass" data-size="18px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+          <label
+            class="flex items-center rounded-full bg-gray-100 px-4 py-2 focus-within:ring-2 focus-within:ring-blue-500"
+          >
+            <div
+              class="text-gray-500"
+              data-icon="MagnifyingGlass"
+              data-size="18px"
+              data-weight="regular"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18px"
+                height="18px"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
                 <path
                   d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
                 ></path>
@@ -73,29 +129,46 @@
             </div>
             <input
               placeholder="Search for trends, tools..."
-              class="ml-2 border-none bg-transparent p-0 text-sm text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-0"
+              class="ml-2 border-none bg-transparent p-0 text-smtext-primary placeholder:text-gray-500 focus:outline-none focus:ring-0"
               value=""
             />
           </label>
           <button
             class="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-blue-400 to-purple-500 text-white shadow-lg transition duration-300 hover:from-blue-500 hover:to-purple-600 hover:shadow-xl"
           >
-            <div class="text-white" data-icon="Bell" data-size="20px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+            <div
+              class="text-white"
+              data-icon="Bell"
+              data-size="20px"
+              data-weight="regular"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20px"
+                height="20px"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
                 <path
                   d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
                 ></path>
               </svg>
             </div>
             <span class="absolute -top-1 -right-1 flex h-3 w-3">
-              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-400 opacity-75"></span>
-              <span class="relative inline-flex h-3 w-3 rounded-full bg-pink-500"></span>
+              <span
+                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex h-3 w-3 rounded-full bg-pink-500"
+              ></span>
             </span>
           </button>
           <div class="group/card">
             <div
               class="relative aspect-square size-10 cursor-pointer overflow-hidden rounded-full bg-cover bg-center transition duration-300 group-hover/card:shadow-lg"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCM9PHC7vMZOFrt9VB35pG8275fpS-ye5EK3_O9CtuMw1jhduS94f_EzHJRmiKZq7a7kyJQYJ3NmttnZkHBSJXdDEdJbEZf26wM45qgdTarsLw0rpcYiGDpfhMJpzKBY9Ph8mdqDgVikHNAvjRzCRJJAUY_iQ84cf2ipdmR2wTLz-ZbppNlg4Oy46XkQujDWEaCXSpqfnukFhrvAnGQqHx57W-Bw0VDOf-rDf5NtWG90EbUzhuMkZvsQPjZc4j0Upt4sgo8_80zFOr");'
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCM9PHC7vMZOFrt9VB35pG8275fpS-ye5EK3_O9CtuMw1jhduS94f_EzHJRmiKZq7a7kyJQYJ3NmttnZkHBSJXdDEdJbEZf26wM45qgdTarsLw0rpcYiGDpfhMJpzKBY9Ph8mdqDgVikHNAvjRzCRJJAUY_iQ84cf2ipdmR2wTLz-ZbppNlg4Oy46XkQujDWEaCXSpqfnukFhrvAnGQqHx57W-Bw0VDOf-rDf5NtWG90EbUzhuMkZvsQPjZc4j0Upt4sgo8_80zFOr');
+              "
             ></div>
           </div>
         </div>
@@ -104,15 +177,35 @@
         <div class="max-w-[1100px] flex-1">
           <div class="mb-8 flex flex-wrap justify-between gap-4 p-4">
             <div class="flex flex-col gap-3">
-              <p class="text-4xl font-extrabold leading-tight tracking-tight text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Discover Your Next Big Idea</p>
-              <p class="text-lg text-gray-700">Unlock your potential with cutting-edge insights and connect with a vibrant community.</p>
+              <p
+                class="text-4xl font-extrabold leading-tight tracking-tight text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"
+              >
+                Discover Your Next Big Idea
+              </p>
+              <p class="text-lg text-gray-700">
+                Unlock your potential with cutting-edge insights and connect
+                with a vibrant community.
+              </p>
             </div>
           </div>
           <div class="mb-8 px-4 py-3">
             <label class="flex flex-col h-14 w-full">
-              <div class="flex w-full flex-1 items-stretch rounded-xl bg-white shadow-sm focus-within:ring-2 focus-within:ring-blue-500">
-                <div class="text-gray-500 flex items-center justify-center pl-4" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <div
+                class="flex w-full flex-1 items-stretch rounded-xl bg-white shadow-sm focus-within:ring-2 focus-within:ring-blue-500"
+              >
+                <div
+                  class="text-gray-500 flex items-center justify-center pl-4"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
                     ></path>
@@ -120,107 +213,215 @@
                 </div>
                 <input
                   placeholder="Search for trending topics, tools, or creators..."
-                  class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-xl border-none bg-transparent px-4 text-lg text-gray-800 focus:outline-none focus:ring-0 placeholder:text-gray-500"
+                  class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-xl border-none bg-transparent px-4 text-lgtext-primary focus:outline-none focus:ring-0 placeholder:text-gray-500"
                   value=""
                 />
               </div>
             </label>
           </div>
-          <h2 class="mb-4 px-4 pt-6 text-3xl font-bold tracking-tight text-gray-800 animate-fadeIn">Trending Now</h2>
+          <h2
+            class="mb-4 px-4 pt-6 text-3xl font-bold tracking-tighttext-primary animate-fadeIn"
+          >
+            Trending Now
+          </h2>
           <div class="flex flex-wrap gap-3 px-4 py-3">
-            <div class="group/tag inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 px-5 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:from-indigo-600 hover:to-blue-600 hover:shadow-md">
+            <div
+              class="group/tag inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 px-5 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:from-indigo-600 hover:to-blue-600 hover:shadow-md"
+            >
               AI & Machine Learning
             </div>
-            <div class="group/tag inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-green-400 to-teal-500 px-5 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:from-green-500 hover:to-teal-600 hover:shadow-md">
+            <div
+              class="group/tag inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-green-400 to-teal-500 px-5 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:from-green-500 hover:to-teal-600 hover:shadow-md"
+            >
               Web3 & Blockchain
             </div>
-            <div class="group/tag inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-pink-400 to-red-500 px-5 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:from-pink-500 hover:to-red-600 hover:shadow-md">
+            <div
+              class="group/tag inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-pink-400 to-red-500 px-5 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:from-pink-500 hover:to-red-600 hover:shadow-md"
+            >
               Creative Coding
             </div>
-            <div class="group/tag inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-5 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:from-yellow-500 hover:to-orange-600 hover:shadow-md">
+            <div
+              class="group/tag inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-5 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:from-yellow-500 hover:to-orange-600 hover:shadow-md"
+            >
               Sustainable Tech
             </div>
           </div>
 
-          <h2 class="mb-5 px-4 pt-10 text-3xl font-bold tracking-tight text-gray-800 animate-fadeIn">Featured Content</h2>
+          <h2
+            class="mb-5 px-4 pt-10 text-3xl font-bold tracking-tighttext-primary animate-fadeIn"
+          >
+            Featured Content
+          </h2>
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <div class="group/card animate-fadeIn delay-100">
-              <div class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl">
+              <div
+                class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl"
+              >
                 <div
                   class="aspect-video w-full bg-cover bg-center"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAG6cD8xL7GQDe1n2oNInDoOGATS3-mN2MKrZuJ37lGQpI_nnCx2OdBR2ik43VYcF3kSsI7Q-YGlLcrxoI8qI5Q7929yIJkzzmih4HLhINZyQZdr4btUbGKIpsKqRtUUSQrBl4zBDzlFDhGEDNvdBp5bloMljUbtaMfpH11dgm6vtuarBtfaix9Mbal2MS6-kMOVriCwrZRPeos-fbtzGzksGCRpfF1Af4dnwY2I3v6wWg45-dShzOq64Y8l42o8ybhn0xQeGR1SJ_3");'
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAG6cD8xL7GQDe1n2oNInDoOGATS3-mN2MKrZuJ37lGQpI_nnCx2OdBR2ik43VYcF3kSsI7Q-YGlLcrxoI8qI5Q7929yIJkzzmih4HLhINZyQZdr4btUbGKIpsKqRtUUSQrBl4zBDzlFDhGEDNvdBp5bloMljUbtaMfpH11dgm6vtuarBtfaix9Mbal2MS6-kMOVriCwrZRPeos-fbtzGzksGCRpfF1Af4dnwY2I3v6wWg45-dShzOq64Y8l42o8ybhn0xQeGR1SJ_3');
+                  "
                 ></div>
                 <div class="p-5">
-                  <h3 class="mb-2 text-xl font-bold text-gray-800 card-hover-title transition duration-300">The Future of Decentralized Applications</h3>
-                  <p class="mb-4 text-sm font-normal leading-normal text-gray-600">Dive deep into the architecture and potential of dApps.</p>
-                  <a href="#" class="inline-block text-sm font-bold text-blue-600 hover:underline">Read More &rarr;</a>
+                  <h3
+                    class="mb-2 text-xl font-light text-primary card-hover-title transition duration-300"
+                  >
+                    The Future of Decentralized Applications
+                  </h3>
+                  <p
+                    class="mb-4 text-sm font-normal leading-normal text-gray-600"
+                  >
+                    Dive deep into the architecture and potential of dApps.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-block text-sm font-bold text-blue-600 hover:underline"
+                    >Read More &rarr;</a
+                  >
                 </div>
               </div>
             </div>
             <div class="group/card animate-fadeIn delay-200">
-              <div class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl">
+              <div
+                class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl"
+              >
                 <div
                   class="aspect-video w-full bg-cover bg-center"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBRzhhLdF7V3FubAi_pRrbAKY-x2np8JEz3jpz-yFRRbm56Uq8WIqxQdN7omnZosZnSGlk-KPVNRYlbMRFSci62PI6jXYEhaIaJSuZgcaSoQ1mGMT14XUpZB8K6EYoFdpypGLV0qcTSCNigvTm-deUL5IFtnxOQ6fiFDFBewAYnLFqxNJbi8iLWGwgxjVv0jiQ2ifyxNKs5CZAJkYuHdRDGzGtMGBdOzNAHky8JaJ9OOIfebu1y5ewVF2u5DIJyTCy3WktitWLG7GlW");'
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRzhhLdF7V3FubAi_pRrbAKY-x2np8JEz3jpz-yFRRbm56Uq8WIqxQdN7omnZosZnSGlk-KPVNRYlbMRFSci62PI6jXYEhaIaJSuZgcaSoQ1mGMT14XUpZB8K6EYoFdpypGLV0qcTSCNigvTm-deUL5IFtnxOQ6fiFDFBewAYnLFqxNJbi8iLWGwgxjVv0jiQ2ifyxNKs5CZAJkYuHdRDGzGtMGBdOzNAHky8JaJ9OOIfebu1y5ewVF2u5DIJyTCy3WktitWLG7GlW');
+                  "
                 ></div>
                 <div class="p-5">
-                  <h3 class="mb-2 text-xl font-bold text-gray-800 card-hover-title transition duration-300">Creative Coding: From Pixels to Possibilities</h3>
-                  <p class="mb-4 text-sm font-normal leading-normal text-gray-600">Explore generative art and interactive installations.</p>
-                  <a href="#" class="inline-block text-sm font-bold text-blue-600 hover:underline">Learn More &rarr;</a>
+                  <h3
+                    class="mb-2 text-xl font-light text-primary card-hover-title transition duration-300"
+                  >
+                    Creative Coding: From Pixels to Possibilities
+                  </h3>
+                  <p
+                    class="mb-4 text-sm font-normal leading-normal text-gray-600"
+                  >
+                    Explore generative art and interactive installations.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-block text-sm font-bold text-blue-600 hover:underline"
+                    >Learn More &rarr;</a
+                  >
                 </div>
               </div>
             </div>
             <div class="group/card animate-fadeIn delay-300">
-              <div class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl">
+              <div
+                class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl"
+              >
                 <div
                   class="aspect-video w-full bg-cover bg-center"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCs6Pn2VDbCWp24iWAqfSPUrNvP5xtRqIxgDC6ylRoEcthm0MtApLdRIRifGPUe5lF490RqXF5Ffkc0u8K-UoRNsMtdn1-ad3AGcXo5svmPgGdeWVqRPDexOUt9FQfBPftDHeXl2HI1vt5TOljT4OegcuiND54ShabLIhYptwSZBNatLndJjhKLVVaP0MfYa4v_F4B9VJD2rMjUFbmep4kcwK6YZeSYCOFwLniOBNKUyS0-geGq_7MXBWoS-npaZ6GOYgUEywbUa28g");'
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCs6Pn2VDbCWp24iWAqfSPUrNvP5xtRqIxgDC6ylRoEcthm0MtApLdRIRifGPUe5lF490RqXF5Ffkc0u8K-UoRNsMtdn1-ad3AGcXo5svmPgGdeWVqRPDexOUt9FQfBPftDHeXl2HI1vt5TOljT4OegcuiND54ShabLIhYptwSZBNatLndJjhKLVVaP0MfYa4v_F4B9VJD2rMjUFbmep4kcwK6YZeSYCOFwLniOBNKUyS0-geGq_7MXBWoS-npaZ6GOYgUEywbUa28g');
+                  "
                 ></div>
                 <div class="p-5">
-                  <h3 class="mb-2 text-xl font-bold text-gray-800 card-hover-title transition duration-300">Ethical AI: Building Responsible Technology</h3>
-                  <p class="mb-4 text-sm font-normal leading-normal text-gray-600">Understanding bias and ensuring fairness in AI development.</p>
-                  <a href="#" class="inline-block text-sm font-bold text-blue-600 hover:underline">Discover &rarr;</a>
+                  <h3
+                    class="mb-2 text-xl font-light text-primary card-hover-title transition duration-300"
+                  >
+                    Ethical AI: Building Responsible Technology
+                  </h3>
+                  <p
+                    class="mb-4 text-sm font-normal leading-normal text-gray-600"
+                  >
+                    Understanding bias and ensuring fairness in AI development.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-block text-sm font-bold text-blue-600 hover:underline"
+                    >Discover &rarr;</a
+                  >
                 </div>
               </div>
             </div>
           </div>
 
-          <h2 class="mb-5 px-4 pt-10 text-3xl font-bold tracking-tight text-gray-800 animate-fadeIn">Quick Tutorials</h2>
+          <h2
+            class="mb-5 px-4 pt-10 text-3xl font-bold tracking-tighttext-primary animate-fadeIn"
+          >
+            Quick Tutorials
+          </h2>
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <div class="group/card animate-fadeIn delay-400">
-              <div class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl">
+              <div
+                class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl"
+              >
                 <div
                   class="aspect-video w-full bg-cover bg-center"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBzHiP8i1jGS50qkshEr8OfiE27bpI29sm86NgKoekVAMnPu9FCQhJ3QtC6QYMQBFOWxROye7vKvRpKYUPzmQwAdAD_vbSIUxMnIIrTyb6iC5E8K-PQnOdHU3lxrhl9L5dnvwQzcg-9yoryZZCXOyaA8mDoXpS2vtZBAR4oWHcnS9y-jjQPCe512gi6gIuNdzolQq5k4qhJqlCgnTZlIB5UnTCTfvktCw5MXh4t0IDiADwQ8PihyIrggqljjeKt9ybpUXvq_GtZqph");'
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBzHiP8i1jGS50qkshEr8OfiE27bpI29sm86NgKoekVAMnPu9FCQhJ3QtC6QYMQBFOWxROye7vKvRpKYUPzmQwAdAD_vbSIUxMnIIrTyb6iC5E8K-PQnOdHU3lxrhl9L5dnvwQzcg-9yoryZZCXOyaA8mDoXpS2vtZBAR4oWHcnS9y-jjQPCe512gi6gIuNdzolQq5k4qhJqlCgnTZlIB5UnTCTfvktCw5MXh4t0IDiADwQ8PihyIrggqljjeKt9ybpUXvq_GtZqph');
+                  "
                 ></div>
                 <div class="p-5">
-                  <h3 class="mb-2 text-xl font-bold text-gray-800 card-hover-title transition duration-300">Getting Started with React Hooks</h3>
-                  <p class="mb-4 text-sm font-normal leading-normal text-gray-600">A hands-on guide to mastering React's most powerful feature.</p>
-                  <a href="#" class="inline-block text-sm font-bold text-blue-600 hover:underline">Watch Now &rarr;</a>
+                  <h3
+                    class="mb-2 text-xl font-light text-primary card-hover-title transition duration-300"
+                  >
+                    Getting Started with React Hooks
+                  </h3>
+                  <p
+                    class="mb-4 text-sm font-normal leading-normal text-gray-600"
+                  >
+                    A hands-on guide to mastering React's most powerful feature.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-block text-sm font-bold text-blue-600 hover:underline"
+                    >Watch Now &rarr;</a
+                  >
                 </div>
               </div>
             </div>
             <div class="group/card animate-fadeIn delay-500">
-              <div class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl">
+              <div
+                class="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:scale-[1.02] hover:shadow-2xl"
+              >
                 <div
                   class="aspect-video w-full bg-cover bg-center"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUAOHk6CnJg-FsOuOW6xfw1nYi0pIf2TQ89_pgQ-_CDbXiFWpShOMaTKVKxepST_fABLDiLB2Pb1oi92V6UmaWoUyoXeMWu1dDv_UfdOS1Y2Q1T1SFk_Qm4a7kxqQwkzwIl9x2GQY_5e7GnHdQgj2mHPMDfyW6fuIdkklwAUjsEhfedfa6mOTe4y32_VccUtr6B00deD5VuuijtuJR6wIN61cDsgE6Ibk9A_BuDPzyN-TWH148_sTxHo1-aThP_x-4nEIYHnrdjMMj");'
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUAOHk6CnJg-FsOuOW6xfw1nYi0pIf2TQ89_pgQ-_CDbXiFWpShOMaTKVKxepST_fABLDiLB2Pb1oi92V6UmaWoUyoXeMWu1dDv_UfdOS1Y2Q1T1SFk_Qm4a7kxqQwkzwIl9x2GQY_5e7GnHdQgj2mHPMDfyW6fuIdkklwAUjsEhfedfa6mOTe4y32_VccUtr6B00deD5VuuijtuJR6wIN61cDsgE6Ibk9A_BuDPzyN-TWH148_sTxHo1-aThP_x-4nEIYHnrdjMMj');
+                  "
                 ></div>
                 <div class="p-5">
-                  <h3 class="mb-2 text-xl font-bold text-gray-800 card-hover-title transition duration-300">Secure Your Digital Identity</h3>
-                  <p class="mb-4 text-sm font-normal leading-normal text-gray-600">Essential tips for online safety and privacy.</p>
-                  <a href="#" class="inline-block text-sm font-bold text-blue-600 hover:underline">View Guide &rarr;</a>
+                  <h3
+                    class="mb-2 text-xl font-light text-primary card-hover-title transition duration-300"
+                  >
+                    Secure Your Digital Identity
+                  </h3>
+                  <p
+                    class="mb-4 text-sm font-normal leading-normal text-gray-600"
+                  >
+                    Essential tips for online safety and privacy.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-block text-sm font-bold text-blue-600 hover:underline"
+                    >View Guide &rarr;</a
+                  >
                 </div>
               </div>
             </div>
           </div>
         </div>
       </main>
-      <footer class="mt-auto bg-gradient-to-r from-blue-800 to-purple-800 px-10 py-8 text-white">
-        <div class="container mx-auto flex flex-col items-center justify-between gap-8 md:flex-row">
+      <footer
+        class="mt-auto bg-gradient-to-r from-blue-800 to-purple-800 px-10 py-8 text-white"
+      >
+        <div
+          class="container mx-auto flex flex-col items-center justify-between gap-8 md:flex-row"
+        >
           <div class="flex items-center gap-3">
-             <div class="size-8">
-              <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <div class="size-8">
+              <svg
+                viewBox="0 0 48 48"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
                   fill="white"
@@ -230,11 +431,31 @@
             <span class="text-xl font-bold">NextGen Hub</span>
           </div>
           <nav class="flex flex-wrap justify-center gap-4 md:gap-6">
-            <a href="#" class="text-sm font-medium hover:text-blue-300 transition duration-300">About Us</a>
-            <a href="#" class="text-sm font-medium hover:text-blue-300 transition duration-300">Careers</a>
-            <a href="#" class="text-sm font-medium hover:text-blue-300 transition duration-300">Blog</a>
-            <a href="#" class="text-sm font-medium hover:text-blue-300 transition duration-300">Contact</a>
-            <a href="#" class="text-sm font-medium hover:text-blue-300 transition duration-300">Privacy Policy</a>
+            <a
+              href="#"
+              class="text-sm font-medium hover:text-blue-300 transition duration-300"
+              >About Us</a
+            >
+            <a
+              href="#"
+              class="text-sm font-medium hover:text-blue-300 transition duration-300"
+              >Careers</a
+            >
+            <a
+              href="#"
+              class="text-sm font-medium hover:text-blue-300 transition duration-300"
+              >Blog</a
+            >
+            <a
+              href="#"
+              class="text-sm font-medium hover:text-blue-300 transition duration-300"
+              >Contact</a
+            >
+            <a
+              href="#"
+              class="text-sm font-medium hover:text-blue-300 transition duration-300"
+              >Privacy Policy</a
+            >
           </nav>
         </div>
         <div class="mt-6 text-center text-xs opacity-70">

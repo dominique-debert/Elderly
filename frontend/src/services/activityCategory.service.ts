@@ -1,15 +1,14 @@
 import api from "@/lib/axios";
 import type { ICategory } from "@/types";
-// import { data } from "react-router-dom";
 
-export function fetchActivityCategories(): Promise<ICategory[]> {
+export async function fetchActivityCategories(): Promise<ICategory[]> {
   const accessToken = localStorage.getItem("accessToken");
-
-  return api.get(`/categories/activities`, {
+  const response = await api.get<ICategory[]>("/categories/activities", {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
+  return response.data;
 }
 
 export async function createActivityCategory(category: {

@@ -74,17 +74,15 @@ export function Navbar() {
           });
         }
 
-        // Return empty array on error to prevent UI breakage
         return [];
       }
     },
-    enabled: !!user?.id, // Only run the query if we have a user ID
+    enabled: !!user?.id,
     retry: 1,
   });
 
   if (!isAuthenticated) return null;
 
-  // Show loading state only if we're trying to fetch notifications
   if (isLoading && user?.id)
     return (
       <div className="text-center mt-40">Chargement des notifications...</div>
@@ -102,7 +100,7 @@ export function Navbar() {
         <div className="flex justify-between w-full items-center">
           <Link
             to="/dashboard"
-            className="btn btn-ghost text-2xl text-primary hover:bg-primary/30 rounded-xl"
+            className="btn btn-ghost text-2xl text-primary rounded-xl"
           >
             <div className="p-2">
               <img src="/images/logo.png" alt="Logo" className="h-10" />
@@ -111,7 +109,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-4">
             <div className="tooltip tooltip-bottom" data-tip="Changer de thème">
-              <label className="toggle text-base-content mr-4 border">
+              <label className="toggle text-slate-400 mr-4 border">
                 <input
                   type="checkbox"
                   onChange={handleToggle}
@@ -133,13 +131,13 @@ export function Navbar() {
             <div className="relative" ref={notifRef}>
               <button
                 role="button"
-                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom mr-3"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom mr-3 text-slate-400"
                 data-tip="Notifications"
                 onClick={() => setIsNotifOpen(!isNotifOpen)}
               >
                 <Icon path={mdiBellOutline} size={1.3} />
                 {notifications && notifications.length > 0 && (
-                  <span className="absolute p-1.5 text-white avatar border-2 bg-orange-600 rounded-xl right-1 bottom-1" />
+                  <span className="absolute p-1.5 avatar border bg-orange-600 rounded-xl right-1 bottom-1" />
                 )}
               </button>
               {isNotifOpen && (
@@ -159,7 +157,7 @@ export function Navbar() {
             {user?.isAdmin && (
               <Link
                 to="/admin-page"
-                className="btn btn-ghost btn-circle avatar tooltip tooltip-left mr-3"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-left mr-3 text-slate-400"
                 data-tip="Espace administration"
               >
                 <Icon path={mdiCogOutline} size={1.3} />

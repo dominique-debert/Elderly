@@ -17,13 +17,22 @@
   <body>
     <div
       class="relative flex h-auto min-h-screen w-full flex-col bg-gradient-to-br from-blue-100 to-purple-100 group/design-root overflow-x-hidden"
-      style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(255,255,255)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e'); font-family: Lexend, &quot;Noto Sans&quot;, sans-serif;"
+      style="
+        --checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(255,255,255)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e');
+        font-family: Lexend, 'Noto Sans', sans-serif;
+      "
     >
       <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap bg-white/30 backdrop-blur-md px-10 py-3 shadow-md">
-          <div class="flex items-center gap-4 text-gray-800">
+        <header
+          class="flex items-center justify-between whitespace-nowrap bg-white/30 backdrop-blur-md px-10 py-3 shadow-md"
+        >
+          <div class="flex items-center gap-4text-primary">
             <div class="size-8">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z"
                   fill="currentColor"
@@ -36,26 +45,44 @@
                 ></path>
               </svg>
             </div>
-            <h2 class="text-gray-800 text-xl font-extrabold leading-tight tracking-[-0.015em]">SeniorConnect</h2>
+            <h2
+              class="text-gray-800 text-xl font-extrabold leading-tight tracking-[-0.015em]"
+            >
+              SeniorConnect
+            </h2>
           </div>
         </header>
         <div class="flex flex-1 items-center justify-center px-5 py-10">
-          <div class="flex w-full max-w-md flex-col rounded-xl bg-white/30 p-8 shadow-xl backdrop-blur-lg">
-            <h2 class="text-gray-800 text-3xl font-bold leading-tight px-4 text-center pb-6 pt-4">Connectez-vous</h2>
+          <div
+            class="flex w-full max-w-md flex-col rounded-xl bg-white/30 p-8 shadow-xl backdrop-blur-lg"
+          >
+            <h2
+              class="text-gray-800 text-3xl font-bold leading-tight px-4 text-center pb-6 pt-4"
+            >
+              Connectez-vous
+            </h2>
             <div class="flex flex-col gap-4">
               <label class="flex flex-col">
-                <p class="text-gray-700 text-sm font-semibold leading-normal pb-2">Email</p>
+                <p
+                  class="text-gray-700 text-sm font-semibold leading-normal pb-2"
+                >
+                  Email
+                </p>
                 <input
                   placeholder="votreadresse@email.com"
-                  class="rounded-lg border-transparent bg-white/50 p-3 text-base font-normal leading-normal text-gray-800 placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 focus:ring-offset-0 focus:ring-offset-transparent transition-all duration-300 ease-in-out"
+                  class="rounded-lg border-transparent bg-white/50 p-3 text-base font-normal leading-normaltext-primary placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 focus:ring-offset-0 focus:ring-offset-transparent transition-all duration-300 ease-in-out"
                   value=""
                 />
               </label>
               <label class="flex flex-col">
-                <p class="text-gray-700 text-sm font-semibold leading-normal pb-2">Mot de passe</p>
+                <p
+                  class="text-gray-700 text-sm font-semibold leading-normal pb-2"
+                >
+                  Mot de passe
+                </p>
                 <input
                   placeholder="Votre mot de passe"
-                  class="rounded-lg border-transparent bg-white/50 p-3 text-base font-normal leading-normal text-gray-800 placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 focus:ring-offset-0 focus:ring-offset-transparent transition-all duration-300 ease-in-out"
+                  class="rounded-lg border-transparent bg-white/50 p-3 text-base font-normal leading-normaltext-primary placeholder:text-gray-500 focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 focus:ring-offset-0 focus:ring-offset-transparent transition-all duration-300 ease-in-out"
                   value=""
                 />
               </label>
@@ -71,9 +98,15 @@
                     class="pointer-events-none absolute inset-0 rounded-md border border-gray-300 opacity-0 transition-opacity duration-300 peer-checked:opacity-100"
                   ></div>
                 </div>
-                <span class="ml-2 text-sm font-medium text-gray-700">Se souvenir de moi</span>
+                <span class="ml-2 text-sm font-medium text-gray-700"
+                  >Se souvenir de moi</span
+                >
               </label>
-              <a href="#" class="text-sm font-medium text-indigo-600 hover:underline">Mot de passe oublié ?</a>
+              <a
+                href="#"
+                class="text-sm font-medium text-indigo-600 hover:underline"
+                >Mot de passe oublié ?</a
+              >
             </div>
             <div class="pt-4">
               <button

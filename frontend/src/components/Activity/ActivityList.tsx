@@ -6,7 +6,7 @@ import type { ICategory } from "@/types";
 
 import {
   ActivityCardView,
-  ActivityListSwitcher,
+  ActivityModeSwitcher,
   ActivityListView,
   ActivityTableView,
 } from "@/components";
@@ -15,18 +15,18 @@ type Mode = "card" | "list" | "table";
 
 export function ActivityList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("activityViewMode");
+    const savedMode = localStorage.getItem("ActivityViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("activityViewMode", mode);
+    localStorage.setItem("ActivityViewMode", mode);
   }, [mode]);
 
   const {
-    data: groupedActivities,
+    data: groupedactivities,
     isLoading,
     isError,
   } = useQuery({
@@ -40,33 +40,65 @@ export function ActivityList() {
       <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
     );
 
-  // Process and sort the activities
-  const processedChapters = Object.entries(groupedActivities || {})
-    .flatMap(([, chapters]) => {
-      return Object.entries(chapters).map(([chapterId, activities]) => {
-        const chapterActivities = activities as ICategory[];
-        const chapterInfo = chapterActivities[0]?.categoryChapter || {
-          chapterName: `${chapterId}`,
-          chapterDescription: "",
-        };
+  const processedChapters = (() => {
+    console.debug("ActivityList - groupedactivities:", groupedactivities);
 
-        return {
-          chapterName: chapterInfo.chapterName,
-          chapterDescription: chapterInfo.chapterDescription,
-          activities: [...chapterActivities]
-            .filter((activity) =>
-              activity.categoryName.toLowerCase().includes(search.toLowerCase())
-            )
-            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
-        };
-      });
-    })
-    .filter((chapter) => chapter.activities.length > 0)
-    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+    // normalize: if the query returned an axios response object, use its .data
+    const source =
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      groupedactivities && (groupedactivities as any).data
+        ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (groupedactivities as any).data
+        : groupedactivities;
+
+    return Object.entries(source || {})
+      .flatMap(([, chapters]) => {
+        return Object.entries(chapters || {}).map(([chapterId, activities]) => {
+          // Normalize activities to an array (handle array, object map or single item)
+          let chapteractivities: ICategory[] = [];
+          if (Array.isArray(activities)) {
+            chapteractivities = activities as ICategory[];
+          } else if (activities && typeof activities === "object") {
+            chapteractivities = Object.values(activities) as ICategory[];
+          } else {
+            console.warn(
+              "ActivityList: activities not iterable for chapterId",
+              chapterId,
+              activities
+            );
+            chapteractivities = [];
+          }
+
+          const chapterInfo = chapteractivities[0]?.categoryChapter || {
+            chapterName: `${chapterId}`,
+            chapterDescription: "",
+          };
+
+          // ensure we only operate on items that have a categoryName string
+          const filteredActivities = chapteractivities.filter(
+            (a) => typeof a?.categoryName === "string"
+          );
+
+          return {
+            chapterName: chapterInfo.chapterName,
+            chapterDescription: chapterInfo.chapterDescription,
+            activities: filteredActivities
+              .filter((Activity) =>
+                Activity.categoryName
+                  .toLowerCase()
+                  .includes(search.toLowerCase())
+              )
+              .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+          };
+        });
+      })
+      .filter((chapter) => chapter.activities.length > 0)
+      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+  })();
 
   return (
     <div className="w-full p-4">
-      <ActivityListSwitcher
+      <ActivityModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
@@ -85,7 +117,7 @@ export function ActivityList() {
               className={index !== 0 ? "mt-12" : "mt-6"}
             >
               <div className="mb-2">
-                <h2 className="text-2xl font-bold text-gray-800">
+                <h2 className="text-2xl font-light text-primary">
                   {chapterName}
                 </h2>
                 {chapterDescription && (
