@@ -89,10 +89,10 @@ export function ForumList() {
                   {chapterName}
                 </h2>
                 {chapterDescription && (
-                  <p className="text-gray-600 mt-1">{chapterDescription}</p>
+                  <p className="text-slate-600 mt-1">{chapterDescription}</p>
                 )}
               </div>
-              <div className="divider mt-0 mb-6"></div>
+              <div className="divider mt-0 mb-0"></div>
               {mode === "list" && <ForumListView forums={forums} />}
               {mode === "card" && <ForumCardView forums={forums} />}
               {mode === "table" && <ForumTableView forums={forums} />}

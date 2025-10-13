@@ -7,7 +7,7 @@ type ServiceListViewProps = {
 
 export function ServiceListView({ services }: ServiceListViewProps) {
   return (
-    <ul className="space-y-2 mt-10">
+    <ul className="space-y-2 mt-4">
       {services?.map((service) => (
         <ServiceListItem key={service.id} service={service} />
       ))}

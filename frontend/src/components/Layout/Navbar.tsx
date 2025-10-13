@@ -6,9 +6,8 @@ import {
   mdiWeatherSunny,
 } from "@mdi/js";
 
-import axios, { AxiosError } from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useTheme } from "@/context";
@@ -18,6 +17,7 @@ import { fetchNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
 
 import { NotificationList } from "@/components";
+import toast from "react-hot-toast";
 
 export function Navbar() {
   const { user, isAuthenticated } = useAuth();
@@ -28,17 +28,6 @@ export function Navbar() {
   const handleToggle = () => {
     toggleTheme();
   };
-
-  // Debug log for auth state
-  useEffect(() => {
-    console.log("Auth state in Navbar:", {
-      isAuthenticated,
-      user,
-      hasUserId: !!user?.id,
-      accessToken: localStorage.getItem("accessToken") ? "present" : "missing",
-      userObject: user,
-    });
-  }, [isAuthenticated, user]);
 
   const {
     data: notifications = [],
@@ -57,22 +46,13 @@ export function Navbar() {
       }
 
       try {
-        console.log("Calling fetchNotificationsByUserId with userId:", userId);
         const result = await fetchNotificationsByUserId(userId);
-        console.log("Received notifications:", result);
         return result;
       } catch (error) {
-        console.error("Error fetching notifications:", error);
-
-        const axiosError = error as AxiosError;
-        if (axios.isAxiosError(axiosError)) {
-          console.error("Axios error details:", {
-            status: axiosError.response?.status,
-            data: axiosError.response?.data,
-            url: axiosError.config?.url,
-            method: axiosError.config?.method,
-          });
-        }
+        toast.error(
+          "Erreur de chargement des notifications: " +
+            (error instanceof Error ? error.message : String(error))
+        );
 
         return [];
       }

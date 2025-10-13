@@ -40,7 +40,7 @@ export function UrbanIssueList() {
       <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
     );
 
-  // Process and sort the badges
+  // Process and sort the urban issues
   const processedChapters = Object.entries(groupedUrbanIssues || {})
     .flatMap(([, chapters]) => {
       return Object.entries(chapters).map(([chapterId, urbanIssues]) => {
@@ -94,7 +94,7 @@ export function UrbanIssueList() {
                   <p className="text-gray-600 mt-1">{chapterDescription}</p>
                 )}
               </div>
-              <div className="divider mt-0 mb-6"></div>
+              <div className="divider mt-0 mb-0"></div>
               {mode === "list" && (
                 <UrbanIssueListView urbanIssues={urbanIssues} />
               )}

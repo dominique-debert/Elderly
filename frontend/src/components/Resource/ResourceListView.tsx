@@ -7,7 +7,7 @@ type ResourceListViewProps = {
 
 export function ResourceListView({ resources }: ResourceListViewProps) {
   return (
-    <ul className="space-y-2 mt-10">
+    <ul className="space-y-2 mt-4">
       {resources?.map((resource) => (
         <ResourceListItem key={resource.id} resource={resource} />
       ))}

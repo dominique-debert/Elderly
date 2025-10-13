@@ -30,9 +30,13 @@ export function MoodListItem({ mood }: { mood: IMood }) {
         style={{ borderLeft: `4px solid ${mood.color}` }}
       >
         <span className="w-48">{mood.name}</span>
-        <span className="w-80">{mood.description}</span>
+        <span className="w-80 text-slate-400 font-light">
+          {mood.description}
+        </span>
         <span className="w-48 text-center">{mood.valence}</span>
-        <span className="w-24">{mood.intensity}/5</span>
+        <span className="w-24 text-slate-500 font-light">
+          {mood.intensity}/5
+        </span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"

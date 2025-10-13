@@ -92,7 +92,7 @@ export function HelpList() {
                   <p className="text-gray-600 mt-1">{chapterDescription}</p>
                 )}
               </div>
-              <div className="divider mt-0 mb-6"></div>
+              <div className="divider mt-0 mb-0"></div>
               {mode === "list" && <HelpListView helps={helps} />}
               {mode === "card" && <HelpCardView helps={helps} />}
               {mode === "table" && <HelpTableView helps={helps} />}

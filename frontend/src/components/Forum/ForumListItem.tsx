@@ -1,11 +1,9 @@
+import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
-import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-
 import type { ICategory } from "@/types";
-
-import { ForumDeleteModal, ForumEditModal } from "@/components";
+import { ForumEditModal, ForumDeleteModal } from "@/components";
 
 export function ForumListItem({ forum }: { forum: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -26,10 +24,12 @@ export function ForumListItem({ forum }: { forum: ICategory }) {
     <>
       <li
         key={forum.id}
-        className="p-4 rounded shadow-md flex items-center gap-4"
+        className="p-4 rounded shadow-md flex items-center gap-4 border-b border-slate-800 hover:bg-slate-900/40 cursor-pointer"
       >
-        <span className="w-64 font-semibold">{forum.categoryName}</span>
-        <span className="w-full">{forum.description}</span>
+        <span className="w-full font-medium">{forum.categoryName}</span>
+        <span className="w-full font-light text-slate-400">
+          {forum.description}
+        </span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"

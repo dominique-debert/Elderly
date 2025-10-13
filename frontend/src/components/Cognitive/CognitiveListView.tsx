@@ -7,7 +7,7 @@ type CognitiveListViewProps = {
 
 export function CognitiveListView({ cognitives }: CognitiveListViewProps) {
   return (
-    <ul className="space-y-2 mt-10">
+    <ul className="space-y-2 mt-4">
       {cognitives?.map((cognitive) => (
         <CognitiveListItem key={cognitive.id} cognitive={cognitive} />
       ))}

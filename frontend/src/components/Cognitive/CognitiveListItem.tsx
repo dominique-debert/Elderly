@@ -1,11 +1,9 @@
+import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
-
-import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-
-import { CognitiveDeleteModal, CognitiveEditModal } from "@/components";
 import type { ICategory } from "@/types";
+import { CognitiveEditModal, CognitiveDeleteModal } from "@/components";
 
 export function CognitiveListItem({ cognitive }: { cognitive: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -14,22 +12,24 @@ export function CognitiveListItem({ cognitive }: { cognitive: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["cognitive"] });
+    queryClient.invalidateQueries({ queryKey: ["activities"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["cognitive"] });
+    queryClient.invalidateQueries({ queryKey: ["activities"] });
   };
 
   return (
     <>
       <li
         key={cognitive.id}
-        className="p-4 rounded shadow-md flex items-center gap-4"
+        className="p-4 rounded shadow-md flex items-center gap-4 border-b border-slate-800 hover:bg-slate-900/40 cursor-pointer"
       >
-        <span className="w-64 font-semibold">{cognitive.categoryName}</span>
-        <span className="w-full">{cognitive.description}</span>
+        <span className="w-full font-medium">{cognitive.categoryName}</span>
+        <span className="w-full font-light text-slate-400">
+          {cognitive.description}
+        </span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"

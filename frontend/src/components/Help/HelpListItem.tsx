@@ -27,10 +27,12 @@ export function HelpListItem({ help }: { help: ICategory }) {
     <>
       <li
         key={help.id}
-        className="p-4 rounded shadow-md flex items-center gap-4"
+        className="p-4 rounded shadow-md flex items-center gap-4 border-b border-slate-800 hover:bg-slate-900/40 cursor-pointer"
       >
-        <span className="w-64 font-semibold">{help.categoryName}</span>
-        <span className="w-full">{help.description}</span>
+        <span className="w-full font-medium">{help.categoryName}</span>
+        <span className="w-full font-light text-slate-400">
+          {help.description}
+        </span>
         <div className="ml-auto flex gap-2">
           <button
             className="btn btn-sm btn-ghost pointer-events-auto"

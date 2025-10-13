@@ -92,7 +92,7 @@ export function ResourceList() {
                   <p className="text-gray-600 mt-1">{chapterDescription}</p>
                 )}
               </div>
-              <div className="divider mt-0 mb-6"></div>
+              <div className="divider mt-0 mb-0"></div>
               {mode === "list" && <ResourceListView resources={resources} />}
               {mode === "card" && <ResourceCardView resources={resources} />}
               {mode === "table" && <ResourceTableView resources={resources} />}
