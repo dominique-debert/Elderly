@@ -1,9 +1,9 @@
 import Icon from "@mdi/react";
 import { mdiViewGrid, mdiViewList, mdiTable, mdiPlus } from "@mdi/js";
 import { useState } from "react";
-import { WellnessCreateModal } from "../Wellness/WellnessCreateModal";
 import { useQueryClient } from "@tanstack/react-query";
 import { ETabKey } from "@/types/ETabKey";
+import { ActivityCreateModal } from "../Categories/CategoryCreateModal";
 
 type SwitchProps = {
   mode: "card" | "list" | "table";
@@ -58,9 +58,13 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
       </div>
 
       {isCreateOpen && (
-        <WellnessCreateModal
+        <ActivityCreateModal
           onClose={() => setIsCreateOpen(false)}
           onCreated={handleCreated}
+          selectedTab={activeTab}
+          tabToTypeName={{
+            [ETabKey.Activity]: "Activités",
+          }}
         />
       )}
     </>

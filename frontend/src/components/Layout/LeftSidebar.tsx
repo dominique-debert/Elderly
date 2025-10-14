@@ -6,54 +6,13 @@ import {
   mdiHeartOutline,
   mdiViewDashboardOutline,
 } from "@mdi/js";
-import { useAuthStore } from "@/stores";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function LeftSidebar() {
-  const { logout } = useAuthStore();
-  const navigate = useNavigate();
-
   return (
     <aside className="hidden w-20 mr-2 lg:block">
       <div className="fixed bg-white dark:bg-card z-60 top-16 left-0 w-20 h-[calc(100vh-4rem)] border-r border-base-300 flex flex-col items-center py-4">
-        <div className="flex flex-row gap-2">
-          <div className="dropdown dropdown-right">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-24 rounded-full">
-                <img
-                  alt="avatar"
-                  src={
-                    useAuthStore.getState().user?.avatarUrl ||
-                    `/images/${
-                      useAuthStore.getState().user?.avatar ||
-                      "default-avatar.svg"
-                    }`
-                  }
-                />
-              </div>
-            </div>
-
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-white dark:bg-card rounded-box mt-3 w-52 p-2 shadow-md"
-            >
-              <li>
-                <a>Tes préférences</a>
-              </li>
-              <li>
-                <Link to="/login" onClick={() => logout(navigate)}>
-                  Se déconnecter
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <nav className="flex-1 w-full px-2 space-y-2 mt-6 rounded-xl">
+        <nav className="flex-1 w-full px-2 space-y-2 rounded-xl">
           <Link
             to="/dashboard"
             className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"

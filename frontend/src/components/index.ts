@@ -13,7 +13,7 @@ export * from "./ui/Tooltip.tsx";
 // Activity Components
 export * from "./Activity/ActivityCard";
 export * from "./Activity/ActivityCardView";
-export * from "./Activity/ActivityCreateModal";
+export * from "./Categories/CategoryCreateModal.tsx";
 export * from "./Activity/ActivityDeleteModal";
 export * from "./Activity/ActivityEditModal";
 export * from "./Activity/ActivityGoals";
