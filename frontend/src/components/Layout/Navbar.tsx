@@ -8,10 +8,10 @@ import {
 
 import { useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useTheme } from "@/context";
-import { useAuth } from "@/stores";
+import { useAuth, useAuthStore } from "@/stores";
 
 import { getNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
@@ -24,6 +24,9 @@ export function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const notifRef = useRef<HTMLDivElement>(null);
+
+  const { logout } = useAuthStore();
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     toggleTheme();
@@ -143,6 +146,45 @@ export function Navbar() {
               >
                 <Icon path={mdiCogOutline} size={1.3} />
               </Link>
+            )}
+
+            {isAuthenticated && (
+              <div className="flex flex-row gap-2 mr-4">
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="rounded-full border-2 border-slate-400">
+                      <img
+                        alt="avatar"
+                        src={
+                          useAuthStore.getState().user?.avatarUrl ||
+                          `/images/${
+                            useAuthStore.getState().user?.avatar ||
+                            "default-avatar.svg"
+                          }`
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <ul
+                    tabIndex={0}
+                    className="menu border border-slate-800 dropdown-content dropdown-end bg-white dark:bg-card rounded-box mt-3 w-52 p-2 shadow-md"
+                  >
+                    <li>
+                      <a>Tes préférences</a>
+                    </li>
+                    <li>
+                      <Link to="/login" onClick={() => logout(navigate)}>
+                        Se déconnecter
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             )}
           </div>
         </div>
