@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES DE BIEN-ÊTRE
-export const fetchAllWellnessCategories = async (
+export const getAllWellnessCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllWellnessCategories = async (
 };
 
 // CATÉGORIE DE BIEN-ÊTRE PAR ID
-export const fetchWellnessCategoryById = async (
+export const getWellnessCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

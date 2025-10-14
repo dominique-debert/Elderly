@@ -1,19 +1,22 @@
 import api from "@/lib/axios";
+import { ICategoryType, IChapter } from "@/types";
 
-export const getCategoryChapters = async () => {
-  const res = await api.get('/categories/chapters', {
+export async function getCategoryChapters(): Promise<IChapter[]> {
+  const accessToken = localStorage.getItem("accessToken");
+  const response = await api.get<IChapter[]>("/categories/chapters", {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   });
-  return res.data;
-};
+  return response.data;
+}
 
-export const getCategoryTypes = async () => {
-  const res = await api.get('/categories/types', {
+export async function getCategoryTypes(): Promise<ICategoryType[]> {
+  const accessToken = localStorage.getItem("accessToken");
+  const response = await api.get<ICategoryType[]>("/categories/types", {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   });
-  return res.data;
-};
+  return response.data;
+}

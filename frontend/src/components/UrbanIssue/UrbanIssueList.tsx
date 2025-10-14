@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchUrbanIssueCategories } from "@/services";
+import { getUrbanIssueCategories } from "@/services";
 import type { ICategory } from "@/types";
 
 import {
@@ -31,7 +31,7 @@ export function UrbanIssueList() {
     isError,
   } = useQuery({
     queryKey: ["urbanIssues"],
-    queryFn: fetchUrbanIssueCategories,
+    queryFn: getUrbanIssueCategories,
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;

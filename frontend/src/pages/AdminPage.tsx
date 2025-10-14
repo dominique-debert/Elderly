@@ -66,7 +66,7 @@ export function AdminPage() {
   };
 
   return (
-    <div className="w-full h-full px-4 pb-4 overflow-y-auto no-scrollbar mt-12">
+    <div className="w-full h-full px-4 pb-4 overflow-y-auto no-scrollbar mt-20">
       {user && user.isAdmin ? (
         <>
           <div className="sticky top-0 z-30 pb-4 pt-4">

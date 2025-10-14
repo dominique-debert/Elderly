@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES D'AIDE
-export const fetchAllHelpCategories = async (
+export const getAllHelpCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllHelpCategories = async (
 };
 
 // CATÉGORIE D'AIDE PAR ID
-export const fetchHelpCategoryById = async (
+export const getHelpCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

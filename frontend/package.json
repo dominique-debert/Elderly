@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
+    "@intentui/icons": "^1.11.0",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@radix-ui/react-dialog": "^1.1.13",
@@ -29,6 +30,7 @@
     "lucide-react": "^0.509.0",
     "radix-ui": "^1.4.1",
     "react": "^19.0.0",
+    "react-aria-components": "^1.13.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.56.0",
     "react-hot-toast": "^2.5.2",

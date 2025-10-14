@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchCognitiveCategories } from "@/services";
+import { getCognitiveCategories } from "@/services";
 import type { ICategory } from "@/types";
 
 import {
@@ -31,7 +31,7 @@ export function CognitiveList() {
     isError,
   } = useQuery({
     queryKey: ["cognitive"],
-    queryFn: fetchCognitiveCategories,
+    queryFn: getCognitiveCategories,
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;

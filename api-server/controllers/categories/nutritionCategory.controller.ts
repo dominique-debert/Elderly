@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES DE CONSEILS NUTRITIONNELS
-export const fetchAllNutritionCategories = async (
+export const getAllNutritionCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllNutritionCategories = async (
 };
 
 // CATÉGORIE DE CONSEIL NUTRITIONNEL PAR ID
-export const fetchNutritionCategoryById = async (
+export const getNutritionCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

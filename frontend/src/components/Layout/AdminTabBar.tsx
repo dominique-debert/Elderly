@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { iconMap } from "@/constants";
-import { fetchMenuItems } from "@/services";
+import { getMenuItems } from "@/services";
 import { ETabKey } from "@/types/ETabKey";
 
 type AdminTabProps = {
@@ -18,7 +18,7 @@ export function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
     isError,
   } = useQuery({
     queryKey: ["menuItems"],
-    queryFn: fetchMenuItems,
+    queryFn: getMenuItems,
   });
 
   useEffect(() => {

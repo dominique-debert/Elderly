@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES DE PROJETS
-export const fetchAllProjectCategories = async (
+export const getAllProjectCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllProjectCategories = async (
 };
 
 // CATÉGORIE DE PROJET PAR ID
-export const fetchProjectCategoryById = async (
+export const getProjectCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

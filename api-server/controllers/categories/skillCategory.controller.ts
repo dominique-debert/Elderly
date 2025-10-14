@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES DE COMPÉTENCES
-export const fetchAllSkillCategories = async (
+export const getAllSkillCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllSkillCategories = async (
 };
 
 // CATÉGORIE DE COMPÉTENCE PAR ID
-export const fetchSkillCategoryById = async (
+export const getSkillCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

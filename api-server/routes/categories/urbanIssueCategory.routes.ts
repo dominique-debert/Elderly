@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
   createUrbanIssueCategory,
-  fetchAllUrbanIssueCategories,
-  fetchUrbanIssueCategoryById,
+  getAllUrbanIssueCategories,
+  getUrbanIssueCategoryById,
   updateUrbanIssueCategory,
   deleteUrbanIssueCategory,
 } from "@/controllers";
@@ -78,7 +78,7 @@ router.post("/", validate(categorySchema), createUrbanIssueCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", fetchAllUrbanIssueCategories);
+router.get("/", getAllUrbanIssueCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get("/", fetchAllUrbanIssueCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", fetchUrbanIssueCategoryById);
+router.get("/:id", getUrbanIssueCategoryById);
 
 /**
  * @swagger

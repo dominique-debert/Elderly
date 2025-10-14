@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
 import type { IMood, EValence } from "@/types";
 
-export const fetchMoods = async (): Promise<IMood[]> => {
+export const getMoods = async (): Promise<IMood[]> => {
   const accessToken = localStorage.getItem("accessToken");
   const { data } = await api.get("/moods", {
     headers: {

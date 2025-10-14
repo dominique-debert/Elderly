@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
   createActivityCategory,
-  fetchAllActivityCategories,
-  fetchActivityCategoryById,
+  getAllActivityCategories,
+  getActivityCategoryById,
   updateActivityCategory,
   deleteActivityCategory,
 } from "@/controllers";
@@ -81,7 +81,7 @@ router.post("/", validate(categorySchema), createActivityCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", fetchAllActivityCategories);
+router.get("/", getAllActivityCategories);
 
 /**
  * @swagger
@@ -108,7 +108,7 @@ router.get("/", fetchAllActivityCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", fetchActivityCategoryById);
+router.get("/:id", getActivityCategoryById);
 
 /**
  * @swagger

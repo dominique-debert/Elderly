@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
   createNutritionCategory,
-  fetchAllNutritionCategories,
-  fetchNutritionCategoryById,
+  getAllNutritionCategories,
+  getNutritionCategoryById,
   updateNutritionCategory,
   deleteNutritionCategory,
 } from "@/controllers";
@@ -78,7 +78,7 @@ router.post("/", validate(categorySchema), createNutritionCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", fetchAllNutritionCategories);
+router.get("/", getAllNutritionCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get("/", fetchAllNutritionCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", fetchNutritionCategoryById);
+router.get("/:id", getNutritionCategoryById);
 
 /**
  * @swagger

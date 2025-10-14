@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES DE BADGES
-export const fetchAllBadgeCategories = async (
+export const getAllBadgeCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllBadgeCategories = async (
 };
 
 // CATÉGORIE DE BADGES PAR ID
-export const fetchBadgeCategoryById = async (
+export const getBadgeCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

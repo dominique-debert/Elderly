@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchForumCategories } from "@/services";
+import { getForumCategories } from "@/services";
 import type { ICategory } from "@/types";
 
 import {
@@ -31,7 +31,7 @@ export function ForumList() {
     isError,
   } = useQuery({
     queryKey: ["forums"],
-    queryFn: fetchForumCategories,
+    queryFn: getForumCategories,
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;

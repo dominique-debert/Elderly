@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
 import type { ICategory } from "@/types";
 
-export async function fetchActivityCategories(): Promise<ICategory[]> {
+export async function getActivityCategories(): Promise<ICategory[]> {
   const accessToken = localStorage.getItem("accessToken");
   const response = await api.get<ICategory[]>("/categories/activities", {
     headers: {

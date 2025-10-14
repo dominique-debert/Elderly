@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
   createSkillCategory,
-  fetchAllSkillCategories,
-  fetchSkillCategoryById,
+  getAllSkillCategories,
+  getSkillCategoryById,
   updateSkillCategory,
   deleteSkillCategory,
 } from "@/controllers";
@@ -78,7 +78,7 @@ router.post("/", validate(categorySchema), createSkillCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", fetchAllSkillCategories);
+router.get("/", getAllSkillCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get("/", fetchAllSkillCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", fetchSkillCategoryById);
+router.get("/:id", getSkillCategoryById);
 
 /**
  * @swagger
