@@ -7,19 +7,19 @@ import {
 import { ICategoryType, IChapter } from "@/types";
 import toast from "react-hot-toast";
 
-type ActivityCreateModalProps = {
+type CategoryCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
   selectedTab: string;
   tabToTypeName: Record<string, string>;
 };
 
-export function ActivityCreateModal({
+export function CategoryCreateModal({
   onClose,
   onCreated,
   selectedTab,
   tabToTypeName,
-}: ActivityCreateModalProps) {
+}: CategoryCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -75,7 +75,7 @@ export function ActivityCreateModal({
     e.preventDefault();
     try {
       await createActivityCategory({
-        name: form.name,
+        categoryName: form.name,
         description: form.description,
         chapterId: Number(form.chapterId),
         typeId: Number(form.typeId),

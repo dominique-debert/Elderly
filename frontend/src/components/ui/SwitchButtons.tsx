@@ -3,7 +3,7 @@ import { mdiViewGrid, mdiViewList, mdiTable, mdiPlus } from "@mdi/js";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { ETabKey } from "@/types/ETabKey";
-import { ActivityCreateModal } from "../Categories/CategoryCreateModal";
+import { CategoryCreateModal } from "@/components";
 
 type SwitchProps = {
   mode: "card" | "list" | "table";
@@ -18,7 +18,6 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
     setIsCreateOpen(false);
     queryClient.invalidateQueries({ queryKey: [activeTab] });
   };
-
   return (
     <>
       <div className="join">
@@ -56,9 +55,8 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
           <Icon path={mdiTable} size={1} />
         </button>
       </div>
-
       {isCreateOpen && (
-        <ActivityCreateModal
+        <CategoryCreateModal
           onClose={() => setIsCreateOpen(false)}
           onCreated={handleCreated}
           selectedTab={activeTab}

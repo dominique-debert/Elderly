@@ -12,7 +12,7 @@ export async function getActivityCategories(): Promise<ICategory[]> {
 }
 
 export async function createActivityCategory(category: {
-  name: string;
+  categoryName: string;
   description?: string;
   chapterId: number;
   typeId: number;

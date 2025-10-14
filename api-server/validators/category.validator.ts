@@ -30,13 +30,13 @@ export const categorySchema = Joi.object({
     "string.max": "La description ne peut pas dépasser 255 caractères.",
   }),
 
-  chapterId: Joi.string().required().messages({
-    "string.base": "Le chapitre est requis.",
+  chapterId: Joi.number().required().messages({
+    "number.base": "Le chapitre est requis.",
     "any.required": "Le chapitre est obligatoire.",
   }),
 
-  typeId: Joi.string().required().messages({
-    "string.base": "Le type est requis.",
+  typeId: Joi.number().required().messages({
+    "number.base": "Le type est requis.",
     "any.required": "Le type est obligatoire.",
   }),
 });

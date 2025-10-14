@@ -10,6 +10,19 @@ export * from "./ui/SwitchButtons.tsx";
 export * from "./ui/Table.tsx";
 export * from "./ui/Tooltip.tsx";
 
+// Category Components
+// export * from "./Categories/CategoryCard";
+// export * from "./Categories/CategoryCardView";
+export * from "./Categories/CategoryCreateModal";
+// export * from "./Categories/CategoryDeleteModal";
+// export * from "./Categories/CategoryEditModal";
+// export * from "./Categories/CategoryList";
+// export * from "./Categories/CategoryListItem";
+// export * from "./Categories/CategoryListView";
+// export * from "./Categories/CategoryModeSwitcher";
+// export * from "./Categories/CategoryTableRow";
+// export * from "./Categories/CategoryTableView";
+
 // Activity Components
 export * from "./Activity/ActivityCard";
 export * from "./Activity/ActivityCardView";
@@ -128,7 +141,7 @@ export * from "./Nutrition/NutritionEditModal";
 export * from "./Nutrition/NutritionList";
 export * from "./Nutrition/NutritionListItem";
 export * from "./Nutrition/NutritionListView";
-export { NutritionModeSwitcher } from "./Nutrition/NutritionModeSwitcher";
+export * from "./Nutrition/NutritionModeSwitcher";
 export * from "./Nutrition/NutritionTableRow";
 export * from "./Nutrition/NutritionTableView";
 
