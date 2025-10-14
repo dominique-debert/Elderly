@@ -10,11 +10,15 @@ import toast from "react-hot-toast";
 type ActivityCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
+  selectedTab: string;
+  tabToTypeName: Record<string, string>;
 };
 
 export function ActivityCreateModal({
   onClose,
   onCreated,
+  selectedTab,
+  tabToTypeName,
 }: ActivityCreateModalProps) {
   const [form, setForm] = useState({
     name: "",
@@ -31,9 +35,29 @@ export function ActivityCreateModal({
       .then((chs) => setChapters(Array.isArray(chs) ? chs : [chs]))
       .catch(() => toast.error("Erreur lors du chargement des chapitres"));
     getCategoryTypes()
-      .then(setTypes)
+      .then((ts) => setTypes(Array.isArray(ts) ? ts : []))
       .catch(() => toast.error("Erreur lors du chargement des types"));
   }, []);
+
+  // Sync selectedTab -> typeId once types are loaded or selectedTab changes
+  useEffect(() => {
+    if (!selectedTab || types.length === 0) return;
+
+    // Determine desired type name: use mapping if provided, otherwise try the tab key itself
+    const desiredName =
+      (tabToTypeName && tabToTypeName[selectedTab]) || selectedTab;
+
+    const desiredLower = desiredName.toLowerCase();
+
+    // Try exact match first, then includes
+    const found =
+      types.find((t) => t.name.toLowerCase() === desiredLower) ||
+      types.find((t) => t.name.toLowerCase().includes(desiredLower));
+
+    if (found) {
+      setForm((prev) => ({ ...prev, typeId: String(found.id) }));
+    }
+  }, [types, selectedTab, tabToTypeName]);
 
   const handleChange = (
     e: React.ChangeEvent<
