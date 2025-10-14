@@ -9,65 +9,82 @@ const prisma = new PrismaClient();
  * @swagger
  * tags:
  *   name: Activity Categories
- *   description: API pour gérer les catégories d'aide
+ *   description: API pour gérer les catégories d'activités
  */
 
-// TOUTES LES CATÉGORIES D'AIDE
+// TOUTES LES CATÉGORIES D'ACTIVITÉS
 export const getAllActivityCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    // Récupère le categoryType ciblé (id = ECategoryType.ACTIVITY) et inclut ses categories (liste => orderBy possible)
-    const typeWithCategories = await prisma.categoryType.findUnique({
-      where: { id: ECategoryType.ACTIVITY },
+    const categories = await prisma.category.findMany({
+      where: {
+        typeId: ECategoryType.ACTIVITY,
+      },
+      orderBy: {
+        categoryName: "asc",
+      },
       include: {
-        categories: {
-          include: {
-            categoryChapter: {
-              select: {
-                chapterId: true,
-                chapterName: true,
-                chapterDescription: true,
-              },
-            },
+        categoryType: {
+          select: {
+            id: true,
+            name: true,
           },
-          orderBy: [
-            { categoryChapter: { chapterName: "asc" } },
-            { categoryName: "asc" },
-          ],
+        },
+        categoryChapter: {
+          select: {
+            chapterId: true,
+            chapterName: true,
+            chapterDescription: true,
+          },
         },
       },
     });
 
-    if (!typeWithCategories) {
-      return res.status(200).json({});
-    }
+    const grouped: Record<string, Record<string, any[]>> = {};
 
-    // Grouper par chapterName
-    const groupedByChapter: Record<string, any[]> = {};
-    typeWithCategories.categories.forEach((cat) => {
-      const chapterName = cat.categoryChapter?.chapterName ?? "Sans chapitre";
-      if (!groupedByChapter[chapterName]) groupedByChapter[chapterName] = [];
-      groupedByChapter[chapterName].push({
-        id: cat.id,
-        categoryName: cat.categoryName,
-        description: cat.description,
+    // Étape 1 : Regrouper d'abord par typeName → chapterName
+    categories.forEach((category) => {
+      const typeName = category.categoryType?.name ?? "Sans type";
+      const chapterName =
+        category.categoryChapter?.chapterName ?? "Sans chapitre";
+
+      if (!grouped[typeName]) grouped[typeName] = {};
+      if (!grouped[typeName][chapterName]) grouped[typeName][chapterName] = [];
+
+      grouped[typeName][chapterName].push({
+        id: category.id,
+        categoryName: category.categoryName,
+        description: category.description,
       });
     });
 
-    res.status(200).json({
-      typeId: typeWithCategories.id,
-      typeName: typeWithCategories.name,
-      chapters: groupedByChapter,
-    });
+    // Étape 2 : Trier par typeName > chapterName > categoryName
+    const sortedGrouped: Record<string, Record<string, any[]>> = {};
+
+    Object.keys(grouped)
+      .sort()
+      .forEach((typeName) => {
+        sortedGrouped[typeName] = {};
+
+        Object.keys(grouped[typeName])
+          .sort()
+          .forEach((chapterName) => {
+            sortedGrouped[typeName][chapterName] = grouped[typeName][
+              chapterName
+            ].sort((a, b) => a.categoryName.localeCompare(b.categoryName));
+          });
+      });
+
+    res.status(200).json(sortedGrouped);
   } catch (error) {
     next(error);
   }
 };
 
-// CATÉGORIE D'AIDE PAR ID
+// CATÉGORIE D'ACTIVITÉ PAR ID
 export const getActivityCategoryById = async (
   req: Request,
   res: Response,
@@ -76,45 +93,38 @@ export const getActivityCategoryById = async (
   const { id } = req.params;
 
   try {
-    const helpCategory = await prisma.category.findFirst({
+    const activityCategory = await prisma.category.findFirst({
       where: {
         id: Number(id),
         typeId: ECategoryType.ACTIVITY,
       },
     });
 
-    if (!helpCategory) {
+    if (!activityCategory) {
       throw createHttpError(404, `Catégorie d'activité non trouvée`);
     }
 
-    res.status(200).json(helpCategory);
+    res.status(200).json(activityCategory);
   } catch (error) {
     next(error);
   }
 };
 
-// CRÉER UNE CATÉGORIE D'AIDE
+// CRÉER UNE CATÉGORIE D'ACTIVITÉ
 export const createActivityCategory = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const { name, categoryName, description, chapterId } = req.body;
-
-    // Use categoryName if provided, otherwise use name
-    const finalCategoryName = categoryName || name;
-
-    if (!finalCategoryName) {
-      throw createHttpError(400, "Le nom de la catégorie est requis");
-    }
+    const { name, description, chapterId, typeId } = req.body;
 
     const categoryToCreate = await prisma.category.create({
       data: {
-        categoryName: finalCategoryName,
-        description: description || null,
-        typeId: ECategoryType.ACTIVITY,
-        chapterId: Number(chapterId),
+        categoryName: name,
+        description,
+        typeId: typeId || ECategoryType.ACTIVITY,
+        chapterId: chapterId,
       },
     });
 
@@ -130,7 +140,6 @@ export const updateActivityCategory = async (
   next: NextFunction
 ) => {
   const { id } = req.params;
-  const { name, categoryName, ...rest } = req.body;
 
   try {
     const category = await prisma.category.findUnique({
@@ -143,16 +152,9 @@ export const updateActivityCategory = async (
       throw createHttpError(404, `Catégorie d'activité non trouvée`);
     }
 
-    const updateData = { ...rest };
-
-    // Update categoryName if either name or categoryName is provided
-    if (name || categoryName) {
-      updateData.categoryName = categoryName || name;
-    }
-
     const categoryToUpdate = await prisma.category.update({
       data: {
-        ...updateData,
+        ...req.body,
         updatedAt: new Date(),
       },
       where: {

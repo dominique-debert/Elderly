@@ -28,7 +28,7 @@ export function ActivityCreateModal({
 
   useEffect(() => {
     getCategoryChapters()
-      .then(setChapters)
+      .then((chs) => setChapters(Array.isArray(chs) ? chs : [chs]))
       .catch(() => toast.error("Erreur lors du chargement des chapitres"));
     getCategoryTypes()
       .then(setTypes)

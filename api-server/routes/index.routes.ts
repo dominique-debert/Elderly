@@ -48,7 +48,7 @@ import moodRouter from "./mood.routes";
 import uploadsRoutes from "./uploads.routes";
 
 // Import all categories routers
-// import categoryMetaRouter from "./categories/categoryMeta.routes.old";
+import categoryMetaRouter from "./categories/categoryMeta.routes";
 import activityCategoriesRouter from "./categories/activityCategory.routes";
 import badgeCategoriesRouter from "./categories/badgeCategory.routes";
 import cognitiveCategoriesRouter from "./categories/cognitiveCategory.routes";
@@ -86,7 +86,7 @@ router.use("/categories/resources", resourceCategoriesRouter);
 router.use("/categories/services", serviceCategoriesRouter);
 router.use("/categories/skills", skillCategoriesRouter);
 router.use("/categories/wellness", wellnessCategoriesRouter);
-// router.use("/categories", categoryMetaRouter);
+router.use("/categories", categoryMetaRouter);
 
 // Feature routes
 router.use("/activities", activityRouter);

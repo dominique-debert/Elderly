@@ -25,6 +25,16 @@ const PORT: number = parseInt(process.env.PORT || "3000", 10);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Add simple request logger for debugging
+// app.use((req, res, next) => {
+//   console.log(
+//     `[HTTP] ${req.method} ${req.originalUrl} headers=${JSON.stringify(
+//       req.headers && { origin: req.headers.origin }
+//     )}`
+//   );
+//   next();
+// });
+
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",

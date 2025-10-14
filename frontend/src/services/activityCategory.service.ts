@@ -45,12 +45,3 @@ export const deleteActivityCategory = async (id: string) => {
   });
   return response.data;
 };
-
-export const getAllActivityCategoriesWithChapters = async () => {
-  const response = await api.get("/categories/activities/with-chapters", {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  });
-  return response.data;
-};
