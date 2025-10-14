@@ -2,7 +2,7 @@ import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 import { CognitiveEditModal, CognitiveDeleteModal } from "@/components";
 
 export function CognitiveListItem({ cognitive }: { cognitive: ICategory }) {
@@ -12,12 +12,12 @@ export function CognitiveListItem({ cognitive }: { cognitive: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["cognitives"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Cognitive] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["cognitives"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Cognitive] });
   };
 
   return (

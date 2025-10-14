@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getHelpCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   HelpCardView,
-  HelpModeSwitcher,
+  CategoryModeSwitcher,
   HelpListView,
   HelpTableView,
 } from "@/components";
@@ -30,7 +30,7 @@ export function HelpList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["helps"],
+    queryKey: [ETabKey.Help],
     queryFn: getHelpCategories,
   });
 
@@ -66,11 +66,12 @@ export function HelpList() {
 
   return (
     <div className="w-full p-4">
-      <HelpModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Help}
       />
 
       {processedChapters.length === 0 ? (

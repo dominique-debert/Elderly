@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getNutritionCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   NutritionCardView,
@@ -49,7 +49,7 @@ export function NutritionList({
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["nutritions"],
+    queryKey: [ETabKey.Nutrition],
     queryFn: getNutritionCategories,
   });
 

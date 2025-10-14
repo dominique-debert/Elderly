@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getServiceCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   ServiceCardView,
@@ -30,7 +30,7 @@ export function ServiceList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["services"],
+    queryKey: [ETabKey.Service],
     queryFn: getServiceCategories,
   });
 

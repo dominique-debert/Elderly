@@ -4,7 +4,7 @@ import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import { CognitiveDeleteModal, CognitiveEditModal } from "@/components";
 
@@ -19,12 +19,12 @@ export function CognitiveCard({ cognitive }: CognitiveCardProps) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Cognitive] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Cognitive] });
   };
 
   return (

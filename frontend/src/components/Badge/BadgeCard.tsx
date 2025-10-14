@@ -4,7 +4,7 @@ import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import { BadgeDeleteModal, BadgeEditModal } from "@/components";
 
@@ -19,12 +19,12 @@ export function BadgeCard({ badge }: BadgeCardProps) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Badge] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Badge] });
   };
 
   return (

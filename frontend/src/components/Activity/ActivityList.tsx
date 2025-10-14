@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getActivityCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   ActivityCardView,
-  ActivityModeSwitcher,
+  CategoryModeSwitcher,
   ActivityListView,
   ActivityTableView,
 } from "@/components";
@@ -30,7 +30,7 @@ export function ActivityList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["activities"],
+    queryKey: [ETabKey.Activity],
     queryFn: getActivityCategories,
   });
 
@@ -88,11 +88,12 @@ export function ActivityList() {
 
   return (
     <div className="w-full p-4">
-      <ActivityModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Activity}
       />
 
       {isLoading ? (

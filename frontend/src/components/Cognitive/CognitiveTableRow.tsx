@@ -2,7 +2,7 @@ import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 
 import { useState } from "react";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   CognitiveDeleteModal,
@@ -10,10 +10,22 @@ import {
   TableCell,
   TableRow,
 } from "@/components";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function CognitiveTableRow({ cognitive }: { cognitive: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const queryClient = useQueryClient();
+
+  const handleUpdated = () => {
+    setIsEditOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Cognitive] });
+  };
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Cognitive] });
+  };
 
   return (
     <>
@@ -45,6 +57,7 @@ export function CognitiveTableRow({ cognitive }: { cognitive: ICategory }) {
         <CognitiveEditModal
           cognitive={cognitive}
           onClose={() => setIsEditOpen(false)}
+          onUpdated={handleUpdated}
         />
       )}
 
@@ -52,9 +65,7 @@ export function CognitiveTableRow({ cognitive }: { cognitive: ICategory }) {
         <CognitiveDeleteModal
           category={cognitive}
           onClose={() => setIsConfirmDeleteOpen(false)}
-          onConfirm={() => {
-            setIsConfirmDeleteOpen(false);
-          }}
+          onConfirm={handleDeleted}
         />
       )}
     </>

@@ -19,7 +19,7 @@ export * from "./Categories/CategoryCreateModal";
 // export * from "./Categories/CategoryList";
 // export * from "./Categories/CategoryListItem";
 // export * from "./Categories/CategoryListView";
-// export * from "./Categories/CategoryModeSwitcher";
+export * from "./Categories/CategoryModeSwitcher";
 // export * from "./Categories/CategoryTableRow";
 // export * from "./Categories/CategoryTableView";
 
@@ -33,7 +33,7 @@ export * from "./Activity/ActivityGoals";
 export * from "./Activity/ActivityList";
 export * from "./Activity/ActivityListItem";
 export * from "./Activity/ActivityListView";
-export * from "./Activity/ActivityModeSwitcher";
+// export * from "./Activity/ActivityModeSwitcher";
 export * from "./Activity/ActivityTableRow";
 export * from "./Activity/ActivityTableView";
 
@@ -49,20 +49,20 @@ export * from "./Badge/BadgeEditModal";
 export * from "./Badge/BadgeList";
 export * from "./Badge/BadgeListItem";
 export * from "./Badge/BadgeListView";
-export * from "./Badge/BadgeModeSwitcher";
+// export * from "./Badge/BadgeModeSwitcher";
 export * from "./Badge/BadgeTableRow";
 export * from "./Badge/BadgeTableView";
 
 // Cognitive Components
 export * from "./Cognitive/CognitiveCard";
 export * from "./Cognitive/CognitiveCardView";
-export * from "./Cognitive/CognitiveCreateModal";
+// export * from "./Cognitive/CognitiveCreateModal";
 export * from "./Cognitive/CognitiveDeleteModal";
 export * from "./Cognitive/CognitiveEditModal";
 export * from "./Cognitive/CognitiveList";
 export * from "./Cognitive/CognitiveListItem";
 export * from "./Cognitive/CognitiveListView";
-export * from "./Cognitive/CognitiveModeSwitcher";
+// export * from "./Cognitive/CognitiveModeSwitcher";
 export * from "./Cognitive/CognitiveTableRow";
 export * from "./Cognitive/CognitiveTableView";
 
@@ -106,7 +106,7 @@ export * from "./Help/HelpEditModal";
 export * from "./Help/HelpList";
 export * from "./Help/HelpListItem";
 export * from "./Help/HelpListView";
-export * from "./Help/HelpModeSwitcher";
+// export * from "./Help/HelpModeSwitcher";
 export * from "./Help/HelpTableRow";
 export * from "./Help/HelpTableView";
 

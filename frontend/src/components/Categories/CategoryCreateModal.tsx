@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 
 type CategoryCreateModalProps = {
   onClose: () => void;
-  onCreated: (created: unknown) => void;
+  onCreated: () => void;
   selectedTab: string;
   tabToTypeName: Record<string, string>;
 };
@@ -74,24 +74,18 @@ export function CategoryCreateModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const payload = {
-        categoryName: form.name.trim(),
-        ...(form.description.trim() && {
-          description: form.description.trim(),
-        }),
+      await createActivityCategory({
+        categoryName: form.name,
+        description: form.description,
         chapterId: Number(form.chapterId),
         typeId: Number(form.typeId),
-      };
-
-      // <-- capture the created category returned by the service
-      const created = await createActivityCategory(payload);
+      });
       toast.success("Catégorie créée");
       onClose();
-      // pass created to parent so it can refresh or update state
-      onCreated?.(created);
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        toast.error(`Erreur lors de la création : ${err.message}`);
+      onCreated?.();
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(`Erreur lors de la création : ${error.message}`);
       } else {
         toast.error(
           "Erreur lors de la création : Une erreur inconnue est survenue"

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getProjectCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   ProjectCardView,
@@ -30,7 +30,7 @@ export function ProjectList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["projects"],
+    queryKey: [ETabKey.Project],
     queryFn: getProjectCategories,
   });
 

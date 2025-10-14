@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getUrbanIssueCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   UrbanIssueCardView,
@@ -30,7 +30,7 @@ export function UrbanIssueList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["urbanIssues"],
+    queryKey: [ETabKey.UrbanIssue],
     queryFn: getUrbanIssueCategories,
   });
 

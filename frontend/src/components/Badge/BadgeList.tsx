@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getBadgeCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   BadgeCardView,
-  BadgeModeSwitcher,
+  CategoryModeSwitcher,
   BadgeListView,
   BadgeTableView,
 } from "@/components";
@@ -30,7 +30,7 @@ export function BadgeList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["badges"],
+    queryKey: [ETabKey.Badge],
     queryFn: getBadgeCategories,
   });
 
@@ -66,11 +66,12 @@ export function BadgeList() {
 
   return (
     <div className="w-full p-4">
-      <BadgeModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={{ [ETabKey.Badge]: "Badges" }}
       />
 
       {processedChapters.length === 0 ? (

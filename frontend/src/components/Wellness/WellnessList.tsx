@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getWellnessCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   WellnessCardView,
@@ -30,7 +30,7 @@ export function WellnessList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["wellnessCategories"],
+    queryKey: [ETabKey.Wellness],
     queryFn: getWellnessCategories,
   });
 
