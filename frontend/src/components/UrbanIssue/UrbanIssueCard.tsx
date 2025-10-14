@@ -18,12 +18,12 @@ export function UrbanIssueCard({ urbanIssue }: UrbanIssueCardProps) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: ["urban-issues"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: ["urban-issues"] });
   };
 
   return (

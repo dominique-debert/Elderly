@@ -16,7 +16,52 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const handleCreated = () => {
     setIsCreateOpen(false);
-    queryClient.invalidateQueries({ queryKey: [activeTab] });
+    switch (activeTab) {
+      case ETabKey.Activity:
+        queryClient.invalidateQueries({ queryKey: ["activities"] });
+        break;
+      case ETabKey.Badge:
+        queryClient.invalidateQueries({ queryKey: ["badges"] });
+        break;
+      case ETabKey.Cognitive:
+        queryClient.invalidateQueries({ queryKey: ["cognitives"] });
+        break;
+      case ETabKey.Forum:
+        queryClient.invalidateQueries({ queryKey: ["forum-categories"] });
+        break;
+      case ETabKey.Help:
+        queryClient.invalidateQueries({ queryKey: ["helps"] });
+        break;
+      case ETabKey.Mood:
+        queryClient.invalidateQueries({ queryKey: ["moods"] });
+        break;
+      case ETabKey.Nutrition:
+        queryClient.invalidateQueries({ queryKey: ["nutritions"] });
+        break;
+      case ETabKey.Program:
+        queryClient.invalidateQueries({ queryKey: ["programs"] });
+        break;
+      case ETabKey.Project:
+        queryClient.invalidateQueries({ queryKey: ["projects"] });
+        break;
+      case ETabKey.Resource:
+        queryClient.invalidateQueries({ queryKey: ["resources"] });
+        break;
+      case ETabKey.Service:
+        queryClient.invalidateQueries({ queryKey: ["services"] });
+        break;
+      case ETabKey.Skill:
+        queryClient.invalidateQueries({ queryKey: ["skills"] });
+        break;
+      case ETabKey.UrbanIssue:
+        queryClient.invalidateQueries({ queryKey: ["urban-issues"] });
+        break;
+      case ETabKey.Wellness:
+        queryClient.invalidateQueries({ queryKey: ["wellness"] });
+        break;
+      default:
+        break;
+    }
   };
   return (
     <>

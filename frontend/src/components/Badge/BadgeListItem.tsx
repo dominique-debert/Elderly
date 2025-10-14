@@ -12,12 +12,12 @@ export function BadgeListItem({ badge }: { badge: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["activities"] });
+    queryClient.invalidateQueries({ queryKey: ["badges"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["activities"] });
+    queryClient.invalidateQueries({ queryKey: ["badges"] });
   };
 
   return (

@@ -12,12 +12,12 @@ export function CognitiveListItem({ cognitive }: { cognitive: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["activities"] });
+    queryClient.invalidateQueries({ queryKey: ["cognitives"] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["activities"] });
+    queryClient.invalidateQueries({ queryKey: ["cognitives"] });
   };
 
   return (
