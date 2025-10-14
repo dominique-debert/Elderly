@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchActivityCategories } from "@/services";
+import { getActivityCategories } from "@/services";
 import type { ICategory } from "@/types";
 
 import {
@@ -31,7 +31,7 @@ export function ActivityList() {
     isError,
   } = useQuery({
     queryKey: ["activities"],
-    queryFn: fetchActivityCategories,
+    queryFn: getActivityCategories,
   });
 
   const processedChapters = (() => {

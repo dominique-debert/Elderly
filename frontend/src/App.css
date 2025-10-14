@@ -8,9 +8,9 @@ layer(base);
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
-  --color-card: #0f111a;
+  --color-card: hsl(220.7, 56%, 9.8%);
   --color-background-light: hsl(0 0% 100%);
-  --color-background-dark: #0c0e15;
+  --color-background-dark: hsl(222.2, 69.2%, 7.6%);
   --color-background-custom: hsl(187 71% 82%);
   --color-background-pastel: hsl(279 100% 93%);
 }
@@ -20,19 +20,15 @@ layer(base);
 }
 
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    --color-primary: #137fec;
-    /* --color-base-content: rgba(230, 30, 90, 1); */
-    --text-primary: white;
-    --primary: #0c0e15;
+  * {
+    --radius-field: 0.5rem;
+    --color-primary: hsl(210.1, 85.1%, 50%);
+    --text-primary: hsl(0 0% 100%);
+    --primary: hsl(226.7, 27.3%, 6.5%);
     --font-display: "Lexend", sans-serif;
-    --menu-active-bg: #137fec;
-    --menu-active-fg: white;
-    --menu-hover: #0f58a1;
+    --menu-active-bg: hsl(210.1, 85.1%, 50%);
+    --menu-active-fg: hsl(0 0% 100%);
+    --menu-hover: hsl(210, 83%, 34.5%);
   }
 }
 
@@ -48,6 +44,52 @@ layer(base);
   }
   [data-theme="pastel"] {
     --color-card: hsl(291 46% 83%);
+  }
+}
+
+@layer utilities {
+  .modal-box {
+    background-color: var(--color-card);
+  }
+  .modal {
+    &.modal-open,
+    &[open],
+    &:target {
+      pointer-events: auto;
+      visibility: visible;
+      opacity: 100%;
+      background-color: rgb(6, 14, 33, 0.8);
+      backdrop-filter: blur(3px);
+    }
+  }
+  .toggle {
+    &:checked,
+    &[aria-checked="true"],
+    &:has(> input:checked) {
+      grid-template-columns: 1fr 1fr 0fr;
+      background-color: var(--color-card);
+      --input-color: var(--color-base-content);
+    }
+  }
+  .table-zebra {
+    & tbody {
+      & tr {
+        &:where(:nth-child(2n)) {
+          background-color: rgb(11, 20, 39, 0.03);
+        }
+      }
+    }
+  }
+  [data-theme="dark"] {
+    .table-zebra {
+      & tbody {
+        & tr {
+          &:where(:nth-child(2n)) {
+            background-color: var(--color-card);
+          }
+        }
+      }
+    }
   }
 }
 

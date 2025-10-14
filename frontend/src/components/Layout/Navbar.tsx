@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { useTheme } from "@/context";
 import { useAuth } from "@/stores";
 
-import { fetchNotificationsByUserId } from "@/services";
+import { getNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
 
 import { NotificationList } from "@/components";
@@ -37,16 +37,14 @@ export function Navbar() {
     queryKey: ["notifications", user?.id],
     queryFn: async ({ queryKey }) => {
       const userId = queryKey[1];
-      console.log("Fetching notifications for user ID:", userId);
 
       // Ensure userId is a non-empty string before making the API call
       if (typeof userId !== "string" || userId.trim() === "") {
-        console.log("Invalid or missing user ID, returning empty array");
         return [];
       }
 
       try {
-        const result = await fetchNotificationsByUserId(userId);
+        const result = await getNotificationsByUserId(userId);
         return result;
       } catch (error) {
         toast.error(
@@ -88,8 +86,11 @@ export function Navbar() {
           </Link>
 
           <div className="flex items-center gap-4">
-            <div className="tooltip tooltip-bottom" data-tip="Changer de thème">
-              <label className="toggle text-slate-400 mr-4 border">
+            <div
+              className="tooltip tooltip-bottom tooltip-accent"
+              data-tip="Changer de thème"
+            >
+              <label className="toggle mr-4 border">
                 <input
                   type="checkbox"
                   onChange={handleToggle}
@@ -111,7 +112,7 @@ export function Navbar() {
             <div className="relative" ref={notifRef}>
               <button
                 role="button"
-                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom mr-3 text-slate-400"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom mr-3 tooltip-accent"
                 data-tip="Notifications"
                 onClick={() => setIsNotifOpen(!isNotifOpen)}
               >
@@ -137,7 +138,7 @@ export function Navbar() {
             {user?.isAdmin && (
               <Link
                 to="/admin-page"
-                className="btn btn-ghost btn-circle avatar tooltip tooltip-left mr-3 text-slate-400"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom mr-3 tooltip-accent"
                 data-tip="Espace administration"
               >
                 <Icon path={mdiCogOutline} size={1.3} />

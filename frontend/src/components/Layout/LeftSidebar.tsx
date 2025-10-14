@@ -56,52 +56,42 @@ export function LeftSidebar() {
         <nav className="flex-1 w-full px-2 space-y-2 mt-6 rounded-xl">
           <Link
             to="/dashboard"
-            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30"
+            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
             data-tip="Tableau de bord"
           >
-            <Icon
-              path={mdiViewDashboardOutline}
-              size={1}
-              className="text-primary"
-            />
+            <Icon path={mdiViewDashboardOutline} size={1} />
           </Link>
 
           <Link
             to={"/wellness"}
-            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30"
+            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
             data-tip="Bien-être"
           >
-            <Icon path={mdiHeartOutline} title="Suivi du bien-être" size={1} />
+            <Icon path={mdiHeartOutline} size={1} />
           </Link>
 
           <Link
             to={"/medications"}
-            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30"
+            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
+            data-tip="Traitements"
           >
-            <Icon
-              path={mdiBottleTonicPlusOutline}
-              data-tip="Bien-être"
-              title="Suivi du bien-être"
-              size={1}
-            />
+            <Icon path={mdiBottleTonicPlusOutline} size={1} />
           </Link>
 
           <Link
             to={"/objectives"}
-            className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30"
+            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
+            data-tip="Objectifs"
           >
-            <Icon
-              path={mdiHeadHeartOutline}
-              title="Suivi des objectifs"
-              size={1}
-            />
+            <Icon path={mdiHeadHeartOutline} size={1} />
           </Link>
 
           <Link
             to={"/forum"}
-            className="w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30"
+            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
+            data-tip="Forum"
           >
-            <Icon path={mdiForumOutline} title="Forum" size={1} />
+            <Icon path={mdiForumOutline} size={1} />
           </Link>
         </nav>
       </div>

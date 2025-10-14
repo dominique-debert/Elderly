@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchBadgeCategories } from "@/services";
+import { getBadgeCategories } from "@/services";
 import type { ICategory } from "@/types";
 
 import {
@@ -31,7 +31,7 @@ export function BadgeList() {
     isError,
   } = useQuery({
     queryKey: ["badges"],
-    queryFn: fetchBadgeCategories,
+    queryFn: getBadgeCategories,
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;

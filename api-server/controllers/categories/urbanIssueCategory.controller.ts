@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES DE PROBLÈMES URBAINS
-export const fetchAllUrbanIssueCategories = async (
+export const getAllUrbanIssueCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllUrbanIssueCategories = async (
 };
 
 // CATÉGORIE DE PROBLÈME URBAIN PAR ID
-export const fetchUrbanIssueCategoryById = async (
+export const getUrbanIssueCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

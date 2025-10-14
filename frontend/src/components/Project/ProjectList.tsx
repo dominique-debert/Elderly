@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchProjectCategories } from "@/services";
+import { getProjectCategories } from "@/services";
 import type { ICategory } from "@/types";
 
 import {
@@ -31,7 +31,7 @@ export function ProjectList() {
     isError,
   } = useQuery({
     queryKey: ["projects"],
-    queryFn: fetchProjectCategories,
+    queryFn: getProjectCategories,
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;

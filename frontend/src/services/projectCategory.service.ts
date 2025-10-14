@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
 import type { ICategory } from "@/types";
 
-export const fetchProjectCategories = async (): Promise<ICategory> => {
+export const getProjectCategories = async (): Promise<ICategory> => {
   const accessToken = localStorage.getItem("accessToken");
 
   const { data } = await api.get(`/categories/projects`, {

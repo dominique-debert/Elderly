@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
 import type { ICategory } from "@/types";
 
-export const fetchBadgeCategories = async (): Promise<ICategory> => {
+export const getBadgeCategories = async (): Promise<ICategory> => {
   const { data } = await api.get(`/categories/badges`);
   return data;
 };

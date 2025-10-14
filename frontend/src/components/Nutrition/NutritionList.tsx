@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchNutritionCategories } from "@/services";
+import { getNutritionCategories } from "@/services";
 import type { ICategory } from "@/types";
 
 import {
@@ -50,7 +50,7 @@ export function NutritionList({
     isError,
   } = useQuery({
     queryKey: ["nutritions"],
-    queryFn: fetchNutritionCategories,
+    queryFn: getNutritionCategories,
   });
 
   const processedChapters = (() => {

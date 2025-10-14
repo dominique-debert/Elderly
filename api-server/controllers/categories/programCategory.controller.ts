@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES DE PROGRAMMES
-export const fetchAllProgramCategories = async (
+export const getAllProgramCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllProgramCategories = async (
 };
 
 // CATÉGORIE DE PROGRAMME PAR ID
-export const fetchProgramCategoryById = async (
+export const getProgramCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

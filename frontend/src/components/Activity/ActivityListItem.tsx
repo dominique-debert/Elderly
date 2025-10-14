@@ -26,7 +26,7 @@ export function ActivityListItem({ activity }: { activity: ICategory }) {
         key={activity.id}
         className="p-4 rounded shadow-md flex items-center gap-4 border-b border-slate-800 hover:bg-slate-900/40 cursor-pointer"
       >
-        <span className="w-full font-medium">{activity.categoryName}</span>
+        <span className="w-100 font-medium">{activity.categoryName}</span>
         <span className="w-full font-light text-slate-400">
           {activity.description}
         </span>

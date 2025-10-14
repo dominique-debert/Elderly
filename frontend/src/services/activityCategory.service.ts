@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
 import type { ICategory } from "@/types";
 
-export async function fetchActivityCategories(): Promise<ICategory[]> {
+export async function getActivityCategories(): Promise<ICategory[]> {
   const accessToken = localStorage.getItem("accessToken");
   const response = await api.get<ICategory[]>("/categories/activities", {
     headers: {
@@ -39,6 +39,15 @@ export const updateActivityCategory = async (
 
 export const deleteActivityCategory = async (id: string) => {
   const response = await api.delete(`/categories/activities/${id}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  });
+  return response.data;
+};
+
+export const getAllActivityCategoriesWithChapters = async () => {
+  const response = await api.get("/categories/activities/with-chapters", {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },

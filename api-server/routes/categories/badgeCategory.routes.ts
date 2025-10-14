@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
   createBadgeCategory,
-  fetchAllBadgeCategories,
-  fetchBadgeCategoryById,
+  getAllBadgeCategories,
+  getBadgeCategoryById,
   updateBadgeCategory,
   deleteBadgeCategory,
 } from "@/controllers";
@@ -81,7 +81,7 @@ router.post("/", validate(categorySchema), createBadgeCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", fetchAllBadgeCategories);
+router.get("/", getAllBadgeCategories);
 
 /**
  * @swagger
@@ -108,7 +108,7 @@ router.get("/", fetchAllBadgeCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", fetchBadgeCategoryById);
+router.get("/:id", getBadgeCategoryById);
 
 /**
  * @swagger

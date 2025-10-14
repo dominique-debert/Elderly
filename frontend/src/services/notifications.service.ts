@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
 import type { INotification } from "@/types";
 
-export const fetchNotifications = async (): Promise<INotification[]> => {
+export const getNotifications = async (): Promise<INotification[]> => {
   const accessToken = localStorage.getItem("accessToken");
   const { data } = await api.get("/notifications", {
     headers: {
@@ -11,7 +11,7 @@ export const fetchNotifications = async (): Promise<INotification[]> => {
   return data.notifications;
 };
 
-export const fetchNotificationsByUserId = async (
+export const getNotificationsByUserId = async (
   userId: string
 ): Promise<INotification[]> => {
   const accessToken = localStorage.getItem("accessToken");

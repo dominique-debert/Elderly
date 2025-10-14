@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchMoods } from "@/services";
+import { getMoods } from "@/services";
 
 import {
   MoodCardView,
@@ -28,7 +28,7 @@ export function MoodList() {
     isError,
   } = useQuery({
     queryKey: ["moods"],
-    queryFn: fetchMoods,
+    queryFn: getMoods,
   });
 
   const [search, setSearch] = useState<string>("");

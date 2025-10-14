@@ -1,10 +1,10 @@
 // controllers/categoryMeta.controller.ts
-import { NextFunction, Request, Response } from 'express';
-import { PrismaClient } from '@/prisma/client';
+import { NextFunction, Request, Response } from "express";
+import { PrismaClient } from "@/prisma/client";
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
-export async function fetchCategoryChapters(
+export async function getCategoryChapters(
   req: Request,
   res: Response,
   next: NextFunction
@@ -15,7 +15,7 @@ export async function fetchCategoryChapters(
         chapterId: true,
         chapterName: true,
       },
-      orderBy: { chapterId: 'asc' }
+      orderBy: { chapterId: "asc" },
     });
     res.json(chapters);
   } catch (error) {
@@ -23,16 +23,18 @@ export async function fetchCategoryChapters(
   }
 }
 
-export async function fetchCategoryTypes(  req: Request,
+export async function getCategoryTypes(
+  req: Request,
   res: Response,
-  next: NextFunction) {
+  next: NextFunction
+) {
   try {
     const types = await prisma.categoryType.findMany({
       select: {
         id: true,
         name: true,
       },
-      orderBy: { id: 'asc' }
+      orderBy: { id: "asc" },
     });
     res.json(types);
   } catch (error) {

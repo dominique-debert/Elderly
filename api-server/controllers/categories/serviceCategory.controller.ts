@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES DE SERVICES
-export const fetchAllServiceCategories = async (
+export const getAllServiceCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllServiceCategories = async (
 };
 
 // CATÉGORIE DE SERVICE PAR ID
-export const fetchServiceCategoryById = async (
+export const getServiceCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

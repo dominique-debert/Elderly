@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
 import type { ICategory } from "@/types";
 
-export const fetchCognitiveCategories = async (): Promise<ICategory> => {
+export const getCognitiveCategories = async (): Promise<ICategory> => {
   const { data } = await api.get(`/categories/cognitive`);
   return data;
 };

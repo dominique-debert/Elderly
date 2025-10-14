@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
   createHelpCategory,
-  fetchAllHelpCategories,
-  fetchHelpCategoryById,
+  getAllHelpCategories,
+  getHelpCategoryById,
   updateHelpCategory,
   deleteHelpCategory,
 } from "@/controllers";
@@ -78,7 +78,7 @@ router.post("/", validate(categorySchema), createHelpCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", fetchAllHelpCategories);
+router.get("/", getAllHelpCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get("/", fetchAllHelpCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", fetchHelpCategoryById);
+router.get("/:id", getHelpCategoryById);
 
 /**
  * @swagger

@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
   createCognitiveCategory,
-  fetchAllCognitiveCategories,
-  fetchCognitiveCategoryById,
+  getAllCognitiveCategories,
+  getCognitiveCategoryById,
   updateCognitiveCategory,
   deleteCognitiveCategory,
 } from "@/controllers";
@@ -78,7 +78,7 @@ router.post("/", validate(categorySchema), createCognitiveCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", fetchAllCognitiveCategories);
+router.get("/", getAllCognitiveCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get("/", fetchAllCognitiveCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", fetchCognitiveCategoryById);
+router.get("/:id", getCognitiveCategoryById);
 
 /**
  * @swagger

@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
   createServiceCategory,
-  fetchAllServiceCategories,
-  fetchServiceCategoryById,
+  getAllServiceCategories,
+  getServiceCategoryById,
   updateServiceCategory,
   deleteServiceCategory,
 } from "@/controllers";
@@ -78,7 +78,7 @@ router.post("/", validate(categorySchema), createServiceCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", fetchAllServiceCategories);
+router.get("/", getAllServiceCategories);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get("/", fetchAllServiceCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", fetchServiceCategoryById);
+router.get("/:id", getServiceCategoryById);
 
 /**
  * @swagger

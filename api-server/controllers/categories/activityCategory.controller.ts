@@ -13,78 +13,62 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES D'AIDE
-export const fetchAllActivityCategories = async (
+export const getAllActivityCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const categories = await prisma.category.findMany({
-      where: {
-        typeId: ECategoryType.ACTIVITY,
-      },
-      orderBy: {
-        categoryName: "asc",
-      },
+    // Récupère le categoryType ciblé (id = ECategoryType.ACTIVITY) et inclut ses categories (liste => orderBy possible)
+    const typeWithCategories = await prisma.categoryType.findUnique({
+      where: { id: ECategoryType.ACTIVITY },
       include: {
-        categoryType: {
-          select: {
-            id: true,
-            name: true,
+        categories: {
+          include: {
+            categoryChapter: {
+              select: {
+                chapterId: true,
+                chapterName: true,
+                chapterDescription: true,
+              },
+            },
           },
-        },
-        categoryChapter: {
-          select: {
-            chapterId: true,
-            chapterName: true,
-            chapterDescription: true,
-          },
+          orderBy: [
+            { categoryChapter: { chapterName: "asc" } },
+            { categoryName: "asc" },
+          ],
         },
       },
     });
-    const grouped: Record<string, Record<string, any[]>> = {};
 
-    // Étape 1 : Regrouper d'abord par typeName → chapterName
-    categories.forEach((category) => {
-      const typeName = category.categoryType?.name ?? "Sans type";
-      const chapterName =
-        category.categoryChapter?.chapterName ?? "Sans chapitre";
+    if (!typeWithCategories) {
+      return res.status(200).json({});
+    }
 
-      if (!grouped[typeName]) grouped[typeName] = {};
-      if (!grouped[typeName][chapterName]) grouped[typeName][chapterName] = [];
-
-      grouped[typeName][chapterName].push({
-        id: category.id,
-        categoryName: category.categoryName,
-        description: category.description,
+    // Grouper par chapterName
+    const groupedByChapter: Record<string, any[]> = {};
+    typeWithCategories.categories.forEach((cat) => {
+      const chapterName = cat.categoryChapter?.chapterName ?? "Sans chapitre";
+      if (!groupedByChapter[chapterName]) groupedByChapter[chapterName] = [];
+      groupedByChapter[chapterName].push({
+        id: cat.id,
+        categoryName: cat.categoryName,
+        description: cat.description,
       });
     });
 
-    // Étape 2 : Trier par typeName > chapterName > categoryName
-    const sortedGrouped: Record<string, Record<string, any[]>> = {};
-
-    Object.keys(grouped)
-      .sort()
-      .forEach((typeName) => {
-        sortedGrouped[typeName] = {};
-
-        Object.keys(grouped[typeName])
-          .sort()
-          .forEach((chapterName) => {
-            sortedGrouped[typeName][chapterName] = grouped[typeName][
-              chapterName
-            ].sort((a, b) => a.categoryName.localeCompare(b.categoryName));
-          });
-      });
-    console.log(grouped);
-    res.status(200).json(grouped);
+    res.status(200).json({
+      typeId: typeWithCategories.id,
+      typeName: typeWithCategories.name,
+      chapters: groupedByChapter,
+    });
   } catch (error) {
     next(error);
   }
 };
 
 // CATÉGORIE D'AIDE PAR ID
-export const fetchActivityCategoryById = async (
+export const getActivityCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
   createWellnessCategory,
-  fetchAllWellnessCategories,
-  fetchWellnessCategoryById,
+  getAllWellnessCategories,
+  getWellnessCategoryById,
   updateWellnessCategory,
   deleteWellnessCategory,
 } from "@/controllers";
@@ -82,7 +82,7 @@ router.post("/", validate(categorySchema), createWellnessCategory);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", fetchAllWellnessCategories);
+router.get("/", getAllWellnessCategories);
 
 /**
  * @swagger
@@ -109,7 +109,7 @@ router.get("/", fetchAllWellnessCategories);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", fetchWellnessCategoryById);
+router.get("/:id", getWellnessCategoryById);
 
 /**
  * @swagger

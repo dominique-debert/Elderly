@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
  */
 
 // TOUTES LES CATÉGORIES DE RESSOURCES
-export const fetchAllResourceCategories = async (
+export const getAllResourceCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllResourceCategories = async (
 };
 
 // CATÉGORIE DE RESSOURCE PAR ID
-export const fetchResourceCategoryById = async (
+export const getResourceCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction

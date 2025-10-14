@@ -13,7 +13,7 @@ const prisma = new PrismaClient({ log: ["query"] });
  */
 
 // TOUTES LES CATÉGORIES DE COGNITIONS
-export const fetchAllCognitiveCategories = async (
+export const getAllCognitiveCategories = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -85,7 +85,7 @@ export const fetchAllCognitiveCategories = async (
 };
 
 // CATÉGORIE COGNITIVE PAR ID
-export const fetchCognitiveCategoryById = async (
+export const getCognitiveCategoryById = async (
   req: Request,
   res: Response,
   next: NextFunction
