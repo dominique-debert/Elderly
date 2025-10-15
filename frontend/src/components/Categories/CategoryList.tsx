@@ -5,64 +5,65 @@ import { getCategories } from "@/services";
 import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
-  BadgeCardView,
   CategoryModeSwitcher,
-  BadgeListView,
-  BadgeTableView,
+  CategoryListView,
+  CategoryCardView,
+  CategoryTableView,
 } from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-export function BadgeList() {
+type CategoryListProps = {
+  categoryType: ECategoryType;
+  tabKey: ETabKey;
+};
+
+export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem(ETabKey.Badge + "ViewMode");
+    const savedMode = localStorage.getItem(tabKey + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem(ETabKey.Badge + "ViewMode", mode);
-  }, [mode]);
+    localStorage.setItem(tabKey + "ViewMode", mode);
+  }, [mode, tabKey]);
 
   const {
-    data: badges,
+    data: categories,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: [ETabKey.Badge],
-    queryFn: () => getCategories(ECategoryType.BADGE),
+    queryKey: [tabKey],
+    queryFn: () => getCategories(categoryType),
   });
 
-  // Grouper un tableau plat par chapitre
   const processedChapters = (() => {
-    if (!badges || !Array.isArray(badges)) return [];
+    if (!categories || !Array.isArray(categories)) return [];
 
-    // Filtrer par recherche
-    const filtered = badges.filter((badge: ICategory) =>
-      badge.categoryName?.toLowerCase().includes(search.toLowerCase())
+    const filtered = categories.filter((category: ICategory) =>
+      category.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-    // Grouper par chapterId
-    const grouped = filtered.reduce((acc, badge: ICategory) => {
-      const chapterId = badge.chapterId || 0;
+    const grouped = filtered.reduce((acc, category: ICategory) => {
+      const chapterId = category.chapterId || 0;
       if (!acc[chapterId]) {
         acc[chapterId] = [];
       }
-      acc[chapterId].push(badge);
+      acc[chapterId].push(category);
       return acc;
     }, {} as Record<number, ICategory[]>);
 
-    // Transformer en tableau de chapitres
     return Object.entries(grouped)
-      .map(([, chapterBadges]) => {
-        const firstBadge = chapterBadges[0];
+      .map(([, chapterCategories]) => {
+        const firstCategory = chapterCategories[0];
         return {
           chapterName:
-            firstBadge.categoryChapter?.chapterName || "Sans chapitre",
+            firstCategory.categoryChapter?.chapterName || "Sans chapitre",
           chapterDescription:
-            firstBadge.categoryChapter?.chapterDescription || "",
-          badges: chapterBadges.sort((a, b) =>
+            firstCategory.categoryChapter?.chapterDescription || "",
+          categories: chapterCategories.sort((a, b) =>
             a.categoryName.localeCompare(b.categoryName)
           ),
         };
@@ -77,7 +78,7 @@ export function BadgeList() {
         setMode={setMode}
         search={search}
         setSearch={setSearch}
-        activeTab={ETabKey.Badge}
+        activeTab={tabKey}
       />
 
       {isLoading ? (
@@ -92,7 +93,7 @@ export function BadgeList() {
         </div>
       ) : (
         processedChapters.map(
-          ({ chapterName, chapterDescription, badges }, index: number) => (
+          ({ chapterName, chapterDescription, categories }, index: number) => (
             <div
               key={`${chapterName}-${index}`}
               className={index !== 0 ? "mt-12" : "mt-6"}
@@ -106,9 +107,15 @@ export function BadgeList() {
                 )}
               </div>
               <div className="divider mt-0 mb-0"></div>
-              {mode === "list" && <BadgeListView badges={badges} />}
-              {mode === "card" && <BadgeCardView badges={badges} />}
-              {mode === "table" && <BadgeTableView badges={badges} />}
+              {mode === "list" && (
+                <CategoryListView categories={categories} tabKey={tabKey} />
+              )}
+              {mode === "card" && (
+                <CategoryCardView categories={categories} tabKey={tabKey} />
+              )}
+              {mode === "table" && (
+                <CategoryTableView categories={categories} tabKey={tabKey} />
+              )}
             </div>
           )
         )
