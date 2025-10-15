@@ -3,40 +3,34 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
-import { WellnessDeleteModal, WellnessEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
-export function WellnessListItem({
-  wellnessCategory,
-}: {
-  wellnessCategory: ICategory;
-}) {
+export function WellnessListItem({ wellness }: { wellness: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
   const queryClient = useQueryClient();
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["wellness"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Wellness] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["wellness"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Wellness] });
   };
 
   return (
     <>
       <li
-        key={wellnessCategory.id}
+        key={wellness.id}
         className="p-4 rounded shadow-md flex items-center gap-4 border-b border-slate-800 hover:bg-slate-900/40 cursor-pointer"
       >
-        <span className="w-full font-medium">
-          {wellnessCategory.categoryName}
-        </span>
+        <span className="w-full font-medium">{wellness.categoryName}</span>
         <span className="w-full font-light text-slate-400">
-          {wellnessCategory.description}
+          {wellness.description}
         </span>
         <div className="ml-auto flex gap-2">
           <button
@@ -61,16 +55,16 @@ export function WellnessListItem({
       </li>
 
       {isEditOpen && (
-        <WellnessEditModal
-          wellnessCategory={wellnessCategory}
+        <CategoryEditModal
+          category={wellness}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <WellnessDeleteModal
-          category={wellnessCategory}
+        <CategoryDeleteModal
+          category={wellness}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}
         />

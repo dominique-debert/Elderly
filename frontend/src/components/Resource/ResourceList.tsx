@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getResourceCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   ResourceCardView,
   ResourceListView,
-  ResourceModeSwitcher,
+  CategoryModeSwitcher,
   ResourceTableView,
 } from "@/components";
 
@@ -15,14 +15,14 @@ type Mode = "card" | "list" | "table";
 
 export function ResourceList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("resourceViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Resource + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("resourceViewMode", mode);
+    localStorage.setItem(ETabKey.Resource + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function ResourceList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Resource],
-    queryFn: getResourceCategories,
+    queryFn: () => getCategories(ECategoryType.RESOURCE),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
@@ -66,11 +66,12 @@ export function ResourceList() {
 
   return (
     <div className="w-full p-4">
-      <ResourceModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Nutrition}
       />
 
       {processedChapters.length === 0 ? (

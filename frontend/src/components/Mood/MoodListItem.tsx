@@ -3,7 +3,7 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-import type { IMood } from "@/types";
+import { ETabKey, type IMood } from "@/types";
 
 import { MoodDeleteModal, MoodEditModal } from "@/components";
 
@@ -14,12 +14,12 @@ export function MoodListItem({ mood }: { mood: IMood }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["moods"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Mood] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["moods"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Mood] });
   };
 
   return (

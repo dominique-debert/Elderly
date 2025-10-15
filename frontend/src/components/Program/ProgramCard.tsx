@@ -3,9 +3,9 @@ import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
-import { ProgramDeleteModal, ProgramEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 type ProgramCardProps = {
   program: ICategory;
@@ -18,12 +18,12 @@ export function ProgramCard({ program }: ProgramCardProps) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["programs"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Program] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["programs"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Program] });
   };
 
   return (
@@ -70,15 +70,15 @@ export function ProgramCard({ program }: ProgramCardProps) {
           </div>
         </div>
         {isEditOpen && (
-          <ProgramEditModal
-            program={program}
+          <CategoryEditModal
+            category={program}
             onClose={() => setIsEditOpen(false)}
             onUpdated={handleUpdated}
           />
         )}
 
         {isConfirmDeleteOpen && (
-          <ProgramDeleteModal
+          <CategoryDeleteModal
             category={program}
             onClose={() => setIsConfirmDeleteOpen(false)}
             onConfirm={handleDeleted}

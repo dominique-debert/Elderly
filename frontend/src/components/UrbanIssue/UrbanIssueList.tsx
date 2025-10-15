@@ -1,28 +1,28 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getUrbanIssueCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   UrbanIssueCardView,
-  UrbanIssueModeSwitcher,
   UrbanIssueListView,
   UrbanIssueTableView,
+  CategoryModeSwitcher,
 } from "@/components";
 
 type Mode = "card" | "list" | "table";
 
 export function UrbanIssueList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("urbanIssueViewMode");
+    const savedMode = localStorage.getItem(ETabKey.UrbanIssue + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("urbanIssueViewMode", mode);
+    localStorage.setItem(ETabKey.UrbanIssue + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function UrbanIssueList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.UrbanIssue],
-    queryFn: getUrbanIssueCategories,
+    queryFn: () => getCategories(ECategoryType.URBAN_ISSUE),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
@@ -68,11 +68,12 @@ export function UrbanIssueList() {
 
   return (
     <div className="w-full p-4">
-      <UrbanIssueModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.UrbanIssue}
       />
 
       {processedChapters.length === 0 ? (

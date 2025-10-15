@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getWellnessCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   WellnessCardView,
-  WellnessModeSwitcher,
+  CategoryModeSwitcher,
   WellnessListView,
   WellnessTableView,
 } from "@/components";
@@ -15,14 +15,14 @@ type Mode = "card" | "list" | "table";
 
 export function WellnessList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("urbanIssueViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Wellness + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("urbanIssueViewMode", mode);
+    localStorage.setItem(ETabKey.Wellness + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function WellnessList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Wellness],
-    queryFn: getWellnessCategories,
+    queryFn: () => getCategories(ECategoryType.WELLNESS),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
@@ -68,11 +68,12 @@ export function WellnessList() {
 
   return (
     <div className="w-full p-4">
-      <WellnessModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Wellness}
       />
 
       {processedChapters.length === 0 ? (

@@ -3,9 +3,9 @@ import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
-import { ResourceDeleteModal, ResourceEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 type ResourceCardProps = {
   resource: ICategory;
@@ -18,12 +18,12 @@ export function ResourceCard({ resource }: ResourceCardProps) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["resources"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Resource] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["resources"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Resource] });
   };
 
   return (
@@ -70,15 +70,15 @@ export function ResourceCard({ resource }: ResourceCardProps) {
           </div>
         </div>
         {isEditOpen && (
-          <ResourceEditModal
-            resource={resource}
+          <CategoryEditModal
+            category={resource}
             onClose={() => setIsEditOpen(false)}
             onUpdated={handleUpdated}
           />
         )}
 
         {isConfirmDeleteOpen && (
-          <ResourceDeleteModal
+          <CategoryDeleteModal
             category={resource}
             onClose={() => setIsConfirmDeleteOpen(false)}
             onConfirm={handleDeleted}

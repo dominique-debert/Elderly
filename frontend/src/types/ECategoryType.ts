@@ -4,7 +4,7 @@ export enum ECategoryType {
   COGNITIVE = 3,
   FORUM = 4,
   HELP = 5,
-  NUTRITIONAL = 6,
+  NUTRITION = 6,
   PROGRAM = 7,
   PROJECT = 8,
   RESOURCE = 9,
@@ -12,4 +12,5 @@ export enum ECategoryType {
   SKILL = 11,
   URBAN_ISSUE = 12,
   WELLNESS = 13,
+  MOOD = 14,
 }

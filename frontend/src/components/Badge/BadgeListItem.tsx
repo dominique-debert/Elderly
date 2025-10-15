@@ -1,9 +1,9 @@
-import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
+import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/types";
-import { BadgeEditModal, BadgeDeleteModal } from "@/components";
+import { ETabKey, type ICategory } from "@/types";
+import { CategoryEditModal, CategoryDeleteModal } from "@/components";
 
 export function BadgeListItem({ badge }: { badge: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -12,12 +12,12 @@ export function BadgeListItem({ badge }: { badge: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Badge] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["badges"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Badge] });
   };
 
   return (
@@ -53,15 +53,15 @@ export function BadgeListItem({ badge }: { badge: ICategory }) {
       </li>
 
       {isEditOpen && (
-        <BadgeEditModal
-          badge={badge}
+        <CategoryEditModal
+          category={badge}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <BadgeDeleteModal
+        <CategoryDeleteModal
           category={badge}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

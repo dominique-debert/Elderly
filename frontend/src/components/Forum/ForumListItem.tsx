@@ -2,8 +2,8 @@ import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/types";
-import { ForumEditModal, ForumDeleteModal } from "@/components";
+import { ETabKey, type ICategory } from "@/types";
+import { CategoryEditModal, CategoryDeleteModal } from "@/components";
 
 export function ForumListItem({ forum }: { forum: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -12,12 +12,12 @@ export function ForumListItem({ forum }: { forum: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["forum-categories"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Forum] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["forum-categories"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Forum] });
   };
 
   return (
@@ -53,15 +53,15 @@ export function ForumListItem({ forum }: { forum: ICategory }) {
       </li>
 
       {isEditOpen && (
-        <ForumEditModal
-          forum={forum}
+        <CategoryEditModal
+          category={forum}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <ForumDeleteModal
+        <CategoryDeleteModal
           category={forum}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

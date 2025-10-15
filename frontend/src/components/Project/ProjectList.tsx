@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getProjectCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   ProjectCardView,
   ProjectListView,
-  ProjectModeSwitcher,
+  CategoryModeSwitcher,
   ProjectTableView,
 } from "@/components";
 
@@ -15,14 +15,14 @@ type Mode = "card" | "list" | "table";
 
 export function ProjectList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("projectViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Project + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("projectViewMode", mode);
+    localStorage.setItem(ETabKey.Project + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function ProjectList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Project],
-    queryFn: getProjectCategories,
+    queryFn: () => getCategories(ECategoryType.PROJECT),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
@@ -66,11 +66,12 @@ export function ProjectList() {
 
   return (
     <div className="w-full p-4">
-      <ProjectModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Nutrition}
       />
 
       {processedChapters.length === 0 ? (

@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getSkillCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   SkillCardView,
   SkillListView,
-  SkillModeSwitcher,
+  CategoryModeSwitcher,
   SkillTableView,
 } from "@/components";
 
@@ -15,14 +15,14 @@ type Mode = "card" | "list" | "table";
 
 export function SkillList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("skillViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Skill + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("skillViewMode", mode);
+    localStorage.setItem(ETabKey.Skill + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function SkillList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Skill],
-    queryFn: getSkillCategories,
+    queryFn: () => getCategories(ECategoryType.SKILL),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
@@ -65,11 +65,12 @@ export function SkillList() {
 
   return (
     <div className="w-full p-4">
-      <SkillModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Skill}
       />
 
       {processedChapters.length === 0 ? (

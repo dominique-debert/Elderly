@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getHelpCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   HelpCardView,
@@ -15,14 +15,14 @@ type Mode = "card" | "list" | "table";
 
 export function HelpList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("helpViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Help + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("helpViewMode", mode);
+    localStorage.setItem(ETabKey.Help + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function HelpList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Help],
-    queryFn: getHelpCategories,
+    queryFn: () => getCategories(ECategoryType.HELP),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;

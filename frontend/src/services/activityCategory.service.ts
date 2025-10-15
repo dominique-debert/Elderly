@@ -26,7 +26,7 @@ export async function createActivityCategory(category: {
 }
 
 export const updateActivityCategory = async (
-  id: string,
+  id: number,
   data: { name: string; description?: string }
 ) => {
   const response = await api.put(`/categories/activities/${id}`, data, {
@@ -37,7 +37,7 @@ export const updateActivityCategory = async (
   return response.data;
 };
 
-export const deleteActivityCategory = async (id: string) => {
+export const deleteActivityCategory = async (id: number) => {
   const response = await api.delete(`/categories/activities/${id}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

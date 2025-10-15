@@ -10,10 +10,23 @@ import {
   TableCell,
   TableRow,
 } from "@/components";
+import { ETabKey } from "@/types";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function MoodTableRow({ mood }: { mood: IMood }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const queryClient = useQueryClient();
+
+  const handleUpdated = () => {
+    setIsEditOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Mood] });
+  };
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Mood] });
+  };
 
   return (
     <>
@@ -50,16 +63,18 @@ export function MoodTableRow({ mood }: { mood: IMood }) {
       </TableRow>
 
       {isEditOpen && (
-        <MoodEditModal mood={mood} onClose={() => setIsEditOpen(false)} />
+        <MoodEditModal
+          mood={mood}
+          onClose={() => setIsEditOpen(false)}
+          onUpdated={handleUpdated}
+        />
       )}
 
       {isConfirmDeleteOpen && (
         <MoodDeleteModal
           mood={mood}
           onClose={() => setIsConfirmDeleteOpen(false)}
-          onConfirm={() => {
-            setIsConfirmDeleteOpen(false);
-          }}
+          onConfirm={handleDeleted}
         />
       )}
     </>

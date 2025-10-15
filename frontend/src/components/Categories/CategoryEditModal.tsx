@@ -2,18 +2,22 @@ import { useEffect, useState } from "react";
 import {
   getCategoryChapters,
   getCategoryTypes,
-  updateForumCategory,
+  updateCategory,
 } from "@/services";
 import type { ICategory, ICategoryType, IChapter } from "@/types";
 import { toast } from "react-hot-toast";
 
-type ForumModalProps = {
-  forum: ICategory;
+type ActivityModalProps = {
+  category: ICategory;
   onClose: () => void;
   onUpdated?: () => void;
 };
 
-export function ForumEditModal({ forum, onClose, onUpdated }: ForumModalProps) {
+export function CategoryEditModal({
+  category,
+  onClose,
+  onUpdated,
+}: ActivityModalProps) {
   const [form, setForm] = useState<{
     categoryName: string;
     description: string;
@@ -47,10 +51,12 @@ export function ForumEditModal({ forum, onClose, onUpdated }: ForumModalProps) {
         setTypes(typesFormatted);
 
         setForm({
-          categoryName: forum.categoryName,
-          description: forum.description || "",
-          chapterId: String(forum.chapterId ?? chaptersFormatted[0]?.id ?? ""),
-          typeId: String(forum.typeId ?? typesFormatted[0]?.id ?? ""),
+          categoryName: category.categoryName,
+          description: category.description || "",
+          chapterId: String(
+            category.chapterId ?? chaptersFormatted[0]?.id ?? ""
+          ),
+          typeId: String(category.typeId ?? typesFormatted[0]?.id ?? ""),
         });
       } catch (error) {
         toast.error(
@@ -63,7 +69,7 @@ export function ForumEditModal({ forum, onClose, onUpdated }: ForumModalProps) {
     };
 
     fetchData();
-  }, [forum]);
+  }, [category]);
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -79,12 +85,17 @@ export function ForumEditModal({ forum, onClose, onUpdated }: ForumModalProps) {
     if (!form) return;
 
     try {
-      await updateForumCategory(forum.id.toString(), {
-        categoryName: form.categoryName,
+      await updateCategory(category.id, {
+        name: form.categoryName,
         description: form.description,
         chapterId: Number(form.chapterId),
         typeId: Number(form.typeId),
-      } as ICategory);
+      } as {
+        name: string;
+        description?: string;
+        chapterId: number;
+        typeId: number;
+      });
 
       toast.success("Activité mise à jour");
       onClose();
@@ -99,25 +110,26 @@ export function ForumEditModal({ forum, onClose, onUpdated }: ForumModalProps) {
 
   if (loading || !form) {
     const chapterName =
-      chapters.find((c) => c.id === forum.chapterId)?.name ||
-      `ID: ${forum.chapterId}`;
+      chapters.find((c) => c.id === category.chapterId)?.name ||
+      `ID: ${category.chapterId}`;
     const typeName =
-      types.find((t) => t.id === forum.typeId)?.name || `ID: ${forum.typeId}`;
+      types.find((t) => t.id === category.typeId)?.name ||
+      `ID: ${category.typeId}`;
     return (
-      <dialog className="modal modal-open" key={forum.id}>
+      <dialog className="modal modal-open" key={category.id}>
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Modifier la catégorie de forum</h3>
+          <h3 className="font-bold text-lg">Modifier l'activité</h3>
           <form className="flex flex-col gap-4 mt-4 w-full">
             <label className="text-sm -mb-2 mt-4">Nom</label>
             <input
               type="text"
-              value={forum.categoryName}
+              value={category.categoryName}
               disabled
               className="input input-bordered w-full bg-gray-100"
             />
             <label className="text-sm -mb-2 mt-4">Description</label>
             <textarea
-              value={forum.description || ""}
+              value={category.description || ""}
               disabled
               className="textarea textarea-bordered w-full bg-gray-100"
             />
@@ -128,12 +140,12 @@ export function ForumEditModal({ forum, onClose, onUpdated }: ForumModalProps) {
               disabled
               className="input input-bordered w-full bg-gray-100"
             />
-            <label className="text-sm -mb-2 mt-4">Type</label>
+            <label className="text-sm -mb-2 mt-4 hidden">Type</label>
             <input
               type="text"
               value={typeName}
               disabled
-              className="input input-bordered w-full bg-gray-100"
+              className="input input-bordered w-full bg-gray-100 hidden"
             />
             <div className="modal-action">
               <button type="button" className="btn" onClick={onClose}>
@@ -147,9 +159,9 @@ export function ForumEditModal({ forum, onClose, onUpdated }: ForumModalProps) {
   }
 
   return (
-    <dialog className="modal modal-open" key={forum.id}>
+    <dialog className="modal modal-open" key={category.id}>
       <div className="modal-box">
-        <h3 className="font-bold text-lg">Modifier la catégorie de forum</h3>
+        <h3 className="font-bold text-lg">Modifier l'activité</h3>
 
         <form
           onSubmit={handleSubmit}

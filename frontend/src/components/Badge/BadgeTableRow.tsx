@@ -2,18 +2,30 @@ import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
-  BadgeDeleteModal,
-  BadgeEditModal,
+  CategoryDeleteModal,
+  CategoryEditModal,
   TableCell,
   TableRow,
 } from "@/components";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function BadgeTableRow({ badge }: { badge: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const queryClient = useQueryClient();
+
+  const handleUpdated = () => {
+    setIsEditOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Badge] });
+  };
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Badge] });
+  };
 
   return (
     <>
@@ -42,16 +54,18 @@ export function BadgeTableRow({ badge }: { badge: ICategory }) {
       </TableRow>
 
       {isEditOpen && (
-        <BadgeEditModal badge={badge} onClose={() => setIsEditOpen(false)} />
+        <CategoryEditModal
+          category={badge}
+          onClose={() => setIsEditOpen(false)}
+          onUpdated={handleUpdated}
+        />
       )}
 
       {isConfirmDeleteOpen && (
-        <BadgeDeleteModal
+        <CategoryDeleteModal
           category={badge}
           onClose={() => setIsConfirmDeleteOpen(false)}
-          onConfirm={() => {
-            setIsConfirmDeleteOpen(false);
-          }}
+          onConfirm={handleDeleted}
         />
       )}
     </>

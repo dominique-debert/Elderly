@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getForumCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
+  CategoryModeSwitcher,
   ForumCardView,
-  ForumModeSwitcher,
   ForumListView,
   ForumTableView,
 } from "@/components";
@@ -31,7 +31,7 @@ export function ForumList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Forum],
-    queryFn: getForumCategories,
+    queryFn: () => getCategories(ECategoryType.FORUM),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
@@ -66,11 +66,12 @@ export function ForumList() {
 
   return (
     <div className="w-full p-4">
-      <ForumModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Forum}
       />
 
       {processedChapters.length === 0 ? (

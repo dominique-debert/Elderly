@@ -5,8 +5,8 @@ import { useState } from "react";
 import { ETabKey, type ICategory } from "@/types";
 
 import {
-  CognitiveDeleteModal,
-  CognitiveEditModal,
+  CategoryDeleteModal,
+  CategoryEditModal,
   TableCell,
   TableRow,
 } from "@/components";
@@ -54,15 +54,15 @@ export function CognitiveTableRow({ cognitive }: { cognitive: ICategory }) {
       </TableRow>
 
       {isEditOpen && (
-        <CognitiveEditModal
-          cognitive={cognitive}
+        <CategoryEditModal
+          category={cognitive}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <CognitiveDeleteModal
+        <CategoryDeleteModal
           category={cognitive}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

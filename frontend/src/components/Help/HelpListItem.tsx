@@ -4,9 +4,9 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
-import { HelpDeleteModal, HelpEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 export function HelpListItem({ help }: { help: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -15,12 +15,12 @@ export function HelpListItem({ help }: { help: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["helps"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Help] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["helps"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Help] });
   };
 
   return (
@@ -56,15 +56,15 @@ export function HelpListItem({ help }: { help: ICategory }) {
       </li>
 
       {isEditOpen && (
-        <HelpEditModal
-          help={help}
+        <CategoryEditModal
+          category={help}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <HelpDeleteModal
+        <CategoryDeleteModal
           category={help}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

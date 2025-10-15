@@ -1,5 +1,5 @@
 /* Enum and Interface types */
-export * from "./ECategory";
+export * from "./ECategoryType";
 export * from "./ETabKey";
 export * from "./EValence";
 export * from "./IAuthResponse";

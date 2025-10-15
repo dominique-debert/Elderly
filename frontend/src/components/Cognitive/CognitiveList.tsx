@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getCognitiveCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   CognitiveCardView,
@@ -15,14 +15,14 @@ type Mode = "card" | "list" | "table";
 
 export function CognitiveList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("cognitiveViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Cognitive + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("cognitiveViewMode", mode);
+    localStorage.setItem(ETabKey.Cognitive + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function CognitiveList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Cognitive],
-    queryFn: getCognitiveCategories,
+    queryFn: () => getCategories(ECategoryType.COGNITIVE),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;

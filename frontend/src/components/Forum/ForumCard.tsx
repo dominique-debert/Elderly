@@ -4,9 +4,9 @@ import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
-import { ForumDeleteModal, ForumEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 type ForumCardProps = {
   forum: ICategory;
@@ -19,12 +19,12 @@ export function ForumCard({ forum }: ForumCardProps) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["forum-categories"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Forum] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["forum-categories"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Forum] });
   };
 
   return (
@@ -66,15 +66,15 @@ export function ForumCard({ forum }: ForumCardProps) {
           </div>
         </div>
         {isEditOpen && (
-          <ForumEditModal
-            forum={forum}
+          <CategoryEditModal
+            category={forum}
             onClose={() => setIsEditOpen(false)}
             onUpdated={handleUpdated}
           />
         )}
 
         {isConfirmDeleteOpen && (
-          <ForumDeleteModal
+          <CategoryDeleteModal
             category={forum}
             onClose={() => setIsConfirmDeleteOpen(false)}
             onConfirm={handleDeleted}
