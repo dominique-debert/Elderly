@@ -3,7 +3,7 @@ import { mdiViewGrid, mdiViewList, mdiTable, mdiPlus } from "@mdi/js";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { ETabKey } from "@/types/ETabKey";
-import { ActivityCreateModal } from "../Categories/CategoryCreateModal";
+import { CategoryCreateModal } from "@/components";
 
 type SwitchProps = {
   mode: "card" | "list" | "table";
@@ -58,12 +58,25 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
       </div>
 
       {isCreateOpen && (
-        <ActivityCreateModal
+        <CategoryCreateModal
           onClose={() => setIsCreateOpen(false)}
           onCreated={handleCreated}
           selectedTab={activeTab}
           tabToTypeName={{
             [ETabKey.Activity]: "Activités",
+            [ETabKey.Badge]: "Badges",
+            [ETabKey.Cognitive]: "Cognition",
+            [ETabKey.Forum]: "Forum",
+            [ETabKey.Help]: "Aide",
+            [ETabKey.Mood]: "Humeurs",
+            [ETabKey.Nutrition]: "Nutrition",
+            [ETabKey.Program]: "Programmes",
+            [ETabKey.Project]: "Projets",
+            [ETabKey.Resource]: "Ressources",
+            [ETabKey.Service]: "Services",
+            [ETabKey.Skill]: "Compétences",
+            [ETabKey.UrbanIssue]: "Problèmes urbains",
+            [ETabKey.Wellness]: "Bien-être",
           }}
         />
       )}

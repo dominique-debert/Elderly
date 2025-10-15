@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getSkillCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   SkillCardView,
@@ -30,7 +30,7 @@ export function SkillList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["skills"],
+    queryKey: [ETabKey.Skill],
     queryFn: getSkillCategories,
   });
 

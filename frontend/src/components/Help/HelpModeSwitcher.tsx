@@ -8,7 +8,7 @@ type SwitchProps = {
   setSearch: (value: string) => void;
 };
 
-export const HelpModeSwitcher = ({
+export const CategoryModeSwitcher = ({
   mode,
   setMode,
   search,

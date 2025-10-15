@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getResourceCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   ResourceCardView,
@@ -30,7 +30,7 @@ export function ResourceList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["resources"],
+    queryKey: [ETabKey.Resource],
     queryFn: getResourceCategories,
   });
 

@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getCognitiveCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   CognitiveCardView,
   CognitiveListView,
-  CognitiveModeSwitcher,
+  CategoryModeSwitcher,
   CognitiveTableView,
 } from "@/components";
 
@@ -30,7 +30,7 @@ export function CognitiveList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["cognitive"],
+    queryKey: [ETabKey.Cognitive],
     queryFn: getCognitiveCategories,
   });
 
@@ -67,11 +67,12 @@ export function CognitiveList() {
 
   return (
     <div className="w-full p-4">
-      <CognitiveModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Cognitive}
       />
 
       {processedChapters.length === 0 ? (

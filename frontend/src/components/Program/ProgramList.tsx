@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getProgramCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   ProgramCardView,
@@ -30,7 +30,7 @@ export function ProgramList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["programs"],
+    queryKey: [ETabKey.Program],
     queryFn: getProgramCategories,
   });
 

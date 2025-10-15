@@ -9,6 +9,7 @@ import {
   MoodModeSwitcher,
   MoodTableView,
 } from "@/components";
+import { ETabKey } from "@/types";
 
 type Mode = "card" | "list" | "table";
 
@@ -27,7 +28,7 @@ export function MoodList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["moods"],
+    queryKey: [ETabKey.Mood],
     queryFn: getMoods,
   });
 

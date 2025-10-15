@@ -23,11 +23,7 @@ export function MoodModeSwitcher({
         placeholder="Rechercher une humeur..."
       />
       {/* Boutons */}
-      <SwitchButtons
-        mode={mode}
-        setMode={setMode}
-        activeTab={ETabKey.Mood}
-      />{" "}
+      <SwitchButtons mode={mode} setMode={setMode} activeTab={ETabKey.Mood} />
     </div>
   );
 }

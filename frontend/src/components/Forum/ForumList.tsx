@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getForumCategories } from "@/services";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
   ForumCardView,
@@ -30,7 +30,7 @@ export function ForumList() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["forums"],
+    queryKey: [ETabKey.Forum],
     queryFn: getForumCategories,
   });
 

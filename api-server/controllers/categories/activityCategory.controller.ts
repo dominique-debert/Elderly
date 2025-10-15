@@ -117,12 +117,11 @@ export const createActivityCategory = async (
   next: NextFunction
 ) => {
   try {
-    const { name, description, chapterId, typeId } = req.body;
-
+    const { categoryName, description, chapterId, typeId } = req.body;
     const categoryToCreate = await prisma.category.create({
       data: {
-        categoryName: name,
-        description,
+        categoryName: categoryName,
+        description: description || "",
         typeId: typeId || ECategoryType.ACTIVITY,
         chapterId: chapterId,
       },
