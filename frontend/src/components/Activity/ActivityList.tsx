@@ -1,28 +1,28 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getActivityCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   ActivityCardView,
-  CategoryModeSwitcher,
   ActivityListView,
   ActivityTableView,
+  CategoryModeSwitcher,
 } from "@/components";
 
 type Mode = "card" | "list" | "table";
 
 export function ActivityList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("ActivityViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Activity + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("ActivityViewMode", mode);
+    localStorage.setItem(ETabKey.Activity + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function ActivityList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Activity],
-    queryFn: getActivityCategories,
+    queryFn: () => getCategories(ECategoryType.ACTIVITY),
   });
 
   const processedChapters = (() => {

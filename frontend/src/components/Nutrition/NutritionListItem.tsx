@@ -3,9 +3,9 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
-import { NutritionDeleteModal, NutritionEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 export function NutritionListItem({ nutrition }: { nutrition: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -14,12 +14,12 @@ export function NutritionListItem({ nutrition }: { nutrition: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["nutritions"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Nutrition] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["nutritions"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Nutrition] });
   };
 
   return (
@@ -55,15 +55,15 @@ export function NutritionListItem({ nutrition }: { nutrition: ICategory }) {
       </li>
 
       {isEditOpen && (
-        <NutritionEditModal
-          nutrition={nutrition}
+        <CategoryEditModal
+          category={nutrition}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <NutritionDeleteModal
+        <CategoryDeleteModal
           category={nutrition}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

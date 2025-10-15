@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import type { ICategory } from "@/types";
 
-import { UrbanIssueDeleteModal, UrbanIssueEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 export function UrbanIssueListItem({ urbanIssue }: { urbanIssue: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -55,15 +55,15 @@ export function UrbanIssueListItem({ urbanIssue }: { urbanIssue: ICategory }) {
       </li>
 
       {isEditOpen && (
-        <UrbanIssueEditModal
-          urbanIssue={urbanIssue}
+        <CategoryEditModal
+          category={urbanIssue}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <UrbanIssueDeleteModal
+        <CategoryDeleteModal
           category={urbanIssue}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

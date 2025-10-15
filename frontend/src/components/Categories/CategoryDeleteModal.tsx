@@ -1,22 +1,22 @@
-import { deleteBadgeCategory } from "@/services";
+import { deleteCategory } from "@/services";
 import type { ICategory } from "@/types";
 import { toast } from "react-hot-toast";
 
-type BadgeDeleteModalProps = {
+type CategoryDeleteModalProps = {
   category: ICategory;
   onClose: () => void;
   onConfirm?: () => void;
 };
 
-export function BadgeDeleteModal({
+export function CategoryDeleteModal({
   category,
   onClose,
   onConfirm,
-}: BadgeDeleteModalProps) {
+}: CategoryDeleteModalProps) {
   const handleDelete = async () => {
     try {
-      await deleteBadgeCategory(category.id.toLocaleString());
-      toast.success("Badge supprimé");
+      await deleteCategory(category.id);
+      toast.success("Catégorie supprimée");
       onConfirm?.();
       onClose();
     } catch (error) {
@@ -27,7 +27,7 @@ export function BadgeDeleteModal({
   return (
     <dialog className="modal modal-open">
       <div className="modal-box">
-        <h3 className="font-bold text-lg">Supprimer le badge</h3>
+        <h3 className="font-bold text-lg">Supprimer la catégorie</h3>
         <p className="py-4">
           Confirmer la suppression de <strong>{category.categoryName}</strong> ?
         </p>

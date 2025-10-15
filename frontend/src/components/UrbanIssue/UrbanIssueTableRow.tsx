@@ -2,19 +2,30 @@ import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 
 import { useState } from "react";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
-  UrbanIssueDeleteModal,
-  UrbanIssueEditModal,
+  CategoryDeleteModal,
+  CategoryEditModal,
   TableCell,
   TableRow,
 } from "@/components";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function UrbanIssueTableRow({ urbanIssue }: { urbanIssue: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const queryClient = useQueryClient();
 
+  const handleUpdated = () => {
+    setIsEditOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.UrbanIssue] });
+  };
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.UrbanIssue] });
+  };
   return (
     <>
       <TableRow key={urbanIssue.id}>
@@ -42,19 +53,18 @@ export function UrbanIssueTableRow({ urbanIssue }: { urbanIssue: ICategory }) {
       </TableRow>
 
       {isEditOpen && (
-        <UrbanIssueEditModal
-          urbanIssue={urbanIssue}
+        <CategoryEditModal
+          category={urbanIssue}
           onClose={() => setIsEditOpen(false)}
+          onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <UrbanIssueDeleteModal
+        <CategoryDeleteModal
           category={urbanIssue}
           onClose={() => setIsConfirmDeleteOpen(false)}
-          onConfirm={() => {
-            setIsConfirmDeleteOpen(false);
-          }}
+          onConfirm={handleDeleted}
         />
       )}
     </>

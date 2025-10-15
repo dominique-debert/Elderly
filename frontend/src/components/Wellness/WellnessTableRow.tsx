@@ -2,30 +2,37 @@ import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 
 import { useState } from "react";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
-  WellnessDeleteModal,
-  WellnessEditModal,
+  CategoryDeleteModal,
+  CategoryEditModal,
   TableCell,
   TableRow,
 } from "@/components";
+import { useQueryClient } from "@tanstack/react-query";
 
-export function WellnessTableRow({
-  wellnessCategory,
-}: {
-  wellnessCategory: ICategory;
-}) {
+export function WellnessTableRow({ wellness }: { wellness: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const queryClient = useQueryClient();
 
+  const handleUpdated = () => {
+    setIsEditOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Wellness] });
+  };
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Wellness] });
+  };
   return (
     <>
-      <TableRow key={wellnessCategory.id}>
+      <TableRow key={wellness.id}>
         <TableCell>
-          <div className="flex gap-4">{wellnessCategory.categoryName}</div>
+          <div className="flex gap-4">{wellness.categoryName}</div>
         </TableCell>
-        <TableCell>{wellnessCategory.description}</TableCell>
+        <TableCell>{wellness.description}</TableCell>
         <TableCell className="text-center w-0">
           <button className="btn btn-ghost" onClick={() => setIsEditOpen(true)}>
             <Icon
@@ -46,19 +53,18 @@ export function WellnessTableRow({
       </TableRow>
 
       {isEditOpen && (
-        <WellnessEditModal
-          wellnessCategory={wellnessCategory}
+        <CategoryEditModal
+          category={wellness}
           onClose={() => setIsEditOpen(false)}
+          onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <WellnessDeleteModal
-          category={wellnessCategory}
+        <CategoryDeleteModal
+          category={wellness}
           onClose={() => setIsConfirmDeleteOpen(false)}
-          onConfirm={() => {
-            setIsConfirmDeleteOpen(false);
-          }}
+          onConfirm={handleDeleted}
         />
       )}
     </>

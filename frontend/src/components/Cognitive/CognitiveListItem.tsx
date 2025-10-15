@@ -3,7 +3,7 @@ import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useQueryClient } from "@tanstack/react-query";
 import { ETabKey, type ICategory } from "@/types";
-import { CognitiveEditModal, CognitiveDeleteModal } from "@/components";
+import { CategoryEditModal, CategoryDeleteModal } from "@/components";
 
 export function CognitiveListItem({ cognitive }: { cognitive: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -53,15 +53,15 @@ export function CognitiveListItem({ cognitive }: { cognitive: ICategory }) {
       </li>
 
       {isEditOpen && (
-        <CognitiveEditModal
-          cognitive={cognitive}
+        <CategoryEditModal
+          category={cognitive}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <CognitiveDeleteModal
+        <CategoryDeleteModal
           category={cognitive}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

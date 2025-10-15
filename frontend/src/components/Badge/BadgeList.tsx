@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getBadgeCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   BadgeCardView,
@@ -15,14 +15,14 @@ type Mode = "card" | "list" | "table";
 
 export function BadgeList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("badgeViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Badge + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("badgeViewMode", mode);
+    localStorage.setItem(ETabKey.Badge + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function BadgeList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Badge],
-    queryFn: getBadgeCategories,
+    queryFn: () => getCategories(ECategoryType.BADGE),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
@@ -71,7 +71,7 @@ export function BadgeList() {
         setMode={setMode}
         search={search}
         setSearch={setSearch}
-        activeTab={{ [ETabKey.Badge]: "Badges" }}
+        activeTab={ETabKey.Badge}
       />
 
       {processedChapters.length === 0 ? (

@@ -1,128 +1,82 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getNutritionCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   NutritionCardView,
-  NutritionModeSwitcher,
+  CategoryModeSwitcher,
   NutritionListView,
   NutritionTableView,
 } from "@/components";
 
 type Mode = "card" | "list" | "table";
 
-type NutritionListProps = {
-  mode?: Mode;
-  setMode?: (m: Mode) => void;
-  search?: string;
-  setSearch?: (s: string) => void;
-};
-
-export function NutritionList({
-  mode: externalMode,
-  setMode: externalSetMode,
-  search: externalSearch,
-  setSearch: externalSetSearch,
-}: NutritionListProps = {}) {
-  // local fallback state if parent doesn't provide handlers
-  const [localMode, setLocalMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("NutritionViewMode");
+export function NutritionList() {
+  const [mode, setMode] = useState<Mode>(() => {
+    const savedMode = localStorage.getItem(ETabKey.Nutrition + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
-  const [localSearch, setLocalSearch] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const m = externalMode ?? localMode;
-    localStorage.setItem("NutritionViewMode", m);
-  }, [externalMode, localMode]);
-
-  const mode = externalMode ?? localMode;
-  const setMode = externalSetMode ?? setLocalMode;
-  const search = externalSearch ?? localSearch;
-  const setSearch = externalSetSearch ?? setLocalSearch;
+    localStorage.setItem(ETabKey.Nutrition + "ViewMode", mode);
+  }, [mode]);
 
   const {
-    data: groupednutritions,
+    data: groupedNutritions,
     isLoading,
     isError,
   } = useQuery({
     queryKey: [ETabKey.Nutrition],
-    queryFn: getNutritionCategories,
+    queryFn: () => getCategories(ECategoryType.NUTRITION),
   });
 
-  const processedChapters = (() => {
-    // normalize: if the query returned an axios response object, use its .data
-    const source =
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      groupednutritions && (groupednutritions as any).data
-        ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (groupednutritions as any).data
-        : groupednutritions;
+  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
+  if (isError)
+    return (
+      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+    );
 
-    return Object.entries(source || {})
-      .flatMap(([, chapters]) => {
-        return Object.entries(chapters || {}).map(([chapterId, nutritions]) => {
-          // Normalize nutritions to an array (handle array, object map or single item)
-          let chapternutritions: ICategory[] = [];
-          if (Array.isArray(nutritions)) {
-            chapternutritions = nutritions as ICategory[];
-          } else if (nutritions && typeof nutritions === "object") {
-            chapternutritions = Object.values(nutritions) as ICategory[];
-          } else {
-            console.warn(
-              "NutritionList: nutritions not iterable for chapterId",
-              chapterId,
-              nutritions
-            );
-            chapternutritions = [];
-          }
+  // Process and sort the nutritions into chapters
+  const processedChapters = Object.entries(groupedNutritions || {})
+    .flatMap(([, chapters]) => {
+      return Object.entries(chapters).map(([chapterId, nutritions]) => {
+        const chapterNutritions = nutritions as ICategory[];
+        const chapterInfo = chapterNutritions[0]?.categoryChapter || {
+          chapterName: `${chapterId}`,
+          chapterDescription: "",
+        };
 
-          const chapterInfo = chapternutritions[0]?.categoryChapter || {
-            chapterName: `${chapterId}`,
-            chapterDescription: "",
-          };
-
-          // ensure we only operate on items that have a categoryName string
-          const filteredNutritions = chapternutritions.filter(
-            (a) => typeof a?.categoryName === "string"
-          );
-
-          return {
-            chapterName: chapterInfo.chapterName,
-            chapterDescription: chapterInfo.chapterDescription,
-            nutritions: filteredNutritions
-              .filter((Nutrition) =>
-                Nutrition.categoryName
-                  .toLowerCase()
-                  .includes(search.toLowerCase())
-              )
-              .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
-          };
-        });
-      })
-      .filter((chapter) => chapter.nutritions.length > 0)
-      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
-  })();
+        return {
+          chapterName: chapterInfo.chapterName,
+          chapterDescription: chapterInfo.chapterDescription,
+          nutritions: [...chapterNutritions]
+            .filter((nutrition) =>
+              nutrition.categoryName
+                .toLowerCase()
+                .includes(search.toLowerCase())
+            )
+            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+        };
+      });
+    })
+    .filter((chapter) => chapter.nutritions.length > 0)
+    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
 
   return (
     <div className="w-full p-4">
-      <NutritionModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Nutrition}
       />
 
-      {isLoading ? (
-        <div className="text-center mt-40">Chargement...</div>
-      ) : isError ? (
-        <div className="text-center mt-10 text-red-500">
-          Erreur de chargement
-        </div>
-      ) : processedChapters.length === 0 ? (
+      {processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>
@@ -142,7 +96,6 @@ export function NutritionList({
                 )}
               </div>
               <div className="divider mt-0 mb-0"></div>
-
               {mode === "list" && <NutritionListView nutritions={nutritions} />}
               {mode === "card" && <NutritionCardView nutritions={nutritions} />}
               {mode === "table" && (

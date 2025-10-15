@@ -3,9 +3,9 @@ import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
-import { ServiceDeleteModal, ServiceEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 export function ServiceListItem({ service }: { service: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -14,12 +14,12 @@ export function ServiceListItem({ service }: { service: ICategory }) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["services"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Service] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["services"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Service] });
   };
 
   return (
@@ -55,15 +55,15 @@ export function ServiceListItem({ service }: { service: ICategory }) {
       </li>
 
       {isEditOpen && (
-        <ServiceEditModal
-          service={service}
+        <CategoryEditModal
+          category={service}
           onClose={() => setIsEditOpen(false)}
           onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <ServiceDeleteModal
+        <CategoryDeleteModal
           category={service}
           onClose={() => setIsConfirmDeleteOpen(false)}
           onConfirm={handleDeleted}

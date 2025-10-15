@@ -2,18 +2,30 @@ import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 
 import { useState } from "react";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
-  ServiceDeleteModal,
-  ServiceEditModal,
+  CategoryDeleteModal,
+  CategoryEditModal,
   TableCell,
   TableRow,
 } from "@/components";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function ServiceTableRow({ service }: { service: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const queryClient = useQueryClient();
+
+  const handleUpdated = () => {
+    setIsEditOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Service] });
+  };
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Service] });
+  };
 
   return (
     <>
@@ -42,19 +54,18 @@ export function ServiceTableRow({ service }: { service: ICategory }) {
       </TableRow>
 
       {isEditOpen && (
-        <ServiceEditModal
-          service={service}
+        <CategoryEditModal
+          category={service}
           onClose={() => setIsEditOpen(false)}
+          onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <ServiceDeleteModal
+        <CategoryDeleteModal
           category={service}
           onClose={() => setIsConfirmDeleteOpen(false)}
-          onConfirm={() => {
-            setIsConfirmDeleteOpen(false);
-          }}
+          onConfirm={handleDeleted}
         />
       )}
     </>

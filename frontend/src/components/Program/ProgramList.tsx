@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getProgramCategories } from "@/services";
-import { ETabKey, type ICategory } from "@/types";
+import { getCategories } from "@/services";
+import { ECategoryType, ETabKey, type ICategory } from "@/types";
 
 import {
   ProgramCardView,
   ProgramListView,
-  ProgramModeSwitcher,
+  CategoryModeSwitcher,
   ProgramTableView,
 } from "@/components";
 
@@ -15,14 +15,14 @@ type Mode = "card" | "list" | "table";
 
 export function ProgramList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("programViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Program + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("programViewMode", mode);
+    localStorage.setItem(ETabKey.Program + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -31,7 +31,7 @@ export function ProgramList() {
     isError,
   } = useQuery({
     queryKey: [ETabKey.Program],
-    queryFn: getProgramCategories,
+    queryFn: () => getCategories(ECategoryType.PROGRAM),
   });
 
   if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
@@ -66,11 +66,12 @@ export function ProgramList() {
 
   return (
     <div className="w-full p-4">
-      <ProgramModeSwitcher
+      <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
         search={search}
         setSearch={setSearch}
+        activeTab={ETabKey.Nutrition}
       />
 
       {processedChapters.length === 0 ? (

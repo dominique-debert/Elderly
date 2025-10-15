@@ -2,19 +2,30 @@ import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 
 import { useState } from "react";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
-  SkillDeleteModal,
-  SkillEditModal,
+  CategoryDeleteModal,
+  CategoryEditModal,
   TableCell,
   TableRow,
 } from "@/components";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function SkillTableRow({ skill }: { skill: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const queryClient = useQueryClient();
 
+  const handleUpdated = () => {
+    setIsEditOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Skill] });
+  };
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Skill] });
+  };
   return (
     <>
       <TableRow key={skill.id}>
@@ -42,16 +53,18 @@ export function SkillTableRow({ skill }: { skill: ICategory }) {
       </TableRow>
 
       {isEditOpen && (
-        <SkillEditModal skill={skill} onClose={() => setIsEditOpen(false)} />
+        <CategoryEditModal
+          category={skill}
+          onClose={() => setIsEditOpen(false)}
+          onUpdated={handleUpdated}
+        />
       )}
 
       {isConfirmDeleteOpen && (
-        <SkillDeleteModal
+        <CategoryDeleteModal
           category={skill}
           onClose={() => setIsConfirmDeleteOpen(false)}
-          onConfirm={() => {
-            setIsConfirmDeleteOpen(false);
-          }}
+          onConfirm={handleDeleted}
         />
       )}
     </>

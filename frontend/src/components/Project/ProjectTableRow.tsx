@@ -2,19 +2,30 @@ import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 
 import { useState } from "react";
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
-  ProjectDeleteModal,
-  ProjectEditModal,
+  CategoryDeleteModal,
+  CategoryEditModal,
   TableCell,
   TableRow,
 } from "@/components";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function ProjectTableRow({ project }: { project: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const queryClient = useQueryClient();
 
+  const handleUpdated = () => {
+    setIsEditOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Project] });
+  };
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Project] });
+  };
   return (
     <>
       <TableRow key={project.id}>
@@ -42,19 +53,18 @@ export function ProjectTableRow({ project }: { project: ICategory }) {
       </TableRow>
 
       {isEditOpen && (
-        <ProjectEditModal
-          project={project}
+        <CategoryEditModal
+          category={project}
           onClose={() => setIsEditOpen(false)}
+          onUpdated={handleUpdated}
         />
       )}
 
       {isConfirmDeleteOpen && (
-        <ProjectDeleteModal
+        <CategoryDeleteModal
           category={project}
           onClose={() => setIsConfirmDeleteOpen(false)}
-          onConfirm={() => {
-            setIsConfirmDeleteOpen(false);
-          }}
+          onConfirm={handleDeleted}
         />
       )}
     </>

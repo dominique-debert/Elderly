@@ -2,18 +2,30 @@ import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 
-import type { ICategory } from "@/types";
+import { ETabKey, type ICategory } from "@/types";
 
 import {
-  ForumDeleteModal,
-  ForumEditModal,
+  CategoryDeleteModal,
+  CategoryEditModal,
   TableCell,
   TableRow,
 } from "@/components";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function ForumTableRow({ forum }: { forum: ICategory }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmDeleteOpen, setIsConfirmDeleteOpen] = useState(false);
+  const queryClient = useQueryClient();
+
+  const handleUpdated = () => {
+    setIsEditOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Forum] });
+  };
+
+  const handleDeleted = () => {
+    setIsConfirmDeleteOpen(false);
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Forum] });
+  };
 
   return (
     <>
@@ -42,16 +54,18 @@ export function ForumTableRow({ forum }: { forum: ICategory }) {
       </TableRow>
 
       {isEditOpen && (
-        <ForumEditModal forum={forum} onClose={() => setIsEditOpen(false)} />
+        <CategoryEditModal
+          category={forum}
+          onClose={() => setIsEditOpen(false)}
+          onUpdated={handleUpdated}
+        />
       )}
 
       {isConfirmDeleteOpen && (
-        <ForumDeleteModal
+        <CategoryDeleteModal
           category={forum}
           onClose={() => setIsConfirmDeleteOpen(false)}
-          onConfirm={() => {
-            setIsConfirmDeleteOpen(false);
-          }}
+          onConfirm={handleDeleted}
         />
       )}
     </>

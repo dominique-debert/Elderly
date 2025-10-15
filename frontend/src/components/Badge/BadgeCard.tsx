@@ -6,7 +6,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 import { ETabKey, type ICategory } from "@/types";
 
-import { BadgeDeleteModal, BadgeEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 type BadgeCardProps = {
   badge: ICategory;
@@ -66,15 +66,15 @@ export function BadgeCard({ badge }: BadgeCardProps) {
           </div>
         </div>
         {isEditOpen && (
-          <BadgeEditModal
-            badge={badge}
+          <CategoryEditModal
+            category={badge}
             onClose={() => setIsEditOpen(false)}
             onUpdated={handleUpdated}
           />
         )}
 
         {isConfirmDeleteOpen && (
-          <BadgeDeleteModal
+          <CategoryDeleteModal
             category={badge}
             onClose={() => setIsConfirmDeleteOpen(false)}
             onConfirm={handleDeleted}

@@ -6,7 +6,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 import { ETabKey, type ICategory } from "@/types";
 
-import { CognitiveDeleteModal, CognitiveEditModal } from "@/components";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 type CognitiveCardProps = {
   cognitive: ICategory;
@@ -71,15 +71,15 @@ export function CognitiveCard({ cognitive }: CognitiveCardProps) {
           </div>
         </div>
         {isEditOpen && (
-          <CognitiveEditModal
-            cognitive={cognitive}
+          <CategoryEditModal
+            category={cognitive}
             onClose={() => setIsEditOpen(false)}
             onUpdated={handleUpdated}
           />
         )}
 
         {isConfirmDeleteOpen && (
-          <CognitiveDeleteModal
+          <CategoryDeleteModal
             category={cognitive}
             onClose={() => setIsConfirmDeleteOpen(false)}
             onConfirm={handleDeleted}

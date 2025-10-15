@@ -2,9 +2,8 @@ import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import type { ICategory } from "@/types";
-import { ActivityDeleteModal } from "./ActivityDeleteModal";
-import { ActivityEditModal } from "./ActivityEditModal";
+import { ETabKey, type ICategory } from "@/types";
+import { CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 type ActivityCardProps = {
   activity: ICategory;
@@ -17,12 +16,12 @@ export function ActivityCard({ activity }: ActivityCardProps) {
 
   const handleUpdated = () => {
     setIsEditOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["activities"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Activity] });
   };
 
   const handleDeleted = () => {
     setIsConfirmDeleteOpen(false);
-    queryClient.invalidateQueries({ queryKey: ["activities"] });
+    queryClient.invalidateQueries({ queryKey: [ETabKey.Activity] });
   };
 
   return (
@@ -69,15 +68,15 @@ export function ActivityCard({ activity }: ActivityCardProps) {
           </div>
         </div>
         {isEditOpen && (
-          <ActivityEditModal
-            activity={activity}
+          <CategoryEditModal
+            category={activity}
             onClose={() => setIsEditOpen(false)}
             onUpdated={handleUpdated}
           />
         )}
 
         {isConfirmDeleteOpen && (
-          <ActivityDeleteModal
+          <CategoryDeleteModal
             category={activity}
             onClose={() => setIsConfirmDeleteOpen(false)}
             onConfirm={handleDeleted}

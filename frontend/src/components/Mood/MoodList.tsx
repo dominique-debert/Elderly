@@ -4,9 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getMoods } from "@/services";
 
 import {
+  CategoryModeSwitcher,
   MoodCardView,
   MoodListView,
-  MoodModeSwitcher,
   MoodTableView,
 } from "@/components";
 import { ETabKey } from "@/types";
@@ -15,12 +15,12 @@ type Mode = "card" | "list" | "table";
 
 export function MoodList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("moodViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Mood + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   useEffect(() => {
-    localStorage.setItem("moodViewMode", mode);
+    localStorage.setItem(ETabKey.Mood + "ViewMode", mode);
   }, [mode]);
 
   const {
@@ -49,11 +49,12 @@ export function MoodList() {
   return (
     <div className="w-full p-4">
       {moods && moods.length > 0 && (
-        <MoodModeSwitcher
+        <CategoryModeSwitcher
           mode={mode}
           setMode={setMode}
           search={search}
           setSearch={setSearch}
+          activeTab={ETabKey.Mood}
         />
       )}
 
