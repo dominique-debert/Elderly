@@ -26,7 +26,7 @@ export function WellnessList() {
   }, [mode]);
 
   const {
-    data: groupedWellnesss,
+    data: wellnessCategories,
     isLoading,
     isError,
   } = useQuery({
@@ -34,37 +34,41 @@ export function WellnessList() {
     queryFn: () => getCategories(ECategoryType.WELLNESS),
   });
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError)
-    return (
-      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+  // Grouper un tableau plat par chapitre
+  const processedChapters = (() => {
+    if (!wellnessCategories || !Array.isArray(wellnessCategories)) return [];
+
+    // Filtrer par recherche
+    const filtered = wellnessCategories.filter((wellness: ICategory) =>
+      wellness.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-  // Process and sort the urban issues
-  const processedChapters = Object.entries(groupedWellnesss || {})
-    .flatMap(([, chapters]) => {
-      return Object.entries(chapters).map(([chapterId, wellnessCategories]) => {
-        const chapterWellnesss = wellnessCategories as ICategory[];
-        const chapterInfo = chapterWellnesss[0]?.categoryChapter || {
-          chapterName: `${chapterId}`,
-          chapterDescription: "",
-        };
+    // Grouper par chapterId
+    const grouped = filtered.reduce((acc, wellness: ICategory) => {
+      const chapterId = wellness.chapterId || 0;
+      if (!acc[chapterId]) {
+        acc[chapterId] = [];
+      }
+      acc[chapterId].push(wellness);
+      return acc;
+    }, {} as Record<number, ICategory[]>);
 
+    // Transformer en tableau de chapitres
+    return Object.entries(grouped)
+      .map(([, chapterWellness]) => {
+        const firstWellness = chapterWellness[0];
         return {
-          chapterName: chapterInfo.chapterName,
-          chapterDescription: chapterInfo.chapterDescription,
-          wellnessCategories: [...chapterWellnesss]
-            .filter((urbanIssue) =>
-              urbanIssue.categoryName
-                .toLowerCase()
-                .includes(search.toLowerCase())
-            )
-            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+          chapterName:
+            firstWellness.categoryChapter?.chapterName || "Sans chapitre",
+          chapterDescription:
+            firstWellness.categoryChapter?.chapterDescription || "",
+          wellnessCategories: chapterWellness.sort((a, b) =>
+            a.categoryName.localeCompare(b.categoryName)
+          ),
         };
-      });
-    })
-    .filter((chapter) => chapter.wellnessCategories.length > 0)
-    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+      })
+      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+  })();
 
   return (
     <div className="w-full p-4">
@@ -76,7 +80,13 @@ export function WellnessList() {
         activeTab={ETabKey.Wellness}
       />
 
-      {processedChapters.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center mt-40">Chargement...</div>
+      ) : isError ? (
+        <div className="text-center mt-10 text-red-500">
+          Erreur de chargement
+        </div>
+      ) : processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>

@@ -15,18 +15,18 @@ type Mode = "card" | "list" | "table";
 
 export function ForumList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem("forumViewMode");
+    const savedMode = localStorage.getItem(ETabKey.Forum + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("forumViewMode", mode);
+    localStorage.setItem(ETabKey.Forum + "ViewMode", mode);
   }, [mode]);
 
   const {
-    data: groupedForums,
+    data: forums,
     isLoading,
     isError,
   } = useQuery({
@@ -34,35 +34,41 @@ export function ForumList() {
     queryFn: () => getCategories(ECategoryType.FORUM),
   });
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError)
-    return (
-      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+  // Grouper un tableau plat par chapitre
+  const processedChapters = (() => {
+    if (!forums || !Array.isArray(forums)) return [];
+
+    // Filtrer par recherche
+    const filtered = forums.filter((forum: ICategory) =>
+      forum.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-  // Process and sort the forum categories
-  const processedChapters = Object.entries(groupedForums || {})
-    .flatMap(([, chapters]) => {
-      return Object.entries(chapters).map(([chapterId, forums]) => {
-        const chapterForums = forums as ICategory[];
-        const chapterInfo = chapterForums[0]?.categoryChapter || {
-          chapterName: `${chapterId}`,
-          chapterDescription: "",
-        };
+    // Grouper par chapterId
+    const grouped = filtered.reduce((acc, forum: ICategory) => {
+      const chapterId = forum.chapterId || 0;
+      if (!acc[chapterId]) {
+        acc[chapterId] = [];
+      }
+      acc[chapterId].push(forum);
+      return acc;
+    }, {} as Record<number, ICategory[]>);
 
+    // Transformer en tableau de chapitres
+    return Object.entries(grouped)
+      .map(([, chapterForums]) => {
+        const firstForum = chapterForums[0];
         return {
-          chapterName: chapterInfo.chapterName,
-          chapterDescription: chapterInfo.chapterDescription,
-          forums: [...chapterForums]
-            .filter((forum) =>
-              forum.categoryName.toLowerCase().includes(search.toLowerCase())
-            )
-            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+          chapterName:
+            firstForum.categoryChapter?.chapterName || "Sans chapitre",
+          chapterDescription:
+            firstForum.categoryChapter?.chapterDescription || "",
+          forums: chapterForums.sort((a, b) =>
+            a.categoryName.localeCompare(b.categoryName)
+          ),
         };
-      });
-    })
-    .filter((chapter) => chapter.forums.length > 0)
-    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+      })
+      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+  })();
 
   return (
     <div className="w-full p-4">
@@ -74,7 +80,13 @@ export function ForumList() {
         activeTab={ETabKey.Forum}
       />
 
-      {processedChapters.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center mt-40">Chargement...</div>
+      ) : isError ? (
+        <div className="text-center mt-10 text-red-500">
+          Erreur de chargement
+        </div>
+      ) : processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>
@@ -90,7 +102,7 @@ export function ForumList() {
                   {chapterName}
                 </h2>
                 {chapterDescription && (
-                  <p className="text-slate-600 mt-1">{chapterDescription}</p>
+                  <p className="text-gray-600 mt-1">{chapterDescription}</p>
                 )}
               </div>
               <div className="divider mt-0 mb-0"></div>

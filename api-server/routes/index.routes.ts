@@ -48,20 +48,7 @@ import moodRouter from "./mood.routes";
 import uploadsRoutes from "./uploads.routes";
 
 // Import all categories routers
-import categoryMetaRouter from "./categories/categoryMeta.routes";
-import activityCategoriesRouter from "./categories/activityCategory.routes";
-import badgeCategoriesRouter from "./categories/badgeCategory.routes";
-import cognitiveCategoriesRouter from "./categories/cognitiveCategory.routes";
-import forumCategoryRouter from "./categories/forumCategory.routes";
-import helpCategoriesRouter from "./categories/helpCategory.routes";
-import issueCategoriesRouter from "./categories/urbanIssueCategory.routes";
-import nutritionCategoriesRouter from "./categories/nutritionCategory.routes";
-import programCategoriesRouter from "./categories/programCategory.routes";
-import projectCategoriesRouter from "./categories/projectCategory.routes";
-import resourceCategoriesRouter from "./categories/resourceCategory.routes";
-import serviceCategoriesRouter from "./categories/serviceCategory.routes";
-import skillCategoriesRouter from "./categories/skillCategory.routes";
-import wellnessCategoriesRouter from "./categories/wellnessCategory.routes";
+import categoryRouter from "./categories/category.meta.routes";
 
 const router = Router();
 
@@ -73,20 +60,7 @@ router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 router.use(authenticate);
 router.use(currentSession);
 
-router.use("/categories/activities", activityCategoriesRouter);
-router.use("/categories/badges", badgeCategoriesRouter);
-router.use("/categories/cognitive", cognitiveCategoriesRouter);
-router.use("/categories/forum", forumCategoryRouter);
-router.use("/categories/help", helpCategoriesRouter);
-router.use("/categories/urban-issues", issueCategoriesRouter);
-router.use("/categories/nutrition", nutritionCategoriesRouter);
-router.use("/categories/programs", programCategoriesRouter);
-router.use("/categories/projects", projectCategoriesRouter);
-router.use("/categories/resources", resourceCategoriesRouter);
-router.use("/categories/services", serviceCategoriesRouter);
-router.use("/categories/skills", skillCategoriesRouter);
-router.use("/categories/wellness", wellnessCategoriesRouter);
-router.use("/categories", categoryMetaRouter);
+router.use("/categories", categoryRouter);
 
 // Feature routes
 router.use("/activities", activityRouter);
