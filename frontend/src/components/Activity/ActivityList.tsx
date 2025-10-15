@@ -26,7 +26,7 @@ export function ActivityList() {
   }, [mode]);
 
   const {
-    data: groupedactivities,
+    data: activities,
     isLoading,
     isError,
   } = useQuery({
@@ -34,55 +34,39 @@ export function ActivityList() {
     queryFn: () => getCategories(ECategoryType.ACTIVITY),
   });
 
+  // Nouveau traitement: grouper un tableau plat par chapitre
   const processedChapters = (() => {
-    const source =
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      groupedactivities && (groupedactivities as any).data
-        ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (groupedactivities as any).data
-        : groupedactivities;
+    if (!activities || !Array.isArray(activities)) return [];
 
-    return Object.entries(source || {})
-      .flatMap(([, chapters]) => {
-        return Object.entries(chapters || {}).map(([chapterId, activities]) => {
-          let chapteractivities: ICategory[] = [];
-          if (Array.isArray(activities)) {
-            chapteractivities = activities as ICategory[];
-          } else if (activities && typeof activities === "object") {
-            chapteractivities = Object.values(activities) as ICategory[];
-          } else {
-            console.warn(
-              "ActivityList: activities not iterable for chapterId",
-              chapterId,
-              activities
-            );
-            chapteractivities = [];
-          }
+    // Filtrer par recherche
+    const filtered = activities.filter((activity: ICategory) =>
+      activity.categoryName?.toLowerCase().includes(search.toLowerCase())
+    );
 
-          const chapterInfo = chapteractivities[0]?.categoryChapter || {
-            chapterName: `${chapterId}`,
-            chapterDescription: "",
-          };
+    // Grouper par chapterId
+    const grouped = filtered.reduce((acc, activity: ICategory) => {
+      const chapterId = activity.chapterId || 0;
+      if (!acc[chapterId]) {
+        acc[chapterId] = [];
+      }
+      acc[chapterId].push(activity);
+      return acc;
+    }, {} as Record<number, ICategory[]>);
 
-          // ensure we only operate on items that have a categoryName string
-          const filteredActivities = chapteractivities.filter(
-            (a) => typeof a?.categoryName === "string"
-          );
-
-          return {
-            chapterName: chapterInfo.chapterName,
-            chapterDescription: chapterInfo.chapterDescription,
-            activities: filteredActivities
-              .filter((Activity) =>
-                Activity.categoryName
-                  .toLowerCase()
-                  .includes(search.toLowerCase())
-              )
-              .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
-          };
-        });
+    // Transformer en tableau de chapitres
+    return Object.entries(grouped)
+      .map(([, chapterActivities]) => {
+        const firstActivity = chapterActivities[0];
+        return {
+          chapterName:
+            firstActivity.categoryChapter?.chapterName || "Sans chapitre",
+          chapterDescription:
+            firstActivity.categoryChapter?.chapterDescription || "",
+          activities: chapterActivities.sort((a, b) =>
+            a.categoryName.localeCompare(b.categoryName)
+          ),
+        };
       })
-      .filter((chapter) => chapter.activities.length > 0)
       .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
   })();
 

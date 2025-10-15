@@ -26,7 +26,7 @@ export function CognitiveList() {
   }, [mode]);
 
   const {
-    data: groupedCognitive,
+    data: cognitives,
     isLoading,
     isError,
   } = useQuery({
@@ -34,36 +34,41 @@ export function CognitiveList() {
     queryFn: () => getCategories(ECategoryType.COGNITIVE),
   });
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError)
-    return (
-      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+  // Grouper un tableau plat par chapitre
+  const processedChapters = (() => {
+    if (!cognitives || !Array.isArray(cognitives)) return [];
+
+    // Filtrer par recherche
+    const filtered = cognitives.filter((cognitive: ICategory) =>
+      cognitive.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-  const processedChapters = Object.entries(groupedCognitive || {})
-    .flatMap(([, chapters]) => {
-      return Object.entries(chapters).map(([chapterId, cognitives]) => {
-        const chapterCognitives = cognitives as ICategory[];
-        const chapterInfo = chapterCognitives[0]?.categoryChapter || {
-          chapterName: `${chapterId}`,
-          chapterDescription: "",
-        };
+    // Grouper par chapterId
+    const grouped = filtered.reduce((acc, cognitive: ICategory) => {
+      const chapterId = cognitive.chapterId || 0;
+      if (!acc[chapterId]) {
+        acc[chapterId] = [];
+      }
+      acc[chapterId].push(cognitive);
+      return acc;
+    }, {} as Record<number, ICategory[]>);
 
+    // Transformer en tableau de chapitres
+    return Object.entries(grouped)
+      .map(([, chapterCognitives]) => {
+        const firstCognitive = chapterCognitives[0];
         return {
-          chapterName: chapterInfo.chapterName,
-          chapterDescription: chapterInfo.chapterDescription,
-          cognitives: [...chapterCognitives]
-            .filter((cognitive) =>
-              cognitive.categoryName
-                .toLowerCase()
-                .includes(search.toLowerCase())
-            )
-            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+          chapterName:
+            firstCognitive.categoryChapter?.chapterName || "Sans chapitre",
+          chapterDescription:
+            firstCognitive.categoryChapter?.chapterDescription || "",
+          cognitives: chapterCognitives.sort((a, b) =>
+            a.categoryName.localeCompare(b.categoryName)
+          ),
         };
-      });
-    })
-    .filter((chapter) => chapter.cognitives.length > 0)
-    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+      })
+      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+  })();
 
   return (
     <div className="w-full p-4">
@@ -75,7 +80,13 @@ export function CognitiveList() {
         activeTab={ETabKey.Cognitive}
       />
 
-      {processedChapters.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center mt-40">Chargement...</div>
+      ) : isError ? (
+        <div className="text-center mt-10 text-red-500">
+          Erreur de chargement
+        </div>
+      ) : processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>

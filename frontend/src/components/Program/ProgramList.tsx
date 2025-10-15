@@ -26,7 +26,7 @@ export function ProgramList() {
   }, [mode]);
 
   const {
-    data: groupedPrograms,
+    data: programs,
     isLoading,
     isError,
   } = useQuery({
@@ -34,35 +34,41 @@ export function ProgramList() {
     queryFn: () => getCategories(ECategoryType.PROGRAM),
   });
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError)
-    return (
-      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+  // Grouper un tableau plat par chapitre
+  const processedChapters = (() => {
+    if (!programs || !Array.isArray(programs)) return [];
+
+    // Filtrer par recherche
+    const filtered = programs.filter((program: ICategory) =>
+      program.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-  // Process and sort the badges
-  const processedChapters = Object.entries(groupedPrograms || {})
-    .flatMap(([, chapters]) => {
-      return Object.entries(chapters).map(([chapterId, programs]) => {
-        const chapterPrograms = programs as ICategory[];
-        const chapterInfo = chapterPrograms[0]?.categoryChapter || {
-          chapterName: `${chapterId}`,
-          chapterDescription: "",
-        };
+    // Grouper par chapterId
+    const grouped = filtered.reduce((acc, program: ICategory) => {
+      const chapterId = program.chapterId || 0;
+      if (!acc[chapterId]) {
+        acc[chapterId] = [];
+      }
+      acc[chapterId].push(program);
+      return acc;
+    }, {} as Record<number, ICategory[]>);
 
+    // Transformer en tableau de chapitres
+    return Object.entries(grouped)
+      .map(([, chapterPrograms]) => {
+        const firstProgram = chapterPrograms[0];
         return {
-          chapterName: chapterInfo.chapterName,
-          chapterDescription: chapterInfo.chapterDescription,
-          programs: [...chapterPrograms]
-            .filter((program) =>
-              program.categoryName.toLowerCase().includes(search.toLowerCase())
-            )
-            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+          chapterName:
+            firstProgram.categoryChapter?.chapterName || "Sans chapitre",
+          chapterDescription:
+            firstProgram.categoryChapter?.chapterDescription || "",
+          programs: chapterPrograms.sort((a, b) =>
+            a.categoryName.localeCompare(b.categoryName)
+          ),
         };
-      });
-    })
-    .filter((chapter) => chapter.programs.length > 0)
-    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+      })
+      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+  })();
 
   return (
     <div className="w-full p-4">
@@ -71,10 +77,16 @@ export function ProgramList() {
         setMode={setMode}
         search={search}
         setSearch={setSearch}
-        activeTab={ETabKey.Nutrition}
+        activeTab={ETabKey.Program}
       />
 
-      {processedChapters.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center mt-40">Chargement...</div>
+      ) : isError ? (
+        <div className="text-center mt-10 text-red-500">
+          Erreur de chargement
+        </div>
+      ) : processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>

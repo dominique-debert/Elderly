@@ -15,18 +15,18 @@ type Mode = "card" | "list" | "table";
 
 export function ServiceList() {
   const [mode, setMode] = useState<Mode>(() => {
-    const savedMode = localStorage.getItem(ETabKey.Service);
+    const savedMode = localStorage.getItem(ETabKey.Service + "ViewMode");
     return (savedMode as Mode) || "list";
   });
 
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem(ETabKey.Service, mode);
+    localStorage.setItem(ETabKey.Service + "ViewMode", mode);
   }, [mode]);
 
   const {
-    data: groupedServices,
+    data: services,
     isLoading,
     isError,
   } = useQuery({
@@ -34,35 +34,41 @@ export function ServiceList() {
     queryFn: () => getCategories(ECategoryType.SERVICE),
   });
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError)
-    return (
-      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+  // Grouper un tableau plat par chapitre
+  const processedChapters = (() => {
+    if (!services || !Array.isArray(services)) return [];
+
+    // Filtrer par recherche
+    const filtered = services.filter((service: ICategory) =>
+      service.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-  // Process and sort the badges
-  const processedChapters = Object.entries(groupedServices || {})
-    .flatMap(([, chapters]) => {
-      return Object.entries(chapters).map(([chapterId, services]) => {
-        const chapterServices = services as ICategory[];
-        const chapterInfo = chapterServices[0]?.categoryChapter || {
-          chapterName: `${chapterId}`,
-          chapterDescription: "",
-        };
+    // Grouper par chapterId
+    const grouped = filtered.reduce((acc, service: ICategory) => {
+      const chapterId = service.chapterId || 0;
+      if (!acc[chapterId]) {
+        acc[chapterId] = [];
+      }
+      acc[chapterId].push(service);
+      return acc;
+    }, {} as Record<number, ICategory[]>);
 
+    // Transformer en tableau de chapitres
+    return Object.entries(grouped)
+      .map(([, chapterServices]) => {
+        const firstService = chapterServices[0];
         return {
-          chapterName: chapterInfo.chapterName,
-          chapterDescription: chapterInfo.chapterDescription,
-          services: [...chapterServices]
-            .filter((service) =>
-              service.categoryName.toLowerCase().includes(search.toLowerCase())
-            )
-            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+          chapterName:
+            firstService.categoryChapter?.chapterName || "Sans chapitre",
+          chapterDescription:
+            firstService.categoryChapter?.chapterDescription || "",
+          services: chapterServices.sort((a, b) =>
+            a.categoryName.localeCompare(b.categoryName)
+          ),
         };
-      });
-    })
-    .filter((chapter) => chapter.services.length > 0)
-    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+      })
+      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+  })();
 
   return (
     <div className="w-full p-4">
@@ -74,7 +80,13 @@ export function ServiceList() {
         activeTab={ETabKey.Service}
       />
 
-      {processedChapters.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center mt-40">Chargement...</div>
+      ) : isError ? (
+        <div className="text-center mt-10 text-red-500">
+          Erreur de chargement
+        </div>
+      ) : processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>

@@ -1,27 +1,23 @@
 import { useEffect, useState } from "react";
 import {
-  createCategory,
+  createWellnessCategory,
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services";
 import { ICategoryType, IChapter } from "@/types";
 import toast from "react-hot-toast";
 
-type CategoryCreateModalProps = {
+type WellnessCreateModalProps = {
   onClose: () => void;
   onCreated: () => void;
-  selectedTab: string;
-  tabToTypeName: Record<string, string>;
 };
 
-export function CategoryCreateModal({
+export const WellnessCreateModal = ({
   onClose,
   onCreated,
-  selectedTab,
-  tabToTypeName,
-}: CategoryCreateModalProps) {
+}: WellnessCreateModalProps) => {
   const [form, setForm] = useState({
-    name: "",
+    categoryName: "",
     description: "",
     chapterId: "",
     typeId: "",
@@ -32,32 +28,12 @@ export function CategoryCreateModal({
 
   useEffect(() => {
     getCategoryChapters()
-      .then((chs) => setChapters(Array.isArray(chs) ? chs : [chs]))
+      .then(setChapters)
       .catch(() => toast.error("Erreur lors du chargement des chapitres"));
     getCategoryTypes()
-      .then((ts) => setTypes(Array.isArray(ts) ? ts : []))
+      .then(setTypes)
       .catch(() => toast.error("Erreur lors du chargement des types"));
   }, []);
-
-  // Sync selectedTab -> typeId once types are loaded or selectedTab changes
-  useEffect(() => {
-    if (!selectedTab || types.length === 0) return;
-
-    // Determine desired type name: use mapping if provided, otherwise try the tab key itself
-    const desiredName =
-      (tabToTypeName && tabToTypeName[selectedTab]) || selectedTab;
-
-    const desiredLower = desiredName.toLowerCase();
-
-    // Try exact match first, then includes
-    const found =
-      types.find((t) => t.name.toLowerCase() === desiredLower) ||
-      types.find((t) => t.name.toLowerCase().includes(desiredLower));
-
-    if (found) {
-      setForm((prev) => ({ ...prev, typeId: String(found.id) }));
-    }
-  }, [types, selectedTab, tabToTypeName]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -65,18 +41,14 @@ export function CategoryCreateModal({
     >
   ) => {
     const { name, value } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await createCategory({
-        categoryName: form.name,
-        description: form.description,
+      await createWellnessCategory({
+        ...form,
         chapterId: Number(form.chapterId),
         typeId: Number(form.typeId),
       });
@@ -116,8 +88,8 @@ export function CategoryCreateModal({
           <label className="text-sm -mb-2 mt-4">Nom</label>
           <input
             type="text"
-            name="name"
-            value={form.name}
+            name="categoryName"
+            value={form.categoryName}
             onChange={handleChange}
             className="input input-bordered w-full"
             placeholder="Nom de la catégorie"
@@ -181,4 +153,4 @@ export function CategoryCreateModal({
       </div>
     </dialog>
   );
-}
+};

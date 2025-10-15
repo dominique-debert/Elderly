@@ -1,34 +1,29 @@
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/Table";
-import { WellnessTableRow } from "@/components";
-import type { ICategory } from "@/types";
+import { ICategory } from "@/types";
+import { WellnessTableRow } from "./WellnessTableRow";
+
+type WellnessTableViewProps = {
+  wellnessCategories: ICategory[];
+};
 
 export function WellnessTableView({
   wellnessCategories,
-}: {
-  wellnessCategories: ICategory[];
-}) {
+}: WellnessTableViewProps) {
   return (
-    <Table className="table w-full table-zebra">
-      <TableHeader className="text-semibold">
-        <TableRow>
-          <TableHead>Titre</TableHead>
-          <TableHead>Description</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {wellnessCategories?.map((wellnessCategory) => (
-          <WellnessTableRow
-            key={wellnessCategory.id}
-            wellnessCategory={wellnessCategory}
-          />
-        ))}
-      </TableBody>
-    </Table>
+    <div className="overflow-x-auto">
+      <table className="table w-full">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {wellnessCategories.map((wellness) => (
+            <WellnessTableRow key={wellness.id} wellness={wellness} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }

@@ -26,7 +26,7 @@ export function HelpList() {
   }, [mode]);
 
   const {
-    data: groupedHelps,
+    data: helps,
     isLoading,
     isError,
   } = useQuery({
@@ -34,35 +34,41 @@ export function HelpList() {
     queryFn: () => getCategories(ECategoryType.HELP),
   });
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError)
-    return (
-      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+  // Grouper un tableau plat par chapitre
+  const processedChapters = (() => {
+    if (!helps || !Array.isArray(helps)) return [];
+
+    // Filtrer par recherche
+    const filtered = helps.filter((help: ICategory) =>
+      help.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-  // Process and sort the helps into chapters
-  const processedChapters = Object.entries(groupedHelps || {})
-    .flatMap(([, chapters]) => {
-      return Object.entries(chapters).map(([chapterId, helps]) => {
-        const chapterHelps = helps as ICategory[];
-        const chapterInfo = chapterHelps[0]?.categoryChapter || {
-          chapterName: `${chapterId}`,
-          chapterDescription: "",
-        };
+    // Grouper par chapterId
+    const grouped = filtered.reduce((acc, help: ICategory) => {
+      const chapterId = help.chapterId || 0;
+      if (!acc[chapterId]) {
+        acc[chapterId] = [];
+      }
+      acc[chapterId].push(help);
+      return acc;
+    }, {} as Record<number, ICategory[]>);
 
+    // Transformer en tableau de chapitres
+    return Object.entries(grouped)
+      .map(([, chapterHelps]) => {
+        const firstHelp = chapterHelps[0];
         return {
-          chapterName: chapterInfo.chapterName,
-          chapterDescription: chapterInfo.chapterDescription,
-          helps: [...chapterHelps]
-            .filter((help) =>
-              help.categoryName.toLowerCase().includes(search.toLowerCase())
-            )
-            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+          chapterName:
+            firstHelp.categoryChapter?.chapterName || "Sans chapitre",
+          chapterDescription:
+            firstHelp.categoryChapter?.chapterDescription || "",
+          helps: chapterHelps.sort((a, b) =>
+            a.categoryName.localeCompare(b.categoryName)
+          ),
         };
-      });
-    })
-    .filter((chapter) => chapter.helps.length > 0)
-    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+      })
+      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+  })();
 
   return (
     <div className="w-full p-4">
@@ -74,7 +80,13 @@ export function HelpList() {
         activeTab={ETabKey.Help}
       />
 
-      {processedChapters.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center mt-40">Chargement...</div>
+      ) : isError ? (
+        <div className="text-center mt-10 text-red-500">
+          Erreur de chargement
+        </div>
+      ) : processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>

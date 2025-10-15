@@ -11,6 +11,30 @@ export async function getCategoryChapters(): Promise<IChapter[]> {
   return response.data;
 }
 
+export async function getCategoryChapterById(
+  id: number
+): Promise<IChapter | null> {
+  const accessToken = localStorage.getItem("accessToken");
+  const response = await api.get<IChapter>(`/categories/chapters/${id}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  return response.data;
+}
+
+export async function getCategoryTypeById(
+  id: number
+): Promise<ICategoryType | null> {
+  const accessToken = localStorage.getItem("accessToken");
+  const response = await api.get<ICategoryType>(`/categories/types/${id}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  return response.data;
+}
+
 export async function getCategoryTypes(): Promise<ICategoryType[]> {
   const accessToken = localStorage.getItem("accessToken");
   const response = await api.get<ICategoryType[]>("/categories/types", {
@@ -42,7 +66,7 @@ export async function createCategory(category: {
   chapterId: number;
   typeId: number;
 }) {
-  const response = await api.post("/categories/activities", category, {
+  const response = await api.post("/categories", category, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
@@ -54,7 +78,7 @@ export const updateCategory = async (
   id: number,
   data: { name: string; description?: string }
 ) => {
-  const response = await api.put(`/categories/activities/${id}`, data, {
+  const response = await api.put(`/categories/${id}`, data, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
@@ -63,7 +87,7 @@ export const updateCategory = async (
 };
 
 export const deleteCategory = async (id: number) => {
-  const response = await api.delete(`/categories/activities/${id}`, {
+  const response = await api.delete(`/categories/${id}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },

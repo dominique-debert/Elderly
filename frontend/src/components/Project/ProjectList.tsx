@@ -26,7 +26,7 @@ export function ProjectList() {
   }, [mode]);
 
   const {
-    data: groupedProjects,
+    data: projects,
     isLoading,
     isError,
   } = useQuery({
@@ -34,35 +34,41 @@ export function ProjectList() {
     queryFn: () => getCategories(ECategoryType.PROJECT),
   });
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError)
-    return (
-      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+  // Grouper un tableau plat par chapitre
+  const processedChapters = (() => {
+    if (!projects || !Array.isArray(projects)) return [];
+
+    // Filtrer par recherche
+    const filtered = projects.filter((project: ICategory) =>
+      project.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-  // Process and sort the badges
-  const processedChapters = Object.entries(groupedProjects || {})
-    .flatMap(([, chapters]) => {
-      return Object.entries(chapters).map(([chapterId, projects]) => {
-        const chapterProjects = projects as ICategory[];
-        const chapterInfo = chapterProjects[0]?.categoryChapter || {
-          chapterName: `${chapterId}`,
-          chapterDescription: "",
-        };
+    // Grouper par chapterId
+    const grouped = filtered.reduce((acc, project: ICategory) => {
+      const chapterId = project.chapterId || 0;
+      if (!acc[chapterId]) {
+        acc[chapterId] = [];
+      }
+      acc[chapterId].push(project);
+      return acc;
+    }, {} as Record<number, ICategory[]>);
 
+    // Transformer en tableau de chapitres
+    return Object.entries(grouped)
+      .map(([, chapterProjects]) => {
+        const firstProject = chapterProjects[0];
         return {
-          chapterName: chapterInfo.chapterName,
-          chapterDescription: chapterInfo.chapterDescription,
-          projects: [...chapterProjects]
-            .filter((project) =>
-              project.categoryName.toLowerCase().includes(search.toLowerCase())
-            )
-            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+          chapterName:
+            firstProject.categoryChapter?.chapterName || "Sans chapitre",
+          chapterDescription:
+            firstProject.categoryChapter?.chapterDescription || "",
+          projects: chapterProjects.sort((a, b) =>
+            a.categoryName.localeCompare(b.categoryName)
+          ),
         };
-      });
-    })
-    .filter((chapter) => chapter.projects.length > 0)
-    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+      })
+      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+  })();
 
   return (
     <div className="w-full p-4">
@@ -71,10 +77,16 @@ export function ProjectList() {
         setMode={setMode}
         search={search}
         setSearch={setSearch}
-        activeTab={ETabKey.Nutrition}
+        activeTab={ETabKey.Project}
       />
 
-      {processedChapters.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center mt-40">Chargement...</div>
+      ) : isError ? (
+        <div className="text-center mt-10 text-red-500">
+          Erreur de chargement
+        </div>
+      ) : processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>

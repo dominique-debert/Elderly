@@ -26,7 +26,7 @@ export function UrbanIssueList() {
   }, [mode]);
 
   const {
-    data: groupedUrbanIssues,
+    data: urbanIssues,
     isLoading,
     isError,
   } = useQuery({
@@ -34,37 +34,41 @@ export function UrbanIssueList() {
     queryFn: () => getCategories(ECategoryType.URBAN_ISSUE),
   });
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
-  if (isError)
-    return (
-      <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
+  // Grouper un tableau plat par chapitre
+  const processedChapters = (() => {
+    if (!urbanIssues || !Array.isArray(urbanIssues)) return [];
+
+    // Filtrer par recherche
+    const filtered = urbanIssues.filter((urbanIssue: ICategory) =>
+      urbanIssue.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-  // Process and sort the urban issues
-  const processedChapters = Object.entries(groupedUrbanIssues || {})
-    .flatMap(([, chapters]) => {
-      return Object.entries(chapters).map(([chapterId, urbanIssues]) => {
-        const chapterUrbanIssues = urbanIssues as ICategory[];
-        const chapterInfo = chapterUrbanIssues[0]?.categoryChapter || {
-          chapterName: `${chapterId}`,
-          chapterDescription: "",
-        };
+    // Grouper par chapterId
+    const grouped = filtered.reduce((acc, urbanIssue: ICategory) => {
+      const chapterId = urbanIssue.chapterId || 0;
+      if (!acc[chapterId]) {
+        acc[chapterId] = [];
+      }
+      acc[chapterId].push(urbanIssue);
+      return acc;
+    }, {} as Record<number, ICategory[]>);
 
+    // Transformer en tableau de chapitres
+    return Object.entries(grouped)
+      .map(([, chapterUrbanIssues]) => {
+        const firstUrbanIssue = chapterUrbanIssues[0];
         return {
-          chapterName: chapterInfo.chapterName,
-          chapterDescription: chapterInfo.chapterDescription,
-          urbanIssues: [...chapterUrbanIssues]
-            .filter((urbanIssue) =>
-              urbanIssue.categoryName
-                .toLowerCase()
-                .includes(search.toLowerCase())
-            )
-            .sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
+          chapterName:
+            firstUrbanIssue.categoryChapter?.chapterName || "Sans chapitre",
+          chapterDescription:
+            firstUrbanIssue.categoryChapter?.chapterDescription || "",
+          urbanIssues: chapterUrbanIssues.sort((a, b) =>
+            a.categoryName.localeCompare(b.categoryName)
+          ),
         };
-      });
-    })
-    .filter((chapter) => chapter.urbanIssues.length > 0)
-    .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+      })
+      .sort((a, b) => a.chapterName.localeCompare(b.chapterName));
+  })();
 
   return (
     <div className="w-full p-4">
@@ -76,7 +80,13 @@ export function UrbanIssueList() {
         activeTab={ETabKey.UrbanIssue}
       />
 
-      {processedChapters.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center mt-40">Chargement...</div>
+      ) : isError ? (
+        <div className="text-center mt-10 text-red-500">
+          Erreur de chargement
+        </div>
+      ) : processedChapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>

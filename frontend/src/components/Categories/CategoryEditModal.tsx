@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react";
-import {
-  getCategoryChapters,
-  getCategoryTypes,
-  updateCategory,
-} from "@/services";
-import type { ICategory, ICategoryType, IChapter } from "@/types";
+import { useState } from "react";
+import { updateCategory } from "@/services";
+import type { ICategory } from "@/types";
 import { toast } from "react-hot-toast";
 
-type ActivityModalProps = {
+type CategoryModalProps = {
   category: ICategory;
   onClose: () => void;
   onUpdated?: () => void;
@@ -17,86 +13,21 @@ export function CategoryEditModal({
   category,
   onClose,
   onUpdated,
-}: ActivityModalProps) {
-  const [form, setForm] = useState<{
-    categoryName: string;
-    description: string;
-    chapterId: string;
-    typeId: string;
-  } | null>(null);
+}: CategoryModalProps) {
+  const [categoryName, setCategoryName] = useState(category.categoryName);
+  const [description, setDescription] = useState(category.description || "");
 
-  const [chapters, setChapters] = useState<{ id: number; name: string }[]>([]);
-  const [types, setTypes] = useState<{ id: number; name: string }[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [chapterData, typeData] = await Promise.all([
-          getCategoryChapters(),
-          getCategoryTypes(),
-        ]);
-
-        const chaptersFormatted = chapterData.map((chapter: IChapter) => ({
-          id: chapter.chapterId,
-          name: chapter.chapterName,
-        }));
-
-        const typesFormatted = typeData.map((type: ICategoryType) => ({
-          id: type.id,
-          name: type.name,
-        }));
-
-        setChapters(chaptersFormatted);
-        setTypes(typesFormatted);
-
-        setForm({
-          categoryName: category.categoryName,
-          description: category.description || "",
-          chapterId: String(
-            category.chapterId ?? chaptersFormatted[0]?.id ?? ""
-          ),
-          typeId: String(category.typeId ?? typesFormatted[0]?.id ?? ""),
-        });
-      } catch (error) {
-        toast.error(
-          "Erreur lors du chargement des données : " +
-            (error instanceof Error ? error.message : "Inconnue")
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [category]);
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value } = e.target;
-    if (!form) return;
-    setForm({ ...form, [name]: value });
-  };
+  const chapterName = category.categoryChapter?.chapterName || "Non défini";
+  const typeName = category.categoryType?.name || "Non défini";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form) return;
 
     try {
       await updateCategory(category.id, {
-        name: form.categoryName,
-        description: form.description,
-        chapterId: Number(form.chapterId),
-        typeId: Number(form.typeId),
-      } as {
-        name: string;
-        description?: string;
-        chapterId: number;
-        typeId: number;
+        name: categoryName,
+        description: description || undefined,
       });
-
       toast.success("Activité mise à jour");
       onClose();
       onUpdated?.();
@@ -108,114 +39,45 @@ export function CategoryEditModal({
     }
   };
 
-  if (loading || !form) {
-    const chapterName =
-      chapters.find((c) => c.id === category.chapterId)?.name ||
-      `ID: ${category.chapterId}`;
-    const typeName =
-      types.find((t) => t.id === category.typeId)?.name ||
-      `ID: ${category.typeId}`;
-    return (
-      <dialog className="modal modal-open" key={category.id}>
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Modifier l'activité</h3>
-          <form className="flex flex-col gap-4 mt-4 w-full">
-            <label className="text-sm -mb-2 mt-4">Nom</label>
-            <input
-              type="text"
-              value={category.categoryName}
-              disabled
-              className="input input-bordered w-full bg-gray-100"
-            />
-            <label className="text-sm -mb-2 mt-4">Description</label>
-            <textarea
-              value={category.description || ""}
-              disabled
-              className="textarea textarea-bordered w-full bg-gray-100"
-            />
-            <label className="text-sm -mb-2 mt-4">Chapitre</label>
-            <input
-              type="text"
-              value={chapterName}
-              disabled
-              className="input input-bordered w-full bg-gray-100"
-            />
-            <label className="text-sm -mb-2 mt-4 hidden">Type</label>
-            <input
-              type="text"
-              value={typeName}
-              disabled
-              className="input input-bordered w-full bg-gray-100 hidden"
-            />
-            <div className="modal-action">
-              <button type="button" className="btn" onClick={onClose}>
-                Annuler
-              </button>
-            </div>
-          </form>
-        </div>
-      </dialog>
-    );
-  }
-
   return (
-    <dialog className="modal modal-open" key={category.id}>
+    <dialog className="modal modal-open">
       <div className="modal-box">
         <h3 className="font-bold text-lg">Modifier l'activité</h3>
 
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-4 mt-4 w-full"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
           <label className="text-sm -mb-2 mt-4">Nom</label>
           <input
             type="text"
-            name="categoryName"
-            value={form.categoryName}
-            onChange={handleChange}
+            value={categoryName}
+            onChange={(e) => setCategoryName(e.target.value)}
             className="input input-bordered w-full"
             required
           />
 
           <label className="text-sm -mb-2 mt-4">Description</label>
           <textarea
-            name="description"
-            value={form.description}
-            onChange={handleChange}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             className="textarea textarea-bordered w-full"
           />
 
-          <label className="text-sm -mb-2 mt-4">Chapitre</label>
-          <select
-            name="chapterId"
-            value={form.chapterId}
-            onChange={handleChange}
-            className="select select-bordered w-full"
-            required
-          >
-            <option value="">-- Sélectionner un chapitre --</option>
-            {chapters.map((chapter) => (
-              <option key={chapter.id} value={String(chapter.id)}>
-                {chapter.name}
-              </option>
-            ))}
-          </select>
+          <label className="text-sm -mb-2 mt-4">
+            Chapitre (non modifiable)
+          </label>
+          <input
+            type="text"
+            value={chapterName}
+            disabled
+            className="input input-bordered w-full bg-gray-100"
+          />
 
-          <label className="text-sm -mb-2 mt-4">Type</label>
-          <select
-            name="typeId"
-            value={form.typeId}
-            onChange={handleChange}
-            className="select select-bordered w-full"
-            required
-          >
-            <option value="">-- Sélectionner un type --</option>
-            {types.map((type) => (
-              <option key={type.id} value={String(type.id)}>
-                {type.name}
-              </option>
-            ))}
-          </select>
+          <label className="text-sm -mb-2 mt-4">Type (non modifiable)</label>
+          <input
+            type="text"
+            value={typeName}
+            disabled
+            className="input input-bordered w-full bg-gray-100"
+          />
 
           <div className="modal-action">
             <button type="submit" className="btn btn-primary">
