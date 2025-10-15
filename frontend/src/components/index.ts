@@ -26,7 +26,6 @@ export * from "./Categories/CategoryModeSwitcher";
 // Activity Components
 export * from "./Activity/ActivityCard";
 export * from "./Activity/ActivityCardView";
-// export * from "./Activity/ActivityEditModal";
 export * from "./Activity/ActivityGoals";
 export * from "./Activity/ActivityList";
 export * from "./Activity/ActivityListItem";
@@ -40,7 +39,6 @@ export * from "./AI/AIAssistantCard";
 // Badge Components
 export * from "./Badge/BadgeCard";
 export * from "./Badge/BadgeCardView";
-// export * from "./Badge/BadgeEditModal";
 export * from "./Badge/BadgeList";
 export * from "./Badge/BadgeListItem";
 export * from "./Badge/BadgeListView";
@@ -50,7 +48,6 @@ export * from "./Badge/BadgeTableView";
 // Cognitive Components
 export * from "./Cognitive/CognitiveCard";
 export * from "./Cognitive/CognitiveCardView";
-// export * from "./Cognitive/CognitiveEditModal";
 export * from "./Cognitive/CognitiveList";
 export * from "./Cognitive/CognitiveListItem";
 export * from "./Cognitive/CognitiveListView";
@@ -70,7 +67,6 @@ export * from "./Dashboard/DashboardUserCard";
 // Forum Components
 export * from "./Forum/ForumCard";
 export * from "./Forum/ForumCardView";
-// export * from "./Forum/ForumEditModal";
 export * from "./Forum/ForumList";
 export * from "./Forum/ForumListItem";
 export * from "./Forum/ForumListView";

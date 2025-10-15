@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  createActivityCategory,
+  createCategory,
   getCategoryChapters,
   getCategoryTypes,
 } from "@/services";
@@ -74,7 +74,7 @@ export function CategoryCreateModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await createActivityCategory({
+      await createCategory({
         categoryName: form.name,
         description: form.description,
         chapterId: Number(form.chapterId),
