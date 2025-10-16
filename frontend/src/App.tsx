@@ -7,7 +7,7 @@ import {
   DashboardPage,
   LandingPage,
   LoginPage,
-  ProfilePage,
+  PreferencesPage,
   SignupPage,
   WellnessPage,
 } from "@/pages";
@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/wellness" element={<WellnessPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/preferences" element={<PreferencesPage />} />
         </Route>
       </Routes>
     </AuthProvider>

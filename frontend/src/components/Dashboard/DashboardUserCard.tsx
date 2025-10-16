@@ -20,8 +20,8 @@ export function DashboardUserCard() {
             className="object-cover w-full rounded-xl"
           />
         )}
-        <div className="m-4 bottom-0 left-0 absolute w-100">
-          <div className="p-6 w-full h-full z-30 col-span-2 rounded-xl">
+        <div className="m-4 bottom-0 left-4 absolute w-100">
+          <div className="p-6 w-full h-full z-30 rounded-xl bg-card/60 glass">
             {user && (
               <h2 className="text-2xl mb-3 card-title">
                 {user.firstName} {user.lastName}

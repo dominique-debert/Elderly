@@ -1,8 +1,9 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 import { formatDate } from "@/utils";
+import { Card } from "@/components";
 
-export function ProfilePage() {
+export function PreferencesPage() {
   const { user, isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
@@ -10,15 +11,15 @@ export function ProfilePage() {
   }
 
   return (
-    <div className="profile-container p-10 w-full h-100 bg-base-200">
+    <div className="profile-container p-10 w-full h-100 mt-16">
       {user ? (
         <>
           <h1 className="text-2xl font-semibold text-primary mb-4">
-            Bienvenue sur votre profil
+            Vos préférences
           </h1>
 
-          <div className="card w-96 glass shadow-lg">
-            <figure>
+          <Card className="card bg-card/40 w-96 glass">
+            {/* <figure>
               <img
                 src={
                   user.avatarUrl ??
@@ -26,7 +27,7 @@ export function ProfilePage() {
                 }
                 alt="Admin"
               />
-            </figure>
+            </figure> */}
             <div className="card-body">
               <h2 className="card-title text-primary">
                 {user.firstName} {user.lastName}
@@ -36,7 +37,7 @@ export function ProfilePage() {
                 {user.birthDate ? formatDate(user.birthDate) : "Non disponible"}
               </p>
             </div>
-          </div>
+          </Card>
         </>
       ) : (
         <p>Les informations de profil sont introuvables.</p>

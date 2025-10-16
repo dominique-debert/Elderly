@@ -175,7 +175,7 @@ export function Navbar() {
                     className="menu border border-slate-800 dropdown-content dropdown-end bg-white dark:bg-card rounded-box mt-3 w-52 p-2 shadow-md"
                   >
                     <li>
-                      <a>Tes préférences</a>
+                      <Link to="/profile">Préférences</Link>
                     </li>
                     <li>
                       <Link to="/login" onClick={() => logout(navigate)}>
