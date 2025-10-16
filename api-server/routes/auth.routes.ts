@@ -19,34 +19,13 @@ const storage = multer.diskStorage({
   destination: function (_req, _file, cb) {
     cb(null, avatarsDir);
   },
-  filename: function (req, file, cb) {
-    // If the client included a desired filename (avatarFilename), prefer it.
-    // Otherwise fall back to the uploaded file.originalname or a generated unique name.
-    const body = req.body as any;
-    const desired = (body && body.avatarFilename) || file.originalname || "";
-
-    // Sanitize: strip any path components and unsafe chars
-    let base = path.basename(desired).replace(/[^a-zA-Z0-9._-]/g, "-");
-
-    // Ensure we have an extension; if not, use the original file extension or .jpg
-    const extFromDesired = path.extname(base);
-    const extFromOriginal = path.extname(file.originalname) || ".jpg";
-    const ext = extFromDesired || extFromOriginal || ".jpg";
-
-    // If desired had no extension, append the detected extension
-    if (!extFromDesired) {
-      // remove any trailing dot just in case
-      const nameOnly = base.replace(/\.[^.]*$/, "");
-      base = `${nameOnly}${ext}`;
-    }
-
-    // Prevent empty or dot-only filenames
-    let finalName =
-      base && base !== "."
-        ? base
-        : `${Date.now()}-${Math.random().toString(16).slice(2, 10)}${ext}`;
-
-    cb(null, finalName);
+  filename: function (_req, file, cb) {
+    // Always generate a unique filename
+    const ext = path.extname(file.originalname) || ".jpg";
+    const uniqueName = `${Date.now()}-${Math.random()
+      .toString(16)
+      .slice(2, 10)}${ext}`;
+    cb(null, uniqueName);
   },
 });
 

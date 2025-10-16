@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 
 import {
-  ActivityGoals,
+  // ActivityGoals,
   AIAssistantCard,
   GeneralMetricsCard,
   HealthGoalsCard,
@@ -26,7 +26,7 @@ export function WellnessPage() {
       </div>
 
       <div className="flex flex-col lg:flex-row w-full">
-        <ActivityGoals />
+        {/* <ActivityGoals /> */}
         <MealPlan />
       </div>
 

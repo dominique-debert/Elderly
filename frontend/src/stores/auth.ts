@@ -68,9 +68,6 @@ export const useAuthStore = create<IAuthState>()(
 
       signup: async (userData, navigate) => {
         try {
-          console.log("Auth store - userData received:", userData);
-
-          // Make sure birthDate is formatted correctly
           let formattedData: SignupPayload | FormData;
           if (userData instanceof FormData) {
             formattedData = userData;
@@ -81,9 +78,6 @@ export const useAuthStore = create<IAuthState>()(
             };
           }
 
-          console.log("Auth store - formatted data:", formattedData);
-
-          // Fix the API URL - use your backend server URL
           const response = await fetch(
             "http://localhost:3000/api/auth/signup",
             {

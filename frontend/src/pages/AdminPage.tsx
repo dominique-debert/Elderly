@@ -1,68 +1,33 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import { ETabKey } from "@/types";
-
-import {
-  AdminTabBar,
-  ActivityList,
-  BadgeList,
-  CognitiveList,
-  ForumList,
-  HelpList,
-  MoodList,
-  NutritionList,
-  ProgramList,
-  ProjectList,
-  ResourceList,
-  ServiceList,
-  SkillList,
-  UrbanIssueList,
-  WellnessList,
-} from "@/components";
+import { ECategoryType, ETabKey } from "@/types";
+import { AdminTabBar, CategoryList, MoodList } from "@/components";
 
 export function AdminPage() {
   const { user, isAuthenticated } = useAuthStore();
-  const [activeTab, setActiveTab] = useState<ETabKey | null>(ETabKey.Activity);
+  const [activeTab, setActiveTab] = useState<ETabKey>(ETabKey.Activity);
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
 
-  const renderContent = () => {
-    if (!activeTab) return null;
-    switch (activeTab) {
-      case ETabKey.Activity:
-        return <ActivityList />;
-      case ETabKey.Badge:
-        return <BadgeList />;
-      case ETabKey.Cognitive:
-        return <CognitiveList />;
-      case ETabKey.Forum:
-        return <ForumList />;
-      case ETabKey.Help:
-        return <HelpList />;
-      case ETabKey.Mood:
-        return <MoodList />;
-      case ETabKey.Nutrition:
-        return <NutritionList />;
-      case ETabKey.Project:
-        return <ProjectList />;
-      case ETabKey.Program:
-        return <ProgramList />;
-      case ETabKey.Resource:
-        return <ResourceList />;
-      case ETabKey.Service:
-        return <ServiceList />;
-      case ETabKey.Skill:
-        return <SkillList />;
-      case ETabKey.UrbanIssue:
-        return <UrbanIssueList />;
-      case ETabKey.Wellness:
-        return <WellnessList />;
-      default:
-        return null;
-    }
+  // Mapping entre ETabKey et ECategoryType
+  const tabToCategoryType: Record<ETabKey, ECategoryType> = {
+    [ETabKey.Activity]: ECategoryType.ACTIVITY,
+    [ETabKey.Badge]: ECategoryType.BADGE,
+    [ETabKey.Cognitive]: ECategoryType.COGNITIVE,
+    [ETabKey.Forum]: ECategoryType.FORUM,
+    [ETabKey.Help]: ECategoryType.HELP,
+    [ETabKey.Mood]: ECategoryType.MOOD,
+    [ETabKey.Nutrition]: ECategoryType.NUTRITION,
+    [ETabKey.Program]: ECategoryType.PROGRAM,
+    [ETabKey.Project]: ECategoryType.PROJECT,
+    [ETabKey.Resource]: ECategoryType.RESOURCE,
+    [ETabKey.Service]: ECategoryType.SERVICE,
+    [ETabKey.Skill]: ECategoryType.SKILL,
+    [ETabKey.UrbanIssue]: ECategoryType.URBAN_ISSUE,
+    [ETabKey.Wellness]: ECategoryType.WELLNESS,
   };
 
   return (
@@ -75,8 +40,16 @@ export function AdminPage() {
             </h2>
             <AdminTabBar activeTab={activeTab} setActiveTab={setActiveTab} />
           </div>
-
-          <div className="pt-2">{renderContent()}</div>
+          <div className="pt-2">
+            {activeTab === ETabKey.Mood ? (
+              <MoodList />
+            ) : (
+              <CategoryList
+                categoryType={tabToCategoryType[activeTab]}
+                tabKey={activeTab}
+              />
+            )}
+          </div>
         </>
       ) : (
         <p>Vous n'avez pas les droits d'administrateurs.</p>
