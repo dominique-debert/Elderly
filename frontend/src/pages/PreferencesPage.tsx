@@ -17,27 +17,32 @@ export function PreferencesPage() {
           <h1 className="text-2xl font-semibold text-primary mb-4">
             Vos préférences
           </h1>
-
-          <Card className="card bg-card/40 w-96 glass">
-            {/* <figure>
-              <img
-                src={
-                  user.avatarUrl ??
-                  `/images/${user.avatar || "default-avatar.svg"}`
-                }
-                alt="Admin"
-              />
-            </figure> */}
-            <div className="card-body">
-              <h2 className="card-title text-primary">
-                {user.firstName} {user.lastName}
-              </h2>
-              <p>{user.email}</p>
-              <p>
-                {user.birthDate ? formatDate(user.birthDate) : "Non disponible"}
-              </p>
-            </div>
-          </Card>
+          <div className="flex">
+            <Card className="w-full">
+              <figure>
+                <img
+                  src={
+                    user.avatarUrl ??
+                    `/images/${user.avatar || "default-avatar.svg"}`
+                  }
+                  alt="Admin"
+                />
+              </figure>
+            </Card>
+            <Card className="card bg-card/40 glass w-full">
+              <div className="card-body">
+                <h2 className="card-title text-primary">
+                  {user.firstName} {user.lastName}
+                </h2>
+                <p>{user.email}</p>
+                <p>
+                  {user.birthDate
+                    ? formatDate(user.birthDate)
+                    : "Non disponible"}
+                </p>
+              </div>
+            </Card>
+          </div>
         </>
       ) : (
         <p>Les informations de profil sont introuvables.</p>

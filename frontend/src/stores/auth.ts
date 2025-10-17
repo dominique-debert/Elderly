@@ -135,7 +135,7 @@ export const useAuthStore = create<IAuthState>()(
           });
 
           toast.success("Inscription réussie");
-          navigate("/profile");
+          navigate("/login");
           return user;
         } catch (error) {
           console.error("Signup error in auth store:", error);

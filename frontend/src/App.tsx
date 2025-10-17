@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom";
-import { AuthProvider } from "@/context";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "@/context";
 import { Layout } from "@/components";
 
 import {
@@ -13,12 +13,21 @@ import {
 } from "@/pages";
 import "./App.css";
 
+const LandingPageRoute = () => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? (
+    <Navigate to="/dashboard" replace />
+  ) : (
+    <LandingPage />
+  );
+};
+
 const App = () => {
   return (
     <AuthProvider>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPageRoute />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/admin-page" element={<AdminPage />} />
           <Route path="/wellness" element={<WellnessPage />} />
