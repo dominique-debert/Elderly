@@ -17,9 +17,10 @@ export const nutritionalAdviceSchema = Joi.object({
   image: Joi.string().allow("", null).messages({
     "string.base": "L'image doit être une chaîne de caractères.",
   }),
-  categoryId: Joi.string().required().messages({
-    "string.base": "L'ID de la catégorie doit être une chaîne de caractères.",
-    "string.empty": "L'ID de la catégorie est requis.",
+  categoryId: Joi.number().integer().positive().required().messages({
+    "number.base": "L'ID de la catégorie doit être un nombre.",
+    "number.integer": "L'ID de la catégorie doit être un entier.",
+    "number.positive": "L'ID de la catégorie doit être positif.",
     "any.required": "L'ID de la catégorie est obligatoire.",
   }),
 });
