@@ -10,7 +10,7 @@ const seedMenuItems = async () => {
     { label: "Cognition", icon: "mdiBrain", key: "cognitive" },
     { label: "Forum", icon: "mdiForumOutline", key: "forum" },
     { label: "Aide", icon: "mdiHelpCircleOutline", key: "help" },
-    { label: "Nutrition", icon: "mdiFoodAppleOutline", key: "nutritional" },
+    { label: "Nutrition", icon: "mdiFoodAppleOutline", key: "nutrition" },
     { label: "Programmes", icon: "mdiCalendarCheckOutline", key: "program" },
     { label: "Projets", icon: "mdiLightbulbOnOutline", key: "project" },
     {
