@@ -91,13 +91,16 @@ router.get("/types", getCategoryTypes);
  *         description: Erreur serveur
  */
 router.get("/", async (req, res, next) => {
-  try {
-    const categoryTypeId = parseInt(req.query.categoryTypeId as string);
-    const categories = await getCategories(req, res, next, categoryTypeId);
-    return res.status(200).json(categories);
-  } catch (error) {
-    next(error);
+  const categoryTypeId = parseInt(req.query.categoryTypeId as string);
+
+  if (isNaN(categoryTypeId)) {
+    return res.status(400).json({
+      error: "categoryTypeId query parameter is required and must be a number",
+      received: req.query.categoryTypeId,
+    });
   }
+
+  await getCategories(req, res, next, categoryTypeId);
 });
 
 /**
@@ -115,11 +118,7 @@ router.get("/", async (req, res, next) => {
  *         description: Erreur serveur
  */
 router.post("/", async (req, res, next) => {
-  try {
-    await createCategory(req, res, next);
-  } catch (error) {
-    next(error);
-  }
+  await createCategory(req, res, next);
 });
 
 /**
@@ -137,17 +136,13 @@ router.post("/", async (req, res, next) => {
  *         description: Erreur serveur
  */
 router.delete("/:id", async (req, res, next) => {
-  try {
-    await deleteCategory(req, res, next);
-  } catch (error) {
-    next(error);
-  }
+  await deleteCategory(req, res, next);
 });
 
 /**
  * @swagger
  * /api/categories/{id}:
- *   post:
+ *   put:
  *     summary: Mettre à jour une catégorie
  *     tags: [Catégories]
  *     responses:
@@ -158,12 +153,8 @@ router.delete("/:id", async (req, res, next) => {
  *       500:
  *         description: Erreur serveur
  */
-router.post("/:id", async (req, res, next) => {
-  try {
-    await updateCategory(req, res, next);
-  } catch (error) {
-    next(error);
-  }
+router.put("/:id", async (req, res, next) => {
+  await updateCategory(req, res, next);
 });
 
 export default router;

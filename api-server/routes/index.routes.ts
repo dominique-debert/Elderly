@@ -48,7 +48,7 @@ import moodRouter from "./mood.routes";
 import uploadsRoutes from "./uploads.routes";
 
 // Import all categories routers
-import categoryRouter from "./categories/category.meta.routes";
+import categoryRouter from "./category.meta.routes";
 
 const router = Router();
 
