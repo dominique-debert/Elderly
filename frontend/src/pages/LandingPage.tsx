@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function LandingPage() {
   return (
-    <div className="h-vh text-white flex flex-col items-center justify-center pt-6">
+    <div className="h-vh flex flex-col items-center justify-center pt-6">
       <header className="w-full flex justify-between items-center mb-12 border-b border-slate-800">
         <div className="flex items-center gap-2 text-xl font-semibold mb-6 ml-6">
           <img src="/images/logo.png" alt="Logo" className="h-10" />
