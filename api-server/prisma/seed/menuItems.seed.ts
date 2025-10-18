@@ -2,7 +2,7 @@ import { PrismaClient } from "@/prisma";
 
 const prisma = new PrismaClient();
 
-const seedMenuItems = async () => {
+export const seedMenuItems = async () => {
   const items = [
     { label: "Humeurs", icon: "mdiHeartSettingsOutline", key: "mood" },
     { label: "Activités", icon: "mdiRunFast", key: "activity" },

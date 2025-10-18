@@ -15,6 +15,10 @@ import {
   seedWellness,
 } from "@/prisma/seed/";
 
+import { seedMenuItems } from "@/prisma/seed/menuItems.seed";
+import { seedMoods } from "@/prisma/seed/moods.seed";
+import { seedNotifications } from "@/prisma/seed/notifications.seed";
+
 const prisma = new PrismaClient();
 
 async function seedCategories() {
@@ -71,6 +75,10 @@ async function seedCategories() {
   // 13. WELLNESS
   // 🧘 Bien-être général (physique, mental, émotionnel)
   seedWellness();
+
+  seedMenuItems();
+  seedMoods();
+  seedNotifications();
 }
 
 seedCategories()

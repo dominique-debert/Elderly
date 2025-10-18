@@ -156,7 +156,7 @@ const moods = [
   }, // lilas
 ];
 
-async function seedMoods() {
+export async function seedMoods() {
   await prisma.mood.deleteMany();
   await prisma.mood.createMany({
     data: moods.map((mood) => ({ ...mood, valence: mood.valence as Valence })),
