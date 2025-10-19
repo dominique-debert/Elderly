@@ -15,6 +15,7 @@ async function main() {
       passwordHash: password,
       firstName: "Admin",
       lastName: "Helpy",
+      description: "Administrateur de la plateforme Helpy",
       latitude: "45.8782369390931",
       longitude: "4.275273449092379",
       isAdmin: true,

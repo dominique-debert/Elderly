@@ -3,7 +3,7 @@ import { PrismaClient } from "@/prisma";
 const prisma = new PrismaClient();
 
 export async function seedNotifications() {
-  const userId = "cmacrpeoy0000tbi65kzh17sd";
+  const userId = "cmgy0dgpm00000thdsaofguft";
   await prisma.notification.deleteMany();
   await prisma.notification.createMany({
     data: [

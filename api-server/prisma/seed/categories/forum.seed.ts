@@ -14,7 +14,7 @@ async function seedForum() {
         id: 445,
         categoryName: "Aide à la rééducation physique",
         description:
-          "Assistance pour la reprise progressive d’activités motrices.",
+          "Assistance pour la reprise progressive d'activités motrices.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL,
       },
@@ -34,7 +34,7 @@ async function seedForum() {
       },
       {
         id: 448,
-        categoryName: "Aide à l’équipement sportif adapté",
+        categoryName: "Aide à l'équipement sportif adapté",
         description: "Conseils et accès à du matériel spécifique.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL,
@@ -75,8 +75,8 @@ async function seedForum() {
       },
       {
         id: 453,
-        categoryName: "Soutien à l’apprentissage de nouvelles compétences",
-        description: "Méthodes adaptées pour l’acquisition progressive.",
+        categoryName: "Soutien à l'apprentissage de nouvelles compétences",
+        description: "Méthodes adaptées pour l'acquisition progressive.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE,
       },
@@ -106,7 +106,7 @@ async function seedForum() {
       {
         id: 457,
         categoryName: "Aide à la communication interpersonnelle",
-        description: "Techniques pour mieux s’exprimer et écouter.",
+        description: "Techniques pour mieux s'exprimer et écouter.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL,
       },
@@ -120,7 +120,7 @@ async function seedForum() {
       {
         id: 459,
         categoryName: "Soutien à la participation associative",
-        description: "Facilitation de l’engagement dans des groupes.",
+        description: "Facilitation de l'engagement dans des groupes.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL,
       },
@@ -130,7 +130,7 @@ async function seedForum() {
         id: 460,
         categoryName: "Aide à la compensation sensorielle",
         description:
-          "Utilisation d’aides techniques adaptées (loupes, appareils auditifs).",
+          "Utilisation d'aides techniques adaptées (loupes, appareils auditifs).",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SENSORY,
       },
@@ -144,8 +144,8 @@ async function seedForum() {
       },
       {
         id: 462,
-        categoryName: "Accompagnement à l’orientation spatiale",
-        description: "Techniques pour se repérer dans l’environnement.",
+        categoryName: "Accompagnement à l'orientation spatiale",
+        description: "Techniques pour se repérer dans l'environnement.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SENSORY,
       },
@@ -153,7 +153,7 @@ async function seedForum() {
         id: 463,
         categoryName: "Soutien à la communication adaptée",
         description:
-          "Aide à l’utilisation de moyens alternatifs (langage des signes, pictogrammes).",
+          "Aide à l'utilisation de moyens alternatifs (langage des signes, pictogrammes).",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SENSORY,
       },
@@ -198,7 +198,7 @@ async function seedForum() {
       {
         id: 469,
         categoryName: "Alimentation pour le bien-être",
-        description: "Nourriture favorisant la santé physique et l’énergie.",
+        description: "Nourriture favorisant la santé physique et l'énergie.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL_WELLNESS,
       },
@@ -216,14 +216,14 @@ async function seedForum() {
         id: 471,
         categoryName: "Techniques anti-stress",
         description:
-          "Pratiques pour apaiser l’esprit et retrouver calme et sérénité.",
+          "Pratiques pour apaiser l'esprit et retrouver calme et sérénité.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.EMOTIONAL_WELLNESS,
       },
       {
         id: 472,
         categoryName: "Soutien émotionnel",
-        description: "Partage d’expériences et entraide bienveillante.",
+        description: "Partage d'expériences et entraide bienveillante.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.EMOTIONAL_WELLNESS,
       },
@@ -242,7 +242,7 @@ async function seedForum() {
         chapterId: ECategoryChapter.EMOTIONAL_WELLNESS,
       },
 
-      // 🤗 SOCIAL_WELLNESS – Bien-être social et sentiment d’appartenance
+      // 🤗 SOCIAL_WELLNESS – Bien-être social et sentiment d'appartenance
       {
         id: 475,
         categoryName: "Créer du lien social",
@@ -253,8 +253,8 @@ async function seedForum() {
       },
       {
         id: 476,
-        categoryName: "Sentiment d’appartenance",
-        description: "Discussions sur l’identité et l’intégration sociale.",
+        categoryName: "Sentiment d'appartenance",
+        description: "Discussions sur l'identité et l'intégration sociale.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_WELLNESS,
       },
@@ -274,7 +274,7 @@ async function seedForum() {
       },
       {
         id: 479,
-        categoryName: "Prévention de l’isolement",
+        categoryName: "Prévention de l'isolement",
         description: "Moyens pour détecter et lutter contre la solitude.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_WELLNESS,
@@ -292,7 +292,7 @@ async function seedForum() {
       {
         id: 481,
         categoryName: "Créativité et innovation",
-        description: "Favoriser l’imagination et la pensée originale.",
+        description: "Favoriser l'imagination et la pensée originale.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.INTELLECTUAL_WELLNESS,
       },
@@ -351,7 +351,7 @@ async function seedForum() {
       {
         id: 489,
         categoryName: "Éducation financière",
-        description: "Initiation à la finance et à l’économie au quotidien.",
+        description: "Initiation à la finance et à l'économie au quotidien.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.FINANCIAL_WELLNESS,
       },
@@ -368,7 +368,7 @@ async function seedForum() {
         id: 491,
         categoryName: "Jardinage et nature",
         description:
-          "Partage d’expériences et conseils de culture urbaine ou rurale.",
+          "Partage d'expériences et conseils de culture urbaine ou rurale.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL_WELLNESS,
       },
@@ -447,7 +447,7 @@ async function seedForum() {
         id: 501,
         categoryName: "Résolution de problèmes",
         description:
-          "Partage d’exercices et méthodes pour aiguiser la réflexion logique.",
+          "Partage d'exercices et méthodes pour aiguiser la réflexion logique.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_ACTIVITY,
       },
@@ -455,14 +455,14 @@ async function seedForum() {
         id: 502,
         categoryName: "Langues et apprentissage",
         description:
-          "Échanges autour de l’apprentissage des langues étrangères.",
+          "Échanges autour de l'apprentissage des langues étrangères.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_ACTIVITY,
       },
       {
         id: 503,
         categoryName: "Développement des capacités analytiques",
-        description: "Ressources pour cultiver l’esprit critique.",
+        description: "Ressources pour cultiver l'esprit critique.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_ACTIVITY,
       },
@@ -470,7 +470,7 @@ async function seedForum() {
         id: 504,
         categoryName: "Activités créatives",
         description:
-          "Idées pour stimuler l’imagination et la pensée divergente.",
+          "Idées pour stimuler l'imagination et la pensée divergente.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_ACTIVITY,
       },
@@ -479,7 +479,7 @@ async function seedForum() {
       {
         id: 505,
         categoryName: "Techniques anti-fatigue mentale",
-        description: "Conseils pour lutter contre l’épuisement intellectuel.",
+        description: "Conseils pour lutter contre l'épuisement intellectuel.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_WELLNESS,
       },
@@ -535,7 +535,7 @@ async function seedForum() {
         id: 512,
         categoryName: "Gestion des espaces publics",
         description:
-          "Échanges sur l’entretien et la sécurité des lieux communs.",
+          "Échanges sur l'entretien et la sécurité des lieux communs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.URBAN_INFRASTRUCTURE,
       },
@@ -618,14 +618,14 @@ async function seedForum() {
       },
       {
         id: 523,
-        categoryName: "Pollution et qualité de l’air",
+        categoryName: "Pollution et qualité de l'air",
         description: "Suivi, prévention et solutions.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.URBAN_ENVIRONMENT,
       },
       {
         id: 524,
-        categoryName: "Éducation à l’environnement",
+        categoryName: "Éducation à l'environnement",
         description: "Sensibilisation et actions dans la communauté.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.URBAN_ENVIRONMENT,
@@ -642,7 +642,7 @@ async function seedForum() {
       {
         id: 526,
         categoryName: "Aide aux personnes âgées",
-        description: "Services, bénévolat et échanges d’expérience.",
+        description: "Services, bénévolat et échanges d'expérience.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COMMUNITY_SERVICES,
       },
@@ -656,14 +656,14 @@ async function seedForum() {
       {
         id: 528,
         categoryName: "Insertion sociale",
-        description: "Aide à l’emploi et programmes d’intégration.",
+        description: "Aide à l'emploi et programmes d'intégration.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COMMUNITY_SERVICES,
       },
       {
         id: 529,
         categoryName: "Accès aux services publics",
-        description: "Informations pratiques et retours d’expérience.",
+        description: "Informations pratiques et retours d'expérience.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COMMUNITY_SERVICES,
       },
@@ -706,7 +706,7 @@ async function seedForum() {
         chapterId: ECategoryChapter.WASTE_MANAGEMENT,
       },
 
-      // 🚀 INNOVATION – Projets d’innovation et technologie
+      // 🚀 INNOVATION – Projets d'innovation et technologie
       {
         id: 535,
         categoryName: "Startups et nouvelles technologies",
@@ -784,7 +784,7 @@ async function seedForum() {
       {
         id: 545,
         categoryName: "Transition énergétique",
-        description: "Initiatives pour réduire l’empreinte carbone.",
+        description: "Initiatives pour réduire l'empreinte carbone.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SUSTAINABILITY,
       },
@@ -813,7 +813,7 @@ async function seedForum() {
       {
         id: 549,
         categoryName: "Mobilisation locale",
-        description: "Forums d’échanges pour les actions collectives durables.",
+        description: "Forums d'échanges pour les actions collectives durables.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SUSTAINABILITY,
       },
@@ -853,7 +853,7 @@ async function seedForum() {
       {
         id: 554,
         categoryName: "Succès collaboratifs",
-        description: "Partage d’expériences et bonnes pratiques.",
+        description: "Partage d'expériences et bonnes pratiques.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COLLABORATION,
       },
@@ -890,7 +890,7 @@ async function seedForum() {
       {
         id: 559,
         categoryName: "Bilan personnel",
-        description: "Partage d’expériences et conseils pour faire le point.",
+        description: "Partage d'expériences et conseils pour faire le point.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PERSONAL_DEVELOPMENT,
       },
@@ -943,13 +943,13 @@ async function seedForum() {
       {
         id: 566,
         categoryName: "Conférences",
-        description: "Enregistrements d’événements et débats.",
+        description: "Enregistrements d'événements et débats.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.VIDEOS,
       },
       {
         id: 567,
-        categoryName: "Interviews d’experts",
+        categoryName: "Interviews d'experts",
         description: "Échanges avec des spécialistes de différents domaines.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.VIDEOS,
@@ -964,7 +964,7 @@ async function seedForum() {
       {
         id: 569,
         categoryName: "Séances pratiques",
-        description: "Ateliers filmés pour s’exercer concrètement.",
+        description: "Ateliers filmés pour s'exercer concrètement.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.VIDEOS,
       },
@@ -973,7 +973,7 @@ async function seedForum() {
       {
         id: 570,
         categoryName: "Recherches récentes",
-        description: "Présentation d’études et innovations scientifiques.",
+        description: "Présentation d'études et innovations scientifiques.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ARTICLES,
       },
@@ -994,7 +994,7 @@ async function seedForum() {
       {
         id: 573,
         categoryName: "Revues de presse",
-        description: "Synthèses d’actualités pertinentes.",
+        description: "Synthèses d'actualités pertinentes.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ARTICLES,
       },
@@ -1099,14 +1099,14 @@ async function seedForum() {
       {
         id: 587,
         categoryName: "Maladies chroniques",
-        description: "Espace d’échange et de soutien pour les patients.",
+        description: "Espace d'échange et de soutien pour les patients.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.HEALTHCARE,
       },
       {
         id: 588,
         categoryName: "Médecines alternatives",
-        description: "Informations et retours d’expérience.",
+        description: "Informations et retours d'expérience.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.HEALTHCARE,
       },
@@ -1137,7 +1137,7 @@ async function seedForum() {
       {
         id: 592,
         categoryName: "Formations en ligne",
-        description: "Partages de ressources et retours d’expérience.",
+        description: "Partages de ressources et retours d'expérience.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.EDUCATION,
       },
@@ -1187,87 +1187,87 @@ async function seedForum() {
       },
       {
         id: 599,
-        categoryName: "Partage d’expériences",
-        description: "Récits et conseils pour mieux s’organiser.",
+        categoryName: "Partage d'expériences",
+        description: "Récits et conseils pour mieux s'organiser.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.DAILY_HELP,
       },
       {
         id: 600,
         categoryName: "Échanges de services",
-        description: "Plateformes et idées pour s’entraider localement.",
+        description: "Plateformes et idées pour s'entraider localement.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.DAILY_HELP,
       },
 
       // 🧑‍🤝‍🧑 SOCIAL_SUPPORT - Services sociaux et accompagnement
       {
-        id: 600,
+        id: 601, // ✅ CORRIGÉ : était 600
         categoryName: "Accompagnement social",
-        description: "Partage d’expériences et ressources pour l’aide sociale.",
+        description: "Partage d'expériences et ressources pour l'aide sociale.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_SUPPORT,
       },
       {
-        id: 601,
+        id: 602, // ✅ CORRIGÉ : était 601
         categoryName: "Aide aux familles",
         description: "Soutien et échanges pour les familles en difficulté.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_SUPPORT,
       },
       {
-        id: 602,
+        id: 603, // ✅ CORRIGÉ : était 602
         categoryName: "Insertion professionnelle",
         description: "Conseils pour retrouver un emploi ou se former.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_SUPPORT,
       },
       {
-        id: 603,
-        categoryName: "Lutte contre l’exclusion",
-        description: "Discussions autour de l’inclusion sociale.",
+        id: 604, // ✅ CORRIGÉ : était 603
+        categoryName: "Lutte contre l'exclusion",
+        description: "Discussions autour de l'inclusion sociale.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_SUPPORT,
       },
       {
-        id: 604,
+        id: 605, // ✅ CORRIGÉ : était 604
         categoryName: "Bénévolat et engagement",
-        description: "Opportunités et témoignages d’action solidaire.",
+        description: "Opportunités et témoignages d'action solidaire.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_SUPPORT,
       },
 
       // 🏢 ADMINISTRATIVE_HELP - Services administratifs et juridiques
       {
-        id: 605,
+        id: 606, // ✅ CORRIGÉ : était 605
         categoryName: "Démarches administratives",
         description: "Aide et conseils pour gérer ses papiers.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ADMINISTRATIVE_HELP,
       },
       {
-        id: 606,
+        id: 607, // ✅ CORRIGÉ : était 606
         categoryName: "Droits et devoirs",
         description: "Informations juridiques accessibles à tous.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ADMINISTRATIVE_HELP,
       },
       {
-        id: 607,
+        id: 608, // ✅ CORRIGÉ : était 607
         categoryName: "Accès aux aides",
         description: "Discussions sur les aides sociales et financières.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ADMINISTRATIVE_HELP,
       },
       {
-        id: 608,
+        id: 609, // ✅ CORRIGÉ : était 608
         categoryName: "Procédures juridiques",
         description: "Échanges sur les démarches légales courantes.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ADMINISTRATIVE_HELP,
       },
       {
-        id: 609,
+        id: 610, // ✅ CORRIGÉ : était 609
         categoryName: "Médiation et résolution de conflits",
         description: "Solutions pour régler les litiges.",
         typeId: ECategoryType.FORUM,
@@ -1276,88 +1276,88 @@ async function seedForum() {
 
       // 🤝 PSYCHOLOGICAL_SUPPORT - Soutien psychologique et émotionnel
       {
-        id: 610,
+        id: 611, // ✅ CORRIGÉ : était 610
         categoryName: "Gestion du stress",
         description: "Techniques et partages pour mieux gérer la pression.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PSYCHOLOGICAL_SUPPORT,
       },
       {
-        id: 611,
+        id: 612, // ✅ CORRIGÉ : était 611
         categoryName: "Dépression et anxiété",
-        description: "Espace d’écoute et de conseils.",
+        description: "Espace d'écoute et de conseils.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PSYCHOLOGICAL_SUPPORT,
       },
       {
-        id: 612,
+        id: 613, // ✅ CORRIGÉ : était 612
         categoryName: "Relations et émotions",
         description: "Discussions sur les liens sociaux et la communication.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PSYCHOLOGICAL_SUPPORT,
       },
       {
-        id: 613,
+        id: 614, // ✅ CORRIGÉ : était 613
         categoryName: "Thérapies alternatives",
         description: "Informations sur différentes approches thérapeutiques.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PSYCHOLOGICAL_SUPPORT,
       },
       {
-        id: 614,
+        id: 615, // ✅ CORRIGÉ : était 614
         categoryName: "Groupes de parole",
-        description: "Organisation et témoignages d’ateliers de soutien.",
+        description: "Organisation et témoignages d'ateliers de soutien.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PSYCHOLOGICAL_SUPPORT,
       },
 
       // 💊 MEDICAL_AID - Aide médicale et premiers secours
       {
-        id: 615,
+        id: 616, // ✅ CORRIGÉ : était 615
         categoryName: "Premiers secours",
         description: "Formation et conseils pour intervenir rapidement.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MEDICAL_AID,
       },
       {
-        id: 616,
+        id: 617, // ✅ CORRIGÉ : était 616
         categoryName: "Urgences médicales",
         description: "Informations pour faire face aux situations critiques.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MEDICAL_AID,
       },
       {
-        id: 617,
+        id: 618, // ✅ CORRIGÉ : était 617
         categoryName: "Matériel médical",
-        description: "Partage d’expérience sur l’utilisation d’équipements.",
+        description: "Partage d'expérience sur l'utilisation d'équipements.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MEDICAL_AID,
       },
       {
-        id: 618,
+        id: 619, // ✅ CORRIGÉ : était 618
         categoryName: "Soins à domicile",
-        description: "Discussions sur l’accompagnement médical à la maison.",
+        description: "Discussions sur l'accompagnement médical à la maison.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MEDICAL_AID,
       },
       {
-        id: 619,
+        id: 620, // ✅ CORRIGÉ : était 619
         categoryName: "Prévention sanitaire",
         description: "Sensibilisation aux gestes et habitudes santé.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MEDICAL_AID,
       },
 
-      // 🏠 HOUSING_SUPPORT - Aide au logement d’urgence
+      // 🏠 HOUSING_SUPPORT - Aide au logement d'urgence
       {
-        id: 620,
-        categoryName: "Solutions d’hébergement",
-        description: "Informations sur les structures d’accueil.",
+        id: 621, // ✅ CORRIGÉ : était 620
+        categoryName: "Solutions d'hébergement",
+        description: "Informations sur les structures d'accueil.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.HOUSING_SUPPORT,
       },
       {
-        id: 621,
+        id: 622, // ✅ CORRIGÉ : était 621
         categoryName: "Droits au logement",
         description:
           "Aide juridique et administrative pour accéder au logement.",
@@ -1365,21 +1365,21 @@ async function seedForum() {
         chapterId: ECategoryChapter.HOUSING_SUPPORT,
       },
       {
-        id: 622,
-        categoryName: "Prévention de l’exclusion",
+        id: 623, // ✅ CORRIGÉ : était 622
+        categoryName: "Prévention de l'exclusion",
         description: "Actions pour éviter la perte de domicile.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.HOUSING_SUPPORT,
       },
       {
-        id: 623,
+        id: 624, // ✅ CORRIGÉ : était 623
         categoryName: "Accompagnement social",
         description: "Soutien et suivi pour les personnes en difficulté.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.HOUSING_SUPPORT,
       },
       {
-        id: 624,
+        id: 625, // ✅ CORRIGÉ : était 624
         categoryName: "Initiatives communautaires",
         description: "Projets locaux pour le logement solidaire.",
         typeId: ECategoryType.FORUM,
@@ -1388,21 +1388,21 @@ async function seedForum() {
 
       // 🥖 FOOD_AID - Aide alimentaire
       {
-        id: 625,
+        id: 626, // ✅ CORRIGÉ : était 625
         categoryName: "Distribution alimentaire",
         description: "Informations sur les lieux et horaires de distribution.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.FOOD_AID,
       },
       {
-        id: 626,
+        id: 627, // ✅ CORRIGÉ : était 626
         categoryName: "Cuisine solidaire",
         description: "Partage de recettes simples et économiques.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.FOOD_AID,
       },
       {
-        id: 627,
+        id: 628, // ✅ CORRIGÉ : était 627
         categoryName: "Nutrition et santé",
         description:
           "Conseils pour une alimentation équilibrée en situation difficile.",
@@ -1410,7 +1410,7 @@ async function seedForum() {
         chapterId: ECategoryChapter.FOOD_AID,
       },
       {
-        id: 628,
+        id: 629, // ✅ CORRIGÉ : était 628
         categoryName: "Collectes et dons",
         description:
           "Organisation et participation aux collectes alimentaires.",
@@ -1418,38 +1418,38 @@ async function seedForum() {
         chapterId: ECategoryChapter.FOOD_AID,
       },
       {
-        id: 629,
+        id: 630, // ✅ CORRIGÉ : était 629
         categoryName: "Accès aux aides alimentaires",
         description: "Informations sur les programmes et aides disponibles.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.FOOD_AID,
       },
 
-      // 📞 EMERGENCY_SERVICES - Services d’urgence et intervention rapide
+      // 📞 EMERGENCY_SERVICES - Services d'urgence et intervention rapide
       {
-        id: 630,
-        categoryName: "Numéros d’urgence",
+        id: 631, // ✅ CORRIGÉ : était 630
+        categoryName: "Numéros d'urgence",
         description: "Informations pratiques et procédures à suivre.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.EMERGENCY_SERVICES,
       },
       {
-        id: 631,
+        id: 632, // ✅ CORRIGÉ : était 631
         categoryName: "Intervention rapide",
         description: "Témoignages et conseils pour réagir efficacement.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.EMERGENCY_SERVICES,
       },
       {
-        id: 632,
+        id: 633, // ✅ CORRIGÉ : était 632
         categoryName: "Préparation aux catastrophes",
         description:
-          "Conseils pour se préparer à différentes situations d’urgence.",
+          "Conseils pour se préparer à différentes situations d'urgence.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.EMERGENCY_SERVICES,
       },
       {
-        id: 633,
+        id: 634, // ✅ CORRIGÉ : était 633
         categoryName: "Soutien aux victimes",
         description:
           "Ressources et accompagnement après un événement traumatique.",
@@ -1457,45 +1457,45 @@ async function seedForum() {
         chapterId: ECategoryChapter.EMERGENCY_SERVICES,
       },
       {
-        id: 634,
+        id: 635, // ✅ CORRIGÉ : était 634
         categoryName: "Coordination des secours",
         description:
-          "Discussions sur l’organisation des équipes d’intervention.",
+          "Discussions sur l'organisation des équipes d'intervention.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.EMERGENCY_SERVICES,
       },
 
       // 🏃‍♂️ PHYSICAL_ACTIVITY - Programmes sportifs et bien-être physique
       {
-        id: 635,
-        categoryName: "Programmes d’entraînement",
+        id: 636, // ✅ CORRIGÉ : était 635
+        categoryName: "Programmes d'entraînement",
         description: "Partage de routines et conseils sportifs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL_ACTIVITY,
       },
       {
-        id: 636,
+        id: 637, // ✅ CORRIGÉ : était 636
         categoryName: "Motivation et objectifs",
         description: "Échanges pour rester motivé et atteindre ses buts.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL_ACTIVITY,
       },
       {
-        id: 637,
+        id: 638, // ✅ CORRIGÉ : était 637
         categoryName: "Activités adaptées",
         description: "Sports pour tous niveaux et conditions physiques.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL_ACTIVITY,
       },
       {
-        id: 638,
+        id: 639, // ✅ CORRIGÉ : était 638
         categoryName: "Nutrition sportive",
         description: "Conseils alimentaires pour sportifs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL_ACTIVITY,
       },
       {
-        id: 639,
+        id: 640, // ✅ CORRIGÉ : était 639
         categoryName: "Suivi et progression",
         description: "Outils et méthodes pour suivre ses performances.",
         typeId: ECategoryType.FORUM,
@@ -1504,21 +1504,21 @@ async function seedForum() {
 
       // 🧠 COGNITIVE_TRAINING - Programmes cognitifs et développement mental
       {
-        id: 640,
+        id: 641,
         categoryName: "Exercices de mémoire",
         description: "Techniques pour améliorer la mémoire au quotidien.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_TRAINING,
       },
       {
-        id: 641,
+        id: 642,
         categoryName: "Résolution de problèmes",
         description: "Stratégies pour développer la pensée critique.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_TRAINING,
       },
       {
-        id: 642,
+        id: 643,
         categoryName: "Jeux cérébraux",
         description:
           "Partage de jeux et applications pour stimuler le cerveau.",
@@ -1526,14 +1526,14 @@ async function seedForum() {
         chapterId: ECategoryChapter.COGNITIVE_TRAINING,
       },
       {
-        id: 643,
+        id: 644,
         categoryName: "Apprentissage continu",
         description: "Ressources pour apprendre tout au long de la vie.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_TRAINING,
       },
       {
-        id: 644,
+        id: 645,
         categoryName: "Gestion du stress mental",
         description: "Techniques pour préserver la santé cognitive.",
         typeId: ECategoryType.FORUM,
@@ -1543,14 +1543,14 @@ async function seedForum() {
       // 🥗 NUTRITION - Programmes nutritionnels
       // Nutrition pour sportifs – Conseils spécifiques pour les besoins énergétiques.
       {
-        id: 645,
+        id: 646,
         categoryName: "Plans alimentaires",
         description: "Échanges sur différents types de régimes équilibrés.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.NUTRITION,
       },
       {
-        id: 646,
+        id: 647,
         categoryName: "Alimentation durable",
         description:
           "Conseils pour une nutrition respectueuse de l’environnement.",
@@ -1558,14 +1558,14 @@ async function seedForum() {
         chapterId: ECategoryChapter.NUTRITION,
       },
       {
-        id: 647,
+        id: 648,
         categoryName: "Allergies et intolérances",
         description: "Partage d’expériences et recettes adaptées.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.NUTRITION,
       },
       {
-        id: 648,
+        id: 649,
         categoryName: "Suppléments et vitamines",
         description: "Discussions sur les compléments alimentaires.",
         typeId: ECategoryType.FORUM,
@@ -1574,35 +1574,35 @@ async function seedForum() {
 
       // 🤝 SOCIAL_ENGAGEMENT - Programmes sociaux et communautaires
       {
-        id: 649,
+        id: 650,
         categoryName: "Initiatives locales",
         description: "Partage et organisation de projets citoyens.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_ENGAGEMENT,
       },
       {
-        id: 650,
+        id: 651,
         categoryName: "Volontariat et bénévolat",
         description: "Opportunités et expériences d’engagement.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_ENGAGEMENT,
       },
       {
-        id: 651,
+        id: 652,
         categoryName: "Solidarité intergénérationnelle",
         description: "Actions entre jeunes et seniors.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_ENGAGEMENT,
       },
       {
-        id: 652,
+        id: 653,
         categoryName: "Lutte contre l’isolement",
         description: "Programmes pour renforcer le lien social.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_ENGAGEMENT,
       },
       {
-        id: 653,
+        id: 654,
         categoryName: "Inclusion sociale",
         description: "Discussions autour de la diversité et de l’égalité.",
         typeId: ECategoryType.FORUM,
@@ -1611,35 +1611,35 @@ async function seedForum() {
 
       // 🌍 ENVIRONMENTAL_ACTION - Programmes environnementaux
       {
-        id: 654,
+        id: 655,
         categoryName: "Actions de nettoyage",
         description: "Organisation d’opérations locales de dépollution.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL_ACTION,
       },
       {
-        id: 655,
+        id: 656,
         categoryName: "Sensibilisation écologique",
         description: "Partage de ressources et d’événements.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL_ACTION,
       },
       {
-        id: 656,
+        id: 657,
         categoryName: "Réduction des déchets",
         description: "Conseils pour diminuer son impact personnel.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL_ACTION,
       },
       {
-        id: 657,
+        id: 658,
         categoryName: "Transition énergétique",
         description: "Discussions sur les alternatives durables.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL_ACTION,
       },
       {
-        id: 658,
+        id: 659,
         categoryName: "Protection de la biodiversité",
         description: "Initiatives pour préserver la faune et la flore.",
         typeId: ECategoryType.FORUM,
@@ -1648,35 +1648,35 @@ async function seedForum() {
 
       // 🏆 PHYSICAL_ACHIEVEMENTS - Badges de performance physique
       {
-        id: 659,
+        id: 660,
         categoryName: "Marathon et courses",
         description: "Échanges sur les défis et entraînements.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL_ACHIEVEMENTS,
       },
       {
-        id: 660,
+        id: 661,
         categoryName: "Objectifs personnels",
         description: "Partage des progrès et résultats sportifs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL_ACHIEVEMENTS,
       },
       {
-        id: 661,
+        id: 662,
         categoryName: "Compétitions locales",
         description: "Informations sur les événements sportifs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL_ACHIEVEMENTS,
       },
       {
-        id: 662,
+        id: 663,
         categoryName: "Endurance et force",
         description: "Discussions sur le développement physique.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PHYSICAL_ACHIEVEMENTS,
       },
       {
-        id: 663,
+        id: 664,
         categoryName: "Santé et récupération",
         description: "Conseils pour éviter les blessures.",
         typeId: ECategoryType.FORUM,
@@ -1685,35 +1685,35 @@ async function seedForum() {
 
       // 🧠 COGNITIVE_ACHIEVEMENTS - Badges cognitifs
       {
-        id: 664,
+        id: 665,
         categoryName: "Défis intellectuels",
         description: "Organisation de quiz et concours.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_ACHIEVEMENTS,
       },
       {
-        id: 665,
+        id: 666,
         categoryName: "Apprentissage de nouvelles compétences",
         description: "Partages d’expériences.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_ACHIEVEMENTS,
       },
       {
-        id: 666,
+        id: 667,
         categoryName: "Méthodes de mémorisation",
         description: "Échanges de techniques efficaces.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_ACHIEVEMENTS,
       },
       {
-        id: 667,
+        id: 668,
         categoryName: "Résolution de problèmes",
         description: "Études de cas et solutions collaboratives.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.COGNITIVE_ACHIEVEMENTS,
       },
       {
-        id: 668,
+        id: 669,
         categoryName: "Créativité cognitive",
         description: "Encouragement à l’innovation et à la pensée divergente.",
         typeId: ECategoryType.FORUM,
@@ -1722,35 +1722,35 @@ async function seedForum() {
 
       // 🥗 NUTRITION_ACHIEVEMENTS - Badges nutritionnels
       {
-        id: 669,
+        id: 670,
         categoryName: "Repas équilibrés",
         description: "Partage de menus sains et variés.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.NUTRITION_ACHIEVEMENTS,
       },
       {
-        id: 670,
+        id: 671,
         categoryName: "Défis alimentaires",
         description: "Participation à des challenges nutritionnels.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.NUTRITION_ACHIEVEMENTS,
       },
       {
-        id: 671,
+        id: 672,
         categoryName: "Cuisine durable",
         description: "Recettes et astuces anti-gaspillage.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.NUTRITION_ACHIEVEMENTS,
       },
       {
-        id: 672,
+        id: 673,
         categoryName: "Suivi nutritionnel",
         description: "Outils et conseils pour contrôler son alimentation.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.NUTRITION_ACHIEVEMENTS,
       },
       {
-        id: 673,
+        id: 674,
         categoryName: "Éducation alimentaire",
         description: "Ressources pédagogiques pour tous âges.",
         typeId: ECategoryType.FORUM,
@@ -1759,7 +1759,7 @@ async function seedForum() {
 
       // 🤝 SOCIAL_ACHIEVEMENTS - Badges sociaux
       {
-        id: 674,
+        id: 675,
         categoryName: "Organisation d’événements",
         description:
           "Partage d’expériences dans la création d’événements communautaires.",
@@ -1767,28 +1767,28 @@ async function seedForum() {
         chapterId: ECategoryChapter.SOCIAL_ACHIEVEMENTS,
       },
       {
-        id: 675,
+        id: 676,
         categoryName: "Engagement bénévole",
         description: "Reconnaissance des actions bénévoles régulières.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_ACHIEVEMENTS,
       },
       {
-        id: 676,
+        id: 677,
         categoryName: "Médiation et résolution de conflits",
         description: "Partages de bonnes pratiques.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_ACHIEVEMENTS,
       },
       {
-        id: 677,
+        id: 678,
         categoryName: "Développement des réseaux sociaux",
         description: "Création et animation de groupes locaux.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL_ACHIEVEMENTS,
       },
       {
-        id: 678,
+        id: 679,
         categoryName: "Promotion de la diversité",
         description: "Actions pour l’inclusion et la diversité sociale.",
         typeId: ECategoryType.FORUM,
@@ -1797,35 +1797,35 @@ async function seedForum() {
 
       // 🌍 ENVIRONMENTAL_ACHIEVEMENTS - Badges environnementaux
       {
-        id: 679,
+        id: 680,
         categoryName: "Réduction de l’empreinte carbone",
         description: "Échanges sur les actions écologiques personnelles.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS,
       },
       {
-        id: 678,
+        id: 681,
         categoryName: "Participation à des projets verts",
         description: "Implication dans des initiatives locales ou globales.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS,
       },
       {
-        id: 679,
+        id: 682,
         categoryName: "Innovation écologique",
         description: "Partage de solutions technologiques durables.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS,
       },
       {
-        id: 680,
-        categoryName: "Éducation à l’environnement",
+        id: 683,
+        categoryName: "Éducation à l'environnement",
         description: "Organisation d’ateliers et formations.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL_ACHIEVEMENTS,
       },
       {
-        id: 681,
+        id: 684,
         categoryName: "Promotion du recyclage",
         description: "Actions de sensibilisation et organisation de collectes.",
         typeId: ECategoryType.FORUM,
@@ -1834,35 +1834,35 @@ async function seedForum() {
 
       // 🌱 ENVIRONMENTAL - Activités environnementales
       {
-        id: 682,
+        id: 685,
         categoryName: "Jardinage écologique",
         description: "Techniques et conseils pour un jardin durable.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL,
       },
       {
-        id: 683,
+        id: 686,
         categoryName: "Observation de la nature",
         description: "Partages d’expériences et de découvertes.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL,
       },
       {
-        id: 684,
+        id: 687,
         categoryName: "Mobilité douce",
         description: "Échanges sur les alternatives à la voiture.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL,
       },
       {
-        id: 685,
+        id: 688,
         categoryName: "Consommation responsable",
         description: "Discussions sur les achats durables.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL,
       },
       {
-        id: 686,
+        id: 689,
         categoryName: "Protection des ressources naturelles",
         description: "Initiatives locales.",
         typeId: ECategoryType.FORUM,
@@ -1871,35 +1871,35 @@ async function seedForum() {
 
       // 💬 GENERAL - Discussions générales
       {
-        id: 687,
+        id: 690,
         categoryName: "Actualités et événements",
         description: "Discussions sur les nouveautés et événements du moment.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.GENERAL,
       },
       {
-        id: 688,
+        id: 691,
         categoryName: "Questions-réponses",
         description: "Espace pour poser toutes sortes de questions.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.GENERAL,
       },
       {
-        id: 689,
+        id: 692,
         categoryName: "Échanges informels",
         description: "Discussions libres et conviviales.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.GENERAL,
       },
       {
-        id: 690,
+        id: 693,
         categoryName: "Suggestions et améliorations",
         description: "Retours et idées pour la plateforme.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.GENERAL,
       },
       {
-        id: 691,
+        id: 694,
         categoryName: "Présentations des membres",
         description: "Espace pour se présenter à la communauté.",
         typeId: ECategoryType.FORUM,
@@ -1908,35 +1908,35 @@ async function seedForum() {
 
       // 🧠 PERSONAL_DEVELOPMENT - Discussions développement personnel
       {
-        id: 692,
+        id: 695,
         categoryName: "Objectifs et motivation",
         description: "Partage d’astuces pour atteindre ses objectifs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PERSONAL_DEVELOPMENT,
       },
       {
-        id: 693,
+        id: 696,
         categoryName: "Gestion du temps",
         description: "Techniques et outils pour mieux s’organiser.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PERSONAL_DEVELOPMENT,
       },
       {
-        id: 694,
+        id: 697,
         categoryName: "Développement des compétences",
         description: "Ressources pour apprendre et progresser.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PERSONAL_DEVELOPMENT,
       },
       {
-        id: 695,
+        id: 698,
         categoryName: "Mindfulness et méditation",
         description: "Discussions autour des pratiques de pleine conscience.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.PERSONAL_DEVELOPMENT,
       },
       {
-        id: 696,
+        id: 699,
         categoryName: "Coaching et mentorat",
         description: "Échanges et conseils personnalisés.",
         typeId: ECategoryType.FORUM,
@@ -1945,14 +1945,14 @@ async function seedForum() {
 
       // 🥗 NUTRITION - Discussions nutrition
       {
-        id: 697,
+        id: 700,
         categoryName: "Conseils alimentaires",
         description: "Partage de recommandations pour une alimentation saine.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.NUTRITION,
       },
       {
-        id: 698,
+        id: 701,
         categoryName: "Régimes spécifiques",
         description:
           "Discussions sur végétarisme, véganisme, sans gluten, etc.",
@@ -1960,21 +1960,21 @@ async function seedForum() {
         chapterId: ECategoryChapter.NUTRITION,
       },
       {
-        id: 699,
+        id: 702,
         categoryName: "Suppléments et vitamines",
         description: "Échanges autour des compléments alimentaires.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.NUTRITION,
       },
       {
-        id: 700,
+        id: 703,
         categoryName: "Recettes et astuces cuisine",
         description: "Partage de recettes équilibrées et faciles à préparer.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.NUTRITION,
       },
       {
-        id: 701,
+        id: 704,
         categoryName: "Nutrition et sport",
         description: "Adaptation de l’alimentation à l’activité physique.",
         typeId: ECategoryType.FORUM,
@@ -1983,35 +1983,35 @@ async function seedForum() {
 
       // 🤝 SOCIAL - Discussions sociales
       {
-        id: 702,
+        id: 705,
         categoryName: "Relations interpersonnelles",
         description: "Échanges sur l’amitié, la famille et le travail.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL,
       },
       {
-        id: 703,
+        id: 706,
         categoryName: "Inclusion et diversité",
         description: "Discussions sur la lutte contre les discriminations.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL,
       },
       {
-        id: 704,
+        id: 707,
         categoryName: "Événements communautaires",
         description: "Annonces et retours d’événements sociaux.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL,
       },
       {
-        id: 705,
+        id: 708,
         categoryName: "Soutien et entraide",
         description: "Espace d’écoute et d’aide mutuelle.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.SOCIAL,
       },
       {
-        id: 706,
+        id: 709,
         categoryName: "Culture et loisirs",
         description: "Partage autour des passions communes et activités.",
         typeId: ECategoryType.FORUM,
@@ -2020,28 +2020,28 @@ async function seedForum() {
 
       // 🌍 ENVIRONMENTAL - Discussions environnementales
       {
-        id: 707,
+        id: 710,
         categoryName: "Changements climatiques",
         description: "Informations et débats sur le réchauffement global.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL,
       },
       {
-        id: 708,
+        id: 711,
         categoryName: "Actions locales",
         description: "Organisation et suivi d’initiatives de terrain.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL,
       },
       {
-        id: 709,
+        id: 712,
         categoryName: "Énergies renouvelables",
         description: "Partage d’infos sur solaire, éolien, biomasse, etc.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ENVIRONMENTAL,
       },
       {
-        id: 710,
+        id: 713,
         categoryName: "Zéro déchet",
         description:
           "Conseils pratiques pour réduire ses déchets au quotidien.",
@@ -2049,7 +2049,7 @@ async function seedForum() {
         chapterId: ECategoryChapter.ENVIRONMENTAL,
       },
       {
-        id: 711,
+        id: 714,
         categoryName: "Biodiversité",
         description:
           "Discussions sur la protection des espèces et des habitats.",
@@ -2059,35 +2059,35 @@ async function seedForum() {
 
       // 🧠 MENTAL - Bien-être mental et cognitif
       {
-        id: 712,
+        id: 715,
         categoryName: "Gestion du stress",
         description: "Techniques et expériences pour mieux gérer le stress.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MENTAL_HEALTH,
       },
       {
-        id: 713,
+        id: 716,
         categoryName: "Anxiété et dépression",
         description: "Partage d’informations et soutien.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MENTAL_HEALTH,
       },
       {
-        id: 714,
+        id: 717,
         categoryName: "Techniques de relaxation",
         description: "Exercices et conseils pour se détendre.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MENTAL_HEALTH,
       },
       {
-        id: 715,
+        id: 718,
         categoryName: "Développement cognitif",
         description: "Jeux et activités pour stimuler le cerveau.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MENTAL_HEALTH,
       },
       {
-        id: 716,
+        id: 719,
         categoryName: "Soutien psychologique",
         description: "Ressources et échanges autour de l’aide professionnelle.",
         typeId: ECategoryType.FORUM,
@@ -2096,35 +2096,35 @@ async function seedForum() {
 
       // MANUAL_SKILL - Compétences manuelles
       {
-        id: 717,
+        id: 720,
         categoryName: "Bricolage et DIY",
         description: "Projets, astuces et tutoriels pour les amateurs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MANUAL_SKILL,
       },
       {
-        id: 718,
+        id: 721,
         categoryName: "Travaux manuels créatifs",
         description: "Peinture, sculpture, couture et plus.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MANUAL_SKILL,
       },
       {
-        id: 719,
+        id: 722,
         categoryName: "Jardinage et horticulture",
         description: "Conseils pratiques et partages d’expériences.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MANUAL_SKILL,
       },
       {
-        id: 720,
+        id: 723,
         categoryName: "Réparation et maintenance",
         description: "Discussions sur la réparation d’objets et appareils.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MANUAL_SKILL,
       },
       {
-        id: 721,
+        id: 724,
         categoryName: "Apprentissage technique",
         description: "Partage de ressources et formations.",
         typeId: ECategoryType.FORUM,
@@ -2133,72 +2133,72 @@ async function seedForum() {
 
       // NUTRITIONAL_SKILL (57) - Compétences nutritionnelles
       {
-        id: 722,
+        id: 725,
         categoryName: "Cuisiner sainement",
         description: "Techniques pour préparer des repas équilibrés.",
         typeId: ECategoryType.FORUM,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
-      },
-      {
-        id: 723,
-        categoryName: "Planification des repas",
-        description: "Organisation hebdomadaire pour une alimentation variée.",
-        typeId: ECategoryType.FORUM,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
-      },
-      {
-        id: 724,
-        categoryName: "Connaissances des nutriments",
-        description: "Comprendre les vitamines, minéraux et macronutriments.",
-        typeId: ECategoryType.FORUM,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
-      },
-      {
-        id: 725,
-        categoryName: "Alimentation adaptée",
-        description: "Nutrition spécifique pour enfants, seniors ou sportifs.",
-        typeId: ECategoryType.FORUM,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
       {
         id: 726,
+        categoryName: "Planification des repas",
+        description: "Organisation hebdomadaire pour une alimentation variée.",
+        typeId: ECategoryType.FORUM,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
+      },
+      {
+        id: 727,
+        categoryName: "Connaissances des nutriments",
+        description: "Comprendre les vitamines, minéraux et macronutriments.",
+        typeId: ECategoryType.FORUM,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
+      },
+      {
+        id: 728,
+        categoryName: "Alimentation adaptée",
+        description: "Nutrition spécifique pour enfants, seniors ou sportifs.",
+        typeId: ECategoryType.FORUM,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
+      },
+      {
+        id: 729,
         categoryName: "Éducation alimentaire",
         description: "Sensibilisation aux choix alimentaires durables.",
         typeId: ECategoryType.FORUM,
-        chapterId: ECategoryChapter.NUTRITIONAL_SKILL,
+        chapterId: ECategoryChapter.NUTRITION_SKILL,
       },
 
       // CREATIVE_SKILL (58) - Compétences créatives
       {
-        id: 727,
+        id: 730,
         categoryName: "Techniques artistiques",
         description: "Dessin, peinture, collage et autres médias.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.CREATIVE_SKILL,
       },
       {
-        id: 728,
+        id: 731,
         categoryName: "Écriture créative",
         description: "Atelier d’écriture, poésie et storytelling.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.CREATIVE_SKILL,
       },
       {
-        id: 729,
+        id: 732,
         categoryName: "Musique et composition",
         description: "Partage d’idées et création musicale.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.CREATIVE_SKILL,
       },
       {
-        id: 730,
+        id: 733,
         categoryName: "Design et graphisme",
         description: "Apprentissage des outils et styles graphiques.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.CREATIVE_SKILL,
       },
       {
-        id: 731,
+        id: 734,
         categoryName: "DIY créatif",
         description: "Projets manuels artistiques et innovations maison.",
         typeId: ECategoryType.FORUM,
@@ -2207,35 +2207,35 @@ async function seedForum() {
 
       // MEDICAL_CARE (59) - Soins médicaux
       {
-        id: 732,
+        id: 735,
         categoryName: "Premiers secours",
         description: "Techniques d’urgence et prévention.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MEDICAL_CARE,
       },
       {
-        id: 733,
+        id: 736,
         categoryName: "Suivi des maladies chroniques",
         description: "Conseils et expériences partagées.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MEDICAL_CARE,
       },
       {
-        id: 734,
+        id: 737,
         categoryName: "Pharmacologie",
         description: "Informations sur les médicaments et leurs effets.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MEDICAL_CARE,
       },
       {
-        id: 735,
+        id: 738,
         categoryName: "Prévention santé",
         description: "Vaccination, dépistage et hygiène de vie.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.MEDICAL_CARE,
       },
       {
-        id: 736,
+        id: 739,
         categoryName: "Santé mentale",
         description: "Échanges sur le soutien psychologique et psychiatrique.",
         typeId: ECategoryType.FORUM,
@@ -2244,35 +2244,35 @@ async function seedForum() {
 
       // ARTISTIC (60) - Artistique
       {
-        id: 737,
+        id: 740,
         categoryName: "Expositions et événements",
         description: "Annonces et retours sur manifestations culturelles.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ARTISTIC,
       },
       {
-        id: 737,
+        id: 740,
         categoryName: "Partage d’œuvres",
         description: "Galerie virtuelle des créations des membres.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ARTISTIC,
       },
       {
-        id: 738,
+        id: 741,
         categoryName: "Critiques constructives",
         description: "Feedback bienveillant sur les œuvres.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ARTISTIC,
       },
       {
-        id: 739,
+        id: 742,
         categoryName: "Collaboration artistique",
         description: "Projets communs et partenariats créatifs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.ARTISTIC,
       },
       {
-        id: 740,
+        id: 743,
         categoryName: "Formation artistique",
         description: "Ressources pour apprendre et progresser.",
         typeId: ECategoryType.FORUM,
@@ -2281,35 +2281,35 @@ async function seedForum() {
 
       // DISCUSSIONS (61) - Discussions générales thématiques
       {
-        id: 741,
+        id: 744,
         categoryName: "Actualités et débats",
         description: "Échanges sur les sujets d’actualité.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.DISCUSSIONS,
       },
       {
-        id: 742,
+        id: 745,
         categoryName: "Technologie et innovation",
         description: "Discussions sur les nouvelles technologies.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.DISCUSSIONS,
       },
       {
-        id: 743,
+        id: 746,
         categoryName: "Philosophie et société",
         description: "Réflexions et débats autour des valeurs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.DISCUSSIONS,
       },
       {
-        id: 744,
+        id: 747,
         categoryName: "Culture et loisirs",
         description: "Partage d’idées sur livres, films, voyages.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.DISCUSSIONS,
       },
       {
-        id: 745,
+        id: 748,
         categoryName: "Questions diverses",
         description: "Espace libre pour tous types de sujets.",
         typeId: ECategoryType.FORUM,
@@ -2318,35 +2318,35 @@ async function seedForum() {
 
       // CREATIVE (62) - Créatif
       {
-        id: 746,
+        id: 749,
         categoryName: "Projets artistiques",
         description: "Partage et organisation de projets créatifs.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.CREATIVE,
       },
       {
-        id: 747,
+        id: 750,
         categoryName: "Ateliers en ligne",
         description: "Sessions de création collaborative.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.CREATIVE,
       },
       {
-        id: 748,
+        id: 751,
         categoryName: "Inspiration et idées",
         description: "Sources d’inspiration pour tous les artistes.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.CREATIVE,
       },
       {
-        id: 749,
+        id: 752,
         categoryName: "Techniques mixtes",
         description: "Combinaison de différentes formes d’art.",
         typeId: ECategoryType.FORUM,
         chapterId: ECategoryChapter.CREATIVE,
       },
       {
-        id: 750,
+        id: 753,
         categoryName: "Concours et challenges",
         description: "Participation à des défis créatifs.",
         typeId: ECategoryType.FORUM,
@@ -2355,7 +2355,7 @@ async function seedForum() {
 
       // 👴 ELDERLY_SUPPORT (Soutien aux personnes âgées)
       {
-        id: 751,
+        id: 754,
         categoryName: "Soins à domicile",
         description:
           "Partage de conseils et d’astuces pour accompagner les aînés chez eux.",
@@ -2363,7 +2363,7 @@ async function seedForum() {
         chapterId: ECategoryChapter.ELDERLY_SUPPORT,
       },
       {
-        id: 752,
+        id: 755,
         categoryName: "Prévention santé seniors",
         description:
           "Discussions sur les bonnes pratiques pour rester en bonne santé en vieillissant.",
@@ -2371,7 +2371,7 @@ async function seedForum() {
         chapterId: ECategoryChapter.ELDERLY_SUPPORT,
       },
       {
-        id: 753,
+        id: 756,
         categoryName: "Isolement et lien social",
         description:
           "Solutions pour maintenir une vie sociale active chez les personnes âgées.",
@@ -2379,7 +2379,7 @@ async function seedForum() {
         chapterId: ECategoryChapter.ELDERLY_SUPPORT,
       },
       {
-        id: 754,
+        id: 757,
         categoryName: "Aidants familiaux",
         description:
           "Espace d’échange pour les proches aidants, leurs besoins et leurs défis.",
@@ -2387,7 +2387,7 @@ async function seedForum() {
         chapterId: ECategoryChapter.ELDERLY_SUPPORT,
       },
       {
-        id: 755,
+        id: 758,
         categoryName: "Droits et démarches",
         description:
           "Informations pratiques sur les aides, retraites, et dispositifs accessibles aux seniors.",

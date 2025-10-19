@@ -12,6 +12,7 @@ import {
   WellnessPage,
 } from "@/pages";
 import "./App.css";
+import ProfilePage from "./pages/ProfilePage";
 
 const LandingPageRoute = () => {
   const { isAuthenticated } = useAuth();
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/preferences" element={<PreferencesPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Route>
       </Routes>
     </AuthProvider>

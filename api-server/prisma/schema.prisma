@@ -333,7 +333,7 @@ model menuItem {
   icon  String?
   key   String  @default("undefined")
 
-  @@map("menu_item")
+  @@map("menu_items")
 }
 
 model message {
@@ -610,7 +610,8 @@ model user {
   firstName               String?                   @map("first_name") @db.Text
   lastName                String?                   @map("last_name") @db.Text
   birthDate               DateTime?                 @map("birth_date") @db.Date
-  address                 String?                   @db.Text
+  // address                 String?                   @db.Text
+  description             String?                   @db.Text
   latitude                String?                   @map("latitude")
   longitude               String?                   @map("longitude")
   phone                   String?                   @db.Text
