@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
-
 import { userSchema } from "@/validators";
 
 import {
@@ -9,6 +8,9 @@ import {
   getUserById,
   updateUser,
   deleteUser,
+  changePassword,
+  uploadAvatar,
+  upload,
 } from "@/controllers";
 
 const userRouter = Router();
@@ -106,6 +108,73 @@ userRouter.get("/:id", getUserById);
  *         description: Utilisateur non trouvé
  */
 userRouter.put("/:id", updateUser);
+
+/**
+ * @swagger
+ * /api/users/{id}/avatar:
+ *   post:
+ *     summary: Upload avatar utilisateur
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *           format: cuid
+ *         required: true
+ *         description: ID de l'utilisateur
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               avatar:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       200:
+ *         description: Avatar mis à jour avec succès
+ *       404:
+ *         description: Utilisateur non trouvé
+ */
+userRouter.post("/:id/avatar", upload.single("avatar"), uploadAvatar);
+
+/**
+ * @swagger
+ * /api/users/{id}/password:
+ *   put:
+ *     summary: Changer le mot de passe
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *           format: cuid
+ *         required: true
+ *         description: ID de l'utilisateur
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               currentPassword:
+ *                 type: string
+ *               newPassword:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Mot de passe changé avec succès
+ *       401:
+ *         description: Mot de passe actuel incorrect
+ *       404:
+ *         description: Utilisateur non trouvé
+ */
+userRouter.put("/:id/password", changePassword);
 
 /**
  * @swagger

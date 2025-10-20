@@ -7,12 +7,12 @@ import {
   DashboardPage,
   LandingPage,
   LoginPage,
-  PreferencesPage,
+  ProfilePage,
+  EditProfilePage,
   SignupPage,
   WellnessPage,
 } from "@/pages";
 import "./App.css";
-import ProfilePage from "./pages/ProfilePage";
 
 const LandingPageRoute = () => {
   const { isAuthenticated } = useAuth();
@@ -35,6 +35,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/edit-profile" element={<EditProfilePage />} />
         </Route>
       </Routes>
     </AuthProvider>

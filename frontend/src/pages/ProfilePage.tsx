@@ -3,7 +3,7 @@ import { useAuthStore } from "@/stores";
 import { ProfileHeader } from "@/components";
 import { ProfileTabs } from "@/components";
 
-export default function ProfilePage() {
+export function ProfilePage() {
   const { user, isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
