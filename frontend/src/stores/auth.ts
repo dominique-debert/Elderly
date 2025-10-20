@@ -12,7 +12,11 @@ export const useAuthStore = create<IAuthState>()(
       isAuthenticated: Boolean(localStorage.getItem("accessToken")),
       user: null,
 
-      login: async (email, password, navigate) => {
+      login: async (
+        email: string,
+        password: string,
+        navigate: NavigateFunction
+      ): Promise<IUser> => {
         const data = await loginUser({ email, password });
 
         const loginData = data as IAuthResponse;
@@ -39,14 +43,19 @@ export const useAuthStore = create<IAuthState>()(
             email: src.email,
             firstName: src.firstName,
             lastName: src.lastName,
-            avatar: src.avatar,
-            avatarUrl: src.avatarUrl ?? null,
+            avatarUrl: src.avatarUrl ?? "",
             birthDate: src.birthDate,
-            phone: src.phone, // Changed from phoneNumber to phone
+            registrationDate: src.registrationDate,
+            phone: src.phone ?? "",
             isAdmin: src.isAdmin,
             longitude: src.longitude,
             latitude: src.latitude,
-          },
+            profession: src.profession,
+            city: src.city,
+            postalCode: src.postalCode,
+            address: src.address,
+            description: src.description,
+          } as unknown as IUser,
         });
 
         toast.success("Connexion réussie");
@@ -58,12 +67,18 @@ export const useAuthStore = create<IAuthState>()(
           lastName: src.lastName,
           avatar: src.avatar,
           birthDate: src.birthDate,
+          registrationDate: src.registrationDate,
           phone: src.phone,
           avatarUrl: src.avatarUrl ?? null,
           isAdmin: src.isAdmin,
           longitude: src.longitude,
           latitude: src.latitude,
-        };
+          profession: src.profession,
+          city: src.city,
+          postalCode: src.postalCode,
+          address: src.address,
+          description: src.description,
+        } as unknown as IUser;
       },
 
       signup: async (userData, navigate) => {
@@ -120,13 +135,18 @@ export const useAuthStore = create<IAuthState>()(
             email: src.email,
             firstName: src.firstName,
             lastName: src.lastName,
-            avatar: src.avatar,
-            avatarUrl: src.avatarUrl ?? null,
+            avatarUrl: src.avatarUrl ?? "",
             birthDate: src.birthDate,
+            registrationDate: src.registrationDate, // Add this line
             isAdmin: src.isAdmin,
             longitude: src.longitude,
             latitude: src.latitude,
-            phone: src.phone,
+            phone: src.phone ?? "",
+            profession: src.profession,
+            city: src.city,
+            postalCode: src.postalCode,
+            address: src.address,
+            description: src.description,
           };
           set({
             accessToken: data.accessToken,

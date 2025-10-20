@@ -1,0 +1,20 @@
+export type IUserPreferences = {
+  id: string;
+  userId: string;
+  notificationMessages?: boolean;
+  notificationForum?: boolean;
+  notificationActivities?: boolean;
+  emailUpdates?: boolean;
+  smsUpdates?: boolean;
+  frequencyInstant: boolean;
+  frequencyDaily?: boolean;
+  fontSize?: string;
+  highContrast?: boolean;
+  statusVisibilityEverybody?: boolean;
+  statusVisibilityFriends?: boolean;
+  statusVisibilityNoOne?: boolean;
+  messagesFromEverybody?: boolean;
+  messagesFromFriends?: boolean;
+  messagesFromNoOne?: boolean;
+  dataSharing?: boolean;
+};

@@ -43,11 +43,6 @@ export function DashboardUserCard() {
                 size={1}
                 className="text-gray-300"
               />
-              <span className="ml-2 mt-1">
-                {user && user.birthDate
-                  ? formatDate(user.birthDate)
-                  : "Non disponible"}
-              </span>
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
+import { ProfileHeader } from "@/components";
+import { ProfileTabs } from "@/components";
 
 export default function ProfilePage() {
   const { user, isAuthenticated } = useAuthStore();
@@ -7,15 +9,17 @@ export default function ProfilePage() {
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
+
   return (
-    <div className="container p-10 w-full h-100 mt-16">
+    <>
       {user ? (
-        <>
-          <h1 className="text-2xl font-semibold text-primary mb-4">Profil</h1>
-        </>
+        <div className="w-full flex flex-col justify-items-center align-items-center mt-18 mx-auto p-6">
+          <ProfileHeader />
+          <ProfileTabs />
+        </div>
       ) : (
-        <p>Les informations de profil sont introuvables.</p>
+        <p>Les informations de préférences sont introuvables.</p>
       )}
-    </div>
+    </>
   );
 }

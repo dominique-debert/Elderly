@@ -12,6 +12,7 @@ layer(base);
   --color-background-dark: hsl(222.2, 69.2%, 7.6%);
   --color-background-custom: hsl(187 71% 82%);
   --color-background-pastel: hsl(279 100% 93%);
+  --tab-p: 0;
 }
 
 @plugin "daisyui" {
@@ -47,6 +48,9 @@ layer(base);
 }
 
 @layer utilities {
+  .tabs-border {
+    border-top: 1px solid var(--color-card);
+  }
   .modal-box {
     background-color: var(--color-card);
   }

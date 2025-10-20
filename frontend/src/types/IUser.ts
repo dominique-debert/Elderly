@@ -1,13 +1,30 @@
+// Définition des types pour la requête
 export interface IUser {
   id: string;
   email: string;
+  passwordHash: string;
   firstName: string;
   lastName: string;
-  avatar?: string;
-  avatarUrl?: string | null;
   birthDate: Date;
-  latitude?: string;
-  longitude?: string;
-  phone?: string;
+  profession: string;
+  city: string;
+  postalCode: string;
+  address: string;
+  description: string;
+  gpsCoordinates: string;
+  latitude: string;
+  longitude: string;
+  phone: string;
+  avatarUrl: string;
+  registrationDate: Date;
+  accountVerified: boolean;
+  interfacePreferences: string;
+  twoFactorAuthentication: boolean;
+  helpPoints: number;
+  reducedMobility: boolean;
+  activityLevel: string;
+  emergency_contact_name: string;
+  emergency_contact_phone: string;
+  status: string;
   isAdmin: boolean;
 }

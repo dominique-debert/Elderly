@@ -40,6 +40,7 @@ export * from "./user.validator";
 export * from "./userActivity.validator";
 export * from "./userBadge.validator";
 export * from "./userDevice.validator";
+export * from "./userPreferences.validator";
 export * from "./userSkill.validator";
 export * from "./userStatistics.validator";
 export * from "./videoCall.validator";

@@ -610,7 +610,10 @@ model user {
   firstName               String?                   @map("first_name") @db.Text
   lastName                String?                   @map("last_name") @db.Text
   birthDate               DateTime?                 @map("birth_date") @db.Date
-  // address                 String?                   @db.Text
+  profession              String?                   @db.Text
+  city                    String?                   @db.Text
+  postalCode              String?                   @map("postal_code") @db.Text
+  address                 String?                   @db.Text
   description             String?                   @db.Text
   latitude                String?                   @map("latitude")
   longitude               String?                   @map("longitude")
@@ -652,11 +655,14 @@ model user {
   userActivity            userActivity[]
   userBadge               userBadge[]
   userDevice              userDevice[]
+  userPreferences         userPreferences[]
   userSkill               userSkill[]
   userStatistics          userStatistics?
   videoCall               videoCall[]
   wellnessGoal            wellnessGoal[]
   session                 session[]
+
+  userInterest userInterest[]
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
@@ -705,6 +711,54 @@ model userDevice {
   user              user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("user_device")
+}
+
+model userPreferences {
+  id                        String    @id @default(cuid())
+  userId                    String    @map("user_id")
+  notificationMessages      Boolean?  @default(true)
+  notificationForum         Boolean?  @default(true)
+  notificationActivities    Boolean?  @default(true)
+  emailUpdates              Boolean?  @default(true) @map("email_updates")
+  smsUpdates                Boolean?  @default(false) @map("sms_updates")
+  frequencyInstant          Boolean   @default(true) @map("frequency_instant")
+  frequencyDaily            Boolean?  @default(false) @map("frequency_daily")
+  fontSize                  String?   @default("normal") @map("font_size") @db.Text
+  highContrast              Boolean?  @default(false) @map("high_contrast")
+  statusVisibilityEverybody Boolean?  @default(true) @map("status_visibility_everybody")
+  statusVisibilityFriends   Boolean?  @default(true) @map("status_visibility_friends")
+  statusVisibilityNoOne     Boolean?  @default(false) @map("status_visibility_no_one")
+  messagesFromEverybody     Boolean?  @default(true) @map("messages_from_everybody")
+  messagesFromFriends       Boolean?  @default(true) @map("messages_from_friends")
+  messagesFromNoOne         Boolean?  @default(false) @map("messages_from_no_one")
+  datasharing               Boolean?  @default(false) @map("data_sharing")
+  createdAt                 DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt                 DateTime? @map("updated_at") @db.Timestamp(6)
+  user                      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("user_preferences")
+}
+
+model userInterest {
+  id         String     @id @default(cuid())
+  userId     String     @map("user_id")
+  interestId String     @map("interest_id")
+  createdAt  DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt  DateTime?  @map("updated_at") @db.Timestamp(6)
+  user       user       @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  interest   interest[]
+
+  @@map("user_interest")
+}
+
+model interest {
+  id          String    @id @default(cuid())
+  name        String    @db.Text
+  description String?   @db.Text
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt   DateTime? @map("updated_at") @db.Timestamp(6)
+
+  userInterest userInterest[]
 }
 
 model userSkill {

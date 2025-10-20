@@ -31,7 +31,7 @@ export const getAllUsers = async (
     const users = await prisma.user.findMany({
       orderBy: {
         lastName: "asc",
-        firstName: "asc", // Ascending order (A-Z)
+        firstName: "asc",
       },
     });
 

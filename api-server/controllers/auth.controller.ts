@@ -119,8 +119,6 @@ export const signUp = async (
       },
     });
 
-    console.debug("signUp - created user (raw):", JSON.stringify(user));
-
     const accessToken = signToken(user.id, "access");
     const refreshToken = signToken(user.id, "refresh");
 
@@ -154,6 +152,7 @@ export const signUp = async (
       avatar: user.avatar,
       avatarUrl: user.avatar ? avatarUrl : null,
       birthDate: user.birthDate,
+      registrationDate: user.registrationDate,
       isAdmin: user.isAdmin,
       latitude: user.latitude,
       longitude: user.longitude,
@@ -216,6 +215,12 @@ export const signIn = async (
       latitude: user.latitude,
       longitude: user.longitude,
       birthDate: user.birthDate,
+      registrationDate: user.registrationDate,
+      profession: user.profession,
+      city: user.city,
+      postalCode: user.postalCode,
+      address: user.address,
+      description: user.description,
       isAdmin: user.isAdmin,
     });
   } catch (error) {

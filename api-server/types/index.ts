@@ -77,6 +77,9 @@ export * from "./data/users/IUserDevice";
 export * from "./data/users/IUserSkill";
 export * from "./data/users/IUserStatistics";
 
+// User Preferences
+export * from "./data/users/IUserPreferences";
+
 // Utilities
 export * from "./utils/IErrorDetails";
 export * from "./utils/IHttpError";

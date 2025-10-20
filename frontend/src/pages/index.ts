@@ -3,6 +3,6 @@ export * from "./DashboardPage";
 export * from "./LandingPage";
 export * from "./LoginPage";
 export * from "./NotFoundPage";
-export * from "./PreferencesPage";
+export * from "./ProfilePage";
 export * from "./SignupPage";
 export * from "./WellnessPage";

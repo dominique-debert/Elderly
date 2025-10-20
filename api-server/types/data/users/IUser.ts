@@ -5,7 +5,11 @@ export interface IUser {
   firstName: string;
   lastName: string;
   birthDate: Date;
+  profession: string;
+  city: string;
+  postalCode: string;
   address: string;
+  description: string;
   gpsCoordinates: string;
   phone: string;
   profilePicture: string;

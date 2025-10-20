@@ -572,6 +572,10 @@ exports.Prisma.UserScalarFieldEnum = {
   firstName: 'firstName',
   lastName: 'lastName',
   birthDate: 'birthDate',
+  profession: 'profession',
+  city: 'city',
+  postalCode: 'postalCode',
+  address: 'address',
   description: 'description',
   latitude: 'latitude',
   longitude: 'longitude',
@@ -621,6 +625,45 @@ exports.Prisma.UserDeviceScalarFieldEnum = {
   operatingSystem: 'operatingSystem',
   notificationToken: 'notificationToken',
   lastConnection: 'lastConnection',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.UserPreferencesScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  notificationMessages: 'notificationMessages',
+  notificationForum: 'notificationForum',
+  notificationActivities: 'notificationActivities',
+  emailUpdates: 'emailUpdates',
+  smsUpdates: 'smsUpdates',
+  frequencyInstant: 'frequencyInstant',
+  frequencyDaily: 'frequencyDaily',
+  fontSize: 'fontSize',
+  highContrast: 'highContrast',
+  statusVisibilityEverybody: 'statusVisibilityEverybody',
+  statusVisibilityFriends: 'statusVisibilityFriends',
+  statusVisibilityNoOne: 'statusVisibilityNoOne',
+  messagesFromEverybody: 'messagesFromEverybody',
+  messagesFromFriends: 'messagesFromFriends',
+  messagesFromNoOne: 'messagesFromNoOne',
+  datasharing: 'datasharing',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.UserInterestScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  interestId: 'interestId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.InterestScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -792,6 +835,9 @@ exports.Prisma.ModelName = {
   userActivity: 'userActivity',
   userBadge: 'userBadge',
   userDevice: 'userDevice',
+  userPreferences: 'userPreferences',
+  userInterest: 'userInterest',
+  interest: 'interest',
   userSkill: 'userSkill',
   userStatistics: 'userStatistics',
   videoCall: 'videoCall',

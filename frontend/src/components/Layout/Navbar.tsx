@@ -178,9 +178,6 @@ export function Navbar() {
                       <Link to="/profile">Profil</Link>
                     </li>
                     <li>
-                      <Link to="/preferences">Préférences</Link>
-                    </li>
-                    <li>
                       <Link to="/login" onClick={() => logout(navigate)}>
                         Se déconnecter
                       </Link>

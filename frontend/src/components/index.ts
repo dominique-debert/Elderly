@@ -188,3 +188,12 @@ export * from "./Dashboard/DashboardWeatherWidget.tsx";
 // export * from "./Wellness/WellnessListView";
 // export * from "./Wellness/WellnessTableRow";
 // export * from "./Wellness/WellnessTableView";
+
+export * from "./Profile/ProfileTabs";
+export * from "./Profile/PublicationTabContent";
+export * from "./Profile/ProfileHeader";
+export * from "./Profile/ConnexionTabContent";
+export * from "./Profile/PhotoTabContent";
+export * from "./Profile/InterestsTabContent";
+export * from "./Profile/SkillsTabContent";
+export * from "./Profile/PreferencesTabContent";

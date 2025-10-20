@@ -18,3 +18,4 @@ export * from "./INotification";
 export * from "./IUpdateCategoryState";
 export * from "./IUseAuthReturn";
 export * from "./IUser";
+export * from "./IUserPreferences";
