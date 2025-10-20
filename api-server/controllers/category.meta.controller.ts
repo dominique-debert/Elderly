@@ -128,7 +128,6 @@ export async function getCategories(
   }
 }
 
-// CORRIGÉ : getCategoryById en tant que handler Express
 export async function getCategoryById(
   req: Request,
   res: Response,

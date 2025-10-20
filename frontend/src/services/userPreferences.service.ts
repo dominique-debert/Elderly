@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
-import type { IUserPreferences, EValence } from "@/types";
+import type { IUserPreferences } from "@/types";
 
-export const getUserPreferencesByUserId = async (
+export const getUserPreferences = async (
   userId: string
 ): Promise<IUserPreferences> => {
   const accessToken = localStorage.getItem("accessToken");
@@ -31,20 +31,18 @@ export const createUserPreferences = async (
 
 export const updateUserPreferences = async (
   userId: string,
-  data: {
-    name: string;
-    description?: string;
-    valence: EValence;
-    intensity: number;
-    color?: string;
-  }
+  userPreferences: IUserPreferences
 ) => {
-  const response = await api.put(`/user-preferences/${userId}`, data, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  });
-  return response.data;
+  const { data } = await api.put(
+    `/user-preferences/${userId}`,
+    userPreferences,
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }
+  );
+  return data;
 };
 
 export const deleteUserPreferences = async (userId: string) => {

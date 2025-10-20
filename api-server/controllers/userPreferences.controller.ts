@@ -28,7 +28,7 @@ export const createUserPreferences = async (
   }
 };
 
-export const getUserPreferencesByUserId = async (
+export const getUserPreferences = async (
   req: Request<{ userId: string }>,
   res: Response,
   next: NextFunction

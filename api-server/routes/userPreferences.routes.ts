@@ -1,7 +1,7 @@
 import { Router } from "express";
 import {
   createUserPreferences,
-  getUserPreferencesByUserId,
+  getUserPreferences,
   updateUserPreferences,
   deleteUserPreferences,
 } from "@/controllers";
@@ -64,7 +64,7 @@ router.post("/", validate(userPreferencesSchema), createUserPreferences);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:userId", getUserPreferencesByUserId);
+router.get("/:userId", getUserPreferences);
 
 /**
  * @swagger

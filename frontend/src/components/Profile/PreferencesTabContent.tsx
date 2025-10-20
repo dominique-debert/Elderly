@@ -1,14 +1,19 @@
 import Icon from "@mdi/react";
 import { mdiChevronRight } from "@mdi/js";
 import { Card } from "@/components";
-import { getUserPreferencesByUserId } from "@/services/userPreferences.service";
+import {
+  getUserPreferences,
+  updateUserPreferences,
+} from "@/services/userPreferences.service";
 import { useAuthStore } from "@/stores";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link, useNavigate, Navigate } from "react-router-dom";
+import type { IUserPreferences } from "@/types";
 
 export function PreferencesTabContent() {
   const { user, isAuthenticated, logout } = useAuthStore();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const {
     data: preferences,
@@ -16,9 +21,34 @@ export function PreferencesTabContent() {
     error,
   } = useQuery({
     queryKey: ["userPreferences", user?.id],
-    queryFn: () => getUserPreferencesByUserId(user?.id || ""),
+    queryFn: () => getUserPreferences(user?.id || ""),
     enabled: !!user?.id,
   });
+
+  const updateMutation = useMutation({
+    mutationFn: (updatedPreferences: Partial<IUserPreferences>) =>
+      updateUserPreferences(user?.id || "", {
+        ...preferences!,
+        ...updatedPreferences,
+      }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["userPreferences", user?.id],
+      });
+    },
+  });
+
+  const handleToggle = (field: keyof IUserPreferences, value: boolean) => {
+    updateMutation.mutate({ [field]: value });
+  };
+
+  const handleRadioChange = (updates: Partial<IUserPreferences>) => {
+    updateMutation.mutate(updates);
+  };
+
+  const handleSelectChange = (field: keyof IUserPreferences, value: string) => {
+    updateMutation.mutate({ [field]: value });
+  };
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
@@ -56,6 +86,9 @@ export function PreferencesTabContent() {
         <input
           type="checkbox"
           checked={preferences?.notificationMessages || false}
+          onChange={(e) =>
+            handleToggle("notificationMessages", e.target.checked)
+          }
           className="toggle toggle-lg"
         />
       </div>
@@ -70,6 +103,7 @@ export function PreferencesTabContent() {
         <input
           type="checkbox"
           checked={preferences?.notificationForum || false}
+          onChange={(e) => handleToggle("notificationForum", e.target.checked)}
           className="toggle toggle-lg"
         />
       </div>
@@ -84,6 +118,9 @@ export function PreferencesTabContent() {
         <input
           type="checkbox"
           checked={preferences?.notificationActivities || false}
+          onChange={(e) =>
+            handleToggle("notificationActivities", e.target.checked)
+          }
           className="toggle toggle-lg"
         />
       </div>
@@ -103,6 +140,7 @@ export function PreferencesTabContent() {
         <input
           type="checkbox"
           checked={preferences?.emailUpdates || false}
+          onChange={(e) => handleToggle("emailUpdates", e.target.checked)}
           className="toggle toggle-lg"
         />
       </div>
@@ -117,6 +155,7 @@ export function PreferencesTabContent() {
         <input
           type="checkbox"
           checked={preferences?.smsUpdates || false}
+          onChange={(e) => handleToggle("smsUpdates", e.target.checked)}
           className="toggle toggle-lg"
         />
       </div>
@@ -127,6 +166,12 @@ export function PreferencesTabContent() {
           <input
             type="radio"
             checked={preferences?.frequencyInstant || false}
+            onChange={() =>
+              handleRadioChange({
+                frequencyInstant: true,
+                frequencyDaily: false,
+              })
+            }
             className="radio radio-md ml-4 border-primary"
             name="frequency"
           />
@@ -144,6 +189,12 @@ export function PreferencesTabContent() {
           <input
             type="radio"
             checked={preferences?.frequencyDaily || false}
+            onChange={() =>
+              handleRadioChange({
+                frequencyInstant: false,
+                frequencyDaily: true,
+              })
+            }
             className="radio radio-md ml-4 border-primary"
             name="frequency"
           />
@@ -170,6 +221,7 @@ export function PreferencesTabContent() {
         <select
           className="select select-bordered w-full max-w-xs dark:bg-card"
           value={preferences?.fontSize || "medium"}
+          onChange={(e) => handleSelectChange("fontSize", e.target.value)}
         >
           <option value="normal">Normale</option>
           <option value="medium">Moyenne</option>
@@ -186,6 +238,7 @@ export function PreferencesTabContent() {
         <input
           type="checkbox"
           checked={preferences?.highContrast || false}
+          onChange={(e) => handleToggle("highContrast", e.target.checked)}
           className="toggle toggle-lg"
         />
       </div>
@@ -202,6 +255,13 @@ export function PreferencesTabContent() {
           <input
             type="radio"
             checked={preferences?.statusVisibilityEverybody || false}
+            onChange={() =>
+              handleRadioChange({
+                statusVisibilityEverybody: true,
+                statusVisibilityFriends: false,
+                statusVisibilityNoOne: false,
+              })
+            }
             className="radio radio-md ml-4 border-primary"
             name="visibility"
           />
@@ -216,6 +276,13 @@ export function PreferencesTabContent() {
           <input
             type="radio"
             checked={preferences?.statusVisibilityFriends || false}
+            onChange={() =>
+              handleRadioChange({
+                statusVisibilityEverybody: false,
+                statusVisibilityFriends: true,
+                statusVisibilityNoOne: false,
+              })
+            }
             className="radio radio-md ml-4 border-primary"
             name="visibility"
           />
@@ -229,6 +296,13 @@ export function PreferencesTabContent() {
           <input
             type="radio"
             checked={preferences?.statusVisibilityNoOne || false}
+            onChange={() =>
+              handleRadioChange({
+                statusVisibilityEverybody: false,
+                statusVisibilityFriends: false,
+                statusVisibilityNoOne: true,
+              })
+            }
             className="radio radio-md ml-4 border-primary"
             name="visibility"
           />
@@ -246,6 +320,13 @@ export function PreferencesTabContent() {
           <input
             type="radio"
             checked={preferences?.messagesFromEverybody || false}
+            onChange={() =>
+              handleRadioChange({
+                messagesFromEverybody: true,
+                messagesFromFriends: false,
+                messagesFromNoOne: false,
+              })
+            }
             className="radio radio-md ml-4 border-primary"
             name="messages"
           />
@@ -260,6 +341,13 @@ export function PreferencesTabContent() {
           <input
             type="radio"
             checked={preferences?.messagesFromFriends || false}
+            onChange={() =>
+              handleRadioChange({
+                messagesFromEverybody: false,
+                messagesFromFriends: true,
+                messagesFromNoOne: false,
+              })
+            }
             className="radio radio-md ml-4 border-primary"
             name="messages"
           />
@@ -273,6 +361,13 @@ export function PreferencesTabContent() {
           <input
             type="radio"
             checked={preferences?.messagesFromNoOne || false}
+            onChange={() =>
+              handleRadioChange({
+                messagesFromEverybody: false,
+                messagesFromFriends: false,
+                messagesFromNoOne: true,
+              })
+            }
             className="radio radio-md ml-4 border-primary"
             name="messages"
           />
@@ -294,6 +389,7 @@ export function PreferencesTabContent() {
         <input
           type="checkbox"
           checked={preferences?.dataSharing || false}
+          onChange={(e) => handleToggle("dataSharing", e.target.checked)}
           className="toggle toggle-lg"
         />
       </div>
