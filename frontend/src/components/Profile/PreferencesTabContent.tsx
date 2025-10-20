@@ -4,10 +4,11 @@ import { Card } from "@/components";
 import { getUserPreferencesByUserId } from "@/services/userPreferences.service";
 import { useAuthStore } from "@/stores";
 import { useQuery } from "@tanstack/react-query";
-import { Navigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 
 export function PreferencesTabContent() {
-  const { user, isAuthenticated } = useAuthStore();
+  const { user, isAuthenticated, logout } = useAuthStore();
+  const navigate = useNavigate();
 
   const {
     data: preferences,
@@ -306,10 +307,12 @@ export function PreferencesTabContent() {
         <span className="text-lg font-light">Modifier le mot de passe</span>
         <Icon path={mdiChevronRight} size={1.2} className="text-slate-400" />
       </div>
-      <div className="btn btn-ghost pt-6 pb-6 dark:hover:bg-slate-800 flex justify-between ml-4 mr-4 mt-[-12px] mb-4">
-        <span className="text-lg font-light text-red-600">Déconnexion</span>
-        <Icon path={mdiChevronRight} size={1.2} className="text-slate-400" />
-      </div>
+      <Link to="/login" onClick={() => logout(navigate)}>
+        <div className="btn btn-ghost pt-6 pb-6 dark:hover:bg-slate-800 flex justify-between ml-4 mr-4 mt-[-12px] mb-4">
+          <span className="text-lg font-light text-red-600">Déconnexion</span>
+          <Icon path={mdiChevronRight} size={1.2} className="text-slate-400" />
+        </div>
+      </Link>
     </Card>
   );
 }

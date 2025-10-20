@@ -162,7 +162,7 @@ export function Navbar() {
                         src={
                           useAuthStore.getState().user?.avatarUrl ||
                           `/images/${
-                            useAuthStore.getState().user?.avatar ||
+                            useAuthStore.getState().user?.avatarUrl ||
                             "default-avatar.svg"
                           }`
                         }
