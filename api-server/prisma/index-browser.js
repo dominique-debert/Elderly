@@ -647,7 +647,7 @@ exports.Prisma.UserPreferencesScalarFieldEnum = {
   messagesFromEverybody: 'messagesFromEverybody',
   messagesFromFriends: 'messagesFromFriends',
   messagesFromNoOne: 'messagesFromNoOne',
-  datasharing: 'datasharing',
+  dataSharing: 'dataSharing',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

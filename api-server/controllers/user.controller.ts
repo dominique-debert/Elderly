@@ -6,16 +6,26 @@ import { IUser } from "@/types";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
 
 const prisma = new PrismaClient();
+
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configure multer for avatar uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, "../../public/images/avatars");
+    const uploadPath = path.join(__dirname, "../public/images/avatars");
+    //                                        ^ Changed from ../../ to ../
+
+    console.log("Upload path:", uploadPath);
+    console.log("__dirname:", __dirname);
 
     // Create directory if it doesn't exist
     if (!fs.existsSync(uploadPath)) {
+      console.log("Creating directory:", uploadPath);
       fs.mkdirSync(uploadPath, { recursive: true });
     }
 
@@ -24,7 +34,11 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     const ext = path.extname(file.originalname);
-    cb(null, `${req.params.id}-${uniqueSuffix}${ext}`);
+    const filename = `${req.params.id}-${uniqueSuffix}${ext}`;
+
+    console.log("Generated filename:", filename);
+
+    cb(null, filename);
   },
 });
 
@@ -181,11 +195,18 @@ export const uploadAvatar = async (
       throw createHttpError(400, "Aucun fichier uploadé");
     }
 
+    // Check if file was actually written
+    const uploadedFilePath = req.file.path;
+
+    if (fs.existsSync(uploadedFilePath)) {
+      const stats = fs.statSync(uploadedFilePath);
+    }
+
     // Delete old avatar if exists
     if (user.avatar) {
       const oldAvatarPath = path.join(
         __dirname,
-        "../../public/images/avatars",
+        "../public/images/avatars",
         user.avatar
       );
       if (fs.existsSync(oldAvatarPath)) {
@@ -205,6 +226,9 @@ export const uploadAvatar = async (
 
     const serverBase = process.env.SERVER_BASE_URL || "http://localhost:3000";
     const avatarUrl = `${serverBase}/public/images/avatars/${avatarFilename}`;
+
+    console.log("Avatar URL:", avatarUrl);
+    console.log("=== END UPLOAD DEBUG ===");
 
     const { passwordHash, ...userWithoutPassword } = updatedUser;
 

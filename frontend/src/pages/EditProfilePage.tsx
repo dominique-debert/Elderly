@@ -26,13 +26,9 @@ export function EditProfilePage() {
     address: user?.address || "",
     description: user?.description || "",
     phone: user?.phone || "",
-    latitude: user?.latitude || "",
-    longitude: user?.longitude || "",
-    emergency_contact_name: user?.emergency_contact_name || "",
-    emergency_contact_phone: user?.emergency_contact_phone || "",
   });
 
-  const [avatarFile, setAvatarFile] = useState<File | null>(null);
+  const [, setAvatarFile] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState<string>(
     user?.avatarUrl || ""
   );
@@ -94,6 +90,7 @@ export function EditProfilePage() {
         confirmPassword: "",
       });
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError: (error: any) => {
       const errorMessage =
         error?.response?.data?.message ||
@@ -178,11 +175,12 @@ export function EditProfilePage() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6">
-      <Card className="p-6">
-        <CardHeader>
-          <h1 className="text-3xl font-bold mb-6">Modifier mon profil</h1>
-        </CardHeader>
+    <div className="w-full p-6 my-16">
+      <Card className="p-6 mb-6">
+        <h1 className="text-xl font-bold mt-4" style={{ lineHeight: 0 }}>
+          Modifier mon profil
+        </h1>
+        <div className="divider expert-blue p-0 m-0"></div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Avatar Section */}
@@ -196,11 +194,11 @@ export function EditProfilePage() {
               <img
                 src={avatarPreview || "/default-avatar.png"}
                 alt="Avatar"
-                className="w-32 h-32 rounded-full border-4 border-slate-600 object-cover"
+                className="w-50 h-50 rounded-full border-4 border-slate-600 object-cover"
               />
               <label
                 htmlFor="avatar-upload"
-                className="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full cursor-pointer hover:bg-primary-focus"
+                className="absolute bottom-3 right-3 bg-primary text-white p-2 rounded-full cursor-pointer hover:bg-primary-focus"
               >
                 <Icon path={mdiCamera} size={1} />
               </label>
@@ -221,10 +219,10 @@ export function EditProfilePage() {
           </div>
 
           {/* Personal Information */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Prénom</span>
+              <label className="block text-sm font-medium text-slate-400 mb-2">
+                Prénom
               </label>
               <input
                 type="text"
@@ -237,8 +235,8 @@ export function EditProfilePage() {
             </div>
 
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Nom</span>
+              <label className="block text-sm font-medium text-slate-400 mb-2">
+                Nom
               </label>
               <input
                 type="text"
@@ -251,8 +249,8 @@ export function EditProfilePage() {
             </div>
 
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Date de naissance</span>
+              <label className="block text-sm font-medium text-slate-400 mb-2">
+                Date de naissance
               </label>
               <input
                 type="date"
@@ -265,8 +263,8 @@ export function EditProfilePage() {
             </div>
 
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Profession</span>
+              <label className="block text-sm font-medium text-slate-400 mb-2">
+                Profession
               </label>
               <input
                 type="text"
@@ -278,8 +276,8 @@ export function EditProfilePage() {
             </div>
 
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Téléphone</span>
+              <label className="block text-sm font-medium text-slate-400 mb-2">
+                Téléphone
               </label>
               <input
                 type="tel"
@@ -293,8 +291,8 @@ export function EditProfilePage() {
 
           {/* Address */}
           <div className="form-control">
-            <label className="label">
-              <span className="label-text">Adresse</span>
+            <label className="block text-sm font-medium text-slate-400 mb-2">
+              Adresse
             </label>
             <input
               type="text"
@@ -305,69 +303,36 @@ export function EditProfilePage() {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Ville</span>
-              </label>
-              <input
-                type="text"
-                name="city"
-                value={formData.city}
-                onChange={handleInputChange}
-                className="input input-bordered"
-              />
-            </div>
-
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Code postal</span>
-              </label>
-              <input
-                type="text"
-                name="postalCode"
-                value={formData.postalCode}
-                onChange={handleInputChange}
-                className="input input-bordered"
-              />
-            </div>
+          <div className="form-control">
+            <label className="block text-sm font-medium text-slate-400 mb-2">
+              Ville
+            </label>
+            <input
+              type="text"
+              name="city"
+              value={formData.city}
+              onChange={handleInputChange}
+              className="input input-bordered"
+            />
           </div>
 
-          {/* GPS Coordinates */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Latitude</span>
-              </label>
-              <input
-                type="text"
-                name="latitude"
-                value={formData.latitude}
-                onChange={handleInputChange}
-                className="input input-bordered"
-                placeholder="Ex: 48.8566"
-              />
-            </div>
-
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Longitude</span>
-              </label>
-              <input
-                type="text"
-                name="longitude"
-                value={formData.longitude}
-                onChange={handleInputChange}
-                className="input input-bordered"
-                placeholder="Ex: 2.3522"
-              />
-            </div>
+          <div className="form-control">
+            <label className="block text-sm font-medium text-slate-400 mb-2">
+              Code postal
+            </label>
+            <input
+              type="text"
+              name="postalCode"
+              value={formData.postalCode}
+              onChange={handleInputChange}
+              className="input input-bordered"
+            />
           </div>
 
           {/* Description */}
           <div className="form-control">
-            <label className="label">
-              <span className="label-text">Description</span>
+            <label className="block text-sm font-medium text-slate-400 mb-2">
+              Description
             </label>
             <textarea
               name="description"
@@ -377,61 +342,30 @@ export function EditProfilePage() {
               placeholder="Parlez-nous de vous..."
             />
           </div>
-
-          {/* Emergency Contact */}
-          <div className="divider">Contact d'urgence</div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Nom du contact</span>
-              </label>
-              <input
-                type="text"
-                name="emergency_contact_name"
-                value={formData.emergency_contact_name}
-                onChange={handleInputChange}
-                className="input input-bordered"
-              />
-            </div>
-
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Téléphone du contact</span>
-              </label>
-              <input
-                type="tel"
-                name="emergency_contact_phone"
-                value={formData.emergency_contact_phone}
-                onChange={handleInputChange}
-                className="input input-bordered"
-              />
-            </div>
-          </div>
+          <div className="divider expert-blue p-0 m-0"></div>
 
           {/* Action Buttons */}
-          <div className="flex gap-4 justify-end mt-6">
+          <div className="flex gap-4 justify-end mt-3">
             <button
               type="button"
               onClick={() => setShowPasswordModal(true)}
-              className="btn btn-outline"
+              className="btn btn-outline btn-sm"
             >
               Changer le mot de passe
             </button>
             <button
-              type="button"
-              onClick={() => navigate(-1)}
-              className="btn btn-ghost"
-            >
-              Annuler
-            </button>
-            <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary btn-sm"
               disabled={updateMutation.isPending}
             >
-              <Icon path={mdiContentSave} size={1} />
               {updateMutation.isPending ? "Enregistrement..." : "Enregistrer"}
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="btn btn-ghost btn-sm hover:bg-red-800"
+            >
+              Annuler
             </button>
           </div>
         </form>

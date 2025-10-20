@@ -16,6 +16,7 @@ export interface IUser {
   longitude: string;
   phone: string;
   avatarUrl: string;
+  avatar: string;
   registrationDate: Date;
   accountVerified: boolean;
   interfacePreferences: string;
