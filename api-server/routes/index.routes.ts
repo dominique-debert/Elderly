@@ -46,6 +46,7 @@ import weatherRouter from "./weather.routes";
 import wellnessGoalRouter from "./wellnessGoal.routes";
 import moodRouter from "./mood.routes";
 import uploadsRoutes from "./uploads.routes";
+import userPreferenceRouter from "./userPreferences.routes";
 
 // Import all categories routers
 import categoryRouter from "./category.meta.routes";
@@ -99,6 +100,7 @@ router.use("/user-badges", userBadgeRouter);
 router.use("/user-devices", userDeviceRouter);
 router.use("/user-skills", userSkillRouter);
 router.use("/user-statistics", userStatisticsRouter);
+router.use("/user-preferences", userPreferenceRouter);
 router.use("/video-calls", videoCallRouter);
 router.use("/weather", weatherRouter);
 router.use("/wellness-goals", wellnessGoalRouter);

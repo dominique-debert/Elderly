@@ -3,14 +3,14 @@ import type { IUserPreferences, EValence } from "@/types";
 
 export const getUserPreferencesByUserId = async (
   userId: string
-): Promise<IUserPreferences[]> => {
+): Promise<IUserPreferences> => {
   const accessToken = localStorage.getItem("accessToken");
   const { data } = await api.get(`/user-preferences/${userId}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  return data.userPreferences;
+  return data;
 };
 
 export const createUserPreferences = async (

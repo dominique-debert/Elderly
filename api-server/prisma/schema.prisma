@@ -716,9 +716,9 @@ model userDevice {
 model userPreferences {
   id                        String    @id @default(cuid())
   userId                    String    @map("user_id")
-  notificationMessages      Boolean?  @default(true)
-  notificationForum         Boolean?  @default(true)
-  notificationActivities    Boolean?  @default(true)
+  notificationMessages      Boolean?  @default(true) @map("notification_messages")
+  notificationForum         Boolean?  @default(true) @map("notification_forum")
+  notificationActivities    Boolean?  @default(true) @map("notification_activities")
   emailUpdates              Boolean?  @default(true) @map("email_updates")
   smsUpdates                Boolean?  @default(false) @map("sms_updates")
   frequencyInstant          Boolean   @default(true) @map("frequency_instant")
