@@ -180,20 +180,12 @@ export { Search } from "./ui/Search.tsx";
 // Weather Components
 export * from "./Dashboard/DashboardWeatherWidget.tsx";
 
-// Wellness Components
-// export * from "./Wellness/WellnessCard";
-// export * from "./Wellness/WellnessCardView";
-// export * from "./Wellness/WellnessList";
-// export * from "./Wellness/WellnessListItem";
-// export * from "./Wellness/WellnessListView";
-// export * from "./Wellness/WellnessTableRow";
-// export * from "./Wellness/WellnessTableView";
-
+// Profile Components
 export * from "./Profile/ProfileTabs";
 export * from "./Profile/PublicationTabContent";
 export * from "./Profile/ProfileHeader";
-export * from "./Profile/ConnexionTabContent";
-export * from "./Profile/PhotoTabContent";
+export * from "./Profile/ConnexionsTabContent";
+export * from "./Profile/PhotosTabContent";
 export * from "./Profile/InterestsTabContent";
 export * from "./Profile/SkillsTabContent";
 export * from "./Profile/PreferencesTabContent";
