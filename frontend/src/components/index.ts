@@ -1,6 +1,7 @@
 // UI Components
 export * from "./ui/Button.tsx";
 export * from "./ui/Card.tsx";
+export * from "./ui/ContactCard.tsx";
 export * from "./ui/Input.tsx";
 export * from "./ui/Separator.tsx";
 export * from "./ui/Sheet.tsx";

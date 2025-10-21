@@ -6,5 +6,4 @@ export * from "./NotFoundPage";
 export * from "./ProfilePage";
 export * from "./SignupPage";
 export * from "./WellnessPage";
-export * from "./EditProfilePage";
 export * from "./ProfilePage";

@@ -75,7 +75,7 @@ export function PreferencesTabContent() {
       <span className="text-xl mt-6 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         Notifications
       </span>
-      <div className="border-slate-800 mt-0 pt-0 border-1 mb-0"></div>
+      <div className="border-slate-800 mt-0 pt-0 border mb-0"></div>
       <div className="flex gap-auto justify-between items-center mr-4 mb-4">
         <div className="flex flex-col gap-3 ml-4 mr-4 mb-0">
           <span className="text-base">Nouveaux messages</span>
