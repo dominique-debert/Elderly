@@ -39,6 +39,7 @@ export * from "./urbanIssueReport.validator";
 export * from "./user.validator";
 export * from "./userActivity.validator";
 export * from "./userBadge.validator";
+export * from "./userContact.validator";
 export * from "./userDevice.validator";
 export * from "./userPreferences.validator";
 export * from "./userSkill.validator";

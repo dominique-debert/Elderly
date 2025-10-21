@@ -76,6 +76,7 @@ export * from "./data/users/IUserBadge";
 export * from "./data/users/IUserDevice";
 export * from "./data/users/IUserSkill";
 export * from "./data/users/IUserStatistics";
+export * from "./data/users/IUserContact";
 
 // User Preferences
 export * from "./data/users/IUserPreferences";

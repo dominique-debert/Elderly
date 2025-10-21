@@ -21,7 +21,7 @@ export function ContactCard({
   blocked,
 }: ContactCardProps) {
   return (
-    <div className="card bg-card pt-0 pb-8">
+    <div className="dark:bg-card pt-0 pb-8">
       <div className="flex items-center gap-5 ml-8 mr-4">
         {/* Avatar */}
         <img
@@ -32,12 +32,15 @@ export function ContactCard({
 
         {/* User Info */}
         <div className="flex-1">
-          <h3 className="card-title text-base font-normal text-slate-300">
+          <h3 className="text-base font-normal text-slate-300">
             {user.firstName} {user.lastName}
           </h3>
           {user.email && (
             <div className="flex items-center text-xs font-light text-slate-400 mt-2">
-              <a href={`mailto:${user.email}`} className="">
+              <a
+                href={`mailto:${user.email}`}
+                className="hover:underline hover:text-primary"
+              >
                 {user.email}
               </a>
             </div>

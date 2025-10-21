@@ -698,6 +698,17 @@ model userBadge {
   @@map("user_badge")
 }
 
+model userContacts {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  contactId String    @map("contact_id")
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
+  user      user?      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("user_contacts")
+}
+
 model userDevice {
   id                String    @id @default(cuid())
   userId            String    @map("user_id")
@@ -788,17 +799,6 @@ model userStatistics {
   user                   user      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("user_statistics")
-}
-
-model userContacts {
-  id        String    @id @default(cuid())
-  userId    String    @map("user_id")
-  contactId String    @map("contact_id")
-  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
-  user      user      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-
-  @@map("user_contacts")
 }
 
 model videoCall {

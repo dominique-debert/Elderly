@@ -42,6 +42,7 @@ export * from "./urbanIssueReport.controller";
 export * from "./user.controller";
 export * from "./userActivity.controller";
 export * from "./userBadge.controller";
+export * from "./userContacts.controller";
 export * from "./userDevice.controller";
 export * from "./userPreferences.controller";
 export * from "./userSkill.controller";
