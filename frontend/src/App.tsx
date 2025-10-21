@@ -8,7 +8,6 @@ import {
   LandingPage,
   LoginPage,
   ProfilePage,
-  EditProfilePage,
   SignupPage,
   WellnessPage,
 } from "@/pages";
@@ -35,7 +34,6 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/edit-profile" element={<EditProfilePage />} />
         </Route>
       </Routes>
     </AuthProvider>

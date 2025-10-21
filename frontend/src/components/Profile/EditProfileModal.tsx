@@ -1,17 +1,19 @@
+import Icon from "@mdi/react";
+import { mdiCamera, mdiClose } from "@mdi/js";
 import { useState } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { updateUser, uploadAvatar, changePassword } from "@/services";
-import { Card, CardHeader } from "@/components";
 import type { IUser } from "@/types";
-import Icon from "@mdi/react";
-import { mdiCamera, mdiContentSave } from "@mdi/js";
 import toast from "react-hot-toast";
 
-export function EditProfilePage() {
-  const { user, isAuthenticated } = useAuthStore();
-  const navigate = useNavigate();
+interface EditProfileModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
+  const { user } = useAuthStore();
   const queryClient = useQueryClient();
 
   const [formData, setFormData] = useState({
@@ -32,7 +34,6 @@ export function EditProfilePage() {
   const [avatarPreview, setAvatarPreview] = useState<string>(
     user?.avatarUrl || ""
   );
-  const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
     newPassword: "",
@@ -43,10 +44,10 @@ export function EditProfilePage() {
     mutationFn: (updatedUser: Partial<IUser>) =>
       updateUser(user?.id || "", updatedUser),
     onSuccess: (data: Partial<IUser>) => {
-      // Update Zustand store with new user data
       useAuthStore.setState({ user: { ...user!, ...data } });
       queryClient.invalidateQueries({ queryKey: ["user", user?.id] });
       toast.success("Profil mis à jour avec succès!");
+      onClose();
     },
     onError: (error) => {
       toast.error("Erreur lors de la mise à jour du profil");
@@ -83,14 +84,12 @@ export function EditProfilePage() {
     }) => changePassword(user?.id || "", currentPassword, newPassword),
     onSuccess: () => {
       toast.success("Mot de passe changé avec succès!");
-      setShowPasswordModal(false);
       setPasswordData({
         currentPassword: "",
         newPassword: "",
         confirmPassword: "",
       });
     },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError: (error: any) => {
       const errorMessage =
         error?.response?.data?.message ||
@@ -110,13 +109,11 @@ export function EditProfilePage() {
   const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      // Validate file size (5MB max)
       if (file.size > 5 * 1024 * 1024) {
         toast.error("L'image ne doit pas dépasser 5MB");
         return;
       }
 
-      // Validate file type
       if (!file.type.startsWith("image/")) {
         toast.error("Seules les images sont acceptées");
         return;
@@ -129,7 +126,6 @@ export function EditProfilePage() {
       };
       reader.readAsDataURL(file);
 
-      // Upload immediately
       avatarMutation.mutate(file);
     }
   };
@@ -137,7 +133,6 @@ export function EditProfilePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Convert birthDate (string from input) to Date before sending to API
     const { birthDate, ...rest } = formData;
     const payload = {
       ...rest,
@@ -166,23 +161,20 @@ export function EditProfilePage() {
     });
   };
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
-  }
-
-  if (!user) {
-    return <div>Chargement...</div>;
-  }
+  if (!isOpen) return null;
 
   return (
-    <div className="w-full p-6 my-16">
-      <Card className="p-6 mb-6">
-        <h1 className="text-xl font-bold mt-4" style={{ lineHeight: 0 }}>
-          Modifier mon profil
-        </h1>
+    <div className="modal modal-open">
+      <div className="modal-box max-w-2xl overflow-y-auto">
+        <div className="flex items-center justify-between">
+          <h1 className="text-xl font-bold m-0 p-0">Modifier mon profil</h1>
+          <button onClick={onClose} className="btn btn-ghost btn-sm btn-circle">
+            <Icon path={mdiClose} size={1} />
+          </button>
+        </div>
         <div className="divider expert-blue p-0 m-0"></div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
           {/* Avatar Section */}
           <div className="flex flex-col items-center mb-8">
             <div className="relative">
@@ -194,13 +186,13 @@ export function EditProfilePage() {
               <img
                 src={avatarPreview || "/default-avatar.png"}
                 alt="Avatar"
-                className="w-50 h-50 rounded-full border-4 border-slate-600 object-cover"
+                className="w-32 h-32 rounded-full border-4 border-slate-600 object-cover"
               />
               <label
                 htmlFor="avatar-upload"
-                className="absolute bottom-3 right-3 bg-primary text-white p-2 rounded-full cursor-pointer hover:bg-primary-focus"
+                className="absolute bottom-1 right-1 bg-primary text-white p-2 rounded-full cursor-pointer hover:bg-primary-focus"
               >
-                <Icon path={mdiCamera} size={1} />
+                <Icon path={mdiCamera} size={0.8} />
               </label>
               <input
                 id="avatar-upload"
@@ -219,7 +211,7 @@ export function EditProfilePage() {
           </div>
 
           {/* Personal Information */}
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="form-control">
               <label className="block text-sm font-medium text-slate-400 mb-2">
                 Prénom
@@ -229,7 +221,7 @@ export function EditProfilePage() {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className="input input-bordered"
+                className="input input-bordered dark:bg-card w-full"
                 required
               />
             </div>
@@ -243,7 +235,7 @@ export function EditProfilePage() {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                className="input input-bordered"
+                className="input input-bordered dark:bg-card w-full"
                 required
               />
             </div>
@@ -257,7 +249,7 @@ export function EditProfilePage() {
                 name="birthDate"
                 value={formData.birthDate}
                 onChange={handleInputChange}
-                className="input input-bordered"
+                className="input input-bordered dark:bg-card w-full"
                 required
               />
             </div>
@@ -271,11 +263,11 @@ export function EditProfilePage() {
                 name="profession"
                 value={formData.profession}
                 onChange={handleInputChange}
-                className="input input-bordered"
+                className="input input-bordered dark:bg-card w-full"
               />
             </div>
 
-            <div className="form-control">
+            <div className="form-control md:col-span-2">
               <label className="block text-sm font-medium text-slate-400 mb-2">
                 Téléphone
               </label>
@@ -284,7 +276,7 @@ export function EditProfilePage() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="input input-bordered"
+                className="input input-bordered dark:bg-card w-full"
               />
             </div>
           </div>
@@ -299,34 +291,36 @@ export function EditProfilePage() {
               name="address"
               value={formData.address}
               onChange={handleInputChange}
-              className="input input-bordered"
+              className="input input-bordered dark:bg-card w-full"
             />
           </div>
 
-          <div className="form-control">
-            <label className="block text-sm font-medium text-slate-400 mb-2">
-              Ville
-            </label>
-            <input
-              type="text"
-              name="city"
-              value={formData.city}
-              onChange={handleInputChange}
-              className="input input-bordered"
-            />
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="form-control">
+              <label className="block text-sm font-medium text-slate-400 mb-2">
+                Ville
+              </label>
+              <input
+                type="text"
+                name="city"
+                value={formData.city}
+                onChange={handleInputChange}
+                className="input input-bordered dark:bg-card w-full"
+              />
+            </div>
 
-          <div className="form-control">
-            <label className="block text-sm font-medium text-slate-400 mb-2">
-              Code postal
-            </label>
-            <input
-              type="text"
-              name="postalCode"
-              value={formData.postalCode}
-              onChange={handleInputChange}
-              className="input input-bordered"
-            />
+            <div className="form-control">
+              <label className="block text-sm font-medium text-slate-400 mb-2">
+                Code postal
+              </label>
+              <input
+                type="text"
+                name="postalCode"
+                value={formData.postalCode}
+                onChange={handleInputChange}
+                className="input input-bordered dark:bg-card w-full"
+              />
+            </div>
           </div>
 
           {/* Description */}
@@ -338,66 +332,40 @@ export function EditProfilePage() {
               name="description"
               value={formData.description}
               onChange={handleInputChange}
-              className="textarea textarea-bordered h-24"
+              className="textarea textarea-bordered h-24 dark:bg-card w-full"
               placeholder="Parlez-nous de vous..."
             />
           </div>
-          <div className="divider expert-blue p-0 m-0"></div>
 
-          {/* Action Buttons */}
-          <div className="flex gap-4 justify-end mt-3">
-            <button
-              type="button"
-              onClick={() => setShowPasswordModal(true)}
-              className="btn btn-outline btn-sm"
-            >
+          {/* Password Change Section */}
+          <div className="space-y-4 mt-6">
+            <h2 className="text-lg font-semibold text-slate-200 p-0 m-0">
               Changer le mot de passe
-            </button>
-            <button
-              type="submit"
-              className="btn btn-primary btn-sm"
-              disabled={updateMutation.isPending}
-            >
-              {updateMutation.isPending ? "Enregistrement..." : "Enregistrer"}
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate(-1)}
-              className="btn btn-ghost btn-sm hover:bg-red-800"
-            >
-              Annuler
-            </button>
-          </div>
-        </form>
-      </Card>
+            </h2>
+            <div className="divider expert-blue p-0 m-0"></div>
 
-      {/* Password Change Modal */}
-      {showPasswordModal && (
-        <div className="modal modal-open">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg mb-4">Changer le mot de passe</h3>
-            <form onSubmit={handlePasswordChange} className="space-y-4">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Mot de passe actuel</span>
-                </label>
-                <input
-                  type="password"
-                  value={passwordData.currentPassword}
-                  onChange={(e) =>
-                    setPasswordData((prev) => ({
-                      ...prev,
-                      currentPassword: e.target.value,
-                    }))
-                  }
-                  className="input input-bordered"
-                  required
-                />
-              </div>
+            <div className="form-control mt-4">
+              <label className="block text-sm font-medium text-slate-400 mb-2">
+                Mot de passe actuel
+              </label>
+              <input
+                type="password"
+                value={passwordData.currentPassword}
+                onChange={(e) =>
+                  setPasswordData((prev) => ({
+                    ...prev,
+                    currentPassword: e.target.value,
+                  }))
+                }
+                className="input input-bordered dark:bg-card w-full"
+                placeholder="Entrez votre mot de passe actuel"
+              />
+            </div>
 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Nouveau mot de passe</span>
+                <label className="block text-sm font-medium text-slate-400 mb-2">
+                  Nouveau mot de passe
                 </label>
                 <input
                   type="password"
@@ -408,18 +376,15 @@ export function EditProfilePage() {
                       newPassword: e.target.value,
                     }))
                   }
-                  className="input input-bordered"
-                  required
+                  className="input input-bordered dark:bg-card w-full"
+                  placeholder="Minimum 8 caractères"
                   minLength={8}
                 />
-                <label className="label">
-                  <span className="label-text-alt">Minimum 8 caractères</span>
-                </label>
               </div>
 
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Confirmer le mot de passe</span>
+                <label className="block text-sm font-medium text-slate-400 mb-2">
+                  Confirmer le mot de passe
                 </label>
                 <input
                   type="password"
@@ -430,39 +395,55 @@ export function EditProfilePage() {
                       confirmPassword: e.target.value,
                     }))
                   }
-                  className="input input-bordered"
-                  required
+                  className="input input-bordered dark:bg-card w-full"
+                  placeholder="Confirmez le nouveau mot de passe"
                 />
               </div>
+            </div>
 
-              <div className="modal-action">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowPasswordModal(false);
-                    setPasswordData({
-                      currentPassword: "",
-                      newPassword: "",
-                      confirmPassword: "",
-                    });
-                  }}
-                  className="btn btn-ghost"
-                  disabled={passwordMutation.isPending}
-                >
-                  Annuler
-                </button>
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  disabled={passwordMutation.isPending}
-                >
-                  {passwordMutation.isPending ? "Changement..." : "Changer"}
-                </button>
-              </div>
-            </form>
+            {(passwordData.currentPassword ||
+              passwordData.newPassword ||
+              passwordData.confirmPassword) && (
+              <button
+                type="button"
+                onClick={handlePasswordChange}
+                className="btn btn-outline btn-sm"
+                disabled={
+                  passwordMutation.isPending ||
+                  !passwordData.currentPassword ||
+                  !passwordData.newPassword ||
+                  !passwordData.confirmPassword
+                }
+              >
+                {passwordMutation.isPending
+                  ? "Changement..."
+                  : "Changer le mot de passe"}
+              </button>
+            )}
           </div>
-        </div>
-      )}
+
+          <div className="divider expert-blue p-0 m-0"></div>
+
+          {/* Action Buttons */}
+          <div className="flex gap-4 justify-end mt-4">
+            <button
+              type="submit"
+              className="btn btn-primary btn-sm"
+              disabled={updateMutation.isPending}
+            >
+              {updateMutation.isPending ? "Enregistrement..." : "Enregistrer"}
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="btn btn-ghost hover:bg-red-600 btn-sm"
+            >
+              Annuler
+            </button>
+          </div>
+        </form>
+      </div>
+      <div className="modal-backdrop" onClick={onClose}></div>
     </div>
   );
 }
