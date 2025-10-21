@@ -39,6 +39,11 @@ export function ProfileHeader() {
               ? formatMonthYear(user?.registrationDate)
               : ""}
           </span>
+          {user?.isAdmin ? (
+            <span className="text-sm mt-2 text-red-500">Administrateur</span>
+          ) : (
+            ""
+          )}
           <button
             onClick={() => setIsEditModalOpen(true)}
             className="btn btn-primary h-9 mt-4 px-2 py-4 w-36"

@@ -1,43 +1,271 @@
 import { Card, ContactCard } from "@/components";
-import { useAuthStore } from "@/stores";
+import { IUser } from "@/types";
 
 export function ConnexionsTabContent() {
-  const { user } = useAuthStore();
+  // Mock data - 15 contacts
+  const mockContacts: IUser[] = [
+    // My Contacts (8)
+    {
+      id: "1",
+      firstName: "Jean",
+      lastName: "Dupont",
+      email: "jean.dupont@gmail.com",
+      avatarUrl: "../../../public/images/users/1.png",
+      profession: "Infirmière",
+      city: "Paris",
+      postalCode: "75001",
+      phone: "06 12 34 56 78",
+      description: "Passionnée par les soins et l'aide aux personnes âgées.",
+      latitude: "48.856614",
+      longitude: "2.352222",
+    } as IUser,
+    {
+      id: "2",
+      firstName: "Sophie",
+      lastName: "Fabre",
+      email: "sophie.fabre@gmail.com",
+      avatarUrl: "../../../public/images/users/2.png",
+      profession: "Retraité",
+      city: "Lyon",
+      postalCode: "69001",
+      phone: "06 23 45 67 89",
+      description: "Ancien professeur, j'aime partager mes connaissances.",
+      latitude: "45.764043",
+      longitude: "4.835659",
+    } as IUser,
+    {
+      id: "3",
+      firstName: "Emilien",
+      lastName: "Bernard",
+      email: "emilien.bernard@gmail.com",
+      avatarUrl: "../../../public/images/users/3.png",
+      profession: "Bénévole",
+      city: "Marseille",
+      postalCode: "13001",
+      phone: "06 34 56 78 90",
+      description: "Active dans plusieurs associations locales.",
+      latitude: "43.296482",
+      longitude: "5.36978",
+    } as IUser,
+    {
+      id: "4",
+      firstName: "Veronica",
+      lastName: "Dubois",
+      email: "veronica.dubois@gmail.com",
+      avatarUrl: "../../../public/images/users/4.png",
+      profession: "Médecin",
+      city: "Toulouse",
+      postalCode: "31000",
+      phone: "06 45 67 89 01",
+      description: "Médecin généraliste depuis 30 ans.",
+      latitude: "43.604652",
+      longitude: "1.444209",
+    } as IUser,
+    {
+      id: "5",
+      firstName: "Eric",
+      lastName: "Petit",
+      email: "eric.petit@gmail.com",
+      avatarUrl: "../../../public/images/users/5.png",
+      profession: "Aide-soignante",
+      city: "Nice",
+      postalCode: "06000",
+      phone: "06 56 78 90 12",
+      description: "Dévouée aux soins à domicile.",
+      latitude: "43.710173",
+      longitude: "7.261953",
+    } as IUser,
+    {
+      id: "6",
+      firstName: "Eva",
+      lastName: "Robert",
+      email: "eva.robert@gmail.com",
+      avatarUrl: "../../../public/images/users/6.png",
+      profession: "Retraité",
+      city: "Nantes",
+      postalCode: "44000",
+      phone: "06 67 89 01 23",
+      description: "Amateur de jardinage et bricolage.",
+      latitude: "47.218371",
+      longitude: "-1.553621",
+    } as IUser,
+    {
+      id: "7",
+      firstName: "Christine",
+      lastName: "Richard",
+      email: "christine.richard@gmail.com",
+      avatarUrl: "../../../public/images/users/7.png",
+      profession: "Psychologue",
+      city: "Strasbourg",
+      postalCode: "67000",
+      phone: "06 78 90 12 34",
+      description: "Spécialisée en gérontologie.",
+      latitude: "48.573405",
+      longitude: "7.752111",
+    } as IUser,
+    {
+      id: "8",
+      firstName: "Joseph",
+      lastName: "Simon",
+      email: "joseph.simon@gmail.com",
+      avatarUrl: "../../../public/images/users/8.png",
+      profession: "Kinésithérapeute",
+      city: "Bordeaux",
+      postalCode: "33000",
+      phone: "06 89 01 23 45",
+      description: "Spécialiste en rééducation.",
+      latitude: "44.837789",
+      longitude: "-0.57918",
+    } as IUser,
+    // Suggested Contacts (4)
+    {
+      id: "9",
+      firstName: "Thierry",
+      lastName: "Moreau",
+      email: "thierry.moreau@gmail.com",
+      avatarUrl: "../../../public/images/users/9.png",
+      profession: "Coach de vie",
+      city: "Lille",
+      postalCode: "59000",
+      phone: "06 90 12 34 56",
+      description: "Accompagnement vers le bien-être.",
+      latitude: "50.62925",
+      longitude: "3.057256",
+    } as IUser,
+    {
+      id: "10",
+      firstName: "Laurent",
+      lastName: "Leroy",
+      email: "laurent.leroy@gmail.com",
+      avatarUrl: "../../../public/images/users/10.png",
+      profession: "Animateur social",
+      city: "Rennes",
+      postalCode: "35000",
+      phone: "06 01 23 45 67",
+      description: "Organisation d'activités pour seniors.",
+      latitude: "48.117266",
+      longitude: "-1.677793",
+    } as IUser,
+    {
+      id: "11",
+      firstName: "Jacques",
+      lastName: "Girard",
+      email: "jacques.girard@gmail.com",
+      avatarUrl: "../../../public/images/users/11.png",
+      profession: "Nutritionniste",
+      city: "Montpellier",
+      postalCode: "34000",
+      phone: "06 12 34 56 78",
+      description: "Conseils en alimentation santé.",
+      latitude: "43.610769",
+      longitude: "3.876716",
+    } as IUser,
+    {
+      id: "12",
+      firstName: "Alain",
+      lastName: "Roux",
+      email: "alain.roux@gmail.com",
+      avatarUrl: "../../../public/images/users/12.png",
+      profession: "Coach sportif",
+      city: "Grenoble",
+      postalCode: "38000",
+      phone: "06 23 45 67 89",
+      description: "Activités physiques adaptées.",
+      latitude: "45.188529",
+      longitude: "5.724524",
+    } as IUser,
+    // Blocked Contacts (3)
+    {
+      id: "13",
+      firstName: "Mamadou",
+      lastName: "N'Guer",
+      email: "mamadou.nguer@gmail.com",
+      avatarUrl: "../../../public/images/users/13.png",
+      profession: "Commerçante",
+      city: "Dijon",
+      postalCode: "21000",
+      phone: "06 34 56 78 90",
+      description: "Comportement inapproprié.",
+      latitude: "47.322047",
+      longitude: "5.04148",
+    } as IUser,
+    {
+      id: "14",
+      firstName: "Josie",
+      lastName: "Gauthier",
+      email: "josie.gauthier@gmail.com",
+      avatarUrl: "../../../public/images/users/14.png",
+      profession: "Informaticien",
+      city: "Angers",
+      postalCode: "49000",
+      phone: "06 45 67 89 01",
+      description: "Spam répété.",
+      latitude: "47.478419",
+      longitude: "-0.563166",
+    } as IUser,
+    {
+      id: "15",
+      firstName: "Monique",
+      lastName: "Mercier",
+      email: "monique.mercier@gmail.com",
+      avatarUrl: "../../../public/images/users/15.png",
+      profession: "Retraitée",
+      city: "Tours",
+      postalCode: "37000",
+      phone: "06 56 78 90 12",
+      description: "Messages non sollicités.",
+      latitude: "47.394144",
+      longitude: "0.68484",
+    } as IUser,
+  ];
+
+  // Séparation des contacts par catégorie
+  const myContacts = mockContacts.slice(0, 8);
+  const suggestedContacts = mockContacts.slice(8, 12);
+  const blockedContacts = mockContacts.slice(12, 15);
 
   return (
     <div className="border-0 grid grid-flow-col grid-rows-2 gap-8 pt-2">
-      <Card className="row-span-2 w-full">
-        <span className="text-xl m-6 mb-0 mt-4" style={{ lineHeight: 0 }}>
+      {/* Mes contacts */}
+      <Card className="row-span-2 w-full overflow-y-auto gap-0 p-0">
+        <span className="flex items-center text-xl m-6 mb-0 mt-4">
           Mes contacts
+          <span className="badge text-xs font-light ml-4 rounded-full bg-blue-500 text-white h-6 w-4">
+            {myContacts.length}
+          </span>
         </span>
-        <div className="divider expert-blue m-4 mt-0 mb-0"></div>
-        {user && <ContactCard user={user} myContact={true} />}
-        {user && <ContactCard user={user} myContact={true} />}
-        {user && <ContactCard user={user} myContact={true} />}
-        {user && <ContactCard user={user} myContact={true} />}
-        {user && <ContactCard user={user} myContact={true} />}
-        {user && <ContactCard user={user} myContact={true} />}
-        {user && <ContactCard user={user} myContact={true} />}
-        {user && <ContactCard user={user} myContact={true} />}
+        <div className="divider expert-blue m-4 mt-1 mb-4"></div>
+        {myContacts.map((contact) => (
+          <ContactCard key={contact.id} user={contact} myContact={true} />
+        ))}
       </Card>
-      <Card className="">
-        <span className="text-xl m-6 mb-0" style={{ lineHeight: 0 }}>
+
+      {/* Contacts suggérés */}
+      <Card className="overflow-y-auto gap-0 p-0">
+        <span className="flex items-center text-xl m-6 mb-0 mt-4">
           Contacts suggérés
+          <span className="badge text-xs font-light ml-4 rounded-full bg-blue-500 text-white h-6 w-4">
+            {suggestedContacts.length}
+          </span>
         </span>
-        <div className="divider expert-blue m-4 mt-0 mb-0"></div>
-        {user && <ContactCard user={user} suggested={true} />}
-        {user && <ContactCard user={user} suggested={true} />}
-        {user && <ContactCard user={user} suggested={true} />}
-        {user && <ContactCard user={user} suggested={true} />}
+        <div className="divider expert-blue m-4 mt-1 mb-4"></div>
+        {suggestedContacts.map((contact) => (
+          <ContactCard key={contact.id} user={contact} suggested={true} />
+        ))}
       </Card>
-      <Card className="">
-        <span className="text-xl m-6 mb-0" style={{ lineHeight: 0 }}>
+
+      {/* Contacts bloqués */}
+      <Card className="overflow-y-auto gap-0 p-0">
+        <span className="flex items-center text-xl m-6 mb-0 mt-4">
           Contacts bloqués
+          <span className="badge text-xs font-light ml-4 rounded-full bg-blue-500 text-white h-6 w-4">
+            {blockedContacts.length}
+          </span>
         </span>
-        <div className="divider expert-blue m-4 mt-0 mb-0"></div>
-        {user && <ContactCard user={user} blocked={true} />}
-        {user && <ContactCard user={user} blocked={true} />}
-        {user && <ContactCard user={user} blocked={true} />}
+        <div className="divider expert-blue m-4 mt-1 mb-4"></div>
+        {blockedContacts.map((contact) => (
+          <ContactCard key={contact.id} user={contact} blocked={true} />
+        ))}
       </Card>
     </div>
   );

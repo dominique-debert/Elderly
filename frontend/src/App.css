@@ -134,6 +134,15 @@ layer(base);
   font-family: var(--font-display);
 }
 
+.user-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
 .btn-primary {
   background-color: var(--color-primary);
   color: white;

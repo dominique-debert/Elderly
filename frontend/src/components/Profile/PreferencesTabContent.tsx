@@ -71,7 +71,7 @@ export function PreferencesTabContent() {
   }
 
   return (
-    <Card className="border-0 p-[16px]">
+    <Card className="border-0 p-4">
       <span className="text-xl mt-6 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         Notifications
       </span>
