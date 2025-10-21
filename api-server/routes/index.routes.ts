@@ -53,7 +53,7 @@ import categoryRouter from "./category.meta.routes";
 
 const router = Router();
 
-// Public routes
+// Public routes (no authentication required)
 router.use("/auth", authRouter);
 router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
@@ -63,7 +63,7 @@ router.use(currentSession);
 
 router.use("/categories", categoryRouter);
 
-// Feature routes
+// Feature routes (all authenticated)
 router.use("/activities", activityRouter);
 router.use("/badges", badgeRouter);
 router.use("/cognitive-exercises", cognitiveExerciseRouter);
@@ -105,7 +105,7 @@ router.use("/video-calls", videoCallRouter);
 router.use("/weather", weatherRouter);
 router.use("/wellness-goals", wellnessGoalRouter);
 
-// Error handler (global)
+// Error handler (must be last)
 router.use(errorHandler);
 
 export default router;

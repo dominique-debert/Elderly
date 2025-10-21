@@ -227,9 +227,6 @@ export const uploadAvatar = async (
     const serverBase = process.env.SERVER_BASE_URL || "http://localhost:3000";
     const avatarUrl = `${serverBase}/public/images/avatars/${avatarFilename}`;
 
-    console.log("Avatar URL:", avatarUrl);
-    console.log("=== END UPLOAD DEBUG ===");
-
     const { passwordHash, ...userWithoutPassword } = updatedUser;
 
     res.status(200).json({
