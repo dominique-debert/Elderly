@@ -654,6 +654,8 @@ model user {
   urbanIssueReport        urbanIssueReport[]
   userActivity            userActivity[]
   userBadge               userBadge[]
+  userContacts            userContacts[]
+  userInterest            userInterest[]
   userDevice              userDevice[]
   userPreferences         userPreferences[]
   userSkill               userSkill[]
@@ -661,8 +663,6 @@ model user {
   videoCall               videoCall[]
   wellnessGoal            wellnessGoal[]
   session                 session[]
-
-  userInterest userInterest[]
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
@@ -788,6 +788,17 @@ model userStatistics {
   user                   user      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("user_statistics")
+}
+
+model userContacts {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  contactId String    @map("contact_id")
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
+  user      user      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("user_contacts")
 }
 
 model videoCall {

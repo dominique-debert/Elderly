@@ -156,6 +156,12 @@ export const signUp = async (
       isAdmin: user.isAdmin,
       latitude: user.latitude,
       longitude: user.longitude,
+      profession: user.profession,
+      city: user.city,
+      postalCode: user.postalCode,
+      address: user.address,
+      description: user.description,
+      phone: user.phone,
     });
   } catch (error) {
     next(error);
@@ -221,6 +227,7 @@ export const signIn = async (
       postalCode: user.postalCode,
       address: user.address,
       description: user.description,
+      phone: user.phone,
       isAdmin: user.isAdmin,
     });
   } catch (error) {

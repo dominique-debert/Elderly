@@ -1,6 +1,6 @@
 import Icon from "@mdi/react";
 import { mdiCamera, mdiClose } from "@mdi/js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthStore } from "@/stores";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { updateUser, uploadAvatar, changePassword } from "@/services";
@@ -16,6 +16,10 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
   const { user } = useAuthStore();
   const queryClient = useQueryClient();
 
+  // Add console log to check if user.phone exists when modal opens
+  console.log("User object:", user);
+  console.log("User phone:", user?.phone);
+
   const [formData, setFormData] = useState({
     firstName: user?.firstName || "",
     lastName: user?.lastName || "",
@@ -27,7 +31,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
     postalCode: user?.postalCode || "",
     address: user?.address || "",
     description: user?.description || "",
-    phone: user?.phone || "",
+    phone: user?.phone || "", // Make sure user.phone exists in IUser type
   });
 
   const [, setAvatarFile] = useState<File | null>(null);
@@ -136,8 +140,11 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
     const { birthDate, ...rest } = formData;
     const payload = {
       ...rest,
+      phone: formData.phone, // Explicitly include phone
       birthDate: birthDate ? new Date(birthDate) : undefined,
-    } as unknown as Partial<IUser>;
+    } as Partial<IUser>;
+
+    console.log("Submitting payload:", payload); // Debug log to verify phone is included
 
     updateMutation.mutate(payload);
   };
@@ -160,6 +167,26 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
       newPassword: passwordData.newPassword,
     });
   };
+
+  // Add useEffect to update form when user changes or modal opens
+  useEffect(() => {
+    if (isOpen && user) {
+      setFormData({
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        birthDate: user.birthDate
+          ? new Date(user.birthDate).toISOString().split("T")[0]
+          : "",
+        profession: user.profession || "",
+        city: user.city || "",
+        postalCode: user.postalCode || "",
+        address: user.address || "",
+        description: user.description || "",
+        phone: user.phone || "",
+      });
+      setAvatarPreview(user.avatarUrl || "");
+    }
+  }, [isOpen, user]);
 
   if (!isOpen) return null;
 

@@ -690,6 +690,14 @@ exports.Prisma.UserStatisticsScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.UserContactsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  contactId: 'contactId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.VideoCallScalarFieldEnum = {
   id: 'id',
   conversationId: 'conversationId',
@@ -840,6 +848,7 @@ exports.Prisma.ModelName = {
   interest: 'interest',
   userSkill: 'userSkill',
   userStatistics: 'userStatistics',
+  userContacts: 'userContacts',
   videoCall: 'videoCall',
   wellnessBadge: 'wellnessBadge',
   wellnessGoal: 'wellnessGoal',
