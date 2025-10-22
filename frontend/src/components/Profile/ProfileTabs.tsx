@@ -6,7 +6,7 @@ import { SkillsTabContent } from "@/components";
 import { PreferencesTabContent } from "@/components";
 
 export const ProfileTabs = () => (
-  <div className="tabs mt-[36px] mb-[24px]">
+  <div className="tabs mt-9 mb-6">
     <input
       type="radio"
       name="profile-tabs"
@@ -14,7 +14,7 @@ export const ProfileTabs = () => (
       aria-label="Publications"
       defaultChecked
     />
-    <div className="tab-content border-0 border-t border-slate-700 pt-[24px]">
+    <div className="tab-content border-0 rounded-none border-t border-slate-700 pt-6">
       <PublicationTabContent />
     </div>
 
@@ -24,7 +24,7 @@ export const ProfileTabs = () => (
       className="tab checked:border-b-3 border-primary"
       aria-label="Connexions"
     />
-    <div className="tab-content border-0 border-t border-slate-700 pt-[24px]">
+    <div className="tab-content border-0 rounded-none border-t border-slate-700 pt-6">
       <ConnexionsTabContent />
     </div>
 
@@ -34,7 +34,7 @@ export const ProfileTabs = () => (
       className="tab checked:border-b-3 border-primary"
       aria-label="Photos"
     />
-    <div className="tab-content border-0 border-t border-slate-700 pt-[24px]">
+    <div className="tab-content border-0 rounded-none border-t border-slate-700 pt-6">
       <PhotoTabContent />
     </div>
 
@@ -44,7 +44,7 @@ export const ProfileTabs = () => (
       className="tab checked:border-b-3 border-primary"
       aria-label="Centres d'intérêt"
     />
-    <div className="tab-content border-0 border-t border-slate-700 pt-[24px]">
+    <div className="tab-content border-0 rounded-none border-t border-slate-700 pt-6">
       <InterestsTabContent />
     </div>
 
@@ -54,7 +54,7 @@ export const ProfileTabs = () => (
       className="tab checked:border-b-3 border-primary"
       aria-label="Compétences"
     />
-    <div className="tab-content border-0 border-t border-slate-700 pt-[24px]">
+    <div className="tab-content border-0 rounded-none border-t border-slate-700 pt-6">
       <SkillsTabContent />
     </div>
 
@@ -64,7 +64,7 @@ export const ProfileTabs = () => (
       className="tab checked:border-b-3 border-primary"
       aria-label="Préférences"
     />
-    <div className="tab-content border-0 border-t border-slate-700 pt-[24px]">
+    <div className="tab-content border-0 rounded-none border-t border-slate-700 pt-6">
       <PreferencesTabContent />
     </div>
   </div>

@@ -14,7 +14,7 @@ export function PhotoTabContent() {
           <div className="text-sm">Ajouter une photo</div>
         </button>
       </div>
-      <div className="divider expert-blue m-4 mt-0 mb-0"></div>
+      <div className="divider expert-blue m-4 mt-0 mb-0 "></div>
       <div className="flex gap-4 w-full mt-1 pt-0 mr-6 ml-6">
         <span className="badge text-primary bg-blue-200 p-4 rounded-xl">
           Toutes les photos

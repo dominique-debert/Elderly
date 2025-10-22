@@ -74,6 +74,7 @@ layer(base);
   }
   .tabs-border {
     border-top: 1px solid var(--color-card);
+    border-radius: 0%;
   }
   .modal-box {
     background-color: var(--color-card);
