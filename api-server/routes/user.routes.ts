@@ -5,7 +5,7 @@ import { userSchema } from "@/validators";
 import {
   createUser,
   getAllUsers,
-  getUserById,
+  getUser,
   updateUser,
   deleteUser,
   changePassword,
@@ -75,7 +75,7 @@ userRouter.get("/", getAllUsers);
  *       404:
  *         description: Utilisateur non trouvé
  */
-userRouter.get("/:id", getUserById);
+userRouter.get("/:id", getUser);
 
 /**
  * @swagger

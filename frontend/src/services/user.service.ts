@@ -43,7 +43,7 @@ export const changePassword = async (
   return response.data;
 };
 
-export const getUserById = async (id: string): Promise<IUser> => {
+export const getUser = async (id: string): Promise<IUser> => {
   const response = await api.get(`/users/${id}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

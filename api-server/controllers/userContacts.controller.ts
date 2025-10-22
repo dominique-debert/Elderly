@@ -33,11 +33,11 @@ export const createUserContact = async (
 };
 
 export const getAllUserContacts = async (
-  req: Request<{ userId: string; contactId: string }>,
+  req: Request<{ userId: string }>,
   res: Response,
   next: NextFunction
 ) => {
-  const { userId, contactId } = req.params;
+  const { userId } = req.params;
 
   try {
     const userContacts = await prisma.userContacts.findMany({
@@ -46,7 +46,6 @@ export const getAllUserContacts = async (
       },
       where: {
         userId,
-        contactId,
       },
     });
     res.status(200).json({ userContacts });

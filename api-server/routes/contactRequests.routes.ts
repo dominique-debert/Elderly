@@ -5,6 +5,7 @@ import {
   getUserContactRequest,
   deleteUserContactRequest,
   deleteAllUserContactRequests,
+  updateUserContactRequest,
 } from "@/controllers";
 
 import { userContactSchema } from "@/validators";
@@ -67,7 +68,7 @@ router.get("/:userId/:contactId", getUserContactRequest);
  * /api/contact-requests/{userId}/{contactId}:
  *   post:
  *     summary: Créer un nouveau contact bloqué
- *     tags: [Blocked Contacts]
+ *     tags: [Contact Requests]
  *     requestBody:
  *       required: true
  *     responses:
@@ -84,6 +85,30 @@ router.post(
   "/:userId/:contactId",
   validate(userContactSchema),
   createUserContactRequest
+);
+
+/**
+ * @swagger
+ * /api/contact-requests/{userId}/{contactId}:
+ *   post:
+ *     summary: Mise a jour d'une demande de contact
+ *     tags: [Contact Requests]
+ *     requestBody:
+ *       required: true
+ *     responses:
+ *       200:
+ *         description: Demande de contact mise à jour avec succès
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ContactRequest'
+ *       500:
+ *         description: Erreur serveur
+ */
+router.post(
+  "/:userId/:contactId",
+  validate(userContactSchema),
+  updateUserContactRequest
 );
 
 /**

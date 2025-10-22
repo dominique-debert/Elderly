@@ -76,6 +76,37 @@ export const getUserContactRequest = async (
   }
 };
 
+export const updateUserContactRequest = async (
+  req: Request<
+    { userId: string; contactId: string },
+    {},
+    Partial<IUserContact>
+  >,
+  res: Response,
+  next: NextFunction
+) => {
+  const { userId, contactId } = req.params;
+
+  try {
+    const contactRequest = await prisma.contactRequest.findFirst({
+      where: { userId, contactId },
+    });
+
+    if (!contactRequest) {
+      throw createHttpError(404, "Demande de contact non trouvée");
+    }
+
+    const updatedRequest = await prisma.contactRequest.update({
+      where: { id: contactRequest.id },
+      data: req.body,
+    });
+
+    res.status(200).json(updatedRequest);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const deleteUserContactRequest = async (
   req: Request<{ userId: string; contactId: string }>,
   res: Response,

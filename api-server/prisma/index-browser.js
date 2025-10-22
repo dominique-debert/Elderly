@@ -629,6 +629,8 @@ exports.Prisma.ContactRequestScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   contactId: 'contactId',
+  status: 'status',
+  message: 'message',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

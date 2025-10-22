@@ -100,7 +100,7 @@ export const getAllUsers = async (
 };
 
 // Récupérer un utilisateur par son ID
-export const getUserById = async (
+export const getUser = async (
   req: Request<{ id: string }>,
   res: Response,
   next: NextFunction

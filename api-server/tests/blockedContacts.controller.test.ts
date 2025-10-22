@@ -1,5 +1,30 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@/prisma";
+import { IUserContact } from "@/types";
+
+// Mock Prisma Client avant les imports
+const mockBlockedContactCreate = jest.fn();
+const mockBlockedContactFindMany = jest.fn();
+const mockBlockedContactFindFirst = jest.fn();
+const mockBlockedContactDelete = jest.fn();
+const mockBlockedContactDeleteMany = jest.fn();
+const mockContactRequestFindFirst = jest.fn();
+
+jest.mock("@/prisma", () => ({
+  PrismaClient: jest.fn().mockImplementation(() => ({
+    blockedContact: {
+      create: mockBlockedContactCreate,
+      findMany: mockBlockedContactFindMany,
+      findFirst: mockBlockedContactFindFirst,
+      delete: mockBlockedContactDelete,
+      deleteMany: mockBlockedContactDeleteMany,
+    },
+    contactRequest: {
+      findFirst: mockContactRequestFindFirst,
+    },
+  })),
+}));
+
+// Import après le mock
 import {
   createUserBlockedContact,
   getAllUserBlockedContacts,
@@ -7,30 +32,11 @@ import {
   deleteUserBlockedContact,
   deleteAllUserBlockedContacts,
 } from "@/controllers/blockedContacts.controller";
-import createHttpError from "http-errors";
-import { IUserContact } from "@/types";
-
-// Mock Prisma Client
-jest.mock("@/prisma", () => ({
-  PrismaClient: jest.fn().mockImplementation(() => ({
-    blockedContact: {
-      create: jest.fn(),
-      findMany: jest.fn(),
-      findFirst: jest.fn(),
-      delete: jest.fn(),
-      deleteMany: jest.fn(),
-    },
-    contactRequest: {
-      findFirst: jest.fn(),
-    },
-  })),
-}));
 
 describe("Blocked Contacts Controller", () => {
   let mockRequest: Partial<Request>;
   let mockResponse: Partial<Response>;
   let mockNext: jest.Mock<NextFunction>;
-  let prisma: any;
 
   beforeEach(() => {
     mockRequest = {
@@ -43,7 +49,6 @@ describe("Blocked Contacts Controller", () => {
       send: jest.fn().mockReturnThis(),
     };
     mockNext = jest.fn() as jest.Mock<NextFunction>;
-    prisma = new PrismaClient();
   });
 
   afterEach(() => {
@@ -55,15 +60,18 @@ describe("Blocked Contacts Controller", () => {
       const userId = "user-123";
       const contactId = "contact-456";
       const blockedContactData = {
+        id: "block-1",
         userId,
         contactId,
         reason: "spam",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       };
 
       mockRequest.params = { userId, contactId };
       mockRequest.body = { reason: "spam" };
 
-      prisma.blockedContact.create.mockResolvedValue(blockedContactData);
+      mockBlockedContactCreate.mockResolvedValue(blockedContactData);
 
       await createUserBlockedContact(
         mockRequest as Request<
@@ -75,7 +83,7 @@ describe("Blocked Contacts Controller", () => {
         mockNext
       );
 
-      expect(prisma.blockedContact.create).toHaveBeenCalledWith({
+      expect(mockBlockedContactCreate).toHaveBeenCalledWith({
         data: {
           reason: "spam",
           userId,
@@ -91,7 +99,7 @@ describe("Blocked Contacts Controller", () => {
       const error = new Error("Database error");
       mockRequest.params = { userId: "user-123", contactId: "contact-456" };
 
-      prisma.blockedContact.create.mockRejectedValue(error);
+      mockBlockedContactCreate.mockRejectedValue(error);
 
       await createUserBlockedContact(
         mockRequest as Request<
@@ -112,12 +120,24 @@ describe("Blocked Contacts Controller", () => {
     it("should return all blocked contacts for a user", async () => {
       const userId = "user-123";
       const blockedContacts = [
-        { id: "1", userId, contactId: "contact-1", createdAt: new Date() },
-        { id: "2", userId, contactId: "contact-2", createdAt: new Date() },
+        {
+          id: "1",
+          userId,
+          contactId: "contact-1",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: "2",
+          userId,
+          contactId: "contact-2",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ];
 
       mockRequest.params = { userId };
-      prisma.blockedContact.findMany.mockResolvedValue(blockedContacts);
+      mockBlockedContactFindMany.mockResolvedValue(blockedContacts);
 
       await getAllUserBlockedContacts(
         mockRequest as Request<{ userId: string }>,
@@ -125,7 +145,7 @@ describe("Blocked Contacts Controller", () => {
         mockNext
       );
 
-      expect(prisma.blockedContact.findMany).toHaveBeenCalledWith({
+      expect(mockBlockedContactFindMany).toHaveBeenCalledWith({
         orderBy: { createdAt: "desc" },
         where: { userId },
       });
@@ -138,7 +158,7 @@ describe("Blocked Contacts Controller", () => {
       const error = new Error("Database error");
       mockRequest.params = { userId: "user-123" };
 
-      prisma.blockedContact.findMany.mockRejectedValue(error);
+      mockBlockedContactFindMany.mockRejectedValue(error);
 
       await getAllUserBlockedContacts(
         mockRequest as Request<{ userId: string }>,
@@ -154,10 +174,16 @@ describe("Blocked Contacts Controller", () => {
     it("should return a specific blocked contact", async () => {
       const userId = "user-123";
       const contactId = "contact-456";
-      const blockedContact = { id: "1", userId, contactId };
+      const blockedContact = {
+        id: "1",
+        userId,
+        contactId,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
 
       mockRequest.params = { userId, contactId };
-      prisma.contactRequest.findFirst.mockResolvedValue(blockedContact);
+      mockContactRequestFindFirst.mockResolvedValue(blockedContact);
 
       await getUserBlockedContact(
         mockRequest as Request<{ userId: string; contactId: string }>,
@@ -165,7 +191,7 @@ describe("Blocked Contacts Controller", () => {
         mockNext
       );
 
-      expect(prisma.contactRequest.findFirst).toHaveBeenCalledWith({
+      expect(mockContactRequestFindFirst).toHaveBeenCalledWith({
         where: { userId, contactId },
       });
       expect(mockResponse.status).toHaveBeenCalledWith(200);
@@ -175,7 +201,7 @@ describe("Blocked Contacts Controller", () => {
 
     it("should return 404 if blocked contact not found", async () => {
       mockRequest.params = { userId: "user-123", contactId: "contact-456" };
-      prisma.contactRequest.findFirst.mockResolvedValue(null);
+      mockContactRequestFindFirst.mockResolvedValue(null);
 
       await getUserBlockedContact(
         mockRequest as Request<{ userId: string; contactId: string }>,
@@ -194,11 +220,17 @@ describe("Blocked Contacts Controller", () => {
     it("should delete a blocked contact and return 204", async () => {
       const userId = "user-123";
       const contactId = "contact-456";
-      const blockedContact = { id: "block-1", userId, contactId };
+      const blockedContact = {
+        id: "block-1",
+        userId,
+        contactId,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
 
       mockRequest.params = { userId, contactId };
-      prisma.blockedContact.findFirst.mockResolvedValue(blockedContact);
-      prisma.blockedContact.delete.mockResolvedValue(blockedContact);
+      mockBlockedContactFindFirst.mockResolvedValue(blockedContact);
+      mockBlockedContactDelete.mockResolvedValue(blockedContact);
 
       await deleteUserBlockedContact(
         mockRequest as Request<{ userId: string; contactId: string }>,
@@ -206,10 +238,10 @@ describe("Blocked Contacts Controller", () => {
         mockNext
       );
 
-      expect(prisma.blockedContact.findFirst).toHaveBeenCalledWith({
+      expect(mockBlockedContactFindFirst).toHaveBeenCalledWith({
         where: { userId, contactId },
       });
-      expect(prisma.blockedContact.delete).toHaveBeenCalledWith({
+      expect(mockBlockedContactDelete).toHaveBeenCalledWith({
         where: { id: "block-1" },
       });
       expect(mockResponse.status).toHaveBeenCalledWith(204);
@@ -219,7 +251,7 @@ describe("Blocked Contacts Controller", () => {
 
     it("should return 404 if blocked contact not found", async () => {
       mockRequest.params = { userId: "user-123", contactId: "contact-456" };
-      prisma.blockedContact.findFirst.mockResolvedValue(null);
+      mockBlockedContactFindFirst.mockResolvedValue(null);
 
       await deleteUserBlockedContact(
         mockRequest as Request<{ userId: string; contactId: string }>,
@@ -231,7 +263,7 @@ describe("Blocked Contacts Controller", () => {
       const error = (mockNext as jest.Mock).mock.calls[0][0];
       expect(error.status).toBe(404);
       expect(error.message).toBe("Contact bloqué non trouvé");
-      expect(prisma.blockedContact.delete).not.toHaveBeenCalled();
+      expect(mockBlockedContactDelete).not.toHaveBeenCalled();
     });
 
     it("should call next with error if deletion fails", async () => {
@@ -240,11 +272,13 @@ describe("Blocked Contacts Controller", () => {
         id: "block-1",
         userId: "user-123",
         contactId: "contact-456",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       };
 
       mockRequest.params = { userId: "user-123", contactId: "contact-456" };
-      prisma.blockedContact.findFirst.mockResolvedValue(blockedContact);
-      prisma.blockedContact.delete.mockRejectedValue(error);
+      mockBlockedContactFindFirst.mockResolvedValue(blockedContact);
+      mockBlockedContactDelete.mockRejectedValue(error);
 
       await deleteUserBlockedContact(
         mockRequest as Request<{ userId: string; contactId: string }>,
@@ -260,7 +294,7 @@ describe("Blocked Contacts Controller", () => {
     it("should delete all blocked contacts for a user and return 204", async () => {
       const userId = "user-123";
       mockRequest.params = { userId };
-      prisma.blockedContact.deleteMany.mockResolvedValue({ count: 3 });
+      mockBlockedContactDeleteMany.mockResolvedValue({ count: 3 });
 
       await deleteAllUserBlockedContacts(
         mockRequest as Request<{ userId: string }>,
@@ -268,7 +302,7 @@ describe("Blocked Contacts Controller", () => {
         mockNext
       );
 
-      expect(prisma.blockedContact.deleteMany).toHaveBeenCalledWith({
+      expect(mockBlockedContactDeleteMany).toHaveBeenCalledWith({
         where: { userId },
       });
       expect(mockResponse.status).toHaveBeenCalledWith(204);
@@ -279,7 +313,7 @@ describe("Blocked Contacts Controller", () => {
     it("should call next with error if deletion fails", async () => {
       const error = new Error("Database error");
       mockRequest.params = { userId: "user-123" };
-      prisma.blockedContact.deleteMany.mockRejectedValue(error);
+      mockBlockedContactDeleteMany.mockRejectedValue(error);
 
       await deleteAllUserBlockedContacts(
         mockRequest as Request<{ userId: string }>,

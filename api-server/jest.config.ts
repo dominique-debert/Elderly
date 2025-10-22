@@ -3,25 +3,32 @@ import type { Config } from "jest";
 const config: Config = {
   preset: "ts-jest",
   testEnvironment: "node",
-  roots: ["<rootDir>/tests", "<rootDir>/controllers"],
-  testMatch: ["**/__tests__/**/*.ts", "**/?(*.)+(spec|test).ts"],
-  transform: {
-    "^.+\\.ts$": "ts-jest",
-  },
+  roots: ["<rootDir>/tests"],
+  testMatch: ["**/*.test.ts"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
   },
   collectCoverageFrom: [
     "controllers/**/*.ts",
-    "routes/**/*.ts",
-    "!**/*.d.ts",
+    "!controllers/**/*.test.ts",
     "!**/node_modules/**",
   ],
   coverageDirectory: "coverage",
-  verbose: true,
-  clearMocks: true,
-  resetMocks: true,
-  restoreMocks: true,
+  coverageReporters: ["text", "lcov", "html"],
+  setupFilesAfterEnv: ["<rootDir>/tests/setup.ts"],
+  transform: {
+    "^.+\\.ts$": [
+      "ts-jest",
+      {
+        tsconfig: {
+          module: "esnext",
+          target: "esnext",
+          allowSyntheticDefaultImports: true,
+          esModuleInterop: true,
+        },
+      },
+    ],
+  },
 };
 
 export default config;
