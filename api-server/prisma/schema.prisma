@@ -725,6 +725,7 @@ model blockedContact {
   id        String    @id @default(cuid())
   userId    String    @map("user_id")
   contactId String    @map("contact_id")
+  reason    String?   @db.Text
   createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
   user      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
