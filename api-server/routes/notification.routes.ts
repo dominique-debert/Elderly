@@ -95,7 +95,8 @@ router.get("/:userId", getAllNotificationsByUserId);
  *     tags: [Notifications]
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: userId
+ *         description: ID de la notification
  *         required: true
  *     responses:
  *       200:
@@ -109,7 +110,7 @@ router.get("/:userId", getAllNotificationsByUserId);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", getNotificationById);
+// router.get("/:id", getNotificationById);
 
 /**
  * @swagger
