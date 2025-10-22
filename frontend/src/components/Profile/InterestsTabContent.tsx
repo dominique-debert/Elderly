@@ -32,7 +32,7 @@ export function InterestsTabContent() {
 
       {/* Recherche */}
       <div className="m-0 ml-6 mr-6 mt-0">
-        <label className="input flex w-full items-center dark:bg-card rounded-lg">
+        <label className="input flex w-full items-center dark:bg-card rounded-lg border-slate-800">
           <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
           <input
             type="search"
@@ -46,7 +46,7 @@ export function InterestsTabContent() {
       </div>
 
       {/* Suggestions */}
-      <div className="flex flex-col gap-4 border text-slate-300 border-slate-600 rounded-lg text-base mt-3 p-4 mr-6 ml-6">
+      <div className="flex flex-col gap-4 border text-slate-300 border-slate-800 rounded-lg text-base mt-3 p-4 mr-6 ml-6">
         <div className="flex align-center gap-2 overflow-x-auto">
           <Icon
             path={mdiInformationBoxOutline}
@@ -96,7 +96,7 @@ export function InterestsTabContent() {
       </div>
 
       {/* Mock 1 */}
-      <div className="flex flex-col gap-4 border text-slate-300 border-slate-600 rounded-lg text-base mt-3 p-4 mr-6 ml-6">
+      <div className="flex flex-col gap-4 border text-slate-300 border-slate-800 rounded-lg text-base mt-3 p-4 mr-6 ml-6">
         <div className="flex items-center gap-2 justify-between">
           <div className="flex items-center gap-2">
             <GripVertical size={18} className="text-slate-600" />
@@ -156,7 +156,7 @@ export function InterestsTabContent() {
       </div>
 
       {/* Mock 2 */}
-      <div className="flex flex-col gap-4 border text-slate-300 border-slate-600 rounded-lg text-base mt-3 p-4 mr-6 ml-6">
+      <div className="flex flex-col gap-4 border text-slate-300 border-slate-800 rounded-lg text-base mt-3 p-4 mr-6 ml-6">
         <div className="flex items-center gap-2 justify-between">
           <div className="flex items-center gap-2">
             <GripVertical size={18} className="text-slate-600" />
@@ -215,7 +215,7 @@ export function InterestsTabContent() {
       </div>
 
       {/* Mock 3 */}
-      <div className="flex flex-col gap-4 border text-slate-300 border-slate-600 rounded-lg text-base mt-3 p-4 mr-6 ml-6">
+      <div className="flex flex-col gap-4 border text-slate-300 border-slate-800 rounded-lg text-base mt-3 p-4 mr-6 ml-6">
         <div className="flex items-center gap-2 justify-between">
           <div className="flex items-center gap-2">
             <GripVertical size={18} className="text-slate-600" />

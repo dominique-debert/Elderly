@@ -246,7 +246,7 @@ export function ConnexionsTabContent() {
       <div className="m-0 ml-6 mr-6 mt-0 mb-2">
         <label className="input flex w-full items-center border-slate-800 dark:bg-card rounded-lg">
           <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
-          <input type="search" placeholder="Rechercher une photo..." />
+          <input type="search" placeholder="Rechercher une connexion..." />
           <button className="cursor-pointer">
             <Icon path={mdiClose} size={0.8} className="text-slate-500" />
           </button>

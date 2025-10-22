@@ -6,3 +6,6 @@ export * from "./notifications.service";
 export * from "./token.service";
 export * from "./user.service";
 export * from "./userPreferences.service";
+export * from "./userContacts.service";
+export * from "./contactRequests.service";
+export * from "./blockedContacts.service";
