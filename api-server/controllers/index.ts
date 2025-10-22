@@ -28,7 +28,6 @@ export * from "./message.controller";
 export * from "./categories/mood.controller";
 export * from "./municipalEvent.controller";
 export * from "./notification.controller";
-export * from "./notificationPreferences.controller";
 export * from "./nutritionalAdvice.controller";
 export * from "./projectMember.controller";
 export * from "./projectTask.controller";
