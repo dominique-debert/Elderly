@@ -7,9 +7,22 @@ jest.mock("argon2", () => ({
 }));
 
 // Mock fs
+const mockExistsSync = jest.fn();
+const mockRenameSync = jest.fn();
 jest.mock("fs", () => ({
-  existsSync: jest.fn(),
-  renameSync: jest.fn(),
+  existsSync: mockExistsSync,
+  renameSync: mockRenameSync,
+}));
+
+// Mock path
+jest.mock("path", () => ({
+  ...jest.requireActual("path"),
+  join: jest.fn((...args) => args.join("/")),
+  basename: jest.fn((path) => path.split("/").pop()),
+  extname: jest.fn((path) => {
+    const parts = path.split(".");
+    return parts.length > 1 ? `.${parts.pop()}` : "";
+  }),
 }));
 
 // Mock http-errors
@@ -61,6 +74,8 @@ import { signUp, signIn, logout } from "@/controllers/auth.controller";
 import argon2 from "argon2";
 import { generateToken } from "@/utils";
 import { signUpSchema, signInSchema } from "@/validators";
+import fs from "fs";
+import path from "path";
 
 describe("Auth Controller", () => {
   let mockRequest: Partial<Request>;
@@ -86,10 +101,14 @@ describe("Auth Controller", () => {
     process.env.JWT_EXPIRES_IN = "15m";
     process.env.REFRESH_TOKEN_EXPIRES_IN = "7d";
     process.env.SERVER_BASE_URL = "http://localhost:3000";
+
+    // Reset console.warn mock
+    jest.spyOn(console, "warn").mockImplementation(() => {});
   });
 
   afterEach(() => {
     jest.clearAllMocks();
+    jest.restoreAllMocks();
   });
 
   describe("signUp", () => {
@@ -186,6 +205,316 @@ describe("Auth Controller", () => {
         })
       );
       expect(mockNext).not.toHaveBeenCalled();
+    });
+
+    it("should create a user with uploaded avatar", async () => {
+      const userData = {
+        email: "test@example.com",
+        password: "Password123!",
+        firstName: "John",
+        lastName: "Doe",
+      };
+
+      const uploadedAvatar = "avatar-123.jpg";
+      const createdUser = {
+        id: "user-123",
+        email: userData.email,
+        passwordHash: "hashedPassword",
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        avatar: uploadedAvatar,
+        birthDate: null,
+        registrationDate: new Date(),
+        isAdmin: false,
+        latitude: null,
+        longitude: null,
+        profession: null,
+        city: null,
+        postalCode: null,
+        address: null,
+        description: null,
+        phone: null,
+      };
+
+      mockRequest.body = userData;
+      (mockRequest as any).file = {
+        filename: uploadedAvatar,
+        path: `/tmp/${uploadedAvatar}`,
+      };
+
+      (signUpSchema.validate as jest.Mock).mockReturnValue({ error: null });
+      mockUserFindUnique.mockResolvedValue(null);
+      (argon2.hash as jest.Mock).mockResolvedValue("hashedPassword");
+      mockUserCreate.mockResolvedValue(createdUser);
+      (generateToken as jest.Mock)
+        .mockReturnValueOnce("access-token")
+        .mockReturnValueOnce("refresh-token");
+      mockSessionCreate.mockResolvedValue({
+        id: "session-123",
+        refreshToken: "refresh-token",
+        userId: createdUser.id,
+      });
+
+      await signUp(mockRequest as Request, mockResponse as Response, mockNext);
+
+      expect(mockUserCreate).toHaveBeenCalledWith({
+        data: expect.objectContaining({
+          avatar: uploadedAvatar,
+        }),
+      });
+      expect(mockResponse.json).toHaveBeenCalledWith(
+        expect.objectContaining({
+          avatar: uploadedAvatar,
+          avatarUrl: `http://localhost:3000/images/avatars/${uploadedAvatar}`,
+        })
+      );
+    });
+
+    it("should create a user with avatar from body field", async () => {
+      const userData = {
+        email: "test@example.com",
+        password: "Password123!",
+        firstName: "John",
+        lastName: "Doe",
+        avatar: "avatar-from-body.jpg",
+      };
+
+      const createdUser = {
+        id: "user-123",
+        email: userData.email,
+        passwordHash: "hashedPassword",
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        avatar: userData.avatar,
+        birthDate: null,
+        registrationDate: new Date(),
+        isAdmin: false,
+        latitude: null,
+        longitude: null,
+        profession: null,
+        city: null,
+        postalCode: null,
+        address: null,
+        description: null,
+        phone: null,
+      };
+
+      mockRequest.body = userData;
+
+      (signUpSchema.validate as jest.Mock).mockReturnValue({ error: null });
+      mockUserFindUnique.mockResolvedValue(null);
+      (argon2.hash as jest.Mock).mockResolvedValue("hashedPassword");
+      mockUserCreate.mockResolvedValue(createdUser);
+      (generateToken as jest.Mock)
+        .mockReturnValueOnce("access-token")
+        .mockReturnValueOnce("refresh-token");
+      mockSessionCreate.mockResolvedValue({
+        id: "session-123",
+        refreshToken: "refresh-token",
+        userId: createdUser.id,
+      });
+
+      await signUp(mockRequest as Request, mockResponse as Response, mockNext);
+
+      expect(mockUserCreate).toHaveBeenCalledWith({
+        data: expect.objectContaining({
+          avatar: userData.avatar,
+        }),
+      });
+    });
+
+    it("should rename uploaded avatar to desired filename", async () => {
+      const userData = {
+        email: "test@example.com",
+        password: "Password123!",
+        firstName: "John",
+        lastName: "Doe",
+        avatarFilename: "my-custom-avatar.jpg",
+      };
+
+      const uploadedAvatar = "temp-123.jpg";
+      const desiredFilename = "my-custom-avatar.jpg";
+
+      mockRequest.body = userData;
+      (mockRequest as any).file = {
+        filename: uploadedAvatar,
+        path: `/tmp/${uploadedAvatar}`,
+      };
+
+      mockExistsSync.mockReturnValue(false);
+      (path.basename as jest.Mock).mockReturnValue(desiredFilename);
+      (path.extname as jest.Mock).mockReturnValue(".jpg");
+
+      const createdUser = {
+        id: "user-123",
+        email: userData.email,
+        passwordHash: "hashedPassword",
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        avatar: desiredFilename,
+        birthDate: null,
+        registrationDate: new Date(),
+        isAdmin: false,
+        latitude: null,
+        longitude: null,
+        profession: null,
+        city: null,
+        postalCode: null,
+        address: null,
+        description: null,
+        phone: null,
+      };
+
+      (signUpSchema.validate as jest.Mock).mockReturnValue({ error: null });
+      mockUserFindUnique.mockResolvedValue(null);
+      (argon2.hash as jest.Mock).mockResolvedValue("hashedPassword");
+      mockUserCreate.mockResolvedValue(createdUser);
+      (generateToken as jest.Mock)
+        .mockReturnValueOnce("access-token")
+        .mockReturnValueOnce("refresh-token");
+      mockSessionCreate.mockResolvedValue({
+        id: "session-123",
+        refreshToken: "refresh-token",
+        userId: createdUser.id,
+      });
+
+      await signUp(mockRequest as Request, mockResponse as Response, mockNext);
+
+      expect(mockRenameSync).toHaveBeenCalled();
+      expect(mockUserCreate).toHaveBeenCalledWith({
+        data: expect.objectContaining({
+          avatar: desiredFilename,
+        }),
+      });
+    });
+
+    it("should handle file already exists when renaming avatar", async () => {
+      const userData = {
+        email: "test@example.com",
+        password: "Password123!",
+        firstName: "John",
+        lastName: "Doe",
+        avatarFilename: "existing-avatar.jpg",
+      };
+
+      const uploadedAvatar = "temp-456.jpg";
+
+      mockRequest.body = userData;
+      (mockRequest as any).file = {
+        filename: uploadedAvatar,
+        path: `/tmp/${uploadedAvatar}`,
+      };
+
+      mockExistsSync.mockReturnValueOnce(true).mockReturnValueOnce(false);
+      (path.basename as jest.Mock).mockReturnValue("existing-avatar.jpg");
+      (path.extname as jest.Mock).mockReturnValue(".jpg");
+
+      const createdUser = {
+        id: "user-123",
+        email: userData.email,
+        passwordHash: "hashedPassword",
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        avatar: "existing-avatar-1.jpg",
+        birthDate: null,
+        registrationDate: new Date(),
+        isAdmin: false,
+        latitude: null,
+        longitude: null,
+        profession: null,
+        city: null,
+        postalCode: null,
+        address: null,
+        description: null,
+        phone: null,
+      };
+
+      (signUpSchema.validate as jest.Mock).mockReturnValue({ error: null });
+      mockUserFindUnique.mockResolvedValue(null);
+      (argon2.hash as jest.Mock).mockResolvedValue("hashedPassword");
+      mockUserCreate.mockResolvedValue(createdUser);
+      (generateToken as jest.Mock)
+        .mockReturnValueOnce("access-token")
+        .mockReturnValueOnce("refresh-token");
+      mockSessionCreate.mockResolvedValue({
+        id: "session-123",
+        refreshToken: "refresh-token",
+        userId: createdUser.id,
+      });
+
+      await signUp(mockRequest as Request, mockResponse as Response, mockNext);
+
+      expect(mockRenameSync).toHaveBeenCalled();
+    });
+
+    it("should handle avatar rename failure gracefully", async () => {
+      const userData = {
+        email: "test@example.com",
+        password: "Password123!",
+        firstName: "John",
+        lastName: "Doe",
+        avatarFilename: "my-avatar.jpg",
+      };
+
+      const uploadedAvatar = "temp-789.jpg";
+
+      mockRequest.body = userData;
+      (mockRequest as any).file = {
+        filename: uploadedAvatar,
+        path: `/tmp/${uploadedAvatar}`,
+      };
+
+      mockExistsSync.mockReturnValue(false);
+      mockRenameSync.mockImplementation(() => {
+        throw new Error("Permission denied");
+      });
+      (path.basename as jest.Mock).mockReturnValue("my-avatar.jpg");
+      (path.extname as jest.Mock).mockReturnValue(".jpg");
+
+      const createdUser = {
+        id: "user-123",
+        email: userData.email,
+        passwordHash: "hashedPassword",
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        avatar: uploadedAvatar,
+        birthDate: null,
+        registrationDate: new Date(),
+        isAdmin: false,
+        latitude: null,
+        longitude: null,
+        profession: null,
+        city: null,
+        postalCode: null,
+        address: null,
+        description: null,
+        phone: null,
+      };
+
+      (signUpSchema.validate as jest.Mock).mockReturnValue({ error: null });
+      mockUserFindUnique.mockResolvedValue(null);
+      (argon2.hash as jest.Mock).mockResolvedValue("hashedPassword");
+      mockUserCreate.mockResolvedValue(createdUser);
+      (generateToken as jest.Mock)
+        .mockReturnValueOnce("access-token")
+        .mockReturnValueOnce("refresh-token");
+      mockSessionCreate.mockResolvedValue({
+        id: "session-123",
+        refreshToken: "refresh-token",
+        userId: createdUser.id,
+      });
+
+      await signUp(mockRequest as Request, mockResponse as Response, mockNext);
+
+      expect(console.warn).toHaveBeenCalledWith(
+        "Could not rename uploaded avatar to desired filename:",
+        expect.any(Error)
+      );
+      expect(mockUserCreate).toHaveBeenCalledWith({
+        data: expect.objectContaining({
+          avatar: uploadedAvatar,
+        }),
+      });
     });
 
     it("should return 400 if validation fails", async () => {
