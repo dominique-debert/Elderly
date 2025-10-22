@@ -1,9 +1,10 @@
 import Icon from "@mdi/react";
 import {
+  mdiCancel,
+  mdiCheck,
+  mdiDotsVertical,
   mdiPencilOutline,
   mdiTrashCanOutline,
-  mdiDotsVertical,
-  mdiPlus,
 } from "@mdi/js";
 import { IUser } from "@/types";
 
@@ -49,29 +50,44 @@ export function ContactCard({
         {/* Action Button */}
         <div>
           {myContact && (
-            <div className="flex gap-3 pr-4 align-middle items-center">
-              <button className="btn btn-sm btn-outline text-slate-800 p-0 w-8">
-                <Icon path={mdiPencilOutline} size={0.7} />
+            <div className="flex gap-2 pr-4 align-middle items-center">
+              <button
+                className="btn btn-xs btn-primary text-xs p-1 rounded-sm tooltip tooltip-bottom"
+                data-tip="Modifier"
+              >
+                <Icon path={mdiPencilOutline} size={0.6} />
               </button>
-              <button className="btn btn-sm btn-outline text-slate-800 p-0 w-8">
-                <Icon path={mdiTrashCanOutline} size={0.7} />
+              <button
+                className="btn btn-xs border bg-red-600 border-red-600 text-white hover:bg-red-800 text-xs p-1 rounded-sm tooltip tooltip-bottom"
+                data-tip="Supprimer"
+              >
+                <Icon path={mdiTrashCanOutline} size={0.6} />
               </button>
-              <button className="btn btn-sm btn-outline text-slate-800 p-0 w-8">
-                <Icon path={mdiDotsVertical} size={0.7} />
+              <button
+                className="btn btn-ghost btn-xs hover:bg-primary hover:border-primary text-xs p-1 rounded-sm tooltip tooltip-bottom"
+                data-tip="Plus..."
+              >
+                <Icon path={mdiDotsVertical} size={0.6} />
               </button>
             </div>
           )}
           {suggested && (
             <div className="pr-4">
-              <button className="btn btn-sm btn-outline text-slate-800 p-0 w-8">
-                <Icon path={mdiPlus} size={0.7} />
+              <button
+                data-tip="accepter"
+                className="btn btn-xs btn-accent text-xs p-1 rounded-sm tooltip tooltip-bottom"
+              >
+                <Icon path={mdiCheck} size={0.6} />
               </button>
             </div>
           )}
           {blocked && (
             <div className="pr-4">
-              <button className="btn btn-sm btn-outline text-slate-800 text-xs font-normal p-2">
-                Débloquer
+              <button
+                data-tip="debloquer"
+                className="btn btn-xs btn-secondary text-xs p-1 rounded-sm tooltip tooltip-bottom"
+              >
+                <Icon path={mdiCancel} size={0.6} />
               </button>
             </div>
           )}

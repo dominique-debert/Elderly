@@ -1,35 +1,54 @@
+import Icon from "@mdi/react";
 import { Card } from "@/components";
+import { mdiMagnify, mdiClose, mdiPlus } from "@mdi/js";
 
 export function PhotoTabContent() {
   return (
     <Card className="w-full pt-4 gap-2">
       <div className="flex justify-between items-center mb-[-16px]">
         <div className="flex flex-col justify-center pt-4">
-          <div className="text-xl ml-6">Mes Photos</div>
-          <div className="text-base m-6 mb-4 mt-1 text-slate-400">
+          <div className="text-xl ml-6 h-6">Mes Photos</div>
+          <div className="text-sm m-6 mb-4 mt-1 text-slate-400">
             Organisez vos photos et classez les selon vos sujets préférés.
           </div>
         </div>
-        <button className="btn btn-primary mr-6">
-          <div className="text-sm">Ajouter une photo</div>
+        <button className="btn btn-primary mr-6 btn-sm text-xs">
+          <Icon path={mdiPlus} size={0.7} className="text-white" />
+          Ajouter une photo
         </button>
       </div>
       <div className="divider expert-blue m-4 mt-0 mb-0 "></div>
-      <div className="flex gap-4 w-full mt-1 pt-0 mr-6 ml-6">
-        <span className="badge text-primary bg-blue-200 p-4 rounded-xl">
+
+      {/* Recherche */}
+      <div className="m-0 ml-6 mr-6 mt-0">
+        <label className="input flex w-full items-center dark:bg-card rounded-lg">
+          <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
+          <input
+            type="search"
+            placeholder="Rechercher une photo..."
+            className="grow flex-1"
+          />
+          <button className="cursor-pointer">
+            <Icon path={mdiClose} size={0.8} className="text-slate-500" />
+          </button>
+        </label>
+      </div>
+
+      <div className="flex gap-2 mt-1 p-2 mr-4 ml-4 overflow-x-auto">
+        <span className="badge badge-sm text-primary bg-blue-200 p-3 rounded-lg">
           Toutes les photos
         </span>
-        <span className="badge bg-slate-700 text-slate-300 p-4 rounded-xl">
+        <span className="badge badge-sm bg-slate-700 text-slate-300 p-3 rounded-lg">
           Hobbies
         </span>
-        <span className="badge bg-slate-700 text-slate-300 p-4 rounded-xl">
+        <span className="badge badge-sm bg-slate-700 text-slate-300 p-3 rounded-lg">
           Événements familiaux
         </span>
-        <span className="badge bg-slate-700 text-slate-300 p-4 rounded-xl">
+        <span className="badge badge-sm bg-slate-700 text-slate-300 p-3 rounded-lg">
           Portraits
         </span>
       </div>
-      <div className="text-base m-6 mb-4 mt-8 text-slate-300">
+      <div className="text-base m-6 mb-4 mt-4 text-slate-300">
         Aventures de jardinage
       </div>
       <div className="grid grid-cols-3 gap-5 mt-[-16px] pt-0 mr-6 ml-6">

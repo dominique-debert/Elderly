@@ -212,3 +212,13 @@ html,
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+::placeholder {
+  color: #64748b; /* Tailwind's slate-500 */
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder {
+  /* Edge 12 -18 */
+  color: #64748b; /* Tailwind's slate-500 */
+}

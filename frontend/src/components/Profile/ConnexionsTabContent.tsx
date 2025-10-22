@@ -1,3 +1,5 @@
+import Icon from "@mdi/react";
+import { mdiMagnify, mdiClose, mdiPlus } from "@mdi/js";
 import { Card, ContactCard } from "@/components";
 import { IUser } from "@/types";
 
@@ -225,26 +227,42 @@ export function ConnexionsTabContent() {
   const blockedContacts = mockContacts.slice(12, 15);
 
   return (
-    <div>
-      <div className="flex justify-between items-center mb-4 mt-[-16px]">
+    <Card className="w-full pt-4 gap-0">
+      <div className="flex justify-between items-center mb-[-16px]">
         <div className="flex flex-col justify-center pt-4">
-          <div className="text-xl ml-6">Mes Connexions</div>
-          <div className="text-base ml-6 text-slate-400">
-            Organisez vos connexions et classez les selon vos sujets préférés.
+          <div className="text-xl ml-6 h-6">Mes Connexions</div>
+          <div className="text-sm m-6 mb-4 mt-1 text-slate-400">
+            Organisez et gerez vos connexions.
           </div>
         </div>
-        <button className="btn btn-primary mr-6">
-          <div className="text-sm">Ajouter une connexion</div>
+        <button className="btn btn-primary mr-6 btn-sm text-xs">
+          <Icon path={mdiPlus} size={0.7} className="text-white" />
+          Ajouter une connexion
         </button>
       </div>
-      <div className="divider expert-blue m-4 mt-[-12px] mb-0"></div>
+      <div className="divider expert-blue m-4 mt-0 mb-0 "></div>
 
-      <div className="border-0 grid grid-flow-col grid-rows-2 gap-8 pt-4">
+      {/* Recherche */}
+      <div className="m-0 ml-6 mr-6 mt-0">
+        <label className="input flex w-full items-center dark:bg-card rounded-lg">
+          <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
+          <input
+            type="search"
+            placeholder="Rechercher une photo..."
+            className="grow flex-1"
+          />
+          <button className="cursor-pointer">
+            <Icon path={mdiClose} size={0.8} className="text-slate-500" />
+          </button>
+        </label>
+      </div>
+
+      <div className="border-0 grid grid-flow-col grid-rows-2 gap-5 pt-2 pl-6 pr-6">
         {/* Mes contacts */}
         <Card className="row-span-2 w-full overflow-y-auto gap-0 p-0">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Mes contacts
-            <span className="badge text-xs font-light ml-4 rounded-full bg-blue-500 text-white h-6 w-4">
+            <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
               {myContacts.length}
             </span>
           </span>
@@ -257,8 +275,8 @@ export function ConnexionsTabContent() {
         {/* Contacts suggérés */}
         <Card className="overflow-y-auto gap-0 p-0">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
-            Contacts suggérés
-            <span className="badge text-xs font-light ml-4 rounded-full bg-blue-500 text-white h-6 w-4">
+            Demandes de connexion
+            <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
               {suggestedContacts.length}
             </span>
           </span>
@@ -272,7 +290,7 @@ export function ConnexionsTabContent() {
         <Card className="overflow-y-auto gap-0 p-0">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Contacts bloqués
-            <span className="badge text-xs font-light ml-4 rounded-full bg-blue-500 text-white h-6 w-4">
+            <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
               {blockedContacts.length}
             </span>
           </span>
@@ -282,6 +300,6 @@ export function ConnexionsTabContent() {
           ))}
         </Card>
       </div>
-    </div>
+    </Card>
   );
 }
