@@ -617,6 +617,30 @@ exports.Prisma.UserBadgeScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.UserContactsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  contactId: 'contactId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ContactRequestScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  contactId: 'contactId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BlockedContactScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  contactId: 'contactId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.UserDeviceScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -686,14 +710,6 @@ exports.Prisma.UserStatisticsScalarFieldEnum = {
   forumMessages: 'forumMessages',
   totalHelpPoints: 'totalHelpPoints',
   networkSize: 'networkSize',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.UserContactsScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  contactId: 'contactId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -842,13 +858,15 @@ exports.Prisma.ModelName = {
   user: 'user',
   userActivity: 'userActivity',
   userBadge: 'userBadge',
+  userContacts: 'userContacts',
+  contactRequest: 'contactRequest',
+  blockedContact: 'blockedContact',
   userDevice: 'userDevice',
   userPreferences: 'userPreferences',
   userInterest: 'userInterest',
   interest: 'interest',
   userSkill: 'userSkill',
   userStatistics: 'userStatistics',
-  userContacts: 'userContacts',
   videoCall: 'videoCall',
   wellnessBadge: 'wellnessBadge',
   wellnessGoal: 'wellnessGoal',

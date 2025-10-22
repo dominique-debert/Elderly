@@ -633,7 +633,9 @@ model user {
   activity                activity[]
   activityLog             activityLog[]
   activityRegistration    activityRegistration[]
+  blockedContact          blockedContact[]
   collaborativeProject    collaborativeProject[]
+  contactRequest          contactRequest[]
   conversationParticipant conversationParticipant[]
   forumMessage            forumMessage[]
   forumTopic              forumTopic[]
@@ -665,7 +667,6 @@ model user {
   session                 session[]
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model userActivity {
   id                       String             @id @default(cuid())
   userId                   String             @map("user_id")
@@ -704,9 +705,31 @@ model userContacts {
   contactId String    @map("contact_id")
   createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
-  user      user?      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("user_contacts")
+}
+
+model contactRequest {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  contactId String    @map("contact_id")
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
+  user      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("contact_request")
+}
+
+model blockedContact {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  contactId String    @map("contact_id")
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
+  user      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("blocked_contact")
 }
 
 model userDevice {

@@ -21,7 +21,7 @@ export function PhotoTabContent() {
 
       {/* Recherche */}
       <div className="m-0 ml-6 mr-6 mt-0">
-        <label className="input flex w-full items-center dark:bg-card rounded-lg">
+        <label className="input flex w-full items-center border-slate-800 dark:bg-card rounded-lg">
           <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
           <input
             type="search"

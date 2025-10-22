@@ -12,14 +12,18 @@ const prisma = new PrismaClient();
  *   description: Gestion des contacts utilisateurs
  */
 export const createUserContact = async (
-  req: Request<{ userId: string }, {}, IUserContact>,
+  req: Request<{ userId: string; contactId: string }, {}, IUserContact>,
   res: Response,
   next: NextFunction
 ) => {
+  const { userId, contactId } = req.params;
+
   try {
     const userContact = await prisma.userContacts.create({
       data: {
         ...req.body,
+        userId,
+        contactId,
       },
     });
     res.status(201).json(userContact);
@@ -29,17 +33,20 @@ export const createUserContact = async (
 };
 
 export const getAllUserContacts = async (
-  req: Request<{ userId: string }>,
+  req: Request<{ userId: string; contactId: string }>,
   res: Response,
   next: NextFunction
 ) => {
+  const { userId, contactId } = req.params;
+
   try {
     const userContacts = await prisma.userContacts.findMany({
       orderBy: {
         createdAt: "desc",
       },
       where: {
-        userId: req.params.userId,
+        userId,
+        contactId,
       },
     });
     res.status(200).json({ userContacts });
@@ -48,16 +55,16 @@ export const getAllUserContacts = async (
   }
 };
 
-export const getUserContactByContactId = async (
-  req: Request<{ contactId: string }>,
+export const getUserContact = async (
+  req: Request<{ userId: string; contactId: string }>,
   res: Response,
   next: NextFunction
 ) => {
-  const { contactId } = req.params;
+  const { userId, contactId } = req.params;
 
   try {
-    const userContact = await prisma.userContacts.findUnique({
-      where: { id: contactId },
+    const userContact = await prisma.userContacts.findFirst({
+      where: { userId, contactId },
     });
 
     if (!userContact) {
@@ -71,15 +78,15 @@ export const getUserContactByContactId = async (
 };
 
 export const updateUserContact = async (
-  req: Request<{ contactId: string }, {}, IUserContact>,
+  req: Request<{ userId: string; contactId: string }, {}, IUserContact>,
   res: Response,
   next: NextFunction
 ) => {
-  const { contactId } = req.params;
+  const { userId, contactId } = req.params;
 
   try {
-    const userContact = await prisma.userContacts.findUnique({
-      where: { id: contactId },
+    const userContact = await prisma.userContacts.findFirst({
+      where: { userId, contactId },
     });
 
     if (!userContact) {
@@ -91,7 +98,7 @@ export const updateUserContact = async (
         ...req.body,
         updatedAt: new Date(),
       },
-      where: { id: contactId },
+      where: { id: userContact.id },
     });
 
     res.status(200).json(updatedUserContact);
@@ -101,15 +108,15 @@ export const updateUserContact = async (
 };
 
 export const deleteUserContact = async (
-  req: Request<{ contactId: string }>,
+  req: Request<{ userId: string; contactId: string }>,
   res: Response,
   next: NextFunction
 ) => {
-  const { contactId } = req.params;
+  const { userId, contactId } = req.params;
 
   try {
-    const userContact = await prisma.userContacts.findUnique({
-      where: { id: contactId },
+    const userContact = await prisma.userContacts.findFirst({
+      where: { userId, contactId },
     });
 
     if (!userContact) {
@@ -117,7 +124,7 @@ export const deleteUserContact = async (
     }
 
     await prisma.userContacts.delete({
-      where: { id: contactId },
+      where: { id: userContact.id },
     });
 
     res

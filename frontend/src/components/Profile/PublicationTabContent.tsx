@@ -10,16 +10,16 @@ export function PublicationTabContent() {
   }
 
   return (
-    <Card className="border-0 p-[16px]">
+    <Card className="p-4">
       <span className="text-xl mt-6 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         A Propos
       </span>
-      <div className="border-slate-800 mt-0 pt-0 border-1 mb-0"></div>
+      <div className="border-slate-800 mt-0 pt-0 border mb-0"></div>
       <span className="p-3 pt-0">{user?.description}</span>
       <span className="text-xl mt-6 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         Centres d'intérêt
       </span>
-      <div className="border-slate-800 mt-0 pt-0 border-1 mb-0"></div>
+      <div className="border-slate-800 mt-0 pt-0 border mb-0"></div>
       <div className="flex gap-3 ml-4 mr-4 mb-0">
         <span className="badge p-4 bg-primary text-base">Voyages</span>
         <span className="badge p-4 bg-primary text-base">Lecture</span>
@@ -30,7 +30,7 @@ export function PublicationTabContent() {
       <span className="text-xl mt-8 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         Compétences
       </span>
-      <div className="border-slate-800 mt-0 pt-0 border-1 mb-0"></div>
+      <div className="border-slate-800 mt-0 pt-0 border mb-0"></div>
       <div className="flex gap-3 ml-4 mr-4 mb-0">
         <span className="badge p-4 bg-primary text-base">Communication</span>
         <span className="badge p-4 bg-primary text-base">Organisation</span>
@@ -40,7 +40,7 @@ export function PublicationTabContent() {
       <span className="text-xl mt-8 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         Publications récentes
       </span>
-      <div className="border-slate-800 mt-0 pt-0 border-1 mb-0"></div>
+      <div className="border-slate-800 mt-0 pt-0 border mb-0"></div>
       <div className="flex ml-4 mr-4 mb-0 w-full gap-10">
         <div className="flex flex-col w-full mt-1">
           <p className="text-slate-400 text-xs">Publié dans Loisirs</p>

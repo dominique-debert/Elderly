@@ -2,8 +2,9 @@ import { Router } from "express";
 import {
   createUserContact,
   getAllUserContacts,
-  getUserContactByContactId,
+  getUserContact,
   updateUserContact,
+  deleteAllUserContacts,
   deleteUserContact,
 } from "@/controllers";
 
@@ -16,12 +17,12 @@ const router = Router();
  * @swagger
  * tags:
  *   name: User Contacts
- *   description: Gestion des badges utilisateurs
+ *   description: Gestion des contacts utilisateurs
  */
 
 /**
  * @swagger
- * /api/user-contacts:
+ * /api/user-contacts/{userId}/{contactId}:
  *   post:
  *     summary: Créer un nouveau contact utilisateur
  *     tags: [User Contacts]
@@ -37,11 +38,15 @@ const router = Router();
  *       500:
  *         description: Erreur serveur
  */
-router.post("/", validate(userContactSchema), createUserContact);
+router.post(
+  "/:userId/:contactId",
+  validate(userContactSchema),
+  createUserContact
+);
 
 /**
  * @swagger
- * /api/user-contacts:
+ * /api/user-contacts/{userId}:
  *   get:
  *     summary: Récupérer tous les contacts utilisateurs
  *     tags: [User Contacts]
@@ -60,22 +65,14 @@ router.post("/", validate(userContactSchema), createUserContact);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/", getAllUserContacts);
+router.get("/:userId", getAllUserContacts);
 
 /**
  * @swagger
- * /api/user-contacts/{id}:
+ * /api/user-contacts/{userId}/{contactId}:
  *   get:
  *     summary: Récupérer un contact utilisateur par ID
  *     tags: [User Contacts]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *           format: cuid
- *         description: ID du badge utilisateur
  *     responses:
  *       200:
  *         description: Contact utilisateur trouvé
@@ -88,21 +85,27 @@ router.get("/", getAllUserContacts);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:id", getUserContactByContactId);
+router.get("/:userId/:contactId", getUserContact);
 
 /**
  * @swagger
- * /api/user-contacts/{id}:
+ * /api/user-contacts/{userId}/{contactId}:
  *   put:
  *     summary: Mettre à jour un contact utilisateur
  *     tags: [User Contacts]
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: userId
  *         required: true
  *         schema:
  *           type: string
- *         description: ID du badge utilisateur
+ *         description: ID de l'utilisateur
+ *       - in: path
+ *         name: contactId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID du contact à mettre à jour
  *     requestBody:
  *       required: true
  *     responses:
@@ -115,27 +118,34 @@ router.get("/:id", getUserContactByContactId);
  *       500:
  *         description: Erreur serveur
  */
-router.put("/:id", updateUserContact);
+router.put("/:userId/:contactId", updateUserContact);
 
 /**
  * @swagger
- * /api/user-contacts/{id}:
+ * /api/user-contacts/{userId}/{contactId}:
  *   delete:
- *     summary: Supprimer un contact utilisateur
+ *     summary: Supprimer un contact utilisateur par ID
  *     tags: [User Contacts]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: ID du badge utilisateur
  *     responses:
  *       200:
  *         description: Contact utilisateur supprimé avec succès
  *       500:
  *         description: Erreur serveur
  */
-router.delete("/:id", deleteUserContact);
+router.delete("/:userId/:contactId", deleteUserContact);
+
+/**
+ * @swagger
+ * /api/user-contacts/{userId}:
+ *   delete:
+ *     summary: Supprimer tous les contacts utilisateur
+ *     tags: [User Contacts]
+ *     responses:
+ *       200:
+ *         description: Tous les contacts utilisateur supprimés avec succès
+ *       500:
+ *         description: Erreur serveur
+ */
+router.delete("/:userId", deleteAllUserContacts);
 
 export default router;

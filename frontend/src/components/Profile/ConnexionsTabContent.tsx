@@ -231,7 +231,7 @@ export function ConnexionsTabContent() {
       <div className="flex justify-between items-center mb-[-16px]">
         <div className="flex flex-col justify-center pt-4">
           <div className="text-xl ml-6 h-6">Mes Connexions</div>
-          <div className="text-sm m-6 mb-4 mt-1 text-slate-400">
+          <div className="text-sm m-6 mb-2 mt-1 text-slate-400">
             Organisez et gerez vos connexions.
           </div>
         </div>
@@ -240,17 +240,13 @@ export function ConnexionsTabContent() {
           Ajouter une connexion
         </button>
       </div>
-      <div className="divider expert-blue m-4 mt-0 mb-0 "></div>
+      <div className="divider expert-blue m-4 mb-2"></div>
 
       {/* Recherche */}
-      <div className="m-0 ml-6 mr-6 mt-0">
-        <label className="input flex w-full items-center dark:bg-card rounded-lg">
+      <div className="m-0 ml-6 mr-6 mt-0 mb-2">
+        <label className="input flex w-full items-center border-slate-800 dark:bg-card rounded-lg">
           <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
-          <input
-            type="search"
-            placeholder="Rechercher une photo..."
-            className="grow flex-1"
-          />
+          <input type="search" placeholder="Rechercher une photo..." />
           <button className="cursor-pointer">
             <Icon path={mdiClose} size={0.8} className="text-slate-500" />
           </button>
