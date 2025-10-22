@@ -14,12 +14,12 @@ const prisma = new PrismaClient();
  */
 
 export const createActivityRegistration = async (
-  req: Request<IActivityRegistration>,
+  req: Request<{}, {}, IActivityRegistration>,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const registrationToCreate = await prisma.activityLog.create({
+    const registrationToCreate = await prisma.activityRegistration.create({
       data: req.body,
     });
     res.status(201).json(registrationToCreate);
@@ -36,7 +36,7 @@ export const getAllActivityRegistrations = async (
   try {
     const registrations = await prisma.activityRegistration.findMany({
       orderBy: {
-        id: "asc", // Ascending order (A-Z)
+        id: "asc",
       },
     });
 
@@ -47,7 +47,7 @@ export const getAllActivityRegistrations = async (
 };
 
 export const getActivityRegistrationById = async (
-  req: Request,
+  req: Request<{ id: string }>,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
@@ -59,7 +59,7 @@ export const getActivityRegistrationById = async (
     });
 
     if (!registration) {
-      throw createHttpError(404, `Badge bien-être non trouvé`);
+      throw createHttpError(404, `Inscription à l'activité non trouvée`);
     }
 
     res.status(200).json(registration);
@@ -69,7 +69,7 @@ export const getActivityRegistrationById = async (
 };
 
 export const updateActivityRegistration = async (
-  req: Request,
+  req: Request<{ id: string }>,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
@@ -81,7 +81,7 @@ export const updateActivityRegistration = async (
     });
 
     if (!registration) {
-      throw createHttpError(404, `Badge bien-être non trouvé`);
+      throw createHttpError(404, `Inscription à l'activité non trouvée`);
     }
 
     const registrationToUpdate = await prisma.activityRegistration.update({
@@ -98,7 +98,7 @@ export const updateActivityRegistration = async (
 };
 
 export const deleteActivityRegistration = async (
-  req: Request,
+  req: Request<{ id: string }>,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
@@ -110,15 +110,16 @@ export const deleteActivityRegistration = async (
     });
 
     if (!registration) {
-      throw createHttpError(404, `Badge bien-être non trouvé`);
+      throw createHttpError(404, `Inscription à l'activité non trouvée`);
     }
 
     await prisma.activityRegistration.delete({
       where: { id },
     });
 
-    // Correction : Cette variable n'existait pas dans le code d'origine
-    res.status(200).json({ message: "Badge bien-être supprimé avec succès" });
+    res
+      .status(200)
+      .json({ message: "Inscription à l'activité supprimée avec succès" });
   } catch (error) {
     next(error);
   }
