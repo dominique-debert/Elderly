@@ -89,3 +89,5 @@ export * from "./utils/IMenuItem";
 export * from "./data/wellness/IWellnessBadge";
 export * from "./data/wellness/IWellnessGoal";
 export * from "./data/wellness/IWellnessGoalProgress";
+
+export * from "./data/EValence";

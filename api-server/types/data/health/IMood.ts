@@ -5,6 +5,7 @@ enum EValence {
 }
 
 export interface IMood {
+  id?: number;
   name: string;
   description?: string;
   valence: EValence;
