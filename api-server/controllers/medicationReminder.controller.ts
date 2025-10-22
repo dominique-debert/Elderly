@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import { PrismaClient } from "@/prisma/client.js"; // ou '@/prisma/client' si tu utilises des alias
-import IMedicationReminder from "@/types/data/health/IMedicationReminder.js";
+import { IMedicationReminder } from "@/types";
 
 const prisma = new PrismaClient();
 
@@ -17,10 +17,10 @@ export const createMedicationReminder = async (
   next: NextFunction
 ) => {
   try {
-    const newService = await prisma.medicationReminder.create({
+    const medicationReminder = await prisma.medicationReminder.create({
       data: req.body,
     });
-    res.status(201).json(newService);
+    res.status(201).json(medicationReminder);
   } catch (error) {
     next(error);
   }
@@ -32,12 +32,12 @@ export const getAllMedicationReminders = async (
   next: NextFunction
 ) => {
   try {
-    const localServices = await prisma.medicationReminder.findMany({
+    const medicationReminders = await prisma.medicationReminder.findMany({
       orderBy: {
         medicationName: "asc",
       },
     });
-    res.status(200).json({ localServices });
+    res.status(200).json({ medicationReminders });
   } catch (error) {
     next(error);
   }
@@ -51,15 +51,15 @@ export const getMedicationReminderById = async (
   const { id } = req.params;
 
   try {
-    const service = await prisma.medicationReminder.findUnique({
+    const medicationReminder = await prisma.medicationReminder.findUnique({
       where: { id },
     });
 
-    if (!service) {
+    if (!medicationReminder) {
       throw createHttpError(404, "Rappel de médicament non trouvé");
     }
 
-    res.status(200).json(service);
+    res.status(200).json(medicationReminder);
   } catch (error) {
     next(error);
   }
@@ -73,15 +73,15 @@ export const updateMedicationReminder = async (
   const { id } = req.params;
 
   try {
-    const service = await prisma.medicationReminder.findUnique({
+    const medicationReminder = await prisma.medicationReminder.findUnique({
       where: { id },
     });
 
-    if (!service) {
+    if (!medicationReminder) {
       throw createHttpError(404, "Rappel de médicament non trouvé");
     }
 
-    const updatedService = await prisma.medicationReminder.update({
+    const updatedMedicationReminder = await prisma.medicationReminder.update({
       data: {
         ...req.body,
         updatedAt: new Date(),
@@ -89,7 +89,7 @@ export const updateMedicationReminder = async (
       where: { id },
     });
 
-    res.status(200).json(updatedService);
+    res.status(200).json(updatedMedicationReminder);
   } catch (error) {
     next(error);
   }
@@ -103,11 +103,11 @@ export const deleteMedicationReminder = async (
   const { id } = req.params;
 
   try {
-    const service = await prisma.medicationReminder.findUnique({
+    const medicationReminder = await prisma.medicationReminder.findUnique({
       where: { id },
     });
 
-    if (!service) {
+    if (!medicationReminder) {
       throw createHttpError(404, "Rappel de médicament non trouvé");
     }
 
