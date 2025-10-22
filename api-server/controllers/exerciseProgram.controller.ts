@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import { PrismaClient } from "@/prisma";
-import IExerciseProgram from "@/types/data/exercises/IExerciseProgram";
+import { IExerciseProgram } from "@/types";
 
 const prisma = new PrismaClient();
 

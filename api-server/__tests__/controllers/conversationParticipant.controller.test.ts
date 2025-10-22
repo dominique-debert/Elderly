@@ -21,7 +21,7 @@ import {
   getConversationParticipantById,
   updateConversationParticipant,
   deleteConversationParticipant,
-} from "@/controllers/conversationParticipant.controller";
+} from "@/controllers";
 import { IConversationParticipant } from "@/types";
 
 describe("ConversationParticipant Controller", () => {
