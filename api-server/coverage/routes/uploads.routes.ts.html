@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">95.45% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/22</span>
+                <span class='fraction'>21/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>6/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -93,66 +93,66 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import express from "express";</span>
-<span class="cstat-no" title="statement not covered" >import multer from "multer";</span>
-<span class="cstat-no" title="statement not covered" >import path from "path";</span>
-<span class="cstat-no" title="statement not covered" >import fs from "fs";</span>
-<span class="cstat-no" title="statement not covered" >import { v4 as uuidv4 } from "uuid";</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import express from "express";
+import multer from "multer";
+import path from "path";
+import fs from "fs";
+import { v4 as uuidv4 } from "uuid";
 &nbsp;
-const router = <span class="cstat-no" title="statement not covered" >express.Router();</span>
+const router = express.Router();
 &nbsp;
-const uploadsDir = <span class="cstat-no" title="statement not covered" >path.join(process.cwd(), "public", "images", "avatars");</span>
-<span class="cstat-no" title="statement not covered" >if (!fs.existsSync(uploadsDir)) <span class="cstat-no" title="statement not covered" >fs.mkdirSync(uploadsDir, { recursive: true });</span></span>
+const uploadsDir = path.join(process.cwd(), "public", "images", "avatars");
+<span class="missing-if-branch" title="if path not taken" >I</span>if (!fs.existsSync(uploadsDir)) <span class="cstat-no" title="statement not covered" >fs.mkdirSync(uploadsDir, { recursive: true });</span>
 &nbsp;
-const storage = <span class="cstat-no" title="statement not covered" >multer.diskStorage({</span>
-  destination: <span class="fstat-no" title="function not covered" >(_</span>req, _file, cb) =&gt; <span class="cstat-no" title="statement not covered" >cb(null, uploadsDir),</span>
-  filename: <span class="fstat-no" title="function not covered" >(_</span>req, file, cb) =&gt; {
-    const ext = <span class="cstat-no" title="statement not covered" >path.extname(file.originalname) || "";</span>
-<span class="cstat-no" title="statement not covered" >    cb(null, `${uuidv4()}${ext}`);</span>
+const storage = multer.diskStorage({
+  destination: (_req, _file, cb) =&gt; cb(null, uploadsDir),
+  filename: (_req, file, cb) =&gt; {
+    const ext = path.extname(file.originalname) || <span class="branch-1 cbranch-no" title="branch not covered" >"";</span>
+    cb(null, `${uuidv4()}${ext}`);
   },
 });
 &nbsp;
-const upload = <span class="cstat-no" title="statement not covered" >multer({ storage });</span>
+const upload = multer({ storage });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >router.post("/", upload.single("file"), <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  if (!req.file) <span class="cstat-no" title="statement not covered" >return res.status(400).json({ error: "No file uploaded" });</span></span>
-  const serverBase = <span class="cstat-no" title="statement not covered" >process.env.SERVER_BASE_URL || "http://localhost:3000";</span>
-  const filename = (<span class="cstat-no" title="statement not covered" >req.file as any).filename;</span>
-  const url = <span class="cstat-no" title="statement not covered" >`${serverBase}/images/avatars/${filename}`;</span>
-<span class="cstat-no" title="statement not covered" >  res.json({ filename, url });</span>
+router.post("/", upload.single("file"), (req, res) =&gt; {
+  if (!req.file) return res.status(400).json({ error: "No file uploaded" });
+  const serverBase = process.env.SERVER_BASE_URL || "http://localhost:3000";
+  const filename = (req.file as any).filename;
+  const url = `${serverBase}/images/avatars/${filename}`;
+  res.json({ filename, url });
 });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export default router;</span>
+export default router;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -160,7 +160,7 @@ const upload = <span class="cstat-no" title="statement not covered" >multer({ st
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-10-23T08:11:02.010Z
+                at 2025-10-23T09:29:01.114Z
             </div>
         <script src="../prettify.js"></script>
         <script>

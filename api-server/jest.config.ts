@@ -9,6 +9,7 @@ const config: Config = {
     "**/__tests__/routes/**/*.test.ts",
     "**/__tests__/middlewares/**/*.test.ts",
     "**/__tests__/utils/**/*.test.ts",
+    "**/__tests__/validators/**/*.test.ts",
   ],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
@@ -18,6 +19,7 @@ const config: Config = {
     "routes/**/*.ts",
     "middlewares/**/*.ts",
     "utils/**/*.ts",
+    "validators/**/*.ts",
     "!**/*.d.ts",
     "!**/node_modules/**",
     "!**/__tests__/**",

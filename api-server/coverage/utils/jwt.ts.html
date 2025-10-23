@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">31.25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/16</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,75 +98,75 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import jwt from "jsonwebtoken";
 &nbsp;
-const getJwtSecret = <span class="fstat-no" title="function not covered" >(): string =</span>&gt; {
-  const secret = <span class="cstat-no" title="statement not covered" >process.env.JWT_SECRET || process.env.SECRET;</span>
-<span class="cstat-no" title="statement not covered" >  if (!secret) {</span>
-<span class="cstat-no" title="statement not covered" >    throw new Error(</span>
+const getJwtSecret = (): string =&gt; {
+  const secret = process.env.JWT_SECRET || process.env.SECRET;
+  if (!secret) {
+    throw new Error(
       "JWT secret is not set. Set JWT_SECRET (or SECRET) in your environment or .env file."
     );
   }
-<span class="cstat-no" title="statement not covered" >  return secret;</span>
+  return secret;
 };
 &nbsp;
 // Accept either a SignOptions object or a string (expiresIn)
-export const generateToken = <span class="fstat-no" title="function not covered" >(</span>
+export const generateToken = (
   payload: object,
   expiresInOrOptions?: string | jwt.SignOptions
 ) =&gt; {
-  const secret = <span class="cstat-no" title="statement not covered" >getJwtSecret();</span>
+  const secret = getJwtSecret();
 &nbsp;
   let signOptions: jwt.SignOptions | undefined;
-<span class="cstat-no" title="statement not covered" >  if (typeof expiresInOrOptions === "string") {</span>
-<span class="cstat-no" title="statement not covered" >    signOptions = {</span>
+  if (typeof expiresInOrOptions === "string") {
+    signOptions = {
       expiresIn: expiresInOrOptions as jwt.SignOptions["expiresIn"],
     };
   } else {
-<span class="cstat-no" title="statement not covered" >    signOptions = expiresInOrOptions;</span>
+    signOptions = expiresInOrOptions;
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return jwt.sign(payload, secret, signOptions);</span>
+  return jwt.sign(payload, secret, signOptions);
 };
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >verifyToken(</span>token: string) {
-  const secret = <span class="cstat-no" title="statement not covered" >getJwtSecret();</span>
-<span class="cstat-no" title="statement not covered" >  return jwt.verify(token, secret);</span>
+export function verifyToken(token: string) {
+  const secret = getJwtSecret();
+  return jwt.verify(token, secret);
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -175,7 +175,7 @@ export function <span class="fstat-no" title="function not covered" >verifyToken
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-10-23T08:11:02.010Z
+                at 2025-10-23T09:29:01.114Z
             </div>
         <script src="../prettify.js"></script>
         <script>

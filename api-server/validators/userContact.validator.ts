@@ -1,18 +1,32 @@
 import Joi from "joi";
 
 export const userContactSchema = Joi.object({
-  userId: Joi.string().required().messages({
+  id: Joi.string().uuid().required().messages({
+    "string.base": "L'ID doit être une chaîne de caractères.",
+    "string.empty": "L'ID est requis.",
+  }),
+  userId: Joi.string().uuid().required().messages({
     "string.base": "L'ID de l'utilisateur doit être une chaîne de caractères.",
     "string.empty": "L'ID de l'utilisateur est requis.",
-    "any.required": "L'ID de l'utilisateur est obligatoire.",
   }),
-  contactId: Joi.string().required().messages({
+  status: Joi.string()
+    .valid("pending", "accepted", "rejected", "blocked")
+    .required()
+    .messages({
+      "any.only":
+        "Le statut doit être l'une des valeurs suivantes : pending, accepted, rejected, blocked.",
+      "string.empty": "Le statut est requis.",
+    }),
+  message: Joi.string().allow("", null),
+  reason: Joi.string().allow("", null),
+  contactId: Joi.string().uuid().required().messages({
     "string.base": "L'ID du contact doit être une chaîne de caractères.",
     "string.empty": "L'ID du contact est requis.",
-    "any.required": "L'ID du contact est obligatoire.",
   }),
-  achievementDate: Joi.date().required().messages({
-    "date.base": "La date d'acquisition doit être une date valide.",
-    "any.required": "La date d'acquisition est obligatoire.",
+  createdAt: Joi.date().messages({
+    "date.base": "La date de création doit être une date valide.",
+  }),
+  updatedAt: Joi.date().messages({
+    "date.base": "La date de mise à jour doit être une date valide.",
   }),
 });
