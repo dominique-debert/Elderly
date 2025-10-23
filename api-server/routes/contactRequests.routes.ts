@@ -105,7 +105,7 @@ router.post(
  *       500:
  *         description: Erreur serveur
  */
-router.post(
+router.put(
   "/:userId/:contactId",
   validate(userContactSchema),
   updateUserContactRequest
