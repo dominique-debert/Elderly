@@ -8,6 +8,7 @@ const config: Config = {
     "**/__tests__/controllers/**/*.test.ts",
     "**/__tests__/routes/**/*.test.ts",
     "**/__tests__/middlewares/**/*.test.ts",
+    "**/__tests__/utils/**/*.test.ts",
   ],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
