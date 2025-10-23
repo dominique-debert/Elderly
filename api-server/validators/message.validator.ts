@@ -16,6 +16,7 @@ export const messageSchema = Joi.object({
   fileUrl: Joi.string().uri().allow(null, "").messages({
     "string.base": "L'URL du fichier doit être une chaîne de caractères.",
     "string.empty": "L'URL du fichier est requise.",
+    "string.uri": "L'URL du fichier doit être une URL valide.",
     "any.required": "L'URL du fichier est obligatoire.",
   }),
   read: Joi.boolean().default(false).messages({
