@@ -15,7 +15,6 @@ export interface IUser {
   profilePicture: string;
   registrationDate: Date;
   accountVerified: boolean;
-  interfacePreferences: string;
   twoFactorAuthentication: boolean;
   helpPoints: number;
   reducedMobility: boolean;

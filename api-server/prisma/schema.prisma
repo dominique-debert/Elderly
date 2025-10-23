@@ -621,8 +621,6 @@ model user {
   avatar                  String?                   @map("avatar") @db.Text
   registrationDate        DateTime                  @default(now()) @map("registration_date") @db.Timestamp(6)
   accountVerified         Boolean                   @default(false) @map("account_verified")
-  interfacePreferences    String?                   @map("interface_preferences") @db.Text
-  twoFactorAuthentication Boolean                   @default(false) @map("two_factor_authentication")
   helpPoints              Int?                      @default(0) @map("help_points")
   reducedMobility         Boolean?                  @default(false) @map("reduced_mobility")
   activityLevel           String?                   @default("active") @map("activity_level") @db.Text

@@ -36,14 +36,26 @@ export const signUpSchema = Joi.object({
     "date.format": "La date de naissance doit être au format ISO (YYYY-MM-DD).",
     "any.required": "La date de naissance est obligatoire.",
   }),
-  isAdmin: Joi.boolean().default(false).messages({
-    "boolean.base": "Le champ 'isAdmin' doit être un booléen.",
+  address: Joi.string().optional().messages({
+    "string.base": "L'adresse doit être une chaîne de caractères.",
+  }),
+  city: Joi.string().optional().messages({
+    "string.base": "La ville doit être une chaîne de caractères.",
+  }),
+  description: Joi.string().optional().messages({
+    "string.base": "La description doit être une chaîne de caractères.",
   }),
   longitude: Joi.string().optional().messages({
     "string.base": "La longitude doit être une chaîne de caractères.",
   }),
   latitude: Joi.string().optional().messages({
     "string.base": "La latitude doit être une chaîne de caractères.",
+  }),
+  phone: Joi.string().optional().messages({
+    "string.base": "Le numéro de téléphone doit être une chaîne de caractères.",
+  }),
+  isAdmin: Joi.boolean().default(false).messages({
+    "boolean.base": "Le champ 'isAdmin' doit être un booléen.",
   }),
 });
 

@@ -583,8 +583,6 @@ exports.Prisma.UserScalarFieldEnum = {
   avatar: 'avatar',
   registrationDate: 'registrationDate',
   accountVerified: 'accountVerified',
-  interfacePreferences: 'interfacePreferences',
-  twoFactorAuthentication: 'twoFactorAuthentication',
   helpPoints: 'helpPoints',
   reducedMobility: 'reducedMobility',
   activityLevel: 'activityLevel',
