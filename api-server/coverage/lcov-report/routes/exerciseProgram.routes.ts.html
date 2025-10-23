@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -183,12 +183,12 @@
 <a name='L118'></a><a href='#L118'>118</a>
 <a name='L119'></a><a href='#L119'>119</a>
 <a name='L120'></a><a href='#L120'>120</a>
-<a name='L121'></a><a href='#L121'>121</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L121'></a><a href='#L121'>121</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,7 +196,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,7 +214,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -230,7 +230,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -252,7 +252,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -279,7 +279,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -300,15 +300,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Router } from "express";</span>
-<span class="cstat-no" title="statement not covered" >import { validate } from "@/middlewares";</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Router } from "express";
+import { validate } from "@/middlewares";
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import { exerciseProgramSchema } from "@/validators";</span>
+import { exerciseProgramSchema } from "@/validators";
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import {</span>
+import {
   getAllExercisePrograms,
   getExerciseProgramById,
   createExerciseProgram,
@@ -316,7 +316,7 @@
   deleteExerciseProgram,
 } from "@/controllers";
 &nbsp;
-const exerciseProgramRouter = <span class="cstat-no" title="statement not covered" >Router();</span>
+const exerciseProgramRouter = Router();
 &nbsp;
 /**
  * @swagger
@@ -334,7 +334,7 @@ const exerciseProgramRouter = <span class="cstat-no" title="statement not covere
  *       201:
  *         description: Programme d'exercice créé
  */
-<span class="cstat-no" title="statement not covered" >exerciseProgramRouter.post(</span>
+exerciseProgramRouter.post(
   "/",
   validate(exerciseProgramSchema),
   createExerciseProgram
@@ -350,7 +350,7 @@ const exerciseProgramRouter = <span class="cstat-no" title="statement not covere
  *       200:
  *         description: Liste des programmes d'exercice
  */
-<span class="cstat-no" title="statement not covered" >exerciseProgramRouter.get("/", getAllExercisePrograms);</span>
+exerciseProgramRouter.get("/", getAllExercisePrograms);
 &nbsp;
 /**
  * @swagger
@@ -372,7 +372,7 @@ const exerciseProgramRouter = <span class="cstat-no" title="statement not covere
  *       404:
  *         description: Programme d'exercice non trouvé
  */
-<span class="cstat-no" title="statement not covered" >exerciseProgramRouter.get("/:id", getExerciseProgramById);</span>
+exerciseProgramRouter.get("/:id", getExerciseProgramById);
 &nbsp;
 /**
  * @swagger
@@ -399,7 +399,7 @@ const exerciseProgramRouter = <span class="cstat-no" title="statement not covere
  *       404:
  *         description: Programme d'exercice non trouvé
  */
-<span class="cstat-no" title="statement not covered" >exerciseProgramRouter.put("/:id", updateExerciseProgram);</span>
+exerciseProgramRouter.put("/:id", updateExerciseProgram);
 &nbsp;
 /**
  * @swagger
@@ -420,9 +420,9 @@ const exerciseProgramRouter = <span class="cstat-no" title="statement not covere
  *       404:
  *         description: Programme d'exercice non trouvé
  */
-<span class="cstat-no" title="statement not covered" >exerciseProgramRouter.delete("/:id", deleteExerciseProgram);</span>
+exerciseProgramRouter.delete("/:id", deleteExerciseProgram);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export default exerciseProgramRouter;</span>
+export default exerciseProgramRouter;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -430,7 +430,7 @@ const exerciseProgramRouter = <span class="cstat-no" title="statement not covere
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-10-23T06:23:56.537Z
+                at 2025-10-23T06:59:07.907Z
             </div>
         <script src="../prettify.js"></script>
         <script>
