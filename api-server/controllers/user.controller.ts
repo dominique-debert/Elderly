@@ -53,7 +53,6 @@ const fileFilter = (
   file: Express.Multer.File,
   cb: multer.FileFilterCallback
 ) => {
-  // Accept images only
   if (!file.mimetype.startsWith("image/")) {
     cb(new Error("Seules les images sont acceptées"));
     return;
