@@ -4,6 +4,7 @@ export const moodSchema = Joi.object({
   name: Joi.string().min(2).max(50).required().messages({
     "string.base": "Le nom doit être une chaîne de caractères.",
     "string.empty": "Le nom est requis.",
+    "string.min": "Le nom doit contenir au moins 2 caractères.",
   }),
   description: Joi.string().allow(null, "").optional().messages({
     "string.base": "La description doit être une chaîne de caractères.",
@@ -14,6 +15,7 @@ export const moodSchema = Joi.object({
     .messages({
       "string.base": "La valence doit être une chaîne de caractères.",
       "any.required": "La valence est obligatoire.",
+      "any.only": "La valence doit être 'positive', 'negative' ou 'neutre'.",
     }),
   intensity: Joi.number().integer().min(1).max(5).required().messages({
     "number.base": "L'intensité doit être un nombre.",
@@ -29,5 +31,6 @@ export const moodSchema = Joi.object({
       "string.base": "La couleur doit être une chaîne de caractères.",
       "string.pattern.base": "La couleur doit être un code hexadécimal valide.",
       "any.required": "La couleur est obligatoire.",
+      "string.empty": "La couleur est obligatoire.",
     }),
 });
