@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -178,12 +178,12 @@
 <a name='L113'></a><a href='#L113'>113</a>
 <a name='L114'></a><a href='#L114'>114</a>
 <a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L116'></a><a href='#L116'>116</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,7 +191,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,7 +209,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,7 +221,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,7 +242,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -269,7 +269,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -290,15 +290,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Router } from "express";</span>
-<span class="cstat-no" title="statement not covered" >import { validate } from "@/middlewares";</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Router } from "express";
+import { validate } from "@/middlewares";
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import { localServiceSchema } from "@/validators";</span>
+import { localServiceSchema } from "@/validators";
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import {</span>
+import {
   createLocalService,
   getAllLocalServices,
   getLocalServiceById,
@@ -306,7 +306,7 @@
   deleteLocalService,
 } from "@/controllers";
 &nbsp;
-const localServiceRouter = <span class="cstat-no" title="statement not covered" >Router();</span>
+const localServiceRouter = Router();
 &nbsp;
 /**
  * @swagger
@@ -324,7 +324,7 @@ const localServiceRouter = <span class="cstat-no" title="statement not covered" 
  *       201:
  *         description: Service local créé
  */
-<span class="cstat-no" title="statement not covered" >localServiceRouter.post("/", validate(localServiceSchema), createLocalService);</span>
+localServiceRouter.post("/", validate(localServiceSchema), createLocalService);
 &nbsp;
 /**
  * @swagger
@@ -336,7 +336,7 @@ const localServiceRouter = <span class="cstat-no" title="statement not covered" 
  *       200:
  *         description: Liste des services locaux
  */
-<span class="cstat-no" title="statement not covered" >localServiceRouter.get("/", getAllLocalServices);</span>
+localServiceRouter.get("/", getAllLocalServices);
 &nbsp;
 /**
  * @swagger
@@ -357,7 +357,7 @@ const localServiceRouter = <span class="cstat-no" title="statement not covered" 
  *       404:
  *         description: Service local introuvable
  */
-<span class="cstat-no" title="statement not covered" >localServiceRouter.get("/:id", getLocalServiceById);</span>
+localServiceRouter.get("/:id", getLocalServiceById);
 &nbsp;
 /**
  * @swagger
@@ -384,7 +384,7 @@ const localServiceRouter = <span class="cstat-no" title="statement not covered" 
  *       404:
  *         description: Service local introuvable
  */
-<span class="cstat-no" title="statement not covered" >localServiceRouter.put("/:id", updateLocalService);</span>
+localServiceRouter.put("/:id", updateLocalService);
 &nbsp;
 /**
  * @swagger
@@ -405,9 +405,9 @@ const localServiceRouter = <span class="cstat-no" title="statement not covered" 
  *       404:
  *         description: Service local introuvable
  */
-<span class="cstat-no" title="statement not covered" >localServiceRouter.delete("/:id", deleteLocalService);</span>
+localServiceRouter.delete("/:id", deleteLocalService);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export default localServiceRouter;</span>
+export default localServiceRouter;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -415,7 +415,7 @@ const localServiceRouter = <span class="cstat-no" title="statement not covered" 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-10-23T06:59:07.979Z
+                at 2025-10-23T08:11:02.010Z
             </div>
         <script src="../prettify.js"></script>
         <script>
