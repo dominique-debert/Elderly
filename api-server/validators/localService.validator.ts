@@ -21,7 +21,9 @@ export const localServiceSchema = Joi.object({
   website: Joi.string().allow(null, "").messages({
     "string.base": "Le site Web doit être une chaîne de caractères.",
   }),
-  seniorFriendly: Joi.boolean().required().default(false),
+  seniorFriendly: Joi.boolean().default(false).messages({
+    "boolean.base": "Le champ 'seniorFriendly' doit être un booléen.",
+  }),
   categoryId: Joi.string().allow(null, "").messages({
     "string.base": "L'ID de la catégorie doit être une chaîne de caractères.",
   }),
