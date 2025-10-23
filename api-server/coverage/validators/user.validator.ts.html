@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -136,9 +136,19 @@
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
 <a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,9 +219,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import Joi from "joi";</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Joi from "joi";
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >userSchema = Joi.object({</span>
+export const userSchema = Joi.object({
+  id: Joi.string().required().messages({
+    "string.base": "L'ID doit être une chaîne de caractères.",
+    "string.empty": "L'ID est requis.",
+    "any.required": "L'ID est obligatoire.",
+  }),
   email: Joi.string().required().messages({
     "string.base": "L'email doit être une chaîne de caractères.",
     "string.empty": "L'email est requis.",
@@ -236,27 +261,38 @@ export const <span class="cstat-no" title="statement not covered" >userSchema = 
     "date.base": "La date de naissance doit être une date valide.",
     "any.required": "La date de naissance est obligatoire.",
   }),
+  profession: Joi.string().allow("", null).messages({
+    "string.base": "La profession doit être une chaîne de caractères.",
+  }),
+  city: Joi.string().allow("", null).messages({
+    "string.base": "La ville doit être une chaîne de caractères.",
+  }),
+  postalCode: Joi.string().allow("", null).messages({
+    "string.base": "Le code postal doit être une chaîne de caractères.",
+  }),
   address: Joi.string().allow("", null).messages({
     "string.base": "L'adresse doit être une chaîne de caractères.",
+  }),
+  description: Joi.string().allow("", null).messages({
+    "string.base": "La description doit être une chaîne de caractères.",
+  }),
+  latitude: Joi.string().allow("", null).messages({
+    "string.base": "La latitude doit être une chaîne de caractères.",
+  }),
+  longitude: Joi.string().allow("", null).messages({
+    "string.base": "La longitude doit être une chaîne de caractères.",
   }),
   phone: Joi.string().allow("", null).messages({
     "string.base": "Le téléphone doit être une chaîne de caractères.",
   }),
-  profilePicture: Joi.string().allow("", null).messages({
-    "string.base": "La photo de profil doit être une chaîne de caractères.",
+  avatar: Joi.string().allow("", null).messages({
+    "string.base": "L'avatar doit être une chaîne de caractères.",
   }),
   registrationDate: Joi.date().allow("", null).messages({
     "date.base": "La date d'inscription doit être une date valide.",
   }),
   accountVerified: Joi.boolean().default(false).messages({
     "boolean.base": "Le champ 'accountVerified' doit être un booléen.",
-  }),
-  interfacePreferences: Joi.string().allow("", null).messages({
-    "string.base":
-      "Les préférences d'interface doivent être une chaîne de caractères.",
-  }),
-  twoFactorAuthentication: Joi.boolean().default(false).messages({
-    "boolean.base": "Le champ 'twoFactorAuthentication' doit être un booléen.",
   }),
   helpPoints: Joi.number().allow(0).default(0).min(0).messages({
     "number.base": "Le champ 'helpPoints' doit être un nombre.",
@@ -272,12 +308,6 @@ export const <span class="cstat-no" title="statement not covered" >userSchema = 
   status: Joi.string().allow("", null).default("active").messages({
     "string.base": "Le champ 'status' doit être une chaîne de caractères.",
   }),
-  latitude: Joi.string().allow("", null).default("active").messages({
-    "string.base": "Le champ 'latitude' doit être une chaîne de caractères.",
-  }),
-  longitude: Joi.string().allow("", null).default("active").messages({
-    "string.base": "Le champ 'longitude' doit être une chaîne de caractères.",
-  }),
   isAdmin: Joi.boolean().default(false).messages({
     "boolean.base": "Le champ 'isAdmin' doit être un booléen.",
   }),
@@ -289,7 +319,7 @@ export const <span class="cstat-no" title="statement not covered" >userSchema = 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-10-23T09:42:34.140Z
+                at 2025-10-23T15:18:24.138Z
             </div>
         <script src="../prettify.js"></script>
         <script>

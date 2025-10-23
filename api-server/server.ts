@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from "express";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "@/config/swagger";
 import { errorHandler } from "@/middlewares";
-import routes from "@/routes/index.routes";
+import routes from "@/routes";
 import cors from "cors";
 import path from "path";
 import dotenv from "dotenv";

@@ -18,7 +18,6 @@ export * from "./message.validator";
 export * from "./mood.validator";
 export * from "./municipalEvent.validator";
 export * from "./notification.validator";
-export * from "./notificationPreferences.validator";
 export * from "./nutritionalAdvice.validator";
 export * from "./projectMember.validator";
 export * from "./projectTask.validator";
