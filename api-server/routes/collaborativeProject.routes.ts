@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { validate } from "@/middlewares";
 
-import { projectSchema } from "@/validators";
+import { collaborativeProjectSchema } from "@/validators";
 
 import {
   createCollaborativeProject,
@@ -27,9 +27,13 @@ const router = Router();
  *             $ref: '#/components/schemas/CollaborativeProject'
  *     responses:
  *       201:
- *         description: Exercice créé
+ *         description: Projet créé
  */
-router.post("/", validate(projectSchema), createCollaborativeProject);
+router.post(
+  "/",
+  validate(collaborativeProjectSchema),
+  createCollaborativeProject
+);
 
 /**
  * @swagger

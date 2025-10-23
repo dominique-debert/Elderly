@@ -1,9 +1,6 @@
 // Auth
 export * from "./auth.controller";
 
-// Categories
-// export * from "./categories/category.meta.controller";
-
 // Features
 export * from "./category.meta.controller";
 export * from "./activity.controller";
