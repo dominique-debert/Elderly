@@ -27,6 +27,7 @@ export const exerciseProgramSchema = Joi.object({
   }),
   categoryId: Joi.string().required().messages({
     "string.base": "L'ID de la catégorie doit être une chaîne de caractères.",
+    "string.empty": "L'ID de la catégorie est requis.",
     "any.required": "L'ID de la catégorie est obligatoire.",
   }),
 });
