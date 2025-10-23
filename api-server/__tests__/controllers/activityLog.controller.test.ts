@@ -21,7 +21,7 @@ import {
   getActivityLogById,
   updateActivityLog,
   deleteActivityLog,
-} from "@/controllers/activities/activityLog.controller";
+} from "@/controllers/activityLog.controller";
 import { IActivityLog } from "@/types";
 
 describe("ActivityLog Controller", () => {

@@ -5,10 +5,10 @@ export * from "./auth.controller";
 // export * from "./categories/category.meta.controller";
 
 // Features
-export * from "./categories/category.meta.controller";
-export * from "./activities/activity.controller";
-export * from "./activities/activityLog.controller";
-export * from "./activities/activityRegistration.controller";
+export * from "./category.meta.controller";
+export * from "./activity.controller";
+export * from "./activityLog.controller";
+export * from "./activityRegistration.controller";
 export * from "./badge.controller";
 export * from "./blockedContacts.controller";
 export * from "./cognitiveExercise.controller";
@@ -25,7 +25,7 @@ export * from "./localService.controller";
 export * from "./medicationReminder.controller";
 export * from "./menuItem.controller";
 export * from "./message.controller";
-export * from "./categories/mood.controller";
+export * from "./mood.controller";
 export * from "./municipalEvent.controller";
 export * from "./notification.controller";
 export * from "./nutritionalAdvice.controller";

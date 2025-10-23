@@ -21,7 +21,7 @@ import {
   getActivityRegistrationById,
   updateActivityRegistration,
   deleteActivityRegistration,
-} from "@/controllers/activities/activityRegistration.controller";
+} from "@/controllers/activityRegistration.controller";
 import { IActivityRegistration } from "@/types";
 
 describe("ActivityRegistration Controller", () => {

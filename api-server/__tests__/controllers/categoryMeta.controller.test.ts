@@ -42,7 +42,7 @@ import {
   createCategory,
   updateCategory,
   deleteCategory,
-} from "@/controllers/categories/category.meta.controller";
+} from "@/controllers/category.meta.controller";
 
 describe("Category Meta Controller", () => {
   let mockRequest: Partial<Request>;

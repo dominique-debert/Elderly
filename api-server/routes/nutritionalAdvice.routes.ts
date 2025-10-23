@@ -9,7 +9,7 @@ import {
   getNutritionalAdviceById,
   updateNutritionalAdvice,
   deleteNutritionalAdvice,
-} from "@/controllers/index.js";
+} from "@/controllers/index";
 
 const nutritionalAdviceRouter = Router();
 

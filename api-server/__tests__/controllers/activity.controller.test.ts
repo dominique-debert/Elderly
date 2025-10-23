@@ -21,7 +21,7 @@ import {
   getActivityById,
   updateActivity,
   deleteActivity,
-} from "@/controllers/activities/activity.controller";
+} from "@/controllers/activity.controller";
 import { IActivity } from "@/types";
 
 describe("Activity Controller", () => {

@@ -37,7 +37,7 @@ import {
   getMoodById,
   updateMood,
   deleteMood,
-} from "@/controllers/categories/mood.controller";
+} from "@/controllers/mood.controller";
 
 // Enum local pour les tests (basé sur le schéma Prisma)
 enum EValence {
