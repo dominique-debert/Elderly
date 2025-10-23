@@ -6,22 +6,28 @@ import { IUser } from "@/types";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "url";
+// import { fileURLToPath } from "url";
 
 const prisma = new PrismaClient();
 
-// Get __dirname equivalent in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// try {
+//   // @ts-ignore
+//   __filename = fileURLToPath(import.meta.url);
+//   // @ts-ignore
+//   __dirname = dirname(__filename);
+// } catch {
+//   // fallback for CommonJS
+//   __filename = __filename;
+//   __dirname = __dirname;
+// }
+
+// const __filename = __filename;
+// const __dirname = __dirname;
 
 // Configure multer for avatar uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadPath = path.join(__dirname, "../public/images/avatars");
-    //                                        ^ Changed from ../../ to ../
-
-    console.log("Upload path:", uploadPath);
-    console.log("__dirname:", __dirname);
 
     // Create directory if it doesn't exist
     if (!fs.existsSync(uploadPath)) {

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">6.97% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/43</span>
+                <span class='fraction'>3/43</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>3/25</span>
             </div>
         
             
@@ -125,7 +125,7 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -138,6 +138,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -148,17 +149,16 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -187,7 +187,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >export function <span class="fstat-no" title="function not covered" >m</span>apWeatherCodeToIcon(</span>code: number): string {
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export function <span class="fstat-no" title="function not covered" >mapWeatherCodeToIcon(</span>code: number): string {
 <span class="cstat-no" title="statement not covered" >  if (code === 0) <span class="cstat-no" title="statement not covered" >return '/images/weather/0.png';</span></span>
 <span class="cstat-no" title="statement not covered" >  if (code === 1 || code === 2) <span class="cstat-no" title="statement not covered" >return '/images/weather/2.png';</span></span>
 <span class="cstat-no" title="statement not covered" >  if (code === 3) <span class="cstat-no" title="statement not covered" >return '/images/weather/3.png';</span></span>
@@ -200,7 +200,7 @@
 <span class="cstat-no" title="statement not covered" >  return '❓';</span>
 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export function <span class="fstat-no" title="function not covered" >m</span>apWeatherCodeToBackground(</span>code: number): string {
+export function <span class="fstat-no" title="function not covered" >mapWeatherCodeToBackground(</span>code: number): string {
 <span class="cstat-no" title="statement not covered" >  if (code === 0) <span class="cstat-no" title="statement not covered" >return '/images/weather/0.jpg';</span></span>
 <span class="cstat-no" title="statement not covered" >  if (code === 1 || code === 2) <span class="cstat-no" title="statement not covered" >return '/images/weather/2.jpg';</span></span>
 <span class="cstat-no" title="statement not covered" >  if (code === 3) <span class="cstat-no" title="statement not covered" >return '/images/weather/3.jpg';</span></span>
@@ -215,7 +215,7 @@
 &nbsp;
 &nbsp;
 // Fonction pour mapper les codes météo aux labels
-<span class="cstat-no" title="statement not covered" >export function <span class="fstat-no" title="function not covered" >m</span>apWeatherCodeToLabel(</span>code: number): string {
+export function <span class="fstat-no" title="function not covered" >mapWeatherCodeToLabel(</span>code: number): string {
   const map: Record&lt;number, string&gt; = <span class="cstat-no" title="statement not covered" >{</span>
     0: 'Ciel clair',
     1: 'Principalement dégagé',
@@ -256,7 +256,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-10-23T01:46:11.363Z
+                at 2025-10-23T01:59:45.571Z
             </div>
         <script src="../prettify.js"></script>
         <script>
