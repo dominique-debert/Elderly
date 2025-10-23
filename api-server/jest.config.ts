@@ -14,6 +14,7 @@ const config: Config = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
   },
+  testPathIgnorePatterns: ["/node_modules/", "index\\.ts$"],
   collectCoverageFrom: [
     "controllers/**/*.ts",
     "routes/**/*.ts",
