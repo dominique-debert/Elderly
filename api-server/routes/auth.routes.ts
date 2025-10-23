@@ -71,6 +71,7 @@ const router = Router();
  *       409:
  *         description: Email déjà utilisé
  */
+router.post("/signup", upload.single("avatar"), validate(signUpSchema), signUp);
 
 /**
  * @swagger
@@ -102,6 +103,7 @@ const router = Router();
  *       404:
  *         description: Utilisateur non trouvé
  */
+router.post("/login", validate(signInSchema), signIn);
 
 /**
  * @swagger
@@ -114,10 +116,6 @@ const router = Router();
  *       200:
  *         description: Déconnexion réussie
  */
-
-// Accept multipart/form-data with optional 'avatar' file
-router.post("/signup", upload.single("avatar"), validate(signUpSchema), signUp);
-router.post("/login", validate(signInSchema), signIn);
 router.post("/logout", logout);
 
 export default router;
