@@ -2,4 +2,8 @@ node_modules
 .DS_Store
 .git
 Icon?
-helpy-frontend-old/
+frontend/.env
+api-server/.env
+
+# ignore environment files everywhere
+**/.env

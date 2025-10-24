@@ -50,3 +50,6 @@ package-lock.json
 .DS_Store
 ../.DS_Store
 # public/
+.env
+# ignore environment files everywhere
+**/.env
