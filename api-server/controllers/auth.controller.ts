@@ -96,7 +96,6 @@ export const signUp = async (
           "Could not rename uploaded avatar to desired filename:",
           err
         );
-        // keep uploadedAvatar as-is (multer-generated name)
       }
     }
 

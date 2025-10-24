@@ -99,7 +99,7 @@ export function LoginPage() {
               Mot de passe oublié ?
             </Link>
           </div>
-          <p className="text-gray-500 text-sm">© 2025 Neighborly</p>
+          <p className="text-gray-500 text-sm">© 2025 Elderly</p>
         </form>
       </div>
 

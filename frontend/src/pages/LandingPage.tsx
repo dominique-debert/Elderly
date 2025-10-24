@@ -21,7 +21,7 @@ export function LandingPage() {
             Enrichir les Vies.
           </h1>
           <p className="text-gray-400 mb-8">
-            Neighborly s’attache à favoriser des relations significatives et à
+            Elderly s’attache à favoriser des relations significatives et à
             fournir des ressources précieuses aux personnes âgées et à leurs
             familles.
           </p>

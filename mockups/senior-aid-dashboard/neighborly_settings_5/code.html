@@ -15,31 +15,67 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
   <body>
-    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden"
+      style="font-family: 'Public Sans', 'Noto Sans', sans-serif"
+    >
       <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] px-10 py-3">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] px-10 py-3"
+        >
           <div class="flex items-center gap-4 text-[#111418]">
             <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
                   fill="currentColor"
                 ></path>
               </svg>
             </div>
-            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">Neighborly</h2>
+            <h2
+              class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              Elderly
+            </h2>
           </div>
           <div class="flex flex-1 justify-end gap-8">
             <div class="flex items-center gap-9">
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Home</a>
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Requests</a>
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Messages</a>
+              <a
+                class="text-[#111418] text-sm font-medium leading-normal"
+                href="#"
+                >Home</a
+              >
+              <a
+                class="text-[#111418] text-sm font-medium leading-normal"
+                href="#"
+                >Requests</a
+              >
+              <a
+                class="text-[#111418] text-sm font-medium leading-normal"
+                href="#"
+                >Messages</a
+              >
             </div>
             <button
               class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f2f4] text-[#111418] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
             >
-              <div class="text-[#111418]" data-icon="Bell" data-size="20px" data-weight="regular">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+              <div
+                class="text-[#111418]"
+                data-icon="Bell"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
                   <path
                     d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
                   ></path>
@@ -48,206 +84,537 @@
             </button>
             <div
               class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArC27AphRP3MwgDYlVC8e02-0hrdjNoXoKsnlpzC4LbRAlWge-O0wRqd8RmaYp5PjFEQlsfXUoepGeiCdMAFCaj0RwyKQWNK-CJq8vjX_3iLJBBitqrQ0vgu1H_1OEXLrGalObxBmda5ecV0VFD7MQtBffDaRUZ6Qf30hT6fQBs85pJHC2sN1ctqqvSARxE1LtwcorKDPsixNyVhWBuyVsG6uMN6LGW4db_bKpdk9oVaMReinyzPSc5Ekal__nvGjhO7GHNcHeE3L3");'
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArC27AphRP3MwgDYlVC8e02-0hrdjNoXoKsnlpzC4LbRAlWge-O0wRqd8RmaYp5PjFEQlsfXUoepGeiCdMAFCaj0RwyKQWNK-CJq8vjX_3iLJBBitqrQ0vgu1H_1OEXLrGalObxBmda5ecV0VFD7MQtBffDaRUZ6Qf30hT6fQBs85pJHC2sN1ctqqvSARxE1LtwcorKDPsixNyVhWBuyVsG6uMN6LGW4db_bKpdk9oVaMReinyzPSc5Ekal__nvGjhO7GHNcHeE3L3');
+              "
             ></div>
           </div>
         </header>
         <div class="px-40 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
-            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72">Settings</p></div>
-            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Account</h3>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between">
+          <div
+            class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1"
+          >
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p
+                class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72"
+              >
+                Settings
+              </p>
+            </div>
+            <h3
+              class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Account
+            </h3>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between"
+            >
               <div class="flex items-center gap-3">
-                <div class="text-[#617589] flex size-7 items-center justify-center" data-icon="User" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div
+                  class="text-[#617589] flex size-7 items-center justify-center"
+                  data-icon="User"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M128,160a88,88,0,1,0-88-88A88.1,88.1,0,0,0,128,160Zm0-144a72,72,0,1,1-72,72A72,72,0,0,1,128,16Z"
                     ></path>
-                    <path d="M216,232a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V224a40,40,0,0,1,40-40H168a40,40,0,0,1,40,40Z"></path>
+                    <path
+                      d="M216,232a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V224a40,40,0,0,1,40-40H168a40,40,0,0,1,40,40Z"
+                    ></path>
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#111418] text-base font-medium leading-normal line-clamp-1">Email</p>
-                  <p class="text-[#617589] text-sm font-normal leading-normal line-clamp-2">sophia.miller@email.com</p>
+                  <p
+                    class="text-[#111418] text-base font-medium leading-normal line-clamp-1"
+                  >
+                    Email
+                  </p>
+                  <p
+                    class="text-[#617589] text-sm font-normal leading-normal line-clamp-2"
+                  >
+                    sophia.miller@email.com
+                  </p>
                 </div>
               </div>
               <div class="shrink-0">
-                <div class="text-[#111418] flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                <div
+                  class="text-[#111418] flex size-7 items-center justify-center"
+                  data-icon="CaretRight"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                    ></path>
                   </svg>
                 </div>
               </div>
             </div>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between">
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between"
+            >
               <div class="flex items-center gap-3">
-                <div class="text-[#617589] flex size-7 items-center justify-center" data-icon="Phone" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div
+                  class="text-[#617589] flex size-7 items-center justify-center"
+                  data-icon="Phone"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M227.2,183.57l-41.33-23.86a40,40,0,0,0-27.57-3.16L131.09,174a8,8,0,0,1-8.82,0L82.71,156.57a40,40,0,0,0-27.57,3.16L28.8,183.57a8,8,0,0,1-11.62-7.12,8,8,0,0,1,7.11-11.62L48,160a40,40,0,0,0,3.16-27.57L29.43,116.71a8,8,0,0,1,3.16-11.62l23.86-41.33a40,40,0,0,0,7.12-11.62L51.2,28.8a8,8,0,0,1,11.62-7.11L88,48a40,40,0,0,0,27.57,3.16l31.8-18.35a8,8,0,0,1,8.82,0l31.8,18.35a40,40,0,0,0,27.57-3.16l23.86-41.33a8,8,0,0,1,7.11-11.62L227.2,16a8,8,0,0,0,7.12,11.62l-16,27.71a40,40,0,0,0-3.16,27.57l18.35,31.8a8,8,0,0,1-3.16,11.62L216,172.29a40,40,0,0,0-7.12,11.62ZM128,136a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v56A8,8,0,0,1,128,136Z"
                     ></path>
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#111418] text-base font-medium leading-normal line-clamp-1">Phone Number</p>
-                  <p class="text-[#617589] text-sm font-normal leading-normal line-clamp-2">+1 (555) 123-4567</p>
+                  <p
+                    class="text-[#111418] text-base font-medium leading-normal line-clamp-1"
+                  >
+                    Phone Number
+                  </p>
+                  <p
+                    class="text-[#617589] text-sm font-normal leading-normal line-clamp-2"
+                  >
+                    +1 (555) 123-4567
+                  </p>
                 </div>
               </div>
               <div class="shrink-0">
-                <div class="text-[#111418] flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                <div
+                  class="text-[#111418] flex size-7 items-center justify-center"
+                  data-icon="CaretRight"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                    ></path>
                   </svg>
                 </div>
               </div>
             </div>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between">
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between"
+            >
               <div class="flex items-center gap-3">
-                <div class="text-[#617589] flex size-7 items-center justify-center" data-icon="Lock" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div
+                  class="text-[#617589] flex size-7 items-center justify-center"
+                  data-icon="Lock"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M128,16a72,72,0,0,0-72,72v8H40a16,16,0,0,0-16,16v96a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V96a16,16,0,0,0-16-16H176v-8A72,72,0,0,0,128,16Zm0,56v-8a56,56,0,0,1,56-56,56,56,0,0,1,56,56v8Z"
                     ></path>
                   </svg>
                 </div>
-                <p class="text-[#111418] text-base font-normal leading-normal flex-1 truncate">Change Password</p>
+                <p
+                  class="text-[#111418] text-base font-normal leading-normal flex-1 truncate"
+                >
+                  Change Password
+                </p>
               </div>
               <div class="shrink-0">
-                <div class="text-[#111418] flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                <div
+                  class="text-[#111418] flex size-7 items-center justify-center"
+                  data-icon="CaretRight"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                    ></path>
                   </svg>
                 </div>
               </div>
             </div>
-            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Profile</h3>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between">
+            <h3
+              class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Profile
+            </h3>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between"
+            >
               <div class="flex items-center gap-3">
-                <div class="text-[#617589] flex size-7 items-center justify-center" data-icon="Pencil" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div
+                  class="text-[#617589] flex size-7 items-center justify-center"
+                  data-icon="Pencil"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M214.47,41.53a16,16,0,0,0-22.63,0L176,57.74,213.27,95l16.21-16.21A16,16,0,0,0,214.47,41.53ZM161,74.73l-37.27-37.27L24,160a16,16,0,0,0-4.69,11.31l-2.53,16a8,8,0,0,0,7.75,8.75l16,2.53a16,16,0,0,0,11.31-4.69Z"
                     ></path>
-                    <path d="M248,216a8,8,0,0,0-11.31,11.31L211.31,244l-37.27-37.27,16.21-16.21a16,16,0,0,0,0-22.63l-16-16-37.27,37.27L24,112,49.31,86.73,86.58,49.46l16.21-16.21A16,16,0,0,0,108.34,8.47Z"></path>
+                    <path
+                      d="M248,216a8,8,0,0,0-11.31,11.31L211.31,244l-37.27-37.27,16.21-16.21a16,16,0,0,0,0-22.63l-16-16-37.27,37.27L24,112,49.31,86.73,86.58,49.46l16.21-16.21A16,16,0,0,0,108.34,8.47Z"
+                    ></path>
                   </svg>
                 </div>
-                <p class="text-[#111418] text-base font-normal leading-normal flex-1 truncate">Edit Profile</p>
+                <p
+                  class="text-[#111418] text-base font-normal leading-normal flex-1 truncate"
+                >
+                  Edit Profile
+                </p>
               </div>
               <div class="shrink-0">
-                <div class="text-[#111418] flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                <div
+                  class="text-[#111418] flex size-7 items-center justify-center"
+                  data-icon="CaretRight"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                    ></path>
                   </svg>
                 </div>
               </div>
             </div>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between">
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between"
+            >
               <div class="flex items-center gap-3">
-                <div class="text-[#617589] flex size-7 items-center justify-center" data-icon="MapPin" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div
+                  class="text-[#617589] flex size-7 items-center justify-center"
+                  data-icon="MapPin"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M128,24a64,64,0,0,0-64,64c0,49.8,45.17,89.69,56.29,99.31a8,8,0,0,0,9.42,0C148.83,177.69,192,137.8,192,88A64,64,0,0,0,128,24Zm0,96a32,32,0,1,1,32-32A32,32,0,0,1,128,120Z"
                     ></path>
                   </svg>
                 </div>
-                <p class="text-[#111418] text-base font-normal leading-normal flex-1 truncate">Location Preferences</p>
+                <p
+                  class="text-[#111418] text-base font-normal leading-normal flex-1 truncate"
+                >
+                  Location Preferences
+                </p>
               </div>
               <div class="shrink-0">
-                <div class="text-[#111418] flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                <div
+                  class="text-[#111418] flex size-7 items-center justify-center"
+                  data-icon="CaretRight"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                    ></path>
                   </svg>
                 </div>
               </div>
             </div>
-            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Notifications</h3>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between">
+            <h3
+              class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Notifications
+            </h3>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between"
+            >
               <div class="flex items-center gap-3">
-                <div class="text-[#617589] flex size-7 items-center justify-center" data-icon="Bell" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div
+                  class="text-[#617589] flex size-7 items-center justify-center"
+                  data-icon="Bell"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
                     ></path>
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#111418] text-base font-medium leading-normal line-clamp-1">Notification Settings</p>
-                  <p class="text-[#617589] text-sm font-normal leading-normal line-clamp-2">Receive notifications for new requests, messages, and completed services.</p>
+                  <p
+                    class="text-[#111418] text-base font-medium leading-normal line-clamp-1"
+                  >
+                    Notification Settings
+                  </p>
+                  <p
+                    class="text-[#617589] text-sm font-normal leading-normal line-clamp-2"
+                  >
+                    Receive notifications for new requests, messages, and
+                    completed services.
+                  </p>
                 </div>
               </div>
               <div class="shrink-0">
-                <div class="text-[#111418] flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                <div
+                  class="text-[#111418] flex size-7 items-center justify-center"
+                  data-icon="CaretRight"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                    ></path>
                   </svg>
                 </div>
               </div>
             </div>
-            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Privacy</h3>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between">
+            <h3
+              class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Privacy
+            </h3>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between"
+            >
               <div class="flex items-center gap-3">
-                <div class="text-[#617589] flex size-7 items-center justify-center" data-icon="ShieldCheck" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div
+                  class="text-[#617589] flex size-7 items-center justify-center"
+                  data-icon="ShieldCheck"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M128,16a72,72,0,0,0-72,72c0,56.7,50.89,97.51,61.69,106.88a8,8,0,0,0,10.62,0C149.11,185.51,200,144.7,200,88A72,72,0,0,0,128,16Zm0,144a56,56,0,1,1,56-56A56,56,0,0,1,128,160Z"
                     ></path>
-                    <path d="M190.87,90.72a8,8,0,0,1-6.61,11.28l-51.26,8.61a8,8,0,0,1-7.67-4.38L118.4,80a8,8,0,0,1,7.67-11.52l51.26-8.61a8,8,0,0,1,6.61,11.52Z"></path>
+                    <path
+                      d="M190.87,90.72a8,8,0,0,1-6.61,11.28l-51.26,8.61a8,8,0,0,1-7.67-4.38L118.4,80a8,8,0,0,1,7.67-11.52l51.26-8.61a8,8,0,0,1,6.61,11.52Z"
+                    ></path>
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#111418] text-base font-medium leading-normal line-clamp-1">Privacy Settings</p>
-                  <p class="text-[#617589] text-sm font-normal leading-normal line-clamp-2">Control who can see your profile and location.</p>
+                  <p
+                    class="text-[#111418] text-base font-medium leading-normal line-clamp-1"
+                  >
+                    Privacy Settings
+                  </p>
+                  <p
+                    class="text-[#617589] text-sm font-normal leading-normal line-clamp-2"
+                  >
+                    Control who can see your profile and location.
+                  </p>
                 </div>
               </div>
               <div class="shrink-0">
-                <div class="text-[#111418] flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                <div
+                  class="text-[#111418] flex size-7 items-center justify-center"
+                  data-icon="CaretRight"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                    ></path>
                   </svg>
                 </div>
               </div>
             </div>
-            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">General</h3>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between">
+            <h3
+              class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              General
+            </h3>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between"
+            >
               <div class="flex items-center gap-3">
-                <div class="text-[#617589] flex size-7 items-center justify-center" data-icon="Translate" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div
+                  class="text-[#617589] flex size-7 items-center justify-center"
+                  data-icon="Translate"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M128,16A72,72,0,1,0,56,88v40a48,48,0,0,0,0,96H48a8,8,0,0,0,0,16H96a8,8,0,0,0,0-16H88V128a32,32,0,0,1,64,0v40h-8a8,8,0,0,0,0,16h48a8,8,0,0,0,0-16H200V128a48,48,0,0,0-48-48V88A72,72,0,0,0,128,16Zm40,120a40,40,0,0,1-80,0V128a40,40,0,0,1,80,0Z"
                     ></path>
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#111418] text-base font-medium leading-normal line-clamp-1">Language</p>
-                  <p class="text-[#617589] text-sm font-normal leading-normal line-clamp-2">English</p>
+                  <p
+                    class="text-[#111418] text-base font-medium leading-normal line-clamp-1"
+                  >
+                    Language
+                  </p>
+                  <p
+                    class="text-[#617589] text-sm font-normal leading-normal line-clamp-2"
+                  >
+                    English
+                  </p>
                 </div>
               </div>
               <div class="shrink-0">
-                <div class="text-[#111418] flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                <div
+                  class="text-[#111418] flex size-7 items-center justify-center"
+                  data-icon="CaretRight"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                    ></path>
                   </svg>
                 </div>
               </div>
             </div>
-            <div class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between">
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between"
+            >
               <div class="flex items-center gap-3">
-                <div class="text-[#617589] flex size-7 items-center justify-center" data-icon="Eye" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div
+                  class="text-[#617589] flex size-7 items-center justify-center"
+                  data-icon="Eye"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
                     <path
                       d="M128,48C84,48,44.81,72.28,24,104a8,8,0,0,1,0,48c20.81,31.72,60,56,104,56s83.19-24.28,104-48a8,8,0,0,1,0-48C211.19,72.28,172,48,128,48Zm0,104a32,32,0,1,1,32-32A32,32,0,0,1,128,152Z"
                     ></path>
                   </svg>
                 </div>
                 <div class="flex flex-col justify-center">
-                  <p class="text-[#111418] text-base font-medium leading-normal line-clamp-1">Accessibility</p>
-                  <p class="text-[#617589] text-sm font-normal leading-normal line-clamp-2">Adjust text size and other accessibility options.</p>
+                  <p
+                    class="text-[#111418] text-base font-medium leading-normal line-clamp-1"
+                  >
+                    Accessibility
+                  </p>
+                  <p
+                    class="text-[#617589] text-sm font-normal leading-normal line-clamp-2"
+                  >
+                    Adjust text size and other accessibility options.
+                  </p>
                 </div>
               </div>
               <div class="shrink-0">
-                <div class="text-[#111418] flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                <div
+                  class="text-[#111418] flex size-7 items-center justify-center"
+                  data-icon="CaretRight"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                    ></path>
                   </svg>
                 </div>
               </div>

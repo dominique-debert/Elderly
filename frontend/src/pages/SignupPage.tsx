@@ -520,7 +520,7 @@ function Step3({ onBack }: { onBack: () => void }) {
                 className="w-4 h-4 text-blue-600 bg-transparent border-gray-600 rounded focus:ring-blue-500 mt-1"
               />
               <span className="text-sm text-gray-400">
-                J'accepte de recevoir la newsletter Neighborly chaque semaine.
+                J'accepte de recevoir la newsletter Elderly chaque semaine.
               </span>
             </label>
           </div>

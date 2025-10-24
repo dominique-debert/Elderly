@@ -17,33 +17,73 @@
   <body>
     <div
       class="relative flex h-auto min-h-screen w-full flex-col bg-slate-50 group/design-root overflow-x-hidden"
-      style='--select-button-svg: url(&apos;data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(76,128,154)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e&apos;); font-family: "Public Sans", "Noto Sans", sans-serif;'
+      style="
+        --select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(76,128,154)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e');
+        font-family: 'Public Sans', 'Noto Sans', sans-serif;
+      "
     >
       <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7eff3] px-10 py-3">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7eff3] px-10 py-3"
+        >
           <div class="flex items-center gap-4 text-[#0d171b]">
             <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
                   fill="currentColor"
                 ></path>
               </svg>
             </div>
-            <h2 class="text-[#0d171b] text-lg font-bold leading-tight tracking-[-0.015em]">Neighborly</h2>
+            <h2
+              class="text-[#0d171b] text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              Elderly
+            </h2>
           </div>
           <div class="flex flex-1 justify-end gap-8">
             <div class="flex items-center gap-9">
-              <a class="text-[#0d171b] text-sm font-medium leading-normal" href="#">Home</a>
-              <a class="text-[#0d171b] text-sm font-medium leading-normal" href="#">Resources</a>
-              <a class="text-[#0d171b] text-sm font-medium leading-normal" href="#">Community</a>
-              <a class="text-[#0d171b] text-sm font-medium leading-normal" href="#">Events</a>
+              <a
+                class="text-[#0d171b] text-sm font-medium leading-normal"
+                href="#"
+                >Home</a
+              >
+              <a
+                class="text-[#0d171b] text-sm font-medium leading-normal"
+                href="#"
+                >Resources</a
+              >
+              <a
+                class="text-[#0d171b] text-sm font-medium leading-normal"
+                href="#"
+                >Community</a
+              >
+              <a
+                class="text-[#0d171b] text-sm font-medium leading-normal"
+                href="#"
+                >Events</a
+              >
             </div>
             <button
               class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e7eff3] text-[#0d171b] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
             >
-              <div class="text-[#0d171b]" data-icon="Bell" data-size="20px" data-weight="regular">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+              <div
+                class="text-[#0d171b]"
+                data-icon="Bell"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
                   <path
                     d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
                   ></path>
@@ -52,7 +92,9 @@
             </button>
             <div
               class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDqD9bCh-OLRYuyUaXO0LA49jFrDAeU2VEC7Pu01l1g2SWXXaL_fbmP-FfDHDKUe8qoRiGI0TtlB1vxlM6583Z63HJdMG3GUJnokMJanWGRtIQqLHuGz4fD7ycx-vpgRW-nYgGhfL7_1EwIxwcjmS1cT_pAcir70a7Gs1UinBLbaWp-jQPmse8eKCLOMo00g3_RgmkROWLqsZkRmMcMoRQu0DzckTu2cS-etENOPsWu8AnHtoFIr1FmdI4v8aUnIe1_21onmEvC7hyf");'
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqD9bCh-OLRYuyUaXO0LA49jFrDAeU2VEC7Pu01l1g2SWXXaL_fbmP-FfDHDKUe8qoRiGI0TtlB1vxlM6583Z63HJdMG3GUJnokMJanWGRtIQqLHuGz4fD7ycx-vpgRW-nYgGhfL7_1EwIxwcjmS1cT_pAcir70a7Gs1UinBLbaWp-jQPmse8eKCLOMo00g3_RgmkROWLqsZkRmMcMoRQu0DzckTu2cS-etENOPsWu8AnHtoFIr1FmdI4v8aUnIe1_21onmEvC7hyf');
+              "
             ></div>
           </div>
         </header>
@@ -61,84 +103,174 @@
             <nav>
               <ul>
                 <li>
-                  <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#0d171b] hover:bg-[#f0f7fa]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                      <path d="M128,104a32,32,0,1,1,32-32A32,32,0,0,1,128,104Zm0-48a16,16,0,1,0,16,16A16,16,0,0,0,128,56Zm56,160H72a16,16,0,0,1-16-16V128a16,16,0,0,1,16-16h28.45L96,83.45A16,16,0,0,1,104,72h56a16,16,0,0,1,16,16v80A16,16,0,0,1,176,216ZM72,200h104V128H104a16,16,0,0,1-16-16H72Z"></path>
+                  <a
+                    href="#"
+                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#0d171b] hover:bg-[#f0f7fa]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20px"
+                      height="20px"
+                      fill="currentColor"
+                      viewBox="0 0 256 256"
+                    >
+                      <path
+                        d="M128,104a32,32,0,1,1,32-32A32,32,0,0,1,128,104Zm0-48a16,16,0,1,0,16,16A16,16,0,0,0,128,56Zm56,160H72a16,16,0,0,1-16-16V128a16,16,0,0,1,16-16h28.45L96,83.45A16,16,0,0,1,104,72h56a16,16,0,0,1,16,16v80A16,16,0,0,1,176,216ZM72,200h104V128H104a16,16,0,0,1-16-16H72Z"
+                      ></path>
                     </svg>
-                    <span class="text-sm font-medium leading-normal">My Profile</span>
+                    <span class="text-sm font-medium leading-normal"
+                      >My Profile</span
+                    >
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#4c809a] hover:bg-[#f0f7fa] hover:text-[#0d171b]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                      <path d="M208,104a8,8,0,0,0-8,8v72a16,16,0,0,1-16,16H72a16,16,0,0,1-16-16V72a16,16,0,0,1,16-16h80a8,8,0,0,0,8-8V48a8,8,0,0,0-8-8H48a32,32,0,0,0-32,32v128a32,32,0,0,0,32,32H192a32,32,0,0,0,32-32V112A8,8,0,0,0,208,104Z"></path>
-                      <path d="M184,48a8,8,0,0,0-8,8V73.83l-56.09-56.09a8,8,0,0,0-11.31,11.31L176.17,72H152a8,8,0,0,0-8,8v24a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48Z"></path>
+                  <a
+                    href="#"
+                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#4c809a] hover:bg-[#f0f7fa] hover:text-[#0d171b]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20px"
+                      height="20px"
+                      fill="currentColor"
+                      viewBox="0 0 256 256"
+                    >
+                      <path
+                        d="M208,104a8,8,0,0,0-8,8v72a16,16,0,0,1-16,16H72a16,16,0,0,1-16-16V72a16,16,0,0,1,16-16h80a8,8,0,0,0,8-8V48a8,8,0,0,0-8-8H48a32,32,0,0,0-32,32v128a32,32,0,0,0,32,32H192a32,32,0,0,0,32-32V112A8,8,0,0,0,208,104Z"
+                      ></path>
+                      <path
+                        d="M184,48a8,8,0,0,0-8,8V73.83l-56.09-56.09a8,8,0,0,0-11.31,11.31L176.17,72H152a8,8,0,0,0-8,8v24a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48Z"
+                      ></path>
                     </svg>
-                    <span class="text-sm font-medium leading-normal">Activity</span>
+                    <span class="text-sm font-medium leading-normal"
+                      >Activity</span
+                    >
                   </a>
                 </li>
               </ul>
             </nav>
           </aside>
           <div class="px-10 flex flex-1 justify-center py-5">
-            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-              <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#0d171b] tracking-light text-[32px] font-bold leading-tight min-w-72">My Profile</p></div>
+            <div
+              class="layout-content-container flex flex-col max-w-[960px] flex-1"
+            >
+              <div class="flex flex-wrap justify-between gap-3 p-4">
+                <p
+                  class="text-[#0d171b] tracking-light text-[32px] font-bold leading-tight min-w-72"
+                >
+                  My Profile
+                </p>
+              </div>
               <div class="flex p-4 @container">
-                <div class="flex w-full flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+                <div
+                  class="flex w-full flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center"
+                >
                   <div class="flex gap-4">
                     <div
                       class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
-                      style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAH0tc2a1IEIldAjSIQ7-v3LnfxJMjpj0wUZV93FTWkbzLrfVbu3tgVvCHHOdUzeVhQcVNWGtBiFELil7zF6yaOQXcIq3wwmS0cbqhq--IelhMYyaTIPXy4R0BfJzdsQYZg1vJHFgXz3lE6GUzg3hmFgPzbUa9ocGw5l9VvLjJdnGyBARdW23gY6vdf8aMbgUgp7rG7AvHcF6DhxX_emERUsWrlrNjhlEbbytQaIP6X-xB8JmrEBtsUMqLgICHahIgqXQSWjwW1Sh1X");'
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAH0tc2a1IEIldAjSIQ7-v3LnfxJMjpj0wUZV93FTWkbzLrfVbu3tgVvCHHOdUzeVhQcVNWGtBiFELil7zF6yaOQXcIq3wwmS0cbqhq--IelhMYyaTIPXy4R0BfJzdsQYZg1vJHFgXz3lE6GUzg3hmFgPzbUa9ocGw5l9VvLjJdnGyBARdW23gY6vdf8aMbgUgp7rG7AvHcF6DhxX_emERUsWrlrNjhlEbbytQaIP6X-xB8JmrEBtsUMqLgICHahIgqXQSWjwW1Sh1X');
+                      "
                     ></div>
                     <div class="flex flex-col justify-center">
-                      <p class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em]">Sophie Dubois</p>
-                      <p class="text-[#4c809a] text-base font-normal leading-normal">Member since 2021</p>
-                      <p class="text-[#4c809a] text-base font-normal leading-normal">sophie.dubois@email.com</p>
+                      <p
+                        class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em]"
+                      >
+                        Sophie Dubois
+                      </p>
+                      <p
+                        class="text-[#4c809a] text-base font-normal leading-normal"
+                      >
+                        Member since 2021
+                      </p>
+                      <p
+                        class="text-[#4c809a] text-base font-normal leading-normal"
+                      >
+                        sophie.dubois@email.com
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <h2 class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Personal Information</h2>
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <h2
+                class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+              >
+                Personal Information
+              </h2>
+              <div
+                class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
+              >
                 <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-[#0d171b] text-base font-medium leading-normal pb-2">Full Name</p>
+                  <p
+                    class="text-[#0d171b] text-base font-medium leading-normal pb-2"
+                  >
+                    Full Name
+                  </p>
                   <input
                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border border-[#cfdfe7] bg-slate-50 focus:border-[#cfdfe7] h-14 placeholder:text-[#4c809a] p-[15px] text-base font-normal leading-normal"
                     value=""
                   />
                 </label>
               </div>
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <div
+                class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
+              >
                 <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-[#0d171b] text-base font-medium leading-normal pb-2">Email</p>
+                  <p
+                    class="text-[#0d171b] text-base font-medium leading-normal pb-2"
+                  >
+                    Email
+                  </p>
                   <input
                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border border-[#cfdfe7] bg-slate-50 focus:border-[#cfdfe7] h-14 placeholder:text-[#4c809a] p-[15px] text-base font-normal leading-normal"
                     value=""
                   />
                 </label>
               </div>
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <div
+                class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
+              >
                 <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-[#0d171b] text-base font-medium leading-normal pb-2">Phone Number</p>
+                  <p
+                    class="text-[#0d171b] text-base font-medium leading-normal pb-2"
+                  >
+                    Phone Number
+                  </p>
                   <input
                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border border-[#cfdfe7] bg-slate-50 focus:border-[#cfdfe7] h-14 placeholder:text-[#4c809a] p-[15px] text-base font-normal leading-normal"
                     value=""
                   />
                 </label>
               </div>
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <div
+                class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
+              >
                 <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-[#0d171b] text-base font-medium leading-normal pb-2">Address</p>
+                  <p
+                    class="text-[#0d171b] text-base font-medium leading-normal pb-2"
+                  >
+                    Address
+                  </p>
                   <input
                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border border-[#cfdfe7] bg-slate-50 focus:border-[#cfdfe7] h-14 placeholder:text-[#4c809a] p-[15px] text-base font-normal leading-normal"
                     value=""
                   />
                 </label>
               </div>
-              <h2 class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Preferences</h2>
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <h2
+                class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+              >
+                Preferences
+              </h2>
+              <div
+                class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
+              >
                 <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-[#0d171b] text-base font-medium leading-normal pb-2">Preferred Language</p>
+                  <p
+                    class="text-[#0d171b] text-base font-medium leading-normal pb-2"
+                  >
+                    Preferred Language
+                  </p>
                   <select
                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border border-[#cfdfe7] bg-slate-50 focus:border-[#cfdfe7] h-14 bg-[image:--select-button-svg] placeholder:text-[#4c809a] p-[15px] text-base font-normal leading-normal"
                   >
@@ -148,9 +280,15 @@
                   </select>
                 </label>
               </div>
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <div
+                class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
+              >
                 <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-[#0d171b] text-base font-medium leading-normal pb-2">Notification Preferences</p>
+                  <p
+                    class="text-[#0d171b] text-base font-medium leading-normal pb-2"
+                  >
+                    Notification Preferences
+                  </p>
                   <select
                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border border-[#cfdfe7] bg-slate-50 focus:border-[#cfdfe7] h-14 bg-[image:--select-button-svg] placeholder:text-[#4c809a] p-[15px] text-base font-normal leading-normal"
                   >
@@ -160,7 +298,11 @@
                   </select>
                 </label>
               </div>
-              <h2 class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Security</h2>
+              <h2
+                class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+              >
+                Security
+              </h2>
               <div class="flex px-4 py-3 justify-start">
                 <button
                   class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e7eff3] text-[#0d171b] text-sm font-bold leading-normal tracking-[0.015em]"
