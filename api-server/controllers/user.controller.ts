@@ -4,25 +4,15 @@ import createHttpError from "http-errors";
 import * as argon2 from "argon2";
 import { IUser } from "@/types";
 import multer from "multer";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 import fs from "fs";
-// import { fileURLToPath } from "url";
 
 const prisma = new PrismaClient();
 
-// try {
-//   // @ts-ignore
-//   __filename = fileURLToPath(import.meta.url);
-//   // @ts-ignore
-//   __dirname = dirname(__filename);
-// } catch {
-//   // fallback for CommonJS
-//   __filename = __filename;
-//   __dirname = __dirname;
-// }
-
-// const __filename = __filename;
-// const __dirname = __dirname;
+// Define __filename and __dirname for ESM environments
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Configure multer for avatar uploads
 const storage = multer.diskStorage({

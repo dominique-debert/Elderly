@@ -16,10 +16,18 @@ async function main() {
   const passwordHash = await argon2.hash("12345678");
 
   // Create avatars directory if it doesn't exist
-  const avatarsDir = path.join(__dirname, "/api-server/public/images/avatars");
-  // if (!fs.existsSync(avatarsDir)) {
-  //   fs.mkdirSync(avatarsDir, { recursive: true });
-  // }
+  // avatars are stored in api-server/public/images/users relative to repo root
+  const avatarsDir = path.join(
+    __dirname,
+    "..",
+    "..",
+    "public",
+    "images",
+    "users"
+  );
+  if (!fs.existsSync(avatarsDir)) {
+    fs.mkdirSync(avatarsDir, { recursive: true });
+  }
 
   const users = [
     {
@@ -240,7 +248,16 @@ async function main() {
       let avatarFilename: string | null = null;
 
       if (userData.avatarSource) {
-        const sourceAvatarPath = path.join(__dirname, userData.avatarSource);
+        // Normalize avatarSource: strip leading slashes and optional leading "api-server/" segment,
+        // then resolve relative to api-server root (two levels up from this seed file)
+        let relativeSource = userData.avatarSource.replace(/^\/+/, "");
+        relativeSource = relativeSource.replace(/^api-server[\/\\]/, "");
+        const sourceAvatarPath = path.join(
+          __dirname,
+          "..",
+          "..",
+          relativeSource
+        );
 
         if (fs.existsSync(sourceAvatarPath)) {
           const ext = path.extname(userData.avatarSource);
@@ -274,8 +291,6 @@ async function main() {
           avatar: avatarFilename,
           registrationDate: new Date(),
           accountVerified: true, // Pre-verified for seeding
-          interfacePreferences: null,
-          twoFactorAuthentication: false,
           helpPoints: 0,
           reducedMobility: false,
           activityLevel: "active",
