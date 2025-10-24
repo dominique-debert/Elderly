@@ -81,10 +81,11 @@ export function Navbar() {
         <div className="flex justify-between w-full items-center">
           <Link
             to="/dashboard"
-            className="btn btn-ghost text-2xl text-primary rounded-xl"
+            // className="btn btn-ghost text-2xl text-primary rounded-xl"
           >
-            <div className="p-2">
-              <img src="/images/logo.png" alt="Logo" className="h-10" />
+            <div className="flex p-2 pl-5 items-center gap-3 font-normal text-2xl text-primary">
+              <img src="/images/elderly.webp" alt="Logo" className="h-6" />
+              Elderly
             </div>
           </Link>
 

@@ -1,14 +1,5 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import {
-  DashboardActivityCard,
-  DashboardForumCard,
-  DashboardHealthCard,
-  DashboardMedicationCard,
-  DashboardUserCard,
-  DashboardServiceCard,
-  DashboardWeatherWidget,
-} from "@/components";
 
 export function DashboardPage() {
   const { user, isAuthenticated } = useAuthStore();
@@ -23,23 +14,13 @@ export function DashboardPage() {
         <div className="lg:flex lg:flex-row gap-4">
           {user ? (
             <>
-              <DashboardUserCard />
-              <DashboardWeatherWidget />
+              <h2 className="text-slate-400 font-light">
+                Tableau de bord - Bientot !
+              </h2>
             </>
           ) : (
             <p>Les informations de profil sont introuvables.</p>
           )}
-          <DashboardForumCard />
-        </div>
-
-        <div className="lg:flex lg:flex-row gap-4">
-          <DashboardActivityCard />
-          <DashboardHealthCard />
-          <DashboardServiceCard />
-        </div>
-
-        <div className="lg:flex lg:flex-row">
-          <DashboardMedicationCard />
         </div>
       </div>
     </>
