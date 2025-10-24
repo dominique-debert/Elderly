@@ -10,6 +10,9 @@ import {
   ProfilePage,
   SignupPage,
   WellnessPage,
+  MedicationPage,
+  ForumPage,
+  ObjectivePage,
 } from "@/pages";
 import "./App.css";
 
@@ -31,6 +34,9 @@ const App = () => {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/admin-page" element={<AdminPage />} />
           <Route path="/wellness" element={<WellnessPage />} />
+          <Route path="/medications" element={<MedicationPage />} />
+          <Route path="/objectives" element={<ObjectivePage />} />
+          <Route path="/forum" element={<ForumPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/profile" element={<ProfilePage />} />

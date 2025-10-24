@@ -7,3 +7,6 @@ export * from "./ProfilePage";
 export * from "./SignupPage";
 export * from "./WellnessPage";
 export * from "./ProfilePage";
+export * from "./MedicationPage";
+export * from "./ObjectivePage";
+export * from "./ForumPage";
