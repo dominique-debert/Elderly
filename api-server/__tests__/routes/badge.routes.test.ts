@@ -37,15 +37,13 @@ describe("badge.routes", () => {
   });
 
   it("POST /api/badges should call validate and createBadge", async () => {
-    const res = await request(app)
-      .post("/api/badges")
-      .send({
-        name: "Super Badge",
-        description: "Desc",
-        icon: "icon.png",
-        category: "Gold",
-        level: 1,
-      });
+    const res = await request(app).post("/api/badges").send({
+      name: "Super Badge",
+      description: "Desc",
+      icon: "icon.png",
+      category: "Gold",
+      level: 1,
+    });
     expect(mockCreateBadge).toHaveBeenCalled();
     expect(res.status).toBe(201);
     expect(res.body).toEqual({ created: true });

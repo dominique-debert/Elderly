@@ -48,3 +48,4 @@ export * from "./userStatistics.controller";
 export * from "./videoCall.controller";
 export * from "./wellnessGoal.controller";
 export * from "./wellnessBadge.controller";
+export * from "./weather.controller";

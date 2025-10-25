@@ -38,13 +38,11 @@ describe("activityRegistration.routes", () => {
   });
 
   it("POST /api/activity-registrations should call createActivityRegistration", async () => {
-    const res = await request(app)
-      .post("/api/activity-registrations")
-      .send({
-        userId: "clv123abc0001",
-        activityId: "cla456xyz0002",
-        status: "confirmed",
-      });
+    const res = await request(app).post("/api/activity-registrations").send({
+      userId: "clv123abc0001",
+      activityId: "cla456xyz0002",
+      status: "confirmed",
+    });
     expect(mockCreateActivityRegistration).toHaveBeenCalled();
     expect(res.status).toBe(201);
     expect(res.body).toEqual({ created: true });
