@@ -1,5 +1,5 @@
 TN:
-SF:controllers/activity.controller.ts
+SF:src/controllers/activity.controller.ts
 FN:9,(anonymous_1)
 FN:25,(anonymous_2)
 FN:41,(anonymous_3)
@@ -63,7 +63,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/activityLog.controller.ts
+SF:src/controllers/activityLog.controller.ts
 FN:16,(anonymous_1)
 FN:31,(anonymous_2)
 FN:49,(anonymous_3)
@@ -127,7 +127,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/activityRegistration.controller.ts
+SF:src/controllers/activityRegistration.controller.ts
 FN:16,(anonymous_1)
 FN:31,(anonymous_2)
 FN:49,(anonymous_3)
@@ -191,7 +191,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/auth.controller.ts
+SF:src/controllers/auth.controller.ts
 FN:18,(anonymous_1)
 FN:24,(anonymous_2)
 FN:170,(anonymous_3)
@@ -338,7 +338,7 @@ BRF:53
 BRH:46
 end_of_record
 TN:
-SF:controllers/badge.controller.ts
+SF:src/controllers/badge.controller.ts
 FN:7,(anonymous_1)
 FN:23,(anonymous_2)
 FN:39,(anonymous_3)
@@ -402,7 +402,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/blockedContacts.controller.ts
+SF:src/controllers/blockedContacts.controller.ts
 FN:14,(anonymous_1)
 FN:35,(anonymous_2)
 FN:57,(anonymous_3)
@@ -463,7 +463,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:controllers/category.meta.controller.ts
+SF:src/controllers/category.meta.controller.ts
 FN:6,getCategoryChapters
 FN:25,getCategoryChapterById
 FN:44,getCategoryTypes
@@ -556,7 +556,7 @@ BRF:10
 BRH:10
 end_of_record
 TN:
-SF:controllers/cognitiveExercise.controller.ts
+SF:src/controllers/cognitiveExercise.controller.ts
 FN:15,(anonymous_1)
 FN:30,(anonymous_2)
 FN:48,(anonymous_3)
@@ -620,7 +620,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/collaborativeProject.controller.ts
+SF:src/controllers/collaborativeProject.controller.ts
 FN:15,(anonymous_1)
 FN:30,(anonymous_2)
 FN:48,(anonymous_3)
@@ -684,7 +684,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/contactRequests.controller.ts
+SF:src/controllers/contactRequests.controller.ts
 FN:14,(anonymous_1)
 FN:35,(anonymous_2)
 FN:57,(anonymous_3)
@@ -758,7 +758,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/conversation.controller.ts
+SF:src/controllers/conversation.controller.ts
 FN:15,(anonymous_1)
 FN:30,(anonymous_2)
 FN:48,(anonymous_3)
@@ -822,7 +822,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/conversationParticipant.controller.ts
+SF:src/controllers/conversationParticipant.controller.ts
 FN:15,(anonymous_1)
 FN:31,(anonymous_2)
 FN:50,(anonymous_3)
@@ -886,7 +886,7 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:controllers/exerciseProgram.controller.ts
+SF:src/controllers/exerciseProgram.controller.ts
 FN:15,(anonymous_1)
 FN:30,(anonymous_2)
 FN:45,(anonymous_3)
@@ -950,7 +950,7 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:controllers/forumMessage.controller.ts
+SF:src/controllers/forumMessage.controller.ts
 FN:15,(anonymous_1)
 FN:30,(anonymous_2)
 FN:48,(anonymous_3)
@@ -1014,7 +1014,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/healthIndicator.controller.ts
+SF:src/controllers/healthIndicator.controller.ts
 FN:15,(anonymous_1)
 FN:30,(anonymous_2)
 FN:48,(anonymous_3)
@@ -1078,7 +1078,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/helpOffer.controller.ts
+SF:src/controllers/helpOffer.controller.ts
 FN:15,(anonymous_1)
 FN:30,(anonymous_2)
 FN:48,(anonymous_3)
@@ -1142,7 +1142,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/helpRequest.controller.ts
+SF:src/controllers/helpRequest.controller.ts
 FN:15,(anonymous_1)
 FN:30,(anonymous_2)
 FN:48,(anonymous_3)
@@ -1206,7 +1206,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/index.ts
+SF:src/controllers/index.ts
 FNF:0
 FNH:0
 DA:2,0
@@ -1256,13 +1256,14 @@ DA:47,0
 DA:48,0
 DA:49,0
 DA:50,0
-LF:47
+DA:51,0
+LF:48
 LH:0
 BRF:0
 BRH:0
 end_of_record
 TN:
-SF:controllers/localService.controller.ts
+SF:src/controllers/localService.controller.ts
 FN:14,(anonymous_1)
 FN:29,(anonymous_2)
 FN:46,(anonymous_3)
@@ -1326,7 +1327,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/medicationReminder.controller.ts
+SF:src/controllers/medicationReminder.controller.ts
 FN:14,(anonymous_1)
 FN:29,(anonymous_2)
 FN:46,(anonymous_3)
@@ -1390,7 +1391,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/menuItem.controller.ts
+SF:src/controllers/menuItem.controller.ts
 FN:6,(anonymous_0)
 FNF:1
 FNH:1
@@ -1408,7 +1409,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:controllers/message.controller.ts
+SF:src/controllers/message.controller.ts
 FN:14,(anonymous_1)
 FN:29,(anonymous_2)
 FN:46,(anonymous_3)
@@ -1472,7 +1473,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/mood.controller.ts
+SF:src/controllers/mood.controller.ts
 FN:14,(anonymous_1)
 FN:29,(anonymous_2)
 FN:46,(anonymous_3)
@@ -1536,7 +1537,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/municipalEvent.controller.ts
+SF:src/controllers/municipalEvent.controller.ts
 FN:14,(anonymous_1)
 FN:29,(anonymous_2)
 FN:46,(anonymous_3)
@@ -1600,7 +1601,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/notification.controller.ts
+SF:src/controllers/notification.controller.ts
 FN:14,(anonymous_1)
 FN:29,(anonymous_2)
 FN:46,(anonymous_3)
@@ -1673,7 +1674,7 @@ BRF:8
 BRH:8
 end_of_record
 TN:
-SF:controllers/nutritionalAdvice.controller.ts
+SF:src/controllers/nutritionalAdvice.controller.ts
 FN:14,(anonymous_1)
 FN:29,(anonymous_2)
 FN:47,(anonymous_3)
@@ -1737,7 +1738,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/projectMember.controller.ts
+SF:src/controllers/projectMember.controller.ts
 FN:14,(anonymous_1)
 FN:29,(anonymous_2)
 FN:46,(anonymous_3)
@@ -1801,7 +1802,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/projectTask.controller.ts
+SF:src/controllers/projectTask.controller.ts
 FN:14,(anonymous_1)
 FN:29,(anonymous_2)
 FN:46,(anonymous_3)
@@ -1865,7 +1866,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/resource.controller.ts
+SF:src/controllers/resource.controller.ts
 FN:14,(anonymous_1)
 FN:34,(anonymous_2)
 FN:51,(anonymous_3)
@@ -1929,7 +1930,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/satisfactionSurvey.controller.ts
+SF:src/controllers/satisfactionSurvey.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -1993,7 +1994,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/serviceCompleted.controller.ts
+SF:src/controllers/serviceCompleted.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2057,7 +2058,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/serviceRating.controller.ts
+SF:src/controllers/serviceRating.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2121,7 +2122,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/skill.controller.ts
+SF:src/controllers/skill.controller.ts
 FN:8,(anonymous_1)
 FN:24,(anonymous_2)
 FN:41,(anonymous_3)
@@ -2185,7 +2186,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/surveyResponse.controller.ts
+SF:src/controllers/surveyResponse.controller.ts
 FN:14,(anonymous_1)
 FN:32,(anonymous_2)
 FN:49,(anonymous_3)
@@ -2249,7 +2250,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/trustCircle.controller.ts
+SF:src/controllers/trustCircle.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2313,7 +2314,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/trustedContact.controller.ts
+SF:src/controllers/trustedContact.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:49,(anonymous_3)
@@ -2377,7 +2378,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/urbanIssueReport.controller.ts
+SF:src/controllers/urbanIssueReport.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2441,7 +2442,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/userActivity.controller.ts
+SF:src/controllers/userActivity.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2505,7 +2506,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/userBadge.controller.ts
+SF:src/controllers/userBadge.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2569,7 +2570,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/userContacts.controller.ts
+SF:src/controllers/userContacts.controller.ts
 FN:14,(anonymous_1)
 FN:35,(anonymous_2)
 FN:57,(anonymous_3)
@@ -2643,7 +2644,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/userDevice.controller.ts
+SF:src/controllers/userDevice.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2707,7 +2708,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/userPreferences.controller.ts
+SF:src/controllers/userPreferences.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:53,(anonymous_3)
@@ -2764,7 +2765,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/userSkill.controller.ts
+SF:src/controllers/userSkill.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2828,7 +2829,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/userStatistics.controller.ts
+SF:src/controllers/userStatistics.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2892,7 +2893,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/videoCall.controller.ts
+SF:src/controllers/videoCall.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -2956,7 +2957,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/weather.controller.ts
+SF:src/controllers/weather.controller.ts
 FN:10,(anonymous_1)
 FN:39,(anonymous_2)
 FNF:2
@@ -2989,7 +2990,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:controllers/wellnessBadge.controller.ts
+SF:src/controllers/wellnessBadge.controller.ts
 FN:15,(anonymous_1)
 FN:30,(anonymous_2)
 FN:48,(anonymous_3)
@@ -3053,7 +3054,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/wellnessGoal.controller.ts
+SF:src/controllers/wellnessGoal.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -3117,7 +3118,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:controllers/wellnessGoalProgress.controller.ts
+SF:src/controllers/wellnessGoalProgress.controller.ts
 FN:14,(anonymous_1)
 FN:31,(anonymous_2)
 FN:48,(anonymous_3)
@@ -3181,7 +3182,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:middlewares/auth.ts
+SF:src/middlewares/auth.ts
 FN:9,(anonymous_1)
 FNF:1
 FNH:1
@@ -3208,7 +3209,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:middlewares/errorHandler.ts
+SF:src/middlewares/errorHandler.ts
 FN:4,(anonymous_0)
 FNF:1
 FNH:1
@@ -3231,7 +3232,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:middlewares/index.ts
+SF:src/middlewares/index.ts
 FNF:0
 FNH:0
 DA:1,0
@@ -3244,7 +3245,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:middlewares/session.ts
+SF:src/middlewares/session.ts
 FNF:0
 FNH:0
 DA:1,11
@@ -3259,7 +3260,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:middlewares/validate.ts
+SF:src/middlewares/validate.ts
 FN:4,(anonymous_0)
 FN:8,(anonymous_1)
 FNF:2
@@ -3283,7 +3284,7 @@ BRF:3
 BRH:3
 end_of_record
 TN:
-SF:routes/activity.routes.ts
+SF:src/routes/activity.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3304,7 +3305,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/activityLog.routes.ts
+SF:src/routes/activityLog.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3322,7 +3323,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/activityRegistration.routes.ts
+SF:src/routes/activityRegistration.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3340,7 +3341,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/auth.routes.ts
+SF:src/routes/auth.routes.ts
 FN:19,(anonymous_1)
 FN:22,(anonymous_2)
 FNF:2
@@ -3377,7 +3378,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:routes/badge.routes.ts
+SF:src/routes/badge.routes.ts
 FNF:0
 FNH:0
 DA:2,1
@@ -3397,7 +3398,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/blockedContacts.routes.ts
+SF:src/routes/blockedContacts.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3417,7 +3418,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/category.meta.routes.ts
+SF:src/routes/category.meta.routes.ts
 FN:93,(anonymous_0)
 FN:120,(anonymous_1)
 FN:138,(anonymous_2)
@@ -3455,7 +3456,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:routes/cognitiveExercise.routes.ts
+SF:src/routes/cognitiveExercise.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3475,7 +3476,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/collaborativeProject.routes.ts
+SF:src/routes/collaborativeProject.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3495,7 +3496,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/contactRequests.routes.ts
+SF:src/routes/contactRequests.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3516,7 +3517,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/conversation.routes.ts
+SF:src/routes/conversation.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3536,7 +3537,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/conversationParticipant.routes.ts
+SF:src/routes/conversationParticipant.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3556,7 +3557,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/exerciseProgram.routes.ts
+SF:src/routes/exerciseProgram.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3576,7 +3577,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/forumMessage.routes.ts
+SF:src/routes/forumMessage.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3596,7 +3597,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/healthIndicator.routes.ts
+SF:src/routes/healthIndicator.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3616,7 +3617,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/helpOffer.routes.ts
+SF:src/routes/helpOffer.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3636,7 +3637,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/helpRequest.routes.ts
+SF:src/routes/helpRequest.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3656,7 +3657,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/index.ts
+SF:src/routes/index.ts
 FNF:0
 FNH:0
 DA:1,0
@@ -3761,7 +3762,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/localService.routes.ts
+SF:src/routes/localService.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3781,7 +3782,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/medicationReminder.routes.ts
+SF:src/routes/medicationReminder.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3801,7 +3802,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/menuItem.routes.ts
+SF:src/routes/menuItem.routes.ts
 FNF:0
 FNH:0
 DA:2,1
@@ -3815,7 +3816,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/message.routes.ts
+SF:src/routes/message.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3835,7 +3836,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/mood.routes.ts
+SF:src/routes/mood.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3855,7 +3856,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/municipalEvent.routes.ts
+SF:src/routes/municipalEvent.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3875,7 +3876,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/notification.routes.ts
+SF:src/routes/notification.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3895,7 +3896,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/nutritionalAdvice.routes.ts
+SF:src/routes/nutritionalAdvice.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3915,7 +3916,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/projectMember.routes.ts
+SF:src/routes/projectMember.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3935,7 +3936,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/projectTask.routes.ts
+SF:src/routes/projectTask.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3955,7 +3956,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/resource.routes.ts
+SF:src/routes/resource.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3975,7 +3976,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/satisfactionSurvey.routes.ts
+SF:src/routes/satisfactionSurvey.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -3995,7 +3996,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/serviceCompleted.routes.ts
+SF:src/routes/serviceCompleted.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4015,7 +4016,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/serviceRating.routes.ts
+SF:src/routes/serviceRating.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4035,7 +4036,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/skill.routes.ts
+SF:src/routes/skill.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4055,7 +4056,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/surveyResponse.routes.ts
+SF:src/routes/surveyResponse.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4075,7 +4076,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/trustCircle.routes.ts
+SF:src/routes/trustCircle.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4095,7 +4096,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/trustedContact.routes.ts
+SF:src/routes/trustedContact.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4115,7 +4116,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/uploads.routes.ts
+SF:src/routes/uploads.routes.ts
 FN:13,(anonymous_1)
 FN:14,(anonymous_2)
 FN:22,(anonymous_3)
@@ -4158,7 +4159,7 @@ BRF:8
 BRH:6
 end_of_record
 TN:
-SF:routes/urbanIssueReport.routes.ts
+SF:src/routes/urbanIssueReport.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4178,7 +4179,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/user.routes.ts
+SF:src/routes/user.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4200,7 +4201,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/userActivity.routes.ts
+SF:src/routes/userActivity.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4220,7 +4221,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/userBadge.routes.ts
+SF:src/routes/userBadge.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4240,7 +4241,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/userContacts.routes.ts
+SF:src/routes/userContacts.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4261,7 +4262,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/userDevice.routes.ts
+SF:src/routes/userDevice.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4281,7 +4282,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/userPreferences.routes.ts
+SF:src/routes/userPreferences.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4300,7 +4301,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/userSkill.routes.ts
+SF:src/routes/userSkill.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4320,7 +4321,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/userStatistics.routes.ts
+SF:src/routes/userStatistics.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4340,7 +4341,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/videoCall.routes.ts
+SF:src/routes/videoCall.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4360,7 +4361,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/weather.routes.ts
+SF:src/routes/weather.routes.ts
 FN:6,(anonymous_0)
 FNF:1
 FNH:1
@@ -4370,14 +4371,14 @@ DA:2,1
 DA:5,1
 DA:6,1
 DA:7,2
-DA:10,1
+DA:9,1
 LF:6
 LH:6
 BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/wellnessBadge.routes.ts
+SF:src/routes/wellnessBadge.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4397,7 +4398,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:routes/wellnessGoal.routes.ts
+SF:src/routes/wellnessGoal.routes.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4417,7 +4418,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:utils/generateToken.ts
+SF:src/utils/generateToken.ts
 FNF:0
 FNH:0
 DA:1,3
@@ -4442,7 +4443,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:utils/getCityFromCoordinates.ts
+SF:src/utils/getCityFromCoordinates.ts
 FN:9,(anonymous_1)
 FNF:1
 FNH:1
@@ -4465,7 +4466,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:utils/index.ts
+SF:src/utils/index.ts
 FNF:0
 FNH:0
 DA:1,0
@@ -4477,7 +4478,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:utils/jwt.ts
+SF:src/utils/jwt.ts
 FN:3,(anonymous_1)
 FN:14,(anonymous_2)
 FN:32,verifyToken
@@ -4513,7 +4514,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:utils/weatherIcons.ts
+SF:src/utils/weatherIcons.ts
 FN:1,mapWeatherCodeToIcon
 FN:14,mapWeatherCodeToBackground
 FN:29,mapWeatherCodeToLabel
@@ -4619,7 +4620,7 @@ BRF:66
 BRH:66
 end_of_record
 TN:
-SF:validators/activity.validator.ts
+SF:src/validators/activity.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4630,7 +4631,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/activityRegistration.validator.ts
+SF:src/validators/activityRegistration.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4641,7 +4642,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/auth.validator.ts
+SF:src/validators/auth.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4653,7 +4654,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/badge.validator.ts
+SF:src/validators/badge.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4664,7 +4665,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/category.validator.ts
+SF:src/validators/category.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4675,7 +4676,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/cognitiveExercise.validator.ts
+SF:src/validators/cognitiveExercise.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4686,7 +4687,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/collaborativeProject.validator.ts
+SF:src/validators/collaborativeProject.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4697,7 +4698,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/conversation.validator.ts
+SF:src/validators/conversation.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4708,7 +4709,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/conversationParticipant.validator.ts
+SF:src/validators/conversationParticipant.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4719,7 +4720,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/exerciseProgram.validator.ts
+SF:src/validators/exerciseProgram.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4730,7 +4731,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/forumMessage.validator.ts
+SF:src/validators/forumMessage.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4741,7 +4742,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/forumTopic.validator.ts
+SF:src/validators/forumTopic.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4752,7 +4753,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/healthIndicator.validator.ts
+SF:src/validators/healthIndicator.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4763,7 +4764,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/helpOffer.validator.ts
+SF:src/validators/helpOffer.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4774,7 +4775,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/helpRequest.validator.ts
+SF:src/validators/helpRequest.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4785,7 +4786,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/index.ts
+SF:src/validators/index.ts
 FNF:0
 FNH:0
 DA:1,0
@@ -4838,7 +4839,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/localService.validator.ts
+SF:src/validators/localService.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4849,7 +4850,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/medicationReminder.validator.ts
+SF:src/validators/medicationReminder.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4860,7 +4861,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/message.validator.ts
+SF:src/validators/message.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4871,7 +4872,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/mood.validator.ts
+SF:src/validators/mood.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4882,7 +4883,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/municipalEvent.validator.ts
+SF:src/validators/municipalEvent.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4893,7 +4894,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/notification.validator.ts
+SF:src/validators/notification.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4904,7 +4905,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/nutritionalAdvice.validator.ts
+SF:src/validators/nutritionalAdvice.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4915,7 +4916,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/projectMember.validator.ts
+SF:src/validators/projectMember.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4926,7 +4927,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/projectTask.validator.ts
+SF:src/validators/projectTask.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4937,7 +4938,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/resource.validator.ts
+SF:src/validators/resource.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4948,7 +4949,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/satisfactionSurvey.validator.ts
+SF:src/validators/satisfactionSurvey.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4959,7 +4960,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/serviceCompleted.validator.ts
+SF:src/validators/serviceCompleted.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4970,7 +4971,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/serviceRating.validator.ts
+SF:src/validators/serviceRating.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4981,7 +4982,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/skill.validator.ts
+SF:src/validators/skill.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -4992,7 +4993,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/surveyResponse.validator.ts
+SF:src/validators/surveyResponse.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5003,7 +5004,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/trustCircle.validator.ts
+SF:src/validators/trustCircle.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5014,7 +5015,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/trustedContact.validator.ts
+SF:src/validators/trustedContact.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5025,7 +5026,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/urbanIssueReport.validator.ts
+SF:src/validators/urbanIssueReport.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5036,7 +5037,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/user.validator.ts
+SF:src/validators/user.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5047,7 +5048,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/userActivity.validator.ts
+SF:src/validators/userActivity.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5058,7 +5059,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/userBadge.validator.ts
+SF:src/validators/userBadge.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5069,7 +5070,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/userContact.validator.ts
+SF:src/validators/userContact.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5080,7 +5081,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/userDevice.validator.ts
+SF:src/validators/userDevice.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5091,7 +5092,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/userPreferences.validator.ts
+SF:src/validators/userPreferences.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5102,7 +5103,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/userSkill.validator.ts
+SF:src/validators/userSkill.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5113,7 +5114,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/userStatistics.validator.ts
+SF:src/validators/userStatistics.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5124,7 +5125,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/videoCall.validator.ts
+SF:src/validators/videoCall.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5135,7 +5136,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/wellnessBadge.validator.ts
+SF:src/validators/wellnessBadge.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5146,7 +5147,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/wellnessGoal.validator.ts
+SF:src/validators/wellnessGoal.validator.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -5157,7 +5158,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:validators/wellnessGoalProgress.validator.ts
+SF:src/validators/wellnessGoalProgress.validator.ts
 FNF:0
 FNH:0
 DA:1,1
