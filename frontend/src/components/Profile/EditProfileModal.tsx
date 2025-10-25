@@ -16,10 +16,6 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
   const { user } = useAuthStore();
   const queryClient = useQueryClient();
 
-  // Add console log to check if user.phone exists when modal opens
-  console.log("User object:", user);
-  console.log("User phone:", user?.phone);
-
   const [formData, setFormData] = useState({
     firstName: user?.firstName || "",
     lastName: user?.lastName || "",
@@ -168,7 +164,6 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
     });
   };
 
-  // Add useEffect to update form when user changes or modal opens
   useEffect(() => {
     if (isOpen && user) {
       setFormData({
@@ -192,7 +187,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
 
   return (
     <div className="modal modal-open">
-      <div className="modal-box max-w-2xl overflow-y-auto">
+      <div className="modal-box max-w-2xl overflow-y-auto bg-white!">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-bold m-0 p-0">Modifier mon profil</h1>
           <button onClick={onClose} className="btn btn-ghost btn-sm btn-circle">
@@ -213,7 +208,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
               <img
                 src={avatarPreview || "/default-avatar.png"}
                 alt="Avatar"
-                className="w-32 h-32 rounded-full border-4 border-slate-600 object-cover"
+                className="w-32 h-32 rounded-full border-4 dark:border-slate-600 object-cover"
               />
               <label
                 htmlFor="avatar-upload"
@@ -230,7 +225,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 disabled={avatarMutation.isPending}
               />
             </div>
-            <span className="text-sm text-slate-500 mt-2">
+            <span className="text-sm dark:text-slate-500 mt-2">
               {avatarMutation.isPending
                 ? "Upload en cours..."
                 : "Cliquez sur l'icône pour changer votre photo"}
@@ -240,7 +235,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
           {/* Personal Information */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="form-control">
-              <label className="block text-sm font-medium text-slate-400 mb-2">
+              <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                 Prénom
               </label>
               <input
@@ -248,13 +243,13 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className="input input-bordered dark:bg-card w-full"
+                className="input input-bordered bg-white dark:bg-card w-full"
                 required
               />
             </div>
 
             <div className="form-control">
-              <label className="block text-sm font-medium text-slate-400 mb-2">
+              <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                 Nom
               </label>
               <input
@@ -262,13 +257,13 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                className="input input-bordered dark:bg-card w-full"
+                className="input input-bordered bg-white dark:bg-card w-full"
                 required
               />
             </div>
 
             <div className="form-control">
-              <label className="block text-sm font-medium text-slate-400 mb-2">
+              <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                 Date de naissance
               </label>
               <input
@@ -276,13 +271,13 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 name="birthDate"
                 value={formData.birthDate}
                 onChange={handleInputChange}
-                className="input input-bordered dark:bg-card w-full"
+                className="input input-bordered bg-white dark:bg-card w-full"
                 required
               />
             </div>
 
             <div className="form-control">
-              <label className="block text-sm font-medium text-slate-400 mb-2">
+              <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                 Profession
               </label>
               <input
@@ -290,12 +285,12 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 name="profession"
                 value={formData.profession}
                 onChange={handleInputChange}
-                className="input input-bordered dark:bg-card w-full"
+                className="input input-bordered bg-white dark:bg-card w-full"
               />
             </div>
 
             <div className="form-control md:col-span-2">
-              <label className="block text-sm font-medium text-slate-400 mb-2">
+              <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                 Téléphone
               </label>
               <input
@@ -303,14 +298,14 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="input input-bordered dark:bg-card w-full"
+                className="input input-bordered bg-white dark:bg-card w-full"
               />
             </div>
           </div>
 
           {/* Address */}
           <div className="form-control">
-            <label className="block text-sm font-medium text-slate-400 mb-2">
+            <label className="block text-sm font-medium dark:text-slate-400 mb-2">
               Adresse
             </label>
             <input
@@ -318,13 +313,13 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
               name="address"
               value={formData.address}
               onChange={handleInputChange}
-              className="input input-bordered dark:bg-card w-full"
+              className="input input-bordered bg-white dark:bg-card w-full"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="form-control">
-              <label className="block text-sm font-medium text-slate-400 mb-2">
+              <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                 Ville
               </label>
               <input
@@ -332,12 +327,12 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 name="city"
                 value={formData.city}
                 onChange={handleInputChange}
-                className="input input-bordered dark:bg-card w-full"
+                className="input input-bordered bg-white dark:bg-card w-full"
               />
             </div>
 
             <div className="form-control">
-              <label className="block text-sm font-medium text-slate-400 mb-2">
+              <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                 Code postal
               </label>
               <input
@@ -345,34 +340,34 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 name="postalCode"
                 value={formData.postalCode}
                 onChange={handleInputChange}
-                className="input input-bordered dark:bg-card w-full"
+                className="input input-bordered bg-white dark:bg-card w-full"
               />
             </div>
           </div>
 
           {/* Description */}
           <div className="form-control">
-            <label className="block text-sm font-medium text-slate-400 mb-2">
+            <label className="block text-sm font-medium dark:text-slate-400 mb-2">
               Description
             </label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleInputChange}
-              className="textarea textarea-bordered h-24 dark:bg-card w-full"
+              className="textarea textarea-bordered bg-white h-24 dark:bg-card w-full"
               placeholder="Parlez-nous de vous..."
             />
           </div>
 
           {/* Password Change Section */}
           <div className="space-y-4 mt-6">
-            <h2 className="text-lg font-semibold text-slate-200 p-0 m-0">
+            <h2 className="text-lg font-semibold dark:text-slate-200 p-0 m-0">
               Changer le mot de passe
             </h2>
             <div className="divider expert-blue p-0 m-0"></div>
 
             <div className="form-control mt-4">
-              <label className="block text-sm font-medium text-slate-400 mb-2">
+              <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                 Mot de passe actuel
               </label>
               <input
@@ -384,14 +379,14 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                     currentPassword: e.target.value,
                   }))
                 }
-                className="input input-bordered dark:bg-card w-full"
+                className="input input-bordered bg-white! dark:bg-card w-full"
                 placeholder="Entrez votre mot de passe actuel"
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="form-control">
-                <label className="block text-sm font-medium text-slate-400 mb-2">
+                <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                   Nouveau mot de passe
                 </label>
                 <input
@@ -403,14 +398,14 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                       newPassword: e.target.value,
                     }))
                   }
-                  className="input input-bordered dark:bg-card w-full"
+                  className="input input-bordered bg-white dark:bg-card w-full"
                   placeholder="Minimum 8 caractères"
                   minLength={8}
                 />
               </div>
 
               <div className="form-control">
-                <label className="block text-sm font-medium text-slate-400 mb-2">
+                <label className="block text-sm font-medium dark:text-slate-400 mb-2">
                   Confirmer le mot de passe
                 </label>
                 <input
@@ -422,7 +417,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                       confirmPassword: e.target.value,
                     }))
                   }
-                  className="input input-bordered dark:bg-card w-full"
+                  className="input input-bordered bg-white dark:bg-card w-full"
                   placeholder="Confirmez le nouveau mot de passe"
                 />
               </div>
@@ -434,7 +429,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
               <button
                 type="button"
                 onClick={handlePasswordChange}
-                className="btn btn-outline btn-sm"
+                className="btn btn-outline btn-primary btn-sm"
                 disabled={
                   passwordMutation.isPending ||
                   !passwordData.currentPassword ||
@@ -455,7 +450,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
           <div className="flex gap-4 justify-end mt-4">
             <button
               type="submit"
-              className="btn btn-primary btn-sm"
+              className="btn btn-primary text-white"
               disabled={updateMutation.isPending}
             >
               {updateMutation.isPending ? "Enregistrement..." : "Enregistrer"}
@@ -463,7 +458,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
             <button
               type="button"
               onClick={onClose}
-              className="btn btn-ghost hover:bg-red-600 btn-sm"
+              className="btn btn-ghost hover:bg-red-600 hover:text-white"
             >
               Annuler
             </button>

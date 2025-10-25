@@ -231,7 +231,7 @@ export function ConnexionsTabContent() {
       <div className="flex justify-between items-center -mb-4">
         <div className="flex flex-col justify-center pt-4">
           <div className="text-xl ml-6 h-6">Mes Connexions</div>
-          <div className="text-sm m-6 mb-2 mt-1 text-slate-400">
+          <div className="text-sm m-6 mb-2 mt-1 dark:text-slate-400">
             Organisez et gerez vos connexions.
           </div>
         </div>
@@ -255,7 +255,7 @@ export function ConnexionsTabContent() {
 
       <div className="border-0 grid grid-flow-col grid-rows-2 gap-5 pt-2 pl-6 pr-6">
         {/* Mes contacts */}
-        <Card className="row-span-2 w-full overflow-y-auto gap-0 p-0 bg-white dark:bg-card">
+        <Card className="row-span-2 w-full overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-none">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Mes contacts
             <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
@@ -269,7 +269,7 @@ export function ConnexionsTabContent() {
         </Card>
 
         {/* Contacts suggérés */}
-        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card">
+        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-none">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Demandes de connexion
             <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
@@ -283,7 +283,7 @@ export function ConnexionsTabContent() {
         </Card>
 
         {/* Contacts bloqués */}
-        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card">
+        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-none">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Contacts bloqués
             <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">

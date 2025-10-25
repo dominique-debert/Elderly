@@ -41,7 +41,6 @@ export function Navbar() {
     queryFn: async ({ queryKey }) => {
       const userId = queryKey[1];
 
-      // Ensure userId is a non-empty string before making the API call
       if (typeof userId !== "string" || userId.trim() === "") {
         return [];
       }
@@ -79,13 +78,10 @@ export function Navbar() {
     <header className="header-area">
       <div className="navbar bg-white dark:bg-card fixed top-0 z-50 h-16 w-full shadow-sm border-b border-base-200">
         <div className="flex justify-between w-full items-center">
-          <Link
-            to="/dashboard"
-            // className="btn btn-ghost text-2xl text-primary rounded-xl"
-          >
-            <div className="flex p-2 pl-5 items-center gap-3 font-normal text-2xl text-primary">
-              <img src="/images/elderly.webp" alt="Logo" className="h-6" />
-              Elderly
+          <Link to="/dashboard">
+            <div className="flex p-2 pl-5 items-center gap-4 font-normal text-2xl text-primary">
+              <img src="/images/elderly.webp" alt="Logo" className="h-8" />
+              <span className="text-primary text-2xl">Elderly</span>
             </div>
           </Link>
 
@@ -94,29 +90,21 @@ export function Navbar() {
               className="tooltip tooltip-bottom tooltip-accent"
               data-tip="Changer de thème"
             >
-              <label className="toggle mr-4 border">
+              <label className="toggle toggle-lg mr-4 text-base-content">
                 <input
                   type="checkbox"
                   onChange={handleToggle}
                   checked={theme === "dark"}
                 />
-                <Icon
-                  path={mdiWeatherSunny}
-                  size={0.7}
-                  className="text-primary"
-                />
-                <Icon
-                  path={mdiMoonWaxingCrescent}
-                  size={0.7}
-                  className="text-primary"
-                />
+                <Icon path={mdiWeatherSunny} size={0.7} />
+                <Icon path={mdiMoonWaxingCrescent} size={0.7} />
               </label>
             </div>
 
             <div className="relative" ref={notifRef}>
               <button
                 role="button"
-                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom mr-3 tooltip-accent"
+                className="btn btn-ghost btn-circle btn-secondary text-base-content avatar tooltip tooltip-bottom mr-3 tooltip-accent"
                 data-tip="Notifications"
                 onClick={() => setIsNotifOpen(!isNotifOpen)}
               >
@@ -145,7 +133,11 @@ export function Navbar() {
                 className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom mr-3 tooltip-accent"
                 data-tip="Espace administration"
               >
-                <Icon path={mdiCogOutline} size={1.3} />
+                <Icon
+                  path={mdiCogOutline}
+                  size={1.3}
+                  className="text-base-content"
+                />
               </Link>
             )}
 

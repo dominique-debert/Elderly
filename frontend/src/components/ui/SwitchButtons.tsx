@@ -21,19 +21,19 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
 
   return (
     <>
-      <div className="join">
+      <div className="join border border-slate-300 dark:border-slate-700 rounded-lg">
         <button
           onClick={(e) => {
             e.stopPropagation();
             setIsCreateOpen(true);
           }}
-          className="btn btn-sm border-slate-700 join-item dark:bg-card h-10"
+          className="btn btn-sm dark:border-slate-700 join-item dark:bg-card h-10"
         >
           <Icon path={mdiPlus} size={1} />
         </button>
         <button
           onClick={() => setMode("card")}
-          className={`btn btn-sm border-slate-700 join-item dark:bg-card h-10 ${
+          className={`btn btn-sm dark:border-slate-700 join-item dark:bg-card h-10 ${
             mode === "card" ? "btn-primary" : ""
           }`}
         >
@@ -41,7 +41,7 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
         </button>
         <button
           onClick={() => setMode("list")}
-          className={`btn btn-sm border-slate-700 join-item dark:bg-card h-10 ${
+          className={`btn btn-sm join-item dark:bg-card h-10 ${
             mode === "list" ? "btn-primary" : ""
           }`}
         >
@@ -49,7 +49,7 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
         </button>
         <button
           onClick={() => setMode("table")}
-          className={`btn btn-sm border-slate-700 join-item dark:bg-card h-10 ${
+          className={`btn btn-sm dark:border-slate-700 join-item dark:bg-card h-10 ${
             mode === "table" ? "btn-primary" : ""
           }`}
         >

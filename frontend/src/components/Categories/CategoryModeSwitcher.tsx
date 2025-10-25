@@ -17,7 +17,7 @@ export const CategoryModeSwitcher = ({
   activeTab,
 }: SwitchProps) => {
   return (
-    <div className="flex flex-wrap items-center justify-end gap-4 mb-4 sticky top-2 z-40">
+    <div className="flex flex-wrap items-center justify-end gap-4 m-4">
       {/* Recherche */}
       <Search
         search={search}

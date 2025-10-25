@@ -46,14 +46,17 @@ export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
       category.categoryName?.toLowerCase().includes(search.toLowerCase())
     );
 
-    const grouped = filtered.reduce((acc, category: ICategory) => {
-      const chapterId = category.chapterId || 0;
-      if (!acc[chapterId]) {
-        acc[chapterId] = [];
-      }
-      acc[chapterId].push(category);
-      return acc;
-    }, {} as Record<number, ICategory[]>);
+    const grouped = filtered.reduce(
+      (acc, category: ICategory) => {
+        const chapterId = category.chapterId || 0;
+        if (!acc[chapterId]) {
+          acc[chapterId] = [];
+        }
+        acc[chapterId].push(category);
+        return acc;
+      },
+      {} as Record<number, ICategory[]>
+    );
 
     return Object.entries(grouped)
       .map(([, chapterCategories]) => {
@@ -72,7 +75,7 @@ export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
   })();
 
   return (
-    <div className="w-full p-4">
+    <div className="w-full p-4 card bg-white dark:bg-card shadow-md">
       <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}

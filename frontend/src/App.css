@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
-layer(base);
+@import url("https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import "tailwindcss";
+@tailwind utilities;
 @import "tw-animate-css";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -15,7 +15,10 @@ layer(base);
 }
 
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, nord;
+  themes:
+    light --default,
+    dark --prefersdark,
+    nord;
 }
 
 @layer base {
@@ -31,17 +34,8 @@ layer(base);
 
 @layer base {
   [data-theme="nord"] {
-    --color-card: hsl(207 97% 12%);
+    /* --color-card: hsl(207 97% 12%); */
     --color-primary: hsl(210.1, 85.1%, 50%);
-  }
-  [data-theme="dark"] {
-    --color-card: hsl(0 0% 96%);
-  }
-  [data-theme="custom"] {
-    --color-card: hsl(182, 87%, 39%);
-  }
-  [data-theme="pastel"] {
-    --color-card: hsl(291 46% 83%);
   }
 }
 
@@ -87,24 +81,6 @@ layer(base);
       backdrop-filter: blur(3px);
     }
   }
-  .toggle {
-    &:checked,
-    &[aria-checked="true"],
-    &:has(> input:checked) {
-      grid-template-columns: 1fr 1fr 0fr;
-      background-color: var(--color-primary);
-      border: none;
-    }
-  }
-  /* .table-zebra {
-    & tbody {
-      & tr {
-        &:where(:nth-child(2n)) {
-          background-color: rgb(11, 20, 39, 0.03);
-        }
-      }
-    }
-  } */
   [data-theme="dark"] {
     .table-zebra {
       & tbody {
@@ -142,25 +118,19 @@ layer(base);
 }
 
 .btn-primary {
-  /* background-color: var(--color-primary); */
+  background-color: var(--color-primary);
   color: white;
-}
-
-/* .btn-primary:hover {
-  background-color: var(--menu-hover);
-  color: white;
-  border-color: var(--color-primary);
 }
 
 .btn-outline {
-  color: var(--color-primary);
   border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: transparent;
 }
-
 .btn-outline:hover {
   background-color: var(--color-primary);
   color: white;
-} */
+}
 
 .backdrop-blur-md {
   --tw-backdrop-blur: blur(14px);
