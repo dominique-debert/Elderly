@@ -26,7 +26,7 @@ function Step1({ onNext }: { onNext: () => void }) {
 
   return (
     <div className="h-vh bg-[#0F172A] text-white flex flex-col items-center justify-center pt-6">
-      <h1 className="text-3xl font-light text-white mt-[80px] mb-8 text-center">
+      <h1 className="text-3xl font-light text-white mt-20 mb-8 text-center">
         Créez votre compte
       </h1>
 
@@ -34,7 +34,7 @@ function Step1({ onNext }: { onNext: () => void }) {
       <div className="flex items-start justify-center mb-12 w-full">
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm">
-            <span className="mt-[-1px]">1</span>
+            <span className="-mt-px">1</span>
           </div>
           <span className="ml-2 text-sm text-blue-500 font-medium mt-4">
             Compte
@@ -43,7 +43,7 @@ function Step1({ onNext }: { onNext: () => void }) {
         <div className="w-16 h-px bg-gray-600 mx-4 mt-3.5"></div>
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
-            <span className="mt-[-1px]">2</span>
+            <span className="-mt-px">2</span>
           </div>
           <span className="ml-2 text-sm text-gray-400 mt-4">
             Informations <br /> personnelles
@@ -52,7 +52,7 @@ function Step1({ onNext }: { onNext: () => void }) {
         <div className="w-16 h-px bg-gray-600 mx-4 mt-3.5"></div>
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
-            <span className="mt-[-1px]">3</span>
+            <span className="-mt-px">3</span>
           </div>
           <span className="ml-2 text-sm text-gray-400 mt-4">Confirmation</span>
         </div>
@@ -159,7 +159,7 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
       <div className="flex items-start justify-center w-full">
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
-            <span className="mt-[-1px]">1</span>
+            <span className="-mt-px">1</span>
           </div>
           <span className="ml-2 text-sm text-slate-400 font-medium mt-4">
             Compte
@@ -168,7 +168,7 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
         <div className="w-16 h-px bg-gray-600 mx-4 mt-4.5"></div>
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-sm">
-            <span className="mt-[-1px]">2</span>
+            <span className="-mt-px">2</span>
           </div>
           <span className="ml-2 text-sm text-gray-400 mt-4">
             Informations <br /> personnelles
@@ -177,7 +177,7 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
         <div className="w-16 h-px bg-gray-600 mx-4 mt-4.5"></div>
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
-            <span className="mt-[-1px]">3</span>
+            <span className="-mt-px">3</span>
           </div>
           <span className="ml-2 text-sm text-gray-400 mt-4">Confirmation</span>
         </div>
@@ -330,7 +330,7 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
 }
 
 // Step 3: Confirmation
-function Step3({ onBack }: { onBack: () => void }) {
+function Step3() {
   const signupStore = useSignupStore(); // Get the whole store
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [acceptNewsletter, setAcceptNewsletter] = useState(false);
@@ -462,7 +462,7 @@ function Step3({ onBack }: { onBack: () => void }) {
           <div className="flex items-start justify-center w-full">
             <div className="flex flex-col items-center">
               <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
-                <span className="mt-[-1px]">1</span>
+                <span className="-mt-px">1</span>
               </div>
               <span className="ml-2 text-sm text-slate-400 font-medium mt-4">
                 Compte
@@ -471,7 +471,7 @@ function Step3({ onBack }: { onBack: () => void }) {
             <div className="w-16 h-px bg-gray-600 mx-4 mt-4.5"></div>
             <div className="flex flex-col items-center">
               <div className="font-medium w-10 h-10 border border-slate-500 text-slate-500 rounded-full flex items-center justify-center text-sm">
-                <span className="mt-[-1px]">2</span>
+                <span className="-mt-px">2</span>
               </div>
               <span className="ml-2 text-sm text-slate-400 mt-4">
                 Informations <br /> personnelles
@@ -480,7 +480,7 @@ function Step3({ onBack }: { onBack: () => void }) {
             <div className="w-16 h-px bg-blue-600 mx-4 mt-4.5"></div>
             <div className="flex flex-col items-center">
               <div className="font-medium w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-sm">
-                <span className="mt-[-1px]">3</span>
+                <span className="-mt-px">3</span>
               </div>
               <span className="ml-2 text-sm text-blue-500 mt-4">
                 Confirmation
@@ -566,7 +566,7 @@ export function SignupPage() {
     <div>
       {step === 1 && <Step1 onNext={handleNext} />}
       {step === 2 && <Step2 onNext={handleNext} onBack={handleBack} />}
-      {step === 3 && <Step3 onBack={handleBack} />}
+      {step === 3 && <Step3 />}
     </div>
   );
 }

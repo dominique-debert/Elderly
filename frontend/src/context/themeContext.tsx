@@ -6,7 +6,7 @@ import {
   ReactNode,
 } from "react";
 
-type Theme = "cmyk" | "dark";
+type Theme = "nord" | "dark";
 
 type ThemeContextType = {
   theme: Theme;
@@ -19,9 +19,9 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 // Use a lazy initializer that reads localStorage synchronously so the initial render
 // reflects the stored value (avoids immediately overwriting it with the default).
 const getInitialTheme = (): Theme => {
-  if (typeof window === "undefined") return "cmyk";
+  if (typeof window === "undefined") return "nord";
   const saved = localStorage.getItem("theme");
-  return saved === "dark" ? "dark" : "cmyk";
+  return saved === "dark" ? "dark" : "nord";
 };
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -43,7 +43,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleTheme = () => {
-    setThemeState((prevTheme) => (prevTheme === "cmyk" ? "dark" : "cmyk"));
+    setThemeState((prevTheme) => (prevTheme === "nord" ? "dark" : "nord"));
   };
 
   return (

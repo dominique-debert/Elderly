@@ -15,25 +15,25 @@ export function ProfileHeader() {
 
   return (
     <>
-      <Card className="w-full p-6 border-0">
+      <Card className="w-full p-6 border-0 bg-white shadow-md dark:bg-card">
         <CardHeader className="w-full flex flex-col items-center border-0">
           <figure>
             <img
               src={user?.avatarUrl || "/default-avatar.png"}
               alt="User Avatar"
-              className="w-[200px] h-[200px] rounded-full mx-auto mb-4 border-[3px] border-slate-600 object-cover"
+              className="w-[200px] h-[200px] rounded-full mx-auto mb-4 border-secondary border-[3px] dark:border-slate-600 object-cover"
             />
           </figure>
-          <span className="w-full text-2xl font-bold text-center text-slate-200">
+          <span className="w-full text-2xl font-bold text-center dark:text-slate-200">
             {user?.firstName} {user?.lastName}
           </span>
-          <span className="w-full text-base text-center text-slate-500">
+          <span className="w-full text-base text-center dark:text-slate-500">
             {user?.profession} | {user?.city}, France
           </span>
-          <span className="w-full text-base text-center text-slate-500">
+          <span className="w-full text-base text-center dark:text-slate-500">
             Pas de connexions
           </span>
-          <span className="w-full text-base text-center text-slate-200">
+          <span className="w-full text-base text-center dark:text-slate-500">
             Membre depuis&nbsp;
             {user?.registrationDate
               ? formatMonthYear(user?.registrationDate)

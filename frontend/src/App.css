@@ -8,15 +8,14 @@ layer(base);
 
 @theme {
   --color-card: hsl(220.7, 56%, 9.8%);
-  --color-background-light: hsl(0 0% 100%);
+  --color-background-light: #f1f5f9;
   --color-background-dark: hsl(222.2, 69.2%, 7.6%);
-  --color-background-custom: hsl(187 71% 82%);
-  --color-background-pastel: hsl(279 100% 93%);
   --tab-p: 0;
+  --color-primary: hsl(210.1, 85.1%, 50%);
 }
 
 @plugin "daisyui" {
-  themes: all;
+  themes: light --default, dark --prefersdark, nord;
 }
 
 @layer base {
@@ -27,15 +26,13 @@ layer(base);
     --text-primary: hsl(0 0% 100%);
     --primary: hsl(226.7, 27.3%, 6.5%);
     --font-display: "Lexend", sans-serif;
-    --menu-active-bg: hsl(210.1, 85.1%, 50%);
-    --menu-active-fg: hsl(0 0% 100%);
-    --menu-hover: hsl(210, 83%, 34.5%);
   }
 }
 
 @layer base {
-  [data-theme="light"] {
+  [data-theme="nord"] {
     --color-card: hsl(207 97% 12%);
+    --color-primary: hsl(210.1, 85.1%, 50%);
   }
   [data-theme="dark"] {
     --color-card: hsl(0 0% 96%);
@@ -99,7 +96,7 @@ layer(base);
       border: none;
     }
   }
-  .table-zebra {
+  /* .table-zebra {
     & tbody {
       & tr {
         &:where(:nth-child(2n)) {
@@ -107,7 +104,7 @@ layer(base);
         }
       }
     }
-  }
+  } */
   [data-theme="dark"] {
     .table-zebra {
       & tbody {
@@ -145,11 +142,11 @@ layer(base);
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
   color: white;
 }
 
-.btn-primary:hover {
+/* .btn-primary:hover {
   background-color: var(--menu-hover);
   color: white;
   border-color: var(--color-primary);
@@ -163,7 +160,7 @@ layer(base);
 .btn-outline:hover {
   background-color: var(--color-primary);
   color: white;
-}
+} */
 
 .backdrop-blur-md {
   --tw-backdrop-blur: blur(14px);
@@ -214,11 +211,16 @@ html,
 }
 
 ::placeholder {
-  color: #64748b; /* Tailwind's slate-500 */
-  opacity: 1; /* Firefox */
+  color: #64748b;
+  opacity: 1;
 }
 
 ::-ms-input-placeholder {
-  /* Edge 12 -18 */
-  color: #64748b; /* Tailwind's slate-500 */
+  color: #64748b;
+}
+::-webkit-input-placeholder {
+  color: #64748b;
+}
+::-moz-placeholder {
+  color: #64748b;
 }

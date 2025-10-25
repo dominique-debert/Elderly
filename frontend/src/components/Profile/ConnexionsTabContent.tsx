@@ -227,15 +227,15 @@ export function ConnexionsTabContent() {
   const blockedContacts = mockContacts.slice(12, 15);
 
   return (
-    <Card className="w-full pt-4 gap-0">
-      <div className="flex justify-between items-center mb-[-16px]">
+    <Card className="w-full pt-4 gap-0 bg-white dark:bg-card shadow-md">
+      <div className="flex justify-between items-center -mb-4">
         <div className="flex flex-col justify-center pt-4">
           <div className="text-xl ml-6 h-6">Mes Connexions</div>
           <div className="text-sm m-6 mb-2 mt-1 text-slate-400">
             Organisez et gerez vos connexions.
           </div>
         </div>
-        <button className="btn btn-primary mr-6 btn-sm text-xs">
+        <button className="btn btn-primary mr-6">
           <Icon path={mdiPlus} size={0.7} className="text-white" />
           Ajouter une connexion
         </button>
@@ -244,7 +244,7 @@ export function ConnexionsTabContent() {
 
       {/* Recherche */}
       <div className="m-0 ml-6 mr-6 mt-0 mb-2">
-        <label className="input flex w-full items-center border-slate-800 dark:bg-card rounded-lg">
+        <label className="input flex w-full items-center bg-white dark:border-slate-800 dark:bg-card rounded-lg">
           <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
           <input type="search" placeholder="Rechercher une connexion..." />
           <button className="cursor-pointer">
@@ -255,7 +255,7 @@ export function ConnexionsTabContent() {
 
       <div className="border-0 grid grid-flow-col grid-rows-2 gap-5 pt-2 pl-6 pr-6">
         {/* Mes contacts */}
-        <Card className="row-span-2 w-full overflow-y-auto gap-0 p-0">
+        <Card className="row-span-2 w-full overflow-y-auto gap-0 p-0 bg-white dark:bg-card">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Mes contacts
             <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
@@ -269,7 +269,7 @@ export function ConnexionsTabContent() {
         </Card>
 
         {/* Contacts suggérés */}
-        <Card className="overflow-y-auto gap-0 p-0">
+        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Demandes de connexion
             <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
@@ -283,7 +283,7 @@ export function ConnexionsTabContent() {
         </Card>
 
         {/* Contacts bloqués */}
-        <Card className="overflow-y-auto gap-0 p-0">
+        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Contacts bloqués
             <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">

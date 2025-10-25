@@ -10,37 +10,53 @@ export function PublicationTabContent() {
   }
 
   return (
-    <Card className="p-4">
+    <Card className="p-4 bg-white shadow-md dark:bg-card">
       <span className="text-xl mt-6 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         A Propos
       </span>
-      <div className="border-slate-800 mt-0 pt-0 border mb-0"></div>
+      <div className="dark:border-slate-800 border-slate-200 mt-0 pt-0 border mb-0"></div>
       <span className="p-3 pt-0">{user?.description}</span>
       <span className="text-xl mt-6 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         Centres d'intérêt
       </span>
-      <div className="border-slate-800 mt-0 pt-0 border mb-0"></div>
+      <div className="dark:border-slate-800 border-slate-200 mt-0 pt-0 border mb-0"></div>
       <div className="flex gap-3 ml-4 mr-4 mb-0">
-        <span className="badge p-4 bg-primary text-base">Voyages</span>
-        <span className="badge p-4 bg-primary text-base">Lecture</span>
-        <span className="badge p-4 bg-primary text-base">Bénévolat</span>
-        <span className="badge p-4 bg-primary text-base">Arts</span>
-        <span className="badge p-4 bg-primary text-base">Culture</span>
+        <span className="badge p-4 bg-primary text-base text-white">
+          Voyages
+        </span>
+        <span className="badge p-4 bg-primary text-base text-white">
+          Lecture
+        </span>
+        <span className="badge p-4 bg-primary text-base text-white">
+          Bénévolat
+        </span>
+        <span className="badge p-4 bg-primary text-base text-white">Arts</span>
+        <span className="badge p-4 bg-primary text-base text-white">
+          Culture
+        </span>
       </div>
       <span className="text-xl mt-8 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         Compétences
       </span>
-      <div className="border-slate-800 mt-0 pt-0 border mb-0"></div>
+      <div className="dark:border-slate-800 border-slate-200 mt-0 pt-0 border mb-0"></div>
       <div className="flex gap-3 ml-4 mr-4 mb-0">
-        <span className="badge p-4 bg-primary text-base">Communication</span>
-        <span className="badge p-4 bg-primary text-base">Organisation</span>
-        <span className="badge p-4 bg-primary text-base">Empathie</span>
-        <span className="badge p-4 bg-primary text-base">Adaptabilité</span>
+        <span className="badge p-4 bg-primary text-base text-white">
+          Communication
+        </span>
+        <span className="badge p-4 bg-primary text-base text-white">
+          Organisation
+        </span>
+        <span className="badge p-4 bg-primary text-base text-white">
+          Empathie
+        </span>
+        <span className="badge p-4 bg-primary text-base text-white">
+          Adaptabilité
+        </span>
       </div>
       <span className="text-xl mt-8 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
         Publications récentes
       </span>
-      <div className="border-slate-800 mt-0 pt-0 border mb-0"></div>
+      <div className="dark:border-slate-800 border-slate-200 mt-0 pt-0 border mb-0"></div>
       <div className="flex ml-4 mr-4 mb-0 w-full gap-10">
         <div className="flex flex-col w-full mt-1">
           <p className="text-slate-400 text-xs">Publié dans Loisirs</p>
