@@ -96,7 +96,7 @@ export function CategoryCreateModal({
 
   return (
     <dialog className="modal modal-open">
-      <div className="modal-box">
+      <div className="modal-box bg-white! dark:bg-card! relative max-w-lg">
         <h3 className="border-b border-base-300 font-medium text-xl">
           Créer une nouvelle catégorie
         </h3>
@@ -119,7 +119,7 @@ export function CategoryCreateModal({
             name="name"
             value={form.name}
             onChange={handleChange}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-white dark:bg-card"
             placeholder="Nom de la catégorie"
             required
           />
@@ -129,7 +129,7 @@ export function CategoryCreateModal({
             name="description"
             value={form.description}
             onChange={handleChange}
-            className="textarea textarea-bordered w-full"
+            className="textarea textarea-bordered bg-white dark:bg-card w-full"
             placeholder="Description"
           />
 
@@ -138,7 +138,7 @@ export function CategoryCreateModal({
             name="chapterId"
             value={form.chapterId}
             onChange={handleChange}
-            className="select select-bordered w-full"
+            className="select select-bordered bg-white dark:bg-card w-full"
             required
           >
             <option value="" disabled>
@@ -156,7 +156,7 @@ export function CategoryCreateModal({
             name="typeId"
             value={form.typeId}
             onChange={handleChange}
-            className="select select-bordered w-full"
+            className="select select-bordered w-full bg-white dark:bg-card"
             required
           >
             <option value="" disabled>
@@ -173,7 +173,11 @@ export function CategoryCreateModal({
             <button type="submit" className="btn btn-primary">
               Enregistrer
             </button>
-            <button type="button" className="btn" onClick={onClose}>
+            <button
+              type="button"
+              onClick={onClose}
+              className="btn btn-ghost hover:bg-red-600 hover:text-white"
+            >
               Annuler
             </button>
           </div>

@@ -41,7 +41,7 @@ export function CategoryEditModal({
 
   return (
     <dialog className="modal modal-open">
-      <div className="modal-box">
+      <div className="modal-box bg-white! dark:bg-card!">
         <h3 className="font-bold text-lg">Modifier l'activité</h3>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
@@ -50,7 +50,7 @@ export function CategoryEditModal({
             type="text"
             value={categoryName}
             onChange={(e) => setCategoryName(e.target.value)}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-white dark:bg-card"
             required
           />
 
@@ -58,7 +58,7 @@ export function CategoryEditModal({
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="textarea textarea-bordered w-full"
+            className="textarea textarea-bordered w-full bg-white dark:bg-card"
           />
 
           <label className="text-sm -mb-2 mt-4">
@@ -68,7 +68,7 @@ export function CategoryEditModal({
             type="text"
             value={chapterName}
             disabled
-            className="input input-bordered w-full bg-gray-100"
+            className="input input-bordered w-full bg-gray-100 dark:bg-card"
           />
 
           <label className="text-sm -mb-2 mt-4">Type (non modifiable)</label>
@@ -83,7 +83,11 @@ export function CategoryEditModal({
             <button type="submit" className="btn btn-primary">
               Enregistrer
             </button>
-            <button type="button" className="btn" onClick={onClose}>
+            <button
+              type="button"
+              onClick={onClose}
+              className="btn btn-ghost hover:bg-red-600 hover:text-white"
+            >
               Annuler
             </button>
           </div>

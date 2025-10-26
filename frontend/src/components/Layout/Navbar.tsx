@@ -2,7 +2,7 @@ import Icon from "@mdi/react";
 import {
   mdiBellOutline,
   mdiCogOutline,
-  mdiMoonWaxingCrescent,
+  mdiWeatherNight,
   mdiWeatherSunny,
 } from "@mdi/js";
 
@@ -86,20 +86,26 @@ export function Navbar() {
           </Link>
 
           <div className="flex items-center gap-4">
-            <div
-              className="tooltip tooltip-bottom tooltip-accent"
-              data-tip="Changer de thème"
-            >
-              <label className="toggle toggle-lg mr-4 text-base-content">
-                <input
-                  type="checkbox"
-                  onChange={handleToggle}
-                  checked={theme === "dark"}
-                />
-                <Icon path={mdiWeatherSunny} size={0.7} />
-                <Icon path={mdiMoonWaxingCrescent} size={0.7} />
-              </label>
-            </div>
+            <label className="swap swap-rotate">
+              <input
+                type="checkbox"
+                className="theme-controller"
+                value="nord"
+                onChange={handleToggle}
+                checked={theme === "nord"}
+              />
+
+              <Icon
+                path={mdiWeatherSunny}
+                className="swap-off h-12 w-12"
+                size={1.5}
+              />
+              <Icon
+                path={mdiWeatherNight}
+                className="swap-on h-12 w-12"
+                size={1.3}
+              />
+            </label>
 
             <div className="relative" ref={notifRef}>
               <button

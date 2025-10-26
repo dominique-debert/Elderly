@@ -35,9 +35,10 @@ export function AdminPage() {
       {user && user.isAdmin ? (
         <>
           <div className="sticky top-0 z-30 pb-4 pt-4">
-            <h2 className="text-2xl font-semibold text-primary border-b border-slate-800 mb-4">
+            <h2 className="text-2xl font-semibold text-primary -mb-4">
               Administration
             </h2>
+            <div className="divider expert-blue"></div>
             <AdminTabBar activeTab={activeTab} setActiveTab={setActiveTab} />
           </div>
           <div className="pt-2">

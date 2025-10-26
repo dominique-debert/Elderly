@@ -4,7 +4,7 @@ import Icon from "@mdi/react";
 import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 
 import { type ICategory, type ETabKey } from "@/types";
-import { CategoryDeleteModal, CategoryEditModal } from "@/components";
+import { Card, CategoryDeleteModal, CategoryEditModal } from "@/components";
 
 type CategoryCardItemProps = {
   category: ICategory;
@@ -28,30 +28,30 @@ export function CategoryCardItem({ category, tabKey }: CategoryCardItemProps) {
 
   return (
     <>
-      <div className="card bg-base-200 shadow-xl hover:shadow-2xl transition-shadow">
+      <Card className="h-full gap-2 p-0">
         <div className="card-body">
           <h3 className="card-title text-primary">{category.categoryName}</h3>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm dark:text-gray-400">
             {category.description || "Aucune description"}
           </p>
-          <div className="card-actions justify-end mt-4 gap-2">
+          <div className="card-actions justify-end mt-4">
             <button
               onClick={() => setIsEditOpen(true)}
-              className="btn btn-sm btn-ghost"
+              className="btn btn-sm btn-ghost p-1 h-10 w-10 text-primary"
               aria-label="Modifier"
             >
-              <Icon path={mdiPencilOutline} size={0.8} />
+              <Icon path={mdiPencilOutline} size={1} />
             </button>
             <button
               onClick={() => setIsConfirmDeleteOpen(true)}
-              className="btn btn-sm btn-ghost text-error"
+              className="btn btn-sm btn-ghost text-error p-1 h-10 w-10"
               aria-label="Supprimer"
             >
-              <Icon path={mdiDeleteOutline} size={0.8} />
+              <Icon path={mdiDeleteOutline} size={1} />
             </button>
           </div>
         </div>
-      </div>
+      </Card>
 
       {isEditOpen && (
         <CategoryEditModal

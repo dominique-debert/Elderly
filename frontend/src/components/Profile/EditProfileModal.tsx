@@ -187,7 +187,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
 
   return (
     <div className="modal modal-open">
-      <div className="modal-box max-w-2xl overflow-y-auto bg-white!">
+      <div className="modal-box max-w-2xl overflow-y-auto bg-white! dark:bg-card!">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-bold m-0 p-0">Modifier mon profil</h1>
           <button onClick={onClose} className="btn btn-ghost btn-sm btn-circle">
@@ -379,7 +379,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                     currentPassword: e.target.value,
                   }))
                 }
-                className="input input-bordered bg-white! dark:bg-card w-full"
+                className="input input-bordered bg-white! dark:bg-card! w-full"
                 placeholder="Entrez votre mot de passe actuel"
               />
             </div>

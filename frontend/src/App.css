@@ -92,6 +92,17 @@
       }
     }
   }
+  [data-theme="nord"] {
+    .table-zebra {
+      & tbody {
+        & tr {
+          &:where(:nth-child(2n)) {
+            background-color: #f1f5f9;
+          }
+        }
+      }
+    }
+  }
 }
 
 @utility no-scrollbar {

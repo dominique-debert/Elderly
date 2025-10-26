@@ -26,7 +26,7 @@ export function CategoryDeleteModal({
 
   return (
     <dialog className="modal modal-open">
-      <div className="modal-box">
+      <div className="modal-box bg-white! dark:bg-card!">
         <h3 className="font-bold text-lg">Supprimer la catégorie</h3>
         <p className="py-4">
           Confirmer la suppression de <strong>{category.categoryName}</strong> ?
@@ -35,7 +35,11 @@ export function CategoryDeleteModal({
           <button className="btn btn-primary" onClick={handleDelete}>
             Supprimer
           </button>
-          <button className="btn btn-ghost" onClick={onClose}>
+          <button
+            type="button"
+            onClick={onClose}
+            className="btn btn-ghost hover:bg-red-600 hover:text-white"
+          >
             Annuler
           </button>
         </div>
