@@ -34,17 +34,17 @@ export function CategoryCardItem({ category, tabKey }: CategoryCardItemProps) {
           <p className="text-sm dark:text-gray-400">
             {category.description || "Aucune description"}
           </p>
-          <div className="card-actions justify-end mt-4">
+          <div className="card-actions gap-4 justify-end mt-4">
             <button
               onClick={() => setIsEditOpen(true)}
-              className="btn btn-sm btn-ghost p-1 h-10 w-10 text-primary"
+              className="btn btn-sm btn-ghost p-1 h-10 w-10 text-primary bg-primary/10"
               aria-label="Modifier"
             >
               <Icon path={mdiPencilOutline} size={1} />
             </button>
             <button
               onClick={() => setIsConfirmDeleteOpen(true)}
-              className="btn btn-sm btn-ghost text-error p-1 h-10 w-10"
+              className="btn btn-sm btn-ghost text-error p-1 h-10 w-10 bg-error/10"
               aria-label="Supprimer"
             >
               <Icon path={mdiDeleteOutline} size={1} />
