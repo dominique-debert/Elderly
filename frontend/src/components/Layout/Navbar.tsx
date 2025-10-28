@@ -1,11 +1,3 @@
-import Icon from "@mdi/react";
-import {
-  mdiBellOutline,
-  mdiCogOutline,
-  mdiWeatherNight,
-  mdiWeatherSunny,
-} from "@mdi/js";
-
 import { useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -18,6 +10,7 @@ import { INotification } from "@/types";
 
 import { NotificationList } from "@/components";
 import toast from "react-hot-toast";
+import { MoonIcon, SunIcon, SlidersVertical, BellIcon } from "lucide-react";
 
 export function Navbar() {
   const { user, isAuthenticated } = useAuth();
@@ -85,7 +78,9 @@ export function Navbar() {
             </div>
           </Link>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
+            {/* Theme Toggle */}
+
             <label className="swap swap-rotate">
               <input
                 type="checkbox"
@@ -94,29 +89,21 @@ export function Navbar() {
                 onChange={handleToggle}
                 checked={theme === "nord"}
               />
-
-              <Icon
-                path={mdiWeatherSunny}
-                className="swap-off h-12 w-12"
-                size={1.5}
-              />
-              <Icon
-                path={mdiWeatherNight}
-                className="swap-on h-12 w-12"
-                size={1.3}
-              />
+              <SunIcon className="size-6 swap-off" />
+              <MoonIcon className="size-6 swap-on" />
             </label>
 
             <div className="relative" ref={notifRef}>
               <button
                 role="button"
-                className="btn btn-ghost btn-circle btn-secondary text-base-content avatar tooltip tooltip-bottom mr-3 tooltip-accent"
+                className="cursor-pointer text-base-content avatar tooltip tooltip-bottom tooltip-accent"
                 data-tip="Notifications"
                 onClick={() => setIsNotifOpen(!isNotifOpen)}
               >
-                <Icon path={mdiBellOutline} size={1.3} />
+                <BellIcon className="size-6" />
+
                 {notifications && notifications.length > 0 && (
-                  <span className="absolute p-1.5 avatar border bg-orange-600 rounded-xl right-1 bottom-1" />
+                  <span className="absolute p-1.5 avatar bg-red-600 rounded-xl right-0 bottom-0" />
                 )}
               </button>
               {isNotifOpen && (
@@ -136,14 +123,10 @@ export function Navbar() {
             {user?.isAdmin && (
               <Link
                 to="/admin-page"
-                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom mr-3 tooltip-accent"
+                className="cursor-pointer tooltip tooltip-bottom mr-3 tooltip-accent"
                 data-tip="Espace administration"
               >
-                <Icon
-                  path={mdiCogOutline}
-                  size={1.3}
-                  className="text-base-content"
-                />
+                <SlidersVertical className="size-6 text-base-content" />
               </Link>
             )}
 
