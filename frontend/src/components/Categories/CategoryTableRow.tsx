@@ -35,22 +35,24 @@ export function CategoryTableRow({ category, tabKey }: CategoryTableRowProps) {
     <>
       <TableRow>
         <TableCell className="font-medium">{category.categoryName}</TableCell>
-        <TableCell>{category.description || "Aucune description"}</TableCell>
+        <TableCell className="w-full">
+          {category.description || "Aucune description"}
+        </TableCell>
         <TableCell>
-          <div className="flex gap-4 justify-end">
+          <div className="flex gap-4 justify-center">
             <button
               onClick={() => setIsEditOpen(true)}
-              className="btn btn-sm btn-ghost text-primary bg-primary/10 p-1 h-10 w-10 hover:bg-transparent hover:border-0"
+              className="btn size-8 text-primary bg-primary/10 p-1 hover:bg-transparent hover:border-0"
               aria-label="Modifier"
             >
-              <Icon path={mdiPencilOutline} size={1} />
+              <Icon path={mdiPencilOutline} size={0.8} />
             </button>
             <button
               onClick={() => setIsConfirmDeleteOpen(true)}
-              className="btn btn-sm btn-ghost text-error bg-error/10 p-1 h-10 w-10 hover:bg-transparent hover:border-0"
+              className="btn btn-sm btn-ghost text-error bg-error/10 p-1 hover:bg-transparent hover:border-0"
               aria-label="Supprimer"
             >
-              <Icon path={mdiDeleteOutline} size={1} />
+              <Icon path={mdiDeleteOutline} size={0.8} />
             </button>
           </div>
         </TableCell>

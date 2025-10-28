@@ -23,7 +23,7 @@ export function CategoryTableView({
         <TableRow>
           <TableHead>Titre</TableHead>
           <TableHead>Description</TableHead>
-          <TableHead className="text-right">Actions</TableHead>
+          <TableHead className="text-center">Actions</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
