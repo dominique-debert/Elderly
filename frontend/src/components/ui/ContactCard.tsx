@@ -73,7 +73,7 @@ export function ContactCard({
 
                 <ul
                   tabIndex={0}
-                  className="menu border border-slate-800 dropdown-content bg-white dark:bg-card rounded-box mt-3 w-36 p-2 shadow-md"
+                  className="menu border border-slate-800 dropdown-content bg-white dark:bg-card rounded-box mt-2 w-38 p-2 shadow-md"
                 >
                   <li>
                     <a className="flex gap-4 align-middle items-center">
