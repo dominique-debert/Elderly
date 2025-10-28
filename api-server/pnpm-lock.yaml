@@ -18,8 +18,8 @@ importers:
         specifier: ^0.41.1
         version: 0.41.1
       axios:
-        specifier: ^1.12.2
-        version: 1.12.2
+        specifier: ^1.13.0
+        version: 1.13.0
       bcrypt:
         specifier: ^5.1.1
         version: 5.1.1
@@ -82,8 +82,8 @@ importers:
         specifier: ^2.8.19
         version: 2.8.19
       '@types/express':
-        specifier: ^5.0.4
-        version: 5.0.4
+        specifier: ^5.0.5
+        version: 5.0.5
       '@types/express-session':
         specifier: ^1.18.2
         version: 1.18.2
@@ -835,8 +835,8 @@ packages:
   '@types/express-session@1.18.2':
     resolution: {integrity: sha512-k+I0BxwVXsnEU2hV77cCobC08kIsn4y44C3gC0b46uxZVMaXA04lSPgRLR/bSL2w0t0ShJiG8o4jPzRG/nscFg==}
 
-  '@types/express@5.0.4':
-    resolution: {integrity: sha512-g64dbryHk7loCIrsa0R3shBnEu5p6LPJ09bu9NG58+jz+cRUjFrc3Bz0kNQ7j9bXeCsrRDvNET1G54P/GJkAyA==}
+  '@types/express@5.0.5':
+    resolution: {integrity: sha512-LuIQOcb6UmnF7C1PCFmEU1u2hmiHL43fgFQX67sN3H4Z+0Yk0Neo++mFsBjhOAuLzvlQeqAAkeDOZrJs9rzumQ==}
 
   '@types/http-errors@2.0.5':
     resolution: {integrity: sha512-r8Tayk8HJnX0FztbZN7oVqGccWgw98T/0neJphO91KkmOzug1KkofZURD4UaD5uH8AqcFLfdPErnBod0u71/qg==}
@@ -891,6 +891,9 @@ packages:
 
   '@types/serve-static@1.15.10':
     resolution: {integrity: sha512-tRs1dB+g8Itk72rlSI2ZrW6vZg0YrLI81iQSTkMmOqnqCaNr/8Ek4VwWcN5vZgCYWbg/JJSGBlUaYGAOP73qBw==}
+
+  '@types/serve-static@2.2.0':
+    resolution: {integrity: sha512-8mam4H1NHLtu7nmtalF7eyBH14QyOASmcxHhSfEoRyr0nP/YdoesEtU+uSRvMe96TW/HPTtkoKqQLl53N7UXMQ==}
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
@@ -1110,8 +1113,8 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  axios@1.12.2:
-    resolution: {integrity: sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==}
+  axios@1.13.0:
+    resolution: {integrity: sha512-zt40Pz4zcRXra9CVV31KeyofwiNvAbJ5B6YPz9pMJ+yOSLikvPT4Yi5LjfgjRa9CawVYBaD1JQzIVcIvBejKeA==}
 
   babel-jest@30.2.0:
     resolution: {integrity: sha512-0YiBEOxWqKkSQWL9nNGGEgndoeL0ZpWrbLMNL5u/Kaxrli3Eaxlt3ZtIDktEvXt4L/R9r3ODr2zKwGM/2BjxVw==}
@@ -1464,8 +1467,8 @@ packages:
   effect@3.18.4:
     resolution: {integrity: sha512-b1LXQJLe9D11wfnOKAk3PKxuqYshQ0Heez+y5pnkd3jLj1yx9QhM72zZ9uUrOQyNvrs2GZZd/3maL0ZV18YuDA==}
 
-  electron-to-chromium@1.5.240:
-    resolution: {integrity: sha512-OBwbZjWgrCOH+g6uJsA2/7Twpas2OlepS9uvByJjR2datRDuKGYeD+nP8lBBks2qnB7bGJNHDUx7c/YLaT3QMQ==}
+  electron-to-chromium@1.5.241:
+    resolution: {integrity: sha512-ILMvKX/ZV5WIJzzdtuHg8xquk2y0BOGlFOxBVwTpbiXqWIH0hamG45ddU4R3PQ0gYu+xgo0vdHXHli9sHIGb4w==}
 
   emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -2770,8 +2773,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  swagger-ui-dist@5.29.5:
-    resolution: {integrity: sha512-2zFnjONgLXlz8gLToRKvXHKJdqXF6UGgCmv65i8T6i/UrjDNyV1fIQ7FauZA40SaivlGKEvW2tw9XDyDhfcXqQ==}
+  swagger-ui-dist@5.30.0:
+    resolution: {integrity: sha512-BoiDSeT9PCtHfDYMgX5UpB/qTQy44UoSFRmzHqvhGfgxzEVPHxIW78a+HMLUIHnSFu3z63wjtbq6L6+Rto20Rw==}
 
   swagger-ui-express@5.0.1:
     resolution: {integrity: sha512-SrNU3RiBGTLLmFU8GIJdOdanJTl4TOmT27tt3bWWHppqYmAZ6IDuEuBvMU6nZq0zLEe6b/1rACXCgLZqO6ZfrA==}
@@ -2956,8 +2959,8 @@ packages:
     resolution: {integrity: sha512-kiGUalWN+rgBJ/1OHZsBtU4rXZOfj/7rKQxULKlIzwzQSvMJUUNgPwJEEh7gU6xEVxC0ahoOBvN2YI8GH6FNgA==}
     engines: {node: '>=10.12.0'}
 
-  validator@13.15.15:
-    resolution: {integrity: sha512-BgWVbCI72aIQy937xbawcs+hrVaN/CZ2UwutgaJ36hGqRrLNM+f5LUT/YPRbo8IV/ASeFzXszezV+y2+rq3l8A==}
+  validator@13.15.20:
+    resolution: {integrity: sha512-KxPOq3V2LmfQPP4eqf3Mq/zrT0Dqp2Vmx2Bn285LwVahLc+CsxOM0crBHczm8ijlcjZ0Q5Xd6LW3z3odTPnlrw==}
     engines: {node: '>= 0.10'}
 
   vary@1.1.2:
@@ -3812,9 +3815,9 @@ snapshots:
 
   '@types/express-session@1.18.2':
     dependencies:
-      '@types/express': 5.0.4
+      '@types/express': 5.0.5
 
-  '@types/express@5.0.4':
+  '@types/express@5.0.5':
     dependencies:
       '@types/body-parser': 1.19.6
       '@types/express-serve-static-core': 5.1.0
@@ -3854,7 +3857,7 @@ snapshots:
 
   '@types/multer@1.4.13':
     dependencies:
-      '@types/express': 5.0.4
+      '@types/express': 5.0.5
 
   '@types/node@22.18.12':
     dependencies:
@@ -3878,6 +3881,11 @@ snapshots:
       '@types/http-errors': 2.0.5
       '@types/node': 22.18.12
       '@types/send': 0.17.6
+
+  '@types/serve-static@2.2.0':
+    dependencies:
+      '@types/http-errors': 2.0.5
+      '@types/node': 22.18.12
 
   '@types/stack-utils@2.0.3': {}
 
@@ -3903,8 +3911,8 @@ snapshots:
 
   '@types/swagger-ui-express@4.1.8':
     dependencies:
-      '@types/express': 5.0.4
-      '@types/serve-static': 1.15.10
+      '@types/express': 5.0.5
+      '@types/serve-static': 2.2.0
 
   '@types/uuid@11.0.0':
     dependencies:
@@ -4048,7 +4056,7 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  axios@1.12.2:
+  axios@1.13.0:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.4
@@ -4153,7 +4161,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.8.20
       caniuse-lite: 1.0.30001751
-      electron-to-chromium: 1.5.240
+      electron-to-chromium: 1.5.241
       node-releases: 2.0.26
       update-browserslist-db: 1.1.4(browserslist@4.27.0)
 
@@ -4407,7 +4415,7 @@ snapshots:
       '@standard-schema/spec': 1.0.0
       fast-check: 3.23.2
 
-  electron-to-chromium@1.5.240: {}
+  electron-to-chromium@1.5.241: {}
 
   emittery@0.13.1: {}
 
@@ -5954,14 +5962,14 @@ snapshots:
       - encoding
       - magicast
 
-  swagger-ui-dist@5.29.5:
+  swagger-ui-dist@5.30.0:
     dependencies:
       '@scarf/scarf': 1.4.0
 
   swagger-ui-express@5.0.1(express@5.1.0):
     dependencies:
       express: 5.1.0
-      swagger-ui-dist: 5.29.5
+      swagger-ui-dist: 5.30.0
 
   swagger2openapi@7.0.8:
     dependencies:
@@ -6169,7 +6177,7 @@ snapshots:
       '@types/istanbul-lib-coverage': 2.0.6
       convert-source-map: 2.0.0
 
-  validator@13.15.15: {}
+  validator@13.15.20: {}
 
   vary@1.1.2: {}
 
@@ -6249,6 +6257,6 @@ snapshots:
     dependencies:
       lodash.get: 4.4.2
       lodash.isequal: 4.5.0
-      validator: 13.15.15
+      validator: 13.15.20
     optionalDependencies:
       commander: 9.5.0
