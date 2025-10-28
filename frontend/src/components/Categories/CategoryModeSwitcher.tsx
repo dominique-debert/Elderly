@@ -22,7 +22,7 @@ export const CategoryModeSwitcher = ({
       <Search
         search={search}
         setSearch={setSearch}
-        placeholder={`Rechercher une humeur...`}
+        placeholder={`Rechercher...`}
       />
 
       {/* Boutons */}

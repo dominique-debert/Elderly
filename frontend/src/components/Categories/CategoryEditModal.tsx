@@ -76,7 +76,7 @@ export function CategoryEditModal({
             type="text"
             value={typeName}
             disabled
-            className="input input-bordered w-full bg-gray-100"
+            className="input input-bordered w-full bg-gray-100 dark:bg-card"
           />
 
           <div className="modal-action">
