@@ -1,7 +1,6 @@
-import Icon from "@mdi/react";
-import { mdiMagnify, mdiClose, mdiPlus } from "@mdi/js";
 import { Card, ContactCard } from "@/components";
 import { IUser } from "@/types";
+import { PlusIcon, XIcon, SearchIcon } from "lucide-react";
 
 export function ConnexionsTabContent() {
   // Mock data - 15 contacts
@@ -236,7 +235,7 @@ export function ConnexionsTabContent() {
           </div>
         </div>
         <button className="btn btn-primary mr-6">
-          <Icon path={mdiPlus} size={0.7} className="text-white" />
+          <PlusIcon className="text-white size-4" />
           Ajouter une connexion
         </button>
       </div>
@@ -245,10 +244,10 @@ export function ConnexionsTabContent() {
       {/* Recherche */}
       <div className="m-0 ml-6 mr-6 mt-0 mb-2">
         <label className="input flex w-full items-center bg-white dark:border-slate-800 dark:bg-card rounded-lg">
-          <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
+          <SearchIcon className="text-slate-500 size-4" />
           <input type="search" placeholder="Rechercher une connexion..." />
           <button className="cursor-pointer">
-            <Icon path={mdiClose} size={0.8} className="text-slate-500" />
+            <XIcon className="text-slate-500 size-4" />
           </button>
         </label>
       </div>

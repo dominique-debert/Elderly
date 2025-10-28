@@ -1,6 +1,5 @@
-import Icon from "@mdi/react";
 import { Card } from "@/components";
-import { mdiMagnify, mdiClose, mdiPlus } from "@mdi/js";
+import { PlusIcon, XIcon, SearchIcon } from "lucide-react";
 
 export function PhotoTabContent() {
   return (
@@ -13,7 +12,7 @@ export function PhotoTabContent() {
           </div>
         </div>
         <button className="btn btn-primary mr-6 btn-sm text-xs">
-          <Icon path={mdiPlus} size={0.7} className="text-white" />
+          <PlusIcon className="text-white size-4" />
           Ajouter une photo
         </button>
       </div>
@@ -22,14 +21,14 @@ export function PhotoTabContent() {
       {/* Recherche */}
       <div className="m-0 ml-6 mr-6 mt-0">
         <label className="input bg-white flex w-full items-center dark:border-slate-800 dark:bg-card rounded-lg">
-          <Icon path={mdiMagnify} size={0.8} className="dark:text-slate-500" />
+          <SearchIcon className="dark:text-slate-500 size-4" />
           <input
             type="search"
             placeholder="Rechercher une photo..."
             className="grow flex-1"
           />
           <button className="cursor-pointer">
-            <Icon path={mdiClose} size={0.8} className="dark:text-slate-500" />
+            <XIcon className="dark:text-slate-500 size-4" />
           </button>
         </label>
       </div>

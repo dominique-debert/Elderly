@@ -1,13 +1,13 @@
-import Icon from "@mdi/react";
 import {
-  mdiCancel,
-  mdiCheck,
-  mdiDotsVertical,
-  mdiPencilOutline,
-  mdiTrashCanOutline,
-} from "@mdi/js";
-
-import { MailIcon, MessageCircle, VideoIcon } from "lucide-react";
+  MailIcon,
+  MessageCircle,
+  VideoIcon,
+  BanIcon,
+  CheckIcon,
+  PencilIcon,
+  TrashIcon,
+  EllipsisVerticalIcon,
+} from "lucide-react";
 
 import { IUser } from "@/types";
 
@@ -58,19 +58,18 @@ export function ContactCard({
                 className="btn text-primary bg-primary/10 hover:bg-primary/30 p-1 rounded-sm tooltip tooltip-bottom tooltip-accent size-8"
                 data-tip="Modifier"
               >
-                <Icon path={mdiPencilOutline} size={0.8} />
+                <PencilIcon className="size-4" />
               </button>
               <button
                 className="btn bg-red-600/10 text-red-400 hover:bg-red-600/30 p-1 rounded-sm tooltip tooltip-bottom tooltip-accent size-8"
                 data-tip="Supprimer"
               >
-                <Icon path={mdiTrashCanOutline} size={0.8} />
+                <TrashIcon className="size-4" />
               </button>
               <div className="dropdown dropdown-end">
                 <button className="btn p-1 rounded-sm bg-transparent hover:bg-warning/10 hover:text-orange-600 border-0 size-8">
-                  <Icon path={mdiDotsVertical} size={0.8} />
+                  <EllipsisVerticalIcon className="size-4" />
                 </button>
-
                 <ul
                   tabIndex={0}
                   className="menu border border-slate-800 dropdown-content bg-white dark:bg-card rounded-box mt-2 w-38 p-2 shadow-md"
@@ -103,7 +102,7 @@ export function ContactCard({
                 data-tip="accepter"
                 className="btn bg-accent/10 text-primary hover:bg-accent/30 p-1 rounded-sm tooltip tooltip-bottom tooltip-accent size-6"
               >
-                <Icon path={mdiCheck} size={0.8} />
+                <CheckIcon className="size-5" />
               </button>
             </div>
           )}
@@ -111,9 +110,9 @@ export function ContactCard({
             <div className="pr-4">
               <button
                 data-tip="debloquer"
-                className="btn bg-red-600/10 text-red-400 hover:bg-red-600/30 p-1 rounded-sm tooltip tooltip-bottom size-6"
+                className="btn bg-red-600/10 text-red-400 hover:bg-red-600/30 p-1 rounded-sm tooltip tooltip-bottom tooltip-accent size-6"
               >
-                <Icon path={mdiCancel} size={0.8} />
+                <BanIcon className="size-5" />
               </button>
             </div>
           )}
