@@ -30,23 +30,81 @@ export const createUserPreferences = async (
 
 export const getUserPreferences = async (
   req: Request<{ userId: string }>,
-  res: Response,
+  res: Response<any, Record<string, any>>,
   next: NextFunction
 ) => {
-  const { userId } = req.params;
-
   try {
-    const userPreferences = await prisma.userPreferences.findFirst({
-      where: { userId },
-    });
+    const { userId }: { userId: string } = req.params;
 
-    if (!userPreferences) {
-      throw createHttpError(404, "Préférences utilisateur non trouvées");
+    const defaultPrefs = {
+      notificationMessages: true,
+      notificationForum: true,
+      notificationActivities: true,
+      emailUpdates: true,
+      smsUpdates: false,
+      frequencyInstant: false,
+      frequencyDaily: true,
+      fontSize: "medium",
+      highContrast: false,
+      statusVisibilityEverybody: true,
+      statusVisibilityFriends: false,
+      statusVisibilityNoOne: false,
+      messagesFromEverybody: true,
+      messagesFromFriends: true,
+      messagesFromNoOne: false,
+      dataSharing: false,
+    };
+
+    let prefs;
+    try {
+      // First, try to find the userPreferences by userId to get the unique id
+      const existingPrefs = await prisma.userPreferences.findFirst({
+        where: { userId },
+      });
+      if (existingPrefs) {
+        prefs = await prisma.userPreferences.upsert({
+          where: { id: existingPrefs.id },
+          create: { userId, ...defaultPrefs },
+          update: { ...defaultPrefs },
+        });
+      } else {
+        prefs = await prisma.userPreferences.create({
+          data: { userId, ...defaultPrefs },
+        });
+      }
+    } catch (upsertErr: any) {
+      // Fallback to safe find/create flow if upsert isn't supported for userId
+      if (
+        upsertErr?.name === "PrismaClientValidationError" ||
+        /needs at least one of/.test(upsertErr?.message || "")
+      ) {
+        prefs = await prisma.userPreferences.findFirst({ where: { userId } });
+
+        if (!prefs) {
+          try {
+            prefs = await prisma.userPreferences.create({
+              data: { userId, ...defaultPrefs },
+            });
+          } catch (createErr) {
+            // fallback to connecting to related User if userPreferences uses a relation
+            prefs = await prisma.userPreferences.create({
+              data: {
+                ...defaultPrefs,
+                user: {
+                  connect: { id: userId },
+                },
+              },
+            });
+          }
+        }
+      } else {
+        throw upsertErr;
+      }
     }
 
-    res.status(200).json(userPreferences);
-  } catch (error) {
-    next(error);
+    return res.status(200).json(prefs);
+  } catch (err) {
+    next(err);
   }
 };
 

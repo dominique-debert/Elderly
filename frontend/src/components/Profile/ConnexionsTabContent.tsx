@@ -258,7 +258,7 @@ export function ConnexionsTabContent() {
         <Card className="row-span-2 w-full overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-none">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Mes contacts
-            <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
+            <span className="badge font-medium ml-4 rounded-full bg-secondary/10 text-secondary size-8">
               {myContacts.length}
             </span>
           </span>
@@ -272,7 +272,7 @@ export function ConnexionsTabContent() {
         <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-none">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Demandes de connexion
-            <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
+            <span className="badge font-medium ml-4 rounded-full bg-secondary/10 text-secondary size-8">
               {suggestedContacts.length}
             </span>
           </span>
@@ -286,7 +286,7 @@ export function ConnexionsTabContent() {
         <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-none">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Contacts bloqués
-            <span className="badge text-xs font-light ml-4 rounded-full bg-secondary text-white h-6 w-4">
+            <span className="badge font-medium ml-4 rounded-full bg-secondary/10 text-secondary size-8">
               {blockedContacts.length}
             </span>
           </span>

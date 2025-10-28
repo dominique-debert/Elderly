@@ -64,7 +64,14 @@ router.post("/", validate(userPreferencesSchema), createUserPreferences);
  *       500:
  *         description: Erreur serveur
  */
-router.get("/:userId", getUserPreferences);
+router.get(
+  "/:userId",
+  (req, res, next) => {
+    console.log("[user-preferences] GET hit for userId:", req.params.userId);
+    next();
+  },
+  getUserPreferences
+);
 
 /**
  * @swagger

@@ -3,14 +3,20 @@ import type { IUserPreferences } from "@/types";
 
 export const getUserPreferences = async (
   userId: string
-): Promise<IUserPreferences> => {
-  const accessToken = localStorage.getItem("accessToken");
-  const { data } = await api.get(`/user-preferences/${userId}`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  return data;
+): Promise<IUserPreferences | null> => {
+  try {
+    const accessToken = localStorage.getItem("accessToken");
+    const { data } = await api.get(`/user-preferences/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    return data;
+  } catch (err: any) {
+    // treat 404 as "not found" and return null, rethrow other errors
+    if (err?.response?.status === 404) return null;
+    throw err;
+  }
 };
 
 export const createUserPreferences = async (

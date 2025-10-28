@@ -50,21 +50,21 @@ export function ContactCard({
         {/* Action Button */}
         <div>
           {myContact && (
-            <div className="flex gap-2 pr-4 align-middle items-center">
+            <div className="flex gap-4 pr-4 align-middle items-center">
               <button
-                className="btn btn-primary btn-sm p-1 rounded-sm tooltip tooltip-bottom w-8 h-8"
+                className="btn text-primary bg-primary/10 btn-sm p-1 rounded-sm tooltip tooltip-bottom size-8"
                 data-tip="Modifier"
               >
                 <Icon path={mdiPencilOutline} size={1} />
               </button>
               <button
-                className="btn btn-sm border bg-red-600 border-red-600 text-white hover:bg-red-800 p-1 rounded-sm tooltip tooltip-bottom w-8 h-8"
+                className="btn bg-red-600/10 text-red-600 p-1 rounded-sm tooltip tooltip-bottom size-8"
                 data-tip="Supprimer"
               >
                 <Icon path={mdiTrashCanOutline} size={1} />
               </button>
               <button
-                className="btn btn-ghost p-1 rounded-sm tooltip tooltip-bottom w-8 h-8"
+                className="btn p-1 rounded-sm tooltip tooltip-bottom size-8"
                 data-tip="Plus..."
               >
                 <Icon path={mdiDotsVertical} size={1} />
@@ -75,7 +75,7 @@ export function ContactCard({
             <div className="pr-4">
               <button
                 data-tip="accepter"
-                className="btn btn-accent p-1 rounded-sm tooltip tooltip-bottom w-8 h-8"
+                className="btn btn-accent p-1 rounded-sm tooltip tooltip-bottom size-8"
               >
                 <Icon path={mdiCheck} size={1} />
               </button>

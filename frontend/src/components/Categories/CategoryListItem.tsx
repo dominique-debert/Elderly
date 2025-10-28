@@ -37,7 +37,7 @@ export function CategoryListItem({ category, tabKey }: CategoryListItemProps) {
             {category.description || "Aucune description"}
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-4">
           <button
             onClick={() => setIsEditOpen(true)}
             className="btn btn-sm btn-ghost h-10 w-10 p-1 text-primary bg-primary/10"

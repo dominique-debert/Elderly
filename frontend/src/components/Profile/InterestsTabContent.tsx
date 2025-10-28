@@ -33,14 +33,14 @@ export function InterestsTabContent() {
       {/* Recherche */}
       <div className="m-0 ml-6 mr-6 mt-0">
         <label className="input bg-white flex w-full items-center dark:bg-card rounded-lg dark:border-slate-800">
-          <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
+          <Icon path={mdiMagnify} size={1} className="text-slate-500" />
           <input
             type="search"
             placeholder="Rechercher un centre d'intérêt..."
             className="grow flex-1"
           />
           <button className="cursor-pointer">
-            <Icon path={mdiClose} size={0.8} className="text-slate-500" />
+            <Icon path={mdiClose} size={1} className="text-slate-500" />
           </button>
         </label>
       </div>
@@ -98,31 +98,31 @@ export function InterestsTabContent() {
       {/* Mock 1 */}
       <Card className="flex flex-col gap-4 text-base mt-3 p-4 mr-6 ml-6 shadow-none">
         <div className="flex items-center gap-2 justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <GripVertical size={18} className="text-slate-600" />
             Sports
           </div>
-          <div className="flex items-center gap-2">
-            <button className="cursor-pointer btn btn-ghost bg-transparent h-8 w-8 p-0">
+          <div className="flex items-center gap-4">
+            <button className="cursor-pointer btn bg-warning/10 text-warning size-10 p-0">
               <Icon
                 path={mdiShareVariantOutline}
-                size={0.8}
-                className="text-slate-600 space-x-2.5 space-y-4 hover:text-blue-600"
+                size={1}
+                className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn btn-ghost bg-transparent h-8 w-8 p-0">
+            <button className="cursor-pointer btn bg-primary/10 text-primary size-10 p-0">
               <Icon
                 path={mdiPencilOutline}
-                size={0.8}
-                className="text-slate-600 space-x-2.5 space-y-4 hover:text-blue-600"
+                size={1}
+                className="space-x-2.5 space-y-4"
               />
             </button>
 
-            <button className="cursor-pointer btn btn-ghost bg-transparent h-8 w-8 p-0">
+            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-10 p-0">
               <Icon
                 path={mdiTrashCanOutline}
-                size={0.8}
-                className="text-slate-600 space-x-2.5 space-y-4 hover:text-red-600"
+                size={1}
+                className="space-x-2.5 space-y-4"
               />
             </button>
           </div>
@@ -167,30 +167,30 @@ export function InterestsTabContent() {
       {/* Mock 2 */}
       <Card className="flex flex-col gap-4 text-base mt-3 p-4 mr-6 ml-6 shadow-none">
         <div className="flex items-center gap-2 justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <GripVertical size={18} className="text-slate-600" />
             Art
           </div>
-          <div className="flex items-center gap-2">
-            <button className="cursor-pointer btn btn-ghost h-8 w-8 p-0">
+          <div className="flex items-center gap-4">
+            <button className="cursor-pointer btn bg-warning/10 text-warning size-10 p-0">
               <Icon
                 path={mdiShareVariantOutline}
-                size={0.8}
-                className="text-slate-600 space-x-2.5 space-y-4 hover:text-blue-600"
+                size={1}
+                className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn btn-ghost h-8 w-8 p-0">
+            <button className="cursor-pointer btn bg-primary/10 text-primary size-10 p-0">
               <Icon
                 path={mdiPencilOutline}
-                size={0.8}
-                className="text-slate-600 space-x-2.5 space-y-4 hover:text-blue-600"
+                size={1}
+                className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn btn-ghost h-8 w-8 p-0">
+            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-10 p-0">
               <Icon
                 path={mdiTrashCanOutline}
-                size={0.8}
-                className="text-slate-600 space-x-2.5 space-y-4 hover:text-red-600"
+                size={1}
+                className="space-x-2.5 space-y-4"
               />
             </button>
           </div>
@@ -214,7 +214,7 @@ export function InterestsTabContent() {
             />
             Peinture
           </span>
-          <span className="badge badge-xs text-xs p-3 text-orange-400 border-orange-400 rounded-xl bg-transparent">
+          <span className="badge badge-sm p-3 text-orange-400 border-orange-400 dark:text-orange-300 dark:border-orange-300 rounded-xl bg-transparent">
             <GripVertical
               size={12}
               className="dark:text-orange-300 text-orange-400"
@@ -235,30 +235,30 @@ export function InterestsTabContent() {
       {/* Mock 3 */}
       <Card className="flex flex-col gap-4 text-base mt-3 p-4 mr-6 ml-6 shadow-none">
         <div className="flex items-center gap-2 justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <GripVertical size={18} className="text-slate-600" />
             Technologie
           </div>
-          <div className="flex items-center gap-2">
-            <button className="cursor-pointer btn btn-ghost h-8 w-8 p-0">
+          <div className="flex items-center gap-4">
+            <button className="cursor-pointer btn bg-warning/10 text-warning size-10 p-0">
               <Icon
                 path={mdiShareVariantOutline}
-                size={0.8}
-                className="text-slate-600 space-x-2.5 space-y-4 hover:text-blue-600"
+                size={1}
+                className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn btn-ghost h-8 w-8 p-0">
+            <button className="cursor-pointer btn bg-primary/10 text-primary size-10 p-0">
               <Icon
                 path={mdiPencilOutline}
-                size={0.8}
-                className="text-slate-600 space-x-2.5 space-y-4 hover:text-blue-600"
+                size={1}
+                className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn btn-ghost h-8 w-8 p-0">
+            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-10 p-0">
               <Icon
                 path={mdiTrashCanOutline}
-                size={0.8}
-                className="text-slate-600 space-x-2.5 space-y-4 hover:text-red-600"
+                size={1}
+                className="space-x-2.5 space-y-4"
               />
             </button>
           </div>
