@@ -33,14 +33,14 @@ export function SkillsTabContent() {
       {/* Recherche */}
       <div className="m-0 ml-6 mr-6 mt-0">
         <label className="input bg-white flex w-full items-center dark:bg-card rounded-lg dark:border-slate-800">
-          <Icon path={mdiMagnify} size={1} className="text-slate-500" />
+          <Icon path={mdiMagnify} size={0.8} className="text-slate-500" />
           <input
             type="search"
             placeholder="Rechercher une compétence..."
             className="grow flex-1"
           />
           <button className="cursor-pointer">
-            <Icon path={mdiClose} size={1} className="text-slate-500" />
+            <Icon path={mdiClose} size={0.8} className="text-slate-500" />
           </button>
         </label>
       </div>
@@ -50,7 +50,7 @@ export function SkillsTabContent() {
         <div className="flex align-center gap-2 overflow-x-auto">
           <Icon
             path={mdiInformationBoxOutline}
-            size={1}
+            size={0.8}
             className="text-primary"
           />
           Quelques suggestions pour vous
@@ -103,25 +103,25 @@ export function SkillsTabContent() {
             Sports
           </div>
           <div className="flex items-center gap-4">
-            <button className="cursor-pointer btn bg-warning/10 text-warning size-10 p-0">
+            <button className="cursor-pointer btn bg-warning/10 text-warning size-8 p-0">
               <Icon
                 path={mdiShareVariantOutline}
-                size={1}
+                size={0.8}
                 className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn bg-primary/10 text-primary size-10 p-0">
+            <button className="cursor-pointer btn bg-primary/10 text-primary size-8 p-0">
               <Icon
                 path={mdiPencilOutline}
-                size={1}
+                size={0.8}
                 className="space-x-2.5 space-y-4"
               />
             </button>
 
-            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-10 p-0">
+            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-8 p-0">
               <Icon
                 path={mdiTrashCanOutline}
-                size={1}
+                size={0.8}
                 className="space-x-2.5 space-y-4"
               />
             </button>
@@ -172,24 +172,24 @@ export function SkillsTabContent() {
             Art
           </div>
           <div className="flex items-center gap-4">
-            <button className="cursor-pointer btn bg-warning/10 text-warning size-10 p-0">
+            <button className="cursor-pointer btn bg-warning/10 text-warning size-8 p-0">
               <Icon
                 path={mdiShareVariantOutline}
-                size={1}
+                size={0.8}
                 className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn bg-primary/10 text-primary size-10 p-0">
+            <button className="cursor-pointer btn bg-primary/10 text-primary size-8 p-0">
               <Icon
                 path={mdiPencilOutline}
-                size={1}
+                size={0.8}
                 className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-10 p-0">
+            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-8 p-0">
               <Icon
                 path={mdiTrashCanOutline}
-                size={1}
+                size={0.8}
                 className="space-x-2.5 space-y-4"
               />
             </button>
@@ -240,24 +240,24 @@ export function SkillsTabContent() {
             Technologie
           </div>
           <div className="flex items-center gap-4">
-            <button className="cursor-pointer btn bg-warning/10 text-warning size-10 p-0">
+            <button className="cursor-pointer btn bg-warning/10 text-warning size-8 p-0">
               <Icon
                 path={mdiShareVariantOutline}
-                size={1}
+                size={0.8}
                 className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn bg-primary/10 text-primary size-10 p-0">
+            <button className="cursor-pointer btn bg-primary/10 text-primary size-8 p-0">
               <Icon
                 path={mdiPencilOutline}
-                size={1}
+                size={0.8}
                 className="space-x-2.5 space-y-4"
               />
             </button>
-            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-10 p-0">
+            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-8 p-0">
               <Icon
                 path={mdiTrashCanOutline}
-                size={1}
+                size={0.8}
                 className="space-x-2.5 space-y-4"
               />
             </button>
