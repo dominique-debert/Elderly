@@ -381,6 +381,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 }
                 className="input input-bordered bg-white! dark:bg-card! w-full"
                 placeholder="Entrez votre mot de passe actuel"
+                disabled
               />
             </div>
 
