@@ -44,21 +44,20 @@ export function MoodTableRow({ mood }: { mood: IMood }) {
           {new Date(mood.createdAt).toLocaleDateString()}
         </TableCell>
         <TableCell className="text-center w-0">
-          <button className="btn btn-ghost" onClick={() => setIsEditOpen(true)}>
-            <Icon
-              path={mdiPencilOutline}
-              size={0.8}
-              className="text-slate-400"
-            />
-          </button>
-        </TableCell>
-        <TableCell className="text-center w-0">
-          <button
-            className="btn btn-ghost"
-            onClick={() => setIsConfirmDeleteOpen(true)}
-          >
-            <Icon path={mdiDeleteOutline} size={0.8} className="text-red-500" />
-          </button>
+          <div className="flex gap-4 justify-center">
+            <button
+              className="btn text-primary bg-primary/20 hover:bg-primary/30 size-8 p-0"
+              onClick={() => setIsEditOpen(true)}
+            >
+              <Icon path={mdiPencilOutline} size={0.8} />
+            </button>
+            <button
+              className="btn text-red-400 bg-red-600/20 hover:bg-red-600/30 size-8 p-0"
+              onClick={() => setIsConfirmDeleteOpen(true)}
+            >
+              <Icon path={mdiDeleteOutline} size={0.8} />
+            </button>
+          </div>
         </TableCell>
       </TableRow>
 

@@ -37,9 +37,9 @@ export function MoodListItem({ mood }: { mood: IMood }) {
         <span className="w-24 text-slate-500 font-light">
           {mood.intensity}/5
         </span>
-        <div className="ml-auto flex gap-2">
+        <div className="ml-auto flex gap-4">
           <button
-            className="btn btn-sm btn-ghost pointer-events-auto"
+            className="btn p-0 bg-primary/20 text-primary hover:bg-primary/30 size-8"
             onClick={(e) => {
               e.stopPropagation();
               setIsEditOpen(true);
@@ -48,7 +48,7 @@ export function MoodListItem({ mood }: { mood: IMood }) {
             <Icon path={mdiPencilOutline} size={0.8} />
           </button>
           <button
-            className="btn btn-sm btn-ghost pointer-events-auto"
+            className="btn p-0 bg-error/10 text-error hover:bg-error/20 size-8"
             onClick={(e) => {
               e.stopPropagation();
               setIsConfirmDeleteOpen(true);

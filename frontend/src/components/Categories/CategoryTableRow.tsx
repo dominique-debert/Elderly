@@ -42,14 +42,14 @@ export function CategoryTableRow({ category, tabKey }: CategoryTableRowProps) {
           <div className="flex gap-4 justify-center">
             <button
               onClick={() => setIsEditOpen(true)}
-              className="btn size-8 text-primary bg-primary/10 p-1 hover:bg-transparent hover:border-0"
+              className="btn size-8 text-primary bg-primary/10 p-1 hover:bg-primary/20"
               aria-label="Modifier"
             >
               <Icon path={mdiPencilOutline} size={0.8} />
             </button>
             <button
               onClick={() => setIsConfirmDeleteOpen(true)}
-              className="btn btn-sm btn-ghost text-error bg-error/10 p-1 hover:bg-transparent hover:border-0"
+              className="btn size-8 text-error bg-error/10 p-1 hover:bg-error/20"
               aria-label="Supprimer"
             >
               <Icon path={mdiDeleteOutline} size={0.8} />

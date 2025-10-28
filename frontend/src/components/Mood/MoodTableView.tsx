@@ -19,6 +19,7 @@ export function MoodTableView({ moods }: { moods: IMood[] }) {
           <TableHead>Valence</TableHead>
           <TableHead className="text-center">Intensité</TableHead>
           <TableHead className="text-center">Date de création</TableHead>
+          <TableHead className="text-center">Actions</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>

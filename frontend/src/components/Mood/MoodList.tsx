@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getMoods } from "@/services";
 
 import {
+  Card,
   CategoryModeSwitcher,
   MoodCardView,
   MoodListView,
@@ -47,20 +48,22 @@ export function MoodList() {
     ) || [];
 
   return (
-    <div className="w-full p-4">
-      {moods && moods.length > 0 && (
-        <CategoryModeSwitcher
-          mode={mode}
-          setMode={setMode}
-          search={search}
-          setSearch={setSearch}
-          activeTab={ETabKey.Mood}
-        />
-      )}
+    <Card className="pt-0">
+      <div className="w-full p-4">
+        {moods && moods.length > 0 && (
+          <CategoryModeSwitcher
+            mode={mode}
+            setMode={setMode}
+            search={search}
+            setSearch={setSearch}
+            activeTab={ETabKey.Mood}
+          />
+        )}
 
-      {mode === "card" && <MoodCardView moods={filteredMoods} />}
-      {mode === "list" && <MoodListView moods={filteredMoods} />}
-      {mode === "table" && <MoodTableView moods={filteredMoods} />}
-    </div>
+        {mode === "card" && <MoodCardView moods={filteredMoods} />}
+        {mode === "list" && <MoodListView moods={filteredMoods} />}
+        {mode === "table" && <MoodTableView moods={filteredMoods} />}
+      </div>
+    </Card>
   );
 }

@@ -40,14 +40,14 @@ export function CategoryListItem({ category, tabKey }: CategoryListItemProps) {
         <div className="flex gap-4">
           <button
             onClick={() => setIsEditOpen(true)}
-            className="btn btn-sm size-8 p-1 text-primary bg-primary/10"
+            className="btn btn-sm size-8 p-1 text-primary bg-primary/10 hover:bg-primary/20"
             aria-label="Modifier"
           >
             <Icon path={mdiPencilOutline} size={0.8} />
           </button>
           <button
             onClick={() => setIsConfirmDeleteOpen(true)}
-            className="btn btn-sm size-8 p-1 text-error bg-error/10"
+            className="btn btn-sm size-8 p-1 text-error bg-error/10 hover:bg-error/20"
             aria-label="Supprimer"
           >
             <Icon path={mdiDeleteOutline} size={0.8} />

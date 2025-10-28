@@ -37,14 +37,14 @@ export function CategoryCardItem({ category, tabKey }: CategoryCardItemProps) {
           <div className="card-actions gap-4 justify-end mt-4">
             <button
               onClick={() => setIsEditOpen(true)}
-              className="btn btn-sm p-1 size-8 text-primary bg-primary/10"
+              className="btn p-1 size-8 text-primary bg-primary/10 hover:bg-primary/20"
               aria-label="Modifier"
             >
               <Icon path={mdiPencilOutline} size={0.8} />
             </button>
             <button
               onClick={() => setIsConfirmDeleteOpen(true)}
-              className="btn btn-sm text-error p-1 size-8 bg-error/10"
+              className="btn text-error p-1 size-8 bg-error/10 hover:bg-error/20"
               aria-label="Supprimer"
             >
               <Icon path={mdiDeleteOutline} size={0.8} />
