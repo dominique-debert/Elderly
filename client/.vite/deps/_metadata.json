@@ -1,43 +1,43 @@
 {
-  "hash": "950b75dd",
-  "configHash": "4b308c2c",
-  "lockfileHash": "914a8cc9",
-  "browserHash": "c2dcebfe",
+  "hash": "4e091966",
+  "configHash": "7f9b67f7",
+  "lockfileHash": "f8c78f25",
+  "browserHash": "703818c5",
   "optimized": {
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/.pnpm/react@19.2.0/node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "037a64cc",
+      "fileHash": "dfaca18f",
       "needsInterop": true
     },
     "react": {
       "src": "../../node_modules/.pnpm/react@19.2.0/node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "e3e1cde4",
+      "fileHash": "83c9902c",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/.pnpm/react-dom@19.2.0_react@19.2.0/node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "a35c3edc",
+      "fileHash": "aa3c4178",
       "needsInterop": true
     },
     "@tanstack/react-query": {
       "src": "../../node_modules/.pnpm/@tanstack+react-query@5.90.5_react@19.2.0/node_modules/@tanstack/react-query/build/modern/index.js",
       "file": "@tanstack_react-query.js",
-      "fileHash": "931eaa70",
+      "fileHash": "b0fd1f7c",
       "needsInterop": false
     },
     "react-router-dom": {
-      "src": "../../node_modules/.pnpm/react-router-dom@7.9.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/react-router-dom/dist/index.mjs",
+      "src": "../../node_modules/.pnpm/react-router-dom@7.9.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/react-router-dom/dist/index.mjs",
       "file": "react-router-dom.js",
-      "fileHash": "d69e05b4",
+      "fileHash": "6b688356",
       "needsInterop": false
     },
     "react-hot-toast": {
       "src": "../../node_modules/.pnpm/react-hot-toast@2.6.0_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/react-hot-toast/dist/index.mjs",
       "file": "react-hot-toast.js",
-      "fileHash": "ff9ca267",
+      "fileHash": "f7f6e297",
       "needsInterop": false
     }
   },
