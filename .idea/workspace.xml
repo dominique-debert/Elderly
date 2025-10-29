@@ -2,27 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="795df20d-1514-4219-8d67-6d68b9ff7660" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/api-server/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/controllers/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/client.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/client.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/default.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/default.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/default.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/default.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/edge.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/edge.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/edge.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/edge.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/index-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/index-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/libquery_engine-debian-openssl-3.0.x.so.node" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/libquery_engine-debian-openssl-3.0.x.so.node" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/query_engine_bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/query_engine_bg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/runtime/index-browser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/runtime/index-browser.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/runtime/library.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/runtime/library.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/wasm-edge-light-loader.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/wasm-edge-light-loader.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/wasm-worker-loader.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/wasm-worker-loader.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/wasm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/wasm.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/prisma/wasm.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/prisma/wasm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/routes/auth.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/routes/auth.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-server/validators/auth.validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api-server/validators/auth.validator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/client.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/client.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/default.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/default.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/default.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/edge.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/edge.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/edge.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/edge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/index-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/index-browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/libquery_engine-debian-openssl-3.0.x.so.node" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/libquery_engine-debian-openssl-3.0.x.so.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/query_engine_bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/query_engine_bg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/runtime/index-browser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/runtime/index-browser.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/runtime/library.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/runtime/library.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/wasm-edge-light-loader.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/wasm-edge-light-loader.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/wasm-worker-loader.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/wasm-worker-loader.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/wasm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/wasm.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/wasm.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/wasm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/auth.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/auth.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/validators/auth.validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/validators/auth.validator.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/api-server/package.json" />
+    <dismissed value="$PROJECT_DIR$/server/package.json" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0

@@ -1,9 +1,0 @@
-onlyBuiltDependencies:
-  - '@prisma/client'
-  - '@prisma/engines'
-  - '@scarf/scarf'
-  - argon2
-  - bcrypt
-  - esbuild
-  - prisma
-  - unrs-resolver
