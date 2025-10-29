@@ -1,0 +1,379 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden"
+      style="font-family: Inter, 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f3f4] px-10 py-3"
+        >
+          <div class="flex items-center gap-4 text-[#111518]">
+            <div class="size-4">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2
+              class="text-[#111518] text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              Elderly
+            </h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a
+                class="text-[#111518] text-sm font-medium leading-normal"
+                href="#"
+                >Home</a
+              >
+              <a
+                class="text-[#111518] text-sm font-medium leading-normal"
+                href="#"
+                >Categories</a
+              >
+              <a
+                class="text-[#111518] text-sm font-medium leading-normal"
+                href="#"
+                >My Posts</a
+              >
+              <a
+                class="text-[#111518] text-sm font-medium leading-normal"
+                href="#"
+                >Notifications</a
+              >
+            </div>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5PyPaOjmUaM1JbPoghHuDdzi0QYY-cGgygFJI1qeyY846sPFwRyyqSpiPTsFnY-tKSgTRMXCydElGHv8UpqlXWGiqqt2CJKCwJVxMh1hhOwdE_OraWBZc7bRnFgS343omaC38XwLb1VCgPHl8-1YwQhdC19I443cU80rcrzjXzfzT7lQzJFlSM6Suja0yo15XFA-JBRCY4UtIJiif7og6N8LG2ni6JDnBXmlV1Y-RlZ8rpweRxgg5tluy12rWrxcqKrLs5kFvcao');
+              "
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p
+                  class="text-[#111518] tracking-light text-[32px] font-bold leading-tight"
+                >
+                  Health &amp; Wellness
+                </p>
+                <p class="text-[#637c88] text-sm font-normal leading-normal">
+                  Discussions about health, fitness, and well-being for seniors.
+                </p>
+              </div>
+            </div>
+            <div class="px-4 py-3 @container">
+              <div
+                class="flex overflow-hidden rounded-lg border border-[#dce2e5] bg-white"
+              >
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-white">
+                      <th
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 px-4 py-3 text-left text-[#111518] w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Topic
+                      </th>
+                      <th
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 px-4 py-3 text-left text-[#111518] w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Last Poster
+                      </th>
+                      <th
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 px-4 py-3 text-left text-[#111518] w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Last Post Date
+                      </th>
+                      <th
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 px-4 py-3 text-left text-[#111518] w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Replies
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Staying Active
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        Emily Carter
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-26
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        15
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Healthy Eating Habits
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        David Lee
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-25
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        22
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Managing Stress
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        Sarah Johnson
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-24
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        8
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Sleep Tips for Seniors
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        Robert Clark
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-23
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        12
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Exercise Routines
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        Linda White
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-22
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        18
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Medication Management
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        Michael Green
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-21
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        5
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Mental Health Support
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        Patricia Hill
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-20
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        10
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Preventing Falls
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        Richard Adams
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-19
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        7
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Vision Care
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        Barbara Scott
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-18
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        14
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dce2e5]">
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111518] text-sm font-normal leading-normal"
+                      >
+                        Hearing Health
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        Charles Baker
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        2024-07-17
+                      </td>
+                      <td
+                        class="table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 h-[72px] px-4 py-2 w-[400px] text-[#637c88] text-sm font-normal leading-normal"
+                      >
+                        9
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <style>
+                @container (max-width:120px) {
+                  .table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-120 {
+                    display: none;
+                  }
+                }
+                @container (max-width:240px) {
+                  .table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-240 {
+                    display: none;
+                  }
+                }
+                @container (max-width:360px) {
+                  .table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-360 {
+                    display: none;
+                  }
+                }
+                @container (max-width:480px) {
+                  .table-1f9f6939-95dc-47db-b39c-4d81642b8a35-column-480 {
+                    display: none;
+                  }
+                }
+              </style>
+            </div>
+            <div class="flex px-4 py-3 justify-end">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1792cf] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">New Topic</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

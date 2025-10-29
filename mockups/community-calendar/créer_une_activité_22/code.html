@@ -1,0 +1,426 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden"
+      style="
+        --select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(97,124,137)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e');
+        font-family: Manrope, 'Noto Sans', sans-serif;
+      "
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f3f4] px-10 py-3"
+        >
+          <div class="flex items-center gap-4 text-[#111618]">
+            <div class="size-4">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2
+              class="text-[#111618] text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              Elderly
+            </h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a
+                class="text-[#111618] text-sm font-medium leading-normal"
+                href="#"
+                >Accueil</a
+              >
+              <a
+                class="text-[#111618] text-sm font-medium leading-normal"
+                href="#"
+                >Mes activités</a
+              >
+              <a
+                class="text-[#111618] text-sm font-medium leading-normal"
+                href="#"
+                >Messages</a
+              >
+              <a
+                class="text-[#111618] text-sm font-medium leading-normal"
+                href="#"
+                >Profil</a
+              >
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#f0f3f4] text-[#111618] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div
+                class="text-[#111618]"
+                data-icon="Bell"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfuonlLRwZrzXIrOzN2_XRme2jVq4S9rkL9_FPrORt5D8jN14FKK4l9EvgLUX1U2QGpcqiEpvxLtFMocJwgHZ42YqmN3QwCBm2eJW7puL6WfzAfu5MbZIVvG4xOGvurikT66RsNUKb633Hl1sL_IaMYjrMuEMmtdiaoUv5MHdnAf8dGMISAy8kADykOPP2k1VIL4e6Z1jqjJGvh3u2PjUV-2WBzyeiG6xIl9zRQlRcQReV34k9GUxBHCO8GN2VmvOP4S9MuEqNacFS');
+              "
+              alt="User profile picture"
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p
+                class="text-[#111618] tracking-light text-[32px] font-bold leading-tight min-w-72"
+              >
+                Créer une activité
+              </p>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111618] text-base font-medium leading-normal pb-2"
+                >
+                  Titre de l'activité
+                </p>
+                <input
+                  placeholder="Ex: Cours de yoga doux"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] focus:outline-0 focus:ring-0 border border-[#dbe2e6] bg-white focus:border-[#dbe2e6] h-14 placeholder:text-[#617c89] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111618] text-base font-medium leading-normal pb-2"
+                >
+                  Description
+                </p>
+                <textarea
+                  placeholder="Décrivez votre activité en détail"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] focus:outline-0 focus:ring-0 border border-[#dbe2e6] bg-white focus:border-[#dbe2e6] min-h-36 placeholder:text-[#617c89] p-[15px] text-base font-normal leading-normal"
+                ></textarea>
+              </label>
+            </div>
+            <div
+              class="flex max-w-[960px] flex-wrap items-start gap-4 px-4 py-3"
+            >
+              <div class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111618] text-base font-medium leading-normal pb-2"
+                >
+                  Date et Heure
+                </p>
+                <div class="flex w-full">
+                  <input
+                    id="activity-datetime"
+                    placeholder="Sélectionnez la date et l'heure"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-l-lg text-[#111618] focus:outline-0 focus:ring-0 border border-[#dbe2e6] bg-white focus:border-[#dbe2e6] h-14 placeholder:text-[#617c89] p-[15px] text-base font-normal leading-normal"
+                    value=""
+                  />
+                  <button
+                    class="bg-white border border-l-0 border-[#dbe2e6] rounded-r-lg px-3 text-[#617c89] flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 256 256"
+                    >
+                      <path
+                        d="M216,48H200V32a16,16,0,0,0-32,0V48H88V32a16,16,0,0,0-32,0V48H40A24,24,0,0,0,16,72v144a24,24,0,0,0,24,24H216a24,24,0,0,0,24-24V72A24,24,0,0,0,216,48Zm8,168a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V104H216a8,8,0,0,1,8,8Z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex max-w-[960px] flex-wrap items-start gap-4 px-4 py-3"
+            >
+              <div class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111618] text-base font-medium leading-normal pb-2"
+                >
+                  Lieu
+                </p>
+                <div class="flex w-full">
+                  <input
+                    id="activity-location"
+                    placeholder="Adresse ou nom du lieu"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-l-lg text-[#111618] focus:outline-0 focus:ring-0 border border-[#dbe2e6] bg-white focus:border-[#dbe2e6] h-14 placeholder:text-[#617c89] p-[15px] text-base font-normal leading-normal"
+                    value=""
+                  />
+                  <button
+                    id="map-toggle"
+                    class="bg-white border border-l-0 border-[#dbe2e6] rounded-r-lg px-3 text-[#617c89] flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 256 256"
+                    >
+                      <path
+                        d="M128,32a96,96,0,1,0,96,96A96.1,96.1,0,0,0,128,32Zm0,176a80,80,0,1,1,80-80A80,80,0,0,1,128,208Z"
+                      ></path>
+                      <circle cx="128" cy="128" r="24"></circle>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                id="map-container"
+                class="hidden w-full h-[400px] mt-4 rounded-lg shadow-md"
+              ></div>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111618] text-base font-medium leading-normal pb-2"
+                >
+                  Nombre maximum de participants
+                </p>
+                <input
+                  placeholder="Ex: 10"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] focus:outline-0 focus:ring-0 border border-[#dbe2e6] bg-white focus:border-[#dbe2e6] h-14 placeholder:text-[#617c89] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111618] text-base font-medium leading-normal pb-2"
+                >
+                  Type d'activité
+                </p>
+                <select
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] focus:outline-0 focus:ring-0 border border-[#dbe2e6] bg-white focus:border-[#dbe2e6] h-14 bg-[image:--select-button-svg] placeholder:text-[#617c89] p-[15px] text-base font-normal leading-normal"
+                >
+                  <option value="">Sélectionnez un type</option>
+                  <option value="sport">Sport</option>
+                  <option value="culturel">Culturel</option>
+                  <option value="bien-etre">Bien-être</option>
+                  <option value="autres">Autres</option>
+                </select>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111618] text-base font-medium leading-normal pb-2"
+                >
+                  Accessibilité
+                </p>
+                <select
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] focus:outline-0 focus:ring-0 border border-[#dbe2e6] bg-white focus:border-[#dbe2e6] h-14 bg-[image:--select-button-svg] placeholder:text-[#617c89] p-[15px] text-base font-normal leading-normal"
+                >
+                  <option value="">Indiquez l'accessibilité</option>
+                  <option value="oui">Oui</option>
+                  <option value="non">Non</option>
+                  <option value="partielle">Partielle</option>
+                </select>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111618] text-base font-medium leading-normal pb-2"
+                >
+                  Tags
+                </p>
+                <input
+                  id="activity-tags"
+                  placeholder="Ajouter des tags (ex: yoga, plein air, détente)"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] focus:outline-0 focus:ring-0 border border-[#dbe2e6] bg-white focus:border-[#dbe2e6] h-14 placeholder:text-[#617c89] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex gap-3 p-3 flex-wrap pr-4">
+              <div
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#f0f3f4] pl-4 pr-4"
+              >
+                <p class="text-[#111618] text-sm font-medium leading-normal">
+                  Yoga
+                </p>
+              </div>
+              <div
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#f0f3f4] pl-4 pr-4"
+              >
+                <p class="text-[#111618] text-sm font-medium leading-normal">
+                  Plein air
+                </p>
+              </div>
+              <div
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#f0f3f4] pl-4 pr-4"
+              >
+                <p class="text-[#111618] text-sm font-medium leading-normal">
+                  Détente
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col p-4">
+              <div
+                class="flex flex-col items-center gap-6 rounded-lg border-2 border-dashed border-[#dbe2e6] px-6 py-14"
+              >
+                <div class="flex max-w-[480px] flex-col items-center gap-2">
+                  <p
+                    class="text-[#111618] text-lg font-bold leading-tight tracking-[-0.015em] max-w-[480px] text-center"
+                  >
+                    Télécharger des photos
+                  </p>
+                  <p
+                    class="text-[#111618] text-sm font-normal leading-normal max-w-[480px] text-center"
+                  >
+                    Ajouter des images pour rendre votre activité plus
+                    attrayante
+                  </p>
+                </div>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f3f4] text-[#111618] text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Choisir des fichiers</span>
+                </button>
+              </div>
+            </div>
+            <div class="flex w-full grow bg-white @container p-4">
+              <div
+                class="w-full gap-1 overflow-hidden bg-white @[480px]:gap-2 aspect-[3/2] rounded-lg flex"
+              >
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDij3H8f3IQQN9aNqsU3cayoYrhtbvT7oIWN8A1RsJaARJFshnZupqSuzSJLFg1mCaCvkxpb6_uZ0m8RAsFZSH6KgvgMbqP1e8D3rR1x92LE9DfeqOioQUDcquMm9P06gOj8lIn3hU-RT49KF9Bap-DJ7sqmQ5KZh1BYbk0bk0Ptr_9E6Kk2E5jfhWC1RkFSNQOT53OmXJRixS2SfzZQu8qXLg66VTSARY8peyQ_fV7b4TttfcXuXw5Pb6vZT69CIYE-PU2fZyoIPWr');
+                  "
+                  alt="Activity image preview"
+                ></div>
+              </div>
+            </div>
+            <div class="flex justify-stretch">
+              <div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-end">
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f3f4] text-[#111618] text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Enregistrer comme brouillon</span>
+                </button>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#13a4ec] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Publier l'activité</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize Flatpickr for date and time
+      flatpickr("#activity-datetime", {
+        enableTime: true,
+        dateFormat: "d/m/Y H:i",
+        altInput: true,
+        altFormat: "F j, Y H:i",
+        locale: {
+          firstDayOfWeek: 1, // Monday
+        },
+      });
+
+      // Map initialization and toggle logic
+      const mapContainer = document.getElementById("map-container");
+      const mapToggleBtn = document.getElementById("map-toggle");
+      const locationInput = document.getElementById("activity-location");
+      let map = null;
+      let marker = null;
+
+      mapToggleBtn.addEventListener("click", () => {
+        mapContainer.classList.toggle("hidden");
+        if (!mapContainer.classList.contains("hidden")) {
+          // If map is shown, initialize it if not already done
+          if (!map) {
+            map = L.map("map-container").setView([51.505, -0.09], 13); // Default view
+
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+              maxZoom: 19,
+              attribution:
+                '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            }).addTo(map);
+
+            map.on("click", (e) => {
+              if (marker) {
+                marker.setLatLng(e.latlng);
+              } else {
+                marker = L.marker(e.latlng).addTo(map);
+              }
+              // Update location input with coordinates (can be geocoded later)
+              locationInput.value = `${e.latlng.lat.toFixed(
+                6
+              )}, ${e.latlng.lng.toFixed(6)}`;
+            });
+          } else {
+            // If map was already initialized, just resize it to fit its container
+            setTimeout(() => map.invalidateSize(), 100);
+          }
+        }
+      });
+
+      // Optional: Geocoding for location input to update map marker
+      // This would require a geocoding service API (e.g., Nominatim, Google Maps Geocoding API)
+      // For simplicity, this example uses coordinate input and map click.
+      locationInput.addEventListener("input", () => {
+        // If you have a geocoding service, call it here to update map marker
+        // For now, we'll just clear the marker if input changes manually
+        if (marker) {
+          map.removeLayer(marker);
+          marker = null;
+        }
+      });
+    </script>
+  </body>
+</html>

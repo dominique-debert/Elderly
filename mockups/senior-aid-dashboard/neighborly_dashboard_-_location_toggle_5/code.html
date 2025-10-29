@@ -1,0 +1,469 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      .weather-icon-animated > svg {
+        animation: rotate 5s linear infinite;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .progress-bar-container {
+        background-color: #e6dbdb;
+        border-radius: 9999px;
+        overflow: hidden;
+      }
+      .progress-bar-fill {
+        background-color: #f20d0d;
+        height: 100%;
+        transition: width 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden"
+      style="font-family: Inter, 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f5f0f0] px-10 py-3"
+        >
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#181111]">
+              <div class="size-4">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                class="text-[#181111] text-lg font-bold leading-tight tracking-[-0.015em]"
+              >
+                Elderly
+              </h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a
+                class="text-[#181111] text-sm font-medium leading-normal"
+                href="#"
+                >Home</a
+              >
+              <a
+                class="text-[#181111] text-sm font-medium leading-normal"
+                href="#"
+                >Requests</a
+              >
+              <a
+                class="text-[#181111] text-sm font-medium leading-normal"
+                href="#"
+                >Community</a
+              >
+              <a
+                class="text-[#181111] text-sm font-medium leading-normal"
+                href="#"
+                >Profile</a
+              >
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-[#8a6060] flex border-none bg-[#f5f0f0] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181111] focus:outline-0 focus:ring-0 border-none bg-[#f5f0f0] focus:border-none h-full placeholder:text-[#8a6060] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#f5f0f0] text-[#181111] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div
+                class="text-[#181111]"
+                data-icon="Bell"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVfv_I5Y_25FiRLY0AG7yyDYzc4daE3gx4bgK5iNYDh8FIfGReh4r_SlNSDHCLKlAvV0TKQxw6cgcMHoIfvn7cqcvI2n3qAyC4B9IwuRsc3ZtOY2l9H4bYOfdpAMfWs1pgOqCa3zCqQmWEmdPtR78ybwbpzCbjbEP2xzT_qWfVnBpcD53Eqtx2pNohm8JJUx7a8LvdQ2ki6kfqAzAHdyvroAUwYXQvg29v6yZjlsbTHm59lZQk9oEoZco892afVzZxaWNg2QZaLJl7');
+              "
+            ></div>
+          </div>
+        </header>
+        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col w-80">
+            <div class="flex p-4 @container">
+              <div class="flex w-full flex-col gap-4 items-center">
+                <div class="flex gap-4 flex-col items-center">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBJhLdoWOEZZOH7Q-bohYgUN7aJ35GpnvXknPQL2KAc7j6I8hr2nDs8qrs0jSoiNup7VCBVJE9WNsNSontSTX1nS_IGv-vsjNZablS2QsPHAzyj_jXQ-494Vsr7TJqqw2p11_mJ0RPTn_a_lmQTg_StzGdl9JNlmF1NR0HRTqx-_ip3y52snQ8uMtOXLG54NhFwaM-1E0QYlgc5DrqIn9VD0dmpRjJ21S4p9ugYNkoOJAGfboseSoxhZZaICwWxCRDfib02LMP8Wfw');
+                    "
+                  ></div>
+                  <div
+                    class="flex flex-col items-center justify-center justify-center"
+                  >
+                    <p
+                      class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] text-center"
+                    >
+                      Clara
+                    </p>
+                    <p
+                      class="text-[#8a6060] text-base font-normal leading-normal text-center"
+                    >
+                      Member since 2021
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-3 px-4 py-3">
+              <div
+                class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-2 rounded-lg border border-[#e6dbdb] p-3 items-center text-center"
+              >
+                <p
+                  class="text-[#181111] tracking-light text-2xl font-bold leading-tight"
+                >
+                  12
+                </p>
+                <div class="flex items-center gap-2">
+                  <p class="text-[#8a6060] text-sm font-normal leading-normal">
+                    Requests Posted
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-2 rounded-lg border border-[#e6dbdb] p-3 items-center text-center"
+              >
+                <p
+                  class="text-[#181111] tracking-light text-2xl font-bold leading-tight"
+                >
+                  5
+                </p>
+                <div class="flex items-center gap-2">
+                  <p class="text-[#8a6060] text-sm font-normal leading-normal">
+                    Requests Fulfilled
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-2 rounded-lg border border-[#e6dbdb] p-3 items-center text-center"
+              >
+                <p
+                  class="text-[#181111] tracking-light text-2xl font-bold leading-tight"
+                >
+                  8
+                </p>
+                <div class="flex items-center gap-2">
+                  <p class="text-[#8a6060] text-sm font-normal leading-normal">
+                    Community Contributions
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex px-4 py-3">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#f20d0d] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Post a Request</span>
+              </button>
+            </div>
+            <div class="flex px-4 py-3">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#f5f0f0] text-[#181111] text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Emergency Contact</span>
+              </button>
+            </div>
+          </div>
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p
+                class="text-[#181111] tracking-light text-[32px] font-bold leading-tight min-w-72"
+              >
+                Dashboard
+              </p>
+            </div>
+            <h2
+              class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              Location
+            </h2>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between"
+            >
+              <p
+                class="text-[#181111] text-base font-normal leading-normal flex-1 truncate"
+              >
+                Current Location: 123 Maple Street, Springfield, 62704
+              </p>
+              <div class="shrink-0">
+                <label
+                  class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-[#f5f0f0] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-[#f20d0d]"
+                >
+                  <div
+                    class="h-full w-[27px] rounded-full bg-white"
+                    style="
+                      box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px,
+                        rgba(0, 0, 0, 0.06) 0px 3px 1px;
+                    "
+                  ></div>
+                  <input type="checkbox" class="invisible absolute" />
+                </label>
+              </div>
+            </div>
+            <h2
+              class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              Weather
+            </h2>
+            <div class="p-4 @container">
+              <div
+                class="flex flex-col items-stretch justify-start rounded-lg @xl:flex-row @xl:items-start"
+              >
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg weather-icon-animated"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwCgO5Y0OfU3XlIooE21Z6uCPER9vMkOFy238GTOAsMgRlq-tc6O7ybaXdJtYR3j6eYZW-e17qltgWIfKi8qF8oq79-hJ7Dwb1_YJiszS3yV-sh_XAECc7sozAqoXaLqQG82YE-0SQ6kd8sIexHZ8HV6mqDySqlXoAhY8klt4_KjNizm6DVOMMNzeye0dU7sFufZklsAEBBL6BIwIQ321kPwn7Ib7fnw0EageynepREFzidzFGAprasYAJjgWvaFBPaP7XIHO9azKr');
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-full h-full"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M130.9,228.75a8,8,0,0,0-7.79,1.06l-48-32a8,8,0,0,0-4.31-1.06H64a32,32,0,0,1-32-32V91.59a32,32,0,0,1,14.33-26.79L128,4,209.67,40.21A32,32,0,0,1,224,64.41V160a32,32,0,0,1-32,32H177.91a8,8,0,0,0-4.31,1.06l-48,32A8,8,0,0,0,130.9,228.75Z"
+                      opacity="0.7"
+                    ></path>
+                    <path
+                      d="M128,80a80,80,0,1,0,80,80A80.09,80.09,0,0,0,128,80Zm0,144a64,64,0,1,1,64-64A64.07,64.07,0,0,1,128,224Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 @xl:px-4"
+                >
+                  <p
+                    class="text-[#181111] text-lg font-bold leading-tight tracking-[-0.015em]"
+                  >
+                    <span id="weather-main">Sunny</span>,
+                    <span id="weather-temp">22°C</span>
+                  </p>
+                  <div class="flex items-end gap-3 justify-between">
+                    <p
+                      class="text-[#8a6060] text-base font-normal leading-normal"
+                      id="weather-forecast"
+                    >
+                      Today: Sunny with a high of 25°C. Tomorrow: Partly cloudy
+                      with a high of 23°C.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2
+              class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              Your Activity
+            </h2>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#8a6060] text-sm font-normal leading-normal">
+                    Posted Request
+                  </p>
+                  <p class="text-[#181111] text-base font-bold leading-tight">
+                    Help with Grocery Shopping
+                  </p>
+                  <p class="text-[#8a6060] text-sm font-normal leading-normal">
+                    Posted 2 days ago
+                  </p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDD2K1xgg9qn0rOVVKYlVxCp0uiDk7UhhvkDr2KcXxrwEZPuFZO63ETEVA1W9HYcQt1e4sJkOLmjHTn1mTihBtrtauSzsf7ODletZ0FUWTPhqLworjH8APlYbKZEaEyPw4-dwne6N9LsutJoivurBHCyol5w6XUf4THMIyjpS2QjdCCJrjMtzM98Mg2TZT7mfewWxb8YcgEs3iN3m9qLLQssb5YNrAxogNyi2s7Kslzs7g_1A9VGIa47hOrEBPZyCiSDI1x9QRtrK0a');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#8a6060] text-sm font-normal leading-normal">
+                    Requests Fulfilled
+                  </p>
+                  <p class="text-[#181111] text-base font-bold leading-tight">
+                    Assistance with Gardening
+                  </p>
+                  <p class="text-[#8a6060] text-sm font-normal leading-normal">
+                    Completed 1 week ago
+                  </p>
+                  <div class="h-2.5 progress-bar-container w-full">
+                    <div class="progress-bar-fill w-3/4"></div>
+                  </div>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD04cVNaK8o4dhE2BwDWgFCxJswsSla2hCiqZhj5gE79b8x8sh4MhCUWJHNTcVrkIXnE89BwV-Ali0XHRiF_JlkYVaKm11PoASvR_HPRw2Pv8pXGd9o4Ayy2arNf1JKWnV-gGvhM8Rx5sGoXQvguyNZPjthy3U_wntQFe01eJN3ii9R2djpMTBXOMsLV9l_U3YB4XKLF05eYy44kUBK3bu3p_EL7vH7JNSCGBuqjCOLoC3QjhKA7P030nP4XVyA8H3C-KYDh-9WAwI_');
+                  "
+                ></div>
+              </div>
+            </div>
+            <h2
+              class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              Community Feed
+            </h2>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#181111] text-base font-bold leading-tight">
+                    Need help with tech support
+                  </p>
+                  <p class="text-[#8a6060] text-sm font-normal leading-normal">
+                    Posted by Eleanor, 1 day ago
+                  </p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAeRoWU_AiL9eQUV5-lmCnAPjp7Npe182iAf1pfrMef8h1j7tWa7Twi6qpqAGijgbnsWKujDmq7-MRmYPyn9jyxJb_tJs9tTzwS5XJuX0afZw07v1IKblwJoGozs3DKfFY2_CadS9XirpemH2ERoXZZAD5t9p6cL3SflVKTg_4MTNWrx8-3SGgPQ8jPTllX6NOTC14QsQXcexBW0jGLg2HLetcuISiiJU_2CKukRken_tMwgAHpXfXB9YjbE7x0FHOt3ARtBO4T_yf0');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#181111] text-base font-bold leading-tight">
+                    Looking for a companion for a walk
+                  </p>
+                  <p class="text-[#8a6060] text-sm font-normal leading-normal">
+                    Posted by Walter, 3 days ago
+                  </p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCTyIMajeGHO40hqSGnM1JWi5-fg4LMgyI13VeYPgHmyazt19xpJDjB9LnGEFxT-dqF-XPfzb3q2dUYJApz4n4xmrbDMGJuXFavOMhFGSYJ47-ZEk-emCgZO6DfKy8RrDmFP23e67fM4iDAtcrkUzIA4vtm69L1ZMTnUVlFAxpyNZ7_RrXq3aIfhsRFJ9iZLvBQZXP45tsP2uBx1ltBrog32InYGcinfl1AzkLPmB5u-iYQ44BbAvGayubhhcf6S5pwuZ4J69UD_a6C');
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Simulate real-time updates for weather and requests
+      document.addEventListener("DOMContentLoaded", () => {
+        // Weather update simulation
+        const weatherData = [
+          {
+            main: "Sunny",
+            temp: "25°C",
+            forecast:
+              "Today: Sunny with a high of 28°C. Tomorrow: Partly cloudy with a chance of rain.",
+          },
+          {
+            main: "Partly Cloudy",
+            temp: "22°C",
+            forecast:
+              "Today: Partly cloudy with a high of 24°C. Tomorrow: Light showers expected.",
+          },
+          {
+            main: "Rainy",
+            temp: "18°C",
+            forecast:
+              "Today: Rain with a high of 20°C. Tomorrow: Cloudy with sunny spells.",
+          },
+        ];
+        let weatherIndex = 0;
+
+        function updateWeather() {
+          document.getElementById("weather-main").textContent =
+            weatherData[weatherIndex].main;
+          document.getElementById("weather-temp").textContent =
+            weatherData[weatherIndex].temp;
+          document.getElementById("weather-forecast").textContent =
+            weatherData[weatherIndex].forecast;
+          weatherIndex = (weatherIndex + 1) % weatherData.length;
+        }
+        updateWeather();
+        setInterval(updateWeather, 10000); // Update weather every 10 seconds
+
+        // Simulate progress bar update for fulfilled requests
+        const progressBar = document.querySelector(".progress-bar-fill");
+        let progress = 0;
+        function updateProgress() {
+          progress = (progress + 10) % 100; // Increment progress, reset at 100%
+          progressBar.style.width = `${progress}%`;
+        }
+        setInterval(updateProgress, 1000); // Update progress every second
+      });
+    </script>
+  </body>
+</html>

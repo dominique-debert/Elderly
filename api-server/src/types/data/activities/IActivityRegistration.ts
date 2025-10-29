@@ -1,0 +1,8 @@
+export interface IActivityRegistration {
+  id: string;
+  activityId: string;
+  userId: string;
+  registrationDate: Date;
+  status?: string;
+  attendanceConfirmed?: boolean;
+}

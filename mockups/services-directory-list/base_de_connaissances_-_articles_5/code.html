@@ -1,0 +1,324 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3">
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#0d141b]">
+              <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="text-[#0d141b] text-lg font-bold leading-tight tracking-[-0.015em]">Senior Resources</h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a class="text-[#0d141b] text-sm font-medium leading-normal" href="#">Home</a>
+              <a class="text-[#0d141b] text-sm font-medium leading-normal" href="#">Articles</a>
+              <a class="text-[#0d141b] text-sm font-medium leading-normal" href="#">Guides</a>
+              <a class="text-[#0d141b] text-sm font-medium leading-normal" href="#">Contact</a>
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-[#4c739a] flex border-none bg-[#e7edf3] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border-none bg-[#e7edf3] focus:border-none h-full placeholder:text-[#4c739a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBl3JpinAcwdsBUjzv3KRp-HapcghVqXPpNW_hNyOCFgyV67UzgD4d9TS8Mo2jaawe40A3Pli-WHFLNndIGD2PJREHz3eauwzYZ3rU5zj_nLml0w1jACx--l3Nrn4AARdZn9MMF_4e1hizNhAz9rWXS-cg9o3bE943nWu78pD1lEBTtk2Dfx_HNZImtyDm-24qg0AVb3r0umcGQ9LPnumYAqX4BFWWgL4OhrxKtDy99rVwGasgBRDNBLIoAPtKYH1sHutsfy0ScVZQV");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p class="text-[#0d141b] tracking-light text-[32px] font-bold leading-tight min-w-72">Articles and Guides</p>
+            </div>
+
+            <div class="p-4">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-4">
+                    <span class="text-[#0d141b] text-sm font-medium">Filter by:</span>
+                    <div class="relative inline-block text-left">
+                      <div>
+                        <button
+                          type="button"
+                          class="inline-flex w-full justify-center gap-x-1.5 rounded-lg bg-[#e7edf3] px-3 py-2 text-sm font-medium text-[#0d141b] shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                          id="menu-button1"
+                          aria-expanded="true"
+                          aria-haspopup="true"
+                        >
+                          Category
+                          <svg class="-mr-1 h-5 w-5 text-[#0d141b]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.93a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        role="menu"
+                        aria-orientation="vertical"
+                        aria-labelledby="menu-button1"
+                        tabindex="-1"
+                      >
+                        <div class="py-1" role="none">
+                          <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-[#0d141b]"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-0"
+                            >Health</a
+                          >
+                          <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-[#0d141b]"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-1"
+                            >Rights</a
+                          >
+                          <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-[#0d141b]"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-2"
+                            >Retirement</a
+                          >
+                          <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-[#0d141b]"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-3"
+                            >Housing</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="relative inline-block text-left">
+                      <div>
+                        <button
+                          type="button"
+                          class="inline-flex w-full justify-center gap-x-1.5 rounded-lg bg-[#e7edf3] px-3 py-2 text-sm font-medium text-[#0d141b] shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                          id="menu-button2"
+                          aria-expanded="true"
+                          aria-haspopup="true"
+                        >
+                          Date
+                          <svg class="-mr-1 h-5 w-5 text-[#0d141b]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.93a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        role="menu"
+                        aria-orientation="vertical"
+                        aria-labelledby="menu-button2"
+                        tabindex="-1"
+                      >
+                        <div class="py-1" role="none">
+                          <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-[#0d141b]"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-4"
+                            >Newest</a
+                          >
+                          <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-[#0d141b]"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-5"
+                            >Oldest</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="relative inline-block text-left">
+                      <div>
+                        <button
+                          type="button"
+                          class="inline-flex w-full justify-center gap-x-1.5 rounded-lg bg-[#e7edf3] px-3 py-2 text-sm font-medium text-[#0d141b] shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                          id="menu-button3"
+                          aria-expanded="true"
+                          aria-haspopup="true"
+                        >
+                          Sort by
+                          <svg class="-mr-1 h-5 w-5 text-[#0d141b]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.93a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        role="menu"
+                        aria-orientation="vertical"
+                        aria-labelledby="menu-button3"
+                        tabindex="-1"
+                      >
+                        <div class="py-1" role="none">
+                          <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-[#0d141b]"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-6"
+                            >Popularity</a
+                          >
+                          <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-[#0d141b]"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-7"
+                            >Alphabetical</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <label class="flex flex-col">
+                    <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                      <div
+                        class="text-[#4c739a] flex border-none bg-[#e7edf3] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                        data-icon="MagnifyingGlass"
+                        data-size="24px"
+                        data-weight="regular"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                          <path
+                            d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <input
+                        placeholder="Search articles and guides"
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border-none bg-[#e7edf3] focus:border-none h-full placeholder:text-[#4c739a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                        value=""
+                      />
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#4c739a] text-sm font-normal leading-normal">Health</p>
+                  <p class="text-[#0d141b] text-base font-bold leading-tight">Staying Active in Retirement</p>
+                  <p class="text-[#4c739a] text-sm font-normal leading-normal">Discover the benefits of regular exercise and find activities suitable for seniors.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCzEnQnSiFeJ2hD0NCZR_nGwVbjSHcPokXa6bS_if5s2mqWEJvLSSgEtQ__0uwlb5F6huw0JM_TE3EqGFXGkVnOc4wa1EU3-klo6vxJK6EljvCvmrWZMT95hlK5ihrcnkUdvXwHlgMn7ytD-omuUTthaEUeea4aOH-_n2bFlgMuTqDixDXhLM_UcJDc6hNFGKtZF7LePpnNrNWfIxF9tTdULqM7uKsDYUY1fmm4LDgl3pfIVZ9kOUq60ctHODmTCYIunXTv4YkgtvnF");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#4c739a] text-sm font-normal leading-normal">Rights</p>
+                  <p class="text-[#0d141b] text-base font-bold leading-tight">Understanding Your Legal Rights as a Senior</p>
+                  <p class="text-[#4c739a] text-sm font-normal leading-normal">Learn about your rights regarding healthcare, housing, and financial matters.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHaztYvtJJ-9PK8LTXp-GJKVVUcdfd2pSNr3FZIQ9BncfLCOSjDmcEWsWDMFX-wf6rI0K8b8VvprYLEStwn4tyQ1hHBWTx8GjbCJqikqoSeZArti6cm22a36NUshLS5lRhgnJG4tUXJkkPRrEl5mf02ABDceM-sJ2Gn8-2UMw_HQ4DttT5lhE0T2dATzIGhKKncne09irhDSbc1YW56sK4xGoegFxUAE-7Q2ZS3uX0aMh71Fuk662mQLs92zaRYNuq3B8bpT3yB1EM");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#4c739a] text-sm font-normal leading-normal">Retirement</p>
+                  <p class="text-[#0d141b] text-base font-bold leading-tight">Planning Your Retirement Finances</p>
+                  <p class="text-[#4c739a] text-sm font-normal leading-normal">Get tips on managing your finances, investments, and pensions for a secure retirement.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBu89D4BrqeX4rdk99FZhI1WZPweTooK0d61vYGQSzlKtuGe4Kmc3zcKZ5W3jzaL1tHCrf0T7RlyXYKQp6QoHPC4b5bFPeOtwT--FEwuMCVwFA8NaPPnKGGJIMKAbWwBKkggPxDx2Q-0WP9C5z_kMbKCl00dlNi1YdtmgUowc5Gg2ENc5frCG6-2P98k45C0EGCZZK1T-N0L6q27-lPFkp_vILw5N8qFw3UOvUftC-ZXLRX0RQHcWNVrQWG980Ea_mOICzVRarTaRsX");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#4c739a] text-sm font-normal leading-normal">Housing</p>
+                  <p class="text-[#0d141b] text-base font-bold leading-tight">Finding the Right Housing for Your Needs</p>
+                  <p class="text-[#4c739a] text-sm font-normal leading-normal">Explore different housing options for seniors, from independent living to assisted care.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDG1XslaaR04un7kei3cOMjiqTnUdQthAGa2lFgytTtX1Ssg7pdYC1M3jpOXvMQlSQLDGuIqZBB27AHW5zsaOOTqcx_KwNQV4RHqJRW6J_VtMKc3Pj-bAUM4YVskK5lPHTGVDHIWB6e_Ft8M6dyoozGS0DPW62CiisBHIbfMD4GL2Wx72wWCYb9pI0fb0ltBWioeZR_LEtKyiKOShB2fXIOI09r8dIrVtc-NFWNuKYcFRPSQdISbS5eK5FQ4TqwPW2mwmZ--0x3dd77");'
+                ></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center p-4">
+              <a href="#" class="flex size-10 items-center justify-center">
+                <div class="text-[#0d141b]" data-icon="CaretLeft" data-size="18px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
+                  </svg>
+                </div>
+              </a>
+              <a class="text-sm font-bold leading-normal tracking-[0.015em] flex size-10 items-center justify-center text-[#0d141b] rounded-full bg-[#e7edf3]" href="#">1</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#0d141b] rounded-full" href="#">2</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#0d141b] rounded-full" href="#">3</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#0d141b] rounded-full" href="#">4</a>
+              <a href="#" class="flex size-10 items-center justify-center">
+                <div class="text-[#0d141b]" data-icon="CaretRight" data-size="18px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

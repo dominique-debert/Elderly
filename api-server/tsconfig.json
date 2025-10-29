@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext",
+    "module": "es2020",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
@@ -9,11 +9,11 @@
     "rootDir": "./",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-     "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["*"]
     }
   },
-  "include": ["./", "validators", "schemas/swagger"],
+  "include": ["./", "src/validators", "schemas/swagger"],
   "exclude": ["node_modules"]
 }

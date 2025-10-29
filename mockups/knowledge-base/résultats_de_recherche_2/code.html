@@ -1,0 +1,377 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-slate-50 group/design-root overflow-x-hidden"
+      style="font-family: 'Public Sans', 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between border-b border-solid border-b-[#e7eff3] px-10 py-3"
+        >
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#0d171b]">
+              <div class="size-4">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                class="text-[#0d171b] text-lg font-bold leading-tight tracking-[-0.015em]"
+              >
+                Elderly
+              </h2>
+            </div>
+          </div>
+          <div class="flex flex-1 items-center justify-end gap-8">
+            <label class="flex flex-col min-w-60 !h-12 max-w-96">
+              <div
+                class="flex w-full flex-1 items-stretch rounded-lg h-full bg-[#e7eff3]"
+              >
+                <div
+                  class="text-[#4c809a] flex border-none bg-transparent items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search services and resources"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d171b] focus:outline-0 focus:ring-0 border-none bg-transparent focus:border-none h-full placeholder:text-[#4c809a] px-4 rounded-r-none border-r-0 pr-2 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <button
+              class="flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-[#1193d4] px-6 text-white text-base font-bold leading-normal tracking-[0.015em] min-w-0"
+            >
+              Find Help
+            </button>
+            <div class="relative" data-dropdown="">
+              <button
+                class="flex items-center justify-center rounded-full size-12 bg-[#e7eff3] text-[#0d171b]"
+                data-dropdown-toggle=""
+              >
+                <div
+                  class="text-[#0d171b]"
+                  data-icon="List"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M40,64a16,16,0,0,1,16-16H200a16,16,0,0,1,0,32H56A16,16,0,0,1,40,64Zm0,48H200a16,16,0,0,1,0,32H56a16,16,0,0,1,0-32Zm0,96H200a16,16,0,0,1,0,32H56a16,16,0,0,1,0-32Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+              <div
+                class="absolute right-0 z-10 hidden min-w-[200px] rounded-lg border border-solid border-[#e7eff3] bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800 group-open/design-root:block"
+                data-dropdown-content=""
+              >
+                <ul
+                  class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownDefaultButton"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Home</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Knowledge Base</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Service Directory</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Events</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <div class="pb-3">
+              <div class="flex border-b border-[#cfdfe7] px-4 gap-8">
+                <a
+                  class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#4c809a] pb-[13px] pt-4"
+                  href="#"
+                >
+                  <p
+                    class="text-[#4c809a] text-sm font-bold leading-normal tracking-[0.015em]"
+                  >
+                    Knowledge Base
+                  </p>
+                </a>
+                <a
+                  class="flex flex-col items-center justify-center border-b-[3px] border-b-[#1193d4] text-[#0d171b] pb-[13px] pt-4"
+                  href="#"
+                >
+                  <p
+                    class="text-[#0d171b] text-sm font-bold leading-normal tracking-[0.015em]"
+                  >
+                    Service Directory
+                  </p>
+                </a>
+              </div>
+            </div>
+            <h2
+              class="text-[#0d171b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              Service Directory
+            </h2>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#0d171b] text-base font-bold leading-tight">
+                      Home Care Assistance
+                    </p>
+                    <p
+                      class="text-[#4c809a] text-sm font-normal leading-normal"
+                    >
+                      Provides in-home care services for seniors, including
+                      personal care, companionship, and specialized care for
+                      conditions like Alzheimer's and dementia.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#e7eff3] text-[#0d171b] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View Details</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDToosRdGDfedxcgSxsHvETg_y5of7LOOpOYqXFZmztBJf67zcdxFdEInz4EHe8v4vrjVefO6MxwJfmiXDn2WydXYMC0dItQ18vNNEzgR2M3U0e_seNHxI6univsFMYFIrVJWOid4oYV7YMD_evy187UBmKQkQ8t8m1YhNjhATyxDBIbilPyE1JeISIvJj93PZfFFrwYI-cxzdpXXYZwDZYi-3rGdLaCCuNerQHtyR-yT_qNmQWGsNvxmfBOt0SBUaaeEEl8dhB6EAk');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#0d171b] text-base font-bold leading-tight">
+                      Elderly Transportation Services
+                    </p>
+                    <p
+                      class="text-[#4c809a] text-sm font-normal leading-normal"
+                    >
+                      Offers safe and reliable transportation for seniors to
+                      medical appointments, social activities, and errands.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#e7eff3] text-[#0d171b] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View Details</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBNX4l-bqqvpRoUb8erHtVEA-5oypfq_Y9C8QVppgwGtMiN2frdFdrs5KIV3G_FS3zuJJFElUAz1u2Lk8HvJNk5m2eP9HPb5ZSqgE-EyhBIdvuQb4aSsHGrEmfX3Pg8-r_rZwhs5OsuKrlgXR3RZ6WsSD-NCCw2sfn7zoZvw3rLbXSTkGrz1fgSs11eB7HLIhaJf6ptP53a2d6VNQigMhdUJW67cbKVOiJoepSGBntfTNNYopCU3RiXPtp1Ki0ICS2yvt1pbUXhC8wc');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#0d171b] text-base font-bold leading-tight">
+                      Senior Meal Delivery
+                    </p>
+                    <p
+                      class="text-[#4c809a] text-sm font-normal leading-normal"
+                    >
+                      Delivers nutritious and delicious meals directly to
+                      seniors' homes, catering to various dietary needs and
+                      preferences.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#e7eff3] text-[#0d171b] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View Details</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAPpkY938RipLpuY9KEZQmWBd5HtDKHGPvAkvQbLVsq-UMVOWw2B6HfdcwKmJmCVLqFzabG01Dcx1wvD67EjhqaN2OmIqcBvvrLTg9LLmKv4oUOxv7KLkIibL7vVPRZUtqpt88GYlo5S8fAqZZ1g8aXPX8VIKbLvK-o3nAC4tKAZ2udN_YVO13txOUxFYDv2YBy48mD54h8yptn14QUEiZrkizG6-iaH2zWCUzqf0wDYCpkXRAM95Gh1zg07NU9Wx7E86pJ-sRKLP_J');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#0d171b] text-base font-bold leading-tight">
+                      Adult Day Care Programs
+                    </p>
+                    <p
+                      class="text-[#4c809a] text-sm font-normal leading-normal"
+                    >
+                      Provides daytime care and social activities for seniors in
+                      a supervised and supportive environment.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#e7eff3] text-[#0d171b] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View Details</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBdOg2q36se8LC8of7PNNT68nEGTAxgRoKTMdrD38xo4zj-Qb7snw94fhZG8d7TAsmUoKwgC7Wbeica3XzYJcaCtkVzP0FvySpLLrwbp2Dru6fhCGNVkGBTAzRKdyKnqN3-_R3mGmo_MvbP5uPH6dKmUlTddsqj7E3eP5FPWjE6HJbdv07R46b7zINEn_EMnftDRpitxs2esiUV5NoR1C_PZydxsrqjTNYw33olyMwEj242pUIaEa9InYWPf90NbfCMNyOxuzq05pb');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#0d171b] text-base font-bold leading-tight">
+                      Respite Care Services
+                    </p>
+                    <p
+                      class="text-[#4c809a] text-sm font-normal leading-normal"
+                    >
+                      Offers temporary relief for caregivers by providing
+                      short-term care for seniors, either in-home or at a care
+                      facility.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#e7eff3] text-[#0d171b] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View Details</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcMLCa5KCdxFKf0ADV62ULuVPi8Jk7zKF9osT7qgMG1oYjPR746ejUBXkP8zetWfRFP1A_eiNz2wy1E-Xsfkzy2e5xRiazLNhzRzoSNcW9_XM7Ug0P89YOg0JGV2oxFLsfIE9HezoE92DYqTCh4TwG1iLNKqsmKoUjq0haQByRhEU7iC3Qp70w39hc0pbkHAsuO8JY9ufn-CO2OB4TWHrKGXJC5XBxYgqk-KjMb0XnCW1o8u9z8fHt9B86OF2JEwnbjImU4_3gYLit');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-lg">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#0d171b] text-base font-bold leading-tight">
+                      Senior Housing Options
+                    </p>
+                    <p
+                      class="text-[#4c809a] text-sm font-normal leading-normal"
+                    >
+                      Assists seniors and their families in finding suitable
+                      housing options, including independent living, assisted
+                      living, and memory care facilities.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#e7eff3] text-[#0d171b] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View Details</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCttQy6VExYZqL6MBiI_sewWyRWS1IrihMjqhKzt0RoOa1vXRiytWqITOrS4DBfQyhPessONZeTzHvrPDjJElWw0zu8SmpRpg8PRyj9kSVhIRpilO_YTZBZFAUHXIeYbKSxsfiQDmqHR5AcJ7e-Cj9nteGkzoYJSLSYswfKOl7qmOP3f0bTF-6FwmzVIcTwRI-rS5McdOBM8L6FxigDYQ8qzYpvXejiE1zQuoAapINBV3nHP7ex4VbIiY0tkh6sH9mijU6kn605HXW8');
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("click", function (e) {
+        const dropdowns = document.querySelectorAll("[data-dropdown]");
+        for (let i = 0; i < dropdowns.length; i++) {
+          let content = dropdowns[i].querySelector("[data-dropdown-content]");
+          if (!dropdowns[i].contains(e.target)) {
+            content.classList.add("hidden");
+          } else {
+            content.classList.toggle("hidden");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

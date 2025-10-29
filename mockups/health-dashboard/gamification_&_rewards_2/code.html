@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex min-h-screen w-full flex-col bg-[#1a1a1a] font-sans text-white group/design-root overflow-x-hidden"
+    >
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#2a2a2a] px-10 py-4"
+      >
+        <div class="flex items-center gap-4">
+          <div class="size-5">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold tracking-tight">Vitality Hub</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-10">
+          <nav class="flex items-center gap-6">
+            <a class="text-sm font-medium leading-normal text-gray-300 hover:text-white transition-colors duration-200" href="#">Home</a>
+            <a class="text-sm font-medium leading-normal text-gray-300 hover:text-white transition-colors duration-200" href="#">Activities</a>
+            <a class="text-sm font-medium leading-normal text-gray-300 hover:text-white transition-colors duration-200" href="#">Community</a>
+            <a class="text-sm font-medium leading-normal text-gray-300 hover:text-white transition-colors duration-200" href="#">Support</a>
+          </nav>
+          <div class="flex items-center gap-5">
+            <button class="relative p-2 text-gray-300 hover:text-white transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                ></path>
+              </svg>
+            </button>
+            <div
+              class="aspect-square size-10 rounded-full bg-cover bg-center bg-no-repeat"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_d3RmgcwgudlEYRP6ntHLkP5sNYGCA5FroqGgQEDTp2d-xs8HjjTkyE30N_5cpJQ-FVNPCSEy__mTDlo1eFHbqMSHIvRHy29oSOrUDwJzUKl78EbCdZo5IDB-_QntkVxO306fGic_6x9_ZoyD1V1QEH-6JfQJqzAPnxmGE7OwyxtQCHvJVXKTY7aTAmrMyXbh0dAzMqVs3Ge91lrnRlxnq-4Rg7t9zgTwHuUvm-h_1nPoT49zcPiFj4GW7BjxaR0YdhcHL2jsdoKi");'
+            ></div>
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-1 justify-center px-10 py-16">
+        <div class="max-w-[1024px] flex w-full flex-col gap-8">
+          <h1 class="text-5xl font-bold tracking-tight">Your Wellness Journey</h1>
+
+          <section class="rounded-xl border border-[#2a2a2a] bg-[#111714] p-6">
+            <h2 class="mb-4 text-2xl font-bold tracking-tight">Your Progress</h2>
+            <div class="mb-3 flex items-center justify-between">
+              <p class="text-lg font-semibold">Weekly Activity Goal</p>
+              <span class="text-sm text-gray-400">60%</span>
+            </div>
+            <div class="h-3 w-full overflow-hidden rounded-full bg-[#2a2a2a]">
+              <div
+                class="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-700 ease-out"
+                style="width: 60%"
+              ></div>
+            </div>
+          </section>
+
+          <section class="rounded-xl border border-[#2a2a2a] bg-[#111714] p-6">
+            <h2 class="mb-4 text-2xl font-bold tracking-tight">Badges Earned</h2>
+            <div class="grid grid-cols-6 gap-4">
+              <div
+                class="aspect-square rounded-lg bg-cover bg-center bg-no-repeat opacity-0 transition-all duration-500 hover:scale-105 hover:opacity-100"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBpkBgUYRAb6IZG0wrvW-DWvv8ZA_mRm5AGZFl1yN2uiQjg3k-fUTEe_e2btoQ-eNYvGDcGJrzm0KcRUWqe5MSz6jgQ5fspf9yR7kIv0VJK8LoZVoWX7qH2kVEA3ONQ52JzGdFVmt2JHh7lXPE7sFx8k8LgLY26EatAvxAzOUA5Wzq7euFUfnxMPV4lb6iBLlZCvpZtUZLLsTJCGWTcfwAUDVqpI4RF89O6vWfOBpaY98kjWIwMavzs6f1lz8jEpkJU28bFn8I2eJac");'
+              ></div>
+              <div
+                class="aspect-square rounded-lg bg-cover bg-center bg-no-repeat opacity-0 transition-all duration-500 hover:scale-105 hover:opacity-100"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD08ZV5jbIeuAmFgVzDjB0JNSGcaLl2CKs555YTLRc5rW6jradshB1iMJBjG4ObsqxO8_PYzSTUJ9lLiYSP8_IIceD7REBrWg8FHdfABjYI6BjaZ7v0FxRJXr70iqf1xWjfdcUZ0lgwslVEmf-tIaj2vUvVsknmJxcFDiL8okzNPh0QbybQsUx21Z3rkqcFvZTcT0JAeQuEhWXWh9-Ng7eF4AeL8NYKYhP0Tb7APgV_3zIgM0nSjWzQi2_m5NBhA9tBD6BoQX3T2hrf");'
+              ></div>
+              <div
+                class="aspect-square rounded-lg bg-cover bg-center bg-no-repeat opacity-0 transition-all duration-500 hover:scale-105 hover:opacity-100"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1C5l2FG9KBH4GjM_Za3AA4ADO5oS_ORYLImB2zw1SUFrNnOSMh4-VijpNSuPFPL8qVB5YpkdbYSTTICGjka_mmcVCQC3-3JnMfLSsXluVCHUqXuKjVmSxOZhQmfeDyT33GO4P3sFwwR8Vnfn4kxRyfxGAXPzQxeDO3-D1E2_SlZeFAWOqHscOIS4oudPjgPq5R_sLdxJjZpPVSVGlSDrltZEhetLF7tpz3FXiqeyH_0gz8PaNvQCgG0ynmLMdq_dHCkrM59cy1CbJ");'
+              ></div>
+              <div
+                class="aspect-square rounded-lg bg-cover bg-center bg-no-repeat opacity-0 transition-all duration-500 hover:scale-105 hover:opacity-100"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBIYQ-gesiwj0J_GF35HOhOubFka1AeWTNkwKHEcsS1VlqaP4VisW5cvJhXnyu7nmYmiNTIrHWscmrt1HxAb0JH9_wQMTEgqZiVUmFHS9W7a7fAfR1I9g0Ay9T-wTM08hRYT0cuJkvN3jAVy7Ve6HyIiV-z4vxTIwJdf0EfEey3up8xGb93eCTymTJoLSzwzIOIc0t1-zOEIrZCAc3O_MTHFcs-5MV8MmdhYBrbO8vXw23sU_98vunB7rHPowOYeaD6vj9A9p6QTzLp");'
+              ></div>
+              <div
+                class="aspect-square rounded-lg bg-cover bg-center bg-no-repeat opacity-0 transition-all duration-500 hover:scale-105 hover:opacity-100"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA89aM0UC7IlCJv7ms0Xv2ZtfZ29lOtq8VABqf6a44gLQwgB56kFjhGuoGePzGCK3dS7v7t4E2gCGv8aaiy7zmEZ358JC3cikufmEkjaimUMpDrUG6McSfUEjSGEy_HgHiiSZTvBa-6ZCLw9gQqgih0ObQ9ZoZeIDBqEruTlfoRzRhZiRDZwOHBmkCSX-2FtUO4MCxQi0nPbtFE4lzdKDPS4HZD-SkMbyDjxY0vfF9DljKGNnTpQW4ZD_KukGJLSMST0e9FclXrrrsl");'
+              ></div>
+              <div
+                class="aspect-square rounded-lg bg-cover bg-center bg-no-repeat opacity-0 transition-all duration-500 hover:scale-105 hover:opacity-100"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAHyJ328Y2A7VsQ-sheP11XEy0n-AZRHKqxpcH89jvvFNLsBc03nkp20nWOExjpiLsE5twdGpK6WQNy21s3xj7n24ACU4mceW_qtORh1Za9CNfD7hnjVHqGckz0pyz-OFLto5PvO1eHWyaTsuf7jueMfbhEOd8tLxXHQ2Lsfp6mboHtMzNAcVltGovDwA3z5R0850aiLNJMvrdiog34RJPAR_Qyx2S1QndvgdQQTyY5WRGfQ_6uxA8NCsONwvWYzjYhyde3EbC_Ptm2");'
+              ></div>
+            </div>
+          </section>
+
+          <section class="rounded-xl border border-[#2a2a2a] bg-[#111714] p-6">
+            <h2 class="mb-4 text-2xl font-bold tracking-tight">Challenges</h2>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="flex flex-col gap-3">
+                <div
+                  class="aspect-video rounded-lg bg-cover bg-center bg-no-repeat"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdNGFSOs2VkTSuNyeCyS37w2jiz055xGkIublfcxdI8TH2IHi0YMoLPtsWsVkefHeKBe2uyXGS1S2q-_tCl7JhKBrtH42Cwsvp5POBq4PhPqPYVgi2zebF-Ooqz4WD_sF9be4tlBXcNzve0pOwhLURl0Y0CHOpiT6YH3jvvCkBjQdT6DRRCFM1q-vdoXyIgmkmHZch-QRxPjWAwozzbLNMeEvPogdgTDSblpRANQCR0EkSayT8uAfZIR-DWuX0QKmjMbCV5H2gNn6I");'
+                ></div>
+                <p class="text-sm text-gray-400">Active Challenge</p>
+                <p class="text-lg font-bold">Step Up Your Health</p>
+                <p class="text-gray-400">Walk 10,000 steps this week to earn a bonus badge.</p>
+                <button
+                  class="mt-2 w-fit rounded-md bg-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-purple-700"
+                >
+                  Join
+                </button>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div
+                  class="aspect-video rounded-lg bg-cover bg-center bg-no-repeat"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBmpHqkJIo6s8nIJMcJa4YnWoPEqe7u-DvVqb2ZwZhiR3gHM-X3X1_MOgzIszdCSQbHV5rWAVo-mqZr8Uhb8oV-SVp-mopTVg0Xu1cfMyMYL9kRI8bkJ8nx8XurWaMuheahpU9nj1nlozBRdtycsWmW4rq81t9_1wcmu9I2Rs6kLuAWyfGlvbqR0JJ21fDkaU_91eJBmRT_XqMc-MqO1BXbW3TloaqHVoXfZhIRiY8efSvHqRXIN4tCzeosFBdKdB2Z4Hhk3h_Vlf7a");'
+                ></div>
+                <p class="text-sm text-gray-400">Upcoming Challenge</p>
+                <p class="text-lg font-bold">Mindful Moments</p>
+                <p class="text-gray-400">Complete 5 mindfulness sessions to improve your mental well-being.</p>
+                <button
+                  class="mt-2 w-fit rounded-md bg-gray-700 px-5 py-2 text-sm font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-gray-600"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-xl border border-[#2a2a2a] bg-[#111714] p-6">
+            <div class="grid grid-cols-2 gap-6">
+              <div class="flex flex-col gap-3">
+                <p class="text-lg font-bold">Unlock Your Rewards</p>
+                <p class="text-gray-400">Earn points for completing activities and challenges. Redeem them for exciting rewards!</p>
+                <button
+                  class="mt-2 w-fit rounded-md bg-green-500 px-5 py-2 text-sm font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-green-600"
+                >
+                  View Rewards
+                </button>
+              </div>
+              <div
+                class="aspect-video rounded-lg bg-cover bg-center bg-no-repeat"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMlLpNYIR0lRCywAnvfU68fW3j2pQ76ca_jkwPiutdkyvkgfqFhsNlhIgNGBS975y8E-80IgoRvNzjr2pkjGxrY9Xiv4Cnv0Ed9AaTA8c8QSD_s9bYSlnkLhh3JygHIm-KTC-oRd5LX7F00q5mAoyr46pOQ4hzZpCJZm-hRhJSMPkPtj-7vUQJbULfybvPBaVzSY8pv4NpIXAVqWAd55SRz_n2hedDkO-JoCBGNyCDVysp3xeVfN7xY_g9FLR0C3FPhuUlk5Ddvmts");'
+              ></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

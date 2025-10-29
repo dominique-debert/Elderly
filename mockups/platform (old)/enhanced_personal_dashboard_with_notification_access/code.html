@@ -1,0 +1,635 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden"
+      style="font-family: Lexend, 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f4f0] px-10 py-3"
+        >
+          <div class="flex items-center gap-4 text-[#111811]">
+            <div class="size-4">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2
+              class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              Elderly
+            </h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a
+                class="text-[#111811] text-sm font-medium leading-normal"
+                href="#"
+                >Home</a
+              >
+              <a
+                class="text-[#111811] text-sm font-medium leading-normal"
+                href="#"
+                >Community</a
+              >
+              <a
+                class="text-[#111811] text-sm font-medium leading-normal"
+                href="#"
+                >Activities</a
+              >
+              <a
+                class="text-[#111811] text-sm font-medium leading-normal"
+                href="#"
+                >Messages</a
+              >
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f4f0] text-[#111811] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div
+                class="text-[#111811]"
+                data-icon="Bell"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgMErdquHIGPrufmAbCcVeaBmGR51GXWrzamhv-hrnPj14sDoyAuoYproarZmuWnb-snHuFqBu2oxUEjimr3mcwQSA_YgahI93PuMH6TWRMj_FUK6atYlhP_pSDSxmizwcqtZJKd4huP0od2s0zP6IN-vPe_Xh3lpFoqdNCcSl3gXT11aUBEgeoCQE1zZsTAaBZ67MJrA-zqNJ4ZuHkzZuttm0jW84O_VBdikX5gCdwK5Ig1x8fuxbCgzS3Ekunp_PL-clidWhyqg');
+              "
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p
+                class="text-[#111811] tracking-light text-[32px] font-bold leading-tight min-w-72"
+              >
+                My Dashboard
+              </p>
+            </div>
+            <h3
+              class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Weather
+            </h3>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#111811] text-base font-bold leading-tight">
+                    Sunny, 22°C
+                  </p>
+                  <p class="text-[#618961] text-sm font-normal leading-normal">
+                    Forecast: Mostly sunny with a high of 25°C
+                  </p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_MGsW1LqFtAatOiTFV1_ffxvUOHg8HsKay15SWr-JZht-bxmrKkRzOjdCuTdbJrX9v4gDnVy2Zg7mDyQKYtuRXJBx5Y2iBhE_jVEwIzVOCA_BAuOK6qed_jwPPrN52BdMfABzoZDjb3lX5WvWnVSPEuq-drqEM7Bkl5C0t_RUQhaJXgnNZEFNhAn-XtlTFYFrieXxqgW8iRjjaHvJjjRMJGYJuLoa0ljsbTph56cHN8aW3z9phQsYqY33yX8I3z8GTgI2rApOr3g');
+                  "
+                ></div>
+              </div>
+            </div>
+            <h3
+              class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              AI Companion
+            </h3>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#111811] text-base font-bold leading-tight">
+                    Ask me anything
+                  </p>
+                  <p class="text-[#618961] text-sm font-normal leading-normal">
+                    Tap to activate your AI companion for assistance and
+                    support.
+                  </p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBa6ZxnpErvI7ZvtFLCUGuN3sxMFIf8FgZEZaydkKkvWJt2WTfhdOyY17G2GbtHULPhhShF2WCGVouljR1xEVrt4z2uSs-sjv7WeelZuu78F8P3gNmn2Be3uH2qPcu02f7RTjcFXwCWrcCsMnGjtORjre6iJ86LAz2o4CHQE4NV_UW2jpfKREfecSsAqJBhwu-yyNTLEZtpwgJJonS2CO4YTvsAVA_dI9cXug7PSanhLxGnj8Pp2YtSXv45Cfff_TGRlSjdHeR_lKc');
+                  "
+                ></div>
+              </div>
+            </div>
+            <h3
+              class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Upcoming Activities
+            </h3>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2"
+            >
+              <div
+                class="text-[#111811] flex items-center justify-center rounded-lg bg-[#f0f4f0] shrink-0 size-12"
+                data-icon="FlowerLotus"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24px"
+                  height="24px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M245.83,121.63a15.53,15.53,0,0,0-9.52-7.33,73.51,73.51,0,0,0-22.17-2.22c4-19.85,1-35.55-2.06-44.86a16.15,16.15,0,0,0-18.79-10.88,85.53,85.53,0,0,0-28.55,12.12,94.58,94.58,0,0,0-27.11-33.25,16.05,16.05,0,0,0-19.26,0A94.48,94.48,0,0,0,91.26,68.46,85.53,85.53,0,0,0,62.71,56.34,16.15,16.15,0,0,0,43.92,67.22c-3,9.31-6,25-2.06,44.86a73.51,73.51,0,0,0-22.17,2.22,15.53,15.53,0,0,0-9.52,7.33,16,16,0,0,0-1.6,12.27c3.39,12.57,13.8,36.48,45.33,55.32S113.13,208,128.05,208s42.67,0,74-18.78c31.53-18.84,41.94-42.75,45.33-55.32A16,16,0,0,0,245.83,121.63ZM59.14,72.14a.2.2,0,0,1,.23-.15A70.43,70.43,0,0,1,85.18,83.66,118.65,118.65,0,0,0,80,119.17c0,18.74,3.77,34,9.11,46.28A123.59,123.59,0,0,1,69.57,140C51.55,108.62,55.3,84,59.14,72.14Zm3,103.35C35.47,159.57,26.82,140.05,24,129.7a59.82,59.82,0,0,1,22.5-1.17,129.08,129.08,0,0,0,9.15,19.41,142.28,142.28,0,0,0,34,39.56A114.92,114.92,0,0,1,62.1,175.49ZM128,190.4c-9.33-6.94-32-28.23-32-71.23C96,76.7,118.38,55.24,128,48c9.62,7.26,32,28.72,32,71.19C160,162.17,137.33,183.46,128,190.4ZM170.82,83.66A70.43,70.43,0,0,1,196.63,72a.2.2,0,0,1,.23.15C200.7,84,204.45,108.62,186.43,140a123.32,123.32,0,0,1-19.54,25.48c5.34-12.26,9.11-27.54,9.11-46.28A118.65,118.65,0,0,0,170.82,83.66ZM232,129.72c-2.77,10.25-11.4,29.81-38.09,45.77a114.92,114.92,0,0,1-27.55,12,142.28,142.28,0,0,0,34-39.56,129.08,129.08,0,0,0,9.15-19.41A59.69,59.69,0,0,1,232,129.71Z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-[#111811] text-base font-medium leading-normal line-clamp-1"
+                >
+                  Yoga Class
+                </p>
+                <p
+                  class="text-[#618961] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  Tomorrow, 10:00 AM
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2"
+            >
+              <div
+                class="text-[#111811] flex items-center justify-center rounded-lg bg-[#f0f4f0] shrink-0 size-12"
+                data-icon="BookOpen"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24px"
+                  height="24px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M224,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h64a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64Z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-[#111811] text-base font-medium leading-normal line-clamp-1"
+                >
+                  Book Club Meeting
+                </p>
+                <p
+                  class="text-[#618961] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  Next Week, 2:00 PM
+                </p>
+              </div>
+            </div>
+            <h3
+              class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Health Overview
+            </h3>
+            <div class="flex flex-wrap gap-4 px-4 py-6">
+              <div
+                class="flex min-w-72 flex-1 flex-col gap-2 rounded-xl border border-[#dbe6db] p-6"
+              >
+                <p class="text-[#111811] text-base font-medium leading-normal">
+                  Daily Steps
+                </p>
+                <p
+                  class="text-[#111811] tracking-light text-[32px] font-bold leading-tight truncate"
+                >
+                  5,200
+                </p>
+                <p class="text-[#618961] text-base font-normal leading-normal">
+                  Today
+                </p>
+                <div class="flex min-h-[180px] flex-1 flex-col gap-8 py-4">
+                  <svg
+                    width="100%"
+                    height="148"
+                    viewBox="-3 0 478 150"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z"
+                      fill="url(#paint0_linear_1131_5935)"
+                    ></path>
+                    <path
+                      d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25"
+                      stroke="#618961"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    ></path>
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_1131_5935"
+                        x1="236"
+                        y1="1"
+                        x2="236"
+                        y2="149"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#f0f4f0"></stop>
+                        <stop
+                          offset="1"
+                          stop-color="#f0f4f0"
+                          stop-opacity="0"
+                        ></stop>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="flex justify-around">
+                    <p
+                      class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                    >
+                      Mon
+                    </p>
+                    <p
+                      class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                    >
+                      Tue
+                    </p>
+                    <p
+                      class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                    >
+                      Wed
+                    </p>
+                    <p
+                      class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                    >
+                      Thu
+                    </p>
+                    <p
+                      class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                    >
+                      Fri
+                    </p>
+                    <p
+                      class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                    >
+                      Sat
+                    </p>
+                    <p
+                      class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                    >
+                      Sun
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex min-w-72 flex-1 flex-col gap-2 rounded-xl border border-[#dbe6db] p-6"
+              >
+                <p class="text-[#111811] text-base font-medium leading-normal">
+                  Sleep Quality
+                </p>
+                <p
+                  class="text-[#111811] tracking-light text-[32px] font-bold leading-tight truncate"
+                >
+                  7.5 hours
+                </p>
+                <p class="text-[#618961] text-base font-normal leading-normal">
+                  Last Night
+                </p>
+                <div
+                  class="grid min-h-[180px] grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center px-3"
+                >
+                  <div
+                    class="border-[#618961] bg-[#f0f4f0] border-t-2 w-full"
+                    style="height: 40%"
+                  ></div>
+                  <p
+                    class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                  >
+                    Mon
+                  </p>
+                  <div
+                    class="border-[#618961] bg-[#f0f4f0] border-t-2 w-full"
+                    style="height: 70%"
+                  ></div>
+                  <p
+                    class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                  >
+                    Tue
+                  </p>
+                  <div
+                    class="border-[#618961] bg-[#f0f4f0] border-t-2 w-full"
+                    style="height: 40%"
+                  ></div>
+                  <p
+                    class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                  >
+                    Wed
+                  </p>
+                  <div
+                    class="border-[#618961] bg-[#f0f4f0] border-t-2 w-full"
+                    style="height: 50%"
+                  ></div>
+                  <p
+                    class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                  >
+                    Thu
+                  </p>
+                  <div
+                    class="border-[#618961] bg-[#f0f4f0] border-t-2 w-full"
+                    style="height: 60%"
+                  ></div>
+                  <p
+                    class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                  >
+                    Fri
+                  </p>
+                  <div
+                    class="border-[#618961] bg-[#f0f4f0] border-t-2 w-full"
+                    style="height: 80%"
+                  ></div>
+                  <p
+                    class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                  >
+                    Sat
+                  </p>
+                  <div
+                    class="border-[#618961] bg-[#f0f4f0] border-t-2 w-full"
+                    style="height: 20%"
+                  ></div>
+                  <p
+                    class="text-[#618961] text-[13px] font-bold leading-normal tracking-[0.015em]"
+                  >
+                    Sun
+                  </p>
+                </div>
+              </div>
+            </div>
+            <h3
+              class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Medication Status
+            </h3>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="text-[#111811] flex items-center justify-center rounded-lg bg-[#f0f4f0] shrink-0 size-10"
+                  data-icon="Pill"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M216.42,39.6a53.26,53.26,0,0,0-75.32,0L39.6,141.09a53.26,53.26,0,0,0,75.32,75.31h0L216.43,114.91A53.31,53.31,0,0,0,216.42,39.6ZM103.61,205.09h0a37.26,37.26,0,0,1-52.7-52.69L96,107.31,148.7,160ZM205.11,103.6,160,148.69,107.32,96l45.1-45.09a37.26,37.26,0,0,1,52.69,52.69ZM189.68,82.34a8,8,0,0,1,0,11.32l-24,24a8,8,0,1,1-11.31-11.32l24-24A8,8,0,0,1,189.68,82.34Z"
+                    ></path>
+                  </svg>
+                </div>
+                <p
+                  class="text-[#111811] text-base font-normal leading-normal flex-1 truncate"
+                >
+                  Medication A
+                </p>
+              </div>
+              <div class="shrink-0">
+                <div class="flex size-7 items-center justify-center">
+                  <div class="size-3 rounded-full bg-[#078823]"></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="text-[#111811] flex items-center justify-center rounded-lg bg-[#f0f4f0] shrink-0 size-10"
+                  data-icon="Pill"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M216.42,39.6a53.26,53.26,0,0,0-75.32,0L39.6,141.09a53.26,53.26,0,0,0,75.32,75.31h0L216.43,114.91A53.31,53.31,0,0,0,216.42,39.6ZM103.61,205.09h0a37.26,37.26,0,0,1-52.7-52.69L96,107.31,148.7,160ZM205.11,103.6,160,148.69,107.32,96l45.1-45.09a37.26,37.26,0,0,1,52.69,52.69ZM189.68,82.34a8,8,0,0,1,0,11.32l-24,24a8,8,0,1,1-11.31-11.32l24-24A8,8,0,0,1,189.68,82.34Z"
+                    ></path>
+                  </svg>
+                </div>
+                <p
+                  class="text-[#111811] text-base font-normal leading-normal flex-1 truncate"
+                >
+                  Medication B
+                </p>
+              </div>
+              <div class="shrink-0">
+                <div class="flex size-7 items-center justify-center">
+                  <div class="size-3 rounded-full bg-[#078823]"></div>
+                </div>
+              </div>
+            </div>
+            <h3
+              class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Activities Progress
+            </h3>
+            <div class="flex flex-col gap-3 p-4">
+              <div class="flex gap-6 justify-between">
+                <p class="text-[#111811] text-base font-medium leading-normal">
+                  Wellness Program
+                </p>
+              </div>
+              <div class="rounded bg-[#dbe6db]">
+                <div class="h-2 rounded bg-[#111811]" style="width: 75%"></div>
+              </div>
+              <p class="text-[#618961] text-sm font-normal leading-normal">
+                75% Complete
+              </p>
+            </div>
+            <h3
+              class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+            >
+              Community Updates
+            </h3>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2"
+            >
+              <div
+                class="text-[#111811] flex items-center justify-center rounded-lg bg-[#f0f4f0] shrink-0 size-12"
+                data-icon="Users"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24px"
+                  height="24px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-[#111811] text-base font-medium leading-normal line-clamp-1"
+                >
+                  Last Forum Posts
+                </p>
+                <p
+                  class="text-[#618961] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  3 unread
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2"
+            >
+              <div
+                class="text-[#111811] flex items-center justify-center rounded-lg bg-[#f0f4f0] shrink-0 size-12"
+                data-icon="ChatCircleDots"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24px"
+                  height="24px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-[#111811] text-base font-medium leading-normal line-clamp-1"
+                >
+                  New Messages
+                </p>
+                <p
+                  class="text-[#618961] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  5 new
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-14 justify-between"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="text-[#111811] flex items-center justify-center rounded-lg bg-[#f0f4f0] shrink-0 size-10"
+                  data-icon="Medal"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M216,96A88,88,0,1,0,72,163.83V240a8,8,0,0,0,11.58,7.16L128,225l44.43,22.21A8.07,8.07,0,0,0,176,248a8,8,0,0,0,8-8V163.83A87.85,87.85,0,0,0,216,96ZM56,96a72,72,0,1,1,72,72A72.08,72.08,0,0,1,56,96ZM168,227.06l-36.43-18.21a8,8,0,0,0-7.16,0L88,227.06V174.37a87.89,87.89,0,0,0,80,0ZM128,152A56,56,0,1,0,72,96,56.06,56.06,0,0,0,128,152Zm0-96A40,40,0,1,1,88,96,40,40,0,0,1,128,56Z"
+                    ></path>
+                  </svg>
+                </div>
+                <p
+                  class="text-[#111811] text-base font-normal leading-normal flex-1 truncate"
+                >
+                  Earned Badges
+                </p>
+              </div>
+              <div class="shrink-0">
+                <div class="flex size-7 items-center justify-center">
+                  <div class="size-3 rounded-full bg-[#078823]"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex px-4 py-3 justify-end">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#f0f4f0] text-[#111811] gap-2 pl-4 text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <div
+                  class="text-[#111811]"
+                  data-icon="Bell"
+                  data-size="20px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20px"
+                    height="20px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                    ></path>
+                  </svg>
+                </div>
+                <span class="truncate">Notification Settings</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

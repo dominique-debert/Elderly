@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111418]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">SilverConnect</h2>
+          </div>
+        </header>
+        <div class="flex flex-1 justify-center py-10 px-4">
+          <div class="w-full max-w-[640px] flex flex-col">
+            <div class="mb-8 flex flex-col items-center">
+              <h2 class="text-[#111418] text-[28px] font-bold leading-tight tracking-[-0.015em] mb-2">Complete Your Profile</h2>
+              <p class="text-[#617589] text-base font-normal leading-normal">Follow the steps below to set up your account.</p>
+            </div>
+            <div class="mb-6 flex items-center justify-center space-x-4">
+              <div class="flex flex-col items-center">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-[#1380ec] text-white flex items-center justify-center font-bold text-sm">1</div>
+                  <div class="ml-2 h-1 w-16 bg-[#1380ec]"></div>
+                </div>
+                <p class="mt-2 text-sm font-medium text-[#1380ec]">Basic Info</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-[#e0e7ef] text-[#111418] flex items-center justify-center font-bold text-sm">2</div>
+                  <div class="ml-2 h-1 w-16 bg-[#e0e7ef]"></div>
+                </div>
+                <p class="mt-2 text-sm font-medium text-[#617589]">Photos</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-[#e0e7ef] text-[#111418] flex items-center justify-center font-bold text-sm">3</div>
+                </div>
+                <p class="mt-2 text-sm font-medium text-[#617589]">Interests</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm border border-solid border-[#f0f2f4] p-6 @container">
+              <div class="flex flex-col gap-6 @[480px]:flex-row @[480px]:items-center">
+                <div class="w-full max-w-[140px] min-w-[120px] @[480px]:w-auto @[480px]:max-w-none">
+                  <div class="aspect-square w-full rounded-lg bg-[#f0f2f4] flex items-center justify-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7C0UJFtqi4SqySHU3ast0MhqROEFPs8IcvlsD2zA2Gcy9maEUoTjWcZw-Kwb1iHDcOGkFkL-glsjGfDVS-bs6_F65zLPFjeDhISh6a7tvvgOJF6FxVogD2JLB_O60eiJ7y5cO3xLQCjvhnahUqZ3HjRoumMGwCW6NF_7LhIsPqRnyIm6FbzJCwr1Gqw1WQOmDu3A-FSHMZP_8DueWqiVJKNkMx3Lfqg_lm8wYx4yCbcJSI4sJWJ6H7tnqDJAE4oY9KWr1MR2aP4uh'); background-size: cover; background-position: center;">
+                    <label for="upload-photo" class="cursor-pointer text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                      <div class="p-2 rounded-full bg-black/40">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3ZM12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM13 11V7H11V11H7V13H11V17H13V13H17V11H13Z" fill="currentColor"/>
+                        </svg>
+                      </div>
+                    </label>
+                    <input type="file" id="upload-photo" class="hidden"/>
+                  </div>
+                </div>
+                <div class="flex flex-col w-full">
+                  <div class="mb-4">
+                    <label for="username" class="block text-sm font-medium text-[#111418] mb-1">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" class="w-full h-10 px-4 py-2 border border-solid border-[#e0e7ef] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1380ec] focus:border-transparent" />
+                  </div>
+                  <div class="mb-4">
+                    <label for="bio" class="block text-sm font-medium text-[#111418] mb-1">Bio</label>
+                    <textarea id="bio" placeholder="Tell us a little about yourself" rows="3" class="w-full px-4 py-2 border border-solid border-[#e0e7ef] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1380ec] focus:border-transparent"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 flex justify-between">
+              <button
+                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 border border-solid border-[#e0e7ef] bg-white text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Previous</span>
+              </button>
+              <button
+                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1380ec] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Next</span>
+              </button>
+            </div>
+            <p class="text-[#617589] text-sm font-normal leading-normal pb-3 pt-6 px-4 text-center">Need help? Visit our <a href="#" class="text-[#1380ec] hover:underline">FAQ</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

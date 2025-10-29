@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import "tailwindcss";
+@tailwind utilities;
+@import "tw-animate-css";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-card: hsl(220.7, 56%, 9.8%);
+  --color-background-light: #f1f5f9;
+  --color-background-dark: hsl(222.2, 69.2%, 7.6%);
+  --tab-p: 0;
+  --color-primary: hsl(210.1, 85.1%, 50%);
+}
+
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    nord;
+}
+
+@layer base {
+  * {
+    --radius-field: 0.5rem;
+    --size-selector: 0.2rem;
+    --color-primary: hsl(210.1, 85.1%, 50%);
+    --text-primary: hsl(0 0% 100%);
+    --primary: hsl(226.7, 27.3%, 6.5%);
+    --font-display: "Lexend", sans-serif;
+  }
+}
+
+@layer base {
+  [data-theme="nord"] {
+    /* --color-card: hsl(207 97% 12%); */
+    --color-primary: hsl(210.1, 85.1%, 50%);
+  }
+}
+
+@layer utilities {
+  .radio {
+    box-shadow: 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset;
+    --size: calc(var(--size-selector, 0.25rem) * 6);
+    width: var(--size);
+    height: var(--size);
+    color: var(--color-primary);
+  }
+
+  .radio {
+    &:checked,
+    &[aria-checked="true"] {
+      animation: radio 0.2s ease-out;
+      border-color: var(--color-primary);
+    }
+  }
+  radio {
+    &:checked,
+    &[aria-checked="true"] {
+      &:before {
+        background-color: var(--color-primary);
+      }
+    }
+  }
+  .tabs-border {
+    border-top: 1px solid var(--color-card);
+    border-radius: 0%;
+  }
+  .modal-box {
+    background-color: var(--color-card);
+  }
+  .modal {
+    &.modal-open,
+    &[open],
+    &:target {
+      pointer-events: auto;
+      visibility: visible;
+      opacity: 100%;
+      background-color: rgb(6, 14, 33, 0.8);
+      backdrop-filter: blur(3px);
+    }
+  }
+  [data-theme="dark"] {
+    .table-zebra {
+      & tbody {
+        & tr {
+          &:where(:nth-child(2n)) {
+            background-color: var(--color-card);
+          }
+        }
+      }
+    }
+  }
+  [data-theme="nord"] {
+    .table-zebra {
+      & tbody {
+        & tr {
+          &:where(:nth-child(2n)) {
+            background-color: #f1f5f9;
+          }
+        }
+      }
+    }
+  }
+}
+
+@utility no-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+* {
+  font-family: var(--font-display);
+}
+
+.user-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-outline {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: transparent;
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.backdrop-blur-md {
+  --tw-backdrop-blur: blur(14px);
+}
+
+.m-none {
+  margin: 0 !important;
+}
+
+:root[data-theme="dark"] {
+  background-color: var(--color-background-dark);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+main {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Hide scrollbar globally if needed */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body,
+html,
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: #64748b;
+}
+::-webkit-input-placeholder {
+  color: #64748b;
+}
+::-moz-placeholder {
+  color: #64748b;
+}

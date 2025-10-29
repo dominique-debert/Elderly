@@ -1,0 +1,209 @@
+import { Card } from "@/components";
+
+import {
+  PlusIcon,
+  XIcon,
+  SearchIcon,
+  RotateCcwIcon,
+  Share2Icon,
+  PencilIcon,
+  TrashIcon,
+  InfoIcon,
+  GripVertical,
+} from "lucide-react";
+
+export function SkillsTabContent() {
+  return (
+    <Card className="mt-6">
+      <div className="flex justify-between items-center -mb-4">
+        <div className="flex flex-col justify-center pt-4">
+          <div className="text-xl ml-6 h-6">Gestion des compétences</div>
+          <div className="text-sm m-6 mb-4 mt-1 dark:text-slate-400">
+            Organisez vos compétences en collections pour mettre en valeur votre
+            personnalité.
+          </div>
+        </div>
+        <button className="btn btn-primary mr-6">
+          <PlusIcon className="text-white size-4" />
+          Ajouter une collection
+        </button>
+      </div>
+      <div className="divider expert-blue m-4 mt-0 mb-0 "></div>
+
+      {/* Recherche */}
+      <div className="m-0 ml-6 mr-6 mt-0">
+        <label className="input bg-white flex w-full items-center dark:bg-card rounded-lg dark:border-slate-800">
+          <SearchIcon className="text-slate-500 size-4" />
+          <input
+            type="search"
+            placeholder="Rechercher une compétence..."
+            className="grow flex-1"
+          />
+          <button className="cursor-pointer">
+            <XIcon className="text-slate-500 size-4" />
+          </button>
+        </label>
+      </div>
+
+      {/* Suggestions */}
+      <Card className="flex flex-col gap-4 text-base mt-3 p-4 mr-6 ml-6 shadow-none">
+        <div className="flex align-center gap-2 overflow-x-auto">
+          <InfoIcon className="text-primary size-6" />
+          Quelques suggestions pour vous
+        </div>
+        <span className="text-xs font-light dark:text-slate-400 mt-0">
+          En fonction de votre activité, ces compétences pourraient vous
+          intéresser.
+        </span>
+        <div className="flex gap-2 mt-1 overflow-x-auto">
+          <span className="badge badge-sm p-3 dark:text-slate-400 dark:border-slate-600 rounded-xl bg-transparent">
+            <PlusIcon className="text-primary space-x-2.5 space-y-4 size-4" />
+            Randonnée
+          </span>
+          <span className="badge badge-sm p-3 dark:text-slate-400 dark:border-slate-600 rounded-xl bg-transparent">
+            <PlusIcon className="text-primary space-x-2.5 space-y-4 size-4" />
+            Arts numériques
+          </span>
+          <span className="badge badge-sm p-3 dark:text-slate-400 dark:border-slate-600 rounded-xl bg-transparent">
+            <PlusIcon className="text-primary space-x-2.5 space-y-4 size-4" />
+            Podcasting
+          </span>
+          <span className="badge badge-sm p-3 dark:text-slate-400 dark:border-slate-600 rounded-xl bg-transparent">
+            <RotateCcwIcon className="text-primary space-x-2.5 space-y-4 size-3" />
+            Plus de suggestions
+          </span>
+        </div>
+      </Card>
+
+      {/* Mock 1 */}
+      <Card className="flex flex-col gap-4 text-base mt-3 p-4 mr-6 ml-6 shadow-none">
+        <div className="flex items-center gap-2 justify-between">
+          <div className="flex items-center gap-2">
+            <GripVertical className="text-slate-600 size-5" />
+            Sports
+          </div>
+          <div className="flex items-center gap-4">
+            <button className="cursor-pointer btn bg-warning/10 text-warning size-8 p-0">
+              <Share2Icon className="space-x-2.5 space-y-4 size-4" />
+            </button>
+            <button className="cursor-pointer btn bg-primary/10 text-primary size-8 p-0">
+              <PencilIcon className="space-x-2.5 space-y-4 size-4" />
+            </button>
+            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-8 p-0">
+              <TrashIcon className="space-x-2.5 space-y-4 size-4" />
+            </button>
+          </div>
+        </div>
+        <span className="text-xs font-light dark:text-slate-400 mt-0">
+          En fonction de votre activité, ces compétences pourraient vous
+          intéresser.
+        </span>
+        <div className="flex gap-2 mt-1 overflow-x-auto">
+          <span className="badge badge-sm p-3 text-blue-500 border-blue-500 dark:text-blue-300 dark:border-blue-300 rounded-xl bg-transparent">
+            <GripVertical className="dark:text-blue-300 text-blue-600 size-3" />
+            Footing
+          </span>
+          <span className="badge badge-sm p-3 text-blue-500 border-blue-500 dark:text-blue-300 dark:border-blue-300 rounded-xl bg-transparent">
+            <GripVertical className="dark:text-blue-300 text-blue-600 size-3" />
+            Yoga
+          </span>
+          <span className="badge badge-xs text-xs p-3 text-blue-500 border-blue-500 dark:text-blue-300 dark:border-blue-300 rounded-xl bg-transparent">
+            <GripVertical className="dark:text-blue-300 text-blue-600 size-3" />
+            Musculation
+          </span>
+          <span className="badge badge-sm p-3 text-slate-600 border-slate-600 rounded-xl bg-transparent border-dashed">
+            <PlusIcon className="text-slate-600 space-x-2.5 space-y-4 size-3" />
+            Ajouter
+          </span>
+        </div>
+      </Card>
+
+      {/* Mock 2 */}
+      <Card className="flex flex-col gap-4 text-base mt-3 p-4 mr-6 ml-6 shadow-none">
+        <div className="flex items-center gap-2 justify-between">
+          <div className="flex items-center gap-4">
+            <GripVertical className="text-slate-600 size-4" />
+            Art
+          </div>
+          <div className="flex items-center gap-4">
+            <button className="cursor-pointer btn bg-warning/10 text-warning size-8 p-0">
+              <Share2Icon className="space-x-2.5 space-y-4 size-4" />
+            </button>
+            <button className="cursor-pointer btn bg-primary/10 text-primary size-8 p-0">
+              <PencilIcon className="space-x-2.5 space-y-4 size-4" />
+            </button>
+            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-8 p-0">
+              <TrashIcon className="space-x-2.5 space-y-4 size-4" />
+            </button>
+          </div>
+        </div>
+        <span className="text-xs font-light dark:text-slate-400 mt-0">
+          En fonction de votre activité, ces compétences pourraient vous
+          intéresser.
+        </span>
+        <div className="flex gap-2 mt-1">
+          <span className="badge badge-sm p-3 text-orange-400 border-orange-400 dark:text-orange-300 dark:border-orange-300 rounded-xl bg-transparent">
+            <GripVertical className="dark:text-orange-300 text-orange-400 size-3" />
+            Photographie
+          </span>
+          <span className="badge badge-sm p-3 text-orange-400 border-orange-400 dark:text-orange-300 dark:border-orange-300 rounded-xl bg-transparent">
+            <GripVertical className="dark:text-orange-300 text-orange-400 size-3" />
+            Peinture
+          </span>
+          <span className="badge badge-sm p-3 text-orange-400 border-orange-400 dark:text-orange-300 dark:border-orange-300 rounded-xl bg-transparent">
+            <GripVertical className="dark:text-orange-300 text-orange-400 size-3" />
+            Ecriture
+          </span>
+          <span className="badge badge-sm p-3 text-slate-600 border-slate-600 rounded-xl bg-transparent border-dashed">
+            <PlusIcon className="text-slate-600 size-3" />
+            Ajouter
+          </span>
+        </div>
+      </Card>
+
+      {/* Mock 3 */}
+      <Card className="flex flex-col gap-4 text-base mt-3 p-4 mr-6 ml-6 shadow-none">
+        <div className="flex items-center gap-2 justify-between">
+          <div className="flex items-center gap-2">
+            <GripVertical className="text-slate-600" />
+            Technologie
+          </div>
+          <div className="flex items-center gap-4">
+            <button className="cursor-pointer btn bg-warning/10 text-warning size-8 p-0">
+              <Share2Icon className="space-x-2.5 space-y-4 size-4" />
+            </button>
+            <button className="cursor-pointer btn bg-primary/10 text-primary size-8 p-0">
+              <PencilIcon className="space-x-2.5 space-y-4 size-4" />
+            </button>
+            <button className="cursor-pointer btn bg-red-600/10 text-red-400 size-8 p-0">
+              <TrashIcon className="space-x-2.5 space-y-4 size-4" />
+            </button>
+          </div>
+        </div>
+
+        <span className="text-xs font-light dark:text-slate-400 mt-0">
+          En fonction de votre activité, ces centres d'intérêt pourraient vous
+          plaire.
+        </span>
+        <div className="flex gap-2 mt-1 overflow-x-auto">
+          <span className="badge badge-sm p-3 text-green-600 border-green-600 rounded-xl bg-transparent">
+            <GripVertical className="text-green-600 size-3" />
+            Gadgets
+          </span>
+          <span className="badge badge-sm p-3 text-green-600 border-green-600 rounded-xl bg-transparent">
+            <GripVertical className="text-green-600 size-3" />
+            Internet
+          </span>
+          <span className="badge badge-xs text-xs p-3 text-green-600 border-green-600 rounded-xl bg-transparent">
+            <GripVertical className="text-green-600 size-3" />
+            Intelligence artificielle
+          </span>
+          <span className="badge badge-sm p-3 text-slate-600 border-slate-600 rounded-xl bg-transparent border-dashed">
+            <PlusIcon className="text-slate-600 size-3" />
+            Ajouter
+          </span>
+        </div>
+      </Card>
+    </Card>
+  );
+}

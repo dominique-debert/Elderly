@@ -1,0 +1,633 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-gray-800 group/design-root overflow-x-hidden"
+      style="font-family: 'Public Sans', 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-700 px-10 py-3 bg-gray-800"
+        >
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-white">
+              <div class="size-4">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                class="text-white text-lg font-bold leading-tight tracking-[-0.015em]"
+              >
+                Elderly
+              </h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                >Home</a
+              >
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                >Services</a
+              >
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                >Events</a
+              >
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                >Community</a
+              >
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                >Resources</a
+              >
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div
+                class="flex w-full flex-1 items-stretch rounded-lg h-full bg-gray-700"
+              >
+                <div
+                  class="text-blue-300 flex border-none bg-gray-700 items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-gray-700 focus:border-none h-full placeholder:text-blue-300 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-gray-700 text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div
+                class="text-white"
+                data-icon="Bell"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5l06Ougu8jvv3SCe4nnGJk7S7eIuoESYSDTTFMPTawYTXp3CQ8erAy1pk-u0wZsM8ejrRfYO7j88zBTSKKSJKV48eOPcZL4d-Rq_ZqWF4wlZ95SV2cYdSp9AMVW8q2sp3R0LucO4c1wk2ayfZ0LrrhfKXdiRLWd9aHGihz9BOTzkPLyktMhPfU5xdp5Xv94YM6ZiKZacbHbnHIJaaftABB34WUnlafLun-oYbSMXw_5yhRllST8dJeOQ_E40kmGpDm8JYGNbHlxgX');
+              "
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5 bg-gray-800">
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p
+                  class="text-white tracking-light text-[32px] font-bold leading-tight"
+                >
+                  Service Directory
+                </p>
+                <p class="text-blue-200 text-sm font-normal leading-normal">
+                  Find trusted professionals and services tailored for seniors
+                  in your community.
+                </p>
+              </div>
+            </div>
+            <div class="px-4 py-3">
+              <label class="flex flex-col min-w-40 h-12 w-full">
+                <div
+                  class="flex w-full flex-1 items-stretch rounded-lg h-full bg-gray-700"
+                >
+                  <div
+                    class="text-blue-300 flex border-none bg-gray-700 items-center justify-center pl-4 rounded-l-lg border-r-0"
+                    data-icon="MagnifyingGlass"
+                    data-size="24px"
+                    data-weight="regular"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24px"
+                      height="24px"
+                      fill="currentColor"
+                      viewBox="0 0 256 256"
+                    >
+                      <path
+                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    placeholder="Search for services or professionals"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-gray-700 focus:border-none h-full placeholder:text-blue-300 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                    value=""
+                  />
+                </div>
+              </label>
+            </div>
+            <div class="flex gap-3 p-3 flex-wrap pr-4">
+              <button
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-700 pl-4 pr-2 text-white"
+              >
+                <p class="text-white text-sm font-medium leading-normal">
+                  Category
+                </p>
+                <div
+                  class="text-white"
+                  data-icon="CaretDown"
+                  data-size="20px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20px"
+                    height="20px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+              <button
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-700 pl-4 pr-2 text-white"
+              >
+                <p class="text-white text-sm font-medium leading-normal">
+                  Location
+                </p>
+                <div
+                  class="text-white"
+                  data-icon="CaretDown"
+                  data-size="20px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20px"
+                    height="20px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+              <button
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-700 pl-4 pr-2 text-white"
+              >
+                <p class="text-white text-sm font-medium leading-normal">
+                  Rating
+                </p>
+                <div
+                  class="text-white"
+                  data-icon="CaretDown"
+                  data-size="20px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20px"
+                    height="20px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+              <button
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-700 pl-4 pr-2 text-white"
+              >
+                <p class="text-white text-sm font-medium leading-normal">
+                  Availability
+                </p>
+                <div
+                  class="text-white"
+                  data-icon="CaretDown"
+                  data-size="20px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20px"
+                    height="20px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+              <button
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-700 pl-4 pr-2 text-white"
+              >
+                <p class="text-white text-sm font-medium leading-normal">
+                  Price
+                </p>
+                <div
+                  class="text-white"
+                  data-icon="CaretDown"
+                  data-size="20px"
+                  data-weight="regular"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20px"
+                    height="20px"
+                    fill="currentColor"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+            <h2
+              class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              Featured Services
+            </h2>
+            <div class="p-4">
+              <div
+                class="flex items-stretch justify-between gap-4 rounded-lg bg-gray-700 p-4 shadow-md"
+              >
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-white text-base font-bold leading-tight">
+                      Home Care Assistance
+                    </p>
+                    <p class="text-blue-200 text-sm font-normal leading-normal">
+                      Compassionate in-home care for seniors, including personal
+                      care, companionship, and medication reminders.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-blue-500 text-white text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View Profile</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgQeVfVMxFDgOEbKg9WZuQMHyRaueYbfqkuMsYcIcQFMKZ1dFwOASgXG3ORJCZEtbrCMeuoO_06NyBi32Ffjvb_jfNPJVJ6wSk2c0jtYYgVfCP1Soaswr2QqvydL1DNSmDInhzmgpFI0OdxUdOqnl5N40DG_-1gn81SAsbjkbwMmwjowd89X5lNgW09irP1AE86kyq3KR5XYqX3qIxZIpsZxTn6lT4Dq2s4kyUtPrUosraB-2UutzSnOVOem7WBQz9QungOh9zTFGj');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div
+                class="flex items-stretch justify-between gap-4 rounded-lg bg-gray-700 p-4 shadow-md"
+              >
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-white text-base font-bold leading-tight">
+                      Elder Law Attorney
+                    </p>
+                    <p class="text-blue-200 text-sm font-normal leading-normal">
+                      Legal services specializing in estate planning, wills,
+                      trusts, and elder law issues.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-blue-500 text-white text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View Profile</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtwQJSdbqBh-66oaEn-r7B2FTvDiUuJqd6GJn0dotUWXI9B3GhJcAMJkdKZj2AEyBMHOqplH9N_4xGHqLJWpsLL7K0JL9nc4yQKXt7gUCVjEYOHgIzvRCYLWvfFhSf3sqjduJ7-vHjveUDhbQTb3DOTXxiyVLtYXzIuNdmvcKlOXFwOydmBWmYaH5PGml9qUGl6jgCdmTHszVq2nB-xEYS34dszN2vw90fK-V9w_pcH_h0iX0tWKwL4gozk7hQQArdsrQ2vSluIrfq');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div
+                class="flex items-stretch justify-between gap-4 rounded-lg bg-gray-700 p-4 shadow-md"
+              >
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-white text-base font-bold leading-tight">
+                      Senior Transportation Services
+                    </p>
+                    <p class="text-blue-200 text-sm font-normal leading-normal">
+                      Safe and reliable transportation for medical appointments,
+                      errands, and social activities.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-blue-500 text-white text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View Profile</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEQkYIj-3yI1b7_nTTkApUx1UQSaQF78GYqTVUv1qvQxVreDTsFwChIoXjirea0P0UBSmonSPl6KLl99JEksdTIi5-bq8nbDn3aOY3qetv9RAgvs1i_Vgnpi_CrDJjImMGrbt-72P6MuiJeiD3SaqNKqWBbH59TePgQ3C2ivrsoPYdw0gqmvd6qPlGknv5BtHWf0X0iXIwrVOKt2UeCpXW9I-rieQ29tihzdix3-QzUu3RaMxpCmpIKd9Hy4dG2RyZNGUr9qfQnfW6');
+                  "
+                ></div>
+              </div>
+            </div>
+            <h2
+              class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              All Services
+            </h2>
+            <div class="px-4 py-3 @container">
+              <div
+                class="flex overflow-hidden rounded-lg border border-gray-700 bg-gray-800"
+              >
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-gray-800">
+                      <th
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-120 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Service
+                      </th>
+                      <th
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-240 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Category
+                      </th>
+                      <th
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-360 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Rating
+                      </th>
+                      <th
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-480 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Contact
+                      </th>
+                      <th
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-600 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal"
+                      >
+                        Hours
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-t-gray-700">
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-120 h-[72px] px-4 py-2 w-[400px] text-white text-sm font-normal leading-normal"
+                      >
+                        Home Care Assistance
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-240 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        In-Home Care
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-360 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        4.8 ★
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-480 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        (555) 123-4567
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-600 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        Mon-Fri: 9am-5pm
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-gray-700">
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-120 h-[72px] px-4 py-2 w-[400px] text-white text-sm font-normal leading-normal"
+                      >
+                        Elder Law Attorney
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-240 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        Legal Services
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-360 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        4.9 ★
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-480 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        (555) 987-6543
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-600 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        Mon-Fri: 9am-5pm
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-gray-700">
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-120 h-[72px] px-4 py-2 w-[400px] text-white text-sm font-normal leading-normal"
+                      >
+                        Senior Transportation Services
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-240 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        Transportation
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-360 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        4.7 ★
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-480 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        (555) 111-2222
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-600 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        Mon-Sun: 7am-7pm
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-gray-700">
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-120 h-[72px] px-4 py-2 w-[400px] text-white text-sm font-normal leading-normal"
+                      >
+                        Financial Planning for Seniors
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-240 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        Financial Services
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-360 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        4.6 ★
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-480 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        (555) 333-4444
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-600 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        Mon-Fri: 9am-5pm
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-gray-700">
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-120 h-[72px] px-4 py-2 w-[400px] text-white text-sm font-normal leading-normal"
+                      >
+                        Senior Fitness Classes
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-240 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        Health &amp; Wellness
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-360 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        4.5 ★
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-480 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        (555) 555-6666
+                      </td>
+                      <td
+                        class="table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-600 h-[72px] px-4 py-2 w-[400px] text-blue-200 text-sm font-normal leading-normal"
+                      >
+                        Mon-Sat: 8am-6pm
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <style>
+                @container (max-width:120px) {
+                  .table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-120 {
+                    display: none;
+                  }
+                }
+                @container (max-width:240px) {
+                  .table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-240 {
+                    display: none;
+                  }
+                }
+                @container (max-width:360px) {
+                  .table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-360 {
+                    display: none;
+                  }
+                }
+                @container (max-width:480px) {
+                  .table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-480 {
+                    display: none;
+                  }
+                }
+                @container (max-width:600px) {
+                  .table-fa9a1b5f-e29e-41be-8526-e885df22a3ad-column-600 {
+                    display: none;
+                  }
+                }
+              </style>
+            </div>
+          </div>
+        </div>
+        <footer class="flex justify-center bg-gray-800">
+          <div class="flex max-w-[960px] flex-1 flex-col">
+            <footer
+              class="flex flex-col gap-6 px-5 py-10 text-center @container"
+            >
+              <div
+                class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around"
+              >
+                <a
+                  class="text-blue-300 text-base font-normal leading-normal min-w-40"
+                  href="#"
+                  >About Us</a
+                >
+                <a
+                  class="text-blue-300 text-base font-normal leading-normal min-w-40"
+                  href="#"
+                  >Contact</a
+                >
+                <a
+                  class="text-blue-300 text-base font-normal leading-normal min-w-40"
+                  href="#"
+                  >Privacy Policy</a
+                >
+                <a
+                  class="text-blue-300 text-base font-normal leading-normal min-w-40"
+                  href="#"
+                  >Terms of Service</a
+                >
+              </div>
+              <p class="text-blue-300 text-base font-normal leading-normal">
+                © 2023 Elderly. All rights reserved.
+              </p>
+            </footer>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

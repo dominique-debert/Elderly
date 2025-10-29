@@ -1,0 +1,316 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden"
+      style="
+        --select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(97,117,137)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e');
+        font-family: 'Public Sans', 'Noto Sans', sans-serif;
+      "
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] px-10 py-3"
+        >
+          <div class="flex items-center gap-4 text-[#111418]">
+            <div class="size-4">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2
+              class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              Elderly
+            </h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a
+                class="text-[#111418] text-sm font-medium leading-normal"
+                href="#"
+                >Accueil</a
+              >
+              <a
+                class="text-[#111418] text-sm font-medium leading-normal"
+                href="#"
+                >Mes activités</a
+              >
+              <a
+                class="text-[#111418] text-sm font-medium leading-normal"
+                href="#"
+                >Messages</a
+              >
+              <a
+                class="text-[#111418] text-sm font-medium leading-normal"
+                href="#"
+                >Profil</a
+              >
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f2f4] text-[#111418] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div
+                class="text-[#111418]"
+                data-icon="Bell"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfuonlLRwZrzXIrOzN2_XRme2jVq4S9rkL9_FPrORt5D8jN14FKK4l9EvgLUX1U2QGpcqiEpvxLtFMocJwgHZ42YqmN3QwCBm2eJW7puL6WfzAfu5MbZIVvG4xOGvurikT66RsNUKb633Hl1sL_IaMYjrMuEMmtdiaoUv5MHdnAf8dGMISAy8kADykOPP2k1VIL4e6Z1jqjJGvh3u2PjUV-2WBzyeiG6xIl9zRQlRcQReV34k9GUxBHCO8GN2VmvOP4S9MuEqNacFS');
+              "
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p
+                class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72"
+              >
+                Créer une activité
+              </p>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111418] text-base font-medium leading-normal pb-2"
+                >
+                  Titre de l'activité
+                </p>
+                <input
+                  placeholder="Ex: Cours de yoga doux"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111418] text-base font-medium leading-normal pb-2"
+                >
+                  Description
+                </p>
+                <textarea
+                  placeholder="Décrivez votre activité en détail"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] min-h-36 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                ></textarea>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111418] text-base font-medium leading-normal pb-2"
+                >
+                  Date
+                </p>
+                <input
+                  placeholder="JJ/MM/AAAA"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111418] text-base font-medium leading-normal pb-2"
+                >
+                  Heure
+                </p>
+                <input
+                  placeholder="HH:MM"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111418] text-base font-medium leading-normal pb-2"
+                >
+                  Lieu
+                </p>
+                <div class="flex flex-col gap-2">
+                  <input
+                    placeholder="Adresse ou nom du lieu"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                    value=""
+                  />
+                  <div
+                    class="w-full h-60 rounded-lg overflow-hidden border border-[#dbe0e6]"
+                  >
+                    <img
+                      src="https://via.placeholder.com/600x400"
+                      alt="Map placeholder"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111418] text-base font-medium leading-normal pb-2"
+                >
+                  Type d'activité
+                </p>
+                <select
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 bg-[image:--select-button-svg] placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                >
+                  <option value="one"></option>
+                  <option value="two">two</option>
+                  <option value="three">three</option>
+                </select>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111418] text-base font-medium leading-normal pb-2"
+                >
+                  Accessibilité
+                </p>
+                <select
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 bg-[image:--select-button-svg] placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                >
+                  <option value="one"></option>
+                  <option value="two">two</option>
+                  <option value="three">three</option>
+                </select>
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p
+                  class="text-[#111418] text-base font-medium leading-normal pb-2"
+                >
+                  Tags
+                </p>
+                <input
+                  placeholder="Ajouter des tags (ex: yoga, plein air, détente)"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex gap-3 p-3 flex-wrap pr-4">
+              <div
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#f0f2f4] pl-4 pr-4"
+              >
+                <p class="text-[#111418] text-sm font-medium leading-normal">
+                  Yoga
+                </p>
+              </div>
+              <div
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#f0f2f4] pl-4 pr-4"
+              >
+                <p class="text-[#111418] text-sm font-medium leading-normal">
+                  Plein air
+                </p>
+              </div>
+              <div
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#f0f2f4] pl-4 pr-4"
+              >
+                <p class="text-[#111418] text-sm font-medium leading-normal">
+                  Détente
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col p-4">
+              <div
+                class="flex flex-col items-center gap-6 rounded-xl border-2 border-dashed border-[#dbe0e6] px-6 py-14"
+              >
+                <div class="flex max-w-[480px] flex-col items-center gap-2">
+                  <p
+                    class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] max-w-[480px] text-center"
+                  >
+                    Télécharger des photos
+                  </p>
+                  <p
+                    class="text-[#111418] text-sm font-normal leading-normal max-w-[480px] text-center"
+                  >
+                    Ajouter des images pour rendre votre activité plus
+                    attrayante
+                  </p>
+                </div>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#f0f2f4] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Choisir des fichiers</span>
+                </button>
+              </div>
+            </div>
+            <div class="flex w-full grow bg-white @container p-4">
+              <div
+                class="w-full gap-1 overflow-hidden bg-white @[480px]:gap-2 aspect-[3/2] rounded-xl flex"
+              >
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDij3H8f3IQQN9aNqsU3cayoYrhtbvT7oIWN8A1RsJaARJFshnZupqSuzSJLFg1mCaCvkxpb6_uZ0m8RAsFZSH6KgvgMbqP1e8D3rR1x92LE9DfeqOioQUDcquMm9P06gOj8lIn3hU-RT49KF9Bap-DJ7sqmQ5KZh1BYbk0bk0Ptr_9E6Kk2E5jfhWC1RkFSNQOT53OmXJRixS2SfzZQu8qXLg66VTSARY8peyQ_fV7b4TttfcXuXw5Pb6vZT69CIYE-PU2fZyoIPWr');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="flex justify-stretch">
+              <div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-end">
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#f0f2f4] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Enregistrer comme brouillon</span>
+                </button>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1380ec] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Publier l'activité</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

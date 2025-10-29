@@ -1,0 +1,929 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      /* Add custom playful icon styles here if needed */
+      .icon-playful {
+        /* Example: slightly offset or with a subtle shadow */
+        filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.1));
+      }
+      .card-hover:hover {
+        transform: translateY(-5px) scale(1.02);
+        transition: transform 0.3s ease-in-out;
+      }
+      .button-hover:hover {
+        background-color: #a0aec0; /* Lighter shade on hover */
+        transition: background-color 0.2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-gray-100 group/design-root overflow-x-hidden"
+      style="font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col w-80">
+            <div
+              class="flex flex-col justify-between bg-white p-6 rounded-2xl shadow-lg"
+            >
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFSGXN8ceEELTKzORfxmfaFG02r8x7m5cG8E9uiFgaUxIXBqTFbdISQ6pr_amAoOFHXOOS9Rqmj10O0fi1Av8HqzA4-5b-LrjwmA_52ceWC4dzHBcTdtbyFoV6VObSZDkQFprEe6xD11thjY0PrelsMlZE2u1xoVpmPUcXB986uNy7R9nXarLAWHCvDHGDyB0tkaXTzOHWCLcpYrqfn0sMGHwW41J8btXsl4KOnzr9bgYYpsZy5GfhTdz4p3uImZrPlpEMd2X4cOuH');
+                    "
+                  ></div>
+                  <h1 class="text-xl font-extraboldtext-primary">
+                    Sophie Martin
+                  </h1>
+                </div>
+                <div class="flex flex-col gap-3">
+                  <div
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-100 button-hover"
+                  >
+                    <img
+                      src="path/to/custom/home-icon.svg"
+                      alt="Home icon"
+                      class="w-6 h-6 text-blue-500 icon-playful"
+                    />
+                    <p class="text-gray-700 text-base font-medium">Home</p>
+                  </div>
+                  <div
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-50 hover:bg-blue-100 button-hover"
+                  >
+                    <img
+                      src="path/to/custom/calendar-icon.svg"
+                      alt="Calendar icon"
+                      class="w-6 h-6 text-blue-500 icon-playful"
+                    />
+                    <p class="text-gray-700 text-base font-medium">Calendar</p>
+                  </div>
+                  <div
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-100 button-hover"
+                  >
+                    <img
+                      src="path/to/custom/users-icon.svg"
+                      alt="Users icon"
+                      class="w-6 h-6 text-blue-500 icon-playful"
+                    />
+                    <p class="text-gray-700 text-base font-medium">
+                      Communities
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-100 button-hover"
+                  >
+                    <img
+                      src="path/to/custom/chat-icon.svg"
+                      alt="Chat icon"
+                      class="w-6 h-6 text-blue-500 icon-playful"
+                    />
+                    <p class="text-gray-700 text-base font-medium">Messages</p>
+                  </div>
+                  <div
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-100 button-hover"
+                  >
+                    <img
+                      src="path/to/custom/profile-icon.svg"
+                      alt="Profile icon"
+                      class="w-6 h-6 text-blue-500 icon-playful"
+                    />
+                    <p class="text-gray-700 text-base font-medium">Profile</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p
+                class="text-gray-800 text-4xl font-extrabold leading-tight min-w-72"
+              >
+                My Calendar
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-8 p-4">
+              <div
+                class="flex min-w-72 max-w-[360px] flex-1 flex-col gap-1 card-hover"
+              >
+                <div
+                  class="flex items-center p-2 justify-between bg-white rounded-t-xl"
+                >
+                  <button
+                    class="p-2 rounded-full bg-blue-100 hover:bg-blue-200 focus:outline-none button-hover"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20px"
+                      height="20px"
+                      fill="currentColor"
+                      viewBox="0 0 256 256"
+                      class="text-blue-600"
+                    >
+                      <path
+                        d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"
+                      ></path>
+                    </svg>
+                  </button>
+                  <p
+                    class="text-gray-800 text-lg font-bold leading-tight flex-1 text-center"
+                  >
+                    May 2024
+                  </p>
+                </div>
+                <div class="grid grid-cols-7 bg-white rounded-b-xl shadow-md">
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    S
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    M
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    T
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    W
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    T
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    F
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    S
+                  </p>
+                  <button
+                    class="h-12 w-full text-gray-700 col-start-4 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      1
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      2
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      3
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      4
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-white text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full bg-gradient-to-br from-purple-400 to-blue-500 shadow-lg"
+                    >
+                      5
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      6
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      7
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      8
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      9
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      10
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      11
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      12
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      13
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      14
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      15
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      16
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      17
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      18
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      19
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      20
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      21
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      22
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      23
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      24
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      25
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      26
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      27
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      28
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      29
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      30
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex min-w-72 max-w-[360px] flex-1 flex-col gap-1 card-hover"
+              >
+                <div
+                  class="flex items-center p-2 justify-between bg-white rounded-t-xl"
+                >
+                  <p
+                    class="text-gray-800 text-lg font-bold leading-tight flex-1 text-center"
+                  >
+                    June 2024
+                  </p>
+                  <button
+                    class="p-2 rounded-full bg-blue-100 hover:bg-blue-200 focus:outline-none button-hover"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20px"
+                      height="20px"
+                      fill="currentColor"
+                      viewBox="0 0 256 256"
+                      class="text-blue-600"
+                    >
+                      <path
+                        d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="grid grid-cols-7 bg-white rounded-b-xl shadow-md">
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    S
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    M
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    T
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    W
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    T
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    F
+                  </p>
+                  <p
+                    class="text-gray-500 text-xs font-bold leading-normal tracking-[0.015em] flex h-10 w-full items-center justify-center pb-0.5"
+                  >
+                    S
+                  </p>
+                  <button
+                    class="h-12 w-full text-gray-700 col-start-4 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      1
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      2
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      3
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      4
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      5
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      6
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      7
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      8
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      9
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      10
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      11
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      12
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      13
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      14
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      15
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      16
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      17
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      18
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      19
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      20
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      21
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      22
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      23
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      24
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      25
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      26
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      27
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      28
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      29
+                    </div>
+                  </button>
+                  <button
+                    class="h-12 w-full text-gray-700 text-sm font-medium leading-normal"
+                  >
+                    <div
+                      class="flex size-full items-center justify-center rounded-full"
+                    >
+                      30
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <h2
+              class="text-gray-800 text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-6"
+            >
+              My Activities
+            </h2>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[80px] py-3 rounded-xl shadow mx-4 mb-4 card-hover"
+            >
+              <div
+                class="text-blue-500 flex items-center justify-center rounded-lg bg-blue-100 shrink-0 size-14 icon-playful"
+              >
+                <img
+                  src="path/to/custom/yoga-icon.svg"
+                  alt="Yoga icon"
+                  class="w-8 h-8"
+                />
+              </div>
+              <div class="flex flex-col justify-center flex-1">
+                <p
+                  class="text-gray-800 text-base font-semibold leading-normal line-clamp-1"
+                >
+                  Yoga Class
+                </p>
+                <p
+                  class="text-blue-400 text-sm font-normal leading-normal line-clamp-2"
+                >
+                  10:00 AM - 11:00 AM
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[80px] py-3 rounded-xl shadow mx-4 mb-4 card-hover"
+            >
+              <div
+                class="text-purple-500 flex items-center justify-center rounded-lg bg-purple-100 shrink-0 size-14 icon-playful"
+              >
+                <img
+                  src="path/to/custom/painting-icon.svg"
+                  alt="Painting icon"
+                  class="w-8 h-8"
+                />
+              </div>
+              <div class="flex flex-col justify-center flex-1">
+                <p
+                  class="text-gray-800 text-base font-semibold leading-normal line-clamp-1"
+                >
+                  Painting Workshop
+                </p>
+                <p
+                  class="text-purple-400 text-sm font-normal leading-normal line-clamp-2"
+                >
+                  02:00 PM - 03:30 PM
+                </p>
+              </div>
+            </div>
+            <h2
+              class="text-gray-800 text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-6"
+            >
+              Communities
+            </h2>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[80px] py-3 rounded-xl shadow mx-4 mb-4 justify-between card-hover"
+            >
+              <div class="flex items-center gap-4 flex-1">
+                <div
+                  class="text-green-500 flex items-center justify-center rounded-lg bg-green-100 shrink-0 size-14 icon-playful"
+                >
+                  <img
+                    src="path/to/custom/hiking-icon.svg"
+                    alt="Hiking icon"
+                    class="w-8 h-8"
+                  />
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p
+                    class="text-gray-800 text-base font-semibold leading-normal line-clamp-1"
+                  >
+                    Forest Hike
+                  </p>
+                  <p
+                    class="text-green-400 text-sm font-normal leading-normal line-clamp-2"
+                  >
+                    04:00 PM - 05:00 PM
+                  </p>
+                </div>
+              </div>
+              <div class="shrink-0">
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-blue-200 text-blue-700 text-sm font-semibold leading-normal w-fit hover:bg-blue-300 button-hover"
+                >
+                  <span class="truncate">Chat</span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-white px-4 min-h-[80px] py-3 rounded-xl shadow mx-4 mb-4 justify-between card-hover"
+            >
+              <div class="flex items-center gap-4 flex-1">
+                <div
+                  class="text-orange-500 flex items-center justify-center rounded-lg bg-orange-100 shrink-0 size-14 icon-playful"
+                >
+                  <img
+                    src="path/to/custom/games-icon.svg"
+                    alt="Games icon"
+                    class="w-8 h-8"
+                  />
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p
+                    class="text-gray-800 text-base font-semibold leading-normal line-clamp-1"
+                  >
+                    Board Game Night
+                  </p>
+                  <p
+                    class="text-orange-400 text-sm font-normal leading-normal line-clamp-2"
+                  >
+                    06:00 PM - 07:00 PM
+                  </p>
+                </div>
+              </div>
+              <div class="shrink-0">
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-blue-200 text-blue-700 text-sm font-semibold leading-normal w-fit hover:bg-blue-300 button-hover"
+                >
+                  <span class="truncate">Chat</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

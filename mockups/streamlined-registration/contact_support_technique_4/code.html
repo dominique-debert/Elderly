@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111418]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">SilverConnect</h2>
+          </div>
+        </header>
+        <div class="flex flex-1 justify-center py-10 px-5">
+          <div class="flex w-full max-w-[720px] flex-col rounded-lg bg-white shadow-lg">
+            <div class="relative h-2 w-full overflow-hidden rounded-t-lg bg-gray-200">
+              <div class="absolute h-full w-2/3 bg-blue-500 transition-all duration-300"></div>
+            </div>
+            <div class="flex flex-col items-center justify-center p-8">
+              <h2 class="text-[#111418] tracking-tight text-[32px] font-bold leading-tight pb-2 text-center">Completez votre profil</h2>
+              <p class="text-[#617589] text-base font-normal leading-normal pb-8 text-center">Étape 2 sur 3 : Informations de contact</p>
+              <div class="w-full">
+                <div class="mb-6">
+                  <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="vous@exemple.com" required />
+                </div>
+                <div class="mb-6">
+                  <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Téléphone</label>
+                  <input type="tel" id="phone" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(123) 456-7890" />
+                </div>
+                <div class="mb-6">
+                  <label for="website" class="block text-sm font-semibold text-gray-700 mb-2">Site Web</label>
+                  <input type="url" id="website" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="https://votre-site.com" />
+                </div>
+              </div>
+              <div class="flex w-full justify-between pt-8">
+                <button
+                  class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-gray-300 bg-white h-10 px-4 text-sm font-bold leading-normal tracking-[0.015em] text-gray-700"
+                >
+                  <span class="truncate">Précédent</span>
+                </button>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1380ec] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Suivant</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
