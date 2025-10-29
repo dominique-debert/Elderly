@@ -14,7 +14,7 @@ import {
 
 export function SkillsTabContent() {
   return (
-    <Card className="w-full pt-4 gap-2">
+    <Card className="mt-6">
       <div className="flex justify-between items-center -mb-4">
         <div className="flex flex-col justify-center pt-4">
           <div className="text-xl ml-6 h-6">Gestion des compétences</div>

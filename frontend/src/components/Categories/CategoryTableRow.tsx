@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import Icon from "@mdi/react";
-import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import { PencilIcon, TrashIcon } from "lucide-react";
 import { type ICategory, type ETabKey } from "@/types";
 import {

@@ -15,7 +15,7 @@ export function ProfileHeader() {
 
   return (
     <>
-      <Card className="w-full p-6 border-0 bg-white shadow-md dark:bg-card">
+      <Card>
         <CardHeader className="w-full flex flex-col items-center border-0">
           <figure>
             <img

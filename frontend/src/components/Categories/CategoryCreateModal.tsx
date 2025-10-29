@@ -113,13 +113,13 @@ export function CategoryCreateModal({
             ✕
           </button>
 
-          <label className="text-sm -mb-2 mt-4">Nom</label>
+          <legend className="fieldset-legend text-sm -mb-4 mt-4">Nom</legend>
           <input
             type="text"
             name="name"
             value={form.name}
             onChange={handleChange}
-            className="input input-bordered w-full bg-white dark:bg-card"
+            className="input border bg-white focus-visible:border-0 dark:bg-card w-full"
             placeholder="Nom de la catégorie"
             required
           />
@@ -129,35 +129,39 @@ export function CategoryCreateModal({
             name="description"
             value={form.description}
             onChange={handleChange}
-            className="textarea textarea-bordered bg-white dark:bg-card w-full"
+            className="textarea border bg-white focus-visible:border-0 dark:bg-card w-full"
             placeholder="Description"
           />
 
-          <label className="text-sm -mb-2 mt-4">Chapitre</label>
+          <label htmlFor="chapterId" className="text-sm -mb-2 mt-4">
+            Chapitre
+          </label>
           <select
             name="chapterId"
             value={form.chapterId}
             onChange={handleChange}
-            className="select select-bordered bg-white dark:bg-card w-full"
+            className="select bg-white focus-visible:border-0 dark:bg-card w-full"
             required
           >
             <option value="" disabled>
               Choisir un chapitre
             </option>
-            {chapters.map((ch) => (
-              <option key={ch.chapterId} value={ch.chapterId}>
-                {ch.chapterName}
+            {chapters.map((chapter) => (
+              <option key={chapter.id} value={chapter.id}>
+                {chapter.chapterName}
               </option>
             ))}
           </select>
 
-          <label className="text-sm -mb-2 mt-4">Type</label>
+          <label htmlFor="typeId" className="text-sm -mb-2 mt-4">
+            Type
+          </label>
           <select
             name="typeId"
             value={form.typeId}
             onChange={handleChange}
             className="select select-bordered w-full bg-white dark:bg-card"
-            required
+            disabled
           >
             <option value="" disabled>
               Choisir un type

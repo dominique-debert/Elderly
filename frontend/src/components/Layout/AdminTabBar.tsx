@@ -53,13 +53,13 @@ export function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
             }`}
             aria-selected={activeTab === key}
           >
-            {icon && iconMap[icon] && (
+            {/* {icon && iconMap[icon] && (
               <Icon
                 path={iconMap[icon]}
                 size={0.8}
                 className="mr-2 text-white-400"
               />
-            )}
+            )} */}
             {label}
           </button>
         </li>

@@ -71,10 +71,8 @@ export function PreferencesTabContent() {
   }
 
   return (
-    <Card className="border-0 p-4">
-      <span className="text-xl mt-6 ml-4 mr-4 mb-0" style={{ lineHeight: 0 }}>
-        Notifications
-      </span>
+    <Card className="p-4 mt-6">
+      <span className="text-xl mt-6 ml-4 mr-4 mb-0">Notifications</span>
       <div className="divider mt-0 pt-0 border-0 mb-0"></div>
       <div className="flex gap-auto justify-between items-center mr-4 mb-4">
         <div className="flex flex-col gap-3 ml-4 mr-4 mb-0">

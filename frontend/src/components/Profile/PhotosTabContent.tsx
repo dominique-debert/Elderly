@@ -3,7 +3,7 @@ import { PlusIcon, XIcon, SearchIcon } from "lucide-react";
 
 export function PhotoTabContent() {
   return (
-    <Card className="w-full pt-4 gap-2 bg-white dark:bg-card shadow-md">
+    <Card className="mt-6">
       <div className="flex justify-between items-center -mb-4">
         <div className="flex flex-col justify-center pt-4">
           <div className="text-xl ml-6 h-6">Mes Photos</div>
