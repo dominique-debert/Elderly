@@ -328,10 +328,9 @@ model medicationReminder {
 }
 
 model menuItem {
-  id    String  @id @default(cuid())
+  id    String @id @default(cuid())
   label String
-  icon  String?
-  key   String  @default("undefined")
+  key   String @default("undefined")
 
   @@map("menu_items")
 }

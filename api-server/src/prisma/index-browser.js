@@ -355,7 +355,6 @@ exports.Prisma.MedicationReminderScalarFieldEnum = {
 exports.Prisma.MenuItemScalarFieldEnum = {
   id: 'id',
   label: 'label',
-  icon: 'icon',
   key: 'key'
 };
 
