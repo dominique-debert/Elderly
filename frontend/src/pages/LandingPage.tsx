@@ -4,8 +4,9 @@ export function LandingPage() {
   return (
     <div className="h-vh flex flex-col items-center justify-center pt-6">
       <header className="w-full flex justify-between items-center mb-12 border-b border-slate-800">
-        <div className="flex items-center gap-2 text-xl font-semibold mb-6 ml-6">
-          <img src="/images/logo.png" alt="Logo" className="h-10" />
+        <div className="flex p-2 pl-5 mb-6 items-center gap-4 font-normal text-2xl text-primary">
+          <img src="/images/elderly.webp" alt="Logo" className="h-8" />
+          <span className="text-primary text-2xl">Elderly</span>
         </div>
         <div className="flex gap-3 mb-6 mr-6">
           <button className="px-4 py-2 bg-white text-black rounded-xl text-sm font-medium">
@@ -34,7 +35,7 @@ export function LandingPage() {
           <img
             src="/images/landing-illustration.jpg"
             alt="Personnes âgées et jeunes cuisinant ensemble"
-            className="object-cover w-[500px] h-[320px]"
+            className="object-cover w-[500px] h-80"
           />
         </div>
       </main>
