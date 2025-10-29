@@ -25,7 +25,7 @@ function Step1({ onNext }: { onNext: () => void }) {
   };
 
   return (
-    <div className="h-vh bg-[#0F172A] text-white flex flex-col items-center justify-center pt-6">
+    <div className="h-vh text-white flex flex-col items-center justify-center pt-6">
       <h1 className="text-3xl font-light text-white mt-20 mb-8 text-center">
         Créez votre compte
       </h1>
@@ -40,21 +40,21 @@ function Step1({ onNext }: { onNext: () => void }) {
             Compte
           </span>
         </div>
-        <div className="w-16 h-px bg-gray-600 mx-4 mt-3.5"></div>
+        <div className="w-16 h-px bg-slate-600 mx-4 mt-3.5"></div>
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
             <span className="-mt-px">2</span>
           </div>
-          <span className="ml-2 text-sm text-gray-400 mt-4">
+          <span className="ml-2 text-sm text-slate-400 mt-4">
             Informations <br /> personnelles
           </span>
         </div>
-        <div className="w-16 h-px bg-gray-600 mx-4 mt-3.5"></div>
+        <div className="w-16 h-px bg-slate-600 mx-4 mt-3.5"></div>
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
             <span className="-mt-px">3</span>
           </div>
-          <span className="ml-2 text-sm text-gray-400 mt-4">Confirmation</span>
+          <span className="ml-2 text-sm text-slate-400 mt-4">Confirmation</span>
         </div>
       </div>
 
@@ -64,7 +64,7 @@ function Step1({ onNext }: { onNext: () => void }) {
             <input
               type="email"
               placeholder="Votre email"
-              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:bg-transparent focus:ring-2 focus:ring-blue-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -72,7 +72,7 @@ function Step1({ onNext }: { onNext: () => void }) {
             <input
               type="password"
               placeholder="Choisissez un mot de passe (8 caractères minimum)"
-              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -80,7 +80,7 @@ function Step1({ onNext }: { onNext: () => void }) {
             <input
               type="password"
               placeholder="Confirmez le mot de passe"
-              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
@@ -165,74 +165,74 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
             Compte
           </span>
         </div>
-        <div className="w-16 h-px bg-gray-600 mx-4 mt-4.5"></div>
+        <div className="w-16 h-px bg-slate-600 mx-4 mt-4.5"></div>
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-sm">
             <span className="-mt-px">2</span>
           </div>
-          <span className="ml-2 text-sm text-gray-400 mt-4">
+          <span className="ml-2 text-sm text-slate-400 mt-4">
             Informations <br /> personnelles
           </span>
         </div>
-        <div className="w-16 h-px bg-gray-600 mx-4 mt-4.5"></div>
+        <div className="w-16 h-px bg-slate-600 mx-4 mt-4.5"></div>
         <div className="flex flex-col items-center">
           <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
             <span className="-mt-px">3</span>
           </div>
-          <span className="ml-2 text-sm text-gray-400 mt-4">Confirmation</span>
+          <span className="ml-2 text-sm text-slate-400 mt-4">Confirmation</span>
         </div>
       </div>
 
       <main className="flex flex-col lg:flex-row items-center justify-between max-w-full w-[1164px] h-full mt-[60px] gap-24">
         <form onSubmit={handleNext} className="space-y-4 w-full">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-300 mb-2">
               Votre prénom
             </label>
             <input
               placeholder="Jean"
               type="text"
-              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-300 mb-2">
               Votre nom
             </label>
             <input
               type="text"
               placeholder="Durand"
-              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-300 mb-2">
               Votre date de naissance
             </label>
             <input
               type="date"
               lang="fr"
-              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={birthDate.toISOString().split("T")[0]}
               onChange={(e) => setBirthDate(new Date(e.target.value))}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-300 mb-2">
               Votre numéro de téléphone (facultatif)
             </label>
             <input
               pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
               type="tel"
               placeholder="06 12 34 56 78"
-              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
@@ -284,7 +284,7 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
             </div>
           ) : (
             <div
-              className="border-2 border-dashed border-gray-500 rounded-lg p-6 h-64 flex flex-col items-center justify-start text-center text-slate-400 cursor-pointer hover:bg-slate-800 transition-colors"
+              className="border-2 border-dashed border-slate-500 rounded-lg p-6 h-64 flex flex-col items-center justify-start text-center text-slate-400 cursor-pointer hover:bg-slate-800 transition-colors"
               onClick={handleFileClick}
             >
               <div className="w-16 h-16 flex items-center justify-center mb-4">
@@ -468,7 +468,7 @@ function Step3() {
                 Compte
               </span>
             </div>
-            <div className="w-16 h-px bg-gray-600 mx-4 mt-4.5"></div>
+            <div className="w-16 h-px bg-slate-600 mx-4 mt-4.5"></div>
             <div className="flex flex-col items-center">
               <div className="font-medium w-10 h-10 border border-slate-500 text-slate-500 rounded-full flex items-center justify-center text-sm">
                 <span className="-mt-px">2</span>
@@ -504,9 +504,9 @@ function Step3() {
                 type="checkbox"
                 checked={acceptTerms}
                 onChange={(e) => setAcceptTerms(e.target.checked)}
-                className="w-4 h-4 text-blue-600 bg-transparent border-gray-600 rounded focus:ring-blue-500 mt-1"
+                className="w-4 h-4 text-blue-600 bg-transparent border-slate-600 rounded focus:ring-blue-500 mt-1"
               />
-              <span className="text-sm text-gray-400">
+              <span className="text-sm text-slate-400">
                 En cliquant ici, je déclare avoir lu et compris les conditions
                 générales.
               </span>
@@ -517,9 +517,9 @@ function Step3() {
                 type="checkbox"
                 checked={acceptNewsletter}
                 onChange={(e) => setAcceptNewsletter(e.target.checked)}
-                className="w-4 h-4 text-blue-600 bg-transparent border-gray-600 rounded focus:ring-blue-500 mt-1"
+                className="w-4 h-4 text-blue-600 bg-transparent border-slate-600 rounded focus:ring-blue-500 mt-1"
               />
-              <span className="text-sm text-gray-400">
+              <span className="text-sm text-slate-400">
                 J'accepte de recevoir la newsletter Elderly chaque semaine.
               </span>
             </label>

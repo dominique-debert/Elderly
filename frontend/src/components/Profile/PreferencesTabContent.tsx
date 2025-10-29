@@ -399,10 +399,6 @@ export function PreferencesTabContent() {
       </span>
       <div className="divider mt-0 pt-0 mb-0"></div>
 
-      <div className="btn btn-ghost pt-6 pb-6 dark:hover:bg-slate-800 flex justify-between ml-4 mr-4">
-        <span className="text-lg font-light">Modifier le mot de passe</span>
-        <Icon path={mdiChevronRight} size={1.2} className="text-slate-400" />
-      </div>
       <Link to="/login" onClick={() => logout(navigate)}>
         <div className="btn btn-ghost pt-6 pb-6 dark:hover:bg-slate-800 flex justify-between ml-4 mr-4 -mt-4 mb-4">
           <span className="text-lg font-light text-red-600">Déconnexion</span>

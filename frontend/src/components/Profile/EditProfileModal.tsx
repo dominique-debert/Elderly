@@ -90,6 +90,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
         confirmPassword: "",
       });
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError: (error: any) => {
       const errorMessage =
         error?.response?.data?.message ||
@@ -381,7 +382,6 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
                 }
                 className="input input-bordered bg-white! dark:bg-card! w-full"
                 placeholder="Entrez votre mot de passe actuel"
-                disabled
               />
             </div>
 
