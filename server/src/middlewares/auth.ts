@@ -1,32 +1,27 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import createHttpError from "http-errors";
 
-export interface AuthenticatedRequest extends Request {
-  user?: { userId: string };
-}
-
-export const authenticate = (
-  req: AuthenticatedRequest,
-  res: Response,
-  next: NextFunction
-) => {
+export function authenticate(req: Request, res: Response, next: NextFunction) {
   const authHeader = req.headers.authorization;
-
-  if (!authHeader || !authHeader.startsWith("Bearer "))
-    return next(
-      createHttpError(401, "Authentication token missing or invalid")
-    );
+  if (!authHeader) {
+    return res.redirect("/login");
+  }
 
   const token = authHeader.split(" ")[1];
-
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as {
-      userId: string;
-    };
-    req.user = { userId: decoded.userId };
+  jwt.verify(token, process.env.JWT_SECRET as string, (err, user) => {
+    if (err) {
+      if (err.name === "TokenExpiredError") {
+        if (req.accepts("html")) {
+          return res.redirect("/login");
+        } else {
+          return res
+            .status(401)
+            .json({ message: "Token expired. Please log in again." });
+        }
+      }
+      return res.status(403).json({ message: "Invalid token" });
+    }
+    (req as any).user = user;
     next();
-  } catch (error) {
-    return next(error);
-  }
-};
+  });
+}
