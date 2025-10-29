@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import Icon from "@mdi/react";
-import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
-
+import { PencilIcon, TrashIcon } from "lucide-react";
 import { type ICategory, type ETabKey } from "@/types";
 import { CategoryEditModal, CategoryDeleteModal } from "@/components";
 
@@ -43,14 +41,14 @@ export function CategoryListItem({ category, tabKey }: CategoryListItemProps) {
             className="btn btn-sm size-8 p-1 text-primary bg-primary/10 hover:bg-primary/20"
             aria-label="Modifier"
           >
-            <Icon path={mdiPencilOutline} size={0.8} />
+            <PencilIcon className="size-4" />
           </button>
           <button
             onClick={() => setIsConfirmDeleteOpen(true)}
             className="btn btn-sm size-8 p-1 text-error bg-error/10 hover:bg-error/20"
             aria-label="Supprimer"
           >
-            <Icon path={mdiDeleteOutline} size={0.8} />
+            <TrashIcon className="size-4" />
           </button>
         </div>
       </li>

@@ -1,9 +1,8 @@
-import Icon from "@mdi/react";
-import { mdiViewGrid, mdiViewList, mdiTable, mdiPlus } from "@mdi/js";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { ETabKey } from "@/types/ETabKey";
 import { CategoryCreateModal } from "@/components";
+import { LayoutGridIcon, Grid2X2Icon, ListIcon, PlusIcon } from "lucide-react";
 
 type SwitchProps = {
   mode: "card" | "list" | "table";
@@ -29,7 +28,7 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
           }}
           className="btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-card h-10"
         >
-          <Icon path={mdiPlus} size={1} />
+          <PlusIcon className="size-5" />
         </button>
         <button
           onClick={() => setMode("card")}
@@ -37,7 +36,7 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
             mode === "card" ? "btn-primary" : ""
           }`}
         >
-          <Icon path={mdiViewGrid} size={1} />
+          <LayoutGridIcon className="size-5" />
         </button>
         <button
           onClick={() => setMode("list")}
@@ -45,7 +44,7 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
             mode === "list" ? "btn-primary" : ""
           }`}
         >
-          <Icon path={mdiViewList} size={1} />
+          <ListIcon className="size-5" />
         </button>
         <button
           onClick={() => setMode("table")}
@@ -53,7 +52,7 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
             mode === "table" ? "btn-primary" : ""
           }`}
         >
-          <Icon path={mdiTable} size={1} />
+          <Grid2X2Icon className="size-5" />
         </button>
       </div>
 

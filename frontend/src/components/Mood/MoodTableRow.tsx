@@ -1,7 +1,7 @@
 import Icon from "@mdi/react";
-import { mdiPencilOutline, mdiCircle, mdiDeleteOutline } from "@mdi/js";
+import { mdiCircle } from "@mdi/js";
 import { useState } from "react";
-
+import { PencilIcon, TrashIcon } from "lucide-react";
 import type { IMood } from "@/types/IMood";
 
 import {
@@ -49,13 +49,13 @@ export function MoodTableRow({ mood }: { mood: IMood }) {
               className="btn text-primary bg-primary/20 hover:bg-primary/30 size-8 p-0"
               onClick={() => setIsEditOpen(true)}
             >
-              <Icon path={mdiPencilOutline} size={0.8} />
+              <PencilIcon className="size-4" />
             </button>
             <button
               className="btn text-red-400 bg-red-600/20 hover:bg-red-600/30 size-8 p-0"
               onClick={() => setIsConfirmDeleteOpen(true)}
             >
-              <Icon path={mdiDeleteOutline} size={0.8} />
+              <TrashIcon className="size-4" />
             </button>
           </div>
         </TableCell>
