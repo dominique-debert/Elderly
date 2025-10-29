@@ -1,0 +1,148 @@
+import { PrismaClient } from '@/prisma/client';
+import { createHttpError } from '@/utils/httpError';
+import { ECategoryType } from '@/@types/data/categories/ECategory';
+const prisma = new PrismaClient();
+/**
+* @swagger
+* tags:
+*   name: Resource Categories
+*   description: API pour gérer les catégories de ressources
+*/
+// TOUTES LES CATÉGORIES DE RESSOURCES
+export const fetchAllResourceCategories = async (req, res, next) => {
+    try {
+        const categories = await prisma.category.findMany({
+            where: {
+                typeId: ECategoryType.RESOURCE
+            },
+            orderBy: {
+                categoryName: 'asc',
+            },
+            include: {
+                categoryType: {
+                    select: {
+                        id: true,
+                        name: true
+                    },
+                },
+                categoryChapter: {
+                    select: {
+                        chapterId: true,
+                        chapterName: true,
+                        chapterDescription: true,
+                    },
+                },
+            }
+        });
+        const grouped = {};
+        // Étape 1 : Regrouper d'abord par typeName → chapterName
+        categories.forEach((category) => {
+            const typeName = category.categoryType?.name ?? 'Sans type';
+            const chapterName = category.categoryChapter?.chapterName ?? 'Sans chapitre';
+            if (!grouped[typeName])
+                grouped[typeName] = {};
+            if (!grouped[typeName][chapterName])
+                grouped[typeName][chapterName] = [];
+            grouped[typeName][chapterName].push({
+                id: category.id,
+                categoryName: category.categoryName,
+                description: category.description,
+            });
+        });
+        // Étape 2 : Trier par typeName > chapterName > categoryName
+        const sortedGrouped = {};
+        Object.keys(grouped).sort().forEach((typeName) => {
+            sortedGrouped[typeName] = {};
+            Object.keys(grouped[typeName]).sort().forEach((chapterName) => {
+                sortedGrouped[typeName][chapterName] = grouped[typeName][chapterName].sort((a, b) => a.categoryName.localeCompare(b.categoryName));
+            });
+        });
+        res.status(200).json(grouped);
+    }
+    catch (error) {
+        next(error);
+    }
+};
+// CATÉGORIE DE RESSOURCE PAR ID
+export const fetchResourceCategoryById = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        const resourceCategory = await prisma.category.findUnique({
+            where: {
+                id: Number(id),
+                typeId: ECategoryType.RESOURCE
+            }
+        });
+        if (!resourceCategory) {
+            throw createHttpError(404, 'Catégorie non trouvée');
+        }
+        res.status(200).json(resourceCategory);
+    }
+    catch (error) {
+        next(error);
+    }
+};
+// CRÉER UNE CATÉGORIE DE RESSOURCE
+export const createResourceCategory = async (req, res, next) => {
+    try {
+        const categoryToCreate = await prisma.category.create({
+            data: req.body
+        });
+        res.status(201).json(categoryToCreate);
+    }
+    catch (error) {
+        next(error);
+    }
+};
+export const updateResourceCategory = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        const category = await prisma.category.findUnique({
+            where: {
+                id: Number(id),
+                typeId: ECategoryType.RESOURCE
+            }
+        });
+        if (!category) {
+            throw createHttpError(404, 'Catégorie non trouvée');
+        }
+        const categoryToUpdate = await prisma.category.update({
+            data: {
+                ...req.body,
+                updatedAt: new Date()
+            },
+            where: {
+                id: Number(id),
+                typeId: ECategoryType.RESOURCE
+            }
+        });
+        res.status(200).json(categoryToUpdate);
+    }
+    catch (error) {
+        next(error);
+    }
+};
+export const deleteResourceCategory = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        const category = await prisma.category.findUnique({
+            where: {
+                id: Number(id),
+                typeId: ECategoryType.RESOURCE
+            }
+        });
+        if (!category) {
+            throw createHttpError(404, 'Catégorie non trouvée');
+        }
+        await prisma.category.delete({
+            where: {
+                id: Number(id),
+                typeId: ECategoryType.RESOURCE
+            }
+        });
+        res.status(200).json({ message: 'Catégorie supprimée avec succès' });
+    }
+    catch (error) {
+        next(error);
+    }
+};

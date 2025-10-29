@@ -1,0 +1,12 @@
+export {};
+// userId                 String    @id @map("user_id")
+// servicesProvided       Int?      @map("services_provided")
+// servicesReceived       Int?      @map("services_received")
+// activitiesParticipated Int?      @map("activities_participated")
+// activitiesOrganized    Int?      @map("activities_organized")
+// forumMessages          Int?      @map("forum_messages")
+// totalHelpPoints        Int?      @map("total_help_points")
+// networkSize            Int?      @map("network_size")
+// createdAt              DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+// updatedAt              DateTime? @map("updated_at") @db.Timestamp(6)
+// user                   user      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
