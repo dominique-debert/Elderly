@@ -72,7 +72,7 @@ export function Navbar() {
       <div className="navbar bg-white dark:bg-card fixed top-0 z-50 h-16 w-full shadow-sm border-b border-base-200">
         <div className="flex justify-between w-full items-center">
           <Link to="/dashboard">
-            <div className="flex p-2 pl-5 items-center gap-4 font-normal text-2xl text-primary">
+            <div className="flex p-2 pl-3 items-center gap-4 font-normal text-2xl text-primary">
               <img src="/images/elderly.webp" alt="Logo" className="h-8" />
               <span className="text-primary text-2xl">Elderly</span>
             </div>

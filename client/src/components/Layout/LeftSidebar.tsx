@@ -1,59 +1,44 @@
-import Icon from "@mdi/react";
-import {
-  mdiBottleTonicPlusOutline,
-  mdiForumOutline,
-  mdiHeadHeartOutline,
-  mdiHeartOutline,
-  mdiViewDashboardOutline,
-} from "@mdi/js";
+import { Home, Calendar, Search, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function LeftSidebar() {
   return (
-    <aside className="hidden w-20 mr-2 lg:block">
-      <div className="fixed bg-white dark:bg-card z-60 top-16 left-0 w-20 h-[calc(100vh-4rem)] border-r border-base-300 flex flex-col items-center py-4">
-        <nav className="flex-1 w-full px-2 space-y-2 rounded-xl">
+    <div className="drawer drawer-open h-full top-16 left-0 w-56">
+      <div className="drawer-content h-screen w-56 flex flex-col items-start bg-white dark:bg-card">
+        <nav className="flex-1 px-2 space-y-2 rounded-xl mt-4">
           <Link
             to="/dashboard"
-            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
-            data-tip="Tableau de bord"
+            className="w-52 p-3 flex gap-4 justify-start rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
           >
-            <Icon path={mdiViewDashboardOutline} size={1} />
+            <Home className="text-white/30" />
+            Accueil
           </Link>
 
           <Link
-            to={"/wellness"}
-            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
-            data-tip="Bien-être"
+            to=""
+            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
           >
-            <Icon path={mdiHeartOutline} size={1} />
+            <Search className="text-white/30" />
+            Explorer
           </Link>
 
           <Link
-            to={"/medications"}
-            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
-            data-tip="Traitements"
+            to={"/activities"}
+            className="w-full p-3 flex gap-4 justify-start items-center align-middle rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
           >
-            <Icon path={mdiBottleTonicPlusOutline} size={1} />
+            <Calendar className="text-white/30" />
+            Mes Activités
           </Link>
 
           <Link
-            to={"/objectives"}
-            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
-            data-tip="Objectifs"
+            to={"/messages"}
+            className="w-full p-3 flex gap-4 justify-start items-center align-middle rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
           >
-            <Icon path={mdiHeadHeartOutline} size={1} />
-          </Link>
-
-          <Link
-            to={"/forum"}
-            className="tooltip tooltip-right w-full p-3 flex justify-center rounded-lg text-gray-400 hover:bg-primary/30 tooltip-accent focus:bg-primary/30 active:focus:bg-primary/30"
-            data-tip="Forum"
-          >
-            <Icon path={mdiForumOutline} size={1} />
+            <MessageCircle className="text-white/30" />
+            Messages
           </Link>
         </nav>
       </div>
-    </aside>
+    </div>
   );
 }
