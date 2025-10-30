@@ -11,7 +11,7 @@
   --color-background-light: #f1f5f9;
   --color-background-dark: hsl(222.2, 69.2%, 7.6%);
   --tab-p: 0;
-  --color-primary: hsl(210.1, 85.1%, 50%);
+  --color-primary: oklch(49% 0.27 292.581);
 }
 
 @plugin "daisyui" {
@@ -23,19 +23,18 @@
 
 @layer base {
   * {
-    --radius-field: 0.5rem;
-    --size-selector: 0.2rem;
-    --color-primary: hsl(210.1, 85.1%, 50%);
+    --radius-selector: 1rem;
+    --radius-field: 1rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+    --color-primary: hsl(219.75903, 100%, 67%);
     --text-primary: hsl(0 0% 100%);
     --primary: hsl(226.7, 27.3%, 6.5%);
     --font-display: "Lexend", sans-serif;
-  }
-}
-
-@layer base {
-  [data-theme="nord"] {
-    /* --color-card: hsl(207 97% 12%); */
-    --color-primary: hsl(210.1, 85.1%, 50%);
   }
 }
 
