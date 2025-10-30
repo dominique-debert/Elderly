@@ -75,16 +75,18 @@ export const DashboardWeatherWidget = () => {
                   i: number
                 ) => (
                   <div key={i}>
-                    <div className="text-lg capitalize">
+                    <div className="text-lg capitalize text-accent font-medium">
                       {new Date(day.date).toLocaleDateString("fr-FR", {
                         weekday: "long",
                       })}
                     </div>
                     <div className="flex flex-col justify-center items-center gap-4 text-md mt-4">
                       {renderIcon(day.icone)}
-                      <p className="mt-4">{day.description}</p>
+                      <p className="mt-4 text-base-content/70">
+                        {day.description}
+                      </p>
                     </div>
-                    <div className="mt-4 text-md">
+                    <div className="mt-4 text-md text-base-content/60">
                       <div>Min: {day.temperature_min}°</div>
                       <div>Max: {day.temperature_max}°</div>
                     </div>

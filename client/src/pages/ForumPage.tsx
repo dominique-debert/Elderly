@@ -14,7 +14,7 @@ export function ForumPage() {
         <div className="lg:flex lg:flex-row gap-4">
           {user ? (
             <>
-              <h2 className="text-slate-400 font-light">Forum - Bientot !</h2>
+              <h2 className="text-slate-400 font-light">Forum - Bientôt !</h2>
             </>
           ) : (
             <p>Les informations de profil sont introuvables.</p>
