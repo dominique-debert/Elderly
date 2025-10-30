@@ -95,7 +95,7 @@
       & tbody {
         & tr {
           &:where(:nth-child(2n)) {
-            background-color: #f1f5f9;
+            background-color: rgba(240, 245, 249, 0.4);
           }
         }
       }

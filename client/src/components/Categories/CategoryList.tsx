@@ -75,7 +75,7 @@ export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
   })();
 
   return (
-    <div className="w-full p-4 card bg-white dark:bg-card shadow-md">
+    <div className="w-full mt-20 p-4 card bg-white dark:bg-card shadow-md">
       <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}

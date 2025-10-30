@@ -48,22 +48,19 @@ export function MoodList() {
     ) || [];
 
   return (
-    <Card className="pt-0">
-      <div className="w-full p-4">
-        {moods && moods.length > 0 && (
-          <CategoryModeSwitcher
-            mode={mode}
-            setMode={setMode}
-            search={search}
-            setSearch={setSearch}
-            activeTab={ETabKey.Mood}
-          />
-        )}
-
-        {mode === "card" && <MoodCardView moods={filteredMoods} />}
-        {mode === "list" && <MoodListView moods={filteredMoods} />}
-        {mode === "table" && <MoodTableView moods={filteredMoods} />}
-      </div>
-    </Card>
+    <div className="w-full mt-20 p-4 card bg-white dark:bg-card shadow-md">
+      {moods && moods.length > 0 && (
+        <CategoryModeSwitcher
+          mode={mode}
+          setMode={setMode}
+          search={search}
+          setSearch={setSearch}
+          activeTab={ETabKey.Mood}
+        />
+      )}
+      {mode === "card" && <MoodCardView moods={filteredMoods} />}
+      {mode === "list" && <MoodListView moods={filteredMoods} />}
+      {mode === "table" && <MoodTableView moods={filteredMoods} />}
+    </div>
   );
 }

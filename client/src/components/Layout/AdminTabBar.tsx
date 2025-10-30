@@ -1,8 +1,5 @@
-import Icon from "@mdi/react";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-
-import { iconMap } from "@/constants";
 import { getMenuItems } from "@/services";
 import { ETabKey } from "@/types/ETabKey";
 

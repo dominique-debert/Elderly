@@ -31,17 +31,17 @@ export function AdminPage() {
   };
 
   return (
-    <div className="flex flex-col mt-12 ml-58 w-[calc(100vw-13.5rem)] rounded-2xl justify-items-center align-items-center p-8">
+    <div className="flex flex-col mt-0 ml-58 w-[calc(100vw-13.5rem)] rounded-2xl justify-items-center align-items-center p-8">
       {user && user.isAdmin ? (
         <>
-          <div className="fixed top-16 z-30 p-4 pb-8 pt-4 w-[calc(100vw-16rem)] dark:bg-[#060e21] backdrop-blur-md bg-(--root-bg) pr-12">
+          <div className="fixed top-16 z-30 p-4 pb-8 pt-6 w-[calc(100vw-16rem)] dark:bg-[#060e21] bg-(--root-bg) pr-12">
             <h2 className="text-2xl font-semibold text-primary -mb-4">
               Administration
             </h2>
             <div className="divider expert-blue"></div>
             <AdminTabBar activeTab={activeTab} setActiveTab={setActiveTab} />
           </div>
-          <div className="mt-43">
+          <div className="mt-50">
             {activeTab === ETabKey.Mood ? (
               <MoodList />
             ) : (

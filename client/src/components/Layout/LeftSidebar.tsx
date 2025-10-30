@@ -10,96 +10,136 @@ import {
   LayoutList,
   HeartHandshake,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export function LeftSidebar() {
   return (
     <div className="fixed z-40 drawer drawer-open h-[calc(100vh-6.3rem)] top-20 left-4 w-56 rounded-2xl shadow-lg border border-base-200">
       <div className="drawer-content w-56 flex flex-col items-start bg-white dark:bg-card rounded-2xl shadow-lg">
         <div className="flex flex-col px-2 gap-4 mt-4 w-55">
-          <Link
+          <NavLink
             to="/dashboard"
-            className="p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <Home className="text-slate-400 dark:text-white/30" />
+            <Home className="text-base dark:text-white/40" />
             Accueil
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/explore"
-            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <Search className="text-slate-400 dark:text-white/30" />
+            <Search className="text-base dark:text-white/40" />
             Explorer
-          </Link>
+          </NavLink>
 
           <div className="divider expert-blue m-0"></div>
 
-          <Link
+          <NavLink
             to={"/activities"}
-            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <Calendar className="text-slate-400 dark:text-white/30" />
+            <Calendar className="text-base dark:text-white/40" />
             Mes Activités
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to={"/wellness"}
-            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <HeartHandshake className="text-slate-400 dark:text-white/30" />
+            <HeartHandshake className="text-base dark:text-white/40" />
             Mon Bien-Être
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to={"/exercises"}
-            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <Activity className="text-slate-400 dark:text-white/30" />
+            <Activity className="text-base dark:text-white/40" />
             Mes Exercices
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to={"/objectives"}
-            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <LayoutList className="text-slate-400 dark:text-white/30" />
+            <LayoutList className="text-base dark:text-white/40" />
             Mes Objectifs
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to={"/projects"}
-            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <FolderKanban className="text-slate-400 dark:text-white/30" />
+            <FolderKanban className="text-base dark:text-white/40" />
             Mes Projets
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to={"/medications"}
-            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <Pill className="text-slate-400 dark:text-white/30" />
+            <Pill className="text-base dark:text-white/40" />
             Mes Traitements
-          </Link>
+          </NavLink>
 
           <div className="divider expert-blue m-0"></div>
 
-          <Link
+          <NavLink
             to={"/forum"}
-            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <MessagesSquare className="text-slate-400 dark:text-white/30" />
+            <MessagesSquare className="text-base dark:text-white/40" />
             Forum
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to={"/messages"}
-            className="w-full p-3 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+            className={({ isActive }) =>
+              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/50" : ""
+              }`
+            }
           >
-            <MessageCircle className="text-slate-400 dark:text-white/30" />
+            <MessageCircle className="text-base dark:text-white/40" />
             Messages
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>
