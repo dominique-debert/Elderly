@@ -16,17 +16,20 @@ model activity {
   startDate             DateTime               @map("start_date") @db.Timestamp(6)
   endDate               DateTime?              @map("end_date") @db.Timestamp(6)
   location              String?                @db.Text
-  gpsCoordinates        String?                @map("gps_coordinates")
+  latitude              String?                @map("latitude")
+  longitude             String?                @map("longitude")
   maxSpots              Int?                   @map("max_spots")
   categoryId            Int                    @map("category_id")
   recurring             Boolean?               @default(false)
   frequency             String?                @db.Text
   reducedMobilityAccess Boolean                @default(false) @map("reduced_mobility_access")
   difficultyLevel       Int?                   @map("difficulty_level")
-  cost                  Float?
+  estimatedDuration     Int?                   @map("estimated_duration") // in minutes
+  cost                  Decimal?               @default(0.00) @db.Decimal(10, 2)
   status                String?                @db.Text
   weatherRequirements   String?                @map("weather_requirements") @db.Text
   transportOptions      String?                @map("transport_options") @db.Text
+  image                 String?                @db.Text
   createdAt             DateTime               @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt             DateTime?              @map("updated_at") @db.Timestamp(6)
   user                  user?                  @relation(fields: [creatorId], references: [id], onDelete: NoAction, onUpdate: NoAction)

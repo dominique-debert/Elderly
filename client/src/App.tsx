@@ -12,12 +12,14 @@ import {
   WellnessPage,
   MedicationPage,
   ForumPage,
-  ObjectivePage,
+  ObjectivesPage,
+  ExplorePage,
+  ActivitiesPage,
+  MessagesPage,
+  ExercisesPage,
+  ProjectsPage,
 } from "@/pages";
 import "./App.css";
-import { ExplorePage } from "./pages/ExplorePage";
-import { ActivitiesPage } from "./pages/ActivitiesPage";
-import { MessagesPage } from "./pages/MessagesPage";
 
 const LandingPageRoute = () => {
   const { isAuthenticated } = useAuth();
@@ -34,18 +36,20 @@ const App = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<LandingPageRoute />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/admin-page" element={<AdminPage />} />
-          <Route path="/explore" element={<ExplorePage />} />
           <Route path="/activities" element={<ActivitiesPage />} />
-          <Route path="/messages" element={<MessagesPage />} />
-          <Route path="/wellness" element={<WellnessPage />} />
-          <Route path="/medications" element={<MedicationPage />} />
-          <Route path="/objectives" element={<ObjectivePage />} />
+          <Route path="/admin-page" element={<AdminPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/exercises" element={<ExercisesPage />} />
+          <Route path="/explore" element={<ExplorePage />} />
           <Route path="/forum" element={<ForumPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/medications" element={<MedicationPage />} />
+          <Route path="/messages" element={<MessagesPage />} />
+          <Route path="/objectives" element={<ObjectivesPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/wellness" element={<WellnessPage />} />
         </Route>
       </Routes>
     </AuthProvider>

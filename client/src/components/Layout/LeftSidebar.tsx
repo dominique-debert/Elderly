@@ -1,4 +1,15 @@
-import { Home, Calendar, Search, MessageCircle } from "lucide-react";
+import {
+  Home,
+  Calendar,
+  Search,
+  MessageCircle,
+  MessagesSquare,
+  FolderKanban,
+  Activity,
+  Pill,
+  LayoutList,
+  HeartHandshake,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function LeftSidebar() {
@@ -28,6 +39,54 @@ export function LeftSidebar() {
           >
             <Calendar className="text-white/30" />
             Mes Activités
+          </Link>
+
+          <Link
+            to={"/wellness"}
+            className="w-full p-3 flex gap-4 justify-start items-center align-middle rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+          >
+            <HeartHandshake className="text-white/30" />
+            Mon Bien-Être
+          </Link>
+
+          <Link
+            to={"/exercises"}
+            className="w-full p-3 flex gap-4 justify-start items-center align-middle rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+          >
+            <Activity className="text-white/30" />
+            Mes Exercices
+          </Link>
+
+          <Link
+            to={"/objectives"}
+            className="w-full p-3 flex gap-4 justify-start items-center align-middle rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+          >
+            <LayoutList className="text-white/30" />
+            Mes Objectifs
+          </Link>
+
+          <Link
+            to={"/projects"}
+            className="w-full p-3 flex gap-4 justify-start items-center align-middle rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+          >
+            <FolderKanban className="text-white/30" />
+            Mes Projets
+          </Link>
+
+          <Link
+            to={"/medications"}
+            className="w-full p-3 flex gap-4 justify-start items-center align-middle rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+          >
+            <Pill className="text-white/30" />
+            Mes Traitements
+          </Link>
+
+          <Link
+            to={"/forum"}
+            className="w-full p-3 flex gap-4 justify-start items-center align-middle rounded-3xl text-slate-300 hover:bg-primary/50 focus:bg-primary/50 active:focus:bg-primary/50"
+          >
+            <MessagesSquare className="text-white/30" />
+            Forum
           </Link>
 
           <Link

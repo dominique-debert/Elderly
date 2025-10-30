@@ -8,7 +8,7 @@ import { useAuth, useAuthStore } from "@/stores";
 import { getNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
 
-import { NotificationList } from "@/components";
+import { NotificationList, Search } from "@/components";
 import toast from "react-hot-toast";
 import { MoonIcon, SunIcon, SlidersVertical, BellIcon } from "lucide-react";
 
@@ -78,6 +78,14 @@ export function Navbar() {
             </div>
           </Link>
 
+          <Search
+            search={""}
+            placeholder={"Rechercher..."}
+            setSearch={function (value: string): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+
           <div className="flex items-center gap-6">
             {/* Theme Toggle */}
 
@@ -89,8 +97,13 @@ export function Navbar() {
                 onChange={handleToggle}
                 checked={theme === "nord"}
               />
-              <SunIcon className="size-6 swap-off" />
-              <MoonIcon className="size-6 swap-on" />
+              {/* <SunIcon className="size-6 swap-off" />
+              <MoonIcon className="size-6 swap-on" /> */}
+              {theme === "nord" ? (
+                <SunIcon className="size-4 text-yellow-400" />
+              ) : (
+                <MoonIcon className="size-4 text-gray-800 dark:text-gray-200" />
+              )}
             </label>
 
             <div className="relative" ref={notifRef}>

@@ -10,7 +10,7 @@ export function ForumPage() {
 
   return (
     <>
-      <div className="flex flex-col w-full h-full gap-4 mt-18 p-4">
+      <div className="flex flex-col w-full h-full mt-22 px-8">
         <div className="lg:flex lg:flex-row gap-4">
           {user ? (
             <>

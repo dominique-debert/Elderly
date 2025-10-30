@@ -172,7 +172,7 @@ export const useAuthStore = create<IAuthState>()(
           user: null,
         });
 
-        toast.success("Déconnexion réussie");
+        // toast.success("Déconnexion réussie");
         navigate("/login");
       },
     }),
