@@ -58,7 +58,6 @@ export const useAuthStore = create<IAuthState>()(
           } as unknown as IUser,
         });
 
-        toast.success("Connexion réussie");
         navigate("/");
         return {
           id,
@@ -137,7 +136,7 @@ export const useAuthStore = create<IAuthState>()(
             lastName: src.lastName,
             avatarUrl: src.avatarUrl ?? "",
             birthDate: src.birthDate,
-            registrationDate: src.registrationDate, // Add this line
+            registrationDate: src.registrationDate,
             isAdmin: src.isAdmin,
             longitude: src.longitude,
             latitude: src.latitude,
@@ -154,12 +153,10 @@ export const useAuthStore = create<IAuthState>()(
             user,
           });
 
-          toast.success("Inscription réussie");
           navigate("/login");
           return user;
         } catch (error) {
           console.error("Signup error in auth store:", error);
-          // toast.error("Erreur lors de l'inscription: " + error);
           throw error;
         }
       },

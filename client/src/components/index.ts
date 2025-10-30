@@ -9,7 +9,6 @@ export * from "./ui/Skeleton.tsx";
 export * from "./ui/Switch.tsx";
 export * from "./ui/SwitchButtons.tsx";
 export * from "./ui/Table.tsx";
-export * from "./ui/Tooltip.tsx";
 
 // Category Components
 export * from "./Categories/CategoryCardItem";
