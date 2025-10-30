@@ -33,21 +33,14 @@ Install & run (typical)
 
 2. Run the frontend dev server:
    cd client
-   pnpm run <client-dev-script> # TODO: replace <client-dev-script> with exact script from client/package.json
+   pnpm run dev
 
    - Open http://localhost:5173 (or the port indicated by Vite)
 
 3. Run the server (see server/ for scripts and instructions):
    cd server
    pnpm install
-   pnpm run <server-dev-script> # TODO: replace <server-dev-script> with exact script from server/package.json
-
-Build
-
-- Frontend build (client):
-  cd client
-  pnpm run <client-build-script> # TODO: replace with exact script from client/package.json
-  pnpm run <client-preview-script> # TODO: replace with exact script
+   pnpm run dev
 
 Project layout (high level)
 
