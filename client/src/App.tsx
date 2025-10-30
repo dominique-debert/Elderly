@@ -15,6 +15,9 @@ import {
   ObjectivePage,
 } from "@/pages";
 import "./App.css";
+import { ExplorePage } from "./pages/ExplorePage";
+import { ActivitiesPage } from "./pages/ActivitiesPage";
+import { MessagesPage } from "./pages/MessagesPage";
 
 const LandingPageRoute = () => {
   const { isAuthenticated } = useAuth();
@@ -33,6 +36,9 @@ const App = () => {
           <Route path="/" element={<LandingPageRoute />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/admin-page" element={<AdminPage />} />
+          <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/activities" element={<ActivitiesPage />} />
+          <Route path="/messages" element={<MessagesPage />} />
           <Route path="/wellness" element={<WellnessPage />} />
           <Route path="/medications" element={<MedicationPage />} />
           <Route path="/objectives" element={<ObjectivePage />} />
