@@ -28,7 +28,7 @@ export function MoodCard({ mood }: MoodCardProps) {
   return (
     <>
       <div
-        className="rounded-lg p-4 pt-0 shadow-lg"
+        className="rounded-lg p-4 pt-0 border border-gray-200 dark:border-gray-800"
         style={{ borderLeft: `10px solid ${mood.color}` }}
       >
         <div className="flex items-center justify-between w-full mt-2">

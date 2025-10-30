@@ -26,7 +26,7 @@ export function CategoryListItem({ category, tabKey }: CategoryListItemProps) {
 
   return (
     <>
-      <li className="bg-white dark:bg-transparent p-4 rounded flex items-center gap-4 dark:border-b dark:border-slate-800 dark:hover:bg-slate-900/40 transition-colors">
+      <li className="bg-white dark:bg-transparent p-4 rounded-xl flex items-center gap-4 border dark:border-slate-800 border-slate-200">
         <div className="flex-1">
           <h3 className="text-lg font-semibold text-primary">
             {category.categoryName}

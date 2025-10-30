@@ -11,7 +11,7 @@ export function CategoryListView({
   tabKey,
 }: CategoryListViewProps) {
   return (
-    <ul className="flex flex-col gap-2">
+    <ul className="flex flex-col gap-4 mt-2">
       {categories.map((category) => (
         <CategoryListItem
           key={category.id}

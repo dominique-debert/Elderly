@@ -26,7 +26,7 @@ export function CategoryCardItem({ category, tabKey }: CategoryCardItemProps) {
 
   return (
     <>
-      <Card className="h-full gap-2 p-0">
+      <Card className="h-full gap-2 p-0 shadow-none">
         <div className="card-body">
           <h3 className="card-title text-primary">{category.categoryName}</h3>
           <p className="text-sm dark:text-gray-400">
