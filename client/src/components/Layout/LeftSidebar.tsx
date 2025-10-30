@@ -20,24 +20,24 @@ export function LeftSidebar() {
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
-              `p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <Home className="text-base dark:text-white/40" />
+            <Home className="dark:text-accent text-primary size-4" />
             Accueil
           </NavLink>
 
           <NavLink
             to="/explore"
             className={({ isActive }) =>
-              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <Search className="text-base dark:text-white/40" />
+            <Search className="dark:text-accent text-primary size-4" />
             Explorer
           </NavLink>
 
@@ -46,72 +46,72 @@ export function LeftSidebar() {
           <NavLink
             to={"/activities"}
             className={({ isActive }) =>
-              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <Calendar className="text-base dark:text-white/40" />
+            <Calendar className="dark:text-accent text-primary size-4" />
             Mes Activités
           </NavLink>
 
           <NavLink
             to={"/wellness"}
             className={({ isActive }) =>
-              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <HeartHandshake className="text-base dark:text-white/40" />
+            <HeartHandshake className="dark:text-accent text-primary size-4" />
             Mon Bien-Être
           </NavLink>
 
           <NavLink
             to={"/exercises"}
             className={({ isActive }) =>
-              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <Activity className="text-base dark:text-white/40" />
+            <Activity className="dark:text-accent text-primary size-4" />
             Mes Exercices
           </NavLink>
 
           <NavLink
             to={"/objectives"}
             className={({ isActive }) =>
-              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <LayoutList className="text-base dark:text-white/40" />
+            <LayoutList className="dark:text-accent text-primary size-4" />
             Mes Objectifs
           </NavLink>
 
           <NavLink
             to={"/projects"}
             className={({ isActive }) =>
-              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <FolderKanban className="text-base dark:text-white/40" />
+            <FolderKanban className="dark:text-accent text-primary size-4" />
             Mes Projets
           </NavLink>
 
           <NavLink
             to={"/medications"}
             className={({ isActive }) =>
-              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <Pill className="text-base dark:text-white/40" />
+            <Pill className="dark:text-accent text-primary size-4" />
             Mes Traitements
           </NavLink>
 
@@ -120,24 +120,24 @@ export function LeftSidebar() {
           <NavLink
             to={"/forum"}
             className={({ isActive }) =>
-              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <MessagesSquare className="text-base dark:text-white/40" />
+            <MessagesSquare className="dark:text-accent text-primary size-4" />
             Forum
           </NavLink>
 
           <NavLink
             to={"/messages"}
             className={({ isActive }) =>
-              `w-full p-3 pl-5 flex gap-4 justify-start rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
-                isActive ? "bg-primary/50" : ""
+              `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/50 focus:bg-primary/50 ${
+                isActive ? "bg-primary/10" : ""
               }`
             }
           >
-            <MessageCircle className="text-base dark:text-white/40" />
+            <MessageCircle className="dark:text-accent text-primary size-4" />
             Messages
           </NavLink>
         </div>

@@ -30,7 +30,7 @@ export const DashboardWeatherWidget = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-3xl text-center text-primary">
+        <CardTitle className="text-3xl text-center dark:text-accent text-primary">
           {isLoading ? <Skeleton className="h-6 w-24 ml-auto" /> : data?.city}
         </CardTitle>
       </CardHeader>
@@ -60,8 +60,6 @@ export const DashboardWeatherWidget = () => {
             <div className="text-3xl font-semibold mt-2 text-center">
               {data.temperature}°C
             </div>
-
-            {/* <div className="divider mt-4 mb-2" /> */}
 
             <div className="mt-12 grid grid-cols-3 gap-2 text-center text-sm">
               {data.forecast.map(

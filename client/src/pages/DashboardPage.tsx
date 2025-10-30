@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
+import { DashboardWeatherWidget } from "@/components";
 
 export function DashboardPage() {
   const { user, isAuthenticated } = useAuthStore();
@@ -10,13 +11,11 @@ export function DashboardPage() {
 
   return (
     <>
-      <div className="bg-white dark:bg-card flex flex-col mt-20 ml-64 mr-4 rounded-2xl shadow-xl justify-items-center align-items-center p-8">
+      <div className="flex flex-col mt-12 ml-58 mr-4 rounded-2xl shadow-xl justify-items-center align-items-center p-8">
         <div className="lg:flex lg:flex-row gap-4">
           {user ? (
             <>
-              <h2 className="text-slate-400 font-light">
-                Tableau de bord - Bientot !
-              </h2>
+              <DashboardWeatherWidget />
             </>
           ) : (
             <p>Les informations de profil sont introuvables.</p>
