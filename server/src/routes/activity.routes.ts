@@ -12,9 +12,28 @@ import { activitySchema } from "@/validators";
 
 const router = Router();
 
-router.post("/", validate(activitySchema), createActivity);
+/**
+ * @swagger
+ * /api/activities:
+ *   get:
+ *     summary: Récupérer toutes les activités avec leurs catégories
+ *     description: Renvoie une liste de toutes les activités disponibles avec leurs catégories associées
+ *     security:
+ *       - bearerAuth: []
+ *     tags: [Activities]
+ *     responses:
+ *       200:
+ *         description: Liste des activités récupérée avec succès
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Activity'
+ *       500:
+ *         description: Erreur serveur
+ */
 router.get("/", getAllActivities);
-router.get("/:id", getActivityById);
 
 /**
  * @swagger
@@ -46,6 +65,33 @@ router.get("/:id", getActivityById);
  *         description: Erreur serveur
  */
 router.get("/:id", getActivityById);
+
+/**
+ * @swagger
+ * /api/activities:
+ *   post:
+ *     summary: Créer une nouvelle activité
+ *     description: Crée une nouvelle activité avec les données fournies
+ *     tags: [Activities]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Activity'
+ *     responses:
+ *       201:
+ *         description: Activité créée avec succès
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Activity'
+ *       400:
+ *         description: Requête invalide
+ *       500:
+ *         description: Erreur serveur
+ */
+router.post("/", validate(activitySchema), createActivity);
 
 /**
  * @swagger

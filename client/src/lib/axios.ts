@@ -22,18 +22,17 @@ api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
-    if (
-      error.response &&
-      error.response.status === 401 &&
-      !originalRequest._retry
-    ) {
-      originalRequest._retry = true;
+    if (error.response && error.response.status === 401) {
+      if (originalRequest._retry) {
+        localStorage.removeItem("accessToken");
+        window.location.href = "/login";
+        return Promise.reject(error);
+      }
 
+      originalRequest._retry = true;
       try {
         const newAccessToken = await refreshAccessToken();
-
         originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
-
         return api(originalRequest);
       } catch (refreshError) {
         localStorage.removeItem("accessToken");
