@@ -11,7 +11,6 @@
   --color-background-light: #f1f5f9;
   --color-background-dark: hsl(222.2, 69.2%, 7.6%);
   --tab-p: 0;
-  --color-primary: oklch(49% 0.27 292.581);
 }
 
 @plugin "daisyui" {
@@ -29,9 +28,9 @@
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
     --border: 1px;
-    --depth: 1;
+    --depth: 0;
     --noise: 0;
-    --color-primary: hsl(219.75903, 100%, 67%);
+    --color-primary: oklch(58% 0.158 241.966);
     --text-primary: hsl(0 0% 100%);
     --primary: hsl(226.7, 27.3%, 6.5%);
     --font-display: "Lexend", sans-serif;
