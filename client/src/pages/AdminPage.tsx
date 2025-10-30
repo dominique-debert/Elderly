@@ -31,7 +31,7 @@ export function AdminPage() {
   };
 
   return (
-    <div className="w-full h-full px-8 overflow-y-auto no-scrollbar mt-20">
+    <div className="flex flex-col mt-12 ml-58 w-[calc(100vw-14rem)] rounded-2xl shadow-xl justify-items-center align-items-center p-8">
       {user && user.isAdmin ? (
         <>
           <div className="sticky top-0 z-30 pb-4 pt-4">

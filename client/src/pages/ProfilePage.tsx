@@ -13,7 +13,7 @@ export function ProfilePage() {
   return (
     <>
       {user ? (
-        <div className="w-full flex flex-col justify-items-center align-items-center mt-16 mx-auto p-6">
+        <div className="w-full flex flex-col justify-items-center align-items-center mt-20 pl-10 pr-6">
           <ProfileHeader />
           <ProfileTabs />
         </div>

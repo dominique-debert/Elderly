@@ -46,6 +46,7 @@ export function Navbar() {
           "Erreur de chargement des notifications: " +
             (error instanceof Error ? error.message : String(error))
         );
+        navigate("/login");
 
         return [];
       }
@@ -97,12 +98,10 @@ export function Navbar() {
                 onChange={handleToggle}
                 checked={theme === "nord"}
               />
-              {/* <SunIcon className="size-6 swap-off" />
-              <MoonIcon className="size-6 swap-on" /> */}
               {theme === "nord" ? (
-                <SunIcon className="size-4 text-yellow-400" />
+                <SunIcon className="size-6 text-yellow-400 dark:text-white/50" />
               ) : (
-                <MoonIcon className="size-4 text-gray-800 dark:text-gray-200" />
+                <MoonIcon className="size-6 text-slate-500 dark:text-white/40" />
               )}
             </label>
 
@@ -113,7 +112,7 @@ export function Navbar() {
                 data-tip="Notifications"
                 onClick={() => setIsNotifOpen(!isNotifOpen)}
               >
-                <BellIcon className="size-6" />
+                <BellIcon className="size-6 text-slate-500 dark:text-white/40" />
 
                 {notifications && notifications.length > 0 && (
                   <span className="absolute p-1.5 avatar bg-red-600 rounded-xl right-0 bottom-0" />
@@ -139,7 +138,7 @@ export function Navbar() {
                 className="cursor-pointer tooltip tooltip-bottom mr-3 tooltip-accent"
                 data-tip="Espace administration"
               >
-                <SlidersVertical className="size-6 text-base-content" />
+                <SlidersVertical className="size-6 text-slate-500 dark:text-white/40" />
               </Link>
             )}
 

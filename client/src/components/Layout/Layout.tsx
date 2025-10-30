@@ -6,11 +6,11 @@ export function Layout() {
   const { isAuthenticated } = useAuthStore();
 
   return (
-    <div className="h-full w-full overflow-hidden overflow-y-auto hide-scrollbar">
+    <div className="h-full mb-4 w-full mr-4 overflow-hidden overflow-y-auto hide-scrollbar">
       {isAuthenticated && <Navbar />}
 
       <div
-        className="flex h-full"
+        className="flex w-full overflow-hidden"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {isAuthenticated && <LeftSidebar />}

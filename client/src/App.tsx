@@ -32,27 +32,31 @@ const LandingPageRoute = () => {
 
 const App = () => {
   return (
-    <AuthProvider>
+    <>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<LandingPageRoute />} />
-          <Route path="/activities" element={<ActivitiesPage />} />
-          <Route path="/admin-page" element={<AdminPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/exercises" element={<ExercisesPage />} />
-          <Route path="/explore" element={<ExplorePage />} />
-          <Route path="/forum" element={<ForumPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/medications" element={<MedicationPage />} />
-          <Route path="/messages" element={<MessagesPage />} />
-          <Route path="/objectives" element={<ObjectivesPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/wellness" element={<WellnessPage />} />
-        </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
-    </AuthProvider>
+      <AuthProvider>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<LandingPageRoute />} />
+            <Route path="/activities" element={<ActivitiesPage />} />
+            <Route path="/admin-page" element={<AdminPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/exercises" element={<ExercisesPage />} />
+            <Route path="/explore" element={<ExplorePage />} />
+            <Route path="/forum" element={<ForumPage />} />
+            <Route path="/medications" element={<MedicationPage />} />
+            <Route path="/messages" element={<MessagesPage />} />
+            <Route path="/objectives" element={<ObjectivesPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/wellness" element={<WellnessPage />} />
+          </Route>
+        </Routes>
+      </AuthProvider>
+    </>
   );
 };
 
