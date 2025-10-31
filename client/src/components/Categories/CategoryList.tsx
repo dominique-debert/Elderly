@@ -9,6 +9,7 @@ import {
   CategoryListView,
   CategoryCardView,
   CategoryTableView,
+  Card,
 } from "@/components";
 
 type Mode = "card" | "list" | "table";
@@ -75,7 +76,7 @@ export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
   })();
 
   return (
-    <div className="w-full mt-20 p-4 card bg-white dark:bg-card shadow-md">
+    <Card className="w-full mt-20 p-4 bg-white dark:bg-card shadow-md overflow-y-auto max-h-[calc(100vh-20.8rem)]">
       <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
@@ -123,6 +124,6 @@ export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
           )
         )
       )}
-    </div>
+    </Card>
   );
 }

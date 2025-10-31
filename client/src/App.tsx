@@ -18,8 +18,13 @@ import {
   MessagesPage,
   ExercisesPage,
   ProjectsPage,
+  DiscussionsPage,
+  CategoriesPage,
+  NotificationsPage,
+  DiscoveryPage,
 } from "@/pages";
 import "./App.css";
+import { BookmarksPage } from "./pages/Forum/BookmarksPage";
 
 const LandingPageRoute = () => {
   const { isAuthenticated } = useAuth();
@@ -46,7 +51,15 @@ const App = () => {
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/exercises" element={<ExercisesPage />} />
             <Route path="/explore" element={<ExplorePage />} />
-            <Route path="/forum" element={<ForumPage />} />
+            <Route path="/forum/home" element={<ForumPage />} />
+            <Route path="/forum/bookmarks" element={<BookmarksPage />} />
+            <Route path="/forum/categories" element={<CategoriesPage />} />
+            <Route path="/forum/discover" element={<DiscoveryPage />} />
+            <Route path="/forum/discussions" element={<DiscussionsPage />} />
+            <Route
+              path="/forum/notifications"
+              element={<NotificationsPage />}
+            />
             <Route path="/medications" element={<MedicationPage />} />
             <Route path="/messages" element={<MessagesPage />} />
             <Route path="/objectives" element={<ObjectivesPage />} />

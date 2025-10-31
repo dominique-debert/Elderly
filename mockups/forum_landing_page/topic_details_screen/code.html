@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forum Topic Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6",
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#101622",
+                        "text-light": "#212529",
+                        "text-dark": "#F8F9FA",
+                        "accent-light": "#E9ECEF",
+                        "accent-dark": "#1F2937",
+                        "border-light": "#CED4DA",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-10 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined text-primary text-3xl">forum</span>
+<h2 class="text-xl font-bold">ForumApp</h2>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-text-light dark:text-text-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium text-text-light dark:text-text-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Categories</a>
+<a class="text-sm font-medium text-primary dark:text-primary" href="#">Discussions</a>
+<a class="text-sm font-medium text-text-light dark:text-text-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Users</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:block relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="form-input w-full min-w-[200px] rounded-lg border-border-light dark:border-border-dark bg-accent-light dark:bg-accent-dark text-text-light dark:text-text-dark placeholder:text-gray-400 pl-10 h-10 text-sm focus:ring-primary focus:border-primary" placeholder="Search" value=""/>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-accent-light dark:bg-accent-dark text-text-light dark:text-text-dark hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-accent-light dark:bg-accent-dark text-text-light dark:text-text-dark hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVM_DFIftitMTOwYRCm32lb47jWapmmcQM7PKIivqIXwd1B2yyRgXP6ZT5lf2_j6XNU_Xym4RBl30rmXIly77THBAzD9dl7qUEP0TDwFj1xm2ttJjsSZFDkxm3TBEe7Nwe_1qK7-c6qLNYRt8eQxdSXnx3Lc1MyZIwQpxqWuKXxXOC-VXhOHiVswFp89XDnnjwpR3eheaxEA3izJ8_D-sJ_PzPJhQqt4LbSPIkMKmv0GpH-v2vdCMM4y0XPEAVLJPhJHd9PoqF28Y");'></div>
+</div>
+</div>
+</nav>
+</header>
+<main class="flex-grow w-full">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-4xl mx-auto">
+<div class="mb-6">
+<div class="flex flex-wrap items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+<a class="hover:text-primary" href="#">React Discussions</a>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+<span class="text-text-light dark:text-text-dark font-medium">Topic</span>
+</div>
+</div>
+<div class="flex flex-col gap-8">
+<div class="bg-background-light dark:bg-accent-dark border border-border-light dark:border-border-dark rounded-xl shadow-sm">
+<div class="p-6 md:p-8">
+<div class="mb-4">
+<h1 class="text-3xl lg:text-4xl font-black text-text-light dark:text-text-dark leading-tight tracking-tight">How to best structure a large-scale React application?</h1>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Posted by dev_guru 3 days ago</p>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="@container">
+<div class="flex gap-2 justify-start">
+<div class="flex flex-col items-center gap-2 text-center w-20">
+<button class="rounded-full bg-accent-light dark:bg-background-dark p-2.5 hover:bg-primary/20 transition-colors group">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark group-hover:text-primary">bookmark</span>
+</button>
+<p class="text-xs font-medium text-gray-600 dark:text-gray-300">Subscribe</p>
+</div>
+<div class="flex flex-col items-center gap-2 text-center w-20">
+<button class="rounded-full bg-accent-light dark:bg-background-dark p-2.5 hover:bg-primary/20 transition-colors group">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark group-hover:text-primary">share</span>
+</button>
+<p class="text-xs font-medium text-gray-600 dark:text-gray-300">Share</p>
+</div>
+<div class="flex flex-col items-center gap-2 text-center w-20">
+<button class="rounded-full bg-accent-light dark:bg-background-dark p-2.5 hover:bg-primary/20 transition-colors group">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark group-hover:text-primary">flag</span>
+</button>
+<p class="text-xs font-medium text-gray-600 dark:text-gray-300">Report</p>
+</div>
+</div>
+</div>
+</div>
+<div class="prose prose-lg dark:prose-invert max-w-none text-text-light dark:text-gray-300">
+<p>Hey everyone,</p>
+<p>I'm starting a new project that's expected to grow quite large and I'm looking for advice on the best practices for structuring a React application. I've looked into feature-based vs. type-based structures, and I'm curious what the community thinks. What are the pros and cons you've experienced with different approaches?</p>
+<p>Any recommendations on state management, component organization, and handling side effects at scale would be greatly appreciated. Thanks in advance!</p>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-6">Replies (14)</h2>
+<div class="flex flex-col gap-6">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 flex-shrink-0" data-alt="User avatar for react_master" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_NAQ8yuA-Igh3ToUnrQrs68vMXIj3p4p7Qu95NczWtttUz1eYiOFwTzJN7zQemvdDD06chV4bTCDtqniVbEsZAp3_TRXRyvAnq2jtzbltOLh_lArU1Gusotl7zb0Eo2o0FAFKH-ZokNYx0L4eI3F466VQ6tHXUN14cyWeXTtlZEi5cr13xUThfuPHxy3AQg8tNF8BviWTNvtWQRFA582_op6mVd0vJr4YpojlmH2aGTTNN5yolcFGLfHmhjvTICAlmaIYfOT-UCQ");'></div>
+<div class="flex-grow bg-accent-light dark:bg-accent-dark rounded-lg p-4">
+<div class="flex items-center justify-between mb-2">
+<p class="font-semibold text-text-light dark:text-text-dark">react_master</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">2 days ago</p>
+</div>
+<p class="text-sm text-gray-700 dark:text-gray-300">For large-scale apps, a feature-based structure is almost always the way to go. It keeps related files together, making it much easier to navigate and maintain. We use it at my company and it's a lifesaver.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 flex-shrink-0" data-alt="User avatar for code_ninja" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdAIp07weaymyzU6p5cXfIQls20cwKSSh6V0iFC-IW2SxclTg4-BitzdI9A8ziMrR_oDm1mG-syeGgpIaDRiUd8lRrbaUkU-AkQ5vzCcCtnPDXcnxyVUigJZKjQ69t2Lkuo_v_NAonpGemnAzk30VIr91OHGmxkgmPK9NtxHFtsYkyMKP5dWzfUf06tu6qfe3SxMbkogpzchu_W5rVWhNx3Erayu7T_arZZG6vcCJ5HUqPpWaRZOrkAEtQEVwg-jo6S5oEaWK_5PU");'></div>
+<div class="flex-grow bg-accent-light dark:bg-accent-dark rounded-lg p-4">
+<div class="flex items-center justify-between mb-2">
+<p class="font-semibold text-text-light dark:text-text-dark">code_ninja</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">1 day ago</p>
+</div>
+<p class="text-sm text-gray-700 dark:text-gray-300">I agree with `react_master`. Also, consider using a state management library like Redux Toolkit or Zustand from the beginning. Trying to add it later can be a real pain.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 flex-shrink-0" data-alt="User avatar for js_journey" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAuPqWikEN85PqZ9RXlkK_htivAnIr2sbqzt7Ki-_rOhTJPx-1z3EtG1ZjrAPsjL36EGtzIjXm2CfMjT2GE6oJ_4rIQzzHnExgYDcJETiFHY_b4lYzOngLoNHY5iV1WYj9Fgwf4w8tI1HR6isPhIis5_y8Yi73CoZBt7GoOqATrJbA4I-sJmJDVT24gJbZfXOZXZSD0bA6XzXUM9OXjOgR_A3i_VQeFOCgDvCNUkpi3RN7oJ-3BvdcZz-rsqnMh3CyWFweriKeODN4");'></div>
+<div class="flex-grow bg-accent-light dark:bg-accent-dark rounded-lg p-4">
+<div class="flex items-center justify-between mb-2">
+<p class="font-semibold text-text-light dark:text-text-dark">js_journey</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">2 hours ago</p>
+</div>
+<p class="text-sm text-gray-700 dark:text-gray-300">Don't forget about code splitting! As your app grows, you'll want to use `React.lazy` and Suspense to make sure your initial load times stay fast. It's crucial for user experience.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark mb-4">Join the conversation</h3>
+<div class="bg-accent-light dark:bg-accent-dark rounded-lg p-4">
+<textarea class="form-textarea w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark placeholder-gray-400 focus:ring-primary focus:border-primary" placeholder="Your reply..." rows="5"></textarea>
+<div class="flex justify-end mt-4">
+<button class="flex items-center justify-center rounded-lg h-10 bg-primary text-white gap-2 text-sm font-bold px-6 hover:bg-primary/90 transition-colors">
+                                        Post Reply
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forum Discussions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-b-[#282e39] px-6 lg:px-10 py-3 bg-white dark:bg-[#111318] sticky top-0 z-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-slate-800 dark:text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-3xl">forum</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Forum</h2>
+</div>
+<div class="hidden md:flex items-center gap-9">
+<a class="text-slate-700 dark:text-white text-sm font-medium leading-normal" href="#">Home</a>
+<a class="text-slate-700 dark:text-white text-sm font-medium leading-normal" href="#">Discussions</a>
+<a class="text-slate-700 dark:text-white text-sm font-medium leading-normal" href="#">Categories</a>
+<a class="text-slate-700 dark:text-white text-sm font-medium leading-normal" href="#">About</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 dark:text-[#9da6b9] flex border-slate-200 dark:border-none bg-slate-100 dark:bg-[#282e39] items-center justify-center pl-3 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-slate-200 dark:border-none bg-slate-100 dark:bg-[#282e39] focus:border-primary h-full placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Search discussions..." value=""/>
+</div>
+</label>
+<div class="flex items-center gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] gap-2">
+<span class="material-symbols-outlined !text-xl">add</span>
+<span class="truncate">New Topic</span>
+</button>
+<div class="flex items-center gap-2 border-l border-slate-200 dark:border-slate-700 pl-2 ml-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-[#282e39] text-slate-900 dark:text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Log In</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Sign Up</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="w-full max-w-7xl mx-auto p-4 lg:p-10">
+<div class="flex flex-col lg:flex-row gap-8">
+<div class="flex-grow lg:w-2/3">
+<div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+<div class="flex min-w-72 flex-col gap-2">
+<p class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Discussions</p>
+<p class="text-slate-500 dark:text-[#9da6b9] text-base font-normal leading-normal">Welcome to our community. Feel free to start a new discussion or join an existing one.</p>
+</div>
+</div>
+<div class="flex gap-3 py-3 overflow-x-auto border-b border-slate-200 dark:border-gray-700 mb-4">
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/20 text-primary px-3">
+<p class="text-sm font-medium leading-normal">Latest</p>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-[#282e39] px-3 text-slate-700 dark:text-white hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+<p class="text-sm font-medium leading-normal">Trending</p>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-[#282e39] px-3 text-slate-700 dark:text-white hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+<p class="text-sm font-medium leading-normal">Unanswered</p>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-[#282e39] pl-3 pr-2 text-slate-700 dark:text-white hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+<p class="text-sm font-medium leading-normal">All Categories</p>
+<span class="material-symbols-outlined !text-xl">arrow_drop_down</span>
+</button>
+</div>
+<div class="flex flex-col divide-y divide-slate-200 dark:divide-gray-700">
+<div class="p-4 bg-white dark:bg-[#111318] hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar for johndoe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtLLBQ-nO8mn8PXpcWz2n8Y2QP-OwDMbsIISJQ5R78fsrHXlz5GPfJDaXIW_seIzh5dL2twK3Ke-_TpMC-JpICs_u44NiGy_4jWnUQBJMbGvygjHv7dLVoUyJSXY1bExwWR-ZT2TELj3RFg_neGiYyN7Rf1mK746RBV7N2_KcioPLQwfuo4NblHawZ-AXb8vs1ucLm431J0uZzSs45vDDE_ANDwowg372WLjH5LKCOiiXReS7apQILazn4HKCFVk3rVCbrRTrh4OA");'></div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight cursor-pointer hover:text-primary">Best Practices for API Design</p>
+<p class="text-slate-500 dark:text-[#9da6b9] text-sm font-normal leading-normal">Posted by <span class="font-semibold text-slate-600 dark:text-slate-300">johndoe</span> in <span class="font-semibold text-primary/80 dark:text-primary/90">API Development</span> 2 hours ago</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-700 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-300">#api</span>
+<span class="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-700 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-300">#backend</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 text-slate-500 dark:text-gray-400 text-sm whitespace-nowrap pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined !text-xl">comment</span>
+<span>15</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined !text-xl">visibility</span>
+<span>2.1k</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-white dark:bg-[#111318] hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar for sarahsmith" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCMJXioX5UETV0Fu-qsS1Ma8F6beh2Amlh0sWHj8IUsaI_wKRre7Qu_eKlpEx8r4IkM15Dx1bDUEzyvVNXAfrbVjNoTJQ5R5Jjk-XyFwMrfnyaY76gOatsmyPnECabymjr8NzQsnhKTpT2q-29VjgSE9RN1ddKuzhP9GgrCjGitsyOTxwYHTS6cVc-FPfr1IVrW8ulE4FbM0hYW7U6wYBSfU_JgIsbdVeNshACzft-eEB6Lz4sIDZDvDX3kjCZTvoQlRU8AUOROl5c");'></div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight cursor-pointer hover:text-primary">Getting Started with React Hooks</p>
+<p class="text-slate-500 dark:text-[#9da6b9] text-sm font-normal leading-normal">Posted by <span class="font-semibold text-slate-600 dark:text-slate-300">sarahsmith</span> in <span class="font-semibold text-primary/80 dark:text-primary/90">Frontend</span> 5 hours ago</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-700 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-300">#react</span>
+<span class="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-700 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-300">#javascript</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 text-slate-500 dark:text-gray-400 text-sm whitespace-nowrap pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined !text-xl">comment</span>
+<span>8</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined !text-xl">visibility</span>
+<span>1.8k</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-6 px-4">
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-slate-200 dark:bg-[#282e39] text-slate-900 dark:text-white text-sm font-medium leading-normal tracking-[0.015em] disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="truncate">Previous</span>
+</button>
+<p class="text-sm text-slate-500 dark:text-gray-400">Page 1 of 25</p>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-slate-200 dark:bg-[#282e39] text-slate-900 dark:text-white text-sm font-medium leading-normal tracking-[0.015em]">
+<span class="truncate">Next</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<aside class="lg:w-1/3 space-y-6">
+<div class="bg-white dark:bg-[#111318] p-5 rounded-xl border border-slate-200 dark:border-gray-700">
+<button class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] gap-2">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Start a New Discussion</span>
+</button>
+</div>
+<div class="bg-white dark:bg-[#111318] p-5 rounded-xl border border-slate-200 dark:border-gray-700 space-y-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Forum Stats</h3>
+<div class="grid grid-cols-2 gap-4 text-center">
+<div>
+<p class="text-2xl font-bold text-primary">12.4k</p>
+<p class="text-sm text-slate-500 dark:text-gray-400">Total Members</p>
+</div>
+<div>
+<p class="text-2xl font-bold text-primary">3,281</p>
+<p class="text-sm text-slate-500 dark:text-gray-400">Discussions</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#111318] p-5 rounded-xl border border-slate-200 dark:border-gray-700 space-y-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Popular Tags</h3>
+<div class="flex flex-wrap gap-2">
+<a class="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors" href="#">#webdev</a>
+<a class="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors" href="#">#design</a>
+<a class="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors" href="#">#career</a>
+<a class="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors" href="#">#help</a>
+<a class="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors" href="#">#mobile</a>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+</div>
+</body></html>

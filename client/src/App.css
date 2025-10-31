@@ -161,7 +161,6 @@ main::-webkit-scrollbar {
 /* Hide scrollbar for IE, Edge and Firefox */
 main {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -172,21 +171,6 @@ main {
 
 .hide-scrollbar {
   -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
-}
-
-/* Hide scrollbar globally if needed */
-body::-webkit-scrollbar,
-html::-webkit-scrollbar,
-*::-webkit-scrollbar {
-  display: none;
-}
-
-body,
-html,
-* {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 ::placeholder {
