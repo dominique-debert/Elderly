@@ -4,8 +4,18 @@ import {
   Bell,
   Search,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   ChevronUp,
   MessagesSquare,
+  Computer,
+  Gamepad2,
+  Book,
+  Film,
+  Music,
+  Plane,
+  Utensils,
+  Wrench,
 } from "lucide-react";
 
 export function CategoriesPage() {
@@ -19,14 +29,14 @@ export function CategoriesPage() {
     <>
       {/* TODO: Redesign the categories page: THIS IS A DUMMY PAGE FOR NOW */}
       <div className="ml-68 mr-6 pt-24 min-h-[calc(100vh-4rem)] flex gap-6">
-        <div className="relative flex h-auto min-h-screen flex-col overflow-x-hidden ml-6">
+        <div className="relative w-full flex h-auto min-h-screen flex-col overflow-x-hidden mr-3 ml-6">
           <div className="flex flex-col gap-6">
             <div className="flex flex-wrap gap-2">
               <a
                 className="text-slate-500 dark:text-slate-400 hover:text-primary text-base font-medium leading-normal"
                 href="#"
               >
-                Home
+                Forum
               </a>
               <span className="text-slate-500 dark:text-slate-400 text-base font-medium leading-normal">
                 /
@@ -38,11 +48,11 @@ export function CategoriesPage() {
             <div className="flex flex-wrap justify-between gap-4 items-center">
               <div className="flex min-w-72 flex-col gap-2">
                 <p className="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
-                  Discover categories
+                  Découvrez les catégories du forum
                 </p>
                 <p className="text-slate-600 dark:text-slate-400 text-base font-normal leading-normal">
-                  Analyze trends, monitor engagement, and oversee all forum
-                  categories.
+                  Analyser les tendances, surveiller l'engagement et superviser
+                  toutes les catégories du forum.
                 </p>
               </div>
             </div>
@@ -191,7 +201,7 @@ export function CategoriesPage() {
                     <tbody>
                       <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                         <th
-                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-2"
+                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
                           scope="row"
                         >
                           <MessagesSquare className="size-6 text-lg text-slate-500 dark:text-slate-400" />
@@ -215,12 +225,10 @@ export function CategoriesPage() {
                       </tr>
                       <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                         <th
-                          className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-2"
+                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
                           scope="row"
                         >
-                          <span className="material-symbols-outlined text-lg text-slate-500 dark:text-slate-400">
-                            computer
-                          </span>
+                          <Computer className="size-6 text-slate-500 dark:text-slate-400" />
                           Technology Hub
                         </th>
                         <td className="px-6 py-4">890</td>
@@ -234,21 +242,17 @@ export function CategoriesPage() {
                         <td className="px-6 py-4">Alice Green</td>
                         <td className="px-6 py-4 text-right">
                           <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-primary text-white hover:bg-primary/90">
-                            <span className="material-symbols-outlined text-lg">
-                              notifications_active
-                            </span>
+                            <Bell className="size-4" />
                             <span>Subscribed</span>
                           </button>
                         </td>
                       </tr>
                       <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                         <th
-                          className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-2"
+                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
                           scope="row"
                         >
-                          <span className="material-symbols-outlined text-lg text-slate-500 dark:text-slate-400">
-                            stadia_controller
-                          </span>
+                          <Gamepad2 className="size-6 text-slate-500 dark:text-slate-400" />
                           Gaming Central
                         </th>
                         <td className="px-6 py-4">2.5k</td>
@@ -262,21 +266,17 @@ export function CategoriesPage() {
                         <td className="px-6 py-4">Bob Johnson, Charlie Day</td>
                         <td className="px-6 py-4 text-right">
                           <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-                            <span className="material-symbols-outlined text-lg">
-                              notifications
-                            </span>
+                            <Bell className="size-4" />
                             <span>Subscribe</span>
                           </button>
                         </td>
                       </tr>
                       <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                         <th
-                          className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-2"
+                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
                           scope="row"
                         >
-                          <span className="material-symbols-outlined text-lg text-slate-500 dark:text-slate-400">
-                            book
-                          </span>
+                          <Book className="size-6 text-slate-500 dark:text-slate-400" />
                           Book Worms
                         </th>
                         <td className="px-6 py-4">450</td>
@@ -290,21 +290,17 @@ export function CategoriesPage() {
                         <td className="px-6 py-4">Emily White</td>
                         <td className="px-6 py-4 text-right">
                           <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-                            <span className="material-symbols-outlined text-lg">
-                              notifications
-                            </span>
+                            <Bell className="size-4" />
                             <span>Subscribe</span>
                           </button>
                         </td>
                       </tr>
                       <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                         <th
-                          className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-2"
+                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
                           scope="row"
                         >
-                          <span className="material-symbols-outlined text-lg text-slate-500 dark:text-slate-400">
-                            theaters
-                          </span>
+                          <Film className="size-6 text-slate-500 dark:text-slate-400" />
                           Movie Buffs
                         </th>
                         <td className="px-6 py-4">780</td>
@@ -318,21 +314,17 @@ export function CategoriesPage() {
                         <td className="px-6 py-4">David Lee</td>
                         <td className="px-6 py-4 text-right">
                           <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-                            <span className="material-symbols-outlined text-lg">
-                              notifications
-                            </span>
+                            <Bell className="size-4" />
                             <span>Subscribe</span>
                           </button>
                         </td>
                       </tr>
                       <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                         <th
-                          className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-2"
+                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
                           scope="row"
                         >
-                          <span className="material-symbols-outlined text-lg text-slate-500 dark:text-slate-400">
-                            music_note
-                          </span>
+                          <Music className="size-6 text-slate-500 dark:text-slate-400" />
                           Music Corner
                         </th>
                         <td className="px-6 py-4">620</td>
@@ -346,21 +338,17 @@ export function CategoriesPage() {
                         <td className="px-6 py-4">Sarah Davis</td>
                         <td className="px-6 py-4 text-right">
                           <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-                            <span className="material-symbols-outlined text-lg">
-                              notifications
-                            </span>
+                            <Bell className="size-4" />
                             <span>Subscribe</span>
                           </button>
                         </td>
                       </tr>
                       <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                         <th
-                          className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-2"
+                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
                           scope="row"
                         >
-                          <span className="material-symbols-outlined text-lg text-slate-500 dark:text-slate-400">
-                            flight
-                          </span>
+                          <Plane className="size-6 text-slate-500 dark:text-slate-400" />
                           Travel Adventures
                         </th>
                         <td className="px-6 py-4">550</td>
@@ -374,21 +362,17 @@ export function CategoriesPage() {
                         <td className="px-6 py-4">Michael Chen</td>
                         <td className="px-6 py-4 text-right">
                           <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-                            <span className="material-symbols-outlined text-lg">
-                              notifications
-                            </span>
+                            <Bell className="size-4" />
                             <span>Subscribe</span>
                           </button>
                         </td>
                       </tr>
                       <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                         <th
-                          className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-2"
+                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
                           scope="row"
                         >
-                          <span className="material-symbols-outlined text-lg text-slate-500 dark:text-slate-400">
-                            restaurant
-                          </span>
+                          <Utensils className="size-6 text-slate-500 dark:text-slate-400" />
                           Food &amp; Cooking
                         </th>
                         <td className="px-6 py-4">930</td>
@@ -402,21 +386,17 @@ export function CategoriesPage() {
                         <td className="px-6 py-4">Olivia Kim</td>
                         <td className="px-6 py-4 text-right">
                           <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-                            <span className="material-symbols-outlined text-lg">
-                              notifications
-                            </span>
+                            <Bell className="size-4" />
                             <span>Subscribe</span>
                           </button>
                         </td>
                       </tr>
                       <tr className="bg-white dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                         <th
-                          className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-2"
+                          className="px-6 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
                           scope="row"
                         >
-                          <span className="material-symbols-outlined text-lg text-slate-500 dark:text-slate-400">
-                            handyman
-                          </span>
+                          <Wrench className="size-6 text-slate-500 dark:text-slate-400" />
                           DIY &amp; Crafts
                         </th>
                         <td className="px-6 py-4">240</td>
@@ -430,9 +410,7 @@ export function CategoriesPage() {
                         <td className="px-6 py-4">Daniel Brown</td>
                         <td className="px-6 py-4 text-right">
                           <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-                            <span className="material-symbols-outlined text-lg">
-                              notifications
-                            </span>
+                            <Bell className="size-4" />
                             <span>Subscribe</span>
                           </button>
                         </td>
@@ -445,9 +423,7 @@ export function CategoriesPage() {
                     className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50"
                     href="#"
                   >
-                    <span className="material-symbols-outlined text-xl">
-                      chevron_left
-                    </span>
+                    <ChevronLeft className="size-4" />
                   </a>
                   <a
                     className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-primary bg-primary text-white"
@@ -480,9 +456,7 @@ export function CategoriesPage() {
                     className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50"
                     href="#"
                   >
-                    <span className="material-symbols-outlined text-xl">
-                      chevron_right
-                    </span>
+                    <ChevronRight className="size-4" />
                   </a>
                 </nav>
               </div>
