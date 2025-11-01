@@ -22,6 +22,7 @@ import {
   CategoriesPage,
   NotificationsPage,
   DiscoveryPage,
+  ModerationPage,
 } from "@/pages";
 import "./App.css";
 import { BookmarksPage } from "./pages/Forum/BookmarksPage";
@@ -56,6 +57,7 @@ const App = () => {
             <Route path="/forum/categories" element={<CategoriesPage />} />
             <Route path="/forum/discover" element={<DiscoveryPage />} />
             <Route path="/forum/discussions" element={<DiscussionsPage />} />
+            <Route path="/forum/moderation" element={<ModerationPage />} />
             <Route
               path="/forum/notifications"
               element={<NotificationsPage />}

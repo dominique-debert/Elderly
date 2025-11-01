@@ -14,7 +14,7 @@ import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 
 export function BookmarksPage() {
-  const { user, isAuthenticated } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;

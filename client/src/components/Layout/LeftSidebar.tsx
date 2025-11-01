@@ -1,3 +1,4 @@
+import { useAuth } from "@/stores";
 import {
   Home,
   Calendar,
@@ -16,6 +17,7 @@ import {
   Bell,
   ChartColumnStacked,
   Telescope,
+  Siren,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
@@ -23,6 +25,7 @@ import { NavLink, useLocation } from "react-router-dom";
 export function LeftSidebar() {
   const location = useLocation();
   const [forumOpen, setForumOpen] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     // auto-open if current route is under /forum
@@ -232,6 +235,22 @@ export function LeftSidebar() {
                       Notifications
                     </NavLink>
                   </li>
+
+                  {user?.isAdmin && (
+                    <li className="w-54 pr-3 mt-4">
+                      <NavLink
+                        to="/forum/moderation"
+                        className={({ isActive }) =>
+                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
+                            isActive ? "bg-primary/10" : ""
+                          }`
+                        }
+                      >
+                        <Siren className="size-4 text-orange-400" />
+                        Moderation
+                      </NavLink>
+                    </li>
+                  )}
                 </ul>
               )}
             </li>

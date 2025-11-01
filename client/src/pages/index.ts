@@ -6,6 +6,7 @@ export * from "./Forum/CategoriesPage";
 export * from "./Forum/DiscussionsPage";
 export * from "./Forum/DiscoveryPage";
 export * from "./Forum/NotificationsPage";
+export * from "./Forum/ModerationPage";
 export * from "./ExercisesPage";
 export * from "./ExplorePage";
 export * from "./Forum/ForumPage";
