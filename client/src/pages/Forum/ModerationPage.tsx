@@ -14,6 +14,8 @@ import {
   Plus,
   Gavel,
   Search,
+  ToggleRight,
+  ToggleLeft,
 } from "lucide-react";
 
 export function ModerationPage() {
@@ -164,11 +166,11 @@ export function ModerationPage() {
   return (
     <>
       {/* TODO: Redesign the moderation page: THIS IS A DUMMY PAGE FOR NOW */}
-      <div className="ml-66 mr-2 pt-14 min-h-[calc(100vh-4rem)] flex gap-6">
+      <div className="ml-62 mr-2 pt-14 w-[calc(100vw-15rem)] min-h-[calc(100vh-4rem)] flex gap-6">
         <div className="flex min-h-screen w-full">
           <div className="flex-1 p-8 overflow-y-auto">
             <header className="flex flex-wrap justify-between items-center gap-4 mb-6">
-              <p className="text-black dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+              <p className="text-4xl font-medium leading-tight tracking-[-0.033em]">
                 Tableau de bord
               </p>
               <button className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg">
@@ -181,9 +183,7 @@ export function ModerationPage() {
                 <p className="text-black dark:text-gray-300 text-base font-medium leading-normal">
                   Approbations en attente
                 </p>
-                <p className="text-black dark:text-white text-3xl font-bold leading-tight">
-                  12
-                </p>
+                <p className="text-3xl font-bold leading-tight">12</p>
                 <p className="text-success text-sm font-medium leading-normal">
                   +2% cette semaine
                 </p>
@@ -192,9 +192,7 @@ export function ModerationPage() {
                 <p className="text-black dark:text-gray-300 text-base font-medium leading-normal">
                   Publications signalées
                 </p>
-                <p className="text-black dark:text-white text-3xl font-bold leading-tight">
-                  5
-                </p>
+                <p className="text-3xl font-bold leading-tight">5</p>
                 <p className="text-destructive text-sm font-medium leading-normal">
                   -5% cette semaine
                 </p>
@@ -203,9 +201,7 @@ export function ModerationPage() {
                 <p className="text-black dark:text-gray-300 text-base font-medium leading-normal">
                   Nouveaux utilisateurs aujourd'hui
                 </p>
-                <p className="text-black dark:text-white text-3xl font-bold leading-tight">
-                  28
-                </p>
+                <p className="text-3xl font-bold leading-tight">28</p>
                 <p className="text-success text-sm font-medium leading-normal">
                   +10% aujourd'hui
                 </p>
@@ -213,19 +209,19 @@ export function ModerationPage() {
             </section>
             <section className="mt-12 flex flex-col">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 py-4">
-                <h2 className="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">
+                <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em]">
                   Journal de modération
                 </h2>
                 <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                   <div className="relative w-full sm:w-64">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral size-4 dark:text-gray-400" />
                     <input
-                      className="form-input w-full pl-10 pr-4 py-2 text-sm bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 rounded-lg text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary"
+                      className="input w-full pl-10 pr-4 py-2 text-sm bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 rounded-lg text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary"
                       placeholder="Rechercher dans le journal..."
                       type="text"
                     />
                   </div>
-                  <select className="form-select p-2 text-sm w-full sm:w-auto bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 rounded-lg text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary">
+                  <select className="select p-2 text-sm w-full sm:w-auto bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 rounded-lg text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary">
                     <option>Toutes les actions</option>
                     <option>Bannir un utilisateur</option>
                     <option>Supprimer la publication</option>
@@ -528,7 +524,7 @@ export function ModerationPage() {
             </section>
             <section className="mt-12">
               <div className="flex flex-wrap items-center justify-between gap-4 py-4">
-                <h2 className="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">
+                <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em]">
                   Configuration des alertes
                 </h2>
                 <button className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg">
@@ -543,40 +539,36 @@ export function ModerationPage() {
                       <h3 className="text-lg font-semibold text-black dark:text-white">
                         Volume élevé de signalements
                       </h3>
-                      <p className="text-sm text-neutral dark:text-gray-400">
+                      <p className="text-sm h-16 text-neutral dark:text-gray-400">
                         Se déclenche si &gt;10 signalements en 1 heure.
                       </p>
                     </div>
-                    <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                    <div className="relative inline-block ml-2 mt-0.5 align-middle transition duration-200 ease-in">
                       <input
                         defaultChecked
-                        className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
+                        className="toggle toggle-primary toggle-xs"
                         id="toggle1"
                         name="toggle"
                         type="checkbox"
                       />
-                      <label
-                        className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
-                        htmlFor="toggle1"
-                      ></label>
                     </div>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-800 dark:text-gray-300 mb-2">
                       Canaux de notification
                     </p>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 mt-4">
                       <span className="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white">
                         <span className="material-symbols-outlined text-lg text-success">
-                          toggle_on
-                        </span>{" "}
-                        Tableau de bord
+                          <ToggleRight className="size-4" />
+                        </span>
+                        <span className="text-xs">Tableau de bord</span>
                       </span>
                       <span className="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white">
                         <span className="material-symbols-outlined text-lg text-success">
-                          toggle_on
-                        </span>{" "}
-                        E‑mail
+                          <ToggleRight className="size-4" />
+                        </span>
+                        <span className="text-xs">Email</span>
                       </span>
                     </div>
                   </div>
@@ -592,39 +584,35 @@ export function ModerationPage() {
                       <h3 className="text-lg font-semibold text-black dark:text-white">
                         Nouvelles inscriptions
                       </h3>
-                      <p className="text-sm text-neutral dark:text-gray-400">
+                      <p className="text-sm h-16 text-neutral dark:text-gray-400">
                         Se déclenche pour chaque nouvel utilisateur.
                       </p>
                     </div>
-                    <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                    <div className="relative inline-block ml-2 mt-0.5 align-middle transition duration-200 ease-in">
                       <input
-                        className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
+                        className="toggle toggle-primary toggle-xs"
                         id="toggle2"
                         name="toggle"
                         type="checkbox"
                       />
-                      <label
-                        className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
-                        htmlFor="toggle2"
-                      ></label>
                     </div>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-800 dark:text-gray-300 mb-2">
                       Canaux de notification
                     </p>
-                    <div className="flex items-center gap-4">
-                      <span className="inline-flex items-center gap-2 text-sm text-neutral dark:text-gray-400">
-                        <span className="material-symbols-outlined text-lg">
-                          toggle_off
-                        </span>{" "}
-                        Tableau de bord
+                    <div className="flex items-center gap-4 mt-4">
+                      <span className="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white">
+                        <span className="material-symbols-outlined text-lg text-neutral dark:text-gray-400">
+                          <ToggleLeft className="size-4" />
+                        </span>
+                        <span className="text-xs">Tableau de bord</span>
                       </span>
-                      <span className="inline-flex items-center gap-2 text-sm text-neutral dark:text-gray-400">
-                        <span className="material-symbols-outlined text-lg">
-                          toggle_off
-                        </span>{" "}
-                        E‑mail
+                      <span className="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white">
+                        <span className="material-symbols-outlined text-lg text-neutral dark:text-gray-400">
+                          <ToggleLeft className="size-4" />
+                        </span>
+                        <span className="text-xs">Email</span>
                       </span>
                     </div>
                   </div>
@@ -640,40 +628,35 @@ export function ModerationPage() {
                       <h3 className="text-lg font-semibold text-black dark:text-white">
                         Détection de mots-clés
                       </h3>
-                      <p className="text-sm text-neutral dark:text-gray-400">
+                      <p className="text-sm text-neutral h-16 dark:text-gray-400">
                         Surveille des mots-clés spécifiques.
                       </p>
                     </div>
-                    <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                    <div className="relative inline-block ml-2 mt-0.5 align-middle transition duration-200 ease-in">
                       <input
-                        defaultChecked
-                        className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
+                        className="toggle toggle-primary toggle-xs"
                         id="toggle3"
                         name="toggle"
                         type="checkbox"
                       />
-                      <label
-                        className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
-                        htmlFor="toggle3"
-                      ></label>
                     </div>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-800 dark:text-gray-300 mb-2">
                       Canaux de notification
                     </p>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 mt-4">
                       <span className="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white">
                         <span className="material-symbols-outlined text-lg text-success">
-                          toggle_on
-                        </span>{" "}
-                        Tableau de bord
+                          <ToggleRight className="size-4" />
+                        </span>
+                        <span className="text-xs">Tableau de bord</span>
                       </span>
-                      <span className="inline-flex items-center gap-2 text-sm text-neutral dark:text-gray-400">
-                        <span className="material-symbols-outlined text-lg">
-                          toggle_off
-                        </span>{" "}
-                        E‑mail
+                      <span className="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white">
+                        <span className="material-symbols-outlined text-lg text-success">
+                          <ToggleRight className="size-4" />
+                        </span>
+                        <span className="text-xs">Email</span>
                       </span>
                     </div>
                   </div>
@@ -687,13 +670,13 @@ export function ModerationPage() {
             </section>
             <section className="mt-12">
               <div className="flex flex-wrap items-center justify-between gap-4 py-4">
-                <h2 className="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">
+                <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em]">
                   Rapports et analyses
                 </h2>
                 <div className="flex items-center gap-2">
                   <select
                     defaultValue="30"
-                    className="form-select bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 rounded-lg text-sm text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary"
+                    className="select bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 rounded-lg text-sm text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary"
                   >
                     <option value="7">7 derniers jours</option>
                     <option value="30">30 derniers jours</option>
@@ -703,7 +686,7 @@ export function ModerationPage() {
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-2 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 p-6">
-                  <h3 className="text-lg font-semibold text-black dark:text-white mb-4">
+                  <h3 className="text-lg font-semibold mb-4">
                     Activité des utilisateurs
                   </h3>
                   <div className="h-80">
@@ -711,7 +694,7 @@ export function ModerationPage() {
                   </div>
                 </div>
                 <div className="bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 p-6">
-                  <h3 className="text-lg font-semibold text-black dark:text-white mb-4">
+                  <h3 className="text-lg font-semibold mb-4">
                     Actions de modération
                   </h3>
                   <div className="h-80">
@@ -721,7 +704,7 @@ export function ModerationPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                 <div className="bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 p-6">
-                  <h3 className="text-lg font-semibold text-black dark:text-white mb-4">
+                  <h3 className="text-lg font-semibold mb-4">
                     Sujets les plus populaires
                   </h3>
                   <ul className="space-y-3">
@@ -793,7 +776,7 @@ export function ModerationPage() {
                   </ul>
                 </div>
                 <div className="bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 p-6">
-                  <h3 className="text-lg font-semibold text-black dark:text-white mb-4">
+                  <h3 className="text-lg font-semibold mb-4">
                     Vue d'ensemble des signalements
                   </h3>
                   <div className="space-y-4">
@@ -830,7 +813,7 @@ export function ModerationPage() {
             </section>
             <section className="mt-12">
               <div className="flex flex-wrap items-center justify-between gap-4 py-4">
-                <h2 className="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">
+                <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em]">
                   Gestion des utilisateurs
                 </h2>
                 <div className="w-full md:w-auto md:max-w-xs">
@@ -840,7 +823,7 @@ export function ModerationPage() {
                         <Search className="size-4" />
                       </div>
                       <input
-                        className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-black dark:text-white focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-neutral dark:placeholder:text-gray-500 px-2 text-base font-normal leading-normal"
+                        className="input flex w-full min-w-0 flex-1 resize-none overflow-hidden focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-neutral dark:placeholder:text-gray-500 px-2 text-base font-normal leading-normal"
                         placeholder="Rechercher des utilisateurs..."
                         defaultValue=""
                       />

@@ -22,7 +22,7 @@ export function BookmarksPage() {
 
   return (
     <>
-      {/* TODO: Redesign the bookmarks page: THIS IS A DUMMY PAGE FOR NOW */}
+      {/* TODO: Refonte de la page des favoris : PAGE DUMMY POUR L'INSTANT */}
       <div className="ml-62 mr-6 pt-14 min-h-[calc(100vh-4rem)] flex gap-6">
         <div className="flex min-h-screen w-full">
           <div className="flex-1 p-10 pr-2">
@@ -40,7 +40,7 @@ export function BookmarksPage() {
                     </div>
                     <input
                       className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 rounded-l-none text-base font-normal leading-normal"
-                      placeholder="Search by title or content..."
+                      placeholder="Rechercher par titre ou contenu..."
                       value=""
                     />
                   </div>
@@ -55,7 +55,7 @@ export function BookmarksPage() {
                     <ListFilter className="size-5 text-gray-400 dark:text-gray-500 text-base" />
 
                     <p className="text-gray-900 dark:text-white text-sm font-medium leading-normal">
-                      Categories
+                      Catégories
                     </p>
                     <ChevronDown className="size-5 text-gray-400 dark:text-gray-500 text-base" />
                   </button>
@@ -65,7 +65,7 @@ export function BookmarksPage() {
                   >
                     <div className="p-4">
                       <p className="text-gray-900 dark:text-white font-medium mb-3">
-                        Filter by Category
+                        Filtrer par catégorie
                       </p>
                       <div className="grid grid-cols-2 gap-2 mb-4">
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
@@ -73,28 +73,28 @@ export function BookmarksPage() {
                             className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                             type="checkbox"
                           />
-                          <span>UI/UX Design</span>
+                          <span>Conception UI/UX</span>
                         </label>
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
                             className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                             type="checkbox"
                           />
-                          <span>Web Dev</span>
+                          <span>Développement Web</span>
                         </label>
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
                             className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                             type="checkbox"
                           />
-                          <span>Cooking</span>
+                          <span>Cuisine</span>
                         </label>
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
                             className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                             type="checkbox"
                           />
-                          <span>Productivity</span>
+                          <span>Productivité</span>
                         </label>
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
@@ -108,23 +108,23 @@ export function BookmarksPage() {
                             className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                             type="checkbox"
                           />
-                          <span>AI/ML</span>
+                          <span>IA/ML</span>
                         </label>
                       </div>
                       <p className="text-gray-900 dark:text-white font-medium mb-3">
-                        Keyword Exclusions
+                        Exclusions de mots-clés
                       </p>
                       <input
                         className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 h-10 placeholder:text-gray-400 dark:placeholder:text-gray-500 px-3 text-sm font-normal leading-normal"
-                        placeholder="Exclude keywords (e.g., 'React', 'AI')"
+                        placeholder="Exclure des mots-clés (ex.: 'React', 'IA')"
                         value=""
                       />
                       <div className="flex justify-end gap-2 mt-4">
                         <button className="px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                          Clear
+                          Effacer
                         </button>
                         <button className="px-4 py-2 text-sm font-bold rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors">
-                          Apply Filters
+                          Appliquer les filtres
                         </button>
                       </div>
                     </div>
@@ -133,7 +133,7 @@ export function BookmarksPage() {
                 <div className="shrink-0">
                   <button className="flex h-12 w-full sm:w-auto shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-gray-800/50 pl-4 pr-3 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
                     <p className="text-gray-900 dark:text-white text-sm font-medium leading-normal">
-                      Sort by: Date Saved
+                      Trier par : Date d'enregistrement
                     </p>
                     <ChevronDown className="size-5 text-gray-400 dark:text-gray-500 text-base" />
                   </button>
@@ -150,7 +150,7 @@ export function BookmarksPage() {
                         scope="col"
                       >
                         <div className="flex items-center gap-1">
-                          <span>Title &amp; Description</span>
+                          <span>Titre &amp; Description</span>
                           <ChevronsUpDown className="size-5 text-gray-400 dark:text-gray-500 text-base" />
                         </div>
                       </th>
@@ -159,7 +159,7 @@ export function BookmarksPage() {
                         scope="col"
                       >
                         <div className="flex items-center gap-1">
-                          <span>Category</span>
+                          <span>Catégorie</span>
                           <ChevronsUpDown className="size-5 text-gray-400 dark:text-gray-500 text-base" />
                         </div>
                       </th>
@@ -168,7 +168,7 @@ export function BookmarksPage() {
                         scope="col"
                       >
                         <div className="flex items-center gap-1">
-                          <span>Author</span>
+                          <span>Auteur</span>
                           <ChevronsUpDown className="size-5 text-gray-400 dark:text-gray-500 text-base" />
                         </div>
                       </th>
@@ -177,7 +177,7 @@ export function BookmarksPage() {
                         scope="col"
                       >
                         <div className="flex items-center gap-1">
-                          <span>Date Saved</span>
+                          <span>Date d'enregistrement</span>
                           <ChevronsUpDown className="size-5 text-gray-400 dark:text-gray-500 text-base" />
                         </div>
                       </th>
@@ -201,30 +201,32 @@ export function BookmarksPage() {
                               className="text-gray-900 dark:text-white text-sm font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                               href="#"
                             >
-                              UI Design Best Practices for 2024: From Bento
-                              Grids to AI-Driven Personalization
+                              Bonnes pratiques de design UI pour 2024 : des
+                              grilles Bento à la personnalisation pilotée par
+                              l'IA
                             </a>
                             <p className="text-gray-500 dark:text-gray-400 text-xs font-normal leading-tight mt-1 line-clamp-2">
-                              Discover the latest trends shaping user interfaces
-                              this year, from bento grids to AI-driven
-                              personalization.
+                              Découvrez les dernières tendances qui façonnent
+                              les interfaces utilisateur cette année, des
+                              grilles Bento à la personnalisation pilotée par
+                              l'IA.
                             </p>
                           </div>
                         </div>
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
-                        UI/UX Design
+                        Conception UI/UX
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
                         Alex Johnson
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
-                        Oct 26, 2023
+                        26 oct. 2023
                       </td>
                       <td className="p-4 text-right align-top">
                         <button
                           className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors ml-auto"
-                          title="Remove from bookmarks"
+                          title="Retirer des favoris"
                         >
                           <Bookmark className="size-5" />
                         </button>
@@ -241,30 +243,30 @@ export function BookmarksPage() {
                               className="text-gray-900 dark:text-white text-sm font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                               href="#"
                             >
-                              Getting Started with React Hooks: A Comprehensive
-                              Beginner's Guide
+                              Commencer avec les Hooks React : guide complet
+                              pour débutants
                             </a>
                             <p className="text-gray-500 dark:text-gray-400 text-xs font-normal leading-tight mt-1 line-clamp-2">
-                              A comprehensive guide for beginners to understand
-                              and implement state and effects in functional
-                              components.
+                              Un guide complet pour aider les débutants à
+                              comprendre et implémenter l'état et les effets
+                              dans les composants fonctionnels.
                             </p>
                           </div>
                         </div>
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
-                        Web Development
+                        Développement Web
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
                         Jane Doe
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
-                        Oct 22, 2023
+                        22 oct. 2023
                       </td>
                       <td className="p-4 text-right align-top">
                         <button
                           className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors ml-auto"
-                          title="Remove from bookmarks"
+                          title="Retirer des favoris"
                         >
                           <Bookmark className="size-5" />
                         </button>
@@ -281,29 +283,30 @@ export function BookmarksPage() {
                               className="text-gray-900 dark:text-white text-sm font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                               href="#"
                             >
-                              10 Quick and Healthy Weeknight Dinner Recipes for
-                              Busy People
+                              10 recettes rapides et saines pour les repas en
+                              semaine
                             </a>
                             <p className="text-gray-500 dark:text-gray-400 text-xs font-normal leading-tight mt-1 line-clamp-2">
-                              Tired of takeout? These simple and delicious
-                              recipes will save your weeknights and your wallet.
+                              Marre des plats à emporter ? Ces recettes simples
+                              et délicieuses vous feront gagner du temps en
+                              semaine et épargneront votre portefeuille.
                             </p>
                           </div>
                         </div>
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
-                        Cooking &amp; Recipes
+                        Cuisine &amp; Recettes
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
                         Samwise G.
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
-                        Oct 19, 2023
+                        19 oct. 2023
                       </td>
                       <td className="p-4 text-right align-top">
                         <button
                           className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors ml-auto"
-                          title="Remove from bookmarks"
+                          title="Retirer des favoris"
                         >
                           <Bookmark className="size-5" />
                         </button>
@@ -320,29 +323,30 @@ export function BookmarksPage() {
                               className="text-gray-900 dark:text-white text-sm font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                               href="#"
                             >
-                              Understanding Cognitive Biases in Decision Making
+                              Comprendre les biais cognitifs dans la prise de
+                              décision
                             </a>
                             <p className="text-gray-500 dark:text-gray-400 text-xs font-normal leading-tight mt-1 line-clamp-2">
-                              Explore common cognitive biases and how they
-                              influence our judgments, with practical tips to
-                              mitigate their effects.
+                              Explorez les biais cognitifs courants et comment
+                              ils influencent nos jugements, avec des conseils
+                              pratiques pour en atténuer les effets.
                             </p>
                           </div>
                         </div>
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
-                        Productivity
+                        Productivité
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
                         Sarah Connor
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
-                        Oct 15, 2023
+                        15 oct. 2023
                       </td>
                       <td className="p-4 text-right align-top">
                         <button
                           className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors ml-auto"
-                          title="Remove from bookmarks"
+                          title="Retirer des favoris"
                         >
                           <Bookmark className="size-5" />
                         </button>
@@ -359,13 +363,13 @@ export function BookmarksPage() {
                               className="text-gray-900 dark:text-white text-sm font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                               href="#"
                             >
-                              Advanced SEO Strategies for Small Businesses in
-                              2024
+                              Stratégies SEO avancées pour les petites
+                              entreprises en 2024
                             </a>
                             <p className="text-gray-500 dark:text-gray-400 text-xs font-normal leading-tight mt-1 line-clamp-2">
-                              Boost your online presence with these cutting-edge
-                              SEO techniques tailored for small businesses and
-                              startups.
+                              Boostez votre présence en ligne avec ces
+                              techniques SEO de pointe adaptées aux petites
+                              entreprises et startups.
                             </p>
                           </div>
                         </div>
@@ -377,12 +381,12 @@ export function BookmarksPage() {
                         Mark Webber
                       </td>
                       <td className="p-4 text-sm text-gray-700 dark:text-gray-300 align-top">
-                        Oct 10, 2023
+                        10 oct. 2023
                       </td>
                       <td className="p-4 text-right align-top">
                         <button
                           className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors ml-auto"
-                          title="Remove from bookmarks"
+                          title="Retirer des favoris"
                         >
                           <Bookmark className="size-5" />
                         </button>
@@ -398,10 +402,9 @@ export function BookmarksPage() {
             >
               <div className="hidden sm:block">
                 <p className="text-sm font-light text-gray-700 dark:text-gray-400">
-                  Showing <span className="font-medium">1</span> to
-                  <span className="font-medium"> 5</span> of
-                  <span className="font-medium"> 20 </span>
-                  results
+                  Affichage de <span className="font-medium">1</span> à{" "}
+                  <span className="font-medium">5</span> sur{" "}
+                  <span className="font-medium">20</span> résultats
                 </p>
               </div>
               <div className="flex flex-1 justify-between sm:justify-end">
@@ -409,13 +412,13 @@ export function BookmarksPage() {
                   className="relative inline-flex items-center rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
                   href="#"
                 >
-                  Previous
+                  Précédent
                 </a>
                 <a
                   className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
                   href="#"
                 >
-                  Next
+                  Suivant
                 </a>
               </div>
             </nav>

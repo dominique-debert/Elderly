@@ -12,17 +12,17 @@ export function ForumPage() {
 
   return (
     <>
-      {/* TODO: Redesign the forum page: THIS IS A DUMMY PAGE FOR NOW */}
-      <div className="ml-62 mr-6 pt-14 min-h-[calc(100vh-4rem)] flex gap-6">
-        <Card className="grow space-y-6 bg-transparent! border-0 p-10 pr-4">
-          <h1 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-slate-400 mb-4">
-            Bienvenue sur le forum, {user?.firstName}!
-          </h1>
+      {/* TODO: Reconcevoir la page du forum : CECI EST UNE PAGE TEMPORAIRE POUR L'INSTANT */}
+      <div className="ml-72 mr-6 pt-24 min-h-[calc(100vh-4rem)] items-start grid grid-cols-1 xl:grid-cols-2">
+        <span className="text-2xl w-full col-span-2 lg:text-3xl font-bold text-slate-900 dark:text-slate-400">
+          Bienvenue sur le forum, {user?.firstName}!
+        </span>
+        <Card className="bg-transparent! col-span-2 border-0 -mt-52 xl:-mt-26">
           <div className="bg-white dark:bg-card rounded-xl border border-slate-200 dark:border-gray-700 relative p-6 pattern-api">
             <div className="relative z-10">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2">
                 <Flame className="text-red-500 dark:text-red-400 w-5 h-5" />
-                Trending Topics
+                Sujets populaires
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -32,25 +32,26 @@ export function ForumPage() {
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCawXEIcOQT1lOHAaKm3hqsQxh8jHCLDwu4JN4wmtYl8pwsjsmOz6I8qZ2TLGpgCV5HLUtE4xRRSdHaQ_uJ-o3yc25CnAsmyBK67HeG5dl-pWc-LJCmV_pK4KPm39P15vBw-aDKQ6wI-3qsc-0PtKHN1Z_ozDyOdn1AEhzSkFirIRFo-a8fhGn6c0WclWIToyX-E4wWcLu131n55C0eAkrmkvz01NYLszoPDmoWP7BF7t8hA_9-S-dVStDYiBBU9UGrBFXZfkP4w2s"
                   />
                   <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">
                         Alice Johnson
                       </span>{" "}
-                      in <span className="text-primary">API Development</span>
+                      dans{" "}
+                      <span className="text-primary">Développement d'API</span>
                     </p>
                     <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      Best Practices for API Design
+                      Bonnes pratiques pour la conception d'API
                     </a>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
-                      A thread for sharing tips on creating robust and scalable
-                      APIs.
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                      Un fil de discussion pour partager des conseils sur la
+                      création d'API robustes et évolutives.
                     </p>
                   </div>
-                  <div className="text-center text-sm text-slate-500 dark:text-gray-400 w-20 shrink-0 ml-auto">
+                  <div className="text-center text-sm text-slate-500 dark:text-slate-400 w-20 shrink-0 ml-auto">
                     <p className="font-bold text-lg text-slate-700 dark:text-slate-300">
                       15
                     </p>
-                    <p>Posts</p>
+                    <p>Messages</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 pt-4 border-t border-slate-200 dark:border-gray-700">
@@ -60,25 +61,25 @@ export function ForumPage() {
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOvIT3lBzoHHlHy6d89LXTzm1S4jcp7ecqkFSNYldp3aneWBYJDjI4dL7qPdfjV3iF_ZaiE6jLm-4oywbH6lOr0fK_q89SeReUNEYQTi0xzTs7O3JK-9trUr6IAYu2MPVBV20TK-vcYNaNyygQ1GTA1chkryiR56aI0R-gXodlUtMnzrHtFdDcqaHRBFSYF3CFvfg_l3dtklGkHp6FEveQzseBjknnpTucZdkMuceFORgeMhr4QR9_Rx0EptK_yAW0KPtUgG4qAws"
                   />
                   <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">
                         Bob Williams
                       </span>{" "}
-                      in <span className="text-primary">Frontend</span>
+                      dans <span className="text-primary">Front-end</span>
                     </p>
                     <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      CSS Frameworks: Tailwind vs. Bootstrap
+                      Frameworks CSS : Tailwind vs Bootstrap
                     </a>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
-                      Which utility-first framework is right for your next
-                      project?
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                      Quel framework utility-first convient le mieux à votre
+                      prochain projet ?
                     </p>
                   </div>
-                  <div className="text-center text-sm text-slate-500 dark:text-gray-400 w-20 shrink-0 ml-auto">
+                  <div className="text-center text-sm text-slate-500 dark:text-slate-400 w-20 shrink-0 ml-auto">
                     <p className="font-bold text-lg text-slate-700 dark:text-slate-300">
                       51
                     </p>
-                    <p>Posts</p>
+                    <p>Messages</p>
                   </div>
                 </div>
               </div>
@@ -88,7 +89,7 @@ export function ForumPage() {
             <div className="relative z-10">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2">
                 <Rocket className="text-green-500 dark:text-green-400 w-5 h-5" />
-                New in Followed Categories
+                Nouveautés dans vos catégories suivies
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -98,28 +99,28 @@ export function ForumPage() {
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSgnS-C7rWlNL9lF-A8V1Bc43__7mLemcNJyxJLFKEOUeHhZ8RkjySHu2gEvX3AV207bQXlBS2XxPy9S6dKnmrQLjokAPSKHvtCCx2ECEYoD1xhDK1pakDzUb_r0IYeKRVCGR9o-PT5CpIui7CRLm8DDo8ScZuADClqFi0rfNKpE-VfOP9f8mmotAdfpuVXETbJBWWoZ6J13t6EoJhCeJV9MCjflxGq11spIJEFcB3rGu-IPrIEKL-SvP7qiyEQG_bByhRX0dtW1Q"
                   />
                   <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">
                         Charlie Davis
                       </span>{" "}
-                      in{" "}
+                      dans{" "}
                       <span className="text-green-500 dark:text-green-400">
-                        Frontend
+                        Front-end
                       </span>
                     </p>
                     <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      Getting Started with React Hooks
+                      Démarrer avec les Hooks React
                     </a>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
-                      A beginner-friendly guide to understanding and using React
-                      Hooks.
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                      Un guide pour débutants pour comprendre et utiliser les
+                      Hooks React.
                     </p>
                   </div>
-                  <div className="text-center text-sm text-slate-500 dark:text-gray-400 w-20 shrink-0 ml-auto">
+                  <div className="text-center text-sm text-slate-500 dark:text-slate-400 w-20 shrink-0 ml-auto">
                     <p className="font-bold text-lg text-slate-700 dark:text-slate-300">
                       8
                     </p>
-                    <p>Posts</p>
+                    <p>Messages</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 pt-4 border-t border-slate-200 dark:border-gray-700">
@@ -129,28 +130,28 @@ export function ForumPage() {
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKQEx6TOc6UeEZhS7PyXvTmhKhZhSuNn4I4dcSCGRatnYnH3QLm9vUW3q3IaX8k8tQtEJzCJbVkSG9W2mW-rcqB7cCUIgieT7wVauOeE9n9kJR_wyi_NiZ-50sihTeoMaDEvuEr3jI65DmasA1Jf3V-ZPAzakGKJg9Y760GPGgpPDhKv7m8JTqVc5hO6W5RRKlQoG0GpZZdEmsbPqGVI_akiqTGM3Ic53oquoN0UjL0_feDR1-ZsubNOYrmMqmUUpUb5qIpOd41Eo"
                   />
                   <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">
                         Dana Lee
                       </span>{" "}
-                      in{" "}
+                      dans{" "}
                       <span className="text-purple-500 dark:text-purple-400">
                         UI/UX Design
                       </span>
                     </p>
                     <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      Tips for creating a stunning portfolio
+                      Conseils pour créer un portfolio époustouflant
                     </a>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
-                      How to showcase your work effectively to land your dream
-                      job.
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                      Comment présenter efficacement votre travail pour
+                      décrocher l'emploi de vos rêves.
                     </p>
                   </div>
-                  <div className="text-center text-sm text-slate-500 dark:text-gray-400 w-20 shrink-0 ml-auto">
+                  <div className="text-center text-sm text-slate-500 dark:text-slate-400 w-20 shrink-0 ml-auto">
                     <p className="font-bold text-lg text-slate-700 dark:text-slate-300">
                       19
                     </p>
-                    <p>Posts</p>
+                    <p>Messages</p>
                   </div>
                 </div>
               </div>
@@ -160,7 +161,7 @@ export function ForumPage() {
             <div className="relative z-10">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2">
                 <Bell className="text-yellow-500 dark:text-yellow-400 w-5 h-5" />
-                Your Notifications
+                Vos notifications
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -170,18 +171,18 @@ export function ForumPage() {
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTUSIfMT4q7PJXLbOhvTkL1ofyb84a179gJyk9lumVHxL_ZxuQvFNmW7ICUpQ0pyR4-PtgjK_HKqKmKP5IoeMvoKaF9RJ5WxQyeqiFWdSiS0L6hRBOV42mxbFWbVP_lNe_5PQ8nFDWI5oPwy0QaJW8Y-RqKO-gviTE6rSMRjQy1B9AnnS7s8Q1k1rHcesKzogfHHpc4tLMfs9EGXFLRCRax0EWshO5C_CSinBqeaanFOXQWnZi5lx0q1Lv1sNrXAI4XSMICDAEyyo"
                   />
                   <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">
-                        You
+                        Vous
                       </span>{" "}
-                      have a new reply in{" "}
+                      avez une nouvelle réponse dans{" "}
                       <span className="text-primary">GraphQL vs. REST</span>
                     </p>
                     <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      "What about real-time use cases?"
+                      « Et pour les cas d'utilisation en temps réel ? »
                     </a>
-                    <p className="text-xs text-slate-500 dark:text-gray-400 mt-1">
-                      2 hours ago
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                      Il y a 2 heures
                     </p>
                   </div>
                 </div>
@@ -192,21 +193,21 @@ export function ForumPage() {
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe7tIFNrWF_4JSzflK98euBq_4EVMbBMz_VV9gTCKaCHBvYZ2D7JqGM2l3avc2cWxl3t6aCer6-IyRNKEVRtdPSqRVhHNBovaGJANUTPkB7JjVeN_iGgzTFbcaVf8d6cBD-6bNxxPeW_udKWcFlqi-AW5cu6Az4vw8Zi3bYM_0ydsPMbPOWmgdwCybQtVN6cjTnpPTDtaWi1i-xchFc7ehL4QFvedcYazPF8OB1sibaHRqMNZeJ40z3fYXEHkHYATFpC2aQlWQaio"
                   />
                   <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">
                         Sarah M.
                       </span>{" "}
-                      mentioned you in{" "}
+                      vous a mentionné dans{" "}
                       <span className="text-green-500 dark:text-green-400">
-                        State Management in Vue 3
+                        Gestion d'état dans Vue 3
                       </span>
                     </p>
                     <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      "@YourUsername, your perspective on Pinia is really
-                      insightful!"
+                      « @VotreNom, ton point de vue sur Pinia est vraiment
+                      pertinent ! »
                     </a>
-                    <p className="text-xs text-slate-500 dark:text-gray-400 mt-1">
-                      Yesterday
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                      Hier
                     </p>
                   </div>
                 </div>
@@ -214,17 +215,16 @@ export function ForumPage() {
             </div>
           </div>
         </Card>
-        <Card className="shrink-0 bg-transparent! border-0 pt-29 pr-1">
-          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700">
-            <label className="flex flex-col w-full gap-8">
-              <div className="flex w-full flex-1 items-stretch rounded-lg h-10">
-                <div className="text-slate-400 bg-transparent dark:text-[#9da6b9] flex items-center justify-center pl-3 rounded-l-lg border border-slate-200 dark:border-none border-r-0">
-                  <Search className="size-5" />
+        <Card className="gap-2 bg-transparent! border-0 w-[calc(100vw-19.5rem)] -mt-64 xl:-mt-26">
+          <div className="bg-white dark:bg-card p-2 rounded-2xl border border-slate-200 dark:border-gray-700">
+            <label className="flex flex-col w-full">
+              <div className="flex w-full rounded-lg">
+                <div className="text-slate-400 bg-transparent dark:text-slate-500 flex items-center justify-center pl-3 rounded-l-lg border border-slate-200 dark:border-none border-r-0">
+                  <Search className="size-4" />
                 </div>
                 <input
-                  className="form-input bg-transparent flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 focus:border-primary h-full placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] px-4 rounded-l-none border border-slate-200 dark:border-none border-l-0 pl-4 text-sm font-normal leading-normal"
-                  placeholder="Quick search..."
-                  value=""
+                  className="bg-transparent flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-300 focus:outline-0 focus:ring-0 focus:border-primary h-full placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] px-4 rounded-l-none border border-slate-200 dark:border-none border-l-0 pl-4 text-sm font-normal leading-normal"
+                  placeholder="Recherche rapide..."
                 />
               </div>
             </label>
@@ -232,31 +232,31 @@ export function ForumPage() {
           <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 mt-4">
             <button className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-3xl h-10 px-4 btn-primary text-sm font-bold leading-normal tracking-[0.015em] gap-3">
               <Plus className="size-4" />
-              <span className="truncate">Start a new discussion</span>
+              <span className="truncate">Démarrer une nouvelle discussion</span>
             </button>
           </div>
           <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 mt-4 space-y-4">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-              Your Activity
+              Votre activité
             </h3>
             <div className="grid grid-cols-2 gap-4 text-center">
               <div>
                 <p className="text-2xl font-bold text-primary">27</p>
-                <p className="text-sm text-slate-500 dark:text-gray-400">
-                  Total Posts
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Messages au total
                 </p>
               </div>
               <div>
                 <p className="text-2xl font-bold text-primary">124</p>
-                <p className="text-sm text-slate-500 dark:text-gray-400">
-                  Reactions
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Réactions
                 </p>
               </div>
             </div>
           </div>
           <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 mt-4 space-y-4">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-              Popular Tags
+              Tags populaires
             </h3>
             <div className="flex flex-wrap gap-2">
               <a
@@ -275,13 +275,13 @@ export function ForumPage() {
                 className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
                 href="#"
               >
-                #career
+                #carrière
               </a>
               <a
                 className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
                 href="#"
               >
-                #help
+                #aide
               </a>
               <a
                 className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"

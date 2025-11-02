@@ -1,10 +1,19 @@
-import { Bell, Rocket, Flame, Search, Plus } from "lucide-react";
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import { Card } from "@/components";
+import {
+  Reply,
+  AtSign,
+  MessageSquareText,
+  MessageSquarePlus,
+  Bookmark,
+  Search,
+  ListFilter,
+  ChevronDown,
+  History,
+} from "lucide-react";
 
 export function NotificationsPage() {
-  const { user, isAuthenticated } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
@@ -12,286 +21,265 @@ export function NotificationsPage() {
 
   return (
     <>
-      {/* TODO: Redesign the notifications page: THIS IS A DUMMY PAGE FOR NOW */}
-      <div className="ml-62 mr-6 pt-14 min-h-[calc(100vh-4rem)] flex gap-6">
-        <Card className="grow space-y-6 bg-transparent! border-0 p-10 pr-4">
-          <h1 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-slate-400 mb-4">
-            Bienvenue sur les notifications, {user?.firstName}!
-          </h1>
-          <div className="bg-white dark:bg-card rounded-xl border border-slate-200 dark:border-gray-700 relative p-6 pattern-api">
-            <div className="relative z-10">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2">
-                <Flame className="text-red-500 dark:text-red-400 w-5 h-5" />
-                Trending Topics
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <img
-                    alt="User Avatar"
-                    className="size-8 rounded-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCawXEIcOQT1lOHAaKm3hqsQxh8jHCLDwu4JN4wmtYl8pwsjsmOz6I8qZ2TLGpgCV5HLUtE4xRRSdHaQ_uJ-o3yc25CnAsmyBK67HeG5dl-pWc-LJCmV_pK4KPm39P15vBw-aDKQ6wI-3qsc-0PtKHN1Z_ozDyOdn1AEhzSkFirIRFo-a8fhGn6c0WclWIToyX-E4wWcLu131n55C0eAkrmkvz01NYLszoPDmoWP7BF7t8hA_9-S-dVStDYiBBU9UGrBFXZfkP4w2s"
-                  />
-                  <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">
-                        Alice Johnson
-                      </span>{" "}
-                      in <span className="text-primary">API Development</span>
-                    </p>
-                    <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      Best Practices for API Design
-                    </a>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
-                      A thread for sharing tips on creating robust and scalable
-                      APIs.
-                    </p>
-                  </div>
-                  <div className="text-center text-sm text-slate-500 dark:text-gray-400 w-20 shrink-0 ml-auto">
-                    <p className="font-bold text-lg text-slate-700 dark:text-slate-300">
-                      15
-                    </p>
-                    <p>Posts</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 pt-4 border-t border-slate-200 dark:border-gray-700">
-                  <img
-                    alt="User Avatar"
-                    className="size-8 rounded-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOvIT3lBzoHHlHy6d89LXTzm1S4jcp7ecqkFSNYldp3aneWBYJDjI4dL7qPdfjV3iF_ZaiE6jLm-4oywbH6lOr0fK_q89SeReUNEYQTi0xzTs7O3JK-9trUr6IAYu2MPVBV20TK-vcYNaNyygQ1GTA1chkryiR56aI0R-gXodlUtMnzrHtFdDcqaHRBFSYF3CFvfg_l3dtklGkHp6FEveQzseBjknnpTucZdkMuceFORgeMhr4QR9_Rx0EptK_yAW0KPtUgG4qAws"
-                  />
-                  <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">
-                        Bob Williams
-                      </span>{" "}
-                      in <span className="text-primary">Frontend</span>
-                    </p>
-                    <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      CSS Frameworks: Tailwind vs. Bootstrap
-                    </a>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
-                      Which utility-first framework is right for your next
-                      project?
-                    </p>
-                  </div>
-                  <div className="text-center text-sm text-slate-500 dark:text-gray-400 w-20 shrink-0 ml-auto">
-                    <p className="font-bold text-lg text-slate-700 dark:text-slate-300">
-                      51
-                    </p>
-                    <p>Posts</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white dark:bg-card rounded-xl border border-slate-200 dark:border-gray-700 relative p-6 pattern-frontend">
-            <div className="relative z-10">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2">
-                <Rocket className="text-green-500 dark:text-green-400 w-5 h-5" />
-                New in Followed Categories
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <img
-                    alt="User Avatar"
-                    className="size-8 rounded-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSgnS-C7rWlNL9lF-A8V1Bc43__7mLemcNJyxJLFKEOUeHhZ8RkjySHu2gEvX3AV207bQXlBS2XxPy9S6dKnmrQLjokAPSKHvtCCx2ECEYoD1xhDK1pakDzUb_r0IYeKRVCGR9o-PT5CpIui7CRLm8DDo8ScZuADClqFi0rfNKpE-VfOP9f8mmotAdfpuVXETbJBWWoZ6J13t6EoJhCeJV9MCjflxGq11spIJEFcB3rGu-IPrIEKL-SvP7qiyEQG_bByhRX0dtW1Q"
-                  />
-                  <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">
-                        Charlie Davis
-                      </span>{" "}
-                      in{" "}
-                      <span className="text-green-500 dark:text-green-400">
-                        Frontend
-                      </span>
-                    </p>
-                    <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      Getting Started with React Hooks
-                    </a>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
-                      A beginner-friendly guide to understanding and using React
-                      Hooks.
-                    </p>
-                  </div>
-                  <div className="text-center text-sm text-slate-500 dark:text-gray-400 w-20 shrink-0 ml-auto">
-                    <p className="font-bold text-lg text-slate-700 dark:text-slate-300">
-                      8
-                    </p>
-                    <p>Posts</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 pt-4 border-t border-slate-200 dark:border-gray-700">
-                  <img
-                    alt="User Avatar"
-                    className="size-8 rounded-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKQEx6TOc6UeEZhS7PyXvTmhKhZhSuNn4I4dcSCGRatnYnH3QLm9vUW3q3IaX8k8tQtEJzCJbVkSG9W2mW-rcqB7cCUIgieT7wVauOeE9n9kJR_wyi_NiZ-50sihTeoMaDEvuEr3jI65DmasA1Jf3V-ZPAzakGKJg9Y760GPGgpPDhKv7m8JTqVc5hO6W5RRKlQoG0GpZZdEmsbPqGVI_akiqTGM3Ic53oquoN0UjL0_feDR1-ZsubNOYrmMqmUUpUb5qIpOd41Eo"
-                  />
-                  <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">
-                        Dana Lee
-                      </span>{" "}
-                      in{" "}
-                      <span className="text-purple-500 dark:text-purple-400">
-                        UI/UX Design
-                      </span>
-                    </p>
-                    <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      Tips for creating a stunning portfolio
-                    </a>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
-                      How to showcase your work effectively to land your dream
-                      job.
-                    </p>
-                  </div>
-                  <div className="text-center text-sm text-slate-500 dark:text-gray-400 w-20 shrink-0 ml-auto">
-                    <p className="font-bold text-lg text-slate-700 dark:text-slate-300">
-                      19
-                    </p>
-                    <p>Posts</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white dark:bg-card rounded-xl border border-slate-200 dark:border-gray-700 relative p-6 pattern-uiux">
-            <div className="relative z-10">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2">
-                <Bell className="text-yellow-500 dark:text-yellow-400 w-5 h-5" />
-                Your Notifications
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <img
-                    alt="User Avatar"
-                    className="size-8 rounded-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTUSIfMT4q7PJXLbOhvTkL1ofyb84a179gJyk9lumVHxL_ZxuQvFNmW7ICUpQ0pyR4-PtgjK_HKqKmKP5IoeMvoKaF9RJ5WxQyeqiFWdSiS0L6hRBOV42mxbFWbVP_lNe_5PQ8nFDWI5oPwy0QaJW8Y-RqKO-gviTE6rSMRjQy1B9AnnS7s8Q1k1rHcesKzogfHHpc4tLMfs9EGXFLRCRax0EWshO5C_CSinBqeaanFOXQWnZi5lx0q1Lv1sNrXAI4XSMICDAEyyo"
-                  />
-                  <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">
-                        You
-                      </span>{" "}
-                      have a new reply in{" "}
-                      <span className="text-primary">GraphQL vs. REST</span>
-                    </p>
-                    <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      "What about real-time use cases?"
-                    </a>
-                    <p className="text-xs text-slate-500 dark:text-gray-400 mt-1">
-                      2 hours ago
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 pt-4 border-t border-slate-200 dark:border-gray-700">
-                  <img
-                    alt="User Avatar"
-                    className="size-8 rounded-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe7tIFNrWF_4JSzflK98euBq_4EVMbBMz_VV9gTCKaCHBvYZ2D7JqGM2l3avc2cWxl3t6aCer6-IyRNKEVRtdPSqRVhHNBovaGJANUTPkB7JjVeN_iGgzTFbcaVf8d6cBD-6bNxxPeW_udKWcFlqi-AW5cu6Az4vw8Zi3bYM_0ydsPMbPOWmgdwCybQtVN6cjTnpPTDtaWi1i-xchFc7ehL4QFvedcYazPF8OB1sibaHRqMNZeJ40z3fYXEHkHYATFpC2aQlWQaio"
-                  />
-                  <div>
-                    <p className="text-sm text-slate-500 dark:text-gray-400 mb-1">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">
-                        Sarah M.
-                      </span>{" "}
-                      mentioned you in{" "}
-                      <span className="text-green-500 dark:text-green-400">
-                        State Management in Vue 3
-                      </span>
-                    </p>
-                    <a className="text-slate-900 dark:text-white font-semibold hover:text-primary cursor-pointer text-lg">
-                      "@YourUsername, your perspective on Pinia is really
-                      insightful!"
-                    </a>
-                    <p className="text-xs text-slate-500 dark:text-gray-400 mt-1">
-                      Yesterday
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Card>
-        <Card className="shrink-0 bg-transparent! border-0 pt-29 pr-1">
-          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700">
-            <label className="flex flex-col w-full gap-8">
-              <div className="flex w-full flex-1 items-stretch rounded-lg h-10">
-                <div className="text-slate-400 bg-transparent dark:text-[#9da6b9] flex items-center justify-center pl-3 rounded-l-lg border border-slate-200 dark:border-none border-r-0">
-                  <Search className="size-5" />
-                </div>
-                <input
-                  className="form-input bg-transparent flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 focus:border-primary h-full placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] px-4 rounded-l-none border border-slate-200 dark:border-none border-l-0 pl-4 text-sm font-normal leading-normal"
-                  placeholder="Quick search..."
-                  value=""
-                />
-              </div>
-            </label>
-          </div>
-          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 mt-4">
-            <button className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-3xl h-10 px-4 btn-primary text-sm font-bold leading-normal tracking-[0.015em] gap-3">
-              <Plus className="size-4" />
-              <span className="truncate">Start a new discussion</span>
-            </button>
-          </div>
-          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 mt-4 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-              Your Activity
-            </h3>
-            <div className="grid grid-cols-2 gap-4 text-center">
-              <div>
-                <p className="text-2xl font-bold text-primary">27</p>
-                <p className="text-sm text-slate-500 dark:text-gray-400">
-                  Total Posts
+      {/* TODO : Refaire la page des notifications — PAGE FACTICE POUR L'INSTANT */}
+      <div className="ml-62 mt-20 min-h-[calc(100vh-4rem)] flex gap-6">
+        <main className="flex flex-col w-full h-screen overflow-y-auto ml-8 mr-6">
+          <header className="w-full sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm z-10 p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex min-w-72 flex-col gap-1">
+                <h1 className="text-slate-900 dark:text-white text-3xl font-bold tracking-tight">
+                  Mes Notifications
+                </h1>
+                <p className="text-slate-500 dark:text-slate-400 text-xs font-normal">
+                  Restez à jour avec votre activité récente sur le forum.
                 </p>
               </div>
-              <div>
-                <p className="text-2xl font-bold text-primary">124</p>
-                <p className="text-sm text-slate-500 dark:text-gray-400">
-                  Reactions
-                </p>
+              <div className="flex items-center gap-2">
+                <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors">
+                  <span>Marquer tout comme lu</span>
+                </button>
+                <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-red-600/10 text-red-600 dark:bg-red-500/10 dark:text-red-500 text-sm font-bold leading-normal tracking-wide hover:bg-red-600/20 dark:hover:bg-red-500/20 transition-colors">
+                  <span>Tout effacer</span>
+                </button>
+              </div>
+            </div>
+          </header>
+          <div className="flex-1 p-4 sm:p-6">
+            <div>
+              <div className="space-y-4 pb-4 border-b border-slate-200 dark:border-slate-800 mb-6">
+                <div className="relative">
+                  <Search className="size-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
+                  <input
+                    className="w-full h-12 pl-10 pr-4 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    placeholder="Rechercher dans l'activité..."
+                    type="text"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
+                      Filtrer par&nbsp;:
+                    </span>
+                    <div className="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary/20 px-4">
+                      <p className="text-primary text-sm font-medium">
+                        Toutes les activités
+                      </p>
+                    </div>
+                    <div className="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-4 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+                      <p className="text-slate-700 dark:text-slate-300 text-sm font-medium">
+                        Non lus
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <button className="flex h-9 items-center gap-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700">
+                      <ListFilter className="size-4" />
+                      <span>Catégorie&nbsp;: Toutes</span>
+                      <ChevronDown className="size-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="relative">
+                  <h2 className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-4 sticky top-[104px] z-5 bg-background-light dark:bg-background-dark py-2">
+                    Aujourd'hui
+                  </h2>
+                  <div className="space-y-4">
+                    <div className="group flex gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151c2c] hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors relative">
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-xl"></div>
+                      <div className="shrink-0 relative">
+                        <div
+                          className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                          data-alt="Avatar de l'utilisateur Jane Doe"
+                          style={{
+                            backgroundImage:
+                              'url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1HR99plUGHm9tV5iZTux4hgC05ayNRnAGUjI9S5TmGAMcc2kyR8cNHukOLl9krVhXFCUFg1lqBynPLfo_XDvPlef5nEvCkgcNJJ9ooXY_rcLU2lW32gPLT__H2Z08W58oTWHt0LG95QQz0Vd8td6Q-SZTTRCHtuQPcdfedZoJpIZfBUIGmRcnWw-jvGiEGrBXWDkmbxpJSVT_gV3skBmXxFW1UPc11AfIN4F4KTDEkBw0T5gyVBc9WvZBxfxH_8bKDeGnerH4Bsw")',
+                          }}
+                        ></div>
+                        <button className="absolute bottom-1 right-1.5 flex items-center justify-center bg-blue-500 text-white rounded-full p-1.5">
+                          <Reply className="size-4" />
+                        </button>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-slate-800 dark:text-slate-200 text-sm leading-snug">
+                          <strong className="font-semibold">Jane Doe</strong> a
+                          répondu à votre commentaire dans la discussion{" "}
+                          <strong className="font-semibold text-primary">
+                            Présentations
+                          </strong>
+                          .
+                        </p>
+                        <p className="text-slate-600 dark:text-slate-400 text-xs mt-1">
+                          Il y a 5 minutes
+                        </p>
+                        <div className="mt-3 p-3 bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                          <p className="text-slate-600 dark:text-slate-400 text-sm italic">
+                            « Bienvenue dans la communauté ! Heureux de vous
+                            avoir parmi nous. »
+                          </p>
+                        </div>
+                        <div className="mt-4 flex items-center gap-2">
+                          <button className="flex items-center justify-center h-9 px-4 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors">
+                            <span>Voir la réponse</span>
+                          </button>
+                          <button className="flex items-center justify-center h-9 px-4 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+                            <span>Répondre</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="group flex gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151c2c] hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                      <div className="shrink-0 relative">
+                        <div
+                          className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                          data-alt="Avatar de l'utilisateur John Smith"
+                          style={{
+                            backgroundImage:
+                              'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVrlfNFI0CCYmaUGUOrwTP5W9sGKpUZbGtTerQR3B46B49ufr_WE1MJrkBY49blm58p2yByoQ13V-q-qkNklDYZFCw4Mw16wi2VGr5WrHuV5ByNA3a-N1V138L-5zD2G7_C8DpKhzmWQBCRsNi9aRKBQSj6Xh5c_N9j2Az8N105wQHEWeagz3pufRMyW7abZevj_2vY8h5bfPKnppyYNIjE4e5netVfyOHyCVH6A1Al5L1M5R-wQDqXD7EeCrFJ_sRFfulJm29m9s")',
+                          }}
+                        ></div>
+                        <span className="absolute bottom-1 right-1.5 flex items-center justify-center bg-purple-500 text-white rounded-full p-1.5">
+                          <AtSign className="size-4" />
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-slate-800 dark:text-slate-200 text-sm leading-snug">
+                          <strong className="font-semibold">John Smith</strong>{" "}
+                          vous a mentionné dans la discussion{" "}
+                          <strong className="font-semibold text-primary">
+                            Bonnes pratiques UI/UX
+                          </strong>
+                          .
+                        </p>
+                        <p className="text-slate-600 dark:text-slate-400 text-xs mt-1">
+                          Il y a 2 heures
+                        </p>
+                        <div className="mt-4 flex items-center gap-2">
+                          <button className="flex items-center justify-center h-9 px-4 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors">
+                            <span>Voir la mention</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="group flex gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151c2c] hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                      <div className="shrink-0 relative">
+                        <div
+                          className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                          data-alt="Avatar de l'utilisateur Sarah Lee"
+                          style={{
+                            backgroundImage:
+                              'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGEoETnxKfRm3Nh0KVlD5UQz_AGWSOFlDghtjDuvTqTpUO44TXt7hlNU5Km_DvdiQUU0B37oiRa_mSNM7CwEHFQWu4aSDgfOONLuMOwZfhd-nach7GR0j7GnuegLzALHSJeteulqRgpLHQDyfYYi4HtnjTyJXcgzqrFU1SGvTFANnpDT4M-97WXPlggpoUxzw5I5YcjQu5bMvY8K9JGkJUJ9pJmAYacYfu9ER6Poai7CZPW-no0GUaT89QE6VfzbCSbtYhOMKenlo");',
+                          }}
+                        ></div>
+                        <span className="absolute bottom-1 right-1.5 flex items-center justify-center bg-green-500 text-white rounded-full p-1.5">
+                          <MessageSquareText className="size-4" />
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-slate-800 dark:text-slate-200 text-sm leading-snug">
+                          <strong className="font-semibold">Sarah Lee</strong>{" "}
+                          vous a envoyé un nouveau message privé.
+                        </p>
+                        <p className="text-slate-600 dark:text-slate-400 text-xs mt-1">
+                          Il y a 3 heures
+                        </p>
+                        <div className="mt-4 flex items-center gap-2">
+                          <button className="flex items-center justify-center h-9 px-4 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors">
+                            <span>Voir le message</span>
+                          </button>
+                          <button className="flex items-center justify-center h-9 px-4 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+                            <span>Répondre</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative">
+                  <h2 className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-4 sticky top-[104px] z-5 bg-background-light dark:bg-background-dark py-2">
+                    Hier
+                  </h2>
+                  <div className="space-y-4">
+                    <div className="group flex gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151c2c] hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                      <div className="shrink-0 relative">
+                        <div
+                          className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                          data-alt="Avatar utilisateur par défaut"
+                          style={{
+                            backgroundImage:
+                              'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlnoYo6fjEYrzx4dRehgw59btRfCeffgrobGRSWF0fG0-oFktNSdBkb3z1t495xfVKaA5ToXzCpgMr6IKHzp18adHepg_f_pq3xyiqMhCyo3PA_bwrb1eiAiSn27lzJn-Ib1P-HZtWjrHUyT740AyvG3wTLWuR14XCT9y01PdTj25sQpafpcwt1izhryJs0ARgKbn5uVWCcr6WVhY0Hhis4zJzGUuC8-3lqtGlG8kvOluaaiNeZFGliCZR36476PZtKqI1vJnCbbU");',
+                          }}
+                        ></div>
+                        <span className="absolute bottom-1 right-1.5 flex items-center justify-center bg-orange-500 text-white rounded-full p-1.5">
+                          <Bookmark className="size-4" />
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-slate-800 dark:text-slate-200 text-sm leading-snug">
+                          Vous avez commencé à suivre le sujet{" "}
+                          <strong className="font-semibold text-primary">
+                            Discussion sur les nouvelles fonctionnalités
+                          </strong>
+                          . Nous vous tiendrons informé&nbsp;!
+                        </p>
+                        <p className="text-slate-600 dark:text-slate-400 text-xs mt-1">
+                          Il y a 1 jour
+                        </p>
+                        <div className="mt-4 flex items-center gap-2">
+                          <button className="flex items-center justify-center h-9 px-4 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors">
+                            <span>Voir le sujet</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="group flex gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151c2c] hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                      <div className="shrink-0 relative">
+                        <div
+                          className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                          data-alt="Avatar de l'utilisateur Alex Johnson"
+                          style={{
+                            backgroundImage:
+                              'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCC3O9qFwLspLR5vVRreaIdtNudNsj_MvioTnnbB5xFpnupP1kumoAa8kDvKslgAvD0LqxsQiuIZ3tzD5CHKLBtKV-ANjWIJtXnVf0qoijLHooLzyrFJbgf55hz9ynQyxXSdsDr-lJSA8KMaV7wDS9XOfKoMZZj9hYAJ8QPEyZ3mS43xFxrBUbzUu0oRqoMNx-WmHNxGyxBOuvZuZrUYqKJSzIjumQfBF8prxGEK4_nJ_gM8wpOF2IfOBsZ8RusTTosznyM-aAEZbE");',
+                          }}
+                        ></div>
+                        <span className="absolute bottom-1 right-1.5 flex items-center justify-center bg-red-500 text-white rounded-full p-1.5">
+                          <MessageSquarePlus className="size-4" />
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-slate-800 dark:text-slate-200 text-sm leading-snug">
+                          <strong className="font-semibold">
+                            Alex Johnson
+                          </strong>{" "}
+                          a créé un nouveau post dans{" "}
+                          <strong className="font-semibold text-primary">
+                            Discussion générale
+                          </strong>
+                          : « Nouvelles mises à jour enthousiasmantes ! »
+                        </p>
+                        <p className="text-slate-600 dark:text-slate-400 text-xs mt-1">
+                          Il y a 1 jour
+                        </p>
+                        <div className="mt-4 flex items-center gap-2">
+                          <button className="flex items-center justify-center h-9 px-4 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors">
+                            <span>Voir le post</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 text-center">
+                <button className="inline-flex items-center justify-center h-10 px-6 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+                  <span>Charger les activités précédentes</span>
+                  <History className="ml-2 size-4" />
+                </button>
               </div>
             </div>
           </div>
-          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 mt-4 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-              Popular Tags
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #webdev
-              </a>
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #design
-              </a>
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #career
-              </a>
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #help
-              </a>
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #mobile
-              </a>
-            </div>
-          </div>
-        </Card>
+        </main>
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import { Search } from "lucide-react";
+import { Search, Bookmark, ChevronDown } from "lucide-react";
 
 export function DiscoveryPage() {
   const { isAuthenticated } = useAuthStore();
@@ -11,65 +11,63 @@ export function DiscoveryPage() {
 
   return (
     <>
-      {/* TODO: Redesign the discovery page: THIS IS A DUMMY PAGE FOR NOW */}
+      {/* TODO : Reconcevoir la page de découverte : CECI EST UNE PAGE D'EXEMPLE POUR L'INSTANT */}
       <div className="ml-62 mr-6 pt-14 min-h-[calc(100vh-4rem)] flex gap-6 overflow-hidden">
-        <div className="flex min-h-screen p-12 pr-4">
+        <div className="flex p-12 pr-4">
           <div className="w-full mx-auto">
             <div className="pb-0 fixed dark:bg-[#060e21] bg-(--root-bg) w-[calc(100vw-21rem)] -mt-10 pt-6 z-10">
               <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
-                <h1 className="text-4xl font-medium leading-tight tracking-[-0.033em] text-gray-900 dark:text-white min-w-72">
-                  Discovery Grid
+                <h1 className="text-3xl font-medium leading-tight tracking-[-0.033em]">
+                  Grille de découverte
                 </h1>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <div className="grow">
                   <label className="flex flex-col min-w-40 h-12 w-full">
-                    <div className="flex w-full flex-1 items-stretch rounded-lg h-full">
-                      <div className="text-gray-500 dark:text-gray-400 flex bg-white dark:bg-transparent items-center justify-center pl-4 rounded-l-lg border border-r-0 border-gray-300 dark:border-gray-700">
-                        <Search className="size-5" />
+                    <div className="flex w-full rounded-2xl h-full">
+                      <div className="text-gray-500 dark:text-gray-400 flex bg-white dark:bg-transparent items-center justify-center pl-4 rounded-l-xl border border-r-0 border-gray-300 dark:border-gray-700">
+                        <Search className="size-4" />
                       </div>
                       <input
-                        className="form-input dark:bg-transparent flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-gray-300 dark:border-gray-700 bg-white h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 rounded-l-none text-base font-normal leading-normal"
-                        placeholder="Search by title or category..."
+                        className="form-input dark:bg-transparent flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-gray-300 dark:border-gray-700 bg-white h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 rounded-l-none text-base font-normal leading-normal"
+                        placeholder="Rechercher par titre ou catégorie..."
                         value=""
                       />
                     </div>
                   </label>
                 </div>
                 <div className="shrink-0">
-                  <button className="flex h-12 w-full sm:w-auto shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-transparent pl-4 pr-3 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <button className="flex h-12 w-full sm:w-auto shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-transparent pl-4 pr-3 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
                     <p className="text-gray-900 dark:text-white text-sm font-medium leading-normal">
-                      Sort by: Date Saved
+                      Trier par : date d'enregistrement
                     </p>
-                    <span className="material-symbols-outlined text-gray-500 dark:text-gray-400">
-                      arrow_drop_down
-                    </span>
+                    <ChevronDown className="size-4 text-gray-500 dark:text-gray-400" />
                   </button>
                 </div>
               </div>
               <div className="flex flex-wrap gap-2 mb-8">
                 <button className="px-4 py-2 rounded-full text-sm font-medium bg-primary text-white hover:bg-primary/90 transition-colors">
-                  All Categories
+                  Toutes les catégories
                 </button>
                 <button className="px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-700 dark:text-blue-300 hover:bg-blue-500/30 transition-colors">
-                  UI/UX Design
+                  Design UI/UX
                 </button>
                 <button className="px-4 py-2 rounded-full text-sm font-medium bg-green-500/20 text-green-700 dark:text-green-300 hover:bg-green-500/30 transition-colors">
-                  Web Development
+                  Développement Web
                 </button>
                 <button className="px-4 py-2 rounded-full text-sm font-medium bg-purple-500/20 text-purple-700 dark:text-purple-300 hover:bg-purple-500/30 transition-colors">
-                  Cooking &amp; Recipes
+                  Cuisine &amp; Recettes
                 </button>
                 <button className="px-4 py-2 rounded-full text-sm font-medium bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 hover:bg-yellow-500/30 transition-colors">
-                  Productivity
+                  Productivité
                 </button>
                 <button className="px-4 py-2 rounded-full text-sm font-medium bg-red-500/20 text-red-700 dark:text-red-300 hover:bg-red-500/30 transition-colors">
-                  Gaming
+                  Jeux
                 </button>
               </div>
             </div>
             <div className="overflow-y-auto overflow-visible overflow-x-hidden">
-              <div className="grid grid-cols-1 pt-52 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 pt-62 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="bg-white dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col">
                   <div
                     className="aspect-video w-full bg-cover bg-center"
@@ -84,24 +82,23 @@ export function DiscoveryPage() {
                         className="text-gray-900 dark:text-white text-lg font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                         href="#"
                       >
-                        UI Design Best Practices for 2024
+                        Bonnes pratiques de design UI pour 2024
                       </a>
                       <p className="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 line-clamp-3">
-                        Discover the latest trends shaping user interfaces this
-                        year, from bento grids to AI-driven personalization.
+                        Découvrez les dernières tendances qui façonnent les
+                        interfaces utilisateur cette année, des grilles bento à
+                        la personnalisation pilotée par l'IA.
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-4">
                       <p className="text-gray-400 dark:text-gray-500 text-xs font-normal leading-normal">
-                        UI/UX Design • Alex Johnson
+                        Design UI/UX • Alex Johnson
                       </p>
                       <button
                         className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors"
-                        title="Remove from bookmarks"
+                        title="Retirer des favoris"
                       >
-                        <span className="material-symbols-outlined">
-                          bookmark
-                        </span>
+                        <Bookmark className="size-4" />
                       </button>
                     </div>
                   </div>
@@ -120,24 +117,23 @@ export function DiscoveryPage() {
                         className="text-gray-900 dark:text-white text-lg font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                         href="#"
                       >
-                        Getting Started with React Hooks
+                        Commencer avec les Hooks React
                       </a>
                       <p className="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 line-clamp-3">
-                        A comprehensive guide for beginners to understand and
-                        implement state and effects in functional components.
+                        Un guide complet pour les débutants afin de comprendre
+                        et d'implémenter l'état et les effets dans les
+                        composants fonctionnels.
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-4">
                       <p className="text-gray-400 dark:text-gray-500 text-xs font-normal leading-normal">
-                        Web Development • Jane Doe
+                        Développement Web • Jane Doe
                       </p>
                       <button
                         className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors"
-                        title="Remove from bookmarks"
+                        title="Retirer des favoris"
                       >
-                        <span className="material-symbols-outlined">
-                          bookmark
-                        </span>
+                        <Bookmark className="size-4" />
                       </button>
                     </div>
                   </div>
@@ -156,24 +152,23 @@ export function DiscoveryPage() {
                         className="text-gray-900 dark:text-white text-lg font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                         href="#"
                       >
-                        10 Quick and Healthy Weeknight Dinner Recipes
+                        10 recettes rapides et saines pour les soirs de semaine
                       </a>
                       <p className="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 line-clamp-3">
-                        Tired of takeout? These simple and delicious recipes
-                        will save your weeknights and your wallet.
+                        Marre des plats à emporter ? Ces recettes simples et
+                        délicieuses sauveront vos soirs de semaine et votre
+                        budget.
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-4">
                       <p className="text-gray-400 dark:text-gray-500 text-xs font-normal leading-normal">
-                        Cooking &amp; Recipes • Samwise G.
+                        Cuisine &amp; Recettes • Samwise G.
                       </p>
                       <button
                         className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors"
-                        title="Remove from bookmarks"
+                        title="Retirer des favoris"
                       >
-                        <span className="material-symbols-outlined">
-                          bookmark
-                        </span>
+                        <Bookmark className="size-4" />
                       </button>
                     </div>
                   </div>
@@ -192,60 +187,22 @@ export function DiscoveryPage() {
                         className="text-gray-900 dark:text-white text-lg font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                         href="#"
                       >
-                        Mastering Time Management: The Pomodoro Technique
+                        Maîtriser la gestion du temps : la technique Pomodoro
                       </a>
                       <p className="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 line-clamp-3">
-                        Learn how to boost your focus and productivity with this
-                        simple yet effective time management method.
+                        Apprenez à améliorer votre concentration et votre
+                        productivité avec cette méthode simple et efficace.
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-4">
                       <p className="text-gray-400 dark:text-gray-500 text-xs font-normal leading-normal">
-                        Productivity • Sarah Connor
+                        Productivité • Sarah Connor
                       </p>
                       <button
                         className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors"
-                        title="Remove from bookmarks"
+                        title="Retirer des favoris"
                       >
-                        <span className="material-symbols-outlined">
-                          bookmark
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col">
-                  <div
-                    className="aspect-video w-full bg-cover bg-center"
-                    style={{
-                      backgroundImage:
-                        'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwZ-2mO6oLZGuubM2K7XKSHNNzSfdXOGaiqUkpL4C62HHgf7N6EI5wylfOnxyM3WfJeIxZYhCPV1JFfdN6wQAWAMhxwvFbPy5CDcqdsTkyTHB7caVPXmRJsXrgZlWo9dnQDy-gOg1CvG_K4KkkX7SDX0IooOS5MU0pyEksBocZncuZeb_ITHhVWysJa0yIbakzbfKv2U7sVgR-mWJkx1jap-WKhN1zXBIjUrHnUIA9eCQX8aVtOtYaQK8g5vZKd5oFym8kbRdcgp0")',
-                    }}
-                  ></div>
-                  <div className="p-4 grow flex flex-col justify-between">
-                    <div>
-                      <a
-                        className="text-gray-900 dark:text-white text-lg font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
-                        href="#"
-                      >
-                        The Rise of Indie Games: Hidden Gems to Play Now
-                      </a>
-                      <p className="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 line-clamp-3">
-                        Dive into the vibrant world of independent game
-                        development and discover your next favorite title.
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-between mt-4">
-                      <p className="text-gray-400 dark:text-gray-500 text-xs font-normal leading-normal">
-                        Gaming • John Doe
-                      </p>
-                      <button
-                        className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors"
-                        title="Remove from bookmarks"
-                      >
-                        <span className="material-symbols-outlined">
-                          bookmark
-                        </span>
+                        <Bookmark className="size-4" />
                       </button>
                     </div>
                   </div>
@@ -264,24 +221,58 @@ export function DiscoveryPage() {
                         className="text-gray-900 dark:text-white text-lg font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
                         href="#"
                       >
-                        Future of AI: What to Expect in the Next Decade
+                        L'essor des jeux indépendants : pépites à découvrir
                       </a>
                       <p className="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 line-clamp-3">
-                        An in-depth look at the potential advancements and
-                        ethical considerations of artificial intelligence.
+                        Plongez dans le monde vibrant du développement de jeux
+                        indépendants et découvrez votre prochain titre favori.
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-4">
                       <p className="text-gray-400 dark:text-gray-500 text-xs font-normal leading-normal">
-                        Technology • Dr. Elena Petrova
+                        Jeux • John Doe
                       </p>
                       <button
                         className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors"
-                        title="Remove from bookmarks"
+                        title="Retirer des favoris"
                       >
-                        <span className="material-symbols-outlined">
-                          bookmark
-                        </span>
+                        <Bookmark className="size-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-white dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col">
+                  <div
+                    className="aspect-video w-full bg-cover bg-center"
+                    style={{
+                      backgroundImage:
+                        'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzw2gOjVQcBmKvB1IsfosA4JFFfnzFb9GKNcWghv7ta1fmhIicQGyMCXK6CIEQGgQ-s0LITotG-R_anb3xNFNT5XpS03xnnmpIxAdqVB7KMbrOQVqfM4_7KBzXyrUXTDTEiaJfmwlAApJp3qyl1EsoNezYIrfTz4FJtCot8wBgfjfc38ZD7DxUzVvXonCMStM4dN7sSybLxqt-TA-SdTGPBmqJ0G84_Ajimir4TNxE9InCGQdTyhkFCC6AIMn0CTtQ5yIjjtm-QvY")',
+                    }}
+                  ></div>
+                  <div className="p-4 grow flex flex-col justify-between">
+                    <div>
+                      <a
+                        className="text-gray-900 dark:text-white text-lg font-medium leading-tight hover:text-primary dark:hover:text-primary transition-colors line-clamp-2"
+                        href="#"
+                      >
+                        L'avenir de l'IA : à quoi s'attendre dans la prochaine
+                        décennie
+                      </a>
+                      <p className="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 line-clamp-3">
+                        Un regard approfondi sur les avancées potentielles et
+                        les considérations éthiques de l'intelligence
+                        artificielle.
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between mt-4">
+                      <p className="text-gray-400 dark:text-gray-500 text-xs font-normal leading-normal">
+                        Technologie • Dr. Elena Petrova
+                      </p>
+                      <button
+                        className="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors"
+                        title="Retirer des favoris"
+                      >
+                        <Bookmark className="size-4" />
                       </button>
                     </div>
                   </div>
@@ -292,14 +283,13 @@ export function DiscoveryPage() {
                 className="flex items-center justify-between border-t border-gray-200 dark:border-gray-800 px-4 sm:px-0 mt-8 pt-6"
               >
                 <div className="hidden sm:block">
-                  <p className="text-sm text-gray-700 dark:text-gray-400">
-                    Showing
-                    <span className="font-medium">1</span>
-                    to
-                    <span className="font-medium">10</span>
-                    of
-                    <span className="font-medium">20</span>
-                    results
+                  <p className="text-sm font-light text-gray-700 dark:text-gray-400">
+                    Affichage de
+                    <span className="font-medium"> 1 </span>à
+                    <span className="font-medium"> 10 </span>
+                    sur
+                    <span className="font-medium"> 20 </span>
+                    résultats
                   </p>
                 </div>
                 <div className="flex flex-1 justify-between sm:justify-end">
@@ -307,13 +297,13 @@ export function DiscoveryPage() {
                     className="relative inline-flex items-center rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
                     href="#"
                   >
-                    Previous
+                    Précédent
                   </a>
                   <a
                     className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
                     href="#"
                   >
-                    Next
+                    Suivant
                   </a>
                 </div>
               </nav>

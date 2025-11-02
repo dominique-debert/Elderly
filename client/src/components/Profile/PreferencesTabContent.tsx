@@ -87,7 +87,7 @@ export function PreferencesTabContent() {
           onChange={(e) =>
             handleToggle("notificationMessages", e.target.checked)
           }
-          className="toggle toggle-lg toggle-primary"
+          className="toggle toggle-sm toggle-primary"
         />
       </div>
       <div className="flex gap-auto justify-between items-center mr-4 mb-4">
@@ -102,7 +102,7 @@ export function PreferencesTabContent() {
           type="checkbox"
           checked={preferences?.notificationForum || false}
           onChange={(e) => handleToggle("notificationForum", e.target.checked)}
-          className="toggle toggle-lg toggle-primary"
+          className="toggle toggle-sm toggle-primary"
         />
       </div>
       <div className="flex gap-auto justify-between items-center mr-4 mb-4">
@@ -119,7 +119,7 @@ export function PreferencesTabContent() {
           onChange={(e) =>
             handleToggle("notificationActivities", e.target.checked)
           }
-          className="toggle toggle-lg toggle-primary"
+          className="toggle toggle-sm toggle-primary"
         />
       </div>
 
@@ -139,7 +139,7 @@ export function PreferencesTabContent() {
           type="checkbox"
           checked={preferences?.emailUpdates || false}
           onChange={(e) => handleToggle("emailUpdates", e.target.checked)}
-          className="toggle toggle-lg toggle-primary"
+          className="toggle toggle-sm toggle-primary"
         />
       </div>
 
@@ -154,7 +154,7 @@ export function PreferencesTabContent() {
           type="checkbox"
           checked={preferences?.smsUpdates || false}
           onChange={(e) => handleToggle("smsUpdates", e.target.checked)}
-          className="toggle toggle-lg toggle-primary"
+          className="toggle toggle-sm toggle-primary"
         />
       </div>
 
@@ -170,7 +170,7 @@ export function PreferencesTabContent() {
                 frequencyDaily: false,
               })
             }
-            className="radio radio-md ml-4 border-primary"
+            className="radio radio-sm ml-4 border-primary"
             name="frequency"
           />
           <div className="flex flex-col ml-4">
@@ -193,7 +193,7 @@ export function PreferencesTabContent() {
                 frequencyDaily: true,
               })
             }
-            className="radio radio-md ml-4 border-primary"
+            className="radio radio-sm ml-4 border-primary"
             name="frequency"
           />
           <div className="flex flex-col ml-4">
@@ -217,7 +217,7 @@ export function PreferencesTabContent() {
           </span>
         </div>
         <select
-          className="select select-ghost w-full max-w-xs dark:bg-card"
+          className="select select-ghost w-50 max-w-xs dark:bg-card"
           value={preferences?.fontSize || "medium"}
           onChange={(e) => handleSelectChange("fontSize", e.target.value)}
         >
@@ -237,7 +237,7 @@ export function PreferencesTabContent() {
           type="checkbox"
           checked={preferences?.highContrast || false}
           onChange={(e) => handleToggle("highContrast", e.target.checked)}
-          className="toggle toggle-lg toggle-primary"
+          className="toggle toggle-sm toggle-primary"
         />
       </div>
 
@@ -260,7 +260,7 @@ export function PreferencesTabContent() {
                 statusVisibilityNoOne: false,
               })
             }
-            className="radio radio-md ml-4 border-primary"
+            className="radio radio-sm ml-4 border-primary"
             name="visibility"
           />
           <div className="flex flex-col ml-4">
@@ -281,7 +281,7 @@ export function PreferencesTabContent() {
                 statusVisibilityNoOne: false,
               })
             }
-            className="radio radio-md ml-4 border-primary"
+            className="radio radio-sm ml-4 border-primary"
             name="visibility"
           />
           <div className="flex flex-col ml-4">
@@ -301,7 +301,7 @@ export function PreferencesTabContent() {
                 statusVisibilityNoOne: true,
               })
             }
-            className="radio radio-md ml-4 border-primary"
+            className="radio radio-sm ml-4 border-primary"
             name="visibility"
           />
           <div className="flex flex-col ml-4">
@@ -325,7 +325,7 @@ export function PreferencesTabContent() {
                 messagesFromNoOne: false,
               })
             }
-            className="radio radio-md ml-4 border-primary"
+            className="radio radio-sm ml-4 border-primary"
             name="messages"
           />
           <div className="flex flex-col ml-4">
@@ -346,7 +346,7 @@ export function PreferencesTabContent() {
                 messagesFromNoOne: false,
               })
             }
-            className="radio radio-md ml-4 border-primary"
+            className="radio radio-sm ml-4 border-primary"
             name="messages"
           />
           <div className="flex flex-col ml-4">
@@ -366,7 +366,7 @@ export function PreferencesTabContent() {
                 messagesFromNoOne: true,
               })
             }
-            className="radio radio-md ml-4 border-primary"
+            className="radio radio-sm ml-4 border-primary"
             name="messages"
           />
           <div className="flex flex-col ml-4">
@@ -388,7 +388,7 @@ export function PreferencesTabContent() {
           type="checkbox"
           checked={preferences?.dataSharing || false}
           onChange={(e) => handleToggle("dataSharing", e.target.checked)}
-          className="toggle toggle-lg"
+          className="toggle toggle-sm"
         />
       </div>
 
