@@ -23,11 +23,11 @@ export function BookmarksPage() {
   return (
     <>
       {/* TODO: Refonte de la page des favoris : PAGE DUMMY POUR L'INSTANT */}
-      <div className="ml-62 mr-6 pt-14 min-h-[calc(100vh-4rem)] flex gap-6">
+      <div className="mr-4 pt-20 min-h-[calc(100vh-4rem)] flex gap-6">
         <div className="flex min-h-screen w-full">
-          <div className="flex-1 p-10 pr-2">
+          <div className="flex-1">
             <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
-              <h1 className="text-4xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white min-w-72">
+              <h1 className="text-3xl font-medium leading-tight tracking-[-0.033em] dark:text-slate-300">
                 Mes Favoris
               </h1>
             </div>

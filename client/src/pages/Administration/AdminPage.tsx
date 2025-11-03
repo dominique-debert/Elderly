@@ -31,10 +31,10 @@ export function AdminPage() {
   };
 
   return (
-    <div className="flex flex-col mt-0 ml-60 mr-8 w-[calc(100vw-13.5rem)] rounded-2xl justify-items-center align-items-center p-8 max-h-screen">
+    <div className="flex flex-col mt-0 mr-8 w-full rounded-2xl justify-items-center align-items-center p-8 max-h-screen">
       {user && user.isAdmin ? (
         <>
-          <div className="fixed top-16 z-30 p-4 pb-8 pt-6 w-[calc(100vw-16rem)] dark:bg-[#060e21] bg-(--root-bg) pr-12">
+          <div className="p-4 pb-8 pt-6 w-full dark:bg-[#060e21] bg-(--root-bg) pr-12">
             <h2 className="text-2xl font-semibold text-primary -mb-4">
               Administration
             </h2>

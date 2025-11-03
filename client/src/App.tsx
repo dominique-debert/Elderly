@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "@/context";
+import { SidebarProvider } from "@/context/SidebarContext";
 import { Layout } from "@/components";
 
 import {
@@ -44,32 +45,34 @@ const App = () => {
         <Route path="/signup" element={<SignupPage />} />
       </Routes>
       <AuthProvider>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<LandingPageRoute />} />
-            <Route path="/activities" element={<ActivitiesPage />} />
-            <Route path="/admin-page" element={<AdminPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/exercises" element={<ExercisesPage />} />
-            <Route path="/explore" element={<ExplorePage />} />
-            <Route path="/forum/home" element={<ForumPage />} />
-            <Route path="/forum/bookmarks" element={<BookmarksPage />} />
-            <Route path="/forum/categories" element={<CategoriesPage />} />
-            <Route path="/forum/discover" element={<DiscoveryPage />} />
-            <Route path="/forum/discussions" element={<DiscussionsPage />} />
-            <Route path="/forum/moderation" element={<ModerationPage />} />
-            <Route
-              path="/forum/notifications"
-              element={<NotificationsPage />}
-            />
-            <Route path="/medications" element={<MedicationPage />} />
-            <Route path="/messages" element={<MessagesPage />} />
-            <Route path="/objectives" element={<ObjectivesPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/wellness" element={<WellnessPage />} />
-          </Route>
-        </Routes>
+        <SidebarProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<LandingPageRoute />} />
+              <Route path="/activities" element={<ActivitiesPage />} />
+              <Route path="/admin-page" element={<AdminPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/exercises" element={<ExercisesPage />} />
+              <Route path="/explore" element={<ExplorePage />} />
+              <Route path="/forum/home" element={<ForumPage />} />
+              <Route path="/forum/bookmarks" element={<BookmarksPage />} />
+              <Route path="/forum/categories" element={<CategoriesPage />} />
+              <Route path="/forum/discover" element={<DiscoveryPage />} />
+              <Route path="/forum/discussions" element={<DiscussionsPage />} />
+              <Route path="/forum/moderation" element={<ModerationPage />} />
+              <Route
+                path="/forum/notifications"
+                element={<NotificationsPage />}
+              />
+              <Route path="/medications" element={<MedicationPage />} />
+              <Route path="/messages" element={<MessagesPage />} />
+              <Route path="/objectives" element={<ObjectivesPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/wellness" element={<WellnessPage />} />
+            </Route>
+          </Routes>
+        </SidebarProvider>
       </AuthProvider>
     </>
   );

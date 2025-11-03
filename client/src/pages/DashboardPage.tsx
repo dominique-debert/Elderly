@@ -11,7 +11,7 @@ export function DashboardPage() {
 
   return (
     <>
-      <div className="flex flex-col mt-12 ml-60 mr-4 rounded-2xl shadow-xl justify-items-center align-items-center p-8">
+      <div className="flex flex-col mt-20 mr-4 rounded-2xl shadow-xl justify-items-center align-items-center">
         <div className="lg:flex lg:flex-row gap-4">
           {user ? (
             <>

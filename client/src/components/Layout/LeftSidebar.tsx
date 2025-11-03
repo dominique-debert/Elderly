@@ -18,34 +18,72 @@ import {
   ChartColumnStacked,
   Telescope,
   Siren,
+  ChevronLeft,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { SidebarContext } from "@/context/SidebarContext";
 
 export function LeftSidebar() {
   const location = useLocation();
   const [forumOpen, setForumOpen] = useState(false);
+  const { collapsed, setCollapsed } = useContext(SidebarContext);
   const { user } = useAuth();
 
   useEffect(() => {
-    // auto-open if current route is under /forum
-    setForumOpen(location.pathname.startsWith("/forum"));
-  }, [location.pathname]);
+    // Auto-open forum submenu if on a forum route and sidebar is not collapsed
+    const isForumRoute = location.pathname.startsWith("/forum");
+
+    if (isForumRoute && !collapsed) {
+      setForumOpen(true);
+    } else if (collapsed) {
+      setForumOpen(false);
+    } else if (!isForumRoute) {
+      setForumOpen(false);
+    }
+  }, [location.pathname, collapsed]);
+
+  const handleToggle = () => {
+    setCollapsed(!collapsed);
+  };
 
   return (
-    <div className="fixed z-40 drawer drawer-open h-[calc(100vh-6.3rem)] top-20 left-4 w-60 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-visible overflow-x-hidden">
-      <div className="drawer-content pb-4 w-60 h-full flex flex-col items-start bg-white dark:bg-card rounded-2xl shadow-lg pr-2">
-        <div className="flex flex-col px-2 gap-3 mt-4 w-59">
+    <div
+      className={`fixed z-40 drawer drawer-open h-[calc(100vh-6.3rem)] top-20 left-4 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-visible overflow-x-hidden transition-all duration-300 ${
+        collapsed ? "w-20" : "w-60"
+      }`}
+    >
+      <div
+        className={`drawer-content pb-4 h-full flex flex-col items-start bg-white dark:bg-card rounded-2xl shadow-lg ${
+          collapsed ? "px-2" : "px-2 w-60"
+        }`}
+      >
+        <button
+          onClick={handleToggle}
+          className="p-3 ml-2 mt-4 hover:bg-primary/10 rounded-lg transition-colors cursor-pointer"
+          title={collapsed ? "Expand" : "Collapse"}
+        >
+          {collapsed ? (
+            <ChevronRight className="size-5 text-primary dark:text-accent" />
+          ) : (
+            <ChevronLeft className="size-5 text-primary dark:text-accent" />
+          )}
+        </button>
+
+        <div
+          className={`flex flex-col px-2 gap-3 mt-4 w-full ${collapsed ? "items-center" : ""}`}
+        >
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
               `p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                 isActive ? "bg-primary/10" : ""
-              }`
+              } ${collapsed ? "w-full pl-3 justify-center gap-0" : "w-full"}`
             }
+            title={collapsed ? "Tableau de Bord" : ""}
           >
-            <LayoutDashboard className="dark:text-accent text-primary size-4" />
-            Tableau de Bord
+            <LayoutDashboard className="dark:text-accent text-primary size-4 shrink-0" />
+            {!collapsed && <span>Tableau de Bord</span>}
           </NavLink>
 
           <NavLink
@@ -53,25 +91,27 @@ export function LeftSidebar() {
             className={({ isActive }) =>
               `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                 isActive ? "bg-primary/10" : ""
-              }`
+              } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
             }
+            title={collapsed ? "Explorer" : ""}
           >
-            <Search className="dark:text-accent text-primary size-4" />
-            Explorer
+            <Search className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            {!collapsed && <span>Explorer</span>}
           </NavLink>
 
-          <div className="w-55 divider expert-blue m-0"></div>
+          {!collapsed && <div className="w-55 divider expert-blue m-0"></div>}
 
           <NavLink
             to={"/activities"}
             className={({ isActive }) =>
               `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                 isActive ? "bg-primary/10" : ""
-              }`
+              } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
             }
+            title={collapsed ? "Mes Activités" : ""}
           >
-            <Calendar className="dark:text-accent text-primary size-4" />
-            Mes Activités
+            <Calendar className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            {!collapsed && <span>Mes Activités</span>}
           </NavLink>
 
           <NavLink
@@ -79,11 +119,12 @@ export function LeftSidebar() {
             className={({ isActive }) =>
               `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                 isActive ? "bg-primary/10" : ""
-              }`
+              } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
             }
+            title={collapsed ? "Mon Bien-Être" : ""}
           >
-            <HeartHandshake className="dark:text-accent text-primary size-4" />
-            Mon Bien-Être
+            <HeartHandshake className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            {!collapsed && <span>Mon Bien-Être</span>}
           </NavLink>
 
           <NavLink
@@ -91,11 +132,12 @@ export function LeftSidebar() {
             className={({ isActive }) =>
               `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                 isActive ? "bg-primary/10" : ""
-              }`
+              } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
             }
+            title={collapsed ? "Mes Exercices" : ""}
           >
-            <Activity className="dark:text-accent text-primary size-4" />
-            Mes Exercices
+            <Activity className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            {!collapsed && <span>Mes Exercices</span>}
           </NavLink>
 
           <NavLink
@@ -103,11 +145,12 @@ export function LeftSidebar() {
             className={({ isActive }) =>
               `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                 isActive ? "bg-primary/10" : ""
-              }`
+              } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
             }
+            title={collapsed ? "Mes Objectifs" : ""}
           >
-            <LayoutList className="dark:text-accent text-primary size-4" />
-            Mes Objectifs
+            <LayoutList className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            {!collapsed && <span>Mes Objectifs</span>}
           </NavLink>
 
           <NavLink
@@ -115,11 +158,12 @@ export function LeftSidebar() {
             className={({ isActive }) =>
               `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                 isActive ? "bg-primary/10" : ""
-              }`
+              } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
             }
+            title={collapsed ? "Mes Projets" : ""}
           >
-            <FolderKanban className="dark:text-accent text-primary size-4" />
-            Mes Projets
+            <FolderKanban className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            {!collapsed && <span>Mes Projets</span>}
           </NavLink>
 
           <NavLink
@@ -127,14 +171,15 @@ export function LeftSidebar() {
             className={({ isActive }) =>
               `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                 isActive ? "bg-primary/10" : ""
-              }`
+              } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
             }
+            title={collapsed ? "Mes Traitements" : ""}
           >
-            <Pill className="dark:text-accent text-primary size-4" />
-            Mes Traitements
+            <Pill className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            {!collapsed && <span>Mes Traitements</span>}
           </NavLink>
 
-          <div className="w-55 divider expert-blue m-0"></div>
+          {!collapsed && <div className="w-55 divider expert-blue m-0"></div>}
 
           <ul className="border-l-0 pl-0 w-full">
             <li className="w-full">
@@ -142,20 +187,25 @@ export function LeftSidebar() {
                 type="button"
                 onClick={() => setForumOpen((s) => !s)}
                 aria-expanded={forumOpen}
-                className={`w-55 p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                className={`w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   forumOpen ? "bg-primary/10" : ""
-                }`}
+                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`}
+                title={collapsed ? "Forum" : ""}
               >
-                <MessagesSquare className="dark:text-accent text-primary size-4" />
-                <span className="flex-1 w-full text-left">Forum</span>
-                <span
-                  className={`transition-transform ${forumOpen ? "rotate-90" : ""}`}
-                >
-                  <ChevronRight className="size-4 text-slate-400" />
-                </span>
+                <MessagesSquare className="dark:text-accent text-primary size-4 flex-shrink-0" />
+                {!collapsed && (
+                  <>
+                    <span className="flex-1 text-left">Forum</span>
+                    <span
+                      className={`transition-transform ${forumOpen ? "rotate-90" : ""}`}
+                    >
+                      <ChevronRight className="size-4 text-slate-400" />
+                    </span>
+                  </>
+                )}
               </button>
 
-              {forumOpen && (
+              {forumOpen && !collapsed && (
                 <ul className="ml-4 mt-2 space-y-1 w-full">
                   <li className="w-54 pr-3 mt-4">
                     <NavLink
@@ -261,11 +311,12 @@ export function LeftSidebar() {
             className={({ isActive }) =>
               `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                 isActive ? "bg-primary/10" : ""
-              }`
+              } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
             }
+            title={collapsed ? "Messages" : ""}
           >
-            <MessageCircle className="dark:text-accent text-primary size-4" />
-            Messages
+            <MessageCircle className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            {!collapsed && <span>Messages</span>}
           </NavLink>
         </div>
       </div>

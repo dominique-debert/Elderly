@@ -1,7 +1,6 @@
 import { Bell, Rocket, Flame, Search, Plus } from "lucide-react";
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import { Card } from "@/components";
 
 export function ForumPage() {
   const { user, isAuthenticated } = useAuthStore();
@@ -13,11 +12,86 @@ export function ForumPage() {
   return (
     <>
       {/* TODO: Reconcevoir la page du forum : CECI EST UNE PAGE TEMPORAIRE POUR L'INSTANT */}
-      <div className="ml-72 mr-6 pt-24 min-h-[calc(100vh-4rem)] items-start grid grid-cols-1 xl:grid-cols-2">
-        <span className="text-2xl w-full col-span-2 lg:text-3xl font-bold text-slate-900 dark:text-slate-400">
-          Bienvenue sur le forum, {user?.firstName}!
-        </span>
-        <Card className="bg-transparent! col-span-2 border-0 -mt-52 xl:-mt-26">
+      <div className="mr-4 mt-20 gap-6 flex flex-col">
+        <div className="flex flex-col gap-6 bg-transparent! border-0 w-full">
+          <span className="text-2xl w-full lg:text-3xl font-medium text-slate-900 dark:text-slate-300">
+            Bienvenue sur le forum, {user?.firstName}!
+          </span>
+          <div className="bg-white dark:bg-card p-2 rounded-3xl border border-slate-200 dark:border-gray-700">
+            <label className="flex flex-col w-full">
+              <div className="flex w-full rounded-lg">
+                <div className="text-slate-400 bg-transparent dark:text-slate-500 flex items-center justify-center pl-3 rounded-l-3xl border border-slate-200 dark:border-none border-r-0">
+                  <Search className="size-4" />
+                </div>
+                <input
+                  className="bg-transparent flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-300 focus:outline-0 focus:ring-0 focus:border-primary h-full placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] px-4 rounded-l-none border border-slate-200 dark:border-none border-l-0 pl-4 text-sm font-normal leading-normal"
+                  placeholder="Recherche rapide..."
+                />
+              </div>
+            </label>
+          </div>
+          <div className="bg-white dark:bg-card rounded-xl border border-slate-200 dark:border-gray-700">
+            <button className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-3xl h-10 btn-primary text-sm font-bold leading-normal tracking-[0.015em] gap-3">
+              <Plus className="size-4" />
+              <span className="truncate">Démarrer une nouvelle discussion</span>
+            </button>
+          </div>
+          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+              Votre activité
+            </h3>
+            <div className="grid grid-cols-2 gap-4 text-center">
+              <div>
+                <p className="text-2xl font-bold text-primary">27</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Messages au total
+                </p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-primary">124</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Réactions
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+              Tags populaires
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              <a
+                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
+                href="#"
+              >
+                #webdev
+              </a>
+              <a
+                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
+                href="#"
+              >
+                #design
+              </a>
+              <a
+                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
+                href="#"
+              >
+                #carrière
+              </a>
+              <a
+                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
+                href="#"
+              >
+                #aide
+              </a>
+              <a
+                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
+                href="#"
+              >
+                #mobile
+              </a>
+            </div>
+          </div>
           <div className="bg-white dark:bg-card rounded-xl border border-slate-200 dark:border-gray-700 relative p-6 pattern-api">
             <div className="relative z-10">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2">
@@ -214,84 +288,7 @@ export function ForumPage() {
               </div>
             </div>
           </div>
-        </Card>
-        <Card className="gap-2 bg-transparent! border-0 w-[calc(100vw-19.5rem)] -mt-64 xl:-mt-26">
-          <div className="bg-white dark:bg-card p-2 rounded-2xl border border-slate-200 dark:border-gray-700">
-            <label className="flex flex-col w-full">
-              <div className="flex w-full rounded-lg">
-                <div className="text-slate-400 bg-transparent dark:text-slate-500 flex items-center justify-center pl-3 rounded-l-lg border border-slate-200 dark:border-none border-r-0">
-                  <Search className="size-4" />
-                </div>
-                <input
-                  className="bg-transparent flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-300 focus:outline-0 focus:ring-0 focus:border-primary h-full placeholder:text-slate-400 dark:placeholder:text-[#9da6b9] px-4 rounded-l-none border border-slate-200 dark:border-none border-l-0 pl-4 text-sm font-normal leading-normal"
-                  placeholder="Recherche rapide..."
-                />
-              </div>
-            </label>
-          </div>
-          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 mt-4">
-            <button className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-3xl h-10 px-4 btn-primary text-sm font-bold leading-normal tracking-[0.015em] gap-3">
-              <Plus className="size-4" />
-              <span className="truncate">Démarrer une nouvelle discussion</span>
-            </button>
-          </div>
-          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 mt-4 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-              Votre activité
-            </h3>
-            <div className="grid grid-cols-2 gap-4 text-center">
-              <div>
-                <p className="text-2xl font-bold text-primary">27</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Messages au total
-                </p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-primary">124</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Réactions
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 mt-4 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-              Tags populaires
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #webdev
-              </a>
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #design
-              </a>
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #carrière
-              </a>
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #aide
-              </a>
-              <a
-                className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors"
-                href="#"
-              >
-                #mobile
-              </a>
-            </div>
-          </div>
-        </Card>
+        </div>
       </div>
     </>
   );
