@@ -1,6 +1,5 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import { Card } from "@/components";
 
 export function DiscussionsPage() {
   const { user, isAuthenticated } = useAuthStore();

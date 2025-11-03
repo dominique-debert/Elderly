@@ -82,7 +82,7 @@ export function Navbar() {
           <Search
             search={""}
             placeholder={"Rechercher..."}
-            setSearch={function (value: string): void {
+            setSearch={function (): void {
               throw new Error("Function not implemented.");
             }}
           />

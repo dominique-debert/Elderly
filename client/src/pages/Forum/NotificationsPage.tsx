@@ -35,10 +35,10 @@ export function NotificationsPage() {
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors">
+                <button className="btn btn-primary btn-sm">
                   <span>Marquer tout comme lu</span>
                 </button>
-                <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-red-600/10 text-red-600 dark:bg-red-500/10 dark:text-red-500 text-sm font-bold leading-normal tracking-wide hover:bg-red-600/20 dark:hover:bg-red-500/20 transition-colors">
+                <button className="btn btn-danger btn-sm">
                   <span>Tout effacer</span>
                 </button>
               </div>
