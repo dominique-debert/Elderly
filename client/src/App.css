@@ -38,29 +38,6 @@
 }
 
 @layer utilities {
-  .radio {
-    box-shadow: 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset;
-    --size: calc(var(--size-selector, 0.25rem) * 6);
-    width: var(--size);
-    height: var(--size);
-    color: var(--color-primary);
-  }
-
-  .radio {
-    &:checked,
-    &[aria-checked="true"] {
-      animation: radio 0.2s ease-out;
-      border-color: var(--color-primary);
-    }
-  }
-  radio {
-    &:checked,
-    &[aria-checked="true"] {
-      &:before {
-        background-color: var(--color-primary);
-      }
-    }
-  }
   .tabs-border {
     border-top: 1px solid var(--color-card);
     border-radius: 0%;
