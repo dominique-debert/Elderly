@@ -41,7 +41,7 @@ export function CategoriesPage() {
               /
             </span>
             <span className="text-slate-900 dark:text-white text-base font-medium leading-normal">
-              Categories
+              Catégories
             </span>
           </div>
           <div className="flex flex-wrap justify-between gap-4 items-center">
@@ -57,7 +57,7 @@ export function CategoriesPage() {
           </div>
           <div className="p-4 w-full bg-white dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-800">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-              My Subscriptions
+              Mes abonnements
             </h3>
             <div className="flex overflow-x-auto gap-4 py-2">
               <div className="shrink-0 flex items-center justify-between gap-4 p-3 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -67,11 +67,11 @@ export function CategoriesPage() {
                     className="font-medium text-slate-800 dark:text-slate-200 hover:text-primary"
                     href="#"
                   >
-                    Technology Hub
+                    Centre technologique
                   </a>
                 </div>
                 <span className="text-sm text-slate-500 dark:text-slate-400">
-                  890 threads
+                  890 fils
                 </span>
               </div>
               <div className="shrink-0 flex items-center justify-between gap-4 p-3 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -81,11 +81,11 @@ export function CategoriesPage() {
                     className="font-medium text-slate-800 dark:text-slate-200 hover:text-primary"
                     href="#"
                   >
-                    Book Worms
+                    Rats de bibliothèque
                   </a>
                 </div>
                 <span className="text-sm text-slate-500 dark:text-slate-400">
-                  450 threads
+                  450 fils
                 </span>
               </div>
               <div className="shrink-0 flex items-center justify-between gap-4 p-3 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -95,11 +95,11 @@ export function CategoriesPage() {
                     className="font-medium text-slate-800 dark:text-slate-200 hover:text-primary"
                     href="#"
                   >
-                    Science &amp; Nature
+                    Science et Nature
                   </a>
                 </div>
                 <span className="text-sm text-slate-500 dark:text-slate-400">
-                  400 threads
+                  400 fils
                 </span>
               </div>
               <div className="shrink-0 flex items-center justify-between gap-4 p-3 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -109,11 +109,11 @@ export function CategoriesPage() {
                     className="font-medium text-slate-800 dark:text-slate-200 hover:text-primary"
                     href="#"
                   >
-                    Gaming Central
+                    Espace jeux
                   </a>
                 </div>
                 <span className="text-sm text-slate-500 dark:text-slate-400">
-                  2.5k threads
+                  2.5k fils
                 </span>
               </div>
               <div className="shrink-0 flex items-center justify-between gap-4 p-3 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -123,11 +123,11 @@ export function CategoriesPage() {
                     className="font-medium text-slate-800 dark:text-slate-200 hover:text-primary"
                     href="#"
                   >
-                    Movie Buffs
+                    Cinéphiles
                   </a>
                 </div>
                 <span className="text-sm text-slate-500 dark:text-slate-400">
-                  780 threads
+                  780 fils
                 </span>
               </div>
             </div>
@@ -140,7 +140,7 @@ export function CategoriesPage() {
                 </div>
                 <input
                   className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 h-full placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
-                  placeholder="Search categories..."
+                  placeholder="Rechercher des catégories..."
                   value=""
                 />
               </div>
@@ -151,7 +151,7 @@ export function CategoriesPage() {
                   <tr>
                     <th className="px-6 py-3" scope="col">
                       <div className="flex items-center gap-1">
-                        <span>Category</span>
+                        <span>Catégorie</span>
                         <button className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
                           <ChevronUp className="size-4 text-base" />
                         </button>
@@ -159,7 +159,7 @@ export function CategoriesPage() {
                     </th>
                     <th className="px-6 py-3" scope="col">
                       <div className="flex items-center gap-1">
-                        <span>Threads</span>
+                        <span>Fils</span>
                         <button className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
                           <ChevronDown className="size-4 text-base" />
                         </button>
@@ -167,7 +167,7 @@ export function CategoriesPage() {
                     </th>
                     <th className="px-6 py-3" scope="col">
                       <div className="flex items-center gap-1">
-                        <span>Creation Date</span>
+                        <span>Date de création</span>
                         <button className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
                           <ChevronDown className="size-4 text-base" />
                         </button>
@@ -175,17 +175,17 @@ export function CategoriesPage() {
                     </th>
                     <th className="px-6 py-3" scope="col">
                       <div className="flex items-center gap-1">
-                        <span>Last Activity</span>
+                        <span>Dernière activité</span>
                         <button className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
                           <ChevronDown className="size-4 text-base" />
                         </button>
                       </div>
                     </th>
                     <th className="px-6 py-3" scope="col">
-                      <span>Status</span>
+                      <span>Statut</span>
                     </th>
                     <th className="px-6 py-3" scope="col">
-                      <span>Moderators</span>
+                      <span>Modérateurs</span>
                     </th>
                     <th className="px-6 py-3" scope="col">
                       <span className="sr-only">Action</span>
@@ -199,21 +199,21 @@ export function CategoriesPage() {
                       scope="row"
                     >
                       <MessagesSquare className="size-6 text-lg text-slate-500 dark:text-slate-400" />
-                      General Discussion
+                      Discussion générale
                     </th>
                     <td className="px-6 py-4">1.2k</td>
                     <td className="px-6 py-4">2023-01-15</td>
-                    <td className="px-6 py-4">2 hours ago</td>
+                    <td className="px-6 py-4">Il y a 2 heures</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-900/50 px-2 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        Active
+                        Actif
                       </span>
                     </td>
                     <td className="px-6 py-4">John Doe, Jane Smith</td>
                     <td className="px-6 py-4 text-right">
                       <button className="cursor-pointer inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <Bell className="size-4" />
-                        <span>Subscribe</span>
+                        <span>S'abonner</span>
                       </button>
                     </td>
                   </tr>
@@ -223,21 +223,21 @@ export function CategoriesPage() {
                       scope="row"
                     >
                       <Computer className="size-6 text-slate-500 dark:text-slate-400" />
-                      Technology Hub
+                      Centre technologique
                     </th>
                     <td className="px-6 py-4">890</td>
                     <td className="px-6 py-4">2023-02-01</td>
-                    <td className="px-6 py-4">30 minutes ago</td>
+                    <td className="px-6 py-4">Il y a 30 minutes</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-2 py-0.5 text-xs font-semibold text-green-700 dark:text-green-300">
-                        Updated
+                        Mis à jour
                       </span>
                     </td>
                     <td className="px-6 py-4">Alice Green</td>
                     <td className="px-6 py-4 text-right">
                       <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-primary text-white hover:bg-primary/90">
                         <Bell className="size-4" />
-                        <span>Subscribed</span>
+                        <span>Abonné</span>
                       </button>
                     </td>
                   </tr>
@@ -247,21 +247,21 @@ export function CategoriesPage() {
                       scope="row"
                     >
                       <Gamepad2 className="size-6 text-slate-500 dark:text-slate-400" />
-                      Gaming Central
+                      Espace jeux
                     </th>
                     <td className="px-6 py-4">2.5k</td>
                     <td className="px-6 py-4">2023-03-10</td>
-                    <td className="px-6 py-4">1 day ago</td>
+                    <td className="px-6 py-4">Il y a 1 jour</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-900/50 px-2 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        Active
+                        Actif
                       </span>
                     </td>
                     <td className="px-6 py-4">Bob Johnson, Charlie Day</td>
                     <td className="px-6 py-4 text-right">
                       <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <Bell className="size-4" />
-                        <span>Subscribe</span>
+                        <span>S'abonner</span>
                       </button>
                     </td>
                   </tr>
@@ -271,21 +271,21 @@ export function CategoriesPage() {
                       scope="row"
                     >
                       <Book className="size-6 text-slate-500 dark:text-slate-400" />
-                      Book Worms
+                      Rats de bibliothèque
                     </th>
                     <td className="px-6 py-4">450</td>
                     <td className="px-6 py-4">2024-01-05</td>
-                    <td className="px-6 py-4">5 hours ago</td>
+                    <td className="px-6 py-4">Il y a 5 heures</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center rounded-full bg-sky-100 dark:bg-sky-900/50 px-2 py-0.5 text-xs font-semibold text-sky-700 dark:text-sky-300">
-                        New
+                        Nouveau
                       </span>
                     </td>
                     <td className="px-6 py-4">Emily White</td>
                     <td className="px-6 py-4 text-right">
                       <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <Bell className="size-4" />
-                        <span>Subscribe</span>
+                        <span>S'abonner</span>
                       </button>
                     </td>
                   </tr>
@@ -295,21 +295,21 @@ export function CategoriesPage() {
                       scope="row"
                     >
                       <Film className="size-6 text-slate-500 dark:text-slate-400" />
-                      Movie Buffs
+                      Cinéphiles
                     </th>
                     <td className="px-6 py-4">780</td>
                     <td className="px-6 py-4">2023-04-20</td>
-                    <td className="px-6 py-4">12 hours ago</td>
+                    <td className="px-6 py-4">Il y a 12 heures</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-900/50 px-2 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        Active
+                        Actif
                       </span>
                     </td>
                     <td className="px-6 py-4">David Lee</td>
                     <td className="px-6 py-4 text-right">
                       <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <Bell className="size-4" />
-                        <span>Subscribe</span>
+                        <span>S'abonner</span>
                       </button>
                     </td>
                   </tr>
@@ -319,21 +319,21 @@ export function CategoriesPage() {
                       scope="row"
                     >
                       <Music className="size-6 text-slate-500 dark:text-slate-400" />
-                      Music Corner
+                      Coin musique
                     </th>
                     <td className="px-6 py-4">620</td>
                     <td className="px-6 py-4">2023-05-18</td>
-                    <td className="px-6 py-4">7 hours ago</td>
+                    <td className="px-6 py-4">Il y a 7 heures</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-900/50 px-2 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        Active
+                        Actif
                       </span>
                     </td>
                     <td className="px-6 py-4">Sarah Davis</td>
                     <td className="px-6 py-4 text-right">
                       <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <Bell className="size-4" />
-                        <span>Subscribe</span>
+                        <span>S'abonner</span>
                       </button>
                     </td>
                   </tr>
@@ -343,21 +343,21 @@ export function CategoriesPage() {
                       scope="row"
                     >
                       <Plane className="size-6 text-slate-500 dark:text-slate-400" />
-                      Travel Adventures
+                      Aventures de voyage
                     </th>
                     <td className="px-6 py-4">550</td>
                     <td className="px-6 py-4">2023-06-22</td>
-                    <td className="px-6 py-4">4 days ago</td>
+                    <td className="px-6 py-4">Il y a 4 jours</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-900/50 px-2 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        Active
+                        Actif
                       </span>
                     </td>
                     <td className="px-6 py-4">Michael Chen</td>
                     <td className="px-6 py-4 text-right">
                       <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <Bell className="size-4" />
-                        <span>Subscribe</span>
+                        <span>S'abonner</span>
                       </button>
                     </td>
                   </tr>
@@ -367,21 +367,21 @@ export function CategoriesPage() {
                       scope="row"
                     >
                       <Utensils className="size-6 text-slate-500 dark:text-slate-400" />
-                      Food &amp; Cooking
+                      Cuisine et gastronomie
                     </th>
                     <td className="px-6 py-4">930</td>
                     <td className="px-6 py-4">2023-07-11</td>
-                    <td className="px-6 py-4">1 hour ago</td>
+                    <td className="px-6 py-4">Il y a 1 heure</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-900/50 px-2 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        Active
+                        Actif
                       </span>
                     </td>
                     <td className="px-6 py-4">Olivia Kim</td>
                     <td className="px-6 py-4 text-right">
                       <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <Bell className="size-4" />
-                        <span>Subscribe</span>
+                        <span>S'abonner</span>
                       </button>
                     </td>
                   </tr>
@@ -391,21 +391,21 @@ export function CategoriesPage() {
                       scope="row"
                     >
                       <Wrench className="size-6 text-slate-500 dark:text-slate-400" />
-                      DIY &amp; Crafts
+                      Bricolage et artisanat
                     </th>
                     <td className="px-6 py-4">240</td>
                     <td className="px-6 py-4">2023-08-01</td>
-                    <td className="px-6 py-4">2 days ago</td>
+                    <td className="px-6 py-4">Il y a 2 jours</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center rounded-full bg-slate-100 dark:bg-slate-900/50 px-2 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        Active
+                        Actif
                       </span>
                     </td>
                     <td className="px-6 py-4">Daniel Brown</td>
                     <td className="px-6 py-4 text-right">
                       <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <Bell className="size-4" />
-                        <span>Subscribe</span>
+                        <span>S'abonner</span>
                       </button>
                     </td>
                   </tr>
