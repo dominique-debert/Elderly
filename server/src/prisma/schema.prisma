@@ -8,6 +8,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Valence {
+  positive
+  negative
+  neutre
+}
+
 model activity {
   id                    String                 @id @default(cuid())
   creatorId             String?                @map("creator_id")
@@ -80,6 +86,68 @@ model badge {
   userBadgeId String?
 }
 
+model blockedContact {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  contactId String    @map("contact_id")
+  reason    String?   @db.Text
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
+  user      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("blocked_contact")
+}
+
+model category {
+  id                   Int                    @id @default(autoincrement())
+  categoryName         String                 @map("category_name")
+  description          String?
+  typeId               Int                    @map("type_id")
+  chapterId            Int                    @map("chapter_id")
+  createdAt            DateTime               @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt            DateTime?              @map("updated_at") @db.Timestamp(6)
+  activity             activity[]
+  badge                badge[]
+  cognitiveExercise    cognitiveExercise[]
+  collaborativeProject collaborativeProject[]
+  exerciseProgram      exerciseProgram[]
+  helpRequest          helpRequest[]
+  localService         localService[]
+  nutritionalAdvice    nutritionalAdvice[]
+  resource             resource[]
+  skill                skill[]
+  urbanIssueReport     urbanIssueReport[]
+  wellnessBadge        wellnessBadge[]
+  wellnessGoal         wellnessGoal[]
+  categoryType         categoryType           @relation(fields: [typeId], references: [id])
+  categoryChapter      categoryChapter        @relation(fields: [chapterId], references: [chapterId])
+  forumTopic           forumTopic[]
+}
+
+model categoryChapter {
+  id                 Int        @id @default(autoincrement())
+  chapterId          Int        @unique @map("chapter_id")
+  chapterName        String     @unique @map("chapter_name")
+  chapterDescription String?    @map("chapter_description")
+  category           category[]
+  createdAt          DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt          DateTime?  @map("updated_at") @db.Timestamp(6)
+
+  @@index([chapterName])
+  @@map("category_chapter")
+}
+
+model categoryType {
+  id         Int        @id @default(autoincrement())
+  name       String     @unique
+  categories category[]
+  createdAt  DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt  DateTime?  @map("updated_at") @db.Timestamp(6)
+
+  @@index([name])
+  @@map("category_type")
+}
+
 model cognitiveExercise {
   id              String    @id @default(cuid())
   name            String    @db.Text
@@ -117,6 +185,19 @@ model collaborativeProject {
   projectTask   projectTask[]
 
   @@map("collaborative_project")
+}
+
+model contactRequest {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  contactId String    @map("contact_id")
+  status    String    @default("pending") @db.Text
+  message   String?   @db.Text
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
+  user      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("contact_request")
 }
 
 model conversation {
@@ -216,25 +297,6 @@ model healthIndicator {
   @@map("health_indicator")
 }
 
-/// On met l'humeur ici car en liaison avec l'indicateur de santé
-model mood {
-  id              Int               @id @default(autoincrement())
-  name            String            @unique @default("")
-  description     String?
-  valence         Valence
-  intensity       Int               @default(0) // Échelle de 1 à 5
-  color           String            @default("") // Couleur associée (hex)
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
-  healthIndicator healthIndicator[]
-}
-
-enum Valence {
-  positive
-  negative
-  neutre
-}
-
 model helpOffer {
   id          String      @id @default(cuid())
   requestId   String      @map("request_id")
@@ -274,6 +336,16 @@ model helpRequest {
   category category @relation(fields: [categoryId], references: [id])
 
   @@map("help_request")
+}
+
+model interest {
+  id          String    @id @default(cuid())
+  name        String    @db.Text
+  description String?   @db.Text
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt   DateTime? @map("updated_at") @db.Timestamp(6)
+
+  userInterest userInterest[]
 }
 
 model localService {
@@ -339,6 +411,19 @@ model message {
   updatedAt      DateTime?     @map("updated_at") @db.Timestamp(6)
   conversation   conversation? @relation(fields: [conversationId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   user           user?         @relation(fields: [senderId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// On met l'humeur ici car en liaison avec l'indicateur de santé
+model mood {
+  id              Int               @id @default(autoincrement())
+  name            String            @unique @default("")
+  description     String?
+  valence         Valence
+  intensity       Int               @default(0) // Échelle de 1 à 5
+  color           String            @default("") // Couleur associée (hex)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  healthIndicator healthIndicator[]
 }
 
 model municipalEvent {
@@ -466,20 +551,6 @@ model satisfactionSurvey {
   @@map("satisfaction_survey")
 }
 
-model session {
-  id           String   @id @default(cuid())
-  refreshToken String   @unique
-  userId       String
-  user         user     @relation(fields: [userId], references: [id])
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  expiresAt    DateTime
-  userAgent    String?
-  ipAddress    String?
-
-  @@index([refreshToken])
-}
-
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model serviceCompleted {
   id              String      @id @default(cuid())
@@ -514,6 +585,20 @@ model serviceRating {
 
   // @@id([serviceId, userId])
   @@map("service_rating")
+}
+
+model session {
+  id           String   @id @default(cuid())
+  refreshToken String   @unique
+  userId       String
+  user         user     @relation(fields: [userId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  expiresAt    DateTime
+  userAgent    String?
+  ipAddress    String?
+
+  @@index([refreshToken])
 }
 
 model skill {
@@ -697,31 +782,6 @@ model userContacts {
   @@map("user_contacts")
 }
 
-model contactRequest {
-  id        String    @id @default(cuid())
-  userId    String    @map("user_id")
-  contactId String    @map("contact_id")
-  status    String    @default("pending") @db.Text
-  message   String?   @db.Text
-  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
-  user      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-
-  @@map("contact_request")
-}
-
-model blockedContact {
-  id        String    @id @default(cuid())
-  userId    String    @map("user_id")
-  contactId String    @map("contact_id")
-  reason    String?   @db.Text
-  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
-  user      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-
-  @@map("blocked_contact")
-}
-
 model userDevice {
   id                String    @id @default(cuid())
   userId            String    @map("user_id")
@@ -735,6 +795,18 @@ model userDevice {
   user              user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("user_device")
+}
+
+model userInterest {
+  id         String     @id @default(cuid())
+  userId     String     @map("user_id")
+  interestId String     @map("interest_id")
+  createdAt  DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt  DateTime?  @map("updated_at") @db.Timestamp(6)
+  user       user       @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  interest   interest[]
+
+  @@map("user_interest")
 }
 
 model userPreferences {
@@ -761,28 +833,6 @@ model userPreferences {
   user                      user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("user_preferences")
-}
-
-model userInterest {
-  id         String     @id @default(cuid())
-  userId     String     @map("user_id")
-  interestId String     @map("interest_id")
-  createdAt  DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt  DateTime?  @map("updated_at") @db.Timestamp(6)
-  user       user       @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  interest   interest[]
-
-  @@map("user_interest")
-}
-
-model interest {
-  id          String    @id @default(cuid())
-  name        String    @db.Text
-  description String?   @db.Text
-  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt   DateTime? @map("updated_at") @db.Timestamp(6)
-
-  userInterest userInterest[]
 }
 
 model userSkill {
@@ -874,54 +924,4 @@ model wellnessGoalProgress {
   wellnessGoal  wellnessGoal @relation(fields: [goalId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@map("wellness_goal_progress")
-}
-
-model categoryType {
-  id         Int        @id @default(autoincrement())
-  name       String     @unique
-  categories category[]
-  createdAt  DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt  DateTime?  @map("updated_at") @db.Timestamp(6)
-
-  @@index([name])
-  @@map("category_type")
-}
-
-model categoryChapter {
-  id                 Int        @id @default(autoincrement())
-  chapterId          Int        @unique @map("chapter_id")
-  chapterName        String     @unique @map("chapter_name")
-  chapterDescription String?    @map("chapter_description")
-  category           category[]
-  createdAt          DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt          DateTime?  @map("updated_at") @db.Timestamp(6)
-
-  @@index([chapterName])
-  @@map("category_chapter")
-}
-
-model category {
-  id                   Int                    @id @default(autoincrement())
-  categoryName         String                 @map("category_name")
-  description          String?
-  typeId               Int                    @map("type_id")
-  chapterId            Int                    @map("chapter_id")
-  createdAt            DateTime               @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt            DateTime?              @map("updated_at") @db.Timestamp(6)
-  activity             activity[]
-  badge                badge[]
-  cognitiveExercise    cognitiveExercise[]
-  collaborativeProject collaborativeProject[]
-  exerciseProgram      exerciseProgram[]
-  helpRequest          helpRequest[]
-  localService         localService[]
-  nutritionalAdvice    nutritionalAdvice[]
-  resource             resource[]
-  skill                skill[]
-  urbanIssueReport     urbanIssueReport[]
-  wellnessBadge        wellnessBadge[]
-  wellnessGoal         wellnessGoal[]
-  categoryType         categoryType           @relation(fields: [typeId], references: [id])
-  categoryChapter      categoryChapter        @relation(fields: [chapterId], references: [chapterId])
-  forumTopic           forumTopic[]
 }
