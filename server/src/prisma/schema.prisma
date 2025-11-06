@@ -149,19 +149,17 @@ model categoryType {
 }
 
 model cognitiveExercise {
-  id              String    @id @default(cuid())
-  name            String    @db.Text
-  categoryId      Int       @map("category_id")
-  difficultyLevel Int?      @map("difficulty_level")
-  durationMinutes Int?      @map("duration_minutes")
+  id              String         @id @default(cuid())
+  name            String         @db.Text
+  categoryId      Int            @map("category_id")
+  difficultyLevel Int?           @map("difficulty_level")
+  durationMinutes Int?           @map("duration_minutes")
   description     String?
-  image           String?   @db.Text
-  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt       DateTime? @map("updated_at") @db.Timestamp(6)
-
-  // Relation vers la catégorie générique
-  category     category?      @relation(fields: [categoryId], references: [id])
-  userActivity userActivity[]
+  image           String?        @db.Text
+  createdAt       DateTime       @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt       DateTime?      @map("updated_at") @db.Timestamp(6)
+  category        category?      @relation(fields: [categoryId], references: [id])
+  userActivity    userActivity[]
 
   @@map("cognitive_exercise")
 }
@@ -177,9 +175,7 @@ model collaborativeProject {
   createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt    DateTime? @map("updated_at") @db.Timestamp(6)
   user         user?     @relation(fields: [creatorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-
-  // Relation vers la catégorie générique
-  category category? @relation(fields: [categoryId], references: [id])
+  category     category? @relation(fields: [categoryId], references: [id])
 
   projectMember projectMember[]
   projectTask   projectTask[]
@@ -227,21 +223,19 @@ model conversationParticipant {
 }
 
 model exerciseProgram {
-  id                        String    @id @default(cuid())
-  name                      String    @db.Text
-  categoryId                Int       @map("category_id")
-  difficultyLevel           Int?      @map("difficulty_level")
-  adaptedForReducedMobility Boolean?  @map("adapted_for_reduced_mobility")
-  durationMinutes           Int?      @map("duration_minutes")
+  id                        String         @id @default(cuid())
+  name                      String         @db.Text
+  categoryId                Int            @map("category_id")
+  difficultyLevel           Int?           @map("difficulty_level")
+  adaptedForReducedMobility Boolean?       @map("adapted_for_reduced_mobility")
+  durationMinutes           Int?           @map("duration_minutes")
   description               String?
-  videoLink                 String?   @map("video_link") @db.Text
-  image                     String?   @db.Text
-  createdAt                 DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt                 DateTime? @map("updated_at") @db.Timestamp(6)
-
-  // Relation vers la catégorie générique
-  category     category       @relation(fields: [categoryId], references: [id])
-  userActivity userActivity[]
+  videoLink                 String?        @map("video_link") @db.Text
+  image                     String?        @db.Text
+  createdAt                 DateTime       @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt                 DateTime?      @map("updated_at") @db.Timestamp(6)
+  category                  category       @relation(fields: [categoryId], references: [id])
+  userActivity              userActivity[]
 
   @@map("exercise_program")
 }
@@ -278,7 +272,6 @@ model forumTopic {
   @@map("forum_topic")
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model healthIndicator {
   id                   String    @id @default(cuid())
   userId               String    @map("user_id")
@@ -331,9 +324,7 @@ model helpRequest {
   helpOffer         helpOffer[]
   user              user               @relation(fields: [creatorId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   serviceCompleted  serviceCompleted[]
-
-  // Relation vers la catégorie générique
-  category category @relation(fields: [categoryId], references: [id])
+  category          category           @relation(fields: [categoryId], references: [id])
 
   @@map("help_request")
 }
@@ -349,23 +340,20 @@ model interest {
 }
 
 model localService {
-  id             String    @id @default(cuid())
-  name           String    @db.Text
-  categoryId     Int       @map("category_id")
-  address        String?   @db.Text
-  gpsCoordinates String?   @map("gps_coordinates")
-  phone          String?   @db.Text
-  website        String?   @db.Text
+  id             String          @id @default(cuid())
+  name           String          @db.Text
+  categoryId     Int             @map("category_id")
+  address        String?         @db.Text
+  gpsCoordinates String?         @map("gps_coordinates")
+  phone          String?         @db.Text
+  website        String?         @db.Text
   description    String?
-  hours          String?   @db.Text
-  seniorFriendly Boolean?  @map("senior_friendly")
-  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt      DateTime? @map("updated_at") @db.Timestamp(6)
-
-  // Relation vers la catégorie générique
-  category category @relation(fields: [categoryId], references: [id])
-
-  serviceRating serviceRating[]
+  hours          String?         @db.Text
+  seniorFriendly Boolean?        @map("senior_friendly")
+  createdAt      DateTime        @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt      DateTime?       @map("updated_at") @db.Timestamp(6)
+  category       category        @relation(fields: [categoryId], references: [id])
+  serviceRating  serviceRating[]
 
   @@map("local_service")
 }
@@ -413,7 +401,6 @@ model message {
   user           user?         @relation(fields: [senderId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
-/// On met l'humeur ici car en liaison avec l'indicateur de santé
 model mood {
   id              Int               @id @default(autoincrement())
   name            String            @unique @default("")
@@ -473,7 +460,6 @@ model notificationPreferences {
   @@map("notification_preferences")
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model nutritionalAdvice {
   id          String    @id @default(cuid())
   title       String    @db.Text
@@ -483,9 +469,7 @@ model nutritionalAdvice {
   image       String?   @db.Text
   createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt   DateTime? @map("updated_at") @db.Timestamp(6)
-
-  // Relation vers la catégorie générique
-  category category @relation(fields: [categoryId], references: [id])
+  category    category  @relation(fields: [categoryId], references: [id])
 
   @@map("nutritional_advice")
 }
@@ -532,9 +516,7 @@ model resource {
   createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt      DateTime? @map("updated_at") @db.Timestamp(6)
   user           user?     @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-
-  // Relation vers la catégorie générique
-  category category @relation(fields: [categoryId], references: [id])
+  category       category  @relation(fields: [categoryId], references: [id])
 }
 
 model satisfactionSurvey {
@@ -551,7 +533,6 @@ model satisfactionSurvey {
   @@map("satisfaction_survey")
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model serviceCompleted {
   id              String      @id @default(cuid())
   requestId       String      @map("request_id")
@@ -583,7 +564,6 @@ model serviceRating {
   localService localService @relation(fields: [serviceId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   user         user         @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
-  // @@id([serviceId, userId])
   @@map("service_rating")
 }
 
@@ -602,17 +582,14 @@ model session {
 }
 
 model skill {
-  id          String    @id @default(cuid())
-  name        String    @db.Text
-  description String?   @db.Text
-  categoryId  Int       @map("category_id")
-  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt   DateTime? @map("updated_at") @db.Timestamp(6)
-
-  // Relation vers la catégorie générique
-  category category @relation(fields: [categoryId], references: [id])
-
-  userSkill userSkill[]
+  id          String      @id @default(cuid())
+  name        String      @db.Text
+  description String?     @db.Text
+  categoryId  Int         @map("category_id")
+  createdAt   DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt   DateTime?   @map("updated_at") @db.Timestamp(6)
+  category    category    @relation(fields: [categoryId], references: [id])
+  userSkill   userSkill[]
 }
 
 model surveyResponse {
@@ -673,7 +650,6 @@ model urbanIssueReport {
   createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt      DateTime? @map("updated_at") @db.Timestamp(6)
   user           user?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  // Relation vers la catégorie générique
   category       category  @relation(fields: [categoryId], references: [id])
 
   @@map("urban_issue_report")
