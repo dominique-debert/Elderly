@@ -1,5 +1,5 @@
 {
-  "name": "helpy-api",
+  "name": "elderly-api",
   "version": "0.0.1",
   "description": "",
   "main": "server.ts",
@@ -11,6 +11,7 @@
     "gen:api": "openapi-typescript http://localhost:3000/api-docs.json --output ../helpy-client/src/@types/api.d.ts",
     "generate-token": "node --import=tsx scripts/generateToken.ts",
     "db:seed": "ts-node prisma/seed/index.ts",
+    "db:seed:forum": "node --import=tsx src/prisma/seedForum.ts",
     "test": "jest --config jest.config.ts --runInBand",
     "test:watch": "jest --config jest.config.ts --watch",
     "test:coverage": "jest --config jest.config.ts --coverage"

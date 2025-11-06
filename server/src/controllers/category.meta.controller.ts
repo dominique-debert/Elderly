@@ -79,7 +79,6 @@ export async function getCategoryTypeById(
   }
 }
 
-// CORRIGÉ : Retourne un tableau plat avec toutes les données nécessaires
 export async function getCategories(
   req: Request,
   res: Response,
