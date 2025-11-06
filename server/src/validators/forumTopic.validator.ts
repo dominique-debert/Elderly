@@ -15,9 +15,9 @@ export const forumTopicSchema = Joi.object({
     "number.base": "Le nombre de vues doit être un nombre.",
     "number.min": "Le nombre de vues doit être supérieur ou égal à 0.",
   }),
-  categoryId: Joi.string().required().messages({
-    "string.base": "L'ID de la catégorie doit être une chaîne de caractères.",
-    "string.empty": "L'ID de la catégorie est requis.",
+  categoryId: Joi.number().required().messages({
+    "number.base": "L'ID de la catégorie doit être un nombre.",
+    "number.empty": "L'ID de la catégorie est requis.",
     "any.required": "L'ID de la catégorie est obligatoire.",
   }),
   authorId: Joi.string().required().messages({

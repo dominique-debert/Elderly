@@ -10,6 +10,7 @@ export * from "./ICategoryModalStore";
 export * from "./ICategoryState";
 export * from "./ICategoryType";
 export * from "./IChapter";
+export * from "./IForumTopic";
 export * from "./IGeolocationResponse";
 export * from "./IMenuItem";
 export * from "./IMenuStore";
