@@ -8,11 +8,11 @@ const prisma = new PrismaClient();
 /**
  * @swagger
  * tags:
- *   name: Forum messages
- *   description: API pour gérer les messages du forum
+ *   name: Forum topics
+ *   description: API pour gérer les sujets du forum
  */
 
-export const createForumMessage = async (
+export const createForumTopic = async (
   req: Request<{}, {}, IForumTopic>,
   res: Response,
   next: NextFunction
