@@ -165,18 +165,6 @@ model exerciseProgram {
   @@map("exercise_program")
 }
 
-model forumCategory {
-  id               String       @id @default(cuid())
-  name             String       @db.Text
-  description      String?      @db.Text
-  parentCategoryId String?      @map("parent_category_id")
-  createdAt        DateTime     @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt        DateTime?    @map("updated_at") @db.Timestamp(6)
-  forumTopic       forumTopic[]
-
-  @@map("forum_category")
-}
-
 model forumMessage {
   id              String      @id @default(cuid())
   topicId         String      @map("topic_id")
@@ -192,18 +180,19 @@ model forumMessage {
 }
 
 model forumTopic {
-  id            String         @id @default(cuid())
-  categoryId    String         @map("category_id")
-  authorId      String         @map("author_id")
-  title         String         @db.Text
-  pinned        Boolean?       @default(false)
-  status        String?        @db.Text
-  views         Int?           @default(0)
-  createdAt     DateTime       @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt     DateTime?      @map("updated_at") @db.Timestamp(6)
-  forumMessage  forumMessage[]
-  user          user           @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  forumCategory forumCategory  @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id           String         @id @default(cuid())
+  categoryId   Int            @map("category_id")
+  authorId     String         @map("author_id")
+  title        String         @db.Text
+  pinned       Boolean?       @default(false)
+  status       String?        @db.Text
+  views        Int?           @default(0)
+  createdAt    DateTime       @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt    DateTime?      @map("updated_at") @db.Timestamp(6)
+  forumMessage forumMessage[]
+  user         user           @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  category category @relation(fields: [categoryId], references: [id])
 
   @@map("forum_topic")
 }
@@ -934,4 +923,5 @@ model category {
   wellnessGoal         wellnessGoal[]
   categoryType         categoryType           @relation(fields: [typeId], references: [id])
   categoryChapter      categoryChapter        @relation(fields: [chapterId], references: [chapterId])
+  forumTopic           forumTopic[]
 }
