@@ -46,7 +46,7 @@ export const getAllForumTopics = async (
   try {
     const forumTopics = await prisma.forumTopic.findMany({
       orderBy: {
-        createdAt: "asc",
+        createdAt: "desc",
       },
     });
 
@@ -69,7 +69,7 @@ export const getForumTopicById = async (
     });
 
     if (!forumTopic) {
-      throw createHttpError(404, "Message non trouvé");
+      throw createHttpError(404, "Sujet non trouvé");
     }
 
     res.status(200).json(forumTopic);
@@ -91,7 +91,7 @@ export const updateForumTopic = async (
     });
 
     if (!forumTopic) {
-      throw createHttpError(404, "Message non trouvé");
+      throw createHttpError(404, "Sujet non trouvé");
     }
 
     const forumTopicToUpdate = await prisma.forumTopic.update({
@@ -121,14 +121,14 @@ export const deleteForumTopic = async (
     });
 
     if (!forumTopic) {
-      throw createHttpError(404, "Message non trouvé");
+      throw createHttpError(404, "Sujet non trouvé");
     }
 
     await prisma.forumTopic.delete({
       where: { id },
     });
 
-    res.status(200).json({ message: "Message supprimé avec succès" });
+    res.status(200).json({ message: "Sujet supprimé avec succès" });
   } catch (error) {
     next(error);
   }
