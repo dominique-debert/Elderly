@@ -12,7 +12,7 @@ export function ForumPage() {
   return (
     <>
       {/* TODO: Reconcevoir la page du forum : CECI EST UNE PAGE TEMPORAIRE POUR L'INSTANT */}
-      <div className="mr-4 mt-20 gap-6 flex flex-col">
+      <div className="mr-3 mt-20 gap-6 flex flex-col">
         <div className="flex flex-col gap-6 bg-transparent! border-0 w-full">
           <span className="text-2xl w-full lg:text-3xl font-medium text-slate-900 dark:text-slate-300">
             Bienvenue sur le forum, {user?.firstName}!
@@ -30,12 +30,10 @@ export function ForumPage() {
               </div>
             </label>
           </div>
-          <div className="bg-white dark:bg-card rounded-xl border border-slate-200 dark:border-gray-700">
-            <button className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-3xl h-10 btn-primary text-sm font-bold leading-normal tracking-[0.015em] gap-3">
-              <Plus className="size-4" />
-              <span className="truncate">Démarrer une nouvelle discussion</span>
-            </button>
-          </div>
+          <button className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-3xl h-10 btn-primary text-sm font-bold leading-normal tracking-[0.015em] gap-3">
+            <Plus className="size-4" />
+            <span className="truncate">Démarrer une nouvelle discussion</span>
+          </button>
           <div className="bg-white dark:bg-card p-5 rounded-xl border border-slate-200 dark:border-gray-700 space-y-4">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
               Votre activité

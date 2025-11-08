@@ -4,6 +4,8 @@ import path from "path";
 import fs from "fs";
 import { v4 as uuidv4 } from "uuid";
 
+// This router handles file uploads for user avatars.
+// TODO: Add upload for other file types (e.g., forum attachments).
 const router = express.Router();
 
 const uploadsDir = path.join(process.cwd(), "public", "images", "avatars");

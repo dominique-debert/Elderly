@@ -12,10 +12,10 @@ export function Layout() {
     <div className="h-screen flex flex-col">
       {isAuthenticated && <Navbar />}
 
-      <div className="flex flex-1 relative">
+      <div className="flex flex-1 relative h-auto overflow-hidden">
         {isAuthenticated && <LeftSidebar />}
         <main
-          className={`transition-all duration-150 w-full ${
+          className={`transition-all duration-150 w-full h-auto overflow-x-hidden ${
             isAuthenticated ? (collapsed ? "ml-28" : "ml-68") : ""
           }`}
         >
