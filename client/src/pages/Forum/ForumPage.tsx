@@ -19,14 +19,14 @@ export function ForumPage() {
   const { user, isAuthenticated } = useAuthStore();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const limit = 20;
+  const [limit, setLimit] = useState(20);
 
   const {
     data: forumTopicsResponse,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["forumTopics", currentPage],
+    queryKey: ["forumTopics", currentPage, limit],
     queryFn: () => getAllForumTopics(currentPage, limit),
   });
 
@@ -183,7 +183,7 @@ export function ForumPage() {
                     <div className="flex items-start justify-between mb-1.5">
                       <div className="flex items-start gap-2 flex-1">
                         {forumTopic.pinned && (
-                          <Pin className="size-3.5 text-primary mt-1 shrink-0" />
+                          <Pin className="size-4 text-primary mt-1 shrink-0" />
                         )}
                         <h3 className="text-base font-bold text-slate-900 dark:text-white">
                           {forumTopic.title}
