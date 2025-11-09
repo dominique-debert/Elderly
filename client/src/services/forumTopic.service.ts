@@ -1,19 +1,19 @@
 import api from "@/lib/axios";
-import { IForumTopic } from "@/types";
+import { IForumTopic, IForumStatistics, IForumTopicsResponse } from "@/types";
 
-export interface IForumStatistics {
-  totalThreads: number;
-  totalMessages: number;
-  activeParticipants: number;
-}
-
-export async function getAllForumTopics(): Promise<IForumTopic[]> {
+export async function getAllForumTopics(
+  page: number = 1,
+  limit: number = 20
+): Promise<IForumTopicsResponse> {
   const accessToken = localStorage.getItem("accessToken");
-  const response = await api.get<IForumTopic[]>("/forum-topics", {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
+  const response = await api.get<IForumTopicsResponse>(
+    `/forum-topics?page=${page}&limit=${limit}`,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
   return response.data;
 }
 

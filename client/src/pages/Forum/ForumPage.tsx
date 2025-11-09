@@ -1,27 +1,33 @@
 import { Navigate } from "react-router-dom";
-import { Pin, MessageSquare, Users, FileText } from "lucide-react";
-// import { Bell, Rocket, Flame, Search, Plus } from "lucide-react";
+import {
+  Pin,
+  MessageSquare,
+  Users,
+  FileText,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { useAuthStore } from "@/stores";
 import { useQuery } from "@tanstack/react-query";
 import { getAllForumTopics, getForumStatistics } from "@/services";
 import { IForumTopic } from "@/types";
+import { useState } from "react";
 
 export function ForumPage() {
   const { user, isAuthenticated } = useAuthStore();
+  const [currentPage, setCurrentPage] = useState(1);
+  const limit = 20;
 
   const {
-    data: forumTopics = [],
+    data: forumTopicsResponse,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["forumTopics"],
-    queryFn: getAllForumTopics,
+    queryKey: ["forumTopics", currentPage],
+    queryFn: () => getAllForumTopics(currentPage, limit),
   });
 
-  const {
-    data: statistics,
-    isLoading: isLoadingStats,
-  } = useQuery({
+  const { data: statistics, isLoading: isLoadingStats } = useQuery({
     queryKey: ["forumStatistics"],
     queryFn: getForumStatistics,
   });
@@ -49,9 +55,9 @@ export function ForumPage() {
   }
 
   return (
-    <div className="mt-20 gap-6 flex flex-col">
+    <div className="mt-20 gap-6 flex flex-col mr-3">
       <div className="flex flex-col bg-transparent! border-0 w-full">
-        <span className="text-2xl w-full lg:text-3xl font-medium text-slate-900 dark:text-slate-300">
+        <span className="text-xl w-full lg:text-2xl font-medium text-slate-900 dark:text-slate-300">
           Bienvenue sur le forum, {user?.firstName}.
         </span>
 
@@ -59,52 +65,52 @@ export function ForumPage() {
         {!isLoadingStats && statistics && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             {/* Total Discussions (Messages) */}
-            <div className="bg-white dark:bg-card p-6 rounded-lg border border-slate-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-card p-5 rounded-lg border border-slate-200 dark:border-gray-700">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
                     Discussions
                   </p>
-                  <p className="text-3xl font-bold text-slate-900 dark:text-white">
+                  <p className="text-2xl font-bold text-slate-900 dark:text-white">
                     {statistics.totalMessages.toLocaleString()}
                   </p>
                 </div>
-                <div className="p-3 bg-primary/10 rounded-full">
-                  <MessageSquare className="w-6 h-6 text-primary" />
+                <div className="p-2.5 bg-primary/10 rounded-full">
+                  <MessageSquare className="w-5 h-5 text-primary" />
                 </div>
               </div>
             </div>
 
             {/* Active Participants */}
-            <div className="bg-white dark:bg-card p-6 rounded-lg border border-slate-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-card p-5 rounded-lg border border-slate-200 dark:border-gray-700">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
                     Participants actifs
                   </p>
-                  <p className="text-3xl font-bold text-slate-900 dark:text-white">
+                  <p className="text-2xl font-bold text-slate-900 dark:text-white">
                     {statistics.activeParticipants.toLocaleString()}
                   </p>
                 </div>
-                <div className="p-3 bg-green-500/10 rounded-full">
-                  <Users className="w-6 h-6 text-green-500" />
+                <div className="p-2.5 bg-green-500/10 rounded-full">
+                  <Users className="w-5 h-5 text-green-500" />
                 </div>
               </div>
             </div>
 
             {/* Total Threads */}
-            <div className="bg-white dark:bg-card p-6 rounded-lg border border-slate-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-card p-5 rounded-lg border border-slate-200 dark:border-gray-700">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
                     Sujets
                   </p>
-                  <p className="text-3xl font-bold text-slate-900 dark:text-white">
+                  <p className="text-2xl font-bold text-slate-900 dark:text-white">
                     {statistics.totalThreads.toLocaleString()}
                   </p>
                 </div>
-                <div className="p-3 bg-blue-500/10 rounded-full">
-                  <FileText className="w-6 h-6 text-blue-500" />
+                <div className="p-2.5 bg-blue-500/10 rounded-full">
+                  <FileText className="w-5 h-5 text-blue-500" />
                 </div>
               </div>
             </div>
@@ -112,43 +118,95 @@ export function ForumPage() {
         )}
 
         <div className="mt-6 gap-6 flex flex-col mb-6">
-          {forumTopics.length > 0 ? (
-            forumTopics.map((forumTopic: IForumTopic) => (
-              <div
-                key={forumTopic.id}
-                className="bg-white dark:bg-card rounded-lg border border-slate-200 dark:border-gray-700 p-4 hover:border-primary/50 transition-colors cursor-pointer"
-              >
-                <div className="flex items-start justify-between mb-2">
-                  <div className="flex items-start gap-2 flex-1">
-                    {forumTopic.pinned && (
-                      <Pin className="size-4 text-primary mt-1.5 shrink-0" />
-                    )}
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                      {forumTopic.title}
-                    </h3>
+          {forumTopicsResponse && forumTopicsResponse.data.length > 0 ? (
+            <>
+              {forumTopicsResponse.data.map((forumTopic: IForumTopic) => (
+                <div
+                  key={forumTopic.id}
+                  className="bg-white dark:bg-card rounded-lg border border-slate-200 dark:border-gray-700 p-3.5 hover:border-primary/50 transition-colors cursor-pointer"
+                >
+                  <div className="flex items-start justify-between mb-1.5">
+                    <div className="flex items-start gap-2 flex-1">
+                      {forumTopic.pinned && (
+                        <Pin className="size-3.5 text-primary mt-1 shrink-0" />
+                      )}
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                        {forumTopic.title}
+                      </h3>
+                    </div>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary ml-2 shrink-0">
+                      {forumTopic.createdAt
+                        ? new Date(forumTopic.createdAt).toLocaleDateString(
+                            "fr-FR"
+                          )
+                        : ""}
+                    </span>
                   </div>
-                  <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary ml-2 shrink-0">
-                    {forumTopic.createdAt
-                      ? new Date(forumTopic.createdAt).toLocaleDateString(
-                          "fr-FR"
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Par {forumTopic.user?.firstName}{" "}
+                      {forumTopic.user?.lastName}
+                    </p>
+                    {forumTopic._count?.forumMessage !== undefined &&
+                      forumTopic._count.forumMessage > 0 && (
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
+                          {forumTopic._count.forumMessage} message
+                          {forumTopic._count.forumMessage > 1 ? "s" : ""}
+                        </p>
+                      )}
+                  </div>
+                </div>
+              ))}
+
+              {/* Pagination */}
+              {forumTopicsResponse.pagination.totalPages > 1 && (
+                <div className="flex items-center justify-center gap-2 mt-4">
+                  <button
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.max(prev - 1, 1))
+                    }
+                    disabled={currentPage === 1}
+                    className="p-1.5 rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+
+                  {Array.from(
+                    { length: forumTopicsResponse.pagination.totalPages },
+                    (_, i) => i + 1
+                  ).map((page) => (
+                    <button
+                      key={page}
+                      onClick={() => setCurrentPage(page)}
+                      className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
+                        currentPage === page
+                          ? "bg-primary text-white border-primary"
+                          : "border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800"
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  ))}
+
+                  <button
+                    onClick={() =>
+                      setCurrentPage((prev) =>
+                        Math.min(
+                          prev + 1,
+                          forumTopicsResponse.pagination.totalPages
                         )
-                      : ""}
-                  </span>
+                      )
+                    }
+                    disabled={
+                      currentPage === forumTopicsResponse.pagination.totalPages
+                    }
+                    className="p-1.5 rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
                 </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-sm text-slate-500 dark:text-slate-400">
-                    Par {forumTopic.user?.firstName} {forumTopic.user?.lastName}
-                  </p>
-                  {forumTopic._count?.forumMessage !== undefined &&
-                    forumTopic._count.forumMessage > 0 && (
-                      <p className="text-sm text-slate-500 dark:text-slate-400">
-                        {forumTopic._count.forumMessage} message
-                        {forumTopic._count.forumMessage > 1 ? "s" : ""}
-                      </p>
-                    )}
-                </div>
-              </div>
-            ))
+              )}
+            </>
           ) : (
             <p className="text-slate-600 dark:text-slate-400">
               Aucun topic disponible pour le moment.

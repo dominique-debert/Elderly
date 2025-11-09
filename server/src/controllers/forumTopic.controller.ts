@@ -44,24 +44,41 @@ export const getAllForumTopics = async (
   next: NextFunction
 ) => {
   try {
-    const forumTopics = await prisma.forumTopic.findMany({
-      orderBy: [
-        {
-          pinned: "desc",
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const skip = (page - 1) * limit;
+
+    const [forumTopics, totalCount] = await Promise.all([
+      prisma.forumTopic.findMany({
+        skip,
+        take: limit,
+        orderBy: [
+          {
+            pinned: "desc",
+          },
+          {
+            createdAt: "desc",
+          },
+        ],
+        include: {
+          user: true,
+          _count: {
+            select: { forumMessage: true },
+          },
         },
-        {
-          createdAt: "desc",
-        },
-      ],
-      include: {
-        user: true,
-        _count: {
-          select: { forumMessage: true },
-        },
+      }),
+      prisma.forumTopic.count(),
+    ]);
+
+    res.status(200).json({
+      data: forumTopics,
+      pagination: {
+        page,
+        limit,
+        totalCount,
+        totalPages: Math.ceil(totalCount / limit),
       },
     });
-
-    res.status(200).json(forumTopics);
   } catch (error) {
     next(error);
   }
