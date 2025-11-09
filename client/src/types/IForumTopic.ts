@@ -1,5 +1,3 @@
-import { IForumMessage } from "./IForumMessage";
-
 export interface IForumTopic {
   id: string;
   categoryId: number;
@@ -15,5 +13,7 @@ export interface IForumTopic {
     firstName: string | null;
     lastName: string | null;
   };
-  forumMessage?: IForumMessage[];
+  _count?: {
+    forumMessage: number;
+  };
 }

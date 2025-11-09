@@ -51,62 +51,37 @@ export function ForumPage() {
             forumTopics.map((forumTopic: IForumTopic) => (
               <div
                 key={forumTopic.id}
-                className="bg-white dark:bg-card rounded-lg border border-slate-200 dark:border-gray-700 overflow-hidden"
+                className="bg-white dark:bg-card rounded-lg border border-slate-200 dark:border-gray-700 p-4 hover:border-primary/50 transition-colors cursor-pointer"
               >
-                {/* Topic Header */}
-                <div className="p-4 border-b border-slate-200 dark:border-gray-700">
-                  <div className="flex items-start justify-between mb-2">
-                    <div className="flex items-start gap-2 flex-1">
-                      {forumTopic.pinned && (
-                        <Pin className="size-4 text-primary mt-1.5 shrink-0" />
-                      )}
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                        {forumTopic.title}
-                      </h3>
-                    </div>
-                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary ml-2 shrink-0">
-                      {forumTopic.createdAt
-                        ? new Date(forumTopic.createdAt).toLocaleDateString(
-                            "fr-FR"
-                          )
-                        : ""}
-                    </span>
+                <div className="flex items-start justify-between mb-2">
+                  <div className="flex items-start gap-2 flex-1">
+                    {forumTopic.pinned && (
+                      <Pin className="size-4 text-primary mt-1.5 shrink-0" />
+                    )}
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                      {forumTopic.title}
+                    </h3>
                   </div>
+                  <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary ml-2 shrink-0">
+                    {forumTopic.createdAt
+                      ? new Date(forumTopic.createdAt).toLocaleDateString(
+                          "fr-FR"
+                        )
+                      : ""}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
                   <p className="text-sm text-slate-500 dark:text-slate-400">
                     Par {forumTopic.user?.firstName} {forumTopic.user?.lastName}
                   </p>
+                  {forumTopic._count?.forumMessage !== undefined &&
+                    forumTopic._count.forumMessage > 0 && (
+                      <p className="text-sm text-slate-500 dark:text-slate-400">
+                        {forumTopic._count.forumMessage} message
+                        {forumTopic._count.forumMessage > 1 ? "s" : ""}
+                      </p>
+                    )}
                 </div>
-
-                {/* Messages */}
-                {forumTopic.forumMessage &&
-                  forumTopic.forumMessage.length > 0 && (
-                    <div className="p-4 bg-slate-50 dark:bg-slate-800/50">
-                      <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
-                        Messages ({forumTopic.forumMessage.length})
-                      </h4>
-                      <div className="space-y-3">
-                        {forumTopic.forumMessage.map((message) => (
-                          <div
-                            key={message.id}
-                            className="p-3 bg-white dark:bg-card rounded border border-slate-200 dark:border-gray-700"
-                          >
-                            <p className="text-sm text-slate-900 dark:text-white mb-2">
-                              {message.content}
-                            </p>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">
-                              {message.user?.firstName} {message.user?.lastName}{" "}
-                              •{" "}
-                              {message.createdAt
-                                ? new Date(
-                                    message.createdAt
-                                  ).toLocaleDateString("fr-FR")
-                                : ""}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
               </div>
             ))
           ) : (
