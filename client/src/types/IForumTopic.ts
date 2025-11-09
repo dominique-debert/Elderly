@@ -10,11 +10,6 @@ export interface IForumTopic {
   views?: number;
   createdAt?: Date;
   updatedAt?: Date;
-  category?: {
-    id: number;
-    categoryName: string;
-    description?: string;
-  };
   user?: {
     id: string;
     firstName: string | null;

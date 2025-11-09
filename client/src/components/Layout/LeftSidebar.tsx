@@ -1,4 +1,7 @@
 import { useAuth } from "@/stores";
+import { useState, useEffect, useContext } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { SidebarContext } from "@/context/SidebarContext";
 import {
   Home,
   Calendar,
@@ -20,9 +23,6 @@ import {
   Siren,
   ChevronLeft,
 } from "lucide-react";
-import { useState, useEffect, useContext } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { SidebarContext } from "@/context/SidebarContext";
 
 export function LeftSidebar() {
   const location = useLocation();
@@ -95,7 +95,7 @@ export function LeftSidebar() {
             }
             title={collapsed ? "Explorer" : ""}
           >
-            <Search className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            <Search className="dark:text-accent text-primary size-4 shrink-0" />
             {!collapsed && <span>Explorer</span>}
           </NavLink>
 
@@ -110,7 +110,7 @@ export function LeftSidebar() {
             }
             title={collapsed ? "Mes Activités" : ""}
           >
-            <Calendar className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            <Calendar className="dark:text-accent text-primary size-4 shrink-0" />
             {!collapsed && <span>Mes Activités</span>}
           </NavLink>
 
@@ -123,7 +123,7 @@ export function LeftSidebar() {
             }
             title={collapsed ? "Mon Bien-Être" : ""}
           >
-            <HeartHandshake className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            <HeartHandshake className="dark:text-accent text-primary size-4 shrink-0" />
             {!collapsed && <span>Mon Bien-Être</span>}
           </NavLink>
 
@@ -136,7 +136,7 @@ export function LeftSidebar() {
             }
             title={collapsed ? "Mes Exercices" : ""}
           >
-            <Activity className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            <Activity className="dark:text-accent text-primary size-4 shrink-0" />
             {!collapsed && <span>Mes Exercices</span>}
           </NavLink>
 
@@ -149,7 +149,7 @@ export function LeftSidebar() {
             }
             title={collapsed ? "Mes Objectifs" : ""}
           >
-            <LayoutList className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            <LayoutList className="dark:text-accent text-primary size-4 shrink-0" />
             {!collapsed && <span>Mes Objectifs</span>}
           </NavLink>
 
@@ -162,7 +162,7 @@ export function LeftSidebar() {
             }
             title={collapsed ? "Mes Projets" : ""}
           >
-            <FolderKanban className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            <FolderKanban className="dark:text-accent text-primary size-4 shrink-0" />
             {!collapsed && <span>Mes Projets</span>}
           </NavLink>
 
@@ -175,7 +175,7 @@ export function LeftSidebar() {
             }
             title={collapsed ? "Mes Traitements" : ""}
           >
-            <Pill className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            <Pill className="dark:text-accent text-primary size-4 shrink-0" />
             {!collapsed && <span>Mes Traitements</span>}
           </NavLink>
 
@@ -192,7 +192,7 @@ export function LeftSidebar() {
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`}
                 title={collapsed ? "Forum" : ""}
               >
-                <MessagesSquare className="dark:text-accent text-primary size-4 flex-shrink-0" />
+                <MessagesSquare className="dark:text-accent text-primary size-4 shrink-0" />
                 {!collapsed && (
                   <>
                     <span className="flex-1 text-left">Forum</span>
@@ -315,7 +315,7 @@ export function LeftSidebar() {
             }
             title={collapsed ? "Messages" : ""}
           >
-            <MessageCircle className="dark:text-accent text-primary size-4 flex-shrink-0" />
+            <MessageCircle className="dark:text-accent text-primary size-4 shrink-0" />
             {!collapsed && <span>Messages</span>}
           </NavLink>
         </div>

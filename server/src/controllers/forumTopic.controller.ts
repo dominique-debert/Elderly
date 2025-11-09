@@ -45,18 +45,21 @@ export const getAllForumTopics = async (
 ) => {
   try {
     const forumTopics = await prisma.forumTopic.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
+      orderBy: [
+        {
+          pinned: "desc", // Pinned topics first
+        },
+        {
+          createdAt: "desc", // Then by creation date
+        },
+      ],
       include: {
-        category: true,
-        user: true,
         forumMessage: {
           include: {
             user: true,
           },
           orderBy: {
-            createdAt: "asc",
+            createdAt: "desc",
           },
         },
       },

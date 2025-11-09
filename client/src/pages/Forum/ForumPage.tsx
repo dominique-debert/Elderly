@@ -1,4 +1,5 @@
 import { Navigate } from "react-router-dom";
+import { Pin } from "lucide-react";
 // import { Bell, Rocket, Flame, Search, Plus } from "lucide-react";
 import { useAuthStore } from "@/stores";
 import { useQuery } from "@tanstack/react-query";
@@ -55,11 +56,20 @@ export function ForumPage() {
                 {/* Topic Header */}
                 <div className="p-4 border-b border-slate-200 dark:border-gray-700">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                      {forumTopic.title}
-                    </h3>
-                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                      {forumTopic.category?.categoryName}
+                    <div className="flex items-start gap-2 flex-1">
+                      {forumTopic.pinned && (
+                        <Pin className="size-4 text-primary mt-1.5 shrink-0" />
+                      )}
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                        {forumTopic.title}
+                      </h3>
+                    </div>
+                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary ml-2 shrink-0">
+                      {forumTopic.createdAt
+                        ? new Date(forumTopic.createdAt).toLocaleDateString(
+                            "fr-FR"
+                          )
+                        : ""}
                     </span>
                   </div>
                   <p className="text-sm text-slate-500 dark:text-slate-400">
