@@ -1,5 +1,8 @@
 export * from "./auth.service";
+export * from "./blockedContacts.service";
 export * from "./category.meta.service";
+export * from "./contactRequests.service";
+export * from "./forumTopic.service";
 export * from "./menuItems.service";
 export * from "./moods.service";
 export * from "./notifications.service";
@@ -7,5 +10,3 @@ export * from "./token.service";
 export * from "./user.service";
 export * from "./userPreferences.service";
 export * from "./userContacts.service";
-export * from "./contactRequests.service";
-export * from "./blockedContacts.service";

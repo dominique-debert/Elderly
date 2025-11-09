@@ -181,6 +181,41 @@ exports.Prisma.BadgeScalarFieldEnum = {
   userBadgeId: 'userBadgeId'
 };
 
+exports.Prisma.BlockedContactScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  contactId: 'contactId',
+  reason: 'reason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  categoryName: 'categoryName',
+  description: 'description',
+  typeId: 'typeId',
+  chapterId: 'chapterId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CategoryChapterScalarFieldEnum = {
+  id: 'id',
+  chapterId: 'chapterId',
+  chapterName: 'chapterName',
+  chapterDescription: 'chapterDescription',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CategoryTypeScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.CognitiveExerciseScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -201,6 +236,16 @@ exports.Prisma.CollaborativeProjectScalarFieldEnum = {
   creationDate: 'creationDate',
   status: 'status',
   categoryId: 'categoryId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ContactRequestScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  contactId: 'contactId',
+  status: 'status',
+  message: 'message',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -274,17 +319,6 @@ exports.Prisma.HealthIndicatorScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.MoodScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  valence: 'valence',
-  intensity: 'intensity',
-  color: 'color',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
 exports.Prisma.HelpOfferScalarFieldEnum = {
   id: 'id',
   requestId: 'requestId',
@@ -310,6 +344,14 @@ exports.Prisma.HelpRequestScalarFieldEnum = {
   frequency: 'frequency',
   status: 'status',
   pointsOffered: 'pointsOffered',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.InterestScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -361,6 +403,17 @@ exports.Prisma.MessageScalarFieldEnum = {
   sendDate: 'sendDate',
   type: 'type',
   read: 'read',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MoodScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  valence: 'valence',
+  intensity: 'intensity',
+  color: 'color',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -463,17 +516,6 @@ exports.Prisma.SatisfactionSurveyScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.SessionScalarFieldEnum = {
-  id: 'id',
-  refreshToken: 'refreshToken',
-  userId: 'userId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  expiresAt: 'expiresAt',
-  userAgent: 'userAgent',
-  ipAddress: 'ipAddress'
-};
-
 exports.Prisma.ServiceCompletedScalarFieldEnum = {
   id: 'id',
   requestId: 'requestId',
@@ -498,6 +540,17 @@ exports.Prisma.ServiceRatingScalarFieldEnum = {
   ratingDate: 'ratingDate',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SessionScalarFieldEnum = {
+  id: 'id',
+  refreshToken: 'refreshToken',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  expiresAt: 'expiresAt',
+  userAgent: 'userAgent',
+  ipAddress: 'ipAddress'
 };
 
 exports.Prisma.SkillScalarFieldEnum = {
@@ -615,25 +668,6 @@ exports.Prisma.UserContactsScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.ContactRequestScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  contactId: 'contactId',
-  status: 'status',
-  message: 'message',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.BlockedContactScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  contactId: 'contactId',
-  reason: 'reason',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
 exports.Prisma.UserDeviceScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -642,6 +676,14 @@ exports.Prisma.UserDeviceScalarFieldEnum = {
   operatingSystem: 'operatingSystem',
   notificationToken: 'notificationToken',
   lastConnection: 'lastConnection',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.UserInterestScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  interestId: 'interestId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -665,22 +707,6 @@ exports.Prisma.UserPreferencesScalarFieldEnum = {
   messagesFromFriends: 'messagesFromFriends',
   messagesFromNoOne: 'messagesFromNoOne',
   dataSharing: 'dataSharing',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.UserInterestScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  interestId: 'interestId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.InterestScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -754,32 +780,6 @@ exports.Prisma.WellnessGoalProgressScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.CategoryTypeScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.CategoryChapterScalarFieldEnum = {
-  id: 'id',
-  chapterId: 'chapterId',
-  chapterName: 'chapterName',
-  chapterDescription: 'chapterDescription',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.CategoryScalarFieldEnum = {
-  id: 'id',
-  categoryName: 'categoryName',
-  description: 'description',
-  typeId: 'typeId',
-  chapterId: 'chapterId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -816,21 +816,27 @@ exports.Prisma.ModelName = {
   activityLog: 'activityLog',
   activityRegistration: 'activityRegistration',
   badge: 'badge',
+  blockedContact: 'blockedContact',
+  category: 'category',
+  categoryChapter: 'categoryChapter',
+  categoryType: 'categoryType',
   cognitiveExercise: 'cognitiveExercise',
   collaborativeProject: 'collaborativeProject',
+  contactRequest: 'contactRequest',
   conversation: 'conversation',
   conversationParticipant: 'conversationParticipant',
   exerciseProgram: 'exerciseProgram',
   forumMessage: 'forumMessage',
   forumTopic: 'forumTopic',
   healthIndicator: 'healthIndicator',
-  mood: 'mood',
   helpOffer: 'helpOffer',
   helpRequest: 'helpRequest',
+  interest: 'interest',
   localService: 'localService',
   medicationReminder: 'medicationReminder',
   menuItem: 'menuItem',
   message: 'message',
+  mood: 'mood',
   municipalEvent: 'municipalEvent',
   notification: 'notification',
   notificationPreferences: 'notificationPreferences',
@@ -839,9 +845,9 @@ exports.Prisma.ModelName = {
   projectTask: 'projectTask',
   resource: 'resource',
   satisfactionSurvey: 'satisfactionSurvey',
-  session: 'session',
   serviceCompleted: 'serviceCompleted',
   serviceRating: 'serviceRating',
+  session: 'session',
   skill: 'skill',
   surveyResponse: 'surveyResponse',
   trustCircle: 'trustCircle',
@@ -851,21 +857,15 @@ exports.Prisma.ModelName = {
   userActivity: 'userActivity',
   userBadge: 'userBadge',
   userContacts: 'userContacts',
-  contactRequest: 'contactRequest',
-  blockedContact: 'blockedContact',
   userDevice: 'userDevice',
-  userPreferences: 'userPreferences',
   userInterest: 'userInterest',
-  interest: 'interest',
+  userPreferences: 'userPreferences',
   userSkill: 'userSkill',
   userStatistics: 'userStatistics',
   videoCall: 'videoCall',
   wellnessBadge: 'wellnessBadge',
   wellnessGoal: 'wellnessGoal',
-  wellnessGoalProgress: 'wellnessGoalProgress',
-  categoryType: 'categoryType',
-  categoryChapter: 'categoryChapter',
-  category: 'category'
+  wellnessGoalProgress: 'wellnessGoalProgress'
 };
 
 /**

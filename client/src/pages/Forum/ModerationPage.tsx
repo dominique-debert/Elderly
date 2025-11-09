@@ -210,7 +210,7 @@ export function ModerationPage() {
             <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em]">
               Journal de modération
             </h2>
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-4 w-auto">
               <div className="relative w-full sm:w-64">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral size-4 dark:text-gray-400" />
                 <input
@@ -219,7 +219,7 @@ export function ModerationPage() {
                   type="text"
                 />
               </div>
-              <select className="select rounded-3xl p-2 pl-5 text-sm w-full sm:w-auto bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary">
+              <select className="shrink-0 w-fit select text-xs rounded-3xl p-2 pl-5 bg-white dark:bg-card border-gray-200 dark:border-white/10 text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary">
                 <option>Toutes les actions</option>
                 <option>Bannir un utilisateur</option>
                 <option>Supprimer la publication</option>
@@ -230,7 +230,7 @@ export function ModerationPage() {
           </div>
           <div className="bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden flex-1 flex flex-col">
             <div className="overflow-y-auto">
-              <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <table className="w-full text-xs text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-neutral dark:text-gray-400 uppercase bg-gray-50 dark:bg-white/5 sticky top-0 z-10">
                   <tr>
                     <th className="px-6 py-3" scope="col">
@@ -803,7 +803,7 @@ export function ModerationPage() {
           </div>
           <div className="bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <table className="w-full text-xs text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-neutral dark:text-gray-400 uppercase bg-gray-50 dark:bg-white/5">
                   <tr>
                     <th className="p-4" scope="col">

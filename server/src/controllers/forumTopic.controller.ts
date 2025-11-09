@@ -48,9 +48,21 @@ export const getAllForumTopics = async (
       orderBy: {
         createdAt: "desc",
       },
+      include: {
+        category: true,
+        user: true,
+        forumMessage: {
+          include: {
+            user: true,
+          },
+          orderBy: {
+            createdAt: "asc",
+          },
+        },
+      },
     });
 
-    res.status(200).json({ forumTopics });
+    res.status(200).json(forumTopics);
   } catch (error) {
     next(error);
   }

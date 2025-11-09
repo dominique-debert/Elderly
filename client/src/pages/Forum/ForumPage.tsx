@@ -1,21 +1,115 @@
-import { Bell, Rocket, Flame, Search, Plus } from "lucide-react";
 import { Navigate } from "react-router-dom";
+// import { Bell, Rocket, Flame, Search, Plus } from "lucide-react";
 import { useAuthStore } from "@/stores";
+import { useQuery } from "@tanstack/react-query";
+import { getAllForumTopics } from "@/services";
+import { IForumTopic } from "@/types";
 
 export function ForumPage() {
   const { user, isAuthenticated } = useAuthStore();
+
+  const {
+    data: forumTopics = [],
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["forumTopics"],
+    queryFn: getAllForumTopics,
+  });
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
 
+  if (isLoading) {
+    return (
+      <div className="mt-20 gap-6 flex flex-col">
+        <p className="text-slate-600 dark:text-slate-400">Chargement...</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="mt-20 gap-6 flex flex-col">
+        <p className="text-red-600 dark:text-red-400">
+          Une erreur s'est produite lors du chargement des topics.
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <>
-      {/* TODO: Reconcevoir la page du forum : CECI EST UNE PAGE TEMPORAIRE POUR L'INSTANT */}
-      <div className="mr-3 mt-20 gap-6 flex flex-col">
-        <div className="flex flex-col gap-6 bg-transparent! border-0 w-full">
+    <div className="mt-20 gap-6 flex flex-col">
+      <div className="flex flex-col bg-transparent! border-0 w-full">
+        <span className="text-2xl w-full lg:text-3xl font-medium text-slate-900 dark:text-slate-300">
+          Bienvenue sur le forum, {user?.firstName}.
+        </span>
+        <div className="mt-6 gap-6 flex flex-col mb-6">
+          {forumTopics.length > 0 ? (
+            forumTopics.map((forumTopic: IForumTopic) => (
+              <div
+                key={forumTopic.id}
+                className="bg-white dark:bg-card rounded-lg border border-slate-200 dark:border-gray-700 overflow-hidden"
+              >
+                {/* Topic Header */}
+                <div className="p-4 border-b border-slate-200 dark:border-gray-700">
+                  <div className="flex items-start justify-between mb-2">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                      {forumTopic.title}
+                    </h3>
+                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
+                      {forumTopic.category?.categoryName}
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                    Par {forumTopic.user?.firstName} {forumTopic.user?.lastName}
+                  </p>
+                </div>
+
+                {/* Messages */}
+                {forumTopic.forumMessage &&
+                  forumTopic.forumMessage.length > 0 && (
+                    <div className="p-4 bg-slate-50 dark:bg-slate-800/50">
+                      <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
+                        Messages ({forumTopic.forumMessage.length})
+                      </h4>
+                      <div className="space-y-3">
+                        {forumTopic.forumMessage.map((message) => (
+                          <div
+                            key={message.id}
+                            className="p-3 bg-white dark:bg-card rounded border border-slate-200 dark:border-gray-700"
+                          >
+                            <p className="text-sm text-slate-900 dark:text-white mb-2">
+                              {message.content}
+                            </p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">
+                              {message.user?.firstName} {message.user?.lastName}{" "}
+                              •{" "}
+                              {message.createdAt
+                                ? new Date(
+                                    message.createdAt
+                                  ).toLocaleDateString("fr-FR")
+                                : ""}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+              </div>
+            ))
+          ) : (
+            <p className="text-slate-600 dark:text-slate-400">
+              Aucun topic disponible pour le moment.
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* <div className="flex flex-col gap-6 bg-transparent! border-0 w-full">
           <span className="text-2xl w-full lg:text-3xl font-medium text-slate-900 dark:text-slate-300">
-            Bienvenue sur le forum, {user?.firstName}!
+            Bienvenue sur le forum, {user?.firstName}.
           </span>
           <div className="bg-white dark:bg-card p-2 rounded-3xl border border-slate-200 dark:border-gray-700">
             <label className="flex flex-col w-full">
@@ -286,8 +380,7 @@ export function ForumPage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </>
+        </div> */}
+    </div>
   );
 }
