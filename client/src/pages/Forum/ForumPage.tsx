@@ -1,9 +1,9 @@
 import { Navigate } from "react-router-dom";
-import { Pin } from "lucide-react";
+import { Pin, MessageSquare, Users, FileText } from "lucide-react";
 // import { Bell, Rocket, Flame, Search, Plus } from "lucide-react";
 import { useAuthStore } from "@/stores";
 import { useQuery } from "@tanstack/react-query";
-import { getAllForumTopics } from "@/services";
+import { getAllForumTopics, getForumStatistics } from "@/services";
 import { IForumTopic } from "@/types";
 
 export function ForumPage() {
@@ -16,6 +16,14 @@ export function ForumPage() {
   } = useQuery({
     queryKey: ["forumTopics"],
     queryFn: getAllForumTopics,
+  });
+
+  const {
+    data: statistics,
+    isLoading: isLoadingStats,
+  } = useQuery({
+    queryKey: ["forumStatistics"],
+    queryFn: getForumStatistics,
   });
 
   if (!isAuthenticated) {
@@ -46,6 +54,63 @@ export function ForumPage() {
         <span className="text-2xl w-full lg:text-3xl font-medium text-slate-900 dark:text-slate-300">
           Bienvenue sur le forum, {user?.firstName}.
         </span>
+
+        {/* Statistics Cards */}
+        {!isLoadingStats && statistics && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            {/* Total Discussions (Messages) */}
+            <div className="bg-white dark:bg-card p-6 rounded-lg border border-slate-200 dark:border-gray-700">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
+                    Discussions
+                  </p>
+                  <p className="text-3xl font-bold text-slate-900 dark:text-white">
+                    {statistics.totalMessages.toLocaleString()}
+                  </p>
+                </div>
+                <div className="p-3 bg-primary/10 rounded-full">
+                  <MessageSquare className="w-6 h-6 text-primary" />
+                </div>
+              </div>
+            </div>
+
+            {/* Active Participants */}
+            <div className="bg-white dark:bg-card p-6 rounded-lg border border-slate-200 dark:border-gray-700">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
+                    Participants actifs
+                  </p>
+                  <p className="text-3xl font-bold text-slate-900 dark:text-white">
+                    {statistics.activeParticipants.toLocaleString()}
+                  </p>
+                </div>
+                <div className="p-3 bg-green-500/10 rounded-full">
+                  <Users className="w-6 h-6 text-green-500" />
+                </div>
+              </div>
+            </div>
+
+            {/* Total Threads */}
+            <div className="bg-white dark:bg-card p-6 rounded-lg border border-slate-200 dark:border-gray-700">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
+                    Sujets
+                  </p>
+                  <p className="text-3xl font-bold text-slate-900 dark:text-white">
+                    {statistics.totalThreads.toLocaleString()}
+                  </p>
+                </div>
+                <div className="p-3 bg-blue-500/10 rounded-full">
+                  <FileText className="w-6 h-6 text-blue-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="mt-6 gap-6 flex flex-col mb-6">
           {forumTopics.length > 0 ? (
             forumTopics.map((forumTopic: IForumTopic) => (

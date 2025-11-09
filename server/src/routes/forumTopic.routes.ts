@@ -8,6 +8,7 @@ import {
   getForumTopicById,
   updateForumTopic,
   deleteForumTopic,
+  getForumStatistics,
 } from "@/controllers";
 
 const router = Router();
@@ -47,6 +48,18 @@ router.post("/", validate(forumTopicSchema), createForumTopic);
  *                 $ref: '#/components/schemas/ForumTopic'
  */
 router.get("/", getAllForumTopics);
+
+/**
+ * @swagger
+ * /api/forum-topics/statistics:
+ *   get:
+ *     summary: Récupère les statistiques du forum
+ *     tags: [Forum messages]
+ *     responses:
+ *       200:
+ *         description: Statistiques du forum
+ */
+router.get("/statistics", getForumStatistics);
 
 /**
  * @swagger
