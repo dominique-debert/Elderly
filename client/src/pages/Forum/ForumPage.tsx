@@ -57,7 +57,7 @@ export function ForumPage() {
   return (
     <div className="mt-20 gap-6 flex flex-col mr-3">
       <div className="flex flex-col bg-transparent! border-0 w-full">
-        <span className="text-xl w-full lg:text-2xl font-medium text-slate-900 dark:text-slate-300">
+        <span className="text-xl w-full lg:text-3xl font-medium text-slate-800 dark:text-slate-300">
           Bienvenue sur le forum, {user?.firstName}.
         </span>
 
@@ -65,59 +65,59 @@ export function ForumPage() {
         {!isLoadingStats && statistics && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             {/* Total Discussions (Messages) */}
-            <div className="bg-white dark:bg-card p-5 rounded-lg border border-slate-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-card p-4 rounded-lg border border-slate-200 dark:border-gray-700">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
                     Discussions
                   </p>
-                  <p className="text-2xl font-bold text-slate-900 dark:text-white">
+                  <p className="text-xl font-bold text-slate-900 dark:text-white">
                     {statistics.totalMessages.toLocaleString()}
                   </p>
                 </div>
                 <div className="p-2.5 bg-primary/10 rounded-full">
-                  <MessageSquare className="w-5 h-5 text-primary" />
+                  <MessageSquare className="size-4 text-primary" />
                 </div>
               </div>
             </div>
 
             {/* Active Participants */}
-            <div className="bg-white dark:bg-card p-5 rounded-lg border border-slate-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-card p-4 rounded-lg border border-slate-200 dark:border-gray-700">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
                     Participants actifs
                   </p>
-                  <p className="text-2xl font-bold text-slate-900 dark:text-white">
+                  <p className="text-xl font-bold text-slate-900 dark:text-white">
                     {statistics.activeParticipants.toLocaleString()}
                   </p>
                 </div>
                 <div className="p-2.5 bg-green-500/10 rounded-full">
-                  <Users className="w-5 h-5 text-green-500" />
+                  <Users className="size-4 text-green-500" />
                 </div>
               </div>
             </div>
 
             {/* Total Threads */}
-            <div className="bg-white dark:bg-card p-5 rounded-lg border border-slate-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-card p-4 rounded-lg border border-slate-200 dark:border-gray-700">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
                     Sujets
                   </p>
-                  <p className="text-2xl font-bold text-slate-900 dark:text-white">
+                  <p className="text-xl font-bold text-slate-900 dark:text-white">
                     {statistics.totalThreads.toLocaleString()}
                   </p>
                 </div>
                 <div className="p-2.5 bg-blue-500/10 rounded-full">
-                  <FileText className="w-5 h-5 text-blue-500" />
+                  <FileText className="size-4 text-blue-500" />
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        <div className="mt-6 gap-6 flex flex-col mb-6">
+        <div className="mt-6 gap-4 flex flex-col mb-6">
           {forumTopicsResponse && forumTopicsResponse.data.length > 0 ? (
             <>
               {forumTopicsResponse.data.map((forumTopic: IForumTopic) => (
