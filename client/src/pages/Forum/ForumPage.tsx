@@ -6,6 +6,8 @@ import {
   FileText,
   ChevronLeft,
   ChevronRight,
+  Search,
+  X,
 } from "lucide-react";
 import { useAuthStore } from "@/stores";
 import { useQuery } from "@tanstack/react-query";
@@ -16,6 +18,7 @@ import { useState } from "react";
 export function ForumPage() {
   const { user, isAuthenticated } = useAuthStore();
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
   const limit = 20;
 
   const {
@@ -117,95 +120,150 @@ export function ForumPage() {
           </div>
         )}
 
+        {/* Search Field */}
+        <div className="mt-6 relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Search className="size-4 text-slate-400" />
+          </div>
+          <input
+            type="text"
+            placeholder="Rechercher un sujet..."
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              setCurrentPage(1); // Reset to first page on search
+            }}
+            className="w-full pl-10 pr-10 py-2.5 text-sm border border-slate-200 dark:border-gray-700 rounded-lg bg-white dark:bg-card text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+          />
+          <button
+            onClick={() => {
+              setSearchQuery("");
+              setCurrentPage(1);
+            }}
+            disabled={!searchQuery}
+            className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-slate-400"
+            aria-label="Clear search"
+          >
+            <X className="size-4" />
+          </button>
+        </div>
+
         <div className="mt-6 gap-4 flex flex-col mb-6">
           {forumTopicsResponse && forumTopicsResponse.data.length > 0 ? (
             <>
-              {forumTopicsResponse.data.map((forumTopic: IForumTopic) => (
-                <div
-                  key={forumTopic.id}
-                  className="bg-white dark:bg-card rounded-lg border border-slate-200 dark:border-gray-700 p-3.5 hover:border-primary/50 transition-colors cursor-pointer"
-                >
-                  <div className="flex items-start justify-between mb-1.5">
-                    <div className="flex items-start gap-2 flex-1">
-                      {forumTopic.pinned && (
-                        <Pin className="size-3.5 text-primary mt-1 shrink-0" />
-                      )}
-                      <h3 className="text-base font-bold text-slate-900 dark:text-white">
-                        {forumTopic.title}
-                      </h3>
-                    </div>
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary ml-2 shrink-0">
-                      {forumTopic.createdAt
-                        ? new Date(forumTopic.createdAt).toLocaleDateString(
-                            "fr-FR"
-                          )
-                        : ""}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      Par {forumTopic.user?.firstName}{" "}
-                      {forumTopic.user?.lastName}
+              {(() => {
+                const filteredTopics = forumTopicsResponse.data.filter(
+                  (forumTopic: IForumTopic) =>
+                    searchQuery
+                      ? forumTopic.title
+                          .toLowerCase()
+                          .includes(searchQuery.toLowerCase()) ||
+                        forumTopic.user?.firstName
+                          ?.toLowerCase()
+                          .includes(searchQuery.toLowerCase()) ||
+                        forumTopic.user?.lastName
+                          ?.toLowerCase()
+                          .includes(searchQuery.toLowerCase())
+                      : true
+                );
+
+                if (filteredTopics.length === 0) {
+                  return (
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Aucun sujet ne correspond à votre recherche.
                     </p>
-                    {forumTopic._count?.forumMessage !== undefined &&
-                      forumTopic._count.forumMessage > 0 && (
-                        <p className="text-xs text-slate-500 dark:text-slate-400">
-                          {forumTopic._count.forumMessage} message
-                          {forumTopic._count.forumMessage > 1 ? "s" : ""}
-                        </p>
-                      )}
+                  );
+                }
+
+                return filteredTopics.map((forumTopic: IForumTopic) => (
+                  <div
+                    key={forumTopic.id}
+                    className="bg-white dark:bg-card rounded-lg border border-slate-200 dark:border-gray-700 p-3.5 hover:border-primary/50 transition-colors cursor-pointer"
+                  >
+                    <div className="flex items-start justify-between mb-1.5">
+                      <div className="flex items-start gap-2 flex-1">
+                        {forumTopic.pinned && (
+                          <Pin className="size-3.5 text-primary mt-1 shrink-0" />
+                        )}
+                        <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                          {forumTopic.title}
+                        </h3>
+                      </div>
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary ml-2 shrink-0">
+                        {forumTopic.createdAt
+                          ? new Date(forumTopic.createdAt).toLocaleDateString(
+                              "fr-FR"
+                            )
+                          : ""}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                        Par {forumTopic.user?.firstName}{" "}
+                        {forumTopic.user?.lastName}
+                      </p>
+                      {forumTopic._count?.forumMessage !== undefined &&
+                        forumTopic._count.forumMessage > 0 && (
+                          <p className="text-xs text-slate-500 dark:text-slate-400">
+                            {forumTopic._count.forumMessage} message
+                            {forumTopic._count.forumMessage > 1 ? "s" : ""}
+                          </p>
+                        )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ));
+              })()}
 
               {/* Pagination */}
-              {forumTopicsResponse.pagination.totalPages > 1 && (
-                <div className="flex items-center justify-center gap-2 mt-4">
-                  <button
-                    onClick={() =>
-                      setCurrentPage((prev) => Math.max(prev - 1, 1))
-                    }
-                    disabled={currentPage === 1}
-                    className="p-1.5 rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-
-                  {Array.from(
-                    { length: forumTopicsResponse.pagination.totalPages },
-                    (_, i) => i + 1
-                  ).map((page) => (
+              {!searchQuery &&
+                forumTopicsResponse.pagination.totalPages > 1 && (
+                  <div className="flex items-center justify-center gap-2 mt-4">
                     <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
-                        currentPage === page
-                          ? "bg-primary text-white border-primary"
-                          : "border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800"
-                      }`}
+                      onClick={() =>
+                        setCurrentPage((prev) => Math.max(prev - 1, 1))
+                      }
+                      disabled={currentPage === 1}
+                      className="p-1.5 rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
-                      {page}
+                      <ChevronLeft className="w-4 h-4" />
                     </button>
-                  ))}
 
-                  <button
-                    onClick={() =>
-                      setCurrentPage((prev) =>
-                        Math.min(
-                          prev + 1,
-                          forumTopicsResponse.pagination.totalPages
+                    {Array.from(
+                      { length: forumTopicsResponse.pagination.totalPages },
+                      (_, i) => i + 1
+                    ).map((page) => (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
+                          currentPage === page
+                            ? "bg-primary text-white border-primary"
+                            : "border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800"
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    ))}
+
+                    <button
+                      onClick={() =>
+                        setCurrentPage((prev) =>
+                          Math.min(
+                            prev + 1,
+                            forumTopicsResponse.pagination.totalPages
+                          )
                         )
-                      )
-                    }
-                    disabled={
-                      currentPage === forumTopicsResponse.pagination.totalPages
-                    }
-                    className="p-1.5 rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
-              )}
+                      }
+                      disabled={
+                        currentPage ===
+                        forumTopicsResponse.pagination.totalPages
+                      }
+                      className="p-1.5 rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
             </>
           ) : (
             <p className="text-slate-600 dark:text-slate-400">
