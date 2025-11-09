@@ -6,6 +6,7 @@ import {
   FileText,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Search,
   X,
 } from "lucide-react";
@@ -120,32 +121,62 @@ export function ForumPage() {
           </div>
         )}
 
-        {/* Search Field */}
-        <div className="mt-6 relative">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search className="size-4 text-slate-400" />
+        {/* Search Field and Page Size Selector */}
+        <div className="mt-6 flex gap-3 items-center">
+          {/* Search Field */}
+          <div className="relative flex-1 w-full">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Search className="size-4 text-slate-400" />
+            </div>
+            <input
+              type="text"
+              placeholder="Rechercher un sujet..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setCurrentPage(1); // Reset to first page on search
+              }}
+              className="w-full pl-10 pr-10 py-2.5 text-sm border border-slate-200 dark:border-gray-700 rounded-lg bg-white dark:bg-card text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+            />
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setCurrentPage(1);
+              }}
+              disabled={!searchQuery}
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-slate-400"
+              aria-label="Clear search"
+            >
+              <X className="size-4" />
+            </button>
           </div>
-          <input
-            type="text"
-            placeholder="Rechercher un sujet..."
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-              setCurrentPage(1); // Reset to first page on search
-            }}
-            className="w-full pl-10 pr-10 py-2.5 text-sm border border-slate-200 dark:border-gray-700 rounded-lg bg-white dark:bg-card text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
-          />
-          <button
-            onClick={() => {
-              setSearchQuery("");
-              setCurrentPage(1);
-            }}
-            disabled={!searchQuery}
-            className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-slate-400"
-            aria-label="Clear search"
-          >
-            <X className="size-4" />
-          </button>
+
+          {/* Page Size Selector */}
+          <div className="flex items-center gap-2">
+            <label
+              htmlFor="pageSize"
+              className="text-sm text-slate-600 dark:text-slate-400 whitespace-nowrap"
+            >
+              Afficher
+            </label>
+            <div className="relative">
+              <select
+                id="pageSize"
+                value={limit}
+                onChange={(e) => {
+                  setLimit(Number(e.target.value));
+                  setCurrentPage(1);
+                }}
+                className="pl-3 pr-8 py-2.5 text-sm border border-slate-200 dark:border-gray-700 rounded-lg bg-white dark:bg-card text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors cursor-pointer appearance-none"
+              >
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={50}>50</option>
+                <option value={100}>100</option>
+              </select>
+              <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 size-4 text-slate-400 pointer-events-none" />
+            </div>
+          </div>
         </div>
 
         <div className="mt-6 gap-4 flex flex-col mb-6">
