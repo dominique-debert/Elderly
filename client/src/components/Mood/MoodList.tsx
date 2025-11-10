@@ -35,7 +35,7 @@ export function MoodList() {
 
   const [search, setSearch] = useState<string>("");
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
+  if (isLoading) return <div className="text-center">Chargement...</div>;
   if (isError)
     return (
       <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
@@ -48,7 +48,7 @@ export function MoodList() {
     ) || [];
 
   return (
-    <div className="w-full mt-20 p-4 card bg-white dark:bg-card shadow-md">
+    <div className="w-full p-4 card bg-white dark:bg-transparent shadow-md">
       {moods && moods.length > 0 && (
         <CategoryModeSwitcher
           mode={mode}

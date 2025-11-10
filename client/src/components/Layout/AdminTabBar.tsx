@@ -37,7 +37,7 @@ export function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
   }
 
   return (
-    <ul className="menu gap-4 lg:menu-horizontal w-full p-4">
+    <ul className="menu gap-4 lg:menu-horizontal w-full p-0 m-0 mt-4">
       {menuItems?.map(({ id, label, icon, key }) => (
         <li key={id}>
           <button
@@ -45,7 +45,7 @@ export function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
             onClick={() => setActiveTab(key as ETabKey)}
             className={`tab w-full justify-start rounded-none hover:bg-transparent ${
               activeTab === key
-                ? "border-b-3 border-primary text-slate-00 dark:text-white font-bold"
+                ? "border-b-3 border-primary text-slate-00 dark:text-white font-medium"
                 : ""
             }`}
             aria-selected={activeTab === key}

@@ -76,7 +76,7 @@ export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
   })();
 
   return (
-    <Card className="w-full mt-20 p-4 bg-white dark:bg-card shadow-md overflow-y-auto max-h-[calc(100vh-20.8rem)]">
+    <div className="w-full p-4 bg-white dark:bg-transparent">
       <CategoryModeSwitcher
         mode={mode}
         setMode={setMode}
@@ -124,6 +124,6 @@ export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
           )
         )
       )}
-    </Card>
+    </div>
   );
 }

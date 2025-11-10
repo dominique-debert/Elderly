@@ -136,7 +136,7 @@ export function ForumPage() {
                 setSearchQuery(e.target.value);
                 setCurrentPage(1); // Reset to first page on search
               }}
-              className="w-full pl-10 pr-10 py-2.5 text-sm border border-slate-200 dark:border-gray-700 rounded-lg bg-white dark:bg-card text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+              className="rounded-3xl w-full pl-10 pr-10 py-2.5 text-sm border border-slate-200 dark:border-gray-700  bg-white dark:bg-card text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
             />
             <button
               onClick={() => {
@@ -167,7 +167,7 @@ export function ForumPage() {
                   setLimit(Number(e.target.value));
                   setCurrentPage(1);
                 }}
-                className="pl-3 pr-8 py-2.5 text-sm border border-slate-200 dark:border-gray-700 rounded-lg bg-white dark:bg-card text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors cursor-pointer appearance-none"
+                className="rounded-3xl pl-3 pr-8 py-2.5 text-sm border border-slate-200 dark:border-gray-700 bg-white dark:bg-card text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors cursor-pointer appearance-none"
               >
                 <option value={10}>10</option>
                 <option value={20}>20</option>
@@ -235,7 +235,7 @@ export function ForumPage() {
                       </p>
                       {forumTopic._count?.forumMessage !== undefined &&
                         forumTopic._count.forumMessage > 0 && (
-                          <p className="text-xs text-slate-500 dark:text-slate-400">
+                          <p className="mr-1 text-xs text-slate-500 dark:text-slate-400">
                             {forumTopic._count.forumMessage} message
                             {forumTopic._count.forumMessage > 1 ? "s" : ""}
                           </p>
@@ -254,9 +254,9 @@ export function ForumPage() {
                         setCurrentPage((prev) => Math.max(prev - 1, 1))
                       }
                       disabled={currentPage === 1}
-                      className="p-1.5 rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="p-1.5 rounded-full border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
-                      <ChevronLeft className="w-4 h-4" />
+                      <ChevronLeft className="size-4" />
                     </button>
 
                     {Array.from(
@@ -266,7 +266,7 @@ export function ForumPage() {
                       <button
                         key={page}
                         onClick={() => setCurrentPage(page)}
-                        className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
+                        className={`px-2.5 py-1.5 text-xs rounded-full border transition-colors ${
                           currentPage === page
                             ? "bg-primary text-white border-primary"
                             : "border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800"
@@ -289,9 +289,9 @@ export function ForumPage() {
                         currentPage ===
                         forumTopicsResponse.pagination.totalPages
                       }
-                      className="p-1.5 rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="p-1.5 rounded-full border border-slate-200 dark:border-gray-700 bg-white dark:bg-card hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="size-4" />
                     </button>
                   </div>
                 )}
