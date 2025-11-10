@@ -144,10 +144,10 @@ export function MoodCreateModal({ onClose, onCreated }: MoodCreateModalProps) {
           </div>
 
           <div className="modal-action">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary rounded-3xl">
               Enregistrer
             </button>
-            <button type="button" className="btn" onClick={onClose}>
+            <button type="button" className="btn rounded-3xl" onClick={onClose}>
               Annuler
             </button>
           </div>

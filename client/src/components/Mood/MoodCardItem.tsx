@@ -1,5 +1,3 @@
-import Icon from "@mdi/react";
-import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { Pencil, Trash } from "lucide-react";
@@ -29,7 +27,7 @@ export function MoodCard({ mood }: MoodCardProps) {
     <>
       <div
         className="rounded-lg p-4 pt-0 border border-gray-200 dark:border-gray-800"
-        style={{ borderLeft: `10px solid ${mood.color}` }}
+        style={{ borderLeft: `5px solid ${mood.color}` }}
       >
         <div className="flex items-center justify-between w-full mt-2">
           <p className="text-xl font-semibold mb-2"> {mood.name}</p>

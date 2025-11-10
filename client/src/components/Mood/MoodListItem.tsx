@@ -1,8 +1,6 @@
-import Icon from "@mdi/react";
-import { mdiPencilOutline, mdiDeleteOutline } from "@mdi/js";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-
+import { Pencil, Trash } from "lucide-react";
 import { ETabKey, type IMood } from "@/types";
 
 import { MoodDeleteModal, MoodEditModal } from "@/components";
@@ -26,7 +24,7 @@ export function MoodListItem({ mood }: { mood: IMood }) {
     <>
       <li
         key={mood.id}
-        className="p-4 rounded shadow-md flex items-center gap-4"
+        className="p-4 rounded shadow-md flex items-center gap-4 text-sm"
         style={{ borderLeft: `4px solid ${mood.color}` }}
       >
         <span className="w-48">{mood.name}</span>
@@ -45,7 +43,7 @@ export function MoodListItem({ mood }: { mood: IMood }) {
               setIsEditOpen(true);
             }}
           >
-            <Icon path={mdiPencilOutline} size={0.8} />
+            <Pencil className="size-3.5" />
           </button>
           <button
             className="btn p-0 bg-error/10 text-error hover:bg-error/20 size-8"
@@ -54,7 +52,7 @@ export function MoodListItem({ mood }: { mood: IMood }) {
               setIsConfirmDeleteOpen(true);
             }}
           >
-            <Icon path={mdiDeleteOutline} size={0.8} className="text-red-500" />
+            <Trash className="size-3.5 text-red-500" />
           </button>
         </div>
       </li>
