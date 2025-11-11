@@ -33,11 +33,9 @@ export function CategoryTableRow({ category, tabKey }: CategoryTableRowProps) {
     <>
       <TableRow>
         <TableCell className="font-medium">{category.categoryName}</TableCell>
-        <TableCell className="w-full">
-          {category.description || "Aucune description"}
-        </TableCell>
+        <TableCell>{category.description || "Aucune description"}</TableCell>
         <TableCell>
-          <div className="flex gap-4 justify-center">
+          <div className="flex gap-4 justify-end">
             <button
               onClick={() => setIsEditOpen(true)}
               className="btn size-8 text-primary bg-primary/10 p-1 hover:bg-primary/20"

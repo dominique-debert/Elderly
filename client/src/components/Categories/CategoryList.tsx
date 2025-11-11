@@ -9,7 +9,6 @@ import {
   CategoryListView,
   CategoryCardView,
   CategoryTableView,
-  Card,
 } from "@/components";
 
 type Mode = "card" | "list" | "table";
@@ -40,7 +39,7 @@ export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
     queryFn: () => getCategories(categoryType),
   });
 
-  const processedChapters = (() => {
+  const chapters = (() => {
     if (!categories || !Array.isArray(categories)) return [];
 
     const filtered = categories.filter((category: ICategory) =>
@@ -91,12 +90,12 @@ export function CategoryList({ categoryType, tabKey }: CategoryListProps) {
         <div className="text-center mt-10 text-red-500">
           Erreur de chargement
         </div>
-      ) : processedChapters.length === 0 ? (
+      ) : chapters.length === 0 ? (
         <div className="text-center text-gray-500 italic mt-10">
           Aucun résultat ne correspond à la recherche.
         </div>
       ) : (
-        processedChapters.map(
+        chapters.map(
           ({ chapterName, chapterDescription, categories }, index: number) => (
             <div
               key={`${chapterName}-${index}`}

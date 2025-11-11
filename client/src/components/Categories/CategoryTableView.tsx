@@ -18,8 +18,8 @@ export function CategoryTableView({
   tabKey,
 }: CategoryTableViewProps) {
   return (
-    <Table className="table w-full table-zebra">
-      <TableHeader className="text-semibold">
+    <Table className="table table-zebra">
+      <TableHeader className="text-medium">
         <TableRow>
           <TableHead>Titre</TableHead>
           <TableHead>Description</TableHead>
