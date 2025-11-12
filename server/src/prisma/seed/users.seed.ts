@@ -94,7 +94,7 @@ async function main() {
       email: "eric.petit@gmail.com",
       firstName: "Eric",
       lastName: "Petit",
-      profession: "Aide-soignante",
+      profession: "Aide-soignant",
       city: "Nice",
       postalCode: "06000",
       phone: "06 56 78 90 12",

@@ -16,8 +16,6 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-// Use a lazy initializer that reads localStorage synchronously so the initial render
-// reflects the stored value (avoids immediately overwriting it with the default).
 const getInitialTheme = (): Theme => {
   if (typeof window === "undefined") return "nord";
   const saved = localStorage.getItem("theme");
@@ -27,7 +25,6 @@ const getInitialTheme = (): Theme => {
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
-  // Update document attribute and save to localStorage when theme changes
   useEffect(() => {
     if (typeof document === "undefined") return;
     document.documentElement.setAttribute("data-theme", theme);
