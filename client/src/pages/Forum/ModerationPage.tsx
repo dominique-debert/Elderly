@@ -166,12 +166,12 @@ export function ModerationPage() {
   return (
     <>
       {/* TODO: Redesign the moderation page: THIS IS A DUMMY PAGE FOR NOW */}
-      <div className="flex-1 mt-22 mr-4 mb-8">
+      <div className="flex-1 mt-4 mr-3 mb-8">
         <header className="flex flex-wrap justify-between items-center gap-4 mb-6">
           <h1 className="text-3xl font-medium leading-tight tracking-[-0.033em] dark:text-slate-300">
             Tableau de bord
           </h1>
-          <button className="btn btn-sm btn-primary rounded-2xl">
+          <button className="btn btn-sm btn-primary rounded-2xl mt-2">
             <Plus className="size-4" />
             Nouveau sujet
           </button>

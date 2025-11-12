@@ -24,7 +24,7 @@ export function DiscussionsPage() {
   return (
     <>
       {/* TODO: Redesign the discussions page: THIS IS A DUMMY PAGE FOR NOW */}
-      <div className="mr-3 mt-20 gap-6 flex flex-col">
+      <div className="mt-4 mr-3 gap-6 flex flex-col">
         <div className="flex flex-col gap-6 bg-transparent! border-0 w-full">
           <div className="flex flex-wrap justify-between items-center gap-4 p-4 mb-8">
             <div className="flex flex-col gap-2">

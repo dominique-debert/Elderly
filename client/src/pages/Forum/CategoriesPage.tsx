@@ -28,7 +28,7 @@ export function CategoriesPage() {
   return (
     <>
       {/* TODO: Redesign the categories page: THIS IS A DUMMY PAGE FOR NOW */}
-      <div className="mt-20 flex flex-col mr-3 overflow-hidden">
+      <div className="mt-4 flex flex-col mr-3 overflow-hidden">
         <div className="flex flex-col gap-6">
           <div className="flex flex-wrap justify-between gap-4 items-center">
             <div className="flex min-w-72 flex-col gap-2">
@@ -132,7 +132,7 @@ export function CategoriesPage() {
               </div>
             </label>
             <div className="bg-white dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-800 overflow-x-auto">
-              <table className="w-full text-xs text-left text-slate-500 dark:text-slate-400">
+              <table className="w-full table-zebra table-fixed text-xs text-left text-slate-500 dark:text-slate-400">
                 <thead className="text-xs text-slate-700 bg-slate-50 dark:bg-slate-700 dark:text-slate-400">
                   <tr>
                     <th className="px-6 py-3" scope="col">
@@ -181,15 +181,15 @@ export function CategoriesPage() {
                 <tbody>
                   <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <th
-                      className="px-4 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
+                      className="px-4 py-6 font-medium text-slate-900 dark:text-white flex items-center gap-4"
                       scope="row"
                     >
                       <MessagesSquare className="size-4 text-lg text-slate-500 dark:text-slate-400" />
                       Discussion générale
                     </th>
-                    <td className="p-4">1.2k</td>
-                    <td className="p-4">2023-01-15</td>
-                    <td className="p-4">Il y a 2 heures</td>
+                    <td className="p-4 text-center">1.2k</td>
+                    <td className="p-4 text-center">2023-01-15</td>
+                    <td className="p-4 text-center">Il y a 2 heures</td>
                     <td className="text-center">
                       <span className="badge badge-warning badge-xs">
                         Actif
@@ -205,7 +205,7 @@ export function CategoriesPage() {
                   </tr>
                   <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <th
-                      className="px-4 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
+                      className="px-4 py-6 font-medium text-slate-900 dark:text-white flex items-center gap-4"
                       scope="row"
                     >
                       <Computer className="size-4 text-slate-500 dark:text-slate-400" />
@@ -229,7 +229,7 @@ export function CategoriesPage() {
                   </tr>
                   <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <th
-                      className="px-4 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
+                      className="px-4 py-6 font-medium text-slate-900 dark:text-white flex items-center gap-4"
                       scope="row"
                     >
                       <Gamepad2 className="size-4 text-slate-500 dark:text-slate-400" />
@@ -253,7 +253,7 @@ export function CategoriesPage() {
                   </tr>
                   <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <th
-                      className="px-4 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
+                      className="px-4 py-6 font-medium text-slate-900 dark:text-white flex items-center gap-4"
                       scope="row"
                     >
                       <Book className="size-4 text-slate-500 dark:text-slate-400" />
@@ -275,7 +275,7 @@ export function CategoriesPage() {
                   </tr>
                   <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <th
-                      className="px-4 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
+                      className="px-4 py-6 font-medium text-slate-900 dark:text-white flex items-center gap-4"
                       scope="row"
                     >
                       <Film className="size-4 text-slate-500 dark:text-slate-400" />
@@ -299,7 +299,7 @@ export function CategoriesPage() {
                   </tr>
                   <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <th
-                      className="px-4 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
+                      className="px-4 py-6 font-medium text-slate-900 dark:text-white flex items-center gap-4"
                       scope="row"
                     >
                       <Music className="size-4 text-slate-500 dark:text-slate-400" />
@@ -323,7 +323,7 @@ export function CategoriesPage() {
                   </tr>
                   <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <th
-                      className="px-4 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
+                      className="px-4 py-6 font-medium text-slate-900 dark:text-white flex items-center gap-4"
                       scope="row"
                     >
                       <Plane className="size-4 text-slate-500 dark:text-slate-400" />
@@ -347,7 +347,7 @@ export function CategoriesPage() {
                   </tr>
                   <tr className="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <th
-                      className="px-4 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
+                      className="px-4 py-6 font-medium text-slate-900 dark:text-white flex items-center gap-4"
                       scope="row"
                     >
                       <Utensils className="size-4 text-slate-500 dark:text-slate-400" />
@@ -371,7 +371,7 @@ export function CategoriesPage() {
                   </tr>
                   <tr className="bg-white dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <th
-                      className="px-4 py-6 font-medium text-slate-900 whitespace-nowrap dark:text-white flex items-center gap-4"
+                      className="px-4 py-6 font-medium text-slate-900 dark:text-white flex items-center gap-4"
                       scope="row"
                     >
                       <Wrench className="size-4 text-slate-500 dark:text-slate-400" />

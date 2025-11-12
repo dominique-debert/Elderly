@@ -22,7 +22,7 @@ export function NotificationsPage() {
   return (
     <>
       {/* TODO : Refaire la page des notifications — PAGE FACTICE POUR L'INSTANT */}
-      <div className="mt-20 w-full flex gap-6">
+      <div className="mt-4 mr-3 w-full flex gap-6">
         <main className="flex flex-col w-full h-screen mr-4">
           <header className="w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm z-10 pb-4 border-b border-slate-200 dark:border-slate-800">
             <div className="flex flex-wrap items-center justify-between">

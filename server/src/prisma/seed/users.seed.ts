@@ -290,10 +290,8 @@ async function main() {
           longitude: userData.longitude,
           avatar: avatarFilename,
           registrationDate: new Date(),
-          accountVerified: true, // Pre-verified for seeding
           helpPoints: 0,
           reducedMobility: false,
-          activityLevel: "active",
           status: "active",
           isAdmin: false,
           createdAt: new Date(),

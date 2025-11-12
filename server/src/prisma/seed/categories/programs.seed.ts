@@ -1,5 +1,12 @@
-import { ECategoryChapter, ECategoryType } from "@/types";
-import { PrismaClient } from "@/prisma";
+import { PrismaClient } from "../../index.js";
+import {
+  ECategoryChapter,
+  ECategoryType,
+} from "../../../types/data/categories/ECategory";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
 
 const prisma = new PrismaClient();
 

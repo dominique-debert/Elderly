@@ -42,7 +42,7 @@ export function ForumPage() {
 
   if (isLoading) {
     return (
-      <div className="mt-20 gap-6 flex flex-col">
+      <div className="mt-4 mr-3 gap-6 flex flex-col">
         <p className="text-slate-600 dark:text-slate-400">Chargement...</p>
       </div>
     );
@@ -50,7 +50,7 @@ export function ForumPage() {
 
   if (isError) {
     return (
-      <div className="mt-20 gap-6 flex flex-col">
+      <div className="mt-4 mr-3 gap-6 flex flex-col">
         <p className="text-red-600 dark:text-red-400">
           Une erreur s'est produite lors du chargement des topics.
         </p>
@@ -59,7 +59,7 @@ export function ForumPage() {
   }
 
   return (
-    <div className="mt-20 gap-6 flex flex-col mr-3">
+    <div className="mt-4 mr-3 gap-6 flex flex-col">
       <div className="flex flex-col bg-transparent! border-0 w-full">
         <span className="text-xl w-full lg:text-3xl font-medium text-slate-800 dark:text-slate-300">
           Bienvenue sur le forum, {user?.firstName}.

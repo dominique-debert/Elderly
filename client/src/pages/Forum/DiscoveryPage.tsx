@@ -12,7 +12,7 @@ export function DiscoveryPage() {
   return (
     <>
       {/* TODO : Reconcevoir la page de découverte : CECI EST UNE PAGE D'EXEMPLE POUR L'INSTANT */}
-      <div className="mr-3 mt-20 flex gap-6 overflow-hidden">
+      <div className="mt-4 mr-3 flex gap-6 overflow-hidden">
         <div className="w-full">
           <div className="dark:bg-[#060e21] bg-(--root-bg) w-full">
             <div className="flex flex-wrap justify-between items-center gap-4 mb-6">

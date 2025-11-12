@@ -31,7 +31,7 @@ export function AdminPage() {
   };
 
   return (
-    <div className="mt-20 flex flex-col">
+    <div className="flex flex-col">
       {user && user.isAdmin ? (
         <>
           <div className="p-4 w-full dark:bg-transparent bg-(--root-bg)">
