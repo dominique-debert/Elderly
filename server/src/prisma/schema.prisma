@@ -252,7 +252,9 @@ model forumSection {
   description String?
   createdAt   DateTime     @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt   DateTime?    @map("updated_at") @db.Timestamp(6)
-  forumTopic  forumTopic[]
+  forumTopics forumTopic[]
+  user        user         @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  authorId    String       @map("author_id")
 
   @@map("forum_section")
 }
@@ -269,7 +271,8 @@ model forumTopic {
   sectionId    Int            @map("section_id")
   forumMessage forumMessage[]
   forumSection forumSection   @relation(fields: [sectionId], references: [id])
-  user         user           @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user         user?          @relation(fields: [userId], references: [id])
+  userId       String?
 
   @@map("forum_topic")
 }
@@ -687,7 +690,8 @@ model user {
   contactRequest          contactRequest[]
   conversationParticipant conversationParticipant[]
   forumMessage            forumMessage[]
-  forumTopic              forumTopic[]
+  forumSections           forumSection[]
+  forumTopics             forumTopic[]
   healthIndicator         healthIndicator[]
   helpOffer               helpOffer[]
   helpRequest             helpRequest[]

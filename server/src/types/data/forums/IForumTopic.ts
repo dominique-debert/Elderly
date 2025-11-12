@@ -1,5 +1,5 @@
 export interface IForumTopic {
-  category_id: number;
+  forumSection_id: number;
   author_id: string;
   title: string;
   pinned?: boolean;

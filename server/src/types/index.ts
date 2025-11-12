@@ -22,7 +22,7 @@ export * from "./data/exercises/ICognitiveExercise";
 export * from "./data/exercises/IExerciseProgram";
 
 // Forums
-export * from "./data/forums/IForumCategory";
+export * from "./data/forums/IForumSection";
 export * from "./data/forums/IForumMessage";
 export * from "./data/forums/IForumTopic";
 

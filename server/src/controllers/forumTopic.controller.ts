@@ -27,8 +27,8 @@ export const createForumTopic = async (
         user: {
           connect: { id: req.body.author_id },
         },
-        category: {
-          connect: { id: req.body.category_id },
+        forumSection: {
+          connect: { id: req.body.forumSection_id },
         },
       },
     });

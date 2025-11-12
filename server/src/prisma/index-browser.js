@@ -298,7 +298,8 @@ exports.Prisma.ForumSectionScalarFieldEnum = {
   name: 'name',
   description: 'description',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  authorId: 'authorId'
 };
 
 exports.Prisma.ForumTopicScalarFieldEnum = {
@@ -310,7 +311,8 @@ exports.Prisma.ForumTopicScalarFieldEnum = {
   views: 'views',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  sectionId: 'sectionId'
+  sectionId: 'sectionId',
+  userId: 'userId'
 };
 
 exports.Prisma.HealthIndicatorScalarFieldEnum = {

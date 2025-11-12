@@ -14,6 +14,7 @@ import conversationRouter from "./conversation.routes";
 import exerciseProgramRoutes from "./exerciseProgram.routes";
 import forumMessageRouter from "./forumMessage.routes";
 import forumTopicRouter from "./forumTopic.routes";
+import forumSectionRouter from "./forumSection.routes";
 import healthIndicatorRouter from "./healthIndicator.routes";
 import helpOffersRouter from "./helpOffer.routes";
 import helpRequestsRouter from "./helpRequest.routes";
