@@ -209,9 +209,23 @@ export function ForumPage() {
                         {(forumSection._count?.forumTopics || 0) > 1 ? "s" : ""}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mb-1.5">
                       <p className="text-xs text-slate-500 dark:text-slate-400">
                         {forumSection.description}
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                        Créé par {forumSection.user?.firstName}{" "}
+                        {forumSection.user?.lastName} le{" "}
+                        {new Date(forumSection.createdAt).toLocaleDateString(
+                          "fr-FR",
+                          {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          }
+                        )}
                       </p>
                     </div>
                     {forumSection.lastPost && forumSection.lastPost.user && (
@@ -220,7 +234,11 @@ export function ForumPage() {
                           Dernier message le{" "}
                           {new Date(
                             forumSection.lastPost.createdAt
-                          ).toLocaleDateString("fr-FR")}{" "}
+                          ).toLocaleDateString("fr-FR", {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          })}{" "}
                           par {forumSection.lastPost.user.firstName}{" "}
                           {forumSection.lastPost.user.lastName}
                         </p>
