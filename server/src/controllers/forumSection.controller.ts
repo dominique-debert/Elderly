@@ -39,6 +39,15 @@ export const getAllForumSections = async (
   try {
     const forumSections = await prisma.forumSection.findMany({
       orderBy: { createdAt: "asc" },
+      include: {
+        user: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+          },
+        },
+      },
     });
     res.status(200).json(forumSections);
   } catch (error) {
@@ -56,6 +65,15 @@ export const getForumSectionById = async (
   try {
     const forumSection = await prisma.forumSection.findUnique({
       where: { id },
+      include: {
+        user: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+          },
+        },
+      },
     });
 
     if (!forumSection) {

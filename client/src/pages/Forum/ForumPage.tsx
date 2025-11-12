@@ -116,7 +116,7 @@ export function ForumPage() {
             </div>
             <input
               type="text"
-              placeholder="Rechercher un sujet..."
+              placeholder="Rechercher une section..."
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
@@ -207,7 +207,8 @@ export function ForumPage() {
                     </div>
                     <div className="flex items-center justify-between">
                       <p className="text-xs text-slate-500 dark:text-slate-400">
-                        Par {forumSection.authorId}
+                        Par {forumSection.user?.firstName}{" "}
+                        {forumSection.user?.lastName}
                       </p>
                     </div>
                   </div>
