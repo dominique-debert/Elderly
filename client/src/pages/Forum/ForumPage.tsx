@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllForumSections } from "@/services";
 import { IForumSection } from "@/types";
 import { useState } from "react";
-import { Search, X } from "lucide-react";
+import { Plus, Search, X } from "lucide-react";
 
 export function ForumPage() {
   const { user, isAuthenticated } = useAuthStore();
@@ -45,12 +45,19 @@ export function ForumPage() {
   }
 
   return (
-    <div className="mt-4 mr-3 gap-6 flex flex-col">
-      <div className="flex flex-col bg-transparent! border-0 w-full">
+    <div className="mt-4 mr-3 gap-4 flex flex-col">
+      <div className="flex bg-transparent! border-0 w-full">
         <span className="text-xl w-full lg:text-3xl font-medium text-slate-800 dark:text-slate-300">
           Bienvenue sur le forum, {user?.firstName}.
         </span>
-
+        {isAuthenticated && user?.isAdmin && (
+          <button className="btn btn-primary btn-sm mt-1.5">
+            <Plus className="size-4" />
+            Ajouter une section
+          </button>
+        )}
+      </div>
+      <div className="flex flex-col bg-transparent! border-0 w-full">
         {/* Statistics Cards */}
         {/* Total Discussions (Messages) */}
         {/* Active Participants */}
