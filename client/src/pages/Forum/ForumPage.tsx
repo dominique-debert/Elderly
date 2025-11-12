@@ -205,19 +205,27 @@ export function ForumPage() {
                         </h3>
                       </div>
                       <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary ml-2 shrink-0">
-                        {forumSection.createdAt
-                          ? new Date(forumSection.createdAt).toLocaleDateString(
-                              "fr-FR"
-                            )
-                          : ""}
+                        {forumSection._count?.forumTopics || 0} sujet
+                        {(forumSection._count?.forumTopics || 0) > 1 ? "s" : ""}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <p className="text-xs text-slate-500 dark:text-slate-400">
-                        Par {forumSection.user?.firstName}{" "}
-                        {forumSection.user?.lastName}
+                        {forumSection.description}
                       </p>
                     </div>
+                    {forumSection.lastPost && forumSection.lastPost.user && (
+                      <div className="mt-2 pt-2 border-t border-slate-100 dark:border-gray-700">
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
+                          Dernier message le{" "}
+                          {new Date(
+                            forumSection.lastPost.createdAt
+                          ).toLocaleDateString("fr-FR")}{" "}
+                          par {forumSection.lastPost.user.firstName}{" "}
+                          {forumSection.lastPost.user.lastName}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 ));
               })()}

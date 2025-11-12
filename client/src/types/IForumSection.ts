@@ -10,4 +10,15 @@ export interface IForumSection {
     firstName: string;
     lastName: string;
   };
+  _count?: {
+    forumTopics: number;
+  };
+  lastPost?: {
+    createdAt: Date;
+    user: {
+      id: string;
+      firstName: string;
+      lastName: string;
+    };
+  } | null;
 }

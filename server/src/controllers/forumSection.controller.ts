@@ -47,9 +47,36 @@ export const getAllForumSections = async (
             lastName: true,
           },
         },
+        _count: {
+          select: {
+            forumTopics: true,
+          },
+        },
+        forumTopics: {
+          orderBy: { createdAt: "desc" },
+          take: 1,
+          select: {
+            createdAt: true,
+            user: {
+              select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+              },
+            },
+          },
+        },
       },
     });
-    res.status(200).json(forumSections);
+
+    // Transform the response to have a cleaner structure
+    const formattedSections = forumSections.map((section) => ({
+      ...section,
+      lastPost: section.forumTopics[0] || null,
+      forumTopics: undefined,
+    }));
+
+    res.status(200).json(formattedSections);
   } catch (error) {
     next(error);
   }

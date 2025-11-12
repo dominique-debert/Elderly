@@ -16,13 +16,25 @@ async function main() {
     return date;
   };
 
+  // Fetch all sections to get their actual IDs
+  const sections = await prisma.forumSection.findMany({
+    orderBy: { id: "asc" },
+  });
+
+  if (sections.length < 16) {
+    throw new Error(
+      `Expected at least 16 forum sections but found ${sections.length}. Please run forumSections.seed.ts first.`
+    );
+  }
+
   await prisma.forumTopic.createMany({
     data: [
       // Section 1: Règlements & Annonces
       {
         title: "📜 Règlement du forum - À lire avant de poster",
         authorId,
-        sectionId: 1,
+        userId: authorId,
+        sectionId: sections[sections.length - 16].id,
         pinned: true,
         status: "open",
         views: 245,
@@ -31,7 +43,8 @@ async function main() {
       {
         title: "🎉 Bienvenue sur notre nouveau forum communautaire !",
         authorId,
-        sectionId: 1,
+        userId: authorId,
+        sectionId: sections[sections.length - 16].id,
         pinned: true,
         status: "open",
         views: 189,
@@ -40,7 +53,8 @@ async function main() {
       {
         title: "Mise à jour de la plateforme - Novembre 2025",
         authorId,
-        sectionId: 1,
+        userId: authorId,
+        sectionId: sections[sections.length - 16].id,
         pinned: false,
         status: "open",
         views: 78,
@@ -51,7 +65,8 @@ async function main() {
       {
         title: "Bonjour à tous, nouvelle venue du Var !",
         authorId,
-        sectionId: 2,
+        userId: authorId,
+        sectionId: sections[sections.length - 15].id,
         pinned: false,
         status: "open",
         views: 32,
@@ -60,7 +75,8 @@ async function main() {
       {
         title: "Présentation d'un retraité passionné de jardinage",
         authorId,
-        sectionId: 2,
+        userId: authorId,
+        sectionId: sections[sections.length - 15].id,
         pinned: false,
         status: "open",
         views: 45,
@@ -69,7 +85,8 @@ async function main() {
       {
         title: "Un petit coucou de Normandie",
         authorId,
-        sectionId: 2,
+        userId: authorId,
+        sectionId: sections[sections.length - 15].id,
         pinned: false,
         status: "open",
         views: 28,
@@ -80,7 +97,8 @@ async function main() {
       {
         title: "Vos meilleures recettes de cuisine d'hiver",
         authorId,
-        sectionId: 3,
+        userId: authorId,
+        sectionId: sections[sections.length - 14].id,
         pinned: false,
         status: "open",
         views: 156,
@@ -89,7 +107,8 @@ async function main() {
       {
         title: "Comment organiser vos courses pour la semaine ?",
         authorId,
-        sectionId: 3,
+        userId: authorId,
+        sectionId: sections[sections.length - 14].id,
         pinned: false,
         status: "open",
         views: 93,
@@ -98,7 +117,8 @@ async function main() {
       {
         title: "Astuces pour économiser sur les factures d'électricité",
         authorId,
-        sectionId: 3,
+        userId: authorId,
+        sectionId: sections[sections.length - 14].id,
         pinned: false,
         status: "open",
         views: 127,
@@ -107,7 +127,8 @@ async function main() {
       {
         title: "Faire ses produits ménagers soi-même : vos conseils ?",
         authorId,
-        sectionId: 3,
+        userId: authorId,
+        sectionId: sections[sections.length - 14].id,
         pinned: false,
         status: "open",
         views: 68,
@@ -118,7 +139,8 @@ async function main() {
       {
         title: "Conseils pour mieux dormir - partagez vos astuces",
         authorId,
-        sectionId: 4,
+        userId: authorId,
+        sectionId: sections[sections.length - 13].id,
         pinned: false,
         status: "open",
         views: 201,
@@ -127,7 +149,8 @@ async function main() {
       {
         title: "Exercices doux pour maintenir la mobilité",
         authorId,
-        sectionId: 4,
+        userId: authorId,
+        sectionId: sections[sections.length - 13].id,
         pinned: false,
         status: "open",
         views: 178,
@@ -136,7 +159,8 @@ async function main() {
       {
         title: "Alimentation et arthrose : qu'est-ce qui fonctionne ?",
         authorId,
-        sectionId: 4,
+        userId: authorId,
+        sectionId: sections[sections.length - 13].id,
         pinned: false,
         status: "open",
         views: 142,
@@ -145,7 +169,8 @@ async function main() {
       {
         title: "Méditation et relaxation : vos expériences",
         authorId,
-        sectionId: 4,
+        userId: authorId,
+        sectionId: sections[sections.length - 13].id,
         pinned: false,
         status: "open",
         views: 89,
@@ -156,7 +181,8 @@ async function main() {
       {
         title: "Question sur le calcul de la pension de réversion",
         authorId,
-        sectionId: 5,
+        userId: authorId,
+        sectionId: sections[sections.length - 12].id,
         pinned: false,
         status: "open",
         views: 167,
@@ -165,7 +191,8 @@ async function main() {
       {
         title: "Aide pour déclarer ses impôts en ligne",
         authorId,
-        sectionId: 5,
+        userId: authorId,
+        sectionId: sections[sections.length - 12].id,
         pinned: false,
         status: "solved",
         views: 134,
@@ -174,7 +201,8 @@ async function main() {
       {
         title: "Carte senior SNCF : comment l'obtenir ?",
         authorId,
-        sectionId: 5,
+        userId: authorId,
+        sectionId: sections[sections.length - 12].id,
         pinned: false,
         status: "open",
         views: 98,
@@ -185,7 +213,8 @@ async function main() {
       {
         title: "Comment installer WhatsApp sur ma tablette ?",
         authorId,
-        sectionId: 6,
+        userId: authorId,
+        sectionId: sections[sections.length - 11].id,
         pinned: false,
         status: "solved",
         views: 156,
@@ -194,7 +223,8 @@ async function main() {
       {
         title: "Mon ordinateur est très lent, que faire ?",
         authorId,
-        sectionId: 6,
+        userId: authorId,
+        sectionId: sections[sections.length - 11].id,
         pinned: false,
         status: "open",
         views: 203,
@@ -203,7 +233,8 @@ async function main() {
       {
         title: "Tutoriel : Faire des visios avec mes petits-enfants",
         authorId,
-        sectionId: 6,
+        userId: authorId,
+        sectionId: sections[sections.length - 11].id,
         pinned: true,
         status: "open",
         views: 289,
@@ -212,7 +243,8 @@ async function main() {
       {
         title: "Problème de mot de passe oublié sur mon email",
         authorId,
-        sectionId: 6,
+        userId: authorId,
+        sectionId: sections[sections.length - 11].id,
         pinned: false,
         status: "solved",
         views: 87,
@@ -223,7 +255,8 @@ async function main() {
       {
         title: "Partage de photos : mon jardin en automne 🍂",
         authorId,
-        sectionId: 7,
+        userId: authorId,
+        sectionId: sections[sections.length - 10].id,
         pinned: false,
         status: "open",
         views: 112,
@@ -232,7 +265,8 @@ async function main() {
       {
         title: "Club de lecture : quel livre lisez-vous en ce moment ?",
         authorId,
-        sectionId: 7,
+        userId: authorId,
+        sectionId: sections[sections.length - 10].id,
         pinned: false,
         status: "open",
         views: 176,
@@ -241,7 +275,8 @@ async function main() {
       {
         title: "Mes créations en tricot - conseils bienvenus !",
         authorId,
-        sectionId: 7,
+        userId: authorId,
+        sectionId: sections[sections.length - 10].id,
         pinned: false,
         status: "open",
         views: 94,
@@ -250,7 +285,8 @@ async function main() {
       {
         title: "Mots croisés et jeux de lettres : vos préférés ?",
         authorId,
-        sectionId: 7,
+        userId: authorId,
+        sectionId: sections[sections.length - 10].id,
         pinned: false,
         status: "open",
         views: 131,
@@ -261,7 +297,8 @@ async function main() {
       {
         title: "Weekend en Bretagne : vos recommandations ?",
         authorId,
-        sectionId: 8,
+        userId: authorId,
+        sectionId: sections[sections.length - 9].id,
         pinned: false,
         status: "open",
         views: 145,
@@ -270,7 +307,8 @@ async function main() {
       {
         title: "Croisière sur le Rhin - retour d'expérience",
         authorId,
-        sectionId: 8,
+        userId: authorId,
+        sectionId: sections[sections.length - 9].id,
         pinned: false,
         status: "open",
         views: 188,
@@ -279,7 +317,8 @@ async function main() {
       {
         title: "Voyager en train en Europe : bons plans",
         authorId,
-        sectionId: 8,
+        userId: authorId,
+        sectionId: sections[sections.length - 9].id,
         pinned: false,
         status: "open",
         views: 167,
@@ -290,7 +329,8 @@ async function main() {
       {
         title: "Comment rester proche de ses petits-enfants à distance ?",
         authorId,
-        sectionId: 9,
+        userId: authorId,
+        sectionId: sections[sections.length - 8].id,
         pinned: false,
         status: "open",
         views: 198,
@@ -299,7 +339,8 @@ async function main() {
       {
         title: "Gérer la solitude après un déménagement",
         authorId,
-        sectionId: 9,
+        userId: authorId,
+        sectionId: sections[sections.length - 8].id,
         pinned: false,
         status: "open",
         views: 156,
@@ -308,7 +349,8 @@ async function main() {
       {
         title: "Idées de cadeaux pour petits-enfants (10-15 ans)",
         authorId,
-        sectionId: 9,
+        userId: authorId,
+        sectionId: sections[sections.length - 8].id,
         pinned: false,
         status: "open",
         views: 223,
@@ -319,7 +361,8 @@ async function main() {
       {
         title: "Aménager sa salle de bain pour plus de sécurité",
         authorId,
-        sectionId: 10,
+        userId: authorId,
+        sectionId: sections[sections.length - 7].id,
         pinned: false,
         status: "open",
         views: 178,
@@ -328,7 +371,8 @@ async function main() {
       {
         title: "Téléassistance : laquelle choisir ?",
         authorId,
-        sectionId: 10,
+        userId: authorId,
+        sectionId: sections[sections.length - 7].id,
         pinned: false,
         status: "open",
         views: 145,
@@ -337,7 +381,8 @@ async function main() {
       {
         title: "Chauffage économique : vos solutions ?",
         authorId,
-        sectionId: 10,
+        userId: authorId,
+        sectionId: sections[sections.length - 7].id,
         pinned: false,
         status: "open",
         views: 192,
@@ -348,7 +393,8 @@ async function main() {
       {
         title: "APA : démarches et conseils pour la demande",
         authorId,
-        sectionId: 11,
+        userId: authorId,
+        sectionId: sections[sections.length - 6].id,
         pinned: true,
         status: "open",
         views: 267,
@@ -357,7 +403,8 @@ async function main() {
       {
         title: "Aide ménagère à domicile : comment ça marche ?",
         authorId,
-        sectionId: 11,
+        userId: authorId,
+        sectionId: sections[sections.length - 6].id,
         pinned: false,
         status: "open",
         views: 189,
@@ -366,7 +413,8 @@ async function main() {
       {
         title: "Portage de repas : tarifs et qualité",
         authorId,
-        sectionId: 11,
+        userId: authorId,
+        sectionId: sections[sections.length - 6].id,
         pinned: false,
         status: "open",
         views: 134,
@@ -377,7 +425,8 @@ async function main() {
       {
         title: "Réforme des retraites 2025 : qu'en pensez-vous ?",
         authorId,
-        sectionId: 12,
+        userId: authorId,
+        sectionId: sections[sections.length - 5].id,
         pinned: false,
         status: "open",
         views: 312,
@@ -386,7 +435,8 @@ async function main() {
       {
         title: "Le système de santé français vu par les seniors",
         authorId,
-        sectionId: 12,
+        userId: authorId,
+        sectionId: sections[sections.length - 5].id,
         pinned: false,
         status: "open",
         views: 245,
@@ -395,7 +445,8 @@ async function main() {
       {
         title: "Environnement : petits gestes du quotidien",
         authorId,
-        sectionId: 12,
+        userId: authorId,
+        sectionId: sections[sections.length - 5].id,
         pinned: false,
         status: "open",
         views: 167,
@@ -406,7 +457,8 @@ async function main() {
       {
         title: "Mon parcours de la vie active à la retraite",
         authorId,
-        sectionId: 13,
+        userId: authorId,
+        sectionId: sections[sections.length - 4].id,
         pinned: false,
         status: "open",
         views: 198,
@@ -415,7 +467,8 @@ async function main() {
       {
         title: "Comment j'ai surmonté la perte de mon conjoint",
         authorId,
-        sectionId: 13,
+        userId: authorId,
+        sectionId: sections[sections.length - 4].id,
         pinned: false,
         status: "open",
         views: 234,
@@ -424,7 +477,8 @@ async function main() {
       {
         title: "Ma reconversion en bénévolat après 70 ans",
         authorId,
-        sectionId: 13,
+        userId: authorId,
+        sectionId: sections[sections.length - 4].id,
         pinned: false,
         status: "open",
         views: 156,
@@ -435,7 +489,8 @@ async function main() {
       {
         title: "Recherche bénévoles pour association locale",
         authorId,
-        sectionId: 14,
+        userId: authorId,
+        sectionId: sections[sections.length - 3].id,
         pinned: false,
         status: "open",
         views: 123,
@@ -444,7 +499,8 @@ async function main() {
       {
         title: "Club des Ainés de ma commune : activités mensuelles",
         authorId,
-        sectionId: 14,
+        userId: authorId,
+        sectionId: sections[sections.length - 3].id,
         pinned: false,
         status: "open",
         views: 145,
@@ -453,7 +509,8 @@ async function main() {
       {
         title: "Créer une association : par où commencer ?",
         authorId,
-        sectionId: 14,
+        userId: authorId,
+        sectionId: sections[sections.length - 3].id,
         pinned: false,
         status: "open",
         views: 98,
@@ -464,7 +521,8 @@ async function main() {
       {
         title: "Besoin de conseils pour choisir une tablette tactile",
         authorId,
-        sectionId: 15,
+        userId: authorId,
+        sectionId: sections[sections.length - 2].id,
         pinned: false,
         status: "solved",
         views: 112,
@@ -473,7 +531,8 @@ async function main() {
       {
         title: "Qui peut m'aider à comprendre ma facture d'électricité ?",
         authorId,
-        sectionId: 15,
+        userId: authorId,
+        sectionId: sections[sections.length - 2].id,
         pinned: false,
         status: "open",
         views: 87,
@@ -482,7 +541,8 @@ async function main() {
       {
         title: "Recherche recette de tarte aux pommes de ma grand-mère",
         authorId,
-        sectionId: 15,
+        userId: authorId,
+        sectionId: sections[sections.length - 2].id,
         pinned: false,
         status: "solved",
         views: 145,
@@ -493,7 +553,8 @@ async function main() {
       {
         title: "☕ Bonjour ! Comment allez-vous aujourd'hui ?",
         authorId,
-        sectionId: 16,
+        userId: authorId,
+        sectionId: sections[sections.length - 1].id,
         pinned: true,
         status: "open",
         views: 456,
@@ -502,7 +563,8 @@ async function main() {
       {
         title: "La météo de ce week-end : soleil ou pluie ?",
         authorId,
-        sectionId: 16,
+        userId: authorId,
+        sectionId: sections[sections.length - 1].id,
         pinned: false,
         status: "open",
         views: 178,
@@ -511,7 +573,8 @@ async function main() {
       {
         title: "Vos films préférés de tous les temps",
         authorId,
-        sectionId: 16,
+        userId: authorId,
+        sectionId: sections[sections.length - 1].id,
         pinned: false,
         status: "open",
         views: 267,
@@ -520,7 +583,8 @@ async function main() {
       {
         title: "Petites joies du quotidien - partagez les vôtres !",
         authorId,
-        sectionId: 16,
+        userId: authorId,
+        sectionId: sections[sections.length - 1].id,
         pinned: false,
         status: "open",
         views: 198,
@@ -529,7 +593,8 @@ async function main() {
       {
         title: "Nostalgie : souvenirs des années 60-70",
         authorId,
-        sectionId: 16,
+        userId: authorId,
+        sectionId: sections[sections.length - 1].id,
         pinned: false,
         status: "open",
         views: 289,

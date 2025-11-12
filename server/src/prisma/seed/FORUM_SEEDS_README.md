@@ -17,23 +17,33 @@ This directory contains seed data for the forum feature, organized into three ma
 
 ## Usage
 
-### Run all forum seeds at once:
+### Run all forum seeds at once (RECOMMENDED)
 
 ```bash
-tsx src/prisma/seed/runForumSeeds.ts
+node --import=tsx src/prisma/seed/runForumSeeds.ts
 ```
 
-### Run individual seeds:
+This command will:
+
+1. **Delete all existing forum data** (messages, topics, sections)
+2. **Seed fresh data** in the correct order
+3. **Display a summary** of created items
+
+You can run this command multiple times without worrying about duplicate data - it always starts fresh!
+
+### Run individual seeds (Advanced)
+
+⚠️ **Warning**: Running individual seeds requires manual cleanup and the correct order.
 
 ```bash
 # Sections only
-tsx src/prisma/seed/forumSections.seed.ts
+node --import=tsx src/prisma/seed/forumSections.seed.ts
 
 # Topics only (requires sections to exist)
-tsx src/prisma/seed/forumTopics.seed.ts
+node --import=tsx src/prisma/seed/forumTopics.seed.ts
 
 # Messages only (requires topics to exist)
-tsx src/prisma/seed/forumMessages.seed.ts
+node --import=tsx src/prisma/seed/forumMessages.seed.ts
 ```
 
 ## Data Details
