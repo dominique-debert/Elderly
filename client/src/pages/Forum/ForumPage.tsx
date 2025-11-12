@@ -5,6 +5,7 @@ import { getAllForumSections } from "@/services";
 import { IForumSection } from "@/types";
 import { useState } from "react";
 import { Plus, Search, X } from "lucide-react";
+import { formatLongDate } from "@/utils";
 
 export function ForumPage() {
   const { user, isAuthenticated } = useAuthStore();
@@ -218,28 +219,15 @@ export function ForumPage() {
                       <p className="text-xs text-slate-500 dark:text-slate-400">
                         Créé par {forumSection.user?.firstName}{" "}
                         {forumSection.user?.lastName} le{" "}
-                        {new Date(forumSection.createdAt).toLocaleDateString(
-                          "fr-FR",
-                          {
-                            day: "numeric",
-                            month: "long",
-                            year: "numeric",
-                          }
-                        )}
+                        {formatLongDate(forumSection.createdAt)}
                       </p>
                     </div>
                     {forumSection.lastPost && forumSection.lastPost.user && (
                       <div className="mt-2 pt-2 border-t border-slate-100 dark:border-gray-700">
                         <p className="text-xs text-slate-500 dark:text-slate-400">
                           Dernier message le{" "}
-                          {new Date(
-                            forumSection.lastPost.createdAt
-                          ).toLocaleDateString("fr-FR", {
-                            day: "numeric",
-                            month: "long",
-                            year: "numeric",
-                          })}{" "}
-                          par {forumSection.lastPost.user.firstName}{" "}
+                          {formatLongDate(forumSection.lastPost.createdAt)} par{" "}
+                          {forumSection.lastPost.user.firstName}{" "}
                           {forumSection.lastPost.user.lastName}
                         </p>
                       </div>

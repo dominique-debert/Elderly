@@ -32,3 +32,25 @@ export const formatMonthYear = (date: string | Date): string => {
     year: "numeric",
   });
 };
+
+/**
+ * Formate une date au format français complet (ex: "12 novembre 2025").
+ * @param date - Date ISO ou objet Date
+ * @param fallback - Valeur de repli si date invalide
+ */
+export const formatLongDate = (
+  date?: string | Date,
+  fallback = "Non disponible"
+): string => {
+  if (!date) return fallback;
+
+  try {
+    return new Date(date).toLocaleDateString("fr-FR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  } catch {
+    return fallback;
+  }
+};
