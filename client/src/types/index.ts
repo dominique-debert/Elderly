@@ -11,6 +11,7 @@ export * from "./ICategoryState";
 export * from "./ICategoryType";
 export * from "./IChapter";
 export * from "./IForumMessage";
+export * from "./IForumSection";
 export * from "./IForumStatistics";
 export * from "./IForumTopic";
 export * from "./IForumTopicsResponse";

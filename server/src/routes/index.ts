@@ -71,6 +71,8 @@ router.use("/badges", badgeRouter);
 router.use("/cognitive-exercises", cognitiveExerciseRouter);
 router.use("/conversations", conversationRouter);
 router.use("/exercise-programs", exerciseProgramRoutes);
+router.use("/forum-messages", forumMessageRouter);
+router.use("/forum-sections", forumSectionRouter);
 router.use("/forum-topics", forumTopicRouter);
 router.use("/health-indicators", healthIndicatorRouter);
 router.use("/help-offers", helpOffersRouter);

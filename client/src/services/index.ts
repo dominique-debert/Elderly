@@ -2,6 +2,7 @@ export * from "./auth.service";
 export * from "./blockedContacts.service";
 export * from "./category.meta.service";
 export * from "./contactRequests.service";
+export * from "./forumSection.service";
 export * from "./forumTopic.service";
 export * from "./menuItems.service";
 export * from "./moods.service";
