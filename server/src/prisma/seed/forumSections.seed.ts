@@ -12,6 +12,12 @@ async function main() {
   await prisma.forumSection.createMany({
     data: [
       {
+        name: "Règlements & Annonces",
+        description:
+          "Règles du forum, annonces importantes et mises à jour de la plateforme.",
+        authorId,
+      },
+      {
         name: "Bienvenue & Présentations",
         description:
           "Un espace pour vous présenter, faire connaissance et découvrir la communauté.",
