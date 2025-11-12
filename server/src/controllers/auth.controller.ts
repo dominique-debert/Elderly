@@ -214,7 +214,7 @@ export const signIn = async (
 
     const serverBase = process.env.SERVER_BASE_URL || "http://localhost:3000";
     const avatarUrl = user.avatar
-      ? `${serverBase}/public/images/avatars/${user.avatar}`
+      ? `${serverBase}/images/avatars/${user.avatar}`
       : null;
 
     res.json({

@@ -17,7 +17,7 @@ const __dirname = dirname(__filename);
 // Configure multer for avatar uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, "../public/images/avatars");
+    const uploadPath = path.join(__dirname, "../../public/images/avatars");
 
     // Create directory if it doesn't exist
     if (!fs.existsSync(uploadPath)) {
@@ -201,7 +201,7 @@ export const uploadAvatar = async (
     if (user.avatar) {
       const oldAvatarPath = path.join(
         __dirname,
-        "../public/images/avatars",
+        "../../public/images/avatars",
         user.avatar
       );
       if (fs.existsSync(oldAvatarPath)) {
@@ -220,7 +220,7 @@ export const uploadAvatar = async (
     });
 
     const serverBase = process.env.SERVER_BASE_URL || "http://localhost:3000";
-    const avatarUrl = `${serverBase}/public/images/avatars/${avatarFilename}`;
+    const avatarUrl = `${serverBase}/images/avatars/${avatarFilename}`;
 
     const { passwordHash, ...userWithoutPassword } = updatedUser;
 
