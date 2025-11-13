@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
-import { PageBreadcrumbs } from "@/components/ui/PageBreadcrumbs";
+import { PageBreadcrumbs, UsersList } from "@/components";
 
 export function AdminUsersPage() {
   const { user, isAuthenticated } = useAuthStore();
@@ -26,6 +26,7 @@ export function AdminUsersPage() {
             </h2>
             <div className="divider expert-blue mb-0"></div>
           </div>
+          <UsersList />
         </>
       ) : (
         <p>Vous n'avez pas les droits d'administrateurs.</p>

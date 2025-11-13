@@ -94,7 +94,7 @@ router.use("/trust-circle", trustCircleRouter);
 router.use("/trusted-contacts", trustedContactRouter);
 router.use("/uploads", uploadsRoutes);
 router.use("/urban-issue-reports", urbanIssueReportRouter);
-router.use("/users", userRouter);
+router.use("/admin/users", userRouter);
 router.use("/user-activities", userActivityRouter);
 router.use("/user-badges", userBadgeRouter);
 router.use("/user-contacts", userContactRouter);

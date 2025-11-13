@@ -17,7 +17,7 @@ const userRouter = Router();
 
 /**
  * @swagger
- * /api/users:
+ * /api/admin/users:
  *   post:
  *     summary: Créer un nouvel utilisateur
  *     tags: [Users]
@@ -41,7 +41,7 @@ userRouter.post("/", validate(userSchema), createUser);
 
 /**
  * @swagger
- * /api/users:
+ * /api/admin/users:
  *   get:
  *     summary: Récupérer la liste des utilisateurs
  *     tags: [Users]
@@ -53,7 +53,7 @@ userRouter.get("/", getAllUsers);
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/admin/users/{id}:
  *   get:
  *     summary: Récupérer un utilisateur par son ID
  *     tags: [Users]
@@ -79,7 +79,7 @@ userRouter.get("/:id", getUser);
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/admin/users/{id}:
  *   put:
  *     summary: Mettre à jour un utilisateur
  *     tags: [Users]
@@ -111,7 +111,7 @@ userRouter.put("/:id", updateUser);
 
 /**
  * @swagger
- * /api/users/{id}/avatar:
+ * /api/admin/users/{id}/avatar:
  *   post:
  *     summary: Upload avatar utilisateur
  *     tags: [Users]
@@ -143,7 +143,7 @@ userRouter.post("/:id/avatar", upload.single("avatar"), uploadAvatar);
 
 /**
  * @swagger
- * /api/users/{id}/password:
+ * /api/admin/users/{id}/password:
  *   put:
  *     summary: Changer le mot de passe
  *     tags: [Users]
@@ -178,7 +178,7 @@ userRouter.put("/:id/password", changePassword);
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/admin/users/{id}:
  *   delete:
  *     summary: Supprimer un utilisateur
  *     tags: [Users]

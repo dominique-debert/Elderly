@@ -41,8 +41,6 @@ export function AdminPage() {
               >
                 Gestion des utilisateurs
               </NavLink>
-
-              <UsersSwitchButtons mode="card" setMode={() => {}} />
             </div>
           </div>
         </>
