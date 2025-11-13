@@ -24,7 +24,6 @@ import {
   ChevronLeft,
   Settings,
 } from "lucide-react";
-import { motion } from "framer-motion";
 
 export function LeftSidebar() {
   const location = useLocation();
@@ -51,7 +50,7 @@ export function LeftSidebar() {
 
   return (
     <div
-      className={`fixed z-40 drawer drawer-open h-[calc(100vh-6.3rem)] top-20 left-4 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-visible overflow-x-hidden ${
+      className={`fixed z-40 drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-3 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-hidden ${
         collapsed ? "w-20" : "w-60"
       }`}
     >
@@ -62,13 +61,13 @@ export function LeftSidebar() {
       >
         <button
           onClick={handleToggle}
-          className="p-3 ml-2 mt-4 hover:bg-primary/10 rounded-lg transition-colors cursor-pointer"
+          className="p-3 ml-2 mt-2 hover:bg-primary/10 rounded-lg transition-colors cursor-pointer"
           title={collapsed ? "Expand" : "Collapse"}
         >
           {collapsed ? (
-            <ChevronRight className="size-5 text-primary dark:text-accent" />
+            <ChevronRight className="size-4 text-primary dark:text-accent" />
           ) : (
-            <ChevronLeft className="size-5 text-primary dark:text-accent" />
+            <ChevronLeft className="size-4 text-primary dark:text-accent" />
           )}
         </button>
 
@@ -76,7 +75,7 @@ export function LeftSidebar() {
           className={`flex flex-col w-full h-full justify-between ${collapsed ? "items-center" : ""}`}
         >
           <div
-            className={`flex flex-col px-2 mt-4 h-full w-full ${collapsed ? "items-center" : ""}`}
+            className={`flex flex-col gap-2 px-2 h-full w-full ${collapsed ? "items-center" : ""}`}
           >
             <NavLink
               to="/dashboard"
@@ -88,7 +87,7 @@ export function LeftSidebar() {
               title={collapsed ? "Tableau de Bord" : ""}
             >
               <LayoutDashboard className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span>Tableau de Bord</span>}
+              {!collapsed && <span className="text-sm">Tableau de Bord</span>}
             </NavLink>
             <NavLink
               to="/explore"
@@ -100,7 +99,7 @@ export function LeftSidebar() {
               title={collapsed ? "Explorer" : ""}
             >
               <Search className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span>Explorer</span>}
+              {!collapsed && <span className="text-sm">Explorer</span>}
             </NavLink>
             {!collapsed && <div className="w-55 divider m-0"></div>}
             <NavLink
@@ -113,7 +112,7 @@ export function LeftSidebar() {
               title={collapsed ? "Mes Activités" : ""}
             >
               <Calendar className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span>Mes Activités</span>}
+              {!collapsed && <span className="text-sm">Mes Activités</span>}
             </NavLink>
             <NavLink
               to={"/wellness"}
@@ -125,7 +124,7 @@ export function LeftSidebar() {
               title={collapsed ? "Mon Bien-Être" : ""}
             >
               <HeartHandshake className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span>Mon Bien-Être</span>}
+              {!collapsed && <span className="text-sm">Mon Bien-Être</span>}
             </NavLink>
             <NavLink
               to={"/exercises"}
@@ -137,7 +136,7 @@ export function LeftSidebar() {
               title={collapsed ? "Mes Exercices" : ""}
             >
               <Activity className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span>Mes Exercices</span>}
+              {!collapsed && <span className="text-sm">Mes Exercices</span>}
             </NavLink>
             <NavLink
               to={"/objectives"}
@@ -149,7 +148,7 @@ export function LeftSidebar() {
               title={collapsed ? "Mes Objectifs" : ""}
             >
               <LayoutList className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span>Mes Objectifs</span>}
+              {!collapsed && <span className="text-sm">Mes Objectifs</span>}
             </NavLink>
             <NavLink
               to={"/projects"}
@@ -161,7 +160,7 @@ export function LeftSidebar() {
               title={collapsed ? "Mes Projets" : ""}
             >
               <FolderKanban className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span>Mes Projets</span>}
+              {!collapsed && <span className="text-sm">Mes Projets</span>}
             </NavLink>
             <NavLink
               to={"/medications"}
@@ -173,9 +172,21 @@ export function LeftSidebar() {
               title={collapsed ? "Mes Traitements" : ""}
             >
               <Pill className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span>Mes Traitements</span>}
+              {!collapsed && <span className="text-sm">Mes Traitements</span>}
             </NavLink>
             {!collapsed && <div className="w-55 divider expert-blue m-0"></div>}
+            <NavLink
+              to={"/messages"}
+              className={({ isActive }) =>
+                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                  isActive ? "bg-primary/10" : ""
+                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+              }
+              title={collapsed ? "Messages" : ""}
+            >
+              <MessageCircle className="dark:text-accent text-primary size-4 shrink-0" />
+              {!collapsed && <span className="text-sm">Messages</span>}
+            </NavLink>
             <ul className="border-l-0 pl-0 w-full">
               <li className="w-full">
                 <button
@@ -190,7 +201,7 @@ export function LeftSidebar() {
                   <MessagesSquare className="dark:text-accent text-primary size-4 shrink-0" />
                   {!collapsed && (
                     <>
-                      <span className="flex-1 text-left">Forum</span>
+                      <span className="flex-1 text-left text-sm">Forum</span>
                       <span
                         className={`transition-transform ${forumOpen ? "rotate-90" : ""}`}
                       >
@@ -212,7 +223,7 @@ export function LeftSidebar() {
                         }
                       >
                         <Home className="size-4 text-orange-400" />
-                        Accueil
+                        <span className="text-sm">Accueil</span>
                       </NavLink>
                     </li>
                     <li className="w-48">
@@ -225,7 +236,7 @@ export function LeftSidebar() {
                         }
                       >
                         <Telescope className="size-4 text-orange-400" />
-                        Découvrir
+                        <span className="text-sm">Découvrir</span>
                       </NavLink>
                     </li>
                     <li className="w-48">
@@ -238,7 +249,7 @@ export function LeftSidebar() {
                         }
                       >
                         <Hash className="size-4 text-orange-400" />
-                        Discussions
+                        <span className="text-sm">Discussions</span>
                       </NavLink>
                     </li>
                     <li className="w-48">
@@ -251,7 +262,7 @@ export function LeftSidebar() {
                         }
                       >
                         <ChartColumnStacked className="size-4 text-orange-400" />
-                        Catégories
+                        <span className="text-sm">Catégories</span>
                       </NavLink>
                     </li>
                     <li className="w-48">
@@ -264,7 +275,7 @@ export function LeftSidebar() {
                         }
                       >
                         <Bookmark className="size-4 text-orange-400" />
-                        Mes Favoris
+                        <span className="text-sm">Mes Favoris</span>
                       </NavLink>
                     </li>
                     <li className="w-48">
@@ -277,7 +288,7 @@ export function LeftSidebar() {
                         }
                       >
                         <Bell className="size-4 text-orange-400" />
-                        Notifications
+                        <span className="text-sm">Notifications</span>
                       </NavLink>
                     </li>
 
@@ -292,7 +303,7 @@ export function LeftSidebar() {
                           }
                         >
                           <Siren className="size-4 text-orange-400" />
-                          Moderation
+                          <span className="text-sm">Modération</span>
                         </NavLink>
                       </li>
                     )}
@@ -300,18 +311,6 @@ export function LeftSidebar() {
                 )}
               </li>
             </ul>
-            <NavLink
-              to={"/messages"}
-              className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? "Messages" : ""}
-            >
-              <MessageCircle className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span>Messages</span>}
-            </NavLink>
           </div>
 
           <div
@@ -338,7 +337,7 @@ export function LeftSidebar() {
                 />
               </div>
               {!collapsed && (
-                <span className="truncate">
+                <span className="truncate text-sm">
                   {user?.firstName} {user?.lastName}
                 </span>
               )}
@@ -357,7 +356,9 @@ export function LeftSidebar() {
                   data-tip="Espace administration"
                 >
                   <Settings className="dark:text-accent text-primary size-4 shrink-0" />
-                  {!collapsed && <span>Administration</span>}
+                  {!collapsed && (
+                    <span className="text-sm">Administration</span>
+                  )}
                 </NavLink>
               </>
             )}
