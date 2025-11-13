@@ -346,7 +346,7 @@ export function LeftSidebar() {
               <>
                 {!collapsed && <div className="w-55 divider m-0"></div>}
                 <NavLink
-                  to="/admin-page"
+                  to="/admin"
                   className={({ isActive }) =>
                     `p-3 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                       isActive ? "bg-primary/10" : ""

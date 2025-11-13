@@ -1,5 +1,7 @@
 export * from "./ActivitiesPage";
+export * from "./Administration/AdminCategoriesPage";
 export * from "./Administration/AdminPage";
+export * from "./Administration/AdminUsersPage";
 export * from "./DashboardPage";
 export * from "./Forum/BookmarksPage";
 export * from "./Forum/CategoriesPage";

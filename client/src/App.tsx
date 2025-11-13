@@ -4,6 +4,8 @@ import { SidebarProvider } from "@/context/SidebarContext";
 import { Layout } from "@/components";
 
 import {
+  AdminCategoriesPage,
+  AdminUsersPage,
   AdminPage,
   DashboardPage,
   LandingPage,
@@ -50,7 +52,12 @@ const App = () => {
             <Route element={<Layout />}>
               <Route path="/" element={<LandingPageRoute />} />
               <Route path="/activities" element={<ActivitiesPage />} />
-              <Route path="/admin-page" element={<AdminPage />} />
+              <Route path="/admin" element={<AdminPage />} />
+              <Route
+                path="/admin/categories"
+                element={<AdminCategoriesPage />}
+              />
+              <Route path="/admin/users" element={<AdminUsersPage />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/exercises" element={<ExercisesPage />} />
               <Route path="/explore" element={<ExplorePage />} />
