@@ -3,14 +3,14 @@ import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useTheme } from "@/context";
-import { useAuth, useAuthStore } from "@/stores";
+import { useAuth } from "@/stores";
 
 import { getNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
 
 import { NotificationList, Search } from "@/components";
 import toast from "react-hot-toast";
-import { MoonIcon, SunIcon, SlidersVertical, BellIcon } from "lucide-react";
+import { MoonIcon, SunIcon, BellIcon } from "lucide-react";
 
 export function Navbar() {
   const { user, isAuthenticated } = useAuth();
@@ -18,7 +18,6 @@ export function Navbar() {
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const notifRef = useRef<HTMLDivElement>(null);
 
-  const { logout } = useAuthStore();
   const navigate = useNavigate();
 
   const handleToggle = () => {
@@ -105,7 +104,7 @@ export function Navbar() {
               )}
             </label>
 
-            <div className="relative" ref={notifRef}>
+            <div className="relative mr-4" ref={notifRef}>
               <button
                 role="button"
                 className="cursor-pointer text-base-content avatar tooltip tooltip-bottom tooltip-accent"
@@ -131,55 +130,6 @@ export function Navbar() {
                 </div>
               )}
             </div>
-
-            {user?.isAdmin && (
-              <Link
-                to="/admin-page"
-                className="cursor-pointer tooltip tooltip-bottom mr-3 tooltip-accent"
-                data-tip="Espace administration"
-              >
-                <SlidersVertical className="size-6 text-slate-500 dark:text-white/40" />
-              </Link>
-            )}
-
-            {isAuthenticated && (
-              <div className="flex flex-row gap-2 mr-4">
-                <div className="dropdown dropdown-end">
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    className="btn btn-ghost btn-circle avatar"
-                  >
-                    <div className="rounded-full border-2 border-slate-400">
-                      <img
-                        alt="avatar"
-                        src={
-                          useAuthStore.getState().user?.avatarUrl ||
-                          `/images/${
-                            useAuthStore.getState().user?.avatarUrl ||
-                            "default-avatar.svg"
-                          }`
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  <ul
-                    tabIndex={0}
-                    className="menu border border-slate-800 dropdown-content dropdown-end bg-white dark:bg-card rounded-box mt-3 w-52 p-2 shadow-md"
-                  >
-                    <li>
-                      <Link to="/profile">Profil</Link>
-                    </li>
-                    <li>
-                      <Link to="/login" onClick={() => logout(navigate)}>
-                        Se déconnecter
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>

@@ -56,11 +56,11 @@ app.use(
 // Routes
 app.use("/api", routes);
 
-// Diffusion des fichiers statiques (avatars, etc.) à partir du dossier public
+// Distribution of static files (avatars, etc.) from the public folder
 const publicPath = path.join(process.cwd(), "public");
 app.use("/public", express.static(publicPath));
 
-// Diffusion des fichiers sous /images/... à partir du dossier public/images
+// Distribution of files under /images/... from the public/images folder
 app.use(
   "/images",
   express.static(path.join(process.cwd(), "public", "images"), {
@@ -68,10 +68,10 @@ app.use(
   })
 );
 
-// Middleware de gestion des erreurs
+// Error handling middleware
 app.use(errorHandler);
 
-// Démarrage du serveur
+// Server startup
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
