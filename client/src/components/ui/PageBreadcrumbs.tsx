@@ -15,7 +15,9 @@ export function PageBreadcrumbs({
   className = "",
 }: PageBreadcrumbsProps) {
   return (
-    <div className={`breadcrumbs text-slate-500 text-xs mb-6 ${className}`}>
+    <div
+      className={`breadcrumbs dark:text-slate-500 text-slate-600 text-xs mb-6 ${className}`}
+    >
       <ul>
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
@@ -24,7 +26,9 @@ export function PageBreadcrumbs({
             <li
               key={index}
               className={
-                isLast ? "text-slate-300 text-medium pointer-events-none" : ""
+                isLast
+                  ? "text-slate-800 dark:text-slate-300 text-medium pointer-events-none"
+                  : ""
               }
             >
               {item.path && !isLast ? (

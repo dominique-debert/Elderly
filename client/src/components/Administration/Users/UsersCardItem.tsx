@@ -20,7 +20,7 @@ export function UsersCardItem({ user }: UsersCardItemProps) {
 
   return (
     <>
-      <div className="card bg-base-100 shadow-md border border-base-200 hover:shadow-lg transition-shadow">
+      <div className="card bg-white dark:bg-card shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-shadow">
         <div className="card-body p-4">
           <div className="flex flex-col items-center text-center">
             <div className="avatar mb-3">
