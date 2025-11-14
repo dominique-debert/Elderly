@@ -74,7 +74,6 @@ export const createUser = async (
   }
 };
 
-// Récupérer tous les utilisateurs avec pagination et filtres optionnels
 export const getAllUsers = async (
   req: Request,
   res: Response,

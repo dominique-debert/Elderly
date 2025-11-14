@@ -60,6 +60,13 @@ export function UserEditModal({
         <h3 className="font-bold text-lg">Modifier l'utilisateur</h3>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
+          <button
+            type="button"
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            onClick={onClose}
+          >
+            ✕
+          </button>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="text-sm mb-1 block">Prénom</label>

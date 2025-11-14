@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
 import type { IUser } from "@/types";
 
-export const getUsers = async (): Promise<IUser[]> => {
+export const getAllUsers = async (): Promise<IUser[]> => {
   const response = await api.get("/admin/users", {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

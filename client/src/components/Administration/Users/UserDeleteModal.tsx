@@ -27,13 +27,20 @@ export function UserDeleteModal({
   return (
     <dialog className="modal modal-open">
       <div className="modal-box bg-white! dark:bg-card!">
+        <button
+          type="button"
+          className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          onClick={onClose}
+        >
+          ✕
+        </button>
         <h3 className="font-bold text-lg">Supprimer l'utilisateur</h3>
         <p className="py-4">
           Confirmer la suppression de{" "}
           <strong>
             {user.firstName} {user.lastName}
           </strong>{" "}
-          ({user.email}) ?
+          {user.email}
         </p>
         <div className="modal-action">
           <button className="btn btn-error" onClick={handleDelete}>

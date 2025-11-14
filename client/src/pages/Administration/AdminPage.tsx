@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 import { PageBreadcrumbs } from "@/components";
-import { UsersSwitchButtons } from "@/components";
 
 export function AdminPage() {
   const { user, isAuthenticated } = useAuthStore();

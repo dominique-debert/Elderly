@@ -20,19 +20,20 @@ export function UsersCardItem({ user }: UsersCardItemProps) {
 
   return (
     <>
-      <div className="card bg-white dark:bg-card shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-shadow">
+      <div className="card bg-white dark:bg-card shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-shadow">
         <div className="card-body p-4">
           <div className="flex flex-col items-center text-center">
             <div className="avatar mb-3">
-              <div className="w-20 h-20 rounded-full">
+              <div>
                 {user.avatar ? (
                   <img
+                    className="avatar size-18 rounded-full border-2 border-slate-300 dark:border-slate-500"
                     src={getAvatarUrl(user.avatar) || ""}
                     alt={`${user.firstName} ${user.lastName}`}
                   />
                 ) : (
-                  <div className="bg-primary/20 w-full h-full flex items-center justify-center">
-                    <span className="text-primary font-semibold text-2xl">
+                  <div className="avatar size-18 rounded-full border-2 border-slate-300 dark:border-slate-500 bg-primary/20 flex items-center justify-center">
+                    <span className="text-primary font-semibold text-xl">
                       {user.firstName?.[0]}
                       {user.lastName?.[0]}
                     </span>
@@ -46,25 +47,30 @@ export function UsersCardItem({ user }: UsersCardItemProps) {
             </h3>
 
             <div className="flex flex-col gap-1 text-sm text-slate-600 dark:text-slate-400 mt-2 w-full">
-              <div className="flex items-center gap-2 justify-center">
-                <Mail className="w-4 h-4" />
-                <span className="truncate">{user.email}</span>
+              <div className="flex items-center gap-2 justify-center mb-2">
+                <Mail className="size-3" />
+                <a
+                  className="link link-primary text-xs"
+                  href={`mailto:${user.email}`}
+                >
+                  {user.email}
+                </a>
               </div>
               {user.phone && (
                 <div className="flex items-center gap-2 justify-center">
-                  <Phone className="w-4 h-4" />
+                  <Phone className="size-3" />
                   <span>{user.phone}</span>
                 </div>
               )}
               {user.city && (
                 <div className="flex items-center gap-2 justify-center">
-                  <MapPin className="w-4 h-4" />
+                  <MapPin className="size-3" />
                   <span>{user.city}</span>
                 </div>
               )}
             </div>
 
-            <div className="flex flex-wrap gap-2 mt-3 justify-center">
+            <div className="flex flex-wrap gap-2 mt-4 justify-center">
               <span
                 className={`badge ${
                   user.status === "active"
@@ -89,20 +95,19 @@ export function UsersCardItem({ user }: UsersCardItemProps) {
                 </span>
               )}
             </div>
-
-            <div className="flex gap-2 mt-4 w-full">
+            <div className="divider mb-0" />
+            <div className="flex gap-2 mt-2 w-full justify-end">
               <button
-                className="btn btn-ghost btn-sm flex-1"
+                className="btn p-1 size-8 text-primary bg-primary/10 hover:bg-primary/20"
                 onClick={() => setIsEditOpen(true)}
               >
-                <Pencil className="w-4 h-4" />
-                Modifier
+                <Pencil className="size-4" />
               </button>
               <button
-                className="btn btn-ghost btn-sm text-error"
+                className="btn text-error p-1 size-8 bg-error/10 hover:bg-error/20"
                 onClick={() => setIsDeleteOpen(true)}
               >
-                <Trash2 className="w-4 h-4" />
+                <Trash2 className="size-4" />
               </button>
             </div>
           </div>

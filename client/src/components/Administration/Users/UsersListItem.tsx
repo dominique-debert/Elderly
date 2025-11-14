@@ -20,13 +20,14 @@ export function UsersListItem({ user }: UsersListItemProps) {
 
   return (
     <>
-      <li className="card bg-base-100 shadow-sm border border-base-200">
+      <li className="card bg-white dark:bg-card shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-shadow">
         <div className="card-body p-4">
           <div className="flex items-center gap-4">
             <div className="avatar">
               <div className="w-16 h-16 rounded-full">
                 {user.avatar ? (
                   <img
+                    className="avatar size-18 rounded-full border-2 border-slate-300 dark:border-slate-500"
                     src={getAvatarUrl(user.avatar) || ""}
                     alt={`${user.firstName} ${user.lastName}`}
                   />
@@ -47,18 +48,26 @@ export function UsersListItem({ user }: UsersListItemProps) {
               </h3>
               <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400 mt-1">
                 <div className="flex items-center gap-1">
-                  <Mail className="w-4 h-4" />
-                  <span>{user.email}</span>
+                  <Mail className="size-4" />
+                  <span>
+                    {" "}
+                    <a
+                      className="link link-primary text-xs"
+                      href={`mailto:${user.email}`}
+                    >
+                      {user.email}
+                    </a>
+                  </span>
                 </div>
                 {user.phone && (
                   <div className="flex items-center gap-1">
-                    <Phone className="w-4 h-4" />
+                    <Phone className="size-4" />
                     <span>{user.phone}</span>
                   </div>
                 )}
                 {user.city && (
                   <div className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4" />
+                    <MapPin className="size-4" />
                     <span>{user.city}</span>
                   </div>
                 )}
@@ -92,16 +101,16 @@ export function UsersListItem({ user }: UsersListItemProps) {
 
             <div className="flex gap-2">
               <button
-                className="btn btn-ghost btn-sm"
+                className="btn p-1 size-8 text-primary bg-primary/10 hover:bg-primary/20"
                 onClick={() => setIsEditOpen(true)}
               >
-                <Pencil className="w-4 h-4" />
+                <Pencil className="size-4" />
               </button>
               <button
-                className="btn btn-ghost btn-sm text-error"
+                className="btn text-error p-1 size-8 bg-error/10 hover:bg-error/20"
                 onClick={() => setIsDeleteOpen(true)}
               >
-                <Trash2 className="w-4 h-4" />
+                <Trash2 className="size-4" />
               </button>
             </div>
           </div>

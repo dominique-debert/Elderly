@@ -23,9 +23,10 @@ export function UsersTableRow({ user }: UsersTableRowProps) {
       <tr>
         <td>
           <div className="avatar">
-            <div className="w-10 h-10 rounded-full">
+            <div className="size-12 rounded-full">
               {user.avatar ? (
                 <img
+                  className="avatar size-12 rounded-full border-2 border-slate-300 dark:border-slate-500"
                   src={getAvatarUrl(user.avatar) || ""}
                   alt={`${user.firstName} ${user.lastName}`}
                 />
@@ -41,13 +42,21 @@ export function UsersTableRow({ user }: UsersTableRowProps) {
           </div>
         </td>
         <td>
-          <div className="font-medium">
+          <div className="font-medium whitespace-nowrap">
             {user.firstName} {user.lastName}
           </div>
         </td>
-        <td>{user.email}</td>
-        <td>{user.city || "-"}</td>
-        <td>{user.phone || "-"}</td>
+        <td className="whitespace-nowrap">
+          {" "}
+          <a
+            className="link link-primary text-xs"
+            href={`mailto:${user.email}`}
+          >
+            {user.email}
+          </a>
+        </td>
+        <td className="whitespace-nowrap">{user.city || "-"}</td>
+        <td className="whitespace-nowrap">{user.phone || "-"}</td>
         <td>
           <td>
             <span
@@ -67,9 +76,9 @@ export function UsersTableRow({ user }: UsersTableRowProps) {
             </span>
           </td>
         </td>
-        <td>
+        <td className="text-center">
           {user.isAdmin ? (
-            <span className="badge badge-primary badge-sm">Admin</span>
+            <span className="badge badge-error badge-sm">Admin</span>
           ) : (
             <span className="badge badge-ghost badge-sm">User</span>
           )}
@@ -77,16 +86,16 @@ export function UsersTableRow({ user }: UsersTableRowProps) {
         <td>
           <div className="flex gap-2">
             <button
-              className="btn btn-ghost btn-xs"
+              className="btn p-1 size-8 text-primary bg-primary/10 hover:bg-primary/20"
               onClick={() => setIsEditOpen(true)}
             >
-              <Pencil className="w-4 h-4" />
+              <Pencil className="size-4" />
             </button>
             <button
-              className="btn btn-ghost btn-xs text-error"
+              className="btn text-error p-1 size-8 bg-error/10 hover:bg-error/20"
               onClick={() => setIsDeleteOpen(true)}
             >
-              <Trash2 className="w-4 h-4" />
+              <Trash2 className="size-4" />
             </button>
           </div>
         </td>

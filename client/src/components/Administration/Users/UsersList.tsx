@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getUsers } from "@/services";
+import { getAllUsers } from "@/services";
 import type { IUser } from "@/types";
 
 import {
@@ -31,27 +31,21 @@ export function UsersList() {
     isError,
   } = useQuery({
     queryKey: ["users"],
-    queryFn: getUsers,
+    queryFn: getAllUsers,
   });
 
   const filteredUsers = (() => {
     if (!users || !Array.isArray(users)) return [];
 
-    return users
-      .filter((user: IUser) => {
-        const searchLower = search.toLowerCase();
-        return (
-          user.firstName?.toLowerCase().includes(searchLower) ||
-          user.lastName?.toLowerCase().includes(searchLower) ||
-          user.email?.toLowerCase().includes(searchLower) ||
-          user.city?.toLowerCase().includes(searchLower)
-        );
-      })
-      .sort((a: IUser, b: IUser) =>
-        `${a.firstName} ${a.lastName}`.localeCompare(
-          `${b.firstName} ${b.lastName}`
-        )
+    return users.filter((user: IUser) => {
+      const searchLower = search.toLowerCase();
+      return (
+        user.firstName?.toLowerCase().includes(searchLower) ||
+        user.lastName?.toLowerCase().includes(searchLower) ||
+        user.email?.toLowerCase().includes(searchLower) ||
+        user.city?.toLowerCase().includes(searchLower)
       );
+    });
   })();
 
   return (
