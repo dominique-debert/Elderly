@@ -21,13 +21,13 @@ export function UsersListItem({ user }: UsersListItemProps) {
   return (
     <>
       <li className="card bg-white dark:bg-card shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-shadow">
-        <div className="card-body p-4">
-          <div className="flex items-center gap-4">
+        <div className="card-body p-4 pl-6 pr-6">
+          <div className="flex items-start gap-6">
             <div className="avatar">
-              <div className="w-16 h-16 rounded-full">
+              <div className="size-14 rounded-full mt-1">
                 {user.avatar ? (
                   <img
-                    className="avatar size-18 rounded-full border-2 border-slate-300 dark:border-slate-500"
+                    className="avatar size-14 rounded-full border-2 border-slate-300 dark:border-slate-500"
                     src={getAvatarUrl(user.avatar) || ""}
                     alt={`${user.firstName} ${user.lastName}`}
                   />
@@ -47,8 +47,8 @@ export function UsersListItem({ user }: UsersListItemProps) {
                 {user.firstName} {user.lastName}
               </h3>
               <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400 mt-1">
-                <div className="flex items-center gap-1">
-                  <Mail className="size-4" />
+                <div className="flex items-center gap-2">
+                  <Mail className="size-3 mt-1" />
                   <span>
                     {" "}
                     <a
@@ -60,19 +60,19 @@ export function UsersListItem({ user }: UsersListItemProps) {
                   </span>
                 </div>
                 {user.phone && (
-                  <div className="flex items-center gap-1">
-                    <Phone className="size-4" />
+                  <div className="flex items-center gap-2">
+                    <Phone className="size-3" />
                     <span>{user.phone}</span>
                   </div>
                 )}
                 {user.city && (
-                  <div className="flex items-center gap-1">
-                    <MapPin className="size-4" />
+                  <div className="flex items-center gap-2">
+                    <MapPin className="size-3" />
                     <span>{user.city}</span>
                   </div>
                 )}
               </div>
-              <div className="flex gap-2 mt-2">
+              <div className="flex gap-2 mt-4">
                 <span
                   className={`badge ${
                     user.status === "active"
