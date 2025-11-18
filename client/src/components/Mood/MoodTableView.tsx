@@ -11,7 +11,7 @@ import {
 
 export function MoodTableView({ moods }: { moods: IMood[] }) {
   return (
-    <Table className="table w-full table-zebra mt-10">
+    <Table className="table w-full table-zebra">
       <TableHeader className="text-semibold">
         <TableRow>
           <TableHead>Titre</TableHead>

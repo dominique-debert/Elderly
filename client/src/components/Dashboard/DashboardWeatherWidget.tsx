@@ -30,7 +30,7 @@ export const DashboardWeatherWidget = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-3xl text-center text-primary">
+        <CardTitle className="text-3xl text-center dark:text-accent text-primary">
           {isLoading ? <Skeleton className="h-6 w-24 ml-auto" /> : data?.city}
         </CardTitle>
       </CardHeader>
@@ -61,8 +61,6 @@ export const DashboardWeatherWidget = () => {
               {data.temperature}°C
             </div>
 
-            {/* <div className="divider mt-4 mb-2" /> */}
-
             <div className="mt-12 grid grid-cols-3 gap-2 text-center text-sm">
               {data.forecast.map(
                 (
@@ -77,16 +75,18 @@ export const DashboardWeatherWidget = () => {
                   i: number
                 ) => (
                   <div key={i}>
-                    <div className="text-lg capitalize">
+                    <div className="text-lg capitalize text-accent font-medium">
                       {new Date(day.date).toLocaleDateString("fr-FR", {
                         weekday: "long",
                       })}
                     </div>
                     <div className="flex flex-col justify-center items-center gap-4 text-md mt-4">
                       {renderIcon(day.icone)}
-                      <p className="mt-4">{day.description}</p>
+                      <p className="mt-4 text-base-content/70">
+                        {day.description}
+                      </p>
                     </div>
-                    <div className="mt-4 text-md">
+                    <div className="mt-4 text-md text-base-content/60">
                       <div>Min: {day.temperature_min}°</div>
                       <div>Max: {day.temperature_max}°</div>
                     </div>

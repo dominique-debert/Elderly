@@ -1,8 +1,6 @@
-import Icon from "@mdi/react";
-import { mdiDeleteOutline, mdiPencilOutline } from "@mdi/js";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-
+import { Pencil, Trash } from "lucide-react";
 import { ETabKey, IMood } from "@/types";
 
 import { MoodDeleteModal, MoodEditModal } from "@/components";
@@ -28,35 +26,37 @@ export function MoodCard({ mood }: MoodCardProps) {
   return (
     <>
       <div
-        className="rounded-lg p-4 pt-0 shadow-lg"
-        style={{ borderLeft: `10px solid ${mood.color}` }}
+        className="rounded-lg p-4 pt-0 border border-gray-200 dark:border-gray-800"
+        style={{ borderLeft: `5px solid ${mood.color}` }}
       >
         <div className="flex items-center justify-between w-full mt-2">
           <p className="text-xl font-semibold mb-2"> {mood.name}</p>
         </div>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 capitalize">
           {mood.valence} · intensité {mood.intensity}/5
         </p>
-        {mood.description && <p className="mt-2">{mood.description}</p>}
-        <div className="divider"></div>
-        <div className="justify-end card-actions gap-4">
+        {mood.description && (
+          <p className="mt-2 h-8 text-sm">{mood.description}</p>
+        )}
+        <div className="divider mb-2"></div>
+        <div className="justify-end card-actions gap-2">
           <button
-            className="btn bg-primary/20 hover:bg-primary/30 text-primary size-8 p-0"
+            className="btn bg-primary/10 hover:bg-primary/30 text-primary size-8 p-0"
             onClick={(e) => {
               e.stopPropagation();
               setIsEditOpen(true);
             }}
           >
-            <Icon path={mdiPencilOutline} size={0.8} />
+            <Pencil className="size-3.5" />
           </button>
           <button
-            className="btn bg-red-600/20 text-red-400 hover:bg-red-600/30 size-8 p-0"
+            className="btn bg-red-600/10 text-red-400 hover:bg-red-600/30 size-8 p-0"
             onClick={(e) => {
               e.stopPropagation();
               setIsConfirmDeleteOpen(true);
             }}
           >
-            <Icon path={mdiDeleteOutline} size={0.8} />
+            <Trash className="size-3.5" />
           </button>
         </div>
       </div>

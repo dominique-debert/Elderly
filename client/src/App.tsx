@@ -1,8 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "@/context";
+import { SidebarProvider } from "@/context/SidebarContext";
 import { Layout } from "@/components";
 
 import {
+  AdminCategoriesPage,
+  AdminUsersPage,
   AdminPage,
   DashboardPage,
   LandingPage,
@@ -12,9 +15,20 @@ import {
   WellnessPage,
   MedicationPage,
   ForumPage,
-  ObjectivePage,
+  ObjectivesPage,
+  ExplorePage,
+  ActivitiesPage,
+  MessagesPage,
+  ExercisesPage,
+  ProjectsPage,
+  DiscussionsPage,
+  CategoriesPage,
+  NotificationsPage,
+  DiscoveryPage,
+  ModerationPage,
 } from "@/pages";
 import "./App.css";
+import { BookmarksPage } from "./pages/Forum/BookmarksPage";
 
 const LandingPageRoute = () => {
   const { isAuthenticated } = useAuth();
@@ -27,22 +41,47 @@ const LandingPageRoute = () => {
 
 const App = () => {
   return (
-    <AuthProvider>
+    <>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<LandingPageRoute />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/admin-page" element={<AdminPage />} />
-          <Route path="/wellness" element={<WellnessPage />} />
-          <Route path="/medications" element={<MedicationPage />} />
-          <Route path="/objectives" element={<ObjectivePage />} />
-          <Route path="/forum" element={<ForumPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-        </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
-    </AuthProvider>
+      <AuthProvider>
+        <SidebarProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<LandingPageRoute />} />
+              <Route path="/activities" element={<ActivitiesPage />} />
+              <Route path="/admin" element={<AdminPage />} />
+              <Route
+                path="/admin/categories"
+                element={<AdminCategoriesPage />}
+              />
+              <Route path="/admin/users" element={<AdminUsersPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/exercises" element={<ExercisesPage />} />
+              <Route path="/explore" element={<ExplorePage />} />
+              <Route path="/forum/home" element={<ForumPage />} />
+              <Route path="/forum/bookmarks" element={<BookmarksPage />} />
+              <Route path="/forum/categories" element={<CategoriesPage />} />
+              <Route path="/forum/discover" element={<DiscoveryPage />} />
+              <Route path="/forum/discussions" element={<DiscussionsPage />} />
+              <Route path="/forum/moderation" element={<ModerationPage />} />
+              <Route
+                path="/forum/notifications"
+                element={<NotificationsPage />}
+              />
+              <Route path="/medications" element={<MedicationPage />} />
+              <Route path="/messages" element={<MessagesPage />} />
+              <Route path="/objectives" element={<ObjectivesPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/wellness" element={<WellnessPage />} />
+            </Route>
+          </Routes>
+        </SidebarProvider>
+      </AuthProvider>
+    </>
   );
 };
 

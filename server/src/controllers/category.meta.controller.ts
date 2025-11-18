@@ -79,7 +79,6 @@ export async function getCategoryTypeById(
   }
 }
 
-// CORRIGÉ : Retourne un tableau plat avec toutes les données nécessaires
 export async function getCategories(
   req: Request,
   res: Response,
@@ -111,24 +110,12 @@ export async function getCategories(
       },
     });
 
-    // Retourner un tableau plat avec tous les champs nécessaires
-    const result = categories.map((category) => ({
-      id: category.id,
-      categoryName: category.categoryName,
-      description: category.description,
-      chapterId: category.chapterId,
-      typeId: category.typeId,
-      categoryType: category.categoryType,
-      categoryChapter: category.categoryChapter,
-    }));
-
-    res.status(200).json(result);
+    res.status(200).json(categories);
   } catch (error) {
     next(error);
   }
 }
 
-// CORRIGÉ : getCategoryById en tant que handler Express
 export async function getCategoryById(
   req: Request,
   res: Response,

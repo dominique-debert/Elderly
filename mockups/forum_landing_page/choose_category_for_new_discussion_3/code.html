@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Choose a Category</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+      .form-radio:checked {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
+<div class="w-full max-w-2xl rounded-xl bg-white dark:bg-[#111318] border border-gray-200 dark:border-[#3b4354]">
+<header class="flex items-center justify-between border-b border-gray-200 dark:border-[#3b4354] p-6">
+<div class="flex flex-col gap-1">
+<h1 class="text-xl font-bold text-gray-900 dark:text-white">Start a New Discussion</h1>
+<p class="text-sm text-gray-500 dark:text-[#9da6b9]">Select the most relevant category for your topic.</p>
+</div>
+<button class="flex h-8 w-8 items-center justify-center rounded-full text-gray-500 dark:text-[#9da6b9] hover:bg-gray-100 dark:hover:bg-[#282e39]">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+</header>
+<main class="p-6">
+<div class="mb-4">
+<label class="flex w-full items-stretch rounded-lg h-11 bg-gray-100 dark:bg-[#282e39]">
+<div class="text-gray-400 dark:text-[#9da6b9] flex items-center justify-center pl-3.5">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-gray-400 dark:placeholder:text-[#9da6b9] px-2.5 text-base font-normal leading-normal" placeholder="Search for a category" value=""/>
+</label>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-3">
+<h2 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-[#9da6b9]">Recently Used</h2>
+<div class="flex flex-col gap-3">
+<label class="flex cursor-pointer items-center gap-4 rounded-lg border border-solid p-4 transition-colors duration-150 border-gray-200 dark:border-[#3b4354] has-[:checked]:border-primary has-[:checked]:bg-primary/10 hover:border-gray-300 dark:hover:border-[#525d76]">
+<div class="flex grow flex-col">
+<p class="text-sm font-medium text-gray-900 dark:text-white">Product Feedback</p>
+<p class="text-sm font-normal text-gray-500 dark:text-[#9da6b9]">Share your thoughts on our product.</p>
+</div>
+<input class="form-radio h-5 w-5 shrink-0 border-2 border-gray-300 dark:border-[#3b4354] bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-background-dark checked:focus:border-primary" name="category" type="radio"/>
+</label>
+<label class="flex cursor-pointer items-center gap-4 rounded-lg border border-solid p-4 transition-colors duration-150 border-gray-200 dark:border-[#3b4354] has-[:checked]:border-primary has-[:checked]:bg-primary/10 hover:border-gray-300 dark:hover:border-[#525d76]">
+<div class="flex grow flex-col">
+<p class="text-sm font-medium text-gray-900 dark:text-white">Bug Reports</p>
+<p class="text-sm font-normal text-gray-500 dark:text-[#9da6b9]">Report technical issues and glitches.</p>
+</div>
+<input class="form-radio h-5 w-5 shrink-0 border-2 border-gray-300 dark:border-[#3b4354] bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-background-dark checked:focus:border-primary" name="category" type="radio"/>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<h2 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-[#9da6b9]">All Categories</h2>
+<div class="flex flex-col gap-3">
+<label class="flex cursor-pointer items-center gap-4 rounded-lg border border-solid p-4 transition-colors duration-150 border-gray-200 dark:border-[#3b4354] has-[:checked]:border-primary has-[:checked]:bg-primary/10 hover:border-gray-300 dark:hover:border-[#525d76]">
+<div class="flex grow flex-col">
+<p class="text-sm font-medium text-gray-900 dark:text-white">Announcements</p>
+<p class="text-sm font-normal text-gray-500 dark:text-[#9da6b9]">Official news from our team.</p>
+</div>
+<input class="form-radio h-5 w-5 shrink-0 border-2 border-gray-300 dark:border-[#3b4354] bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-background-dark checked:focus:border-primary" name="category" type="radio"/>
+</label>
+<label class="flex cursor-pointer items-center gap-4 rounded-lg border border-solid p-4 transition-colors duration-150 border-gray-200 dark:border-[#3b4354] has-[:checked]:border-primary has-[:checked]:bg-primary/10 hover:border-gray-300 dark:hover:border-[#525d76]">
+<div class="flex grow flex-col">
+<p class="text-sm font-medium text-gray-900 dark:text-white">Product Feedback</p>
+<p class="text-sm font-normal text-gray-500 dark:text-[#9da6b9]">Share your thoughts on our product.</p>
+</div>
+<input class="form-radio h-5 w-5 shrink-0 border-2 border-gray-300 dark:border-[#3b4354] bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-background-dark checked:focus:border-primary" name="category" type="radio"/>
+</label>
+<label class="flex cursor-pointer items-center gap-4 rounded-lg border border-solid p-4 transition-colors duration-150 border-gray-200 dark:border-[#3b4354] has-[:checked]:border-primary has-[:checked]:bg-primary/10 hover:border-gray-300 dark:hover:border-[#525d76]">
+<div class="flex grow flex-col">
+<p class="text-sm font-medium text-gray-900 dark:text-white">Bug Reports</p>
+<p class="text-sm font-normal text-gray-500 dark:text-[#9da6b9]">Report technical issues and glitches.</p>
+</div>
+<input class="form-radio h-5 w-5 shrink-0 border-2 border-gray-300 dark:border-[#3b4354] bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-background-dark checked:focus:border-primary" name="category" type="radio"/>
+</label>
+<label class="flex cursor-pointer items-center gap-4 rounded-lg border border-solid p-4 transition-colors duration-150 border-gray-200 dark:border-[#3b4354] has-[:checked]:border-primary has-[:checked]:bg-primary/10 hover:border-gray-300 dark:hover:border-[#525d76]">
+<div class="flex grow flex-col">
+<p class="text-sm font-medium text-gray-900 dark:text-white">General Chat</p>
+<p class="text-sm font-normal text-gray-500 dark:text-[#9da6b9]">A place for off-topic conversations.</p>
+</div>
+<input class="form-radio h-5 w-5 shrink-0 border-2 border-gray-300 dark:border-[#3b4354] bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-background-dark checked:focus:border-primary" name="category" type="radio"/>
+</label>
+<label class="flex cursor-pointer items-center gap-4 rounded-lg border border-solid p-4 transition-colors duration-150 border-gray-200 dark:border-[#3b4354] has-[:checked]:border-primary has-[:checked]:bg-primary/10 hover:border-gray-300 dark:hover:border-[#525d76]">
+<div class="flex grow flex-col">
+<p class="text-sm font-medium text-gray-900 dark:text-white">Feature Requests</p>
+<p class="text-sm font-normal text-gray-500 dark:text-[#9da6b9]">Suggest new ideas for the future.</p>
+</div>
+<input class="form-radio h-5 w-5 shrink-0 border-2 border-gray-300 dark:border-[#3b4354] bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-background-dark checked:focus:border-primary" name="category" type="radio"/>
+</label>
+</div>
+</div>
+</div>
+</main>
+<footer class="flex justify-end gap-3 border-t border-gray-200 dark:border-[#3b4354] p-6">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-5 bg-gray-100 dark:bg-[#282e39] text-gray-800 dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-[#3b4354] transition-colors">
+<span class="truncate">Cancel</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors disabled:cursor-not-allowed disabled:opacity-50" disabled="">
+<span class="truncate">Next</span>
+</button>
+</footer>
+</div>
+</div>
+
+</body></html>

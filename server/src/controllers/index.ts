@@ -15,6 +15,8 @@ export * from "./conversation.controller";
 export * from "./conversationParticipant.controller";
 export * from "./exerciseProgram.controller";
 export * from "./forumMessage.controller";
+export * from "./forumTopic.controller";
+export * from "./forumSection.controller";
 export * from "./healthIndicator.controller";
 export * from "./helpOffer.controller";
 export * from "./helpRequest.controller";

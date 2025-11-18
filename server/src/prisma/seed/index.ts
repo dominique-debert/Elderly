@@ -4,7 +4,6 @@ export * from "./categories/categories.seed";
 export * from "./categories/categoryChapters.seed";
 export * from "./categories/categoryTypes.seed";
 export * from "./categories/cognitions.seed";
-export * from "./categories/forum.seed";
 export * from "./categories/help.seed";
 export * from "./menuItems.seed";
 export * from "./moods.seed";

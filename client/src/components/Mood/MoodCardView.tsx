@@ -7,7 +7,7 @@ type MoodCardViewProps = {
 
 export function MoodCardView({ moods }: MoodCardViewProps) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {moods.map((mood) => (
         <MoodCard key={mood.id} mood={mood} />
       ))}

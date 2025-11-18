@@ -26,13 +26,13 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
             e.stopPropagation();
             setIsCreateOpen(true);
           }}
-          className="btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-card h-10"
+          className="btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-transparent h-10"
         >
           <PlusIcon className="size-5" />
         </button>
         <button
           onClick={() => setMode("card")}
-          className={`btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-card h-10 ${
+          className={`btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-transparent h-10 ${
             mode === "card" ? "btn-primary" : ""
           }`}
         >
@@ -40,7 +40,7 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
         </button>
         <button
           onClick={() => setMode("list")}
-          className={`btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-card h-10 ${
+          className={`btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-transparent h-10 ${
             mode === "list" ? "btn-primary" : ""
           }`}
         >
@@ -48,7 +48,7 @@ export function SwitchButtons({ mode, setMode, activeTab }: SwitchProps) {
         </button>
         <button
           onClick={() => setMode("table")}
-          className={`btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-card h-10 ${
+          className={`btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-transparent h-10 ${
             mode === "table" ? "btn-primary" : ""
           }`}
         >

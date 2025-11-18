@@ -11,7 +11,6 @@
   --color-background-light: #f1f5f9;
   --color-background-dark: hsl(222.2, 69.2%, 7.6%);
   --tab-p: 0;
-  --color-primary: hsl(210.1, 85.1%, 50%);
 }
 
 @plugin "daisyui" {
@@ -23,46 +22,22 @@
 
 @layer base {
   * {
-    --radius-field: 0.5rem;
-    --size-selector: 0.2rem;
-    --color-primary: hsl(210.1, 85.1%, 50%);
+    --radius-selector: 1rem;
+    --radius-field: 1rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+    --color-primary: oklch(58% 0.158 241.966);
     --text-primary: hsl(0 0% 100%);
     --primary: hsl(226.7, 27.3%, 6.5%);
     --font-display: "Lexend", sans-serif;
   }
 }
 
-@layer base {
-  [data-theme="nord"] {
-    /* --color-card: hsl(207 97% 12%); */
-    --color-primary: hsl(210.1, 85.1%, 50%);
-  }
-}
-
 @layer utilities {
-  .radio {
-    box-shadow: 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset;
-    --size: calc(var(--size-selector, 0.25rem) * 6);
-    width: var(--size);
-    height: var(--size);
-    color: var(--color-primary);
-  }
-
-  .radio {
-    &:checked,
-    &[aria-checked="true"] {
-      animation: radio 0.2s ease-out;
-      border-color: var(--color-primary);
-    }
-  }
-  radio {
-    &:checked,
-    &[aria-checked="true"] {
-      &:before {
-        background-color: var(--color-primary);
-      }
-    }
-  }
   .tabs-border {
     border-top: 1px solid var(--color-card);
     border-radius: 0%;
@@ -97,7 +72,7 @@
       & tbody {
         & tr {
           &:where(:nth-child(2n)) {
-            background-color: #f1f5f9;
+            background-color: rgba(240, 245, 249, 0.4);
           }
         }
       }
@@ -163,7 +138,6 @@ main::-webkit-scrollbar {
 /* Hide scrollbar for IE, Edge and Firefox */
 main {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -174,21 +148,6 @@ main {
 
 .hide-scrollbar {
   -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
-}
-
-/* Hide scrollbar globally if needed */
-body::-webkit-scrollbar,
-html::-webkit-scrollbar,
-*::-webkit-scrollbar {
-  display: none;
-}
-
-body,
-html,
-* {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 ::placeholder {

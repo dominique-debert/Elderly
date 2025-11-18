@@ -3,7 +3,7 @@ import { MoodListItem } from "@/components";
 
 export function MoodListView({ moods }: { moods: IMood[] }) {
   return (
-    <ul className="space-y-2 mt-6">
+    <ul className="space-y-2">
       {moods?.map((mood) => (
         <MoodListItem key={mood.id} mood={mood} />
       ))}

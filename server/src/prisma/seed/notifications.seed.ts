@@ -1,9 +1,13 @@
-import { PrismaClient } from "@/prisma";
+import { PrismaClient } from "../index.js";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
 
 const prisma = new PrismaClient();
 
 export async function seedNotifications() {
-  const userId = "cmgy0dgpm00000thdsaofguft";
+  const userId = "cmi3k9p0800030tyy0iaa89ug";
   await prisma.notification.deleteMany();
   await prisma.notification.createMany({
     data: [

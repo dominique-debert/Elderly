@@ -8,12 +8,11 @@ type SearchProps = {
 
 export function Search({ search, setSearch, placeholder }: SearchProps) {
   return (
-    <label className="input flex items-center gap-2 focus-visible:border-0 bg-white dark:bg-card rounded-lg">
-      <SearchIcon className="text-slate-600 dark:text-slate-400 size-4" />
+    <label className="input w-150 rounded-3xl pl-4 pr-4 py-2.5 text-sm border border-slate-200 dark:border-gray-700  bg-white dark:bg-card text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors">
+      <SearchIcon className="text-slate-600 dark:text-slate-400 size-4 mr-2" />
       <input
         type="search"
         placeholder={placeholder}
-        // className="grow dark:bg-card"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />

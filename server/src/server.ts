@@ -1,6 +1,4 @@
 import express, { Application, Request, Response } from "express";
-import swaggerUi from "swagger-ui-express";
-import swaggerSpec from "@/config/swagger";
 import { errorHandler } from "@/middlewares";
 import routes from "@/routes";
 import cors from "cors";
@@ -25,16 +23,6 @@ const PORT: number = parseInt(process.env.PORT || "3000", 10);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Add simple request logger for debugging
-// app.use((req, res, next) => {
-//   console.log(
-//     `[HTTP] ${req.method} ${req.originalUrl} headers=${JSON.stringify(
-//       req.headers && { origin: req.headers.origin }
-//     )}`
-//   );
-//   next();
-// });
-
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
@@ -45,7 +33,6 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps or curl requests)
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
@@ -57,25 +44,26 @@ app.use(
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "CSRF-Token",
+      "X-CSRF-Token",
+    ],
   })
 );
-
-// Swagger setup
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Routes
 app.use("/api", routes);
 
-// Serve static files (avatars, etc.) from the public folder
+// Distribution of static files (avatars, etc.) from the public folder
 const publicPath = path.join(process.cwd(), "public");
 app.use("/public", express.static(publicPath));
 
-// Serve files under /images/... from the public/images folder
+// Distribution of files under /images/... from the public/images folder
 app.use(
   "/images",
   express.static(path.join(process.cwd(), "public", "images"), {
-    // optional: set correct cache and headers
     maxAge: "1d",
   })
 );
@@ -83,17 +71,9 @@ app.use(
 // Error handling middleware
 app.use(errorHandler);
 
-// Root route
-app.get("/", (req: Request, res: Response) => {
-  res.send("Welcome to the API. Visit /api-docs for documentation");
-});
-
-// Start the server
+// Server startup
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
-  console.log(
-    `API Documentation available at http://localhost:${PORT}/api-docs`
-  );
 });
 
 export default app;

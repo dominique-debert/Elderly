@@ -3,29 +3,42 @@ export * from "./ui/Button.tsx";
 export * from "./ui/Card.tsx";
 export * from "./ui/ContactCard.tsx";
 export * from "./ui/Input.tsx";
+export * from "./ui/PageBreadcrumbs.tsx";
 export * from "./ui/Separator.tsx";
 export * from "./ui/Sheet.tsx";
 export * from "./ui/Skeleton.tsx";
 export * from "./ui/Switch.tsx";
 export * from "./ui/SwitchButtons.tsx";
 export * from "./ui/Table.tsx";
-export * from "./ui/Tooltip.tsx";
+export * from "./ui/UsersSwitchButtons.tsx";
 
 // Category Components
-export * from "./Categories/CategoryCardItem";
-export * from "./Categories/CategoryCardView";
-export * from "./Categories/CategoryCreateModal";
-export * from "./Categories/CategoryDeleteModal";
-export * from "./Categories/CategoryEditModal";
-export * from "./Categories/CategoryList";
-export * from "./Categories/CategoryListItem";
-export * from "./Categories/CategoryListView";
-export * from "./Categories/CategoryModeSwitcher";
-export * from "./Categories/CategoryTableRow";
-export * from "./Categories/CategoryTableView";
+export * from "./Administration/Categories/CategoryCardItem.tsx";
+export * from "./Administration/Categories/CategoryCardView.tsx";
+export * from "./Administration/Categories/CategoryCreateModal.tsx";
+export * from "./Administration/Categories/CategoryDeleteModal.tsx";
+export * from "./Administration/Categories/CategoryEditModal.tsx";
+export * from "./Administration/Categories/CategoryList.tsx";
+export * from "./Administration/Categories/CategoryListItem.tsx";
+export * from "./Administration/Categories/CategoryListView.tsx";
+export * from "./Administration/Categories/CategoryModeSwitcher.tsx";
+export * from "./Administration/Categories/CategoryTableRow.tsx";
+export * from "./Administration/Categories/CategoryTableView.tsx";
 
 // AI Components
 export * from "./AI/AIAssistantCard";
+
+// Administration Components
+export * from "./Administration/Users/UsersCardItem.tsx";
+export * from "./Administration/Users/UsersCardView.tsx";
+export * from "./Administration/Users/UserDeleteModal.tsx";
+export * from "./Administration/Users/UserEditModal.tsx";
+export * from "./Administration/Users/UsersList.tsx";
+export * from "./Administration/Users/UsersListItem.tsx";
+export * from "./Administration/Users/UsersListView.tsx";
+export * from "./Administration/Users/UsersModeSwitcher.tsx";
+export * from "./Administration/Users/UsersTableRow.tsx";
+export * from "./Administration/Users/UsersTableView.tsx";
 
 // Dashboard Components
 export * from "./Dashboard/DashboardActivityCard";

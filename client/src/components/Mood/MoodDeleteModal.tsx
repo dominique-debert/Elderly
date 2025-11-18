@@ -32,10 +32,10 @@ export function MoodDeleteModal({
           Confirmer la suppression de <strong>{mood.name}</strong> ?
         </p>
         <div className="modal-action">
-          <button className="btn btn-error" onClick={handleDelete}>
+          <button className="btn btn-error rounded-3xl" onClick={handleDelete}>
             Supprimer
           </button>
-          <button className="btn" onClick={onClose}>
+          <button className="btn rounded-3xl" onClick={onClose}>
             Annuler
           </button>
         </div>

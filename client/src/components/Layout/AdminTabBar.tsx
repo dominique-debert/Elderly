@@ -1,8 +1,5 @@
-import Icon from "@mdi/react";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-
-import { iconMap } from "@/constants";
 import { getMenuItems } from "@/services";
 import { ETabKey } from "@/types/ETabKey";
 
@@ -40,7 +37,7 @@ export function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
   }
 
   return (
-    <ul className="menu lg:menu-horizontal w-full p-4">
+    <ul className="menu gap-4 lg:menu-horizontal w-full p-0 m-0 mt-4">
       {menuItems?.map(({ id, label, icon, key }) => (
         <li key={id}>
           <button
@@ -48,18 +45,11 @@ export function AdminTabBar({ activeTab, setActiveTab }: AdminTabProps) {
             onClick={() => setActiveTab(key as ETabKey)}
             className={`tab w-full justify-start rounded-none hover:bg-transparent ${
               activeTab === key
-                ? "border-b-3 border-primary text-slate-00 dark:text-white font-bold"
+                ? "border-b-3 border-primary text-slate-00 dark:text-white font-medium"
                 : ""
             }`}
             aria-selected={activeTab === key}
           >
-            {/* {icon && iconMap[icon] && (
-              <Icon
-                path={iconMap[icon]}
-                size={0.8}
-                className="mr-2 text-white-400"
-              />
-            )} */}
             {label}
           </button>
         </li>

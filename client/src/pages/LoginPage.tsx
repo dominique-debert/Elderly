@@ -32,21 +32,25 @@ export function LoginPage() {
       {/* Left side - Login form */}
       <div className="max-w-md w-[756px] h-full mt-50">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Connexion</h1>
-          <p className="text-gray-400">
+          <h1 className="text-3xl font-bold dark:text-white mb-2">Connexion</h1>
+          <p className="text-slate-500 dark:text-gray-400">
             Entrez vos informations ci-dessous pour vous connecter.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 h-full">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label
+              htmlFor="login_email"
+              className="block text-sm font-medium dark:text-gray-300 mb-2"
+            >
               Email
             </label>
             <input
               type="email"
+              name="login_email"
               placeholder="jean.durand@gmail.com"
-              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-3 dark:bg-transparent border border-slate-300 dark:border-slate-600 rounded-lg bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -54,13 +58,17 @@ export function LoginPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label
+              htmlFor="login_password"
+              className="block text-sm font-medium dark:text-gray-300 mb-2"
+            >
               Mot de passe
             </label>
             <input
               type="password"
+              name="login_password"
               placeholder="••••••••"
-              className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-3 dark:bg-transparent border border-slate-300 dark:border-slate-600 rounded-lg bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -80,7 +88,10 @@ export function LoginPage() {
               id="remember"
               className="w-4 h-4 text-blue-600 bg-transparent border-gray-600 rounded focus:ring-blue-500"
             />
-            <label htmlFor="remember" className="ml-2 text-sm text-gray-400">
+            <label
+              htmlFor="remember"
+              className="ml-2 text-sm dark:text-gray-400"
+            >
               Se souvenir de moi
             </label>
           </div>
@@ -99,7 +110,7 @@ export function LoginPage() {
               Mot de passe oublié ?
             </Link>
           </div>
-          <p className="text-gray-500 text-sm">© 2025 Elderly</p>
+          <p className="text-slate-500 text-sm">© 2025 Elderly</p>
         </form>
       </div>
 
@@ -108,7 +119,7 @@ export function LoginPage() {
         <img
           src="/images/landing-illustration.jpg"
           alt="Personnes âgées et jeunes cuisinant ensemble"
-          className="object-cover w-[366px] h-[571px] rounded-2xl mt-12 border border-slate-600"
+          className="object-cover w-[366px] h-[571px] rounded-2xl mt-12 border border-slate-500 dark:border-slate-600"
         />
       </div>
     </div>

@@ -1,8 +1,11 @@
+import dotenv from "dotenv";
 import { PrismaClient } from "@/prisma";
 import * as argon2 from "argon2";
 import * as fs from "fs";
 import * as path from "path";
 import { fileURLToPath } from "url";
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,14 +19,15 @@ async function main() {
   const passwordHash = await argon2.hash("12345678");
 
   // Create avatars directory if it doesn't exist
-  // avatars are stored in server/public/images/users relative to repo root
+  // avatars are stored in server/public/images/avatars
   const avatarsDir = path.join(
     __dirname,
     "..",
     "..",
+    "..",
     "public",
     "images",
-    "users"
+    "avatars"
   );
   if (!fs.existsSync(avatarsDir)) {
     fs.mkdirSync(avatarsDir, { recursive: true });
@@ -34,7 +38,7 @@ async function main() {
       email: "jean.dupont@gmail.com",
       firstName: "Jean",
       lastName: "Dupont",
-      profession: "Infirmière",
+      profession: "Infirmier",
       city: "Paris",
       postalCode: "75001",
       phone: "06 12 34 56 78",
@@ -42,13 +46,13 @@ async function main() {
       latitude: "48.856614",
       longitude: "2.352222",
       birthDate: new Date("1963-03-15"),
-      avatarSource: "/server/public/images/1.png",
+      avatarSource: "public/images/users/1.png",
     },
     {
       email: "sophie.fabre@gmail.com",
       firstName: "Sophie",
       lastName: "Fabre",
-      profession: "Retraité",
+      profession: "Retraitée",
       city: "Lyon",
       postalCode: "69001",
       phone: "06 23 45 67 89",
@@ -56,7 +60,7 @@ async function main() {
       latitude: "45.764043",
       longitude: "4.835659",
       birthDate: new Date("1958-07-22"),
-      avatarSource: "/server/public/images/users/2.png",
+      avatarSource: "public/images/users/2.png",
     },
     {
       email: "emilien.bernard@gmail.com",
@@ -70,7 +74,7 @@ async function main() {
       latitude: "43.296482",
       longitude: "5.36978",
       birthDate: new Date("1961-11-08"),
-      avatarSource: "/server/public/images/users/3.png",
+      avatarSource: "public/images/users/3.png",
     },
     {
       email: "veronica.dubois@gmail.com",
@@ -84,13 +88,13 @@ async function main() {
       latitude: "43.604652",
       longitude: "1.444209",
       birthDate: new Date("1964-02-14"),
-      avatarSource: "/server/public/images/users/4.png",
+      avatarSource: "public/images/users/4.png",
     },
     {
       email: "eric.petit@gmail.com",
       firstName: "Eric",
       lastName: "Petit",
-      profession: "Aide-soignante",
+      profession: "Aide-soignant",
       city: "Nice",
       postalCode: "06000",
       phone: "06 56 78 90 12",
@@ -98,7 +102,7 @@ async function main() {
       latitude: "43.710173",
       longitude: "7.261953",
       birthDate: new Date("1965-05-30"),
-      avatarSource: "/server/public/images/users/5.png",
+      avatarSource: "public/images/users/5.png",
     },
     {
       email: "eva.robert@gmail.com",
@@ -112,7 +116,7 @@ async function main() {
       latitude: "47.218371",
       longitude: "-1.553621",
       birthDate: new Date("1960-09-12"),
-      avatarSource: "/server/public/images/users/6.png",
+      avatarSource: "public/images/users/6.png",
     },
     {
       email: "christine.richard@gmail.com",
@@ -126,7 +130,7 @@ async function main() {
       latitude: "48.573405",
       longitude: "7.752111",
       birthDate: new Date("1962-12-25"),
-      avatarSource: "/server/public/images/users/7.png",
+      avatarSource: "public/images/users/7.png",
     },
     {
       email: "joseph.simon@gmail.com",
@@ -140,7 +144,7 @@ async function main() {
       latitude: "44.837789",
       longitude: "-0.57918",
       birthDate: new Date("1959-04-18"),
-      avatarSource: "/server/public/images/users/8.png",
+      avatarSource: "public/images/users/8.png",
     },
     {
       email: "thierry.moreau@gmail.com",
@@ -154,7 +158,7 @@ async function main() {
       latitude: "50.62925",
       longitude: "3.057256",
       birthDate: new Date("1966-08-03"),
-      avatarSource: "/server/public/images/users/9.png",
+      avatarSource: "public/images/users/9.png",
     },
     {
       email: "laurent.leroy@gmail.com",
@@ -168,7 +172,7 @@ async function main() {
       latitude: "48.117266",
       longitude: "-1.677793",
       birthDate: new Date("1963-01-20"),
-      avatarSource: "/server/public/images/users/10.png",
+      avatarSource: "public/images/users/10.png",
     },
     {
       email: "jacques.girard@gmail.com",
@@ -182,7 +186,7 @@ async function main() {
       latitude: "43.610769",
       longitude: "3.876716",
       birthDate: new Date("1961-06-07"),
-      avatarSource: "/server/public/images/users/11.png",
+      avatarSource: "public/images/users/11.png",
     },
     {
       email: "alain.roux@gmail.com",
@@ -196,7 +200,7 @@ async function main() {
       latitude: "45.188529",
       longitude: "5.724524",
       birthDate: new Date("1964-10-11"),
-      avatarSource: "/server/public/images/users/12.png",
+      avatarSource: "public/images/users/12.png",
     },
     {
       email: "mamadou.nguer@gmail.com",
@@ -210,7 +214,7 @@ async function main() {
       latitude: "47.322047",
       longitude: "5.04148",
       birthDate: new Date("1965-03-28"),
-      avatarSource: "/server/public/images/users/13.png",
+      avatarSource: "public/images/users/13.png",
     },
     {
       email: "josie.gauthier@gmail.com",
@@ -224,7 +228,7 @@ async function main() {
       latitude: "47.478419",
       longitude: "-0.563166",
       birthDate: new Date("1962-11-15"),
-      avatarSource: "/server/public/images/users/14.png",
+      avatarSource: "public/images/users/14.png",
     },
     {
       email: "monique.mercier@gmail.com",
@@ -238,41 +242,25 @@ async function main() {
       latitude: "47.394144",
       longitude: "0.68484",
       birthDate: new Date("1960-05-05"),
-      avatarSource: "/server/public/images/users/15.png",
+      avatarSource: "public/images/users/15.png",
     },
   ];
 
   for (const userData of users) {
     try {
-      // Copy avatar file if it exists
-      let avatarFilename: string | null = null;
+      // Check if user already exists
+      const existingUser = await prisma.user.findUnique({
+        where: { email: userData.email },
+      });
 
-      if (userData.avatarSource) {
-        // Normalize avatarSource: strip leading slashes and optional leading "server/" segment,
-        // then resolve relative to server root (two levels up from this seed file)
-        let relativeSource = userData.avatarSource.replace(/^\/+/, "");
-        relativeSource = relativeSource.replace(/^server[\/\\]/, "");
-        const sourceAvatarPath = path.join(
-          __dirname,
-          "..",
-          "..",
-          relativeSource
+      if (existingUser) {
+        console.log(
+          `⏭️  User already exists: ${userData.firstName} ${userData.lastName} (${userData.email})`
         );
-
-        if (fs.existsSync(sourceAvatarPath)) {
-          const ext = path.extname(userData.avatarSource);
-          avatarFilename = `${userData.firstName.toLowerCase()}-${userData.lastName.toLowerCase()}${ext}`;
-          const destAvatarPath = path.join(avatarsDir, avatarFilename);
-
-          // Copy the file
-          fs.copyFileSync(sourceAvatarPath, destAvatarPath);
-          console.log(`✅ Avatar copied: ${avatarFilename}`);
-        } else {
-          console.log(`⚠️  Avatar not found: ${sourceAvatarPath}`);
-        }
+        continue;
       }
 
-      // Create user
+      // Create user first (without avatar)
       const user = await prisma.user.create({
         data: {
           email: userData.email,
@@ -288,14 +276,12 @@ async function main() {
           phone: userData.phone,
           latitude: userData.latitude,
           longitude: userData.longitude,
-          avatar: avatarFilename,
+          avatar: null,
           registrationDate: new Date(),
-          accountVerified: true, // Pre-verified for seeding
           helpPoints: 0,
           reducedMobility: false,
-          activityLevel: "active",
           status: "active",
-          isAdmin: false,
+          isAdmin: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -304,6 +290,46 @@ async function main() {
       console.log(
         `✅ User created: ${user.firstName} ${user.lastName} (${user.email})`
       );
+
+      // Now copy avatar file with proper naming format: userId-timestamp-random.ext
+      let avatarFilename: string | null = null;
+
+      if (userData.avatarSource) {
+        // Normalize avatarSource: strip leading slashes and optional leading "server/" segment,
+        // then resolve relative to server root (three levels up from this seed file: seed/ -> prisma/ -> src/ -> server/)
+        let relativeSource = userData.avatarSource.replace(/^\/+/, "");
+        relativeSource = relativeSource.replace(/^server[\/\\]/, "");
+        const sourceAvatarPath = path.join(
+          __dirname,
+          "..",
+          "..",
+          "..",
+          relativeSource
+        );
+
+        if (fs.existsSync(sourceAvatarPath)) {
+          const ext = path.extname(userData.avatarSource);
+          const uniqueSuffix =
+            Date.now() + "-" + Math.round(Math.random() * 1e9);
+          avatarFilename = `${user.id}-${uniqueSuffix}${ext}`;
+          const destAvatarPath = path.join(avatarsDir, avatarFilename);
+
+          // Copy the file
+          fs.copyFileSync(sourceAvatarPath, destAvatarPath);
+          console.log(`✅ Avatar copied: ${avatarFilename}`);
+
+          // Update user with avatar filename
+          await prisma.user.update({
+            where: { id: user.id },
+            data: {
+              avatar: avatarFilename,
+              updatedAt: new Date(),
+            },
+          });
+        } else {
+          console.log(`⚠️  Avatar not found: ${sourceAvatarPath}`);
+        }
+      }
 
       // Create user preferences
       await prisma.userPreferences.create({
@@ -329,22 +355,6 @@ async function main() {
       });
 
       console.log(`✅ User preferences created for ${user.firstName}`);
-
-      // Create user statistics
-      await prisma.userStatistics.create({
-        data: {
-          userId: user.id,
-          servicesProvided: 0,
-          servicesReceived: 0,
-          activitiesParticipated: 0,
-          activitiesOrganized: 0,
-          forumMessages: 0,
-          totalHelpPoints: 0,
-          networkSize: 0,
-        },
-      });
-
-      console.log(`✅ User statistics created for ${user.firstName}`);
 
       // Create notification preferences
       await prisma.notificationPreferences.create({

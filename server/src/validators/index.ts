@@ -8,6 +8,7 @@ export * from "./conversation.validator";
 export * from "./conversationParticipant.validator";
 export * from "./exerciseProgram.validator";
 export * from "./forumMessage.validator";
+export * from "./forumSection.validator";
 export * from "./forumTopic.validator";
 export * from "./healthIndicator.validator";
 export * from "./helpOffer.validator";

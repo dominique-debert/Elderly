@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forum Post</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+              "upvote": "#4CAF50",
+              "downvote": "#f44336",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+<div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between whitespace-nowrap h-16">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-slate-900 dark:text-white">
+<span class="material-symbols-outlined text-primary text-3xl">forum</span>
+<h2 class="text-xl font-bold leading-tight tracking-tight">ForumApp</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">Categories</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">Trending</a>
+<a class="text-slate-900 dark:text-white text-sm font-medium leading-normal" href="#">My Posts</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<div class="hidden sm:block w-full max-w-xs">
+<label class="relative text-slate-400 focus-within:text-slate-600 dark:focus-within:text-slate-200">
+<span class="material-symbols-outlined absolute top-1/2 left-3 -translate-y-1/2">search</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary/50 h-10 placeholder:text-slate-400 dark:placeholder:text-slate-500 pl-10 pr-4 text-sm font-normal leading-normal" placeholder="Search..." value=""/>
+</label>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors">
+<span class="truncate">New Post</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBpsoyGQeioDov6MXxheH0xIad2TTnw-EmJC2jZQddsIEMlALgZXfB7T7-Sap9cH48e9p89lWGdnTJIXiWO1AX75EJQ9DDHP3MEzQ1tDeR-MUFeJgByHKS_SEdsp8sYKFiEV6vHncsRHXp6r7TBFxEncNZ8ifDVn1CYdv5d7rL4BXV4dDxINnJspmPNrge5nZLRkmBRZ88sJ-ZYgkdY7mngpwJZ2aRxItm94xv2yTwZooI_nqVCv4CPuuEPnfQy7zoUukHAFkJ6zfw");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="layout-container flex h-full grow flex-col">
+<div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8">
+<div class="layout-content-container flex flex-col flex-1 gap-6">
+<div class="flex flex-wrap items-center gap-2 text-sm">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary font-medium leading-normal" href="#">Home</a>
+<span class="text-slate-400 dark:text-slate-500 font-medium leading-normal">/</span>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary font-medium leading-normal" href="#">User Engagement</a>
+<span class="text-slate-400 dark:text-slate-500 font-medium leading-normal">/</span>
+<span class="text-slate-700 dark:text-slate-200 font-medium leading-normal">How to improve user engagement...</span>
+</div>
+<article class="flex gap-4">
+<aside class="flex flex-col items-center gap-1 py-1 shrink-0">
+<button aria-label="Upvote post" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-upvote dark:hover:text-upvote">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">125</p>
+<button aria-label="Downvote post" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-downvote dark:hover:text-downvote">
+<span class="material-symbols-outlined">arrow_downward</span>
+</button>
+</aside>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h1 class="text-slate-900 dark:text-white text-3xl font-extrabold leading-tight tracking-tight pb-3">How to improve user engagement in a forum application?</h1>
+<button aria-label="Report post" class="p-2 rounded-full text-slate-400 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined !text-xl">flag</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Author avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCzHdauDxlp4nZ0ME_d2zZg2GqS4LUHk7AiL14YbCpKoBf_xpC_aeoAI2eFlWPyoZtRdnYyN4yNHX-JAqWJnnHYFBaSJngTAsPiwQjsMA6LpgVq_AQFm6tejeAAaMHK_3-QjubzG8w1RGGjsoz_s5lYMmify9tFvJSWOpVl4Nw4M4F88JFusGG0JLeegHaavoICbn11Mhkxbt0PsWKUR4XWCCeW0EZokzgAt14vZ9zdo7rziMUmrw6B4d_n6Ezh5SCNTCRd_t8LMAg");'></div>
+<div>
+<p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-normal">johndoe_123</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal leading-normal">Posted on April 10, 2024</p>
+</div>
+</div>
+<div class="prose prose-slate dark:prose-invert max-w-none mt-6 text-slate-600 dark:text-slate-300">
+<p>Hey everyone,</p>
+<p>I'm working on a new forum application and I'm looking for effective strategies to boost user engagement. What features or design choices have you seen that really make a difference in encouraging users to post, comment, and interact with each other?</p>
+<p>I'm considering things like:</p>
+<ul>
+<li>Gamification (badges, points, leaderboards)</li>
+<li>Real-time notifications for replies and mentions</li>
+<li>A clean, modern, and mobile-friendly UI</li>
+<li>Easy content creation tools (rich text editor, image uploads)</li>
+</ul>
+<p>Any thoughts, experiences, or best practices would be greatly appreciated. Thanks in advance!</p>
+</div>
+</div>
+</article>
+<section class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">2 Replies</h2>
+<div class="flex items-center gap-2">
+<label class="text-sm font-medium text-slate-600 dark:text-slate-400" for="sort-replies">Sort by:</label>
+<select class="form-select text-sm rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 focus:ring-primary/50 focus:border-primary/50 pr-8" id="sort-replies">
+<option>Top Voted</option>
+<option>Newest</option>
+<option>Oldest</option>
+</select>
+</div>
+</div>
+<div class="flex items-start gap-4 mb-8">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar for reply input" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSfV9_7LpUEdQH2ye_JG3uSVm99gj6L-ha2JVtPBZpklDZrqe1WEyTfcA7E42eFVT2Eg-DCLFNfCXe1y8JiWUOJ2sISHJ765pbrx0tTRUkBgmBPeLZr-L_MiWJzJYpCfWraEguh9oy-hzd_Kd0_G6LEJt73fpOgmQgIBP66MWYCuUkYIyw7D6PDHmH22AbslzYuNCDnLcm7_HPH6fvNUPS4Uuu38vn-rMa_JXwpKHjcDvVoklsM1uQ3h-IK-oSWevl5h8gf1_rm7g");'></div>
+<div class="flex-1">
+<textarea class="form-textarea w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 focus:ring-primary/50 focus:border-primary/50" placeholder="Write your reply..." rows="4"></textarea>
+<button class="mt-2 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors">
+<span class="truncate">Post Reply</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<article class="flex gap-4">
+<aside class="flex flex-col items-center gap-1 py-1 shrink-0">
+<button aria-label="Upvote reply" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-upvote dark:hover:text-upvote">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">32</p>
+<button aria-label="Downvote reply" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-downvote dark:hover:text-downvote">
+<span class="material-symbols-outlined">arrow_downward</span>
+</button>
+</aside>
+<div class="flex-1 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8" data-alt="Reply author avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCeiXqH0ySvgxzsJLBvDyyQNotcKK1VE3MorCefUsbvOZmbalZECwMbanYTBnsz-L51WOobC5yGZfWl6Bb5k3JBxqCbTgV19TpkpNLp099zwVoLsdqUeRAB0Bm-XEzx1DmLwcbt3P5hPEeXkzCaySFeiTVBGqQZNbG4Lifkc58MZQgbsiQsocB06Og1gZGBO5o5xZY5Z_ErnI5G0Be6yCh1VXthkg6-uPPCwNLiKX2mG82TMc6p8dllkpsJMcO0o4u0lWRTKp69q9Y");'></div>
+<div>
+<p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-normal">alicesmith</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal leading-normal">Replied 2 hours ago</p>
+</div>
+</div>
+<button aria-label="Report reply" class="p-2 -mr-2 -mt-2 rounded-full text-slate-400 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined !text-xl">flag</span>
+</button>
+</div>
+<div class="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 text-sm">
+<p>Gamification is a great idea! I've seen forums where users unlock new avatars or titles as they reach certain milestones. It creates a sense of progression and community status.</p>
+</div>
+</div>
+</article>
+<article class="flex gap-4">
+<aside class="flex flex-col items-center gap-1 py-1 shrink-0">
+<button aria-label="Upvote reply" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-upvote dark:hover:text-upvote text-upvote">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+</button>
+<p class="text-upvote text-base font-bold leading-normal">15</p>
+<button aria-label="Downvote reply" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-downvote dark:hover:text-downvote">
+<span class="material-symbols-outlined">arrow_downward</span>
+</button>
+</aside>
+<div class="flex-1 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8" data-alt="Reply author avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD4ap4-sca79qL12ItwkmDEhDQAttJGkp6nT3Xhdspz9fOFmFK2feWSMl0GkjSkmoV1ZXl-R2LAZzqps1Y1RgfK6vthI94YKzaVmtoWkErOFHMOaFDZ1kGT-hY8Mg1OV8jxaRUkCPBtysOgDdEE51Kq51_g1yunsHpVGDRQwMs1JEG3Gnst1RGrYlVCpDPTjWvN9lpJZT0gZBK--oD9L6Gwj6-HB0NXnfg0ORlPe8ivMEV0sr7b0ldgFzeAymgYyRvKsqCmKiEyEA8");'></div>
+<div>
+<p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-normal">bobwilliams_dev</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-normal leading-normal">Replied 1 hour ago</p>
+</div>
+</div>
+<button aria-label="Report reply" class="p-2 -mr-2 -mt-2 rounded-full text-slate-400 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined !text-xl">flag</span>
+</button>
+</div>
+<div class="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 text-sm">
+<p>Don't underestimate the power of a "featured posts" or "post of the week" section on the homepage. Highlighting quality content encourages others to contribute at a higher level.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

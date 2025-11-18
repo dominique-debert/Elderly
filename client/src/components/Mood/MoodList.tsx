@@ -35,7 +35,7 @@ export function MoodList() {
 
   const [search, setSearch] = useState<string>("");
 
-  if (isLoading) return <div className="text-center mt-40">Chargement...</div>;
+  if (isLoading) return <div className="text-center">Chargement...</div>;
   if (isError)
     return (
       <div className="text-center mt-10 text-red-500">Erreur de chargement</div>
@@ -48,22 +48,19 @@ export function MoodList() {
     ) || [];
 
   return (
-    <Card className="pt-0">
-      <div className="w-full p-4">
-        {moods && moods.length > 0 && (
-          <CategoryModeSwitcher
-            mode={mode}
-            setMode={setMode}
-            search={search}
-            setSearch={setSearch}
-            activeTab={ETabKey.Mood}
-          />
-        )}
-
-        {mode === "card" && <MoodCardView moods={filteredMoods} />}
-        {mode === "list" && <MoodListView moods={filteredMoods} />}
-        {mode === "table" && <MoodTableView moods={filteredMoods} />}
-      </div>
-    </Card>
+    <div className="w-full p-4 card bg-white dark:bg-transparent shadow-md">
+      {moods && moods.length > 0 && (
+        <CategoryModeSwitcher
+          mode={mode}
+          setMode={setMode}
+          search={search}
+          setSearch={setSearch}
+          activeTab={ETabKey.Mood}
+        />
+      )}
+      {mode === "card" && <MoodCardView moods={filteredMoods} />}
+      {mode === "list" && <MoodListView moods={filteredMoods} />}
+      {mode === "table" && <MoodTableView moods={filteredMoods} />}
+    </div>
   );
 }

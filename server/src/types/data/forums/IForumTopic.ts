@@ -1,8 +1,7 @@
 export interface IForumTopic {
-  category_id: string;
+  forumSection_id: number;
   author_id: string;
   title: string;
-  creation_date?: Date;
   pinned?: boolean;
   status?: string;
   views?: number;

@@ -10,7 +10,7 @@ export function MedicationPage() {
 
   return (
     <>
-      <div className="flex flex-col w-full h-full gap-4 mt-18 p-4">
+      <div className="bg-white dark:bg-card flex flex-col mt-4 mr-3 rounded-2xl shadow-xl justify-items-center align-items-center p-8">
         <div className="lg:flex lg:flex-row gap-4">
           {user ? (
             <>

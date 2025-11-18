@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Bookmarks - ForumApp</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+      font-size: 24px;}
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex min-h-screen">
+<aside class="w-64 shrink-0 flex-col border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111318] p-4 hidden md:flex">
+<div class="flex h-full flex-col justify-between">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="ForumApp logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNlg5aKXV8JxrKeg6zHQA5idLMslUE24yoTFIE-o3Vxh8QjoaRYpHFCmgIW8r__slXk5DULOVpsgVwFaqVP6D530fwrE87bLEn_aD8-LOvOf963sh9HlLX1U9HX36nDMgsH2zjvj3cs4VH_8SAek_jmzV2_GLM8IYTifgOa1gyC_vLS6OFksX8qgh8ro7JRWCa_VIaHanor2-blZVveRwoQ8Ankr7HWo9dO-HJQzhF0G3bSxu4kTA034KfeRCazsjvTM41M4_Wl0M");'></div>
+<div class="flex flex-col">
+<h1 class="text-black dark:text-white text-base font-medium leading-normal">ForumApp</h1>
+<p class="text-gray-500 dark:text-[#9da6b9] text-sm font-normal leading-normal">user@email.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-black dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-sm font-medium leading-normal">Home</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-black dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#">
+<span class="material-symbols-outlined">explore</span>
+<p class="text-sm font-medium leading-normal">Explore</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 dark:bg-primary/20 text-primary dark:text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<p class="text-sm font-medium leading-normal">My Bookmarks</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-black dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<p class="text-sm font-medium leading-normal">Notifications</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">New Post</span>
+</button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-black dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-black dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Log out</p>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 p-4 sm:p-6 md:p-8">
+<div class="max-w-4xl mx-auto">
+<div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+<h1 class="text-4xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white min-w-72">My Bookmarks</h1>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mb-6">
+<div class="flex-grow">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-gray-500 dark:text-gray-400 flex bg-white dark:bg-gray-800/50 items-center justify-center pl-4 rounded-l-lg border border-r-0 border-gray-300 dark:border-gray-700">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 rounded-l-none text-base font-normal leading-normal" placeholder="Search by title or category..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-4">
+<div class="shrink-0">
+<button class="flex h-12 w-full sm:w-auto shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-gray-800/50 pl-4 pr-3 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">filter_list</span>
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Category: All</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">arrow_drop_down</span>
+</button>
+</div>
+<div class="shrink-0">
+<button class="flex h-12 w-full sm:w-auto shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-gray-800/50 pl-4 pr-3 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Sort by: Date Saved</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">arrow_drop_down</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col space-y-2">
+<div class="flex gap-4 bg-white dark:bg-gray-800/50 p-4 rounded-xl border border-gray-200 dark:border-gray-800 justify-between group">
+<div class="flex items-start gap-4 flex-grow">
+<div class="text-gray-600 dark:text-gray-300 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-700/50 shrink-0 size-12">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<a class="text-gray-900 dark:text-white text-base font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">UI Design Best Practices for 2024</a>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-1">
+                  Discover the latest trends shaping user interfaces this year, from bento grids to AI-driven personalization.
+                </p>
+<p class="text-gray-400 dark:text-gray-500 text-sm font-normal leading-normal mt-2">Posted in UI/UX Design by Alex Johnson on Oct 26</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors" title="Remove from bookmarks">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</div>
+<div class="flex gap-4 bg-white dark:bg-gray-800/50 p-4 rounded-xl border border-gray-200 dark:border-gray-800 justify-between group">
+<div class="flex items-start gap-4 flex-grow">
+<div class="text-gray-600 dark:text-gray-300 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-700/50 shrink-0 size-12">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<a class="text-gray-900 dark:text-white text-base font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Getting Started with React Hooks</a>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-1">
+                  A comprehensive guide for beginners to understand and implement state and effects in functional components.
+                </p>
+<p class="text-gray-400 dark:text-gray-500 text-sm font-normal leading-normal mt-2">Posted in Web Development by Jane Doe on Oct 22</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors" title="Remove from bookmarks">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</div>
+<div class="flex gap-4 bg-white dark:bg-gray-800/50 p-4 rounded-xl border border-gray-200 dark:border-gray-800 justify-between group">
+<div class="flex items-start gap-4 flex-grow">
+<div class="text-gray-600 dark:text-gray-300 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-700/50 shrink-0 size-12">
+<span class="material-symbols-outlined">lunch_dining</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<a class="text-gray-900 dark:text-white text-base font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">10 Quick and Healthy Weeknight Dinner Recipes</a>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal mt-1">
+                  Tired of takeout? These simple and delicious recipes will save your weeknights and your wallet.
+                </p>
+<p class="text-gray-400 dark:text-gray-500 text-sm font-normal leading-normal mt-2">Posted in Cooking &amp; Recipes by Samwise G. on Oct 19</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="text-amber-500 dark:text-amber-400 flex size-8 items-center justify-center rounded-full hover:bg-amber-500/10 transition-colors" title="Remove from bookmarks">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</div>
+</div>
+<nav aria-label="Pagination" class="flex items-center justify-between border-t border-gray-200 dark:border-gray-800 px-4 sm:px-0 mt-8 pt-6">
+<div class="hidden sm:block">
+<p class="text-sm text-gray-700 dark:text-gray-400">
+              Showing
+              <span class="font-medium">1</span>
+              to
+              <span class="font-medium">10</span>
+              of
+              <span class="font-medium">20</span>
+              results
+            </p>
+</div>
+<div class="flex flex-1 justify-between sm:justify-end">
+<a class="relative inline-flex items-center rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">Previous</a>
+<a class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">Next</a>
+</div>
+</nav>
+</div>
+</main>
+</div>
+
+</body></html>

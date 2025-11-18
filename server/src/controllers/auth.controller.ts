@@ -3,6 +3,7 @@ import argon2 from "argon2";
 import createHttpError from "http-errors";
 import fs from "fs";
 import path from "path";
+import jwt from "jsonwebtoken";
 
 import { PrismaClient } from "@/prisma";
 import { generateToken } from "@/utils";
@@ -10,10 +11,11 @@ import { signUpSchema, signInSchema } from "@/validators";
 
 const prisma = new PrismaClient();
 
-const accessTokenExpiry = process.env.JWT_EXPIRES_IN || "15m";
+const accessTokenExpiry = process.env.JWT_EXPIRES_IN || "7d";
 const refreshTokenExpiryDays =
-  parseInt((process.env.REFRESH_TOKEN_EXPIRES_IN || "7d").replace(/\D/g, "")) ||
-  7;
+  parseInt(
+    (process.env.REFRESH_TOKEN_EXPIRES_IN || "30d").replace(/\D/g, "")
+  ) || 30;
 
 const signToken = (userId: string, type: "access" | "refresh") => {
   const expiresIn =
@@ -121,6 +123,14 @@ export const signUp = async (
     const accessToken = signToken(user.id, "access");
     const refreshToken = signToken(user.id, "refresh");
 
+    // debug: log decoded tokens to confirm expirations (remove in production)
+    try {
+      console.debug("accessToken payload:", jwt.decode(accessToken));
+      console.debug("refreshToken payload:", jwt.decode(refreshToken));
+    } catch (e) {
+      console.debug("Could not decode tokens for debugging", e);
+    }
+
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + refreshTokenExpiryDays);
 
@@ -204,7 +214,7 @@ export const signIn = async (
 
     const serverBase = process.env.SERVER_BASE_URL || "http://localhost:3000";
     const avatarUrl = user.avatar
-      ? `${serverBase}/public/images/avatars/${user.avatar}`
+      ? `${serverBase}/images/avatars/${user.avatar}`
       : null;
 
     res.json({

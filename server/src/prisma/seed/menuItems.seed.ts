@@ -1,31 +1,32 @@
-import { PrismaClient } from "@/prisma";
+import { PrismaClient } from "../index.js";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
 
 const prisma = new PrismaClient();
 
 export const seedMenuItems = async () => {
   const items = [
-    { label: "Humeurs", icon: "mdiHeartSettingsOutline", key: "mood" },
-    { label: "Activités", icon: "mdiRunFast", key: "activity" },
-    { label: "Badges", icon: "mdiBadgeAccountOutline", key: "badge" },
-    { label: "Cognition", icon: "mdiBrain", key: "cognitive" },
-    { label: "Forum", icon: "mdiForumOutline", key: "forum" },
-    { label: "Aide", icon: "mdiHelpCircleOutline", key: "help" },
-    { label: "Nutrition", icon: "mdiFoodAppleOutline", key: "nutrition" },
-    { label: "Programmes", icon: "mdiCalendarCheckOutline", key: "program" },
-    { label: "Projets", icon: "mdiLightbulbOnOutline", key: "project" },
+    { label: "Humeurs", key: "mood" },
+    { label: "Activités", key: "activity" },
+    { label: "Badges", key: "badge" },
+    { label: "Cognition", key: "cognitive" },
+    { label: "Aide", key: "help" },
+    { label: "Nutrition", key: "nutrition" },
+    { label: "Programmes", key: "program" },
+    { label: "Projets", key: "project" },
     {
       label: "Ressources",
-      icon: "mdiBookOpenPageVariantOutline",
       key: "resource",
     },
-    { label: "Services", icon: "mdiHandHeartOutline", key: "service" },
-    { label: "Compétences", icon: "mdiAccountTieHatOutline", key: "skill" },
+    { label: "Services", key: "service" },
+    { label: "Compétences", key: "skill" },
     {
       label: "Problème urbain",
-      icon: "mdiMapMarkerAlertOutline",
       key: "urban_issue",
     },
-    { label: "Bien-être", icon: "mdiSpaOutline", key: "wellness" },
+    { label: "Bien-être", key: "wellness" },
   ];
 
   try {

@@ -55,52 +55,17 @@ export const getUserPreferences = async (
       dataSharing: false,
     };
 
-    let prefs;
-    try {
-      // First, try to find the userPreferences by userId to get the unique id
-      const existingPrefs = await prisma.userPreferences.findFirst({
-        where: { userId },
-      });
-      if (existingPrefs) {
-        prefs = await prisma.userPreferences.upsert({
-          where: { id: existingPrefs.id },
-          create: { userId, ...defaultPrefs },
-          update: { ...defaultPrefs },
-        });
-      } else {
-        prefs = await prisma.userPreferences.create({
-          data: { userId, ...defaultPrefs },
-        });
-      }
-    } catch (upsertErr: any) {
-      // Fallback to safe find/create flow if upsert isn't supported for userId
-      if (
-        upsertErr?.name === "PrismaClientValidationError" ||
-        /needs at least one of/.test(upsertErr?.message || "")
-      ) {
-        prefs = await prisma.userPreferences.findFirst({ where: { userId } });
+    const existingPrefs = await prisma.userPreferences.findFirst({
+      where: { userId },
+    });
 
-        if (!prefs) {
-          try {
-            prefs = await prisma.userPreferences.create({
-              data: { userId, ...defaultPrefs },
-            });
-          } catch (createErr) {
-            // fallback to connecting to related User if userPreferences uses a relation
-            prefs = await prisma.userPreferences.create({
-              data: {
-                ...defaultPrefs,
-                user: {
-                  connect: { id: userId },
-                },
-              },
-            });
-          }
-        }
-      } else {
-        throw upsertErr;
-      }
+    if (existingPrefs) {
+      return res.status(200).json(existingPrefs);
     }
+
+    const prefs = await prisma.userPreferences.create({
+      data: { userId, ...defaultPrefs },
+    });
 
     return res.status(200).json(prefs);
   } catch (err) {

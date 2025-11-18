@@ -2,8 +2,6 @@ import { Router } from "express";
 import { authenticate } from "@/middlewares";
 import { currentSession } from "@/middlewares";
 import { errorHandler } from "@/middlewares";
-import swaggerUi from "swagger-ui-express";
-import swaggerSpec from "@/config/swagger";
 
 // Import all routers
 import authRouter from "./auth.routes";
@@ -13,6 +11,8 @@ import cognitiveExerciseRouter from "./cognitiveExercise.routes";
 import conversationRouter from "./conversation.routes";
 import exerciseProgramRoutes from "./exerciseProgram.routes";
 import forumMessageRouter from "./forumMessage.routes";
+import forumTopicRouter from "./forumTopic.routes";
+import forumSectionRouter from "./forumSection.routes";
 import healthIndicatorRouter from "./healthIndicator.routes";
 import helpOffersRouter from "./helpOffer.routes";
 import helpRequestsRouter from "./helpRequest.routes";
@@ -55,7 +55,6 @@ const router = Router();
 
 // Public routes (no authentication required)
 router.use("/auth", authRouter);
-router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Apply authentication middleware for protected routes
 router.use(authenticate);
@@ -70,6 +69,8 @@ router.use("/cognitive-exercises", cognitiveExerciseRouter);
 router.use("/conversations", conversationRouter);
 router.use("/exercise-programs", exerciseProgramRoutes);
 router.use("/forum-messages", forumMessageRouter);
+router.use("/forum-sections", forumSectionRouter);
+router.use("/forum-topics", forumTopicRouter);
 router.use("/health-indicators", healthIndicatorRouter);
 router.use("/help-offers", helpOffersRouter);
 router.use("/help-requests", helpRequestsRouter);
@@ -93,7 +94,7 @@ router.use("/trust-circle", trustCircleRouter);
 router.use("/trusted-contacts", trustedContactRouter);
 router.use("/uploads", uploadsRoutes);
 router.use("/urban-issue-reports", urbanIssueReportRouter);
-router.use("/users", userRouter);
+router.use("/admin/users", userRouter);
 router.use("/user-activities", userActivityRouter);
 router.use("/user-badges", userBadgeRouter);
 router.use("/user-contacts", userContactRouter);

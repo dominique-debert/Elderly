@@ -49,7 +49,7 @@ node_modules/.bin/*
 package-lock.json
 .DS_Store
 ../.DS_Store
-# public/
+public/
 .env
 # ignore environment files everywhere
 **/.env
