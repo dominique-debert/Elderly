@@ -35,7 +35,13 @@ app.use(
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
 
-      if (allowedOrigins.includes(origin)) {
+      // Allow localhost and any IP from local network (192.168.x.x)
+      if (
+        allowedOrigins.includes(origin || "") ||
+        /^http:\/\/(192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}):\d{1,5}$/.test(
+          origin || ""
+        )
+      ) {
         callback(null, true);
       } else {
         console.log(`CORS blocked origin: ${origin}`);

@@ -2,7 +2,7 @@ import axios from "axios";
 import { refreshAccessToken } from "@/services";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api", // Point to your backend server
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/api",
 });
 
 // Intercepteur de requête pour ajouter le token dans les headers

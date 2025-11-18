@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useAuthStore } from "@/stores";
+import api from "@/lib/axios";
 
 export const useWeather = () => {
   const { user } = useAuthStore();
@@ -12,7 +13,7 @@ export const useWeather = () => {
       if (!user) {
         throw new Error("User is not available");
       }
-      const res = await axios.get("http://localhost:3000/api/weather", {
+      const res = await api.get("/weather", {
         params: {
           longitude: user.longitude,
           latitude: user.latitude,
