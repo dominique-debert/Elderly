@@ -3,7 +3,6 @@ import {
   seedActivities,
   seedBadges,
   seedCognitions,
-  seedForum,
   seedHelp,
   seedNutritional,
   seedPrograms,
@@ -22,6 +21,22 @@ import { seedNotifications } from "@/prisma/seed/notifications.seed";
 const prisma = new PrismaClient();
 
 async function seedCategories() {
+  // Delete all dependent records first
+  await prisma.activity.deleteMany();
+  await prisma.badge.deleteMany();
+  await prisma.cognitiveExercise.deleteMany();
+  await prisma.collaborativeProject.deleteMany();
+  await prisma.exerciseProgram.deleteMany();
+  await prisma.helpRequest.deleteMany();
+  await prisma.localService.deleteMany();
+  await prisma.nutritionalAdvice.deleteMany();
+  await prisma.resource.deleteMany();
+  await prisma.skill.deleteMany();
+  await prisma.urbanIssueReport.deleteMany();
+  await prisma.wellnessBadge.deleteMany();
+  await prisma.wellnessGoal.deleteMany();
+
+  // Now delete categories
   await prisma.category.deleteMany();
 
   // 1. ACTIVITY
@@ -35,10 +50,6 @@ async function seedCategories() {
   // 3. COGNITIVE CATEGORIES
   // 🧠 Catégories liées aux fonctions cognitives
   seedCognitions();
-
-  // 4. FORUM
-  // 💬 Forums de discussion, échanges entre utilisateurs
-  seedForum();
 
   // 5. HELP
   // 🆘 Aides, supports et assistances

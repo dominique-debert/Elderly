@@ -67,17 +67,19 @@ model activityRegistration {
 }
 
 model badge {
-  id          String     @id @default(cuid())
+  id          String      @id @default(cuid())
   name        String
   description String?
   icon        String?
   level       Int?
-  createdAt   DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt   DateTime?  @map("updated_at") @db.Timestamp(6)
+  createdAt   DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt   DateTime?   @map("updated_at") @db.Timestamp(6)
   userBadgeId String?
-  categoryId  Int        @unique @map("category_id")
-  category    category   @relation(fields: [categoryId], references: [id])
-  userBadge   userBadge? @relation(fields: [userBadgeId], references: [id])
+  categoryId  Int         @unique @map("category_id")
+  category    category    @relation(fields: [categoryId], references: [id])
+  user        user?       @relation(fields: [userId], references: [id])
+  userId      String?
+  userBadges  userBadge[]
 }
 
 model blockedContact {
@@ -682,9 +684,11 @@ model user {
   address                 String?
   city                    String?
   postalCode              String?                   @map("postal_code")
+  userRole                userRole[]
   activity                activity[]
   activityLog             activityLog[]
   activityRegistration    activityRegistration[]
+  badge                   badge[]
   blockedContact          blockedContact[]
   collaborativeProject    collaborativeProject[]
   contactRequest          contactRequest[]
@@ -745,21 +749,21 @@ model userBadge {
   achievementDate DateTime  @map("achievement_date") @db.Timestamp(6)
   createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt       DateTime? @map("updated_at") @db.Timestamp(6)
-  id              String    @id @default(cuid())
-  badge           badge[]
+  badge           badge     @relation(fields: [badgeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   user            user      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
+  @@id([userId, badgeId])
   @@map("user_badge")
 }
 
 model userContacts {
-  id        String    @id @default(cuid())
   userId    String    @map("user_id")
   contactId String    @map("contact_id")
   createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
   user      user      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
+  @@id([userId, contactId])
   @@map("user_contacts")
 }
 
@@ -816,13 +820,22 @@ model userPreferences {
   @@map("user_preferences")
 }
 
+model userRole {
+  id     String @id @default(cuid())
+  userId String @map("user_id")
+  role   Role
+  user   user   @relation(fields: [userId], references: [id])
+
+  @@map("user_role")
+}
+
 model userSkill {
+  id        String    @id @default(cuid())
   userId    String    @map("user_id")
   skillId   String    @map("skill_id")
   level     Int?
   updatedAt DateTime? @map("updated_at") @db.Timestamp(6)
   createdAt DateTime  @default(now()) @db.Timestamp(6)
-  id        String    @id @default(cuid())
   skill     skill     @relation(fields: [skillId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   user      user      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
@@ -911,4 +924,9 @@ enum Valence {
   positive
   negative
   neutre
+}
+
+enum Role {
+  admin
+  member
 }

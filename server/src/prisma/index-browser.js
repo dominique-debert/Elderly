@@ -178,7 +178,8 @@ exports.Prisma.BadgeScalarFieldEnum = {
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   userBadgeId: 'userBadgeId',
-  categoryId: 'categoryId'
+  categoryId: 'categoryId',
+  userId: 'userId'
 };
 
 exports.Prisma.BlockedContactScalarFieldEnum = {
@@ -666,12 +667,10 @@ exports.Prisma.UserBadgeScalarFieldEnum = {
   badgeId: 'badgeId',
   achievementDate: 'achievementDate',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  id: 'id'
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.UserContactsScalarFieldEnum = {
-  id: 'id',
   userId: 'userId',
   contactId: 'contactId',
   createdAt: 'createdAt',
@@ -721,13 +720,19 @@ exports.Prisma.UserPreferencesScalarFieldEnum = {
   notificationMessages: 'notificationMessages'
 };
 
+exports.Prisma.UserRoleScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  role: 'role'
+};
+
 exports.Prisma.UserSkillScalarFieldEnum = {
+  id: 'id',
   userId: 'userId',
   skillId: 'skillId',
   level: 'level',
   updatedAt: 'updatedAt',
-  createdAt: 'createdAt',
-  id: 'id'
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.UserStatisticsScalarFieldEnum = {
@@ -821,6 +826,11 @@ exports.Valence = exports.$Enums.Valence = {
   neutre: 'neutre'
 };
 
+exports.Role = exports.$Enums.Role = {
+  admin: 'admin',
+  member: 'member'
+};
+
 exports.Prisma.ModelName = {
   activity: 'activity',
   activityLog: 'activityLog',
@@ -871,6 +881,7 @@ exports.Prisma.ModelName = {
   userDevice: 'userDevice',
   userInterest: 'userInterest',
   userPreferences: 'userPreferences',
+  userRole: 'userRole',
   userSkill: 'userSkill',
   userStatistics: 'userStatistics',
   videoCall: 'videoCall',

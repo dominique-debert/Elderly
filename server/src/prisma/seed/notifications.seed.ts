@@ -7,7 +7,7 @@ dotenv.config();
 const prisma = new PrismaClient();
 
 export async function seedNotifications() {
-  const userId = "cmhvrbegp00000t6clypmvbvh";
+  const userId = "cmi3k9p0800030tyy0iaa89ug";
   await prisma.notification.deleteMany();
   await prisma.notification.createMany({
     data: [
