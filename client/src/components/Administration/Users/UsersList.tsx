@@ -49,7 +49,7 @@ export function UsersList() {
   })();
 
   return (
-    <div className="w-full p-4 bg-white dark:bg-transparent">
+    <div className="w-full p-3 bg-white dark:bg-transparent">
       <UsersModeSwitcher
         mode={mode}
         setMode={setMode}

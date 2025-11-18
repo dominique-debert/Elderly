@@ -50,7 +50,7 @@ export function LeftSidebar() {
 
   return (
     <div
-      className={`fixed z-40 drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-3 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-hidden ${
+      className={`fixed invisible md:visible z-40 drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-3 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-hidden ${
         collapsed ? "w-20" : "w-60"
       }`}
     >
