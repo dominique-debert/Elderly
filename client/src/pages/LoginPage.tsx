@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 import toast from "react-hot-toast";
@@ -36,13 +36,13 @@ export function LoginPage() {
           alt="Personnes âgées et jeunes cuisinant ensemble"
           className="object-cover h-full w-full"
         />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       {/* Content overlay */}
       <div className="relative z-10 md:pr-8 flex flex-col lg:flex-row items-center justify-center lg:justify-end w-full min-h-screen">
         {/* Login form */}
-        <div className="max-w-md w-full p-8 pt-4 pb-0">
+        <div className="max-w-md w-full p-8 pt-0 pb-0">
           <div className="mb-4">
             <h1 className="text-3xl font-bold text-white mb-2">Connexion</h1>
             <p className="text-slate-300">
@@ -52,12 +52,12 @@ export function LoginPage() {
 
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 h-full bg-white dark:bg-transparent rounded-2xl shadow-lg p-6"
+            className="space-y-6 h-full rounded-2xl shadow-lg pt-6"
           >
             <div>
               <label
                 htmlFor="login_email"
-                className="block text-sm font-medium dark:text-gray-300 mb-2"
+                className="block text-slate-200 text-sm font-medium mb-2"
               >
                 Email
               </label>
@@ -65,7 +65,7 @@ export function LoginPage() {
                 type="email"
                 name="login_email"
                 placeholder="jean.durand@gmail.com"
-                className="w-full px-4 py-3 dark:bg-transparent border border-slate-300 dark:border-slate-600 rounded-lg bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full input input-primary focus:outline-none"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -75,7 +75,7 @@ export function LoginPage() {
             <div>
               <label
                 htmlFor="login_password"
-                className="block text-sm font-medium dark:text-gray-300 mb-2"
+                className="block text-slate-200 text-sm font-medium mb-2"
               >
                 Mot de passe
               </label>
@@ -83,7 +83,7 @@ export function LoginPage() {
                 type="password"
                 name="login_password"
                 placeholder="••••••••"
-                className="w-full px-4 py-3 dark:bg-transparent border border-slate-300 dark:border-slate-600 rounded-lg bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full input input-primary focus:outline-none"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -101,31 +101,28 @@ export function LoginPage() {
               <input
                 type="checkbox"
                 id="remember"
-                className="w-4 h-4 text-blue-600 bg-transparent border-gray-600 rounded focus:ring-blue-500"
+                className="checkbox-primary"
               />
-              <label
-                htmlFor="remember"
-                className="ml-2 text-sm dark:text-gray-400"
-              >
+              <label htmlFor="remember" className="ml-2 text-sm text-slate-200">
                 Se souvenir de moi
               </label>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 pt-5">
               <Link
                 to="/signup"
-                className="block text-blue-400 hover:text-blue-300 text-sm"
+                className="block text-slate-100 text-xs link-primary"
               >
                 Pas encore de compte ? Inscrivez-vous
               </Link>
               <Link
                 to="/forgot-password"
-                className="block text-blue-400 hover:text-blue-300 text-sm"
+                className="block text-slate-100 text-xs link-primary"
               >
                 Mot de passe oublié ?
               </Link>
             </div>
-            <p className="text-slate-500 text-sm">© 2025 Elderly</p>
+            <p className="text-slate-300 text-xs pt-5">© 2025 Elderly</p>
           </form>
         </div>
       </div>

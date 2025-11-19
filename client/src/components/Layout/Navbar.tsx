@@ -92,7 +92,7 @@ export function Navbar() {
             <label className="swap swap-rotate">
               <input
                 type="checkbox"
-                className="theme-controller"
+                className="theme-controller appearance-none"
                 value="nord"
                 onChange={handleToggle}
                 checked={theme === "nord"}

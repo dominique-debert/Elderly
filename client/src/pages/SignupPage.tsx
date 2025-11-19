@@ -25,90 +25,96 @@ function Step1({ onNext }: { onNext: () => void }) {
   };
 
   return (
-    <div className="h-vh text-white flex flex-col items-center justify-center pt-6">
-      <h1 className="text-3xl font-light text-white mt-20 mb-8 text-center">
-        Créez votre compte
-      </h1>
-
-      {/* Progress Steps */}
-      <div className="flex items-start justify-center mb-12 w-full">
-        <div className="flex flex-col items-center">
-          <div className="font-medium w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm">
-            <span className="-mt-px">1</span>
-          </div>
-          <span className="ml-2 text-sm text-blue-500 font-medium mt-4">
-            Compte
-          </span>
-        </div>
-        <div className="w-16 h-px bg-slate-600 mx-4 mt-3.5"></div>
-        <div className="flex flex-col items-center">
-          <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
-            <span className="-mt-px">2</span>
-          </div>
-          <span className="ml-2 text-sm text-slate-400 mt-4">
-            Informations <br /> personnelles
-          </span>
-        </div>
-        <div className="w-16 h-px bg-slate-600 mx-4 mt-3.5"></div>
-        <div className="flex flex-col items-center">
-          <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
-            <span className="-mt-px">3</span>
-          </div>
-          <span className="ml-2 text-sm text-slate-400 mt-4">Confirmation</span>
-        </div>
-      </div>
-
-      <main className="flex flex-col lg:flex-row items-center justify-between w-[1164px] h-full mt-[60px] gap-24">
-        <div className="text-left flex flex-col h-full w-full">
-          <form onSubmit={handleNext} className="space-y-4 flex flex-col">
-            <input
-              type="email"
-              placeholder="Votre email"
-              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:bg-transparent focus:ring-2 focus:ring-blue-500"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Choisissez un mot de passe (8 caractères minimum)"
-              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Confirmez le mot de passe"
-              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-            <button
-              type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors cursor-pointer"
-            >
-              Suivant
-            </button>
-          </form>
-
-          <p className="text-center text-sm text-blue-400 mt-6">
-            <Link to="/login" className="hover:text-blue-300">
-              Déjà un compte ? Connectez-vous
-            </Link>
-          </p>
-        </div>
-
-        <div className="h-[335px] w-full mt-12 lg:mt-0 lg:ml-12 rounded-2xl overflow-hidden border border-slate-600">
+    <>
+      <div className="h-vh flex flex-col items-center justify-start bg-white dark:bg-transparent z-10">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
           <img
             src="/images/landing-illustration.jpg"
             alt="Personnes âgées et jeunes cuisinant ensemble"
-            className="object-cover lg:h-full w-full"
+            className="object-cover h-full w-full"
           />
+          <div className="absolute inset-0 bg-black/45" />
         </div>
-      </main>
-    </div>
+        <h1 className="text-3xl font-light text-slate-300 mt-10 mb-8 text-center z-10">
+          Créez votre compte
+        </h1>
+
+        {/* Progress Steps */}
+        <div className="flex items-start justify-center mb-12 w-full lg:max-w-lg  p-6 z-10">
+          <div className="flex flex-col items-center">
+            <div className="font-medium w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-sm">
+              <span className="-mt-px">1</span>
+            </div>
+            <span className="ml-2 text-sm text-primary font-bold mt-4">
+              Compte
+            </span>
+          </div>
+          <div className="w-16 h-px bg-slate-300 mx-4 mt-4.5"></div>
+          <div className="flex flex-col items-center">
+            <div className="font-medium w-10 h-10 border border-slate-300 text-slate-300 rounded-full flex items-center justify-center text-sm">
+              <span className="-mt-px">2</span>
+            </div>
+            <span className="ml-2 text-sm text-slate-300 mt-4">
+              Informations <br /> personnelles
+            </span>
+          </div>
+          <div className="w-16 h-px bg-slate-300 mx-4 mt-4.5"></div>
+
+          <div className="flex flex-col items-center">
+            <div className="font-medium w-10 h-10 border border-slate-300 text-slate-300 rounded-full flex items-center justify-center text-sm">
+              <span className="-mt-px">3</span>
+            </div>
+            <span className="ml-2 text-sm text-slate-300 mt-4">
+              Confirmation
+            </span>
+          </div>
+        </div>
+
+        <main className="flex flex-col lg:flex-row items-center justify-between p-6 pt-0 w-full z-10 md:max-w-lg h-full lg:gap-24">
+          <div className="text-left flex flex-col h-full w-full">
+            <form onSubmit={handleNext} className="space-y-4 flex flex-col">
+              <input
+                type="email"
+                placeholder="Votre email"
+                className="input input-primary focus:outline-none w-full"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <input
+                type="password"
+                placeholder="Choisissez un mot de passe (8 caractères minimum)"
+                className="input input-primary focus:outline-none w-full"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <input
+                type="password"
+                placeholder="Confirmez le mot de passe"
+                className="input input-primary focus:outline-none w-full"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+              <button
+                type="submit"
+                className="w-full btn btn-primary transition-colors mt-6"
+              >
+                Suivant
+              </button>
+            </form>
+
+            <p className="text-center text-sm text-slate-100 mt-8">
+              <Link to="/login" className="hover:text-blue-300">
+                Déjà un compte ? Connectez-vous
+              </Link>
+            </p>
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
 
@@ -150,180 +156,181 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
   }, [previewUrl]);
 
   return (
-    <div className="h-vh bg-[#0F172A] text-white flex flex-col items-center justify-center pt-6">
-      <h1 className="text-3xl font-light text-white mb-8 mt-15 gap-24">
+    <div className="h-vh flex flex-col items-center justify-start bg-white dark:bg-transparent z-10">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/landing-illustration.jpg"
+          alt="Personnes âgées et jeunes cuisinant ensemble"
+          className="object-cover h-full w-full"
+        />
+        <div className="absolute inset-0 bg-black/45" />
+      </div>
+      <h1 className="text-3xl font-light text-slate-300 mt-10 mb-8 text-center z-10">
         Créez votre compte
       </h1>
 
       {/* Progress Steps */}
-      <div className="flex items-start justify-center w-full">
+      <div className="flex items-start justify-center w-full p-6 z-10">
         <div className="flex flex-col items-center">
-          <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
+          <div className="font-medium w-10 h-10 border border-slate-300 text-slate-300 rounded-full flex items-center justify-center text-sm">
             <span className="-mt-px">1</span>
           </div>
-          <span className="ml-2 text-sm text-slate-400 font-medium mt-4">
-            Compte
-          </span>
+          <span className="ml-2 text-sm text-slate-400 mt-4">Compte</span>
         </div>
-        <div className="w-16 h-px bg-slate-600 mx-4 mt-4.5"></div>
+        <div className="w-16 h-px bg-slate-300 mx-4 mt-4.5"></div>
         <div className="flex flex-col items-center">
-          <div className="font-medium w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-sm">
-            <span className="-mt-px">2</span>
+          <div className="font-medium w-10 h-10 text-slate-300 rounded-full flex items-center justify-center text-sm">
+            <div className="font-medium w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-sm">
+              <span className="-mt-px">2</span>
+            </div>
           </div>
-          <span className="ml-2 text-sm text-slate-400 mt-4">
+          <span className="ml-2 text-sm text-slate-300 mt-4">
             Informations <br /> personnelles
           </span>
         </div>
-        <div className="w-16 h-px bg-slate-600 mx-4 mt-4.5"></div>
+        <div className="w-16 h-px bg-slate-300 mx-4 mt-4.5"></div>
+
         <div className="flex flex-col items-center">
-          <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
+          <div className="font-medium w-10 h-10 border border-slate-300 text-slate-300 rounded-full flex items-center justify-center text-sm">
             <span className="-mt-px">3</span>
           </div>
           <span className="ml-2 text-sm text-slate-400 mt-4">Confirmation</span>
         </div>
       </div>
 
-      <main className="flex flex-col lg:flex-row items-center justify-between max-w-full w-[1164px] h-full mt-[60px] gap-24">
-        <form onSubmit={handleNext} className="space-y-4 w-full">
+      <main className="flex flex-col lg:flex-row justify-between p-6 pt-0 w-full z-10 md:w-lg h-full lg:gap-24">
+        <form onSubmit={handleNext} className="space-y-4 md:w-full">
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
+            <label className="block text-xs font-medium text-slate-300 mb-2">
               Votre prénom
             </label>
             <input
               placeholder="Jean"
               type="text"
-              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="input input-primary w-full focus:outline-none"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
+            <label className="block text-xs font-medium text-slate-300 mb-2">
               Votre nom
             </label>
             <input
               type="text"
               placeholder="Durand"
-              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="input input-primary w-full focus:outline-none"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
+            <label className="block text-xs font-medium text-slate-300 mb-2">
               Votre date de naissance
             </label>
             <input
               type="date"
               lang="fr"
-              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="input input-primary w-full focus:outline-none"
               value={birthDate.toISOString().split("T")[0]}
               onChange={(e) => setBirthDate(new Date(e.target.value))}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
+            <label className="block text-xs font-medium text-slate-300 mb-2">
               Votre numéro de téléphone (facultatif)
             </label>
             <input
-              pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
+              pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"
               type="tel"
               placeholder="06 12 34 56 78"
-              className="w-full px-4 py-3 bg-transparent border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="input input-primary w-full focus:outline-none"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
+          {/* Photo Upload Section */}
+          <div className="w-full h-35 mt-6 lg:mt-0">
+            {previewUrl ? (
+              <div className="relative">
+                <img
+                  src={previewUrl}
+                  alt="Photo de profil"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPreviewUrl(null);
+                    setSelectedFile(undefined);
+                    setAvatarFilename("");
+                    setAvatarFile(null);
+                    if (fileInputRef.current) {
+                      fileInputRef.current.value = "";
+                    }
+                  }}
+                  className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold"
+                >
+                  ×
+                </button>
+                <button
+                  type="button"
+                  onClick={handleFileClick}
+                  className="absolute bottom-2 left-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-3 py-1 text-xs"
+                >
+                  Changer
+                </button>
+              </div>
+            ) : (
+              <div
+                className="border-2 border-dashed border-slate-300 rounded-lg p-4 h-34 flex flex-col items-center justify-start text-center text-slate-200 cursor-pointer hover:bg-slate-800/40 transition-colors"
+                onClick={handleFileClick}
+              >
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  <Icon path={mdiCloudUploadOutline} size={1.5} />
+                </div>
+                <p className="text-xs text-slate-300">
+                  Déposez votre photo ici ou cliquez sur la flèche pour
+                  l'envoyer depuis votre ordinateur (facultatif)
+                </p>
+              </div>
+            )}
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                setSelectedFile(file);
+                if (file) {
+                  const url = URL.createObjectURL(file);
+                  setPreviewUrl(url);
+                  setAvatarFilename(file.name);
+                  setAvatarFile(file);
+                } else {
+                  setAvatarFilename("");
+                  setAvatarFile(null);
+                }
+              }}
+            />
+          </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors mt-6 cursor-pointer"
+            className="w-full btn btn-primary transition-colors"
           >
             Suivant
           </button>
-          <p className="text-center text-sm text-blue-400 mt-6">
+          {/* <p className="text-center text-sm text-blue-400 mt-6">
             <Link to="/login" className="hover:text-blue-300">
               Déjà un compte ? Connectez-vous
             </Link>
-          </p>
+          </p> */}
         </form>
-
-        {/* Photo Upload Section */}
-        <div className="w-1/2">
-          {previewUrl ? (
-            <div className="relative">
-              <img
-                src={previewUrl}
-                alt="Photo de profil"
-                className="w-full h-64 object-cover rounded-lg"
-              />
-              <button
-                type="button"
-                onClick={() => {
-                  setPreviewUrl(null);
-                  setSelectedFile(undefined);
-                  setAvatarFilename("");
-                  setAvatarFile(null);
-                  if (fileInputRef.current) {
-                    fileInputRef.current.value = "";
-                  }
-                }}
-                className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold"
-              >
-                ×
-              </button>
-              <button
-                type="button"
-                onClick={handleFileClick}
-                className="absolute bottom-2 left-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-3 py-1 text-xs"
-              >
-                Changer
-              </button>
-            </div>
-          ) : (
-            <div
-              className="border-2 border-dashed border-slate-500 rounded-lg p-6 h-64 flex flex-col items-center justify-start text-center text-slate-400 cursor-pointer hover:bg-slate-800 transition-colors"
-              onClick={handleFileClick}
-            >
-              <div className="w-16 h-16 flex items-center justify-center mb-4">
-                <Icon path={mdiCloudUploadOutline} size={1.5} />
-              </div>
-              <p className="text-sm text-slate-300">
-                Déposez votre photo ici ou cliquez sur la flèche pour l'envoyer
-                depuis votre ordinateur (facultatif)
-              </p>
-            </div>
-          )}
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              setSelectedFile(file);
-              if (file) {
-                const url = URL.createObjectURL(file);
-                setPreviewUrl(url);
-                setAvatarFilename(file.name);
-                setAvatarFile(file);
-              } else {
-                setAvatarFilename("");
-                setAvatarFile(null);
-              }
-            }}
-          />
-        </div>
-
-        <div className="h-[335px] w-full mt-12 lg:mt-0 rounded-2xl overflow-hidden border border-slate-600">
-          <img
-            src="/images/landing-illustration.jpg"
-            alt="Personnes âgées et jeunes cuisinant ensemble"
-            className="object-cover lg:h-full w-full"
-          />
-        </div>
       </main>
     </div>
   );
@@ -451,46 +458,49 @@ function Step3() {
   };
 
   return (
-    <div className="h-vh bg-[#0F172A] text-white flex flex-col items-center justify-center pt-6">
-      <div className="w-full max-w-md">
-        <div className="mb-8">
-          <h1 className="text-3xl font-light text-white mb-8 mt-15 text-center">
-            Créez votre compte
-          </h1>
+    <div className="h-vh flex flex-col items-center justify-start bg-white dark:bg-transparent z-10">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/landing-illustration.jpg"
+          alt="Personnes âgées et jeunes cuisinant ensemble"
+          className="object-cover h-full w-full"
+        />
+        <div className="absolute inset-0 bg-black/45" />
+      </div>
+      <h1 className="text-3xl font-light text-slate-300 mt-10 mb-8 text-center z-10">
+        Créez votre compte
+      </h1>
 
-          {/* Progress Steps */}
-          <div className="flex items-start justify-center w-full">
-            <div className="flex flex-col items-center">
-              <div className="font-medium w-10 h-10 border border-slate-500 text-slate-400 rounded-full flex items-center justify-center text-sm">
-                <span className="-mt-px">1</span>
-              </div>
-              <span className="ml-2 text-sm text-slate-400 font-medium mt-4">
-                Compte
-              </span>
-            </div>
-            <div className="w-16 h-px bg-slate-600 mx-4 mt-4.5"></div>
-            <div className="flex flex-col items-center">
-              <div className="font-medium w-10 h-10 border border-slate-500 text-slate-500 rounded-full flex items-center justify-center text-sm">
-                <span className="-mt-px">2</span>
-              </div>
-              <span className="ml-2 text-sm text-slate-400 mt-4">
-                Informations <br /> personnelles
-              </span>
-            </div>
-            <div className="w-16 h-px bg-blue-600 mx-4 mt-4.5"></div>
-            <div className="flex flex-col items-center">
-              <div className="font-medium w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-sm">
-                <span className="-mt-px">3</span>
-              </div>
-              <span className="ml-2 text-sm text-blue-500 mt-4">
-                Confirmation
-              </span>
-            </div>
+      {/* Progress Steps */}
+      <div className="flex items-start justify-center w-full z-10 p-6">
+        <div className="flex flex-col items-center">
+          <div className="font-medium w-10 h-10 border border-slate-300 text-slate-300 rounded-full flex items-center justify-center text-sm">
+            <span className="-mt-px">1</span>
           </div>
+          <span className="ml-2 text-sm text-slate-300 font-medium mt-4">
+            Compte
+          </span>
+        </div>
+        <div className="w-16 h-px bg-slate-600 mx-4 mt-4.5"></div>
+        <div className="flex flex-col items-center">
+          <div className="font-medium w-10 h-10 border border-slate-300 text-slate-300 rounded-full flex items-center justify-center text-sm">
+            <span className="-mt-px">2</span>
+          </div>
+          <span className="ml-2 text-sm text-slate-300 mt-4">
+            Informations <br /> personnelles
+          </span>
+        </div>
+        <div className="w-16 h-px bg-primary mx-4 mt-4.5"></div>
+        <div className="flex flex-col items-center">
+          <div className="font-medium w-10 h-10 bg-primary rounded-full flex items-center justify-center text-sm">
+            <span className="-mt-px">3</span>
+          </div>
+          <span className="ml-2 text-sm text-primary mt-4">Confirmation</span>
         </div>
       </div>
 
-      <main className="flex flex-col lg:flex-row items-center justify-between max-w-full w-[1164px] h-full mt-[60px] gap-24">
+      <main className="flex flex-col lg:flex-row items-center justify-between max-w-full md:max-w-lg h-full z-10 p-6 gap-32">
         <form onSubmit={handleSubmit} className="space-y-6 w-full">
           <div className="mb-8">
             <p className="text-sm leading-relaxed">
@@ -504,9 +514,9 @@ function Step3() {
                 type="checkbox"
                 checked={acceptTerms}
                 onChange={(e) => setAcceptTerms(e.target.checked)}
-                className="w-4 h-4 text-blue-600 bg-transparent border-slate-600 rounded focus:ring-blue-500 mt-1"
+                className="input checkbox checkbox-primary text-primary bg-transparent focus:outline-none"
               />
-              <span className="text-sm text-slate-400">
+              <span className="text-sm text-slate-200">
                 En cliquant ici, je déclare avoir lu et compris les conditions
                 générales.
               </span>
@@ -517,35 +527,27 @@ function Step3() {
                 type="checkbox"
                 checked={acceptNewsletter}
                 onChange={(e) => setAcceptNewsletter(e.target.checked)}
-                className="w-4 h-4 text-blue-600 bg-transparent border-slate-600 rounded focus:ring-blue-500 mt-1"
+                className="input checkbox checkbox-primary text-primary bg-transparent focus:outline-none"
               />
-              <span className="text-sm text-slate-400">
-                J'accepte de recevoir la newsletter Elderly chaque semaine.
+              <span className="text-sm text-slate-200">
+                J'accepte de recevoir la newsletter d'Elderly chaque semaine.
               </span>
             </label>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
+            className="btn btn-primary w-full transition-colors mt-6"
             disabled={isLoading}
           >
             {isLoading ? "Création du compte..." : "Terminer l'inscription"}
           </button>
-          <p className="text-center text-sm text-blue-400 mt-6">
+          {/* <p className="text-center text-sm text-blue-400 mt-6">
             <Link to="/login" className="hover:text-blue-300">
               Déjà un compte ? Connectez-vous
             </Link>
-          </p>
+          </p> */}
         </form>
-
-        <div className="h-[335px] w-full mt-12 lg:mt-0 rounded-2xl overflow-hidden border border-slate-600">
-          <img
-            src="/images/landing-illustration.jpg"
-            alt="Personnes âgées et jeunes cuisinant ensemble"
-            className="object-cover lg:h-full w-full"
-          />
-        </div>
       </main>
     </div>
   );
