@@ -28,7 +28,10 @@ export function DashboardForumCard() {
               <TableRow>
                 <TableHead className="border-b border-slate-800">
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-primary checkbox-xs"
+                    />
                   </label>
                 </TableHead>
                 <TableHead className="border-b border-slate-800">
@@ -45,7 +48,10 @@ export function DashboardForumCard() {
               <TableRow>
                 <TableHead className="border-b border-slate-800">
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-primary checkbox-xs"
+                    />
                   </label>
                 </TableHead>
                 <TableCell className="border-b border-slate-800">
@@ -115,7 +121,10 @@ export function DashboardForumCard() {
               <TableRow>
                 <TableHead className="border-b border-slate-800">
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-primary checkbox-xs"
+                    />
                   </label>
                 </TableHead>
                 <TableCell className="border-b border-slate-800">
@@ -151,7 +160,10 @@ export function DashboardForumCard() {
               <TableRow>
                 <TableHead className="border-b border-slate-800">
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-primary checkbox-xs"
+                    />
                   </label>
                 </TableHead>
                 <TableCell className="border-b border-slate-800">
@@ -187,7 +199,10 @@ export function DashboardForumCard() {
               <TableRow>
                 <TableHead className="border-b border-slate-800">
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-primary checkbox-xs"
+                    />
                   </label>
                 </TableHead>
                 <TableCell className="border-b border-slate-800">

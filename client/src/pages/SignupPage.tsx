@@ -514,7 +514,7 @@ function Step3() {
                 type="checkbox"
                 checked={acceptTerms}
                 onChange={(e) => setAcceptTerms(e.target.checked)}
-                className="input checkbox checkbox-primary text-primary bg-transparent focus:outline-none"
+                className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
               />
               <span className="text-sm text-slate-200">
                 En cliquant ici, je déclare avoir lu et compris les conditions
@@ -527,7 +527,7 @@ function Step3() {
                 type="checkbox"
                 checked={acceptNewsletter}
                 onChange={(e) => setAcceptNewsletter(e.target.checked)}
-                className="input checkbox checkbox-primary text-primary bg-transparent focus:outline-none"
+                className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
               />
               <span className="text-sm text-slate-200">
                 J'accepte de recevoir la newsletter d'Elderly chaque semaine.

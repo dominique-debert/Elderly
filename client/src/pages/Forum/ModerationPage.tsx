@@ -809,7 +809,7 @@ export function ModerationPage() {
                     <th className="p-4" scope="col">
                       <div className="flex items-center">
                         <input
-                          className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                           id="checkbox-all"
                           type="checkbox"
                         />
@@ -840,7 +840,7 @@ export function ModerationPage() {
                     <td className="w-4 p-4">
                       <div className="flex items-center">
                         <input
-                          className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                           id="checkbox-table-1"
                           type="checkbox"
                         />
@@ -878,7 +878,7 @@ export function ModerationPage() {
                     <td className="w-4 p-4">
                       <div className="flex items-center">
                         <input
-                          className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                           id="checkbox-table-2"
                           type="checkbox"
                         />
@@ -916,7 +916,7 @@ export function ModerationPage() {
                     <td className="w-4 p-4">
                       <div className="flex items-center">
                         <input
-                          className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                           id="checkbox-table-3"
                           type="checkbox"
                         />

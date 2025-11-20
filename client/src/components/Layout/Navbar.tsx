@@ -10,7 +10,7 @@ import { INotification } from "@/types";
 
 import { NotificationList, Search } from "@/components";
 import toast from "react-hot-toast";
-import { MoonIcon, SunIcon, BellIcon } from "lucide-react";
+import { MoonIcon, SunIcon, BellIcon, Menu } from "lucide-react";
 
 export function Navbar() {
   const { user, isAuthenticated } = useAuth();
@@ -79,19 +79,7 @@ export function Navbar() {
                 aria-label="open sidebar"
                 className="btn btn-square btn-ghost"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  className="inline-block h-6 w-6 stroke-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  ></path>
-                </svg>
+                <Menu />
               </label>
             </div>
 
@@ -104,7 +92,9 @@ export function Navbar() {
                       alt="Logo"
                       className="h-8"
                     />
-                    <span className="text-primary text-2xl">Elderly</span>
+                    <span className="text-primary text-2xl invisible md:visible">
+                      Elderly
+                    </span>
                   </div>
                 </Link>
 
@@ -171,7 +161,7 @@ export function Navbar() {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-base-200 min-h-full w-80 p-4">
+          <ul className="menu dark:bg-card min-h-full w-80 p-4 z-15">
             {/* Sidebar content here */}
             <li>
               <a>Sidebar Item 1</a>

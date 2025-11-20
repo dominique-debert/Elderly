@@ -163,7 +163,7 @@ export function UserEditModal({
                 type="checkbox"
                 checked={isAdmin}
                 onChange={(e) => setIsAdmin(e.target.checked)}
-                className="checkbox checkbox-primary"
+                className="checkbox checkbox-primary checkbox-xs"
               />
               <span className="text-sm">Administrateur</span>
             </label>
@@ -173,7 +173,7 @@ export function UserEditModal({
                 type="checkbox"
                 checked={reducedMobility}
                 onChange={(e) => setReducedMobility(e.target.checked)}
-                className="checkbox checkbox-primary"
+                className="checkbox checkbox-primary checkbox-xs"
               />
               <span className="text-sm">Mobilité réduite</span>
             </label>

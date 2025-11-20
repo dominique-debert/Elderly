@@ -101,7 +101,7 @@ export function LoginPage() {
               <input
                 type="checkbox"
                 id="remember"
-                className="checkbox-primary"
+                className="checkbox checkbox-primary checkbox-xs"
               />
               <label htmlFor="remember" className="ml-2 text-sm text-slate-200">
                 Se souvenir de moi

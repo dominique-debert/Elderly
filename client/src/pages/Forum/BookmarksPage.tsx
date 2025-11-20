@@ -70,42 +70,42 @@ export function BookmarksPage() {
                       <div className="grid grid-cols-2 gap-2 mb-4">
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
-                            className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                            className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                             type="checkbox"
                           />
                           <span>Conception UI/UX</span>
                         </label>
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
-                            className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                            className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                             type="checkbox"
                           />
                           <span>Développement Web</span>
                         </label>
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
-                            className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                            className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                             type="checkbox"
                           />
                           <span>Cuisine</span>
                         </label>
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
-                            className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                            className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                             type="checkbox"
                           />
                           <span>Productivité</span>
                         </label>
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
-                            className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                            className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                             type="checkbox"
                           />
                           <span>Marketing</span>
                         </label>
                         <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           <input
-                            className="form-checkbox rounded text-primary focus:ring-primary/50 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                            className="checkbox checkbox-primary checkbox-xs text-primary bg-transparent focus:outline-none"
                             type="checkbox"
                           />
                           <span>IA/ML</span>
