@@ -176,7 +176,7 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
           <div className="font-medium w-10 h-10 border border-slate-300 text-slate-300 rounded-full flex items-center justify-center text-sm">
             <span className="-mt-px">1</span>
           </div>
-          <span className="ml-2 text-sm text-slate-400 mt-4">Compte</span>
+          <span className="ml-2 text-sm text-slate-300 mt-4">Compte</span>
         </div>
         <div className="w-16 h-px bg-slate-300 mx-4 mt-4.5"></div>
         <div className="flex flex-col items-center">
@@ -195,7 +195,7 @@ function Step2({ onNext }: { onNext: () => void; onBack: () => void }) {
           <div className="font-medium w-10 h-10 border border-slate-300 text-slate-300 rounded-full flex items-center justify-center text-sm">
             <span className="-mt-px">3</span>
           </div>
-          <span className="ml-2 text-sm text-slate-400 mt-4">Confirmation</span>
+          <span className="ml-2 text-sm text-slate-300 mt-4">Confirmation</span>
         </div>
       </div>
 
