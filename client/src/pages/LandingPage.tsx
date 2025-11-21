@@ -5,7 +5,7 @@ export function LandingPage() {
     <div className="h-vh flex flex-col items-center justify-center">
       <header className="w-full flex justify-between items-center mb-0 lg:mb-12">
         <div className="flex p-2 pl-5 items-center gap-4 font-normal text-2xl text-primary">
-          <img src="/images/elderly.webp" alt="Logo" className="h-8" />
+          <img src="/images/elderly.png" alt="Logo" className="h-8" />
           <span className="text-primary text-2xl">Elderly</span>
         </div>
         <div className="flex gap-3 mr-6">

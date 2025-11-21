@@ -65,7 +65,7 @@ export function LoginPage() {
                 type="email"
                 name="login_email"
                 placeholder="jean.durand@gmail.com"
-                className="w-full input input-primary focus:outline-none"
+                className="w-full input input-primary focus:outline-none border-0"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -83,7 +83,7 @@ export function LoginPage() {
                 type="password"
                 name="login_password"
                 placeholder="••••••••"
-                className="w-full input input-primary focus:outline-none"
+                className="w-full input input-primary focus:outline-none border-0"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -101,7 +101,7 @@ export function LoginPage() {
               <input
                 type="checkbox"
                 id="remember"
-                className="checkbox checkbox-primary checkbox-xs"
+                className="checkbox checkbox-primary checkbox-xs ml-1"
               />
               <label htmlFor="remember" className="ml-2 text-sm text-slate-200">
                 Se souvenir de moi
