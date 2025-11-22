@@ -108,11 +108,15 @@ export function Navbar() {
               </label>
             </div>
 
-            <div className="md:visible">
-              <div className="flex justify-between w-full items-center">
+            <div className="md:visible w-full">
+              <div className="flex justify-between items-center">
                 <Link to="/dashboard">
                   <div className="flex p-2 items-center gap-4 font-normal text-2xl text-primary">
-                    <img src="/images/elderly.png" alt="Logo" className="h-8" />
+                    <img
+                      src="/images/elderly.png"
+                      alt="Logo"
+                      className="w-16 md:w-8 float-left"
+                    />
                     {/* <span className="text-accent text-2xl invisible md:visible">
                       Elderly
                     </span> */}
