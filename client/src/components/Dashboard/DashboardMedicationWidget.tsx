@@ -2,7 +2,7 @@ import Icon from "@mdi/react";
 import { mdiClockOutline } from "@mdi/js";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components";
 
-export function DashboardMedicationCard() {
+export function DashboardMedicationWidget() {
   return (
     <Card className="lg:w-full">
       <CardHeader>

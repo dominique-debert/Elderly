@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components";
 
-export function DashboardServiceCard() {
+export function DashboardServiceWidget() {
   return (
     <Card className="lg:w-full">
       <CardHeader>

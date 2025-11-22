@@ -47,6 +47,15 @@ export function Navbar() {
     toggleTheme();
   };
 
+  const closeDrawer = () => {
+    const drawerCheckbox = document.getElementById(
+      "my-drawer-2"
+    ) as HTMLInputElement;
+    if (drawerCheckbox) {
+      drawerCheckbox.checked = false;
+    }
+  };
+
   const [forumOpen, setForumOpen] = useState(false);
 
   const {
@@ -200,6 +209,7 @@ export function Navbar() {
             <div className="divider expert-blue p-0 m-0"></div>
             <NavLink
               to="/dashboard"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -212,6 +222,7 @@ export function Navbar() {
             </NavLink>
             <NavLink
               to="/explore"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -224,7 +235,8 @@ export function Navbar() {
             </NavLink>
             <div className="divider expert-blue p-0 m-0"></div>
             <NavLink
-              to={"/activities"}
+              to="/activities"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -236,7 +248,8 @@ export function Navbar() {
               <span className="text-sm">Mes Activités</span>
             </NavLink>
             <NavLink
-              to={"/wellness"}
+              to="/wellness"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -248,7 +261,8 @@ export function Navbar() {
               <span className="text-sm">Mon Bien-Être</span>
             </NavLink>
             <NavLink
-              to={"/exercises"}
+              to="/exercises"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -260,7 +274,8 @@ export function Navbar() {
               <span className="text-sm">Mes Exercices</span>
             </NavLink>
             <NavLink
-              to={"/objectives"}
+              to="/objectives"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -272,7 +287,8 @@ export function Navbar() {
               <span className="text-sm">Mes Objectifs</span>
             </NavLink>
             <NavLink
-              to={"/projects"}
+              to="/projects"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -284,7 +300,8 @@ export function Navbar() {
               <span className="text-sm">Mes Projets</span>
             </NavLink>
             <NavLink
-              to={"/medications"}
+              to="/medications"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -297,7 +314,8 @@ export function Navbar() {
             </NavLink>
             <div className="divider expert-blue m-0"></div>
             <NavLink
-              to={"/messages"}
+              to="/messages"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -336,6 +354,7 @@ export function Navbar() {
                     <li className="w-48">
                       <NavLink
                         to="/forum/home"
+                        onClick={closeDrawer}
                         className={({ isActive }) =>
                           `p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
@@ -349,6 +368,7 @@ export function Navbar() {
                     <li className="w-48">
                       <NavLink
                         to="/forum/discover"
+                        onClick={closeDrawer}
                         className={({ isActive }) =>
                           `p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
@@ -362,6 +382,7 @@ export function Navbar() {
                     <li className="w-48">
                       <NavLink
                         to="/forum/discussions"
+                        onClick={closeDrawer}
                         className={({ isActive }) =>
                           `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
@@ -375,6 +396,7 @@ export function Navbar() {
                     <li className="w-48">
                       <NavLink
                         to="/forum/categories"
+                        onClick={closeDrawer}
                         className={({ isActive }) =>
                           `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
@@ -388,6 +410,7 @@ export function Navbar() {
                     <li className="w-48">
                       <NavLink
                         to="/forum/bookmarks"
+                        onClick={closeDrawer}
                         className={({ isActive }) =>
                           `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
@@ -401,6 +424,7 @@ export function Navbar() {
                     <li className="w-48">
                       <NavLink
                         to="/forum/notifications"
+                        onClick={closeDrawer}
                         className={({ isActive }) =>
                           `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
@@ -416,6 +440,7 @@ export function Navbar() {
                       <li className="w-48">
                         <NavLink
                           to="/forum/moderation"
+                          onClick={closeDrawer}
                           className={({ isActive }) =>
                             `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
                               isActive ? "bg-primary/10" : ""
@@ -436,6 +461,7 @@ export function Navbar() {
 
             <NavLink
               to="/profile"
+              onClick={closeDrawer}
               className={({ isActive }) =>
                 `p-3 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
@@ -463,6 +489,7 @@ export function Navbar() {
                 <div className="divider m-0"></div>
                 <NavLink
                   to="/admin"
+                  onClick={closeDrawer}
                   className={({ isActive }) =>
                     `p-3 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 mb-12 ${
                       isActive ? "bg-primary/10" : ""

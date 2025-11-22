@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 import {
-  DashboardUserCard,
+  DashboardUserWidget,
   DashboardWeatherWidget,
-  DashboardActivityCard,
+  DashboardActivityWidget,
 } from "@/components";
 import { formatLongDate, getGreeting } from "@/utils";
 
@@ -40,9 +40,9 @@ export function DashboardPage() {
         </span>
         {user ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4 h-full">
-            <DashboardActivityCard />
+            <DashboardActivityWidget />
             <DashboardWeatherWidget />
-            <DashboardUserCard />
+            <DashboardUserWidget />
           </div>
         ) : (
           <p>Les informations de profil sont introuvables.</p>

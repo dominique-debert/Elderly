@@ -1,11 +1,10 @@
 import Icon from "@mdi/react";
 import { mdiCakeVariantOutline, mdiEmailOutline } from "@mdi/js";
 
-import { formatDate } from "@/utils";
 import { useAuthStore } from "@/stores";
 import { Card } from "../ui/Card";
 
-export function DashboardUserCard() {
+export function DashboardUserWidget() {
   const { user } = useAuthStore();
 
   return (

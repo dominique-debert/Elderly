@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components";
 
-export function DashboardHealthCard() {
+export function DashboardHealthWidget() {
   return (
     <Card className="lg:w-full">
       <CardHeader>

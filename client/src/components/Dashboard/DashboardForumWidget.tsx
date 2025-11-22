@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@/components";
 
-export function DashboardForumCard() {
+export function DashboardForumWidget() {
   return (
     <Card className="w-full">
       <CardHeader>

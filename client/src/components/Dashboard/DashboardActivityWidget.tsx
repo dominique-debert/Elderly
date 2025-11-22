@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components";
 
-export function DashboardActivityCard() {
+export function DashboardActivityWidget() {
   return (
     <>
       <Card className="lg:w-full border">
