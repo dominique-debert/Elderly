@@ -8,19 +8,19 @@ export function DashboardUserWidget() {
   const { user } = useAuthStore();
 
   return (
-    <Card className="self-center w-2/3 h-full p-0">
-      <figure className="relative rounded-xl top-0">
+    <Card className="w-full">
+      <figure className="relative rounded-xl top-0 p-0 m-0">
         {user && (
           <img
             src={
               user.avatarUrl ?? `/images/${user.avatar || "default-avatar.svg"}`
             }
             alt="Photo utilisateur"
-            className="object-cover w-full rounded-xl"
+            className="object-cover h-full rounded-xl"
           />
         )}
-        <div className="m-4 bottom-0 left-4 absolute w-100">
-          <div className="p-6 w-full h-full z-30 rounded-xl bg-card/60 glass">
+        <div className="bottom-4 left-4 absolute w-full">
+          <div className="p-4 w-fit h-full z-30 rounded-xl bg-card/60 glass">
             {user && (
               <h2 className="text-2xl mb-3 card-title">
                 {user.firstName} {user.lastName}
@@ -42,6 +42,14 @@ export function DashboardUserWidget() {
                 size={1}
                 className="text-gray-300"
               />
+              <span className="ml-2 mt-0.5 align-middle">
+                {user &&
+                  new Date(user.birthDate).toLocaleDateString("fr-FR", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  })}
+              </span>
             </div>
           </div>
         </div>
