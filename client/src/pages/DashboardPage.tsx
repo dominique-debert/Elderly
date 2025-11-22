@@ -26,11 +26,11 @@ export function DashboardPage() {
 
   return (
     <>
-      <div className="flex flex-col mt-4 mr-3 h-full justify-items-center align-items-center">
-        <h1 className="text-2xl font-semibold m-2">
+      <div className="flex flex-col mt- md:mt-4 mr-3 h-full justify-items-center align-items-center">
+        <h1 className="text-xl lg:text-2xl font-semibold p-2 pb-0">
           {getGreeting()}, {user?.firstName}
         </h1>
-        <span className="m-2 mt-0 font-normal text-slate-400">
+        <span className="m-2 mt-0 font-normal text-xs md:text-base text-slate-400 mb-4">
           Nous sommes le{" "}
           {formatLongDate(currentTime, {
             showWeekday: true,
@@ -38,17 +38,15 @@ export function DashboardPage() {
             showSeconds: true,
           })}
         </span>
-        <div className="lg:flex lg:flex-row gap-4">
-          {user ? (
-            <>
-              <DashboardActivityCard />
-              <DashboardWeatherWidget />
-              <DashboardUserCard />
-            </>
-          ) : (
-            <p>Les informations de profil sont introuvables.</p>
-          )}
-        </div>
+        {user ? (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4 h-full">
+            <DashboardActivityCard />
+            <DashboardWeatherWidget />
+            <DashboardUserCard />
+          </div>
+        ) : (
+          <p>Les informations de profil sont introuvables.</p>
+        )}
       </div>
     </>
   );
