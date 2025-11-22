@@ -27,7 +27,6 @@
     "argon2": "^0.41.1",
     "axios": "^1.13.2",
     "bcrypt": "^5.1.1",
-    "client@latest": "link:prisma/client@latest",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "cuid": "^3.0.0",

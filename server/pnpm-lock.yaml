@@ -26,9 +26,6 @@ importers:
       bcrypt:
         specifier: ^5.1.1
         version: 5.1.1
-      client@latest:
-        specifier: link:prisma/client@latest
-        version: link:prisma/client@latest
       cors:
         specifier: ^2.8.5
         version: 2.8.5
