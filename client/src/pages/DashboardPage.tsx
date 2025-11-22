@@ -26,7 +26,7 @@ export function DashboardPage() {
 
   return (
     <>
-      <div className="flex flex-col mt- md:mt-4 mr-3 h-full justify-items-center align-items-center">
+      <div className="flex flex-col md:mt-4 mr-3 h-fit pb-4 justify-items-center align-items-center">
         <h1 className="text-xl lg:text-2xl font-semibold p-2 pb-0">
           {getGreeting()}, {user?.firstName}
         </h1>
