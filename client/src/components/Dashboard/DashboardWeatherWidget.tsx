@@ -28,9 +28,9 @@ export const DashboardWeatherWidget = () => {
   if (isError) return <div className="text-sm text-red-500">Erreur météo</div>;
 
   return (
-    <Card>
+    <Card className="flex justify-center pb-0 md:pb-8">
       <CardHeader>
-        <CardTitle className="text-3xl text-center dark:text-accent text-primary">
+        <CardTitle className="text-2xl lg:text-3xl text-center dark:text-accent text-primary">
           {isLoading ? <Skeleton className="h-6 w-24 ml-auto" /> : data?.city}
         </CardTitle>
       </CardHeader>
@@ -61,7 +61,7 @@ export const DashboardWeatherWidget = () => {
               {data.temperature}°C
             </div>
 
-            <div className="mt-12 grid grid-cols-3 gap-2 text-center text-sm">
+            <div className="mt-6 md:mt-12 grid grid-cols-3 gap-2 text-center text-sm">
               {data.forecast.map(
                 (
                   day: {
@@ -74,7 +74,7 @@ export const DashboardWeatherWidget = () => {
                   },
                   i: number
                 ) => (
-                  <div key={i}>
+                  <div key={i} className="hidden md:block">
                     <div className="text-lg capitalize text-accent font-medium">
                       {new Date(day.date).toLocaleDateString("fr-FR", {
                         weekday: "long",
