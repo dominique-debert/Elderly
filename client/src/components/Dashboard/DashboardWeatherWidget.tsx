@@ -28,7 +28,7 @@ export const DashboardWeatherWidget = () => {
   if (isError) return <div className="text-sm text-red-500">Erreur météo</div>;
 
   return (
-    <Card className="flex justify-center pb-0 md:pb-8">
+    <Card className="flex justify-center pb-0 md:pb-8 shadow-md">
       <CardHeader>
         <CardTitle className="text-2xl lg:text-3xl text-center dark:text-accent text-primary">
           {isLoading ? <Skeleton className="h-6 w-24 ml-auto" /> : data?.city}

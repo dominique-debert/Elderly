@@ -19,7 +19,7 @@ export function DashboardUserWidget() {
             className="object-cover h-full rounded-xl"
           />
         )}
-        <div className="bottom-4 left-4 absolute w-full">
+        <div className="bottom-4 left-4 absolute w-full mx-auto">
           <div className="p-4 w-fit h-full z-30 rounded-xl bg-card/60 glass">
             {user && (
               <h2 className="text-2xl mb-3 card-title">
