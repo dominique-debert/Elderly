@@ -1,9 +1,8 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@/prisma";
+import { prisma } from "@/config/database";
 import createHttpError from "http-errors";
 import { IServiceCompleted } from "@/types";
 
-const prisma = new PrismaClient();
 
 /**
  * @swagger

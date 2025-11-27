@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@/prisma";
+import { prisma } from "@/config/database";
 import createHttpError from "http-errors";
 import * as argon2 from "argon2";
 import { IUser } from "@/types";
@@ -7,8 +7,6 @@ import multer from "multer";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
-
-const prisma = new PrismaClient();
 
 // Define __filename and __dirname for ESM environments
 const __filename = fileURLToPath(import.meta.url);

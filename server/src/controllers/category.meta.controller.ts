@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { PrismaClient } from "@/prisma";
+import { prisma } from "@/config/database";
 
-const prisma = new PrismaClient();
 
 export async function getCategoryChapters(
   req: Request,
