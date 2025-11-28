@@ -57,24 +57,22 @@ export function UsersTableRow({ user }: UsersTableRowProps) {
         </td>
         <td className="whitespace-nowrap">{user.city || "-"}</td>
         <td className="whitespace-nowrap">{user.phone || "-"}</td>
-        <td>
-          <td>
-            <span
-              className={`badge ${
-                user.status === "active"
-                  ? "badge-success"
-                  : user.status === "inactive"
-                    ? "badge-warning"
-                    : "badge-error"
-              } badge-sm`}
-            >
-              {user.status === "active"
-                ? "Actif"
+        <td className="text-center">
+          <span
+            className={`badge ${
+              user.status === "active"
+                ? "badge-success"
                 : user.status === "inactive"
-                  ? "Inactif"
-                  : user.status}
-            </span>
-          </td>
+                  ? "badge-warning"
+                  : "badge-error"
+            } badge-sm`}
+          >
+            {user.status === "active"
+              ? "Actif"
+              : user.status === "inactive"
+                ? "Inactif"
+                : user.status}
+          </span>
         </td>
         <td className="text-center">
           {user.isAdmin ? (
@@ -83,8 +81,8 @@ export function UsersTableRow({ user }: UsersTableRowProps) {
             <span className="badge badge-ghost badge-sm">User</span>
           )}
         </td>
-        <td>
-          <div className="flex gap-2">
+        <td className="text-center">
+          <div className="flex gap-2 items-center justify-center">
             <button
               className="btn p-1 size-8 text-primary bg-primary/10 hover:bg-primary/20"
               onClick={() => setIsEditOpen(true)}

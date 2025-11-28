@@ -11,7 +11,7 @@ export function UsersSwitchButtons({ mode, setMode }: UsersSwitchProps) {
       <div className="join">
         <button
           onClick={() => setMode("card")}
-          className={`btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-transparent h-10 ${
+          className={`btn btn-sm dark:border-slate-800 join-item rounded-none bg-white dark:bg-transparent h-10 ${
             mode === "card" ? "btn-primary" : ""
           }`}
         >
@@ -19,7 +19,7 @@ export function UsersSwitchButtons({ mode, setMode }: UsersSwitchProps) {
         </button>
         <button
           onClick={() => setMode("list")}
-          className={`btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-transparent h-10 ${
+          className={`btn btn-sm dark:border-slate-800 join-item rounded-none bg-white dark:bg-transparent h-10 ${
             mode === "list" ? "btn-primary" : ""
           }`}
         >
@@ -27,7 +27,7 @@ export function UsersSwitchButtons({ mode, setMode }: UsersSwitchProps) {
         </button>
         <button
           onClick={() => setMode("table")}
-          className={`btn btn-sm dark:border-slate-800 join-item bg-white dark:bg-transparent h-10 ${
+          className={`hidden lg:inline btn btn-sm dark:border-slate-800 join-item rounded-none bg-white dark:bg-transparent h-10 ${
             mode === "table" ? "btn-primary" : ""
           }`}
         >
