@@ -80,7 +80,7 @@ export function LeftSidebar() {
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
-                `p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "w-full pl-3 justify-center gap-0" : "w-full"}`
               }
@@ -92,20 +92,20 @@ export function LeftSidebar() {
             <NavLink
               to="/explore"
               className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
               }
               title={collapsed ? "Explorer" : ""}
             >
-              <Search className="dark:text-accent text-primary size-4 shrink-0" />
+              <Search className="dark:text-accent size-4 shrink-0" />
               {!collapsed && <span className="text-sm">Explorer</span>}
             </NavLink>
             {!collapsed && <div className="w-55 divider m-0"></div>}
             <NavLink
               to={"/activities"}
               className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
               }
@@ -117,7 +117,7 @@ export function LeftSidebar() {
             <NavLink
               to={"/wellness"}
               className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
               }
@@ -129,7 +129,7 @@ export function LeftSidebar() {
             <NavLink
               to={"/exercises"}
               className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
               }
@@ -141,7 +141,7 @@ export function LeftSidebar() {
             <NavLink
               to={"/objectives"}
               className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
               }
@@ -153,7 +153,7 @@ export function LeftSidebar() {
             <NavLink
               to={"/projects"}
               className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
               }
@@ -165,7 +165,7 @@ export function LeftSidebar() {
             <NavLink
               to={"/medications"}
               className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
               }
@@ -178,7 +178,7 @@ export function LeftSidebar() {
             <NavLink
               to={"/messages"}
               className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
               }
@@ -193,7 +193,7 @@ export function LeftSidebar() {
                   type="button"
                   onClick={() => setForumOpen((s) => !s)}
                   aria-expanded={forumOpen}
-                  className={`w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                  className={`w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                     forumOpen ? "bg-primary/10" : ""
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`}
                   title={collapsed ? "Forum" : ""}
@@ -217,7 +217,7 @@ export function LeftSidebar() {
                       <NavLink
                         to="/forum/home"
                         className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
+                          `p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
@@ -230,7 +230,7 @@ export function LeftSidebar() {
                       <NavLink
                         to="/forum/discover"
                         className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
+                          `p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
@@ -243,7 +243,7 @@ export function LeftSidebar() {
                       <NavLink
                         to="/forum/discussions"
                         className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
+                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
@@ -256,7 +256,7 @@ export function LeftSidebar() {
                       <NavLink
                         to="/forum/categories"
                         className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
+                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
@@ -269,7 +269,7 @@ export function LeftSidebar() {
                       <NavLink
                         to="/forum/bookmarks"
                         className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
+                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
@@ -282,7 +282,7 @@ export function LeftSidebar() {
                       <NavLink
                         to="/forum/notifications"
                         className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
+                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
@@ -297,7 +297,7 @@ export function LeftSidebar() {
                         <NavLink
                           to="/forum/moderation"
                           className={({ isActive }) =>
-                            `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
+                            `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
@@ -320,7 +320,7 @@ export function LeftSidebar() {
             <NavLink
               to="/profile"
               className={({ isActive }) =>
-                `p-3 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                `p-3 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                   isActive ? "bg-primary/10" : ""
                 } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
               }
@@ -348,7 +348,7 @@ export function LeftSidebar() {
                 <NavLink
                   to="/admin"
                   className={({ isActive }) =>
-                    `p-3 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    `p-3 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                       isActive ? "bg-primary/10" : ""
                     } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                   }

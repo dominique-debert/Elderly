@@ -75,7 +75,7 @@ export const DashboardWeatherWidget = () => {
                   i: number
                 ) => (
                   <div key={i} className="hidden md:block">
-                    <div className="text-lg capitalize text-accent font-medium">
+                    <div className="text-lg capitalize text-secondary font-medium">
                       {new Date(day.date).toLocaleDateString("fr-FR", {
                         weekday: "long",
                       })}

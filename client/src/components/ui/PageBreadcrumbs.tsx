@@ -16,7 +16,7 @@ export function PageBreadcrumbs({
 }: PageBreadcrumbsProps) {
   return (
     <div
-      className={`breadcrumbs dark:text-slate-500 text-slate-600 text-xs mb-6 ${className}`}
+      className={`breadcrumbs dark:text-slate-500 text-primary text-xs mb-6 ${className}`}
     >
       <ul>
         {items.map((item, index) => {
@@ -27,7 +27,7 @@ export function PageBreadcrumbs({
               key={index}
               className={
                 isLast
-                  ? "text-slate-800 dark:text-slate-300 text-medium pointer-events-none"
+                  ? "font-semibold dark:text-slate-300 text-medium pointer-events-none"
                   : ""
               }
             >

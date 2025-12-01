@@ -35,7 +35,7 @@ export function AdminCategoriesPage() {
     <div className="flex flex-col">
       {user && user.isAdmin ? (
         <>
-          <div className="p-4 w-full dark:bg-transparent bg-(--root-bg)">
+          <div className="p-4 w-full dark:bg-transparent bg-base-100">
             <PageBreadcrumbs
               items={[
                 { label: "Accueil", path: "/" },

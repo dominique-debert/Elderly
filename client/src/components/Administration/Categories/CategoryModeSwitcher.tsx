@@ -17,9 +17,10 @@ export const CategoryModeSwitcher = ({
   activeTab,
 }: SwitchProps) => {
   return (
-    <div className="w-full bg-(--root-bg) dark:bg-transparent pb-6 flex items-center justify-between gap-4">
+    <div className="w-full bg-white dark:bg-transparent pb-6 flex items-center justify-between gap-4">
       {/* Recherche */}
       <Search
+        className=""
         search={search}
         setSearch={setSearch}
         placeholder={`Rechercher...`}
