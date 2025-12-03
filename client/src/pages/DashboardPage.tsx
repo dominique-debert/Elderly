@@ -30,7 +30,7 @@ export function DashboardPage() {
         <h1 className="text-xl lg:text-2xl font-semibold p-2 pb-0">
           {getGreeting()}, {user?.firstName}
         </h1>
-        <span className="m-2 mt-0 font-normal text-xs md:text-base text-secondary mb-4">
+        <span className="m-2 mt-0 font-normal text-xs md:text-base text-base-400 mb-4">
           Nous sommes le{" "}
           {formatLongDate(currentTime, {
             showWeekday: true,

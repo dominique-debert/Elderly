@@ -39,25 +39,6 @@
   --color-warning-content: oklch(20% 0.05 80);
   --color-error: oklch(65% 0.3 30);
   --color-error-content: oklch(98% 0.01 30);
-
-  /* border radius */
-  --radius-selector: 1.5rem;
-  --radius-field: 1.5rem;
-  --radius-box: 1.5rem;
-  --radius-button: 1.5rem;
-
-  /* base sizes */
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-
-  /* border size */
-  --border: 0.02rem;
-  --border-focus: 2px;
-  --field-focus: 2px;
-
-  /* effects */
-  --depth: 0;
-  --noise: 0;
 }
 
 .table-zebra {
@@ -84,6 +65,24 @@
 @layer base {
   * {
     --font-display: "Lexend", sans-serif;
+    /* border radius */
+    --radius-selector: 1.5rem;
+    --radius-field: 1.5rem;
+    --radius-box: 1.5rem;
+    --radius-button: 1.5rem;
+
+    /* base sizes */
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+
+    /* border size */
+    --border: 0.02rem;
+    --border-focus: 2px;
+    --field-focus: 2px;
+
+    /* effects */
+    --depth: 0;
+    --noise: 0;
   }
 }
 
