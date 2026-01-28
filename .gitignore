@@ -7,5 +7,3 @@ server/.env
 
 # ignore environment files everywhere
 **/.env
-client/public/
-mockups/
