@@ -13,7 +13,7 @@
 }
 
 @plugin "daisyui/theme" {
-  name: "m3e";
+  name: "dark";
   default: true; /* set as default */
   prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
   color-scheme: light; /* color of browser-provided UI */
