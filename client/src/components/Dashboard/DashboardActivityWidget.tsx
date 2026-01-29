@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components";
 
 export function DashboardActivityWidget() {
   return (
-    <>
+    <div className="hover-3d">
       <Card className="lg:w-full border">
         <CardHeader>
           <CardTitle className="text-2xl text-primary">Activité</CardTitle>
@@ -18,6 +18,6 @@ export function DashboardActivityWidget() {
           </div>
         </CardContent>
       </Card>
-    </>
+    </div>
   );
 }
