@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import "tailwindcss";
-@tailwind utilities;
 @import "tw-animate-css";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -13,70 +12,77 @@
   --tab-p: 0;
 }
 
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true; /* set as default */
+  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: light; /* color of browser-provided UI */
+
+  --color-base-100: oklch(98% 0.02 289.39);
+  --color-base-200: oklch(92% 0.04 303.76);
+  --color-base-300: oklch(91% 0.05 303.76);
+  --color-base-400: oklch(81% 0.1 297.03);
+  --color-base-content: oklch(25% 0.14 290.1);
+  --color-primary: oklch(25% 0.14 290.1);
+  --color-secondary: white;
+  --color-secondary-content: oklch(41% 0.1 294.98);
+  --color-primary-content: oklch(25% 0.14 296.1);
+  --color-accent: oklch(65% 0.25 160);
+  --color-accent-content: oklch(40% 0.13 296.3);
+  --color-neutral: oklch(50% 0.05 240);
+  --color-neutral-content: oklch(98% 0.01 240);
+  --color-info: oklch(70% 0.2 220);
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+}
+
+.table-zebra {
+  & tbody {
+    & tr {
+      &:where(:nth-child(even)) {
+        background-color: var(--color-base-100);
+
+        &:where([data-theme="dark"], [data-theme="dark"] *) {
+          background-color: var(--color-card);
+        }
+      }
+    }
+  }
+}
+
 @plugin "daisyui" {
   themes:
     light --default,
     dark --prefersdark,
-    nord;
+    m3e;
 }
 
 @layer base {
   * {
-    --radius-selector: 1rem;
-    --radius-field: 1rem;
-    --radius-box: 1rem;
+    --font-display: "Lexend", sans-serif;
+    /* border radius */
+    --radius-selector: 1.5rem;
+    --radius-field: 1.5rem;
+    --radius-box: 1.5rem;
+    --radius-button: 1.5rem;
+
+    /* base sizes */
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
-    --border: 1px;
+
+    /* border size */
+    --border: 0.02rem;
+    --border-focus: 2px;
+    --field-focus: 2px;
+
+    /* effects */
     --depth: 0;
     --noise: 0;
-    --color-primary: oklch(58% 0.158 241.966);
-    --text-primary: hsl(0 0% 100%);
-    --primary: hsl(226.7, 27.3%, 6.5%);
-    --font-display: "Lexend", sans-serif;
-  }
-}
-
-@layer utilities {
-  .tabs-border {
-    border-top: 1px solid var(--color-card);
-    border-radius: 0%;
-  }
-  .modal-box {
-    background-color: var(--color-card);
-  }
-  .modal {
-    &.modal-open,
-    &[open],
-    &:target {
-      pointer-events: auto;
-      visibility: visible;
-      opacity: 100%;
-      background-color: rgb(6, 14, 33, 0.8);
-      backdrop-filter: blur(3px);
-    }
-  }
-  [data-theme="dark"] {
-    .table-zebra {
-      & tbody {
-        & tr {
-          &:where(:nth-child(2n)) {
-            background-color: var(--color-card);
-          }
-        }
-      }
-    }
-  }
-  [data-theme="nord"] {
-    .table-zebra {
-      & tbody {
-        & tr {
-          &:where(:nth-child(2n)) {
-            background-color: rgba(240, 245, 249, 0.4);
-          }
-        }
-      }
-    }
   }
 }
 
@@ -148,24 +154,4 @@ main {
 
 .hide-scrollbar {
   -ms-overflow-style: none !important;
-}
-
-::placeholder {
-  color: #64748b;
-  opacity: 1;
-}
-
-::-ms-input-placeholder {
-  color: #64748b;
-}
-::-webkit-input-placeholder {
-  color: #64748b;
-}
-::-moz-placeholder {
-  color: #64748b;
-}
-
-.input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 1px var(--color-primary);
 }

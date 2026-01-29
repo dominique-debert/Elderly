@@ -106,7 +106,17 @@ export function Navbar() {
       <div className="drawer">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className="navbar md:block bg-white dark:bg-card fixed top-0 z-20 h-16 w-full shadow-sm border-b border-base-200">
+          <div
+            className="navbar md:block fixed top-0 z-20 h-16 w-full shadow-sm border-b border-base-200"
+            style={{
+              backgroundColor:
+                theme === "m3e"
+                  ? "rgba(255, 255, 255, 0.6)"
+                  : "rgba(11, 18, 39, 0.6)",
+              backdropFilter: "blur(.4rem)",
+              WebkitBackdropFilter: "blur(.4rem)",
+            }}
+          >
             <div className="flex-none md:hidden">
               <label
                 htmlFor="my-drawer-2"
@@ -117,8 +127,8 @@ export function Navbar() {
               </label>
             </div>
 
-            <div className="md:visible w-full">
-              <div className="flex justify-between items-center">
+            <div className="md:visible w-full bg-transparent">
+              <div className="flex justify-between items-center bg-transparent">
                 <Link to="/dashboard">
                   <div className="flex p-2 items-center gap-4 font-normal text-2xl text-primary">
                     <img
@@ -148,11 +158,11 @@ export function Navbar() {
                     <input
                       type="checkbox"
                       className="theme-controller appearance-none"
-                      value="nord"
+                      value="m3e"
                       onChange={handleToggle}
-                      checked={theme === "nord"}
+                      checked={theme === "m3e"}
                     />
-                    {theme === "nord" ? (
+                    {theme === "m3e" ? (
                       <SunIcon className="size-6 text-yellow-400" />
                     ) : (
                       <MoonIcon className="size-6 text-accent/50" />

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elderly - Medication Reminders</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --lavender-light: #ece7f7;--lavender-dark: #3a324b;--lavender-text-light: #6a5acd;--lavender-text-dark: #d2c8f8;--warm-gray-light: #e0e0e0;--warm-gray-dark: #4a4a4a;}
+    </style>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "secondary-accent-light": "var(--lavender-light)",
+                        "secondary-accent-dark": "var(--lavender-dark)",
+                        "secondary-button-light": "var(--warm-gray-light)",
+                        "secondary-button-dark": "var(--warm-gray-dark)",
+                        "secondary-text-light": "var(--lavender-text-light)",
+                        "secondary-text-dark": "var(--lavender-text-dark)",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#333333] dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center p-4 sm:p-6 md:p-8">
+<div class="layout-content-container flex w-full max-w-7xl flex-1 flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-6 py-4 bg-white dark:bg-gray-800 rounded-xl mb-6">
+<div class="flex items-center gap-4 text-primary">
+<div class="h-8 w-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-[#333333] dark:text-gray-100 text-2xl font-bold leading-tight tracking-[-0.015em]">Elderly</h1>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<button class="flex h-12 w-12 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-100 dark:bg-gray-700 text-[#333333] dark:text-gray-200">
+<span class="material-symbols-outlined text-3xl">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfVoLIQT7YMggWuvhogBawzziPN1qCbwSpu0T-D82RpWe1MGx8P5Jd2fpcJcsax8ysj618ozCOALwQyJudpGm0DQQ02QIurFhT3lJF_VkjKHquU10f4ROhApvOvWtMKjUZyouDqxeK6nfJ91HCHpzrlKjuet6iHY7IK1x0DnywJ2kjskvw-GnLyYQlN3z6H6P2JqDJR2rD5yFS7MP6u76OV4A_Xn1K4VpI-Uo4npCH0eOqjNTVxXlP87unvYqSFw7VOhx2jIah590");'></div>
+</div>
+</header>
+<main class="flex flex-col gap-8 p-0 sm:p-6">
+<div class="flex flex-col gap-2 px-6 sm:px-0">
+<p class="text-[#333333] dark:text-gray-100 text-5xl font-black leading-tight tracking-[-0.033em]">Medication Reminders</p>
+<p class="text-gray-500 dark:text-gray-400 text-xl font-normal leading-normal">Your daily medication schedule</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<div class="w-full lg:w-2/3 flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 flex items-center justify-center gap-3 h-16 px-6 rounded-xl bg-primary text-white text-xl font-bold hover:bg-blue-600 transition-colors">
+<span class="material-symbols-outlined text-3xl">add</span>
+<span>Add New Medication</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-3 h-16 px-6 rounded-xl bg-secondary-button-light dark:bg-secondary-button-dark text-[#333333] dark:text-gray-200 text-xl font-bold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+<span class="material-symbols-outlined text-3xl">history</span>
+<span>View History</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm">
+<h2 class="text-[#333333] dark:text-gray-100 text-2xl font-bold leading-tight tracking-[-0.015em]">Today's Schedule</h2>
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-4 p-4 rounded-xl border-2 border-primary bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-4xl text-primary pt-1">pill</span>
+<div class="flex-1">
+<p class="font-bold text-xl text-[#333333] dark:text-gray-100">Heart Medication (Lisinopril)</p>
+<p class="text-gray-600 dark:text-gray-300 text-lg">Dosage: 1 pill (10mg)</p>
+<p class="text-gray-600 dark:text-gray-300 text-lg">Time: 9:00 AM</p>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[140px]">
+<button class="flex w-full h-16 cursor-pointer items-center justify-center overflow-hidden rounded-lg px-5 bg-primary text-white text-lg font-bold hover:bg-blue-600 transition-colors">
+<span class="truncate">Mark as Taken</span>
+</button>
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors text-lg">Edit</button>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-secondary-accent-light dark:bg-secondary-accent-dark">
+<span class="material-symbols-outlined text-4xl text-green-500 pt-1">check_circle</span>
+<div class="flex-1 opacity-70">
+<p class="font-bold text-xl text-[#333333] dark:text-gray-100 line-through">Vitamin D</p>
+<p class="text-gray-600 dark:text-gray-300 text-lg line-through">Dosage: 1 softgel (2000 IU)</p>
+<p class="text-green-600 dark:text-green-400 text-lg font-bold">Taken at 8:05 AM</p>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[140px]">
+<button class="flex w-full h-16 cursor-pointer items-center justify-center overflow-hidden rounded-lg px-5 bg-secondary-button-light dark:bg-secondary-button-dark text-gray-500 dark:text-gray-400 text-lg font-bold" disabled="">
+<span class="truncate">Taken</span>
+</button>
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors text-lg">Edit</button>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-secondary-accent-light dark:bg-secondary-accent-dark">
+<span class="material-symbols-outlined text-4xl text-yellow-500 pt-1">schedule</span>
+<div class="flex-1">
+<p class="font-bold text-xl text-[#333333] dark:text-gray-100">Blood Thinner (Warfarin)</p>
+<p class="text-gray-600 dark:text-gray-300 text-lg">Dosage: 1 pill (5mg)</p>
+<p class="text-gray-600 dark:text-gray-300 text-lg">Time: 8:00 PM</p>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[140px]">
+<button class="flex w-full h-16 cursor-pointer items-center justify-center overflow-hidden rounded-lg px-5 bg-secondary-button-light dark:bg-secondary-button-dark text-gray-500 dark:text-gray-400 text-lg font-bold" disabled="">
+<span class="truncate">Upcoming</span>
+</button>
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors text-lg">Edit</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/3 flex flex-col gap-6">
+<div class="flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm">
+<h2 class="text-[#333333] dark:text-gray-100 text-2xl font-bold leading-tight tracking-[-0.015em]">Schedules</h2>
+<button class="flex w-full items-center justify-between p-4 rounded-lg bg-primary/10 dark:bg-primary/20 text-left">
+<span class="text-lg font-bold text-primary dark:text-white">Daily Schedule</span>
+<span class="material-symbols-outlined text-primary dark:text-white">chevron_right</span>
+</button>
+<button class="flex w-full items-center justify-between p-4 rounded-lg bg-secondary-accent-light dark:bg-secondary-accent-dark text-left hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+<span class="text-lg font-bold text-[#333333] dark:text-gray-200">Weekly Schedule</span>
+<span class="material-symbols-outlined text-gray-500 dark:text-secondary-text-dark">chevron_right</span>
+</button>
+<button class="flex w-full items-center justify-between p-4 rounded-lg bg-secondary-accent-light dark:bg-secondary-accent-dark text-left hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+<span class="text-lg font-bold text-[#333333] dark:text-gray-200">As-Needed Medications</span>
+<span class="material-symbols-outlined text-gray-500 dark:text-secondary-text-dark">chevron_right</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm">
+<h2 class="text-[#333333] dark:text-gray-100 text-2xl font-bold leading-tight tracking-[-0.015em]">Quick Help</h2>
+<button class="flex h-20 w-full cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg bg-[#FFADAD] text-black text-xl font-bold leading-normal tracking-[0.015em] hover:bg-red-400 transition-colors">
+<span class="material-symbols-outlined text-4xl">sos</span>
+<span class="truncate">Emergency</span>
+</button>
+<button class="flex h-20 w-full cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg bg-secondary-accent-light dark:bg-secondary-accent-dark text-[#333333] dark:text-gray-200 text-xl font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+<span class="material-symbols-outlined text-4xl">call</span>
+<span class="truncate">Call a Pharmacist</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>
