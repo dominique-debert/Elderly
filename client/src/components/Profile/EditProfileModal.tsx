@@ -32,7 +32,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
 
   const [, setAvatarFile] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState<string>(
-    user?.avatarUrl || ""
+    user?.avatarUrl || "",
   );
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
@@ -101,7 +101,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -188,7 +188,7 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
 
   return (
     <div className="modal modal-open">
-      <div className="modal-box max-w-2xl overflow-y-auto bg-white! dark:bg-card!">
+      <div className="modal-box max-w-2xl overflow-y-auto bg-white! dark:bg-card! scrollbar-hide">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-bold m-0 p-0">Modifier mon profil</h1>
           <button onClick={onClose} className="btn btn-ghost btn-sm btn-circle">

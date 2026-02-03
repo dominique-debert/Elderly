@@ -136,7 +136,7 @@ export function Navbar() {
                       alt="Logo"
                       className="w-16 md:w-8 float-left"
                     />
-                    <span className="text-accent text-2xl invisible md:visible">
+                    <span className="text-primary text-2xl invisible md:visible">
                       Elderly
                     </span>
                   </div>
