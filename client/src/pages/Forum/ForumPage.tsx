@@ -43,7 +43,7 @@ export function ForumPage() {
   }
 
   return (
-    <div className="mt-6 mr-3 gap-4 flex flex-col">
+    <div className="mt-6 mr-3 gap-4 flex flex-col mb-4">
       <div className="flex bg-transparent! border-0 w-full">
         <span className="text-xl w-full lg:text-3xl font-medium text-slate-800 dark:text-slate-300">
           Bienvenue sur le forum, {user?.firstName}.
@@ -95,7 +95,7 @@ export function ForumPage() {
                       ? forumSection.name
                           .toLowerCase()
                           .includes(searchQuery.toLowerCase())
-                      : true
+                      : true,
                 );
 
                 if (filteredSections.length === 0) {

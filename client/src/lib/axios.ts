@@ -1,6 +1,7 @@
 import axios from "axios";
 import { refreshAccessToken } from "@/services";
 import toast from "react-hot-toast";
+import { useAuthStore } from "@/stores";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/api",
@@ -15,18 +16,14 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 // Fonction pour nettoyer l'authentification et rediriger
 const handleAuthExpiration = () => {
-  // Nettoyer le localStorage
-  localStorage.removeItem("accessToken");
-  localStorage.removeItem("refreshToken");
-  localStorage.removeItem("userId");
-
-  // Nettoyer le localStorage Zustand
-  localStorage.removeItem("auth-storage");
+  // Utiliser le store Zustand pour marquer comme déconnecté
+  const authStore = useAuthStore.getState();
+  authStore.setDisconnected();
 
   // Afficher un message à l'utilisateur
   toast.error("Votre session a expiré. Veuillez vous reconnecter.");
@@ -64,7 +61,7 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;

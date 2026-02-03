@@ -28,7 +28,7 @@ export function CategoriesPage() {
   return (
     <>
       {/* TODO: Redesign the categories page: THIS IS A DUMMY PAGE FOR NOW */}
-      <div className="mt-4 flex flex-col mr-3 overflow-hidden">
+      <div className="mt-4 flex flex-col mr-3 mb-4 overflow-hidden">
         <div className="flex flex-col gap-6">
           <div className="flex flex-wrap justify-between gap-4 items-center">
             <div className="flex min-w-72 flex-col gap-2">
@@ -396,7 +396,7 @@ export function CategoriesPage() {
                 </tbody>
               </table>
             </div>
-            <nav className="flex items-center justify-center gap-2 pt-4">
+            <nav className="flex items-center justify-center gap-2">
               <a
                 className="inline-flex size-8 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50"
                 href="#"

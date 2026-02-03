@@ -23,7 +23,7 @@ export function BookmarksPage() {
   return (
     <>
       {/* TODO: Refonte de la page des favoris : PAGE DUMMY POUR L'INSTANT */}
-      <div className="mr-4 pt-20 min-h-[calc(100vh-4rem)] flex gap-6">
+      <div className="mr-4 pt-4 min-h-[calc(100vh-4rem)] flex gap-6">
         <div className="flex min-h-screen w-full">
           <div className="flex-1">
             <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
