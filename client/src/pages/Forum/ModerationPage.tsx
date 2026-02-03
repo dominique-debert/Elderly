@@ -44,7 +44,7 @@ export function ModerationPage() {
 
     // User Activity Chart
     const userActivityCanvas = document.getElementById(
-      "userActivityChart"
+      "userActivityChart",
     ) as HTMLCanvasElement | null;
     if (userActivityCanvas) {
       const userActivityCtx = userActivityCanvas.getContext("2d");
@@ -109,7 +109,7 @@ export function ModerationPage() {
 
     // Moderation Actions Chart
     const moderationActionsCanvas = document.getElementById(
-      "moderationActionsChart"
+      "moderationActionsChart",
     ) as HTMLCanvasElement | null;
     if (moderationActionsCanvas) {
       const moderationActionsCtx = moderationActionsCanvas.getContext("2d");
@@ -168,7 +168,7 @@ export function ModerationPage() {
       {/* TODO: Redesign the moderation page: THIS IS A DUMMY PAGE FOR NOW */}
       <div className="flex-1 mt-4 mr-3 mb-8">
         <header className="flex flex-wrap justify-between items-center gap-4 mb-6">
-          <h1 className="text-3xl font-medium leading-tight tracking-[-0.033em] dark:text-slate-300">
+          <h1 className="text-3xl font-medium leading-tight tracking-[-0.033em] dark:text-secondary">
             Tableau de bord
           </h1>
           <button className="btn btn-sm btn-primary rounded-2xl mt-2">
@@ -207,7 +207,7 @@ export function ModerationPage() {
         </section>
         <section className="mt-6 flex flex-col">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 py-4">
-            <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em]">
+            <h2 className="text-[22px] font-medium text-accent leading-tight tracking-[-0.015em]">
               Journal de modération
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 w-auto">
@@ -219,7 +219,7 @@ export function ModerationPage() {
                   type="text"
                 />
               </div>
-              <select className="shrink-0 w-fit select text-xs rounded-3xl p-2 pl-5 bg-white dark:bg-card border-gray-200 dark:border-white/10 text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary">
+              <select className="shrink-0 w-fit select text-sm rounded-3xl p-2 pl-5 bg-white dark:bg-card border-gray-200 dark:border-white/10 text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary">
                 <option>Toutes les actions</option>
                 <option>Bannir un utilisateur</option>
                 <option>Supprimer la publication</option>
@@ -230,8 +230,8 @@ export function ModerationPage() {
           </div>
           <div className="bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden flex-1 flex flex-col">
             <div className="overflow-y-auto">
-              <table className="w-full text-xs text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-neutral dark:text-gray-400 uppercase bg-gray-50 dark:bg-white/5 sticky top-0 z-10">
+              <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead className="text-sm text-neutral dark:text-gray-400 uppercase bg-gray-50 dark:bg-white/5 sticky top-0 z-10">
                   <tr>
                     <th className="px-6 py-3" scope="col">
                       Sévérité
@@ -271,7 +271,7 @@ export function ModerationPage() {
                         SpamBot123
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-26 14:30:15</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-26 14:30:15</td>
                   </tr>
                   <tr className="border-b dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10">
                     <td className="px-6 py-2.5 font-bold text-warning">
@@ -293,7 +293,7 @@ export function ModerationPage() {
                         Publication #54321
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-26 11:05:42</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-26 11:05:42</td>
                   </tr>
                   <tr className="border-b dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10">
                     <td className="px-6 py-2.5 font-bold text-primary">
@@ -315,7 +315,7 @@ export function ModerationPage() {
                         Fil de retours
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-25 18:15:00</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-25 18:15:00</td>
                   </tr>
                   <tr className="border-b dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10">
                     <td className="px-6 py-2.5 font-bold text-neutral dark:text-gray-400">
@@ -337,7 +337,7 @@ export function ModerationPage() {
                         RuleBreaker22
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-25 09:20:11</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-25 09:20:11</td>
                   </tr>
                   <tr className="border-b dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10">
                     <td className="px-6 py-2.5 font-bold text-warning">
@@ -359,7 +359,7 @@ export function ModerationPage() {
                         Publication #54299
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-24 21:45:33</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-24 21:45:33</td>
                   </tr>
                   <tr className="border-b dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10">
                     <td className="px-6 py-2.5 font-bold text-red-500">
@@ -381,7 +381,7 @@ export function ModerationPage() {
                         ToxicUser77
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-24 10:10:00</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-24 10:10:00</td>
                   </tr>
                   <tr className="border-b dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10">
                     <td className="px-6 py-2.5 font-bold text-success">
@@ -403,7 +403,7 @@ export function ModerationPage() {
                         Publication #54350
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-23 16:00:00</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-23 16:00:00</td>
                   </tr>
                   <tr className="border-b dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10">
                     <td className="px-6 py-2.5 font-bold text-warning">
@@ -423,7 +423,7 @@ export function ModerationPage() {
                         "Controversial Thread"
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-23 09:45:00</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-23 09:45:00</td>
                   </tr>
                   <tr className="border-b dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10">
                     <td className="px-6 py-2.5 font-bold text-neutral dark:text-gray-400">
@@ -445,7 +445,7 @@ export function ModerationPage() {
                         UserBetaTester
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-22 14:00:00</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-22 14:00:00</td>
                   </tr>
                   <tr className="hover:bg-gray-50 dark:hover:bg-white/10">
                     <td className="px-6 py-2.5 font-bold text-primary">
@@ -467,7 +467,7 @@ export function ModerationPage() {
                         Publication #54280
                       </a>
                     </td>
-                    <td className="px-6 py-2.5 text-xs">2023-10-22 08:30:00</td>
+                    <td className="px-6 py-2.5 text-sm">2023-10-22 08:30:00</td>
                   </tr>
                 </tbody>
               </table>
@@ -502,7 +502,7 @@ export function ModerationPage() {
         </section>
         <section className="mt-6">
           <div className="flex flex-wrap items-center justify-between gap-4 py-4">
-            <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em]">
+            <h2 className="text-[22px] font-medium text-accent leading-tight tracking-[-0.015em]">
               Configuration des alertes
             </h2>
             <button className="rounded-2xl btn btn-sm btn-primary">
@@ -540,13 +540,13 @@ export function ModerationPage() {
                     <span className="material-symbols-outlined text-lg text-success">
                       <ToggleRight className="size-4" />
                     </span>
-                    <span className="text-xs">Tableau de bord</span>
+                    <span className="text-sm">Tableau de bord</span>
                   </span>
                   <span className="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white">
                     <span className="material-symbols-outlined text-lg text-success">
                       <ToggleRight className="size-4" />
                     </span>
-                    <span className="text-xs">Email</span>
+                    <span className="text-sm">Email</span>
                   </span>
                 </div>
               </div>
@@ -584,13 +584,13 @@ export function ModerationPage() {
                     <span className="material-symbols-outlined text-lg text-neutral dark:text-gray-400">
                       <ToggleLeft className="size-4" />
                     </span>
-                    <span className="text-xs">Tableau de bord</span>
+                    <span className="text-sm">Tableau de bord</span>
                   </span>
                   <span className="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white">
                     <span className="material-symbols-outlined text-lg text-neutral dark:text-gray-400">
                       <ToggleLeft className="size-4" />
                     </span>
-                    <span className="text-xs">Email</span>
+                    <span className="text-sm">Email</span>
                   </span>
                 </div>
               </div>
@@ -628,13 +628,13 @@ export function ModerationPage() {
                     <span className="material-symbols-outlined text-lg text-success">
                       <ToggleRight className="size-4" />
                     </span>
-                    <span className="text-xs">Tableau de bord</span>
+                    <span className="text-sm">Tableau de bord</span>
                   </span>
                   <span className="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white">
                     <span className="material-symbols-outlined text-lg text-success">
                       <ToggleRight className="size-4" />
                     </span>
-                    <span className="text-xs">Email</span>
+                    <span className="text-sm">Email</span>
                   </span>
                 </div>
               </div>
@@ -648,7 +648,7 @@ export function ModerationPage() {
         </section>
         <section className="mt-6">
           <div className="flex flex-wrap items-center justify-between gap-4 py-4">
-            <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em]">
+            <h2 className="text-[22px] font-medium text-accent leading-tight tracking-[-0.015em]">
               Rapports et analyses
             </h2>
             <select defaultValue="30" className="select rounded-3xl w-43">
@@ -783,7 +783,7 @@ export function ModerationPage() {
         </section>
         <section className="mt-6">
           <div className="flex flex-wrap items-center justify-between gap-4 py-4">
-            <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em]">
+            <h2 className="text-[22px] font-medium text-accent leading-tight tracking-[-0.015em]">
               Gestion des utilisateurs
             </h2>
             <div className="w-72">
@@ -803,8 +803,8 @@ export function ModerationPage() {
           </div>
           <div className="bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-xs text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-neutral dark:text-gray-400 uppercase bg-gray-50 dark:bg-white/5">
+              <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead className="text-sm text-neutral dark:text-gray-400 uppercase bg-gray-50 dark:bg-white/5">
                   <tr>
                     <th className="p-4" scope="col">
                       <div className="flex items-center">
@@ -827,7 +827,7 @@ export function ModerationPage() {
                     <th className="px-6 py-3" scope="col">
                       Inscrit
                     </th>
-                    <th className="px-6 py-3" scope="col">
+                    <th className="px-6 py-3 text-center" scope="col">
                       Statut
                     </th>
                     <th className="px-6 py-3" scope="col">
@@ -857,8 +857,8 @@ export function ModerationPage() {
                     </th>
                     <td className="px-6 py-4">alice.j@example.com</td>
                     <td className="px-6 py-4">2023-03-15</td>
-                    <td className="px-6 py-4">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success/10 text-success">
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center px-4 py-2 rounded-2xl text-sm font-medium bg-success/10 text-success">
                         Actif
                       </span>
                     </td>
@@ -869,8 +869,8 @@ export function ModerationPage() {
                       <button className="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-white/20">
                         <Gavel className="size-4 text-neutral dark:text-gray-400" />
                       </button>
-                      <button className="p-1.5 rounded-md hover:bg-destructive/10">
-                        <ShieldPlus className="size-4 text-destructive" />
+                      <button className="p-1.5 rounded-md hover:bg-success/10">
+                        <ShieldPlus className="size-4 text-success" />
                       </button>
                     </td>
                   </tr>
@@ -895,8 +895,8 @@ export function ModerationPage() {
                     </th>
                     <td className="px-6 py-4">bob.s@example.com</td>
                     <td className="px-6 py-4">2023-02-20</td>
-                    <td className="px-6 py-4">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning/10 text-warning">
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center px-4 py-2 rounded-2xl text-sm font-medium bg-warning/10 text-warning">
                         Suspendu
                       </span>
                     </td>
@@ -907,8 +907,8 @@ export function ModerationPage() {
                       <button className="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-white/20">
                         <Gavel className="size-4 text-neutral dark:text-gray-400" />
                       </button>
-                      <button className="p-1.5 rounded-md hover:bg-destructive/10">
-                        <ShieldPlus className="size-4 text-destructive" />
+                      <button className="p-1.5 rounded-md hover:bg-warning/10">
+                        <ShieldPlus className="size-4 text-warning" />
                       </button>
                     </td>
                   </tr>
@@ -933,8 +933,8 @@ export function ModerationPage() {
                     </th>
                     <td className="px-6 py-4">charlie.b@example.com</td>
                     <td className="px-6 py-4">2022-11-01</td>
-                    <td className="px-6 py-4">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-destructive/10 text-destructive">
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center px-4 py-2 rounded-2xl text-sm font-medium bg-error/10 text-error">
                         Banni
                       </span>
                     </td>
@@ -945,8 +945,8 @@ export function ModerationPage() {
                       <button className="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-white/20">
                         <Gavel className="size-4 text-neutral dark:text-gray-400" />
                       </button>
-                      <button className="p-1.5 rounded-md hover:bg-destructive/10">
-                        <ShieldPlus className="size-4 text-destructive" />
+                      <button className="p-1.5 rounded-md hover:bg-error/10">
+                        <ShieldPlus className="size-4 text-error" />
                       </button>
                     </td>
                   </tr>
