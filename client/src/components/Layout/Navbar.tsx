@@ -49,7 +49,7 @@ export function Navbar() {
 
   const closeDrawer = () => {
     const drawerCheckbox = document.getElementById(
-      "my-drawer-2"
+      "my-drawer-2",
     ) as HTMLInputElement;
     if (drawerCheckbox) {
       drawerCheckbox.checked = false;
@@ -77,7 +77,7 @@ export function Navbar() {
       } catch (error) {
         toast.error(
           "Erreur de chargement des notifications: " +
-            (error instanceof Error ? error.message : String(error))
+            (error instanceof Error ? error.message : String(error)),
         );
         navigate("/login");
 
@@ -136,9 +136,9 @@ export function Navbar() {
                       alt="Logo"
                       className="w-16 md:w-8 float-left"
                     />
-                    {/* <span className="text-accent text-2xl invisible md:visible">
+                    <span className="text-accent text-2xl invisible md:visible">
                       Elderly
-                    </span> */}
+                    </span>
                   </div>
                 </Link>
 

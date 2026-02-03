@@ -15,7 +15,7 @@ export function Layout() {
       <div className="flex flex-1 relative h-auto overflow-hidden justify-center">
         {isAuthenticated && <LeftSidebar />}
         <main
-          className={`transition-all duration-150 w-full h-auto overflow-x-hidden overflow-y-auto ml-3 mr-3 md:ml-0 pt-16 ${
+          className={`transition-all scrollbar-hide duration-150 w-full h-auto overflow-x-hidden overflow-y-auto mr-4 md:ml-0 pt-16 ${
             isAuthenticated ? (collapsed ? "md:ml-30" : "md:ml-70") : ""
           }`}
         >

@@ -50,9 +50,13 @@ export function LeftSidebar() {
 
   return (
     <div
-      className={`fixed invisible md:visible z-40 drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-4 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-hidden ${
+      className={`fixed invisible md:visible z-40 drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-4 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-hidden scrollbar-hide ${
         collapsed ? "w-20" : "w-60"
       }`}
+      style={{
+        backdropFilter: "blur(.4rem)",
+        WebkitBackdropFilter: "blur(.4rem)",
+      }}
     >
       <div
         className={`drawer-content h-full flex flex-col items-start bg-white dark:bg-card rounded-2xl shadow-lg ${
@@ -384,9 +388,9 @@ export function LeftSidebar() {
                   <NavLink
                     to="/admin"
                     className={({ isActive }) =>
-                      `p-3 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                      `p-3 flex gap-4 pl-4 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                         isActive ? "bg-primary/10" : ""
-                      } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                      } ${collapsed ? "pl-5 justify-center gap-0 items-center" : ""}`
                     }
                     title={collapsed ? "Administration" : ""}
                     data-tip="Espace administration"
