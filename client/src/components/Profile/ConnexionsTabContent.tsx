@@ -226,7 +226,7 @@ export function ConnexionsTabContent() {
   const blockedContacts = mockContacts.slice(12, 15);
 
   return (
-    <Card className="mt-6 bg-accent">
+    <Card className="mt-2 bg-accent">
       <div className="flex justify-between items-center -mb-4">
         <div className="flex flex-col justify-center pt-4">
           <div className="text-xl ml-6 h-6">Mes Connexions</div>

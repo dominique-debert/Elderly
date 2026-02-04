@@ -46,7 +46,7 @@ export function PreferencesTabContent() {
           ({
             ...(prev ?? preferences ?? {}),
             ...newPrefs,
-          }) as IUserPreferences
+          }) as IUserPreferences,
       );
     },
     onError: (err) => {
@@ -97,7 +97,7 @@ export function PreferencesTabContent() {
   }
 
   return (
-    <Card className="p-4 mt-6">
+    <Card className="p-4 mt-2">
       <span className="text-xl mt-6 ml-4 mr-4 mb-0">Notifications</span>
       <div className="divider mt-0 pt-0 border-0 mb-0"></div>
       <div className="flex gap-auto justify-between items-center mr-4 mb-4">

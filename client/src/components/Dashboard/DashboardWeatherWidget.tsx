@@ -28,8 +28,14 @@ export const DashboardWeatherWidget = () => {
   if (isError) return <div className="text-sm text-red-500">Erreur météo</div>;
 
   return (
-    <div className="hover-3d">
-      <Card className="flex justify-center pb-0 md:pb-8 shadow-md">
+    <>
+      <Card
+        className="bg-transparent! flex justify-center pb-0 md:pb-8 shadow-md"
+        style={{
+          backdropFilter: "blur(2rem)",
+          WebkitBackdropFilter: "blur(2rem)",
+        }}
+      >
         <CardHeader>
           <CardTitle className="text-2xl lg:text-3xl text-center dark:text-accent text-primary">
             {isLoading ? <Skeleton className="h-6 w-24 ml-auto" /> : data?.city}
@@ -99,6 +105,6 @@ export const DashboardWeatherWidget = () => {
           )}
         </CardContent>
       </Card>
-    </div>
+    </>
   );
 };

@@ -53,15 +53,15 @@ export function LeftSidebar() {
       className={`fixed invisible md:visible z-40 drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-4 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-hidden scrollbar-hide ${
         collapsed ? "w-20" : "w-60"
       }`}
-      style={{
-        backdropFilter: "blur(.4rem)",
-        WebkitBackdropFilter: "blur(.4rem)",
-      }}
     >
       <div
-        className={`drawer-content h-full flex flex-col items-start bg-white dark:bg-card rounded-2xl shadow-lg ${
+        className={`drawer-content h-full flex flex-col items-start bg-white dark:bg-transparent rounded-2xl shadow-lg ${
           collapsed ? "px-2" : "px-2 w-60"
         }`}
+        style={{
+          backdropFilter: "blur(2rem)",
+          WebkitBackdropFilter: "blur(2rem)",
+        }}
       >
         <button
           onClick={handleToggle}

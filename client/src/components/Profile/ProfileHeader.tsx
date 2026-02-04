@@ -21,7 +21,7 @@ export function ProfileHeader() {
             <img
               src={user?.avatarUrl || "/default-avatar.png"}
               alt="User Avatar"
-              className="w-[200px] h-[200px] rounded-full mx-auto mb-4 border-secondary border-[3px] dark:border-slate-600 object-cover"
+              className="w-50 h-50 rounded-full mx-auto mb-4 border-accent border-[3px] object-cover"
             />
           </figure>
           <span className="w-full text-2xl font-bold text-center dark:text-slate-200">

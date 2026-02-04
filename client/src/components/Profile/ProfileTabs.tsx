@@ -6,7 +6,7 @@ import { SkillsTabContent } from "@/components";
 import { PreferencesTabContent } from "@/components";
 
 export const ProfileTabs = () => (
-  <div className="tabs mt-9 mb-6">
+  <div className="tabs mt-4 mb-0">
     <input
       type="radio"
       name="profile-tabs"

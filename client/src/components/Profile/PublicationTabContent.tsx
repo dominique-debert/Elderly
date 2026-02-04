@@ -10,7 +10,7 @@ export function PublicationTabContent() {
   }
 
   return (
-    <Card className="p-4 mt-6">
+    <Card className="p-4 mt-2">
       <span className="text-xl mt-6 ml-4 mr-4 mb-0">A Propos</span>
       <div className="dark:border-slate-800 border-slate-200 mt-0 pt-0 border mb-0"></div>
       <span className="p-3 pt-0">{user?.description}</span>

@@ -109,12 +109,8 @@ export function Navbar() {
           <div
             className="navbar md:block fixed top-0 z-20 h-16 w-full shadow-sm border-b border-base-200"
             style={{
-              backgroundColor:
-                theme === "m3e"
-                  ? "rgba(255, 255, 255, 0.6)"
-                  : "rgba(11, 18, 39, 0.6)",
-              backdropFilter: "blur(.4rem)",
-              WebkitBackdropFilter: "blur(.4rem)",
+              backdropFilter: "blur(2rem)",
+              WebkitBackdropFilter: "blur(2rem)",
             }}
           >
             <div className="flex-none md:hidden">
@@ -184,7 +180,7 @@ export function Navbar() {
                     </button>
                     {isNotifOpen && (
                       <div
-                        className="absolute right-0 mt-2"
+                        className="absolute right-0 mt-2 bg-transparent"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <NotificationList
@@ -207,7 +203,6 @@ export function Navbar() {
             className="drawer-overlay"
           ></label>
           <ul className="menu bg-white dark:bg-card min-h-full w-80 z-30 top-16 p-4 gap-2 pb-10">
-            {/* Sidebar content here */}
             <Search
               search={""}
               placeholder={"Rechercher..."}

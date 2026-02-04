@@ -24,7 +24,7 @@ export function NotificationList({
       }`}
     >
       <div className="flex gap-3 items-start">
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           <img
             className="w-8 h-8 rounded-full"
             src={`/images/notifications/${notification.type}.png`}
@@ -71,7 +71,13 @@ export function NotificationList({
   );
 
   return (
-    <div className="dark:bg-card bg-white border border-slate-300 dark:border-slate-800 rounded-2xl mt-3 w-[420px] max-w-screen">
+    <div
+      className="dark:bg-card/50 border border-slate-300 dark:border-slate-800 rounded-2xl mt-3 w-105 max-w-screen"
+      style={{
+        backdropFilter: "blur(2rem)",
+        WebkitBackdropFilter: "blur(2rem)",
+      }}
+    >
       <div className="p-6 pb-0">
         <h3 className="text-2xl font-semibold mb-2 text-primary">
           Notifications
@@ -79,7 +85,7 @@ export function NotificationList({
         <div className="divider mb-0 mt-0"></div>
       </div>
 
-      <div className="max-h-[500px] overflow-y-auto">
+      <div className="max-h-125 overflow-y-auto">
         {/* Unread Notifications */}
         {unreadNotifications.length > 0 ? (
           <ul className="divide-y divide-base-200">
