@@ -56,7 +56,6 @@ export function ForumPage() {
         )}
       </div>
       <div className="flex flex-col bg-transparent! border-0 w-full">
-        {/* Search Field and Page Size Selector */}
         <div className="mt-4 flex gap-3 items-center">
           {/* Search Field */}
           <div className="relative flex-1 w-full">
@@ -110,6 +109,8 @@ export function ForumPage() {
                   <div
                     key={forumSection.id}
                     className="bg-white dark:bg-card rounded-lg border border-slate-200 dark:border-gray-700 p-3.5 hover:border-primary/50 transition-colors cursor-pointer"
+                    // TODO: Display forum section details in an alert for now, replace with navigation to section page later
+                    onClick={() => alert(forumSection.id)}
                   >
                     <div className="flex items-start justify-between mb-1.5">
                       <div className="flex items-start gap-2 flex-1">

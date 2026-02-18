@@ -126,7 +126,7 @@ export function Navbar() {
             <div className="md:visible w-full bg-transparent">
               <div className="flex justify-between items-center bg-transparent">
                 <Link to="/dashboard">
-                  <div className="flex p-2 items-center gap-4 font-normal text-2xl text-primary">
+                  <div className="flex p-2 pl-4 items-center gap-3 font-normal text-2xl text-primary">
                     <img
                       src="/images/elderly.png"
                       alt="Logo"
