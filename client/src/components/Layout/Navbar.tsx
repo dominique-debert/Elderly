@@ -8,7 +8,7 @@ import { useAuth } from "@/stores";
 import { getNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
 
-import { NotificationList, Search } from "@/components";
+import { NotificationList } from "@/components";
 import toast from "react-hot-toast";
 import {
   MoonIcon,
@@ -104,6 +104,7 @@ export function Navbar() {
   return (
     <header className="header-area">
       <div className="drawer">
+        {/* Drawer trigger */}
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <div
@@ -117,7 +118,7 @@ export function Navbar() {
               <label
                 htmlFor="my-drawer-2"
                 aria-label="open sidebar"
-                className="btn btn-square btn-ghost"
+                className="btn rounded-btn btn-ghost"
               >
                 <Menu />
               </label>
@@ -130,7 +131,7 @@ export function Navbar() {
                     <img
                       src="/images/elderly.png"
                       alt="Logo"
-                      className="w-16 md:w-8 float-left"
+                      className="w-16 md:w-8 sm:w-7 float-left"
                     />
                     <span className="text-primary text-2xl invisible md:visible">
                       Elderly
@@ -187,6 +188,7 @@ export function Navbar() {
             </div>
           </div>
         </div>
+        {/* Drawer content for mobile */}
         <div className="drawer-side bg-white dark:bg-card mt-16">
           <label
             htmlFor="my-drawer-2"
@@ -194,15 +196,6 @@ export function Navbar() {
             className="drawer-overlay"
           ></label>
           <ul className="menu bg-white dark:bg-card min-h-full w-80 z-30 top-16 p-4 gap-2 pb-10">
-            <Search
-              search={""}
-              placeholder={"Rechercher..."}
-              className="visible dark:border-slate-700"
-              setSearch={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-            />
-            <div className="divider expert-blue p-0 m-0"></div>
             <NavLink
               to="/dashboard"
               onClick={closeDrawer}
@@ -212,6 +205,7 @@ export function Navbar() {
                 }`
               }
               title="Tableau de Bord"
+              aria-label="Tableau de bord"
             >
               <LayoutDashboard className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Tableau de Bord</span>

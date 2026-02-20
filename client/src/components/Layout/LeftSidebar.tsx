@@ -65,7 +65,7 @@ export function LeftSidebar() {
       >
         <button
           onClick={handleToggle}
-          className="p-3 ml-2 mt-2 hover:bg-primary/10 rounded-lg transition-colors cursor-pointer"
+          className="p-3 m-2 hover:bg-primary/10 rounded-full transition-colors cursor-pointer"
           title={collapsed ? "Expand" : "Collapse"}
         >
           {collapsed ? (
@@ -90,6 +90,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "w-full pl-3 justify-center gap-0" : "w-full"}`
                 }
                 title={collapsed ? "Tableau de Bord" : ""}
+                aria-label="Tableau de Bord"
               >
                 <LayoutDashboard className="dark:text-accent text-primary size-4 shrink-0" />
                 {!collapsed && <span className="text-sm">Tableau de Bord</span>}
@@ -104,6 +105,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
                 title={collapsed ? "Explorer" : ""}
+                aria-label="Explorer"
               >
                 <Search className="dark:text-accent size-4 shrink-0" />
                 {!collapsed && <span className="text-sm">Explorer</span>}
@@ -119,6 +121,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
                 title={collapsed ? "Mes Activités" : ""}
+                aria-label="Mes Activités"
               >
                 <Calendar className="dark:text-accent text-primary size-4 shrink-0" />
                 {!collapsed && <span className="text-sm">Mes Activités</span>}
@@ -133,6 +136,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
                 title={collapsed ? "Mon Bien-Être" : ""}
+                aria-label="Mon Bien-Être"
               >
                 <HeartHandshake className="dark:text-accent text-primary size-4 shrink-0" />
                 {!collapsed && <span className="text-sm">Mon Bien-Être</span>}
@@ -147,6 +151,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
                 title={collapsed ? "Mes Exercices" : ""}
+                aria-label="Mes Exercices"
               >
                 <Activity className="dark:text-accent text-primary size-4 shrink-0" />
                 {!collapsed && <span className="text-sm">Mes Exercices</span>}
@@ -162,6 +167,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
                 title={collapsed ? "Mes Objectifs" : ""}
+                aria-label="Mes Objectifs"
               >
                 <LayoutList className="dark:text-accent text-primary size-4 shrink-0" />
                 {!collapsed && <span className="text-sm">Mes Objectifs</span>}
@@ -176,6 +182,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
                 title={collapsed ? "Mes Projets" : ""}
+                aria-label="Mes Projets"
               >
                 <FolderKanban className="dark:text-accent text-primary size-4 shrink-0" />
                 {!collapsed && <span className="text-sm">Mes Projets</span>}
@@ -190,6 +197,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
                 title={collapsed ? "Mes Traitements" : ""}
+                aria-label="Mes Traitements"
               >
                 <Pill className="dark:text-accent text-primary size-4 shrink-0" />
                 {!collapsed && <span className="text-sm">Mes Traitements</span>}
@@ -205,6 +213,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
                 title={collapsed ? "Messages" : ""}
+                aria-label="Messages"
               >
                 <MessageCircle className="dark:text-accent text-primary size-4 shrink-0" />
                 {!collapsed && <span className="text-sm">Messages</span>}
@@ -220,6 +229,7 @@ export function LeftSidebar() {
                     forumOpen ? "bg-primary/10" : ""
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`}
                   title={collapsed ? "Forum" : ""}
+                  aria-label="Forum"
                 >
                   <MessagesSquare className="dark:text-accent text-primary size-4 shrink-0" />
                   {!collapsed && (
@@ -245,6 +255,7 @@ export function LeftSidebar() {
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
+                          aria-label="Accueil du Forum"
                         >
                           <Home className="size-4 text-secondary" />
                           <span className="text-sm">Accueil</span>
@@ -260,6 +271,7 @@ export function LeftSidebar() {
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
+                          aria-label="Découvrir"
                         >
                           <Telescope className="size-4 text-secondary" />
                           <span className="text-sm">Découvrir</span>
@@ -275,6 +287,7 @@ export function LeftSidebar() {
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
+                          aria-label="Discussions"
                         >
                           <Hash className="size-4 text-secondary" />
                           <span className="text-sm">Discussions</span>
@@ -290,6 +303,7 @@ export function LeftSidebar() {
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
+                          aria-label="Catégories"
                         >
                           <ChartColumnStacked className="size-4 text-secondary" />
                           <span className="text-sm">Catégories</span>
@@ -305,6 +319,7 @@ export function LeftSidebar() {
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
+                          aria-label="Mes Favoris"
                         >
                           <Bookmark className="size-4 text-secondary" />
                           <span className="text-sm">Mes Favoris</span>
@@ -320,6 +335,7 @@ export function LeftSidebar() {
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
+                          aria-label="Notifications"
                         >
                           <Bell className="size-4 text-secondary" />
                           <span className="text-sm">Notifications</span>
@@ -337,6 +353,7 @@ export function LeftSidebar() {
                                 isActive ? "bg-primary/10" : ""
                               }`
                             }
+                            aria-label="Modération"
                           >
                             <Siren className="size-4 text-secondary" />
                             <span className="text-sm">Modération</span>
@@ -363,6 +380,7 @@ export function LeftSidebar() {
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
                 title={collapsed ? `${user?.firstName} ${user?.lastName}` : ""}
+                aria-label="Mon Profil"
               >
                 <div className="rounded-full border-2 border-slate-400 size-8 shrink-0 overflow-hidden">
                   <img
@@ -393,7 +411,7 @@ export function LeftSidebar() {
                       } ${collapsed ? "pl-5 justify-center gap-0 items-center" : ""}`
                     }
                     title={collapsed ? "Administration" : ""}
-                    data-tip="Espace administration"
+                    aria-label="Espace administration"
                   >
                     <Settings className="dark:text-accent text-primary size-4 shrink-0" />
                     {!collapsed && (

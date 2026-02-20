@@ -16,7 +16,7 @@ export function Layout() {
         {isAuthenticated && <LeftSidebar />}
         <main
           className={`transition-all scrollbar-hide duration-150 w-full h-auto overflow-x-hidden overflow-y-auto mr-4 md:ml-0 pt-16 ${
-            isAuthenticated ? (collapsed ? "md:ml-30" : "md:ml-70") : ""
+            isAuthenticated ? (collapsed ? "md:ml-30" : "md:ml-70 sm:ml-4") : ""
           }`}
         >
           <Outlet />

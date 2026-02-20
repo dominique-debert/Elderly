@@ -26,7 +26,7 @@ export function DashboardPage() {
 
   return (
     <>
-      <div className="flex flex-col p-4 pl-1 h-fit pb-4 justify-items-center align-items-center">
+      <div className="flex flex-col pt-4 h-fit pb-4 justify-items-center align-items-center">
         <h1 className="text-xl lg:text-2xl font-semibold p-2 pb-0">
           {getGreeting()}, {user?.firstName}
         </h1>
@@ -39,7 +39,7 @@ export function DashboardPage() {
           })}
         </span>
         {user ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-4 h-full">
             <DashboardActivityWidget />
             <DashboardWeatherWidget />
           </div>
