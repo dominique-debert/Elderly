@@ -138,15 +138,6 @@ export function Navbar() {
                   </div>
                 </Link>
 
-                <Search
-                  search={""}
-                  className="invisible md:visible"
-                  placeholder={"Rechercher..."}
-                  setSearch={function (): void {
-                    throw new Error("Function not implemented.");
-                  }}
-                />
-
                 <div className="flex items-center gap-6">
                   {/* Theme Toggle */}
 
