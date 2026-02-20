@@ -1,4 +1,5 @@
 import { INotification } from "@/types";
+import { Check } from "lucide-react";
 
 type NotificationListProps = {
   notifications: INotification[];
@@ -19,11 +20,11 @@ export function NotificationList({
   }) => (
     <li
       key={notification.id}
-      className={`p-4 hover:bg-base-200 transition-colors ${
+      className={`p-4 hover:bg-card transition-colors ${
         isRead ? "opacity-70" : ""
       }`}
     >
-      <div className="flex gap-3 items-start">
+      <div className="flex gap-3 items-start dark:bg-card">
         <div className="shrink-0">
           <img
             className="w-8 h-8 rounded-full"
@@ -45,25 +46,13 @@ export function NotificationList({
         </div>
         {!isRead && (
           <button
-            className="btn btn-ghost btn-sm btn-square"
+            className="btn btn-primary btn-xs btn-square"
             onClick={() => {
               // Mark as read action
-              console.log("Mark as read", notification.id);
+              alert(`Mark as read: ${notification.id}`);
             }}
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+            <Check className="w-3 h-3" />
           </button>
         )}
       </div>

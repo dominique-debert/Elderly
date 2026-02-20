@@ -225,7 +225,7 @@ export function LeftSidebar() {
                   type="button"
                   onClick={() => setForumOpen((s) => !s)}
                   aria-expanded={forumOpen}
-                  className={`w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                  className={`cursor-pointer w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                     forumOpen ? "bg-primary/10" : ""
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`}
                   title={collapsed ? "Forum" : ""}
