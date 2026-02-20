@@ -3,7 +3,7 @@ import { PlusIcon, XIcon, SearchIcon } from "lucide-react";
 
 export function PhotoTabContent() {
   return (
-    <Card className="mt-6">
+    <Card className="mt-2">
       <div className="flex justify-between items-center -mb-4">
         <div className="flex flex-col justify-center pt-4">
           <div className="text-xl ml-6 h-6">Mes Photos</div>
@@ -53,7 +53,7 @@ export function PhotoTabContent() {
       <div className="grid grid-cols-3 gap-5 -mt-4 pt-0 mr-6 ml-6">
         <Card className="p-0 gap-0 shadow-md">
           <img
-            src="../../../public/images/photos/1.png"
+            src="../../../images/photos/1.png"
             alt=""
             className="object-cover w-full rounded-t-xl"
           />
@@ -67,7 +67,7 @@ export function PhotoTabContent() {
         </Card>
         <Card className="p-0 gap-0 shadow-md">
           <img
-            src="../../../public/images/photos/2.png"
+            src="../../../images/photos/2.png"
             alt=""
             className="object-cover w-full rounded-t-xl"
           />
@@ -81,7 +81,7 @@ export function PhotoTabContent() {
         </Card>
         <Card className="p-0 gap-0 shadow-md">
           <img
-            src="../../../public/images/photos/3.png"
+            src="../../../images/photos/3.png"
             alt=""
             className="object-cover w-full rounded-t-xl"
           />
@@ -101,7 +101,7 @@ export function PhotoTabContent() {
       <div className="grid grid-cols-3 gap-5 -mt-4 pt-0 mr-6 ml-6">
         <Card className="p-0 gap-0 shadow-md">
           <img
-            src="../../../public/images/photos/4.png"
+            src="../../../images/photos/4.png"
             alt=""
             className="object-cover w-full rounded-t-xl"
           />
@@ -116,7 +116,7 @@ export function PhotoTabContent() {
         </Card>
         <Card className="p-0 gap-0 shadow-md">
           <img
-            src="../../../public/images/photos/5.png"
+            src="../../../images/photos/5.png"
             alt=""
             className="object-cover w-full rounded-t-xl"
           />
@@ -131,7 +131,7 @@ export function PhotoTabContent() {
         </Card>
         <Card className="p-0 gap-0 shadow-md">
           <img
-            src="../../../public/images/photos/6.png"
+            src="../../../images/photos/6.png"
             alt=""
             className="object-cover w-full rounded-t-xl"
           />
@@ -150,7 +150,7 @@ export function PhotoTabContent() {
       <div className="grid grid-cols-3 gap-5 -mt-4 pt-0 mr-6 ml-6">
         <Card className="p-0 gap-0 shadow-md">
           <img
-            src="../../../public/images/photos/7.png"
+            src="../../../images/photos/7.png"
             alt=""
             className="object-cover w-full rounded-t-xl"
           />
@@ -164,7 +164,7 @@ export function PhotoTabContent() {
         </Card>
         <Card className="p-0 gap-0 shadow-md">
           <img
-            src="../../../public/images/photos/8.png"
+            src="../../../images/photos/8.png"
             alt=""
             className="object-cover w-full rounded-t-xl"
           />
@@ -178,7 +178,7 @@ export function PhotoTabContent() {
         </Card>
         <Card className="p-0 gap-0 shadow-md">
           <img
-            src="../../../public/images/photos/9.png"
+            src="../../../images/photos/9.png"
             alt=""
             className="object-cover w-full rounded-t-xl"
           />

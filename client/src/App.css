@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import "tailwindcss";
-@tailwind utilities;
 @import "tw-animate-css";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -13,70 +12,55 @@
   --tab-p: 0;
 }
 
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true; /* set as default */
+  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: light; /* color of browser-provided UI */
+}
+
+.table-zebra {
+  & tbody {
+    & tr {
+      &:where(:nth-child(even)) {
+        background-color: var(--color-base-100);
+
+        &:where([data-theme="dark"], [data-theme="dark"] *) {
+          background-color: var(--color-card);
+        }
+      }
+    }
+  }
+}
+
 @plugin "daisyui" {
   themes:
     light --default,
     dark --prefersdark,
-    nord;
+    m3e;
 }
 
 @layer base {
   * {
-    --radius-selector: 1rem;
-    --radius-field: 1rem;
-    --radius-box: 1rem;
+    --font-display: "Lexend", sans-serif;
+    /* border radius */
+    --radius-selector: 1.5rem;
+    --radius-field: 1.5rem;
+    --radius-box: 1.5rem;
+    --radius-button: 1.5rem;
+
+    /* base sizes */
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
-    --border: 1px;
+
+    /* border size */
+    --border: 0.02rem;
+    --border-focus: 2px;
+    --field-focus: 2px;
+
+    /* effects */
     --depth: 0;
     --noise: 0;
-    --color-primary: oklch(58% 0.158 241.966);
-    --text-primary: hsl(0 0% 100%);
-    --primary: hsl(226.7, 27.3%, 6.5%);
-    --font-display: "Lexend", sans-serif;
-  }
-}
-
-@layer utilities {
-  .tabs-border {
-    border-top: 1px solid var(--color-card);
-    border-radius: 0%;
-  }
-  .modal-box {
-    background-color: var(--color-card);
-  }
-  .modal {
-    &.modal-open,
-    &[open],
-    &:target {
-      pointer-events: auto;
-      visibility: visible;
-      opacity: 100%;
-      background-color: rgb(6, 14, 33, 0.8);
-      backdrop-filter: blur(3px);
-    }
-  }
-  [data-theme="dark"] {
-    .table-zebra {
-      & tbody {
-        & tr {
-          &:where(:nth-child(2n)) {
-            background-color: var(--color-card);
-          }
-        }
-      }
-    }
-  }
-  [data-theme="nord"] {
-    .table-zebra {
-      & tbody {
-        & tr {
-          &:where(:nth-child(2n)) {
-            background-color: rgba(240, 245, 249, 0.4);
-          }
-        }
-      }
-    }
   }
 }
 
@@ -135,32 +119,11 @@ main::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-main {
-  -ms-overflow-style: none; /* IE and Edge */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-.hide-scrollbar {
-  -ms-overflow-style: none !important;
-}
-
-::placeholder {
-  color: #64748b;
-  opacity: 1;
-}
-
-::-ms-input-placeholder {
-  color: #64748b;
-}
-::-webkit-input-placeholder {
-  color: #64748b;
-}
-::-moz-placeholder {
-  color: #64748b;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

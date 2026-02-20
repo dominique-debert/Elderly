@@ -1,9 +1,8 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@/prisma";
+import { prisma } from "@/config/database";
 import createHttpError from "http-errors";
 import { ISkill } from "@/types/data/skills/ISkill";
 
-const prisma = new PrismaClient();
 
 export const createSkill = async (
   req: Request<{}, {}, ISkill>,

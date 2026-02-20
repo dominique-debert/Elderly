@@ -1,7 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@/prisma";
-
-const prisma = new PrismaClient();
+import { prisma } from "@/config/database";
 
 export const getAllMenuItems = async (
   req: Request,

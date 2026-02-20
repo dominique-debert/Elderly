@@ -1,0 +1,12 @@
+{
+  "name": "elderly-monorepo",
+  "private": true,
+  "scripts": {
+    "dev:client": "pnpm -F elderly-client dev",
+    "dev:server": "pnpm -F elderly-api dev",
+    "build:client": "pnpm -F elderly-client build",
+    "build:server": "pnpm -F elderly-api build",
+    "test:client": "pnpm -F elderly-client test",
+    "test:server": "pnpm -F elderly-api test"
+  }
+}

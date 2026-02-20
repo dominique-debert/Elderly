@@ -26,7 +26,7 @@ export function DiscussionsPage() {
       {/* TODO: Redesign the discussions page: THIS IS A DUMMY PAGE FOR NOW */}
       <div className="mt-4 mr-3 gap-6 flex flex-col">
         <div className="flex flex-col gap-6 bg-transparent! border-0 w-full">
-          <div className="flex flex-wrap justify-between items-center gap-4 p-4 mb-8">
+          <div className="flex flex-wrap justify-between items-center gap-4 p-4">
             <div className="flex flex-col gap-2">
               <p className="text-slate-900 dark:text-slate-300 text-3xl font-bold leading-tight tracking-[-0.033em]">
                 Bienvenue sur le forum
@@ -35,7 +35,7 @@ export function DiscussionsPage() {
                 Suivez les dernières discussions sur tous les sujets.
               </p>
             </div>
-            <button className="flex min-w-[84px] items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+            <button className="cursor-pointer bg-primary flex items-center justify-center gap-2 overflow-hidden rounded-lg h-9 px-4 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium leading-normal transition-colors">
               <Plus className="size-4" />
               <span className="truncate">Nouvelle discussion</span>
             </button>
@@ -43,11 +43,11 @@ export function DiscussionsPage() {
           <div className="flex flex-col">
             <div className="flex justify-between items-center mb-4 px-4">
               <div className="flex items-center gap-2">
-                <button className="flex items-center justify-center gap-2 overflow-hidden rounded-lg h-9 px-4 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium leading-normal transition-colors">
+                <button className="cursor-pointer bg-primary flex items-center justify-center gap-2 overflow-hidden rounded-lg h-9 px-4 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium leading-normal transition-colors">
                   <ChevronsUpDown className="size-4" />
                   <span className="truncate">Développer tous les sujets</span>
                 </button>
-                <button className="flex items-center justify-center gap-2 overflow-hidden rounded-lg h-9 px-4 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium leading-normal transition-colors">
+                <button className="cursor-pointer flex items-center justify-center gap-2 overflow-hidden rounded-lg h-9 px-4 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium leading-normal transition-colors">
                   <ChevronsDownUp className="size-4" />
                   <span className="truncate">Réduire tous les sujets</span>
                 </button>

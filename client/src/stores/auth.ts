@@ -15,7 +15,7 @@ export const useAuthStore = create<IAuthState>()(
       login: async (
         email: string,
         password: string,
-        navigate: NavigateFunction
+        navigate: NavigateFunction,
       ): Promise<IUser> => {
         const data = await loginUser({ email, password });
 
@@ -100,7 +100,7 @@ export const useAuthStore = create<IAuthState>()(
                 "Content-Type": "application/json",
               },
               body: JSON.stringify(formattedData),
-            }
+            },
           );
 
           if (!response.ok) {
@@ -175,6 +175,18 @@ export const useAuthStore = create<IAuthState>()(
         // toast.success("Déconnexion réussie");
         navigate("/login");
       },
+
+      setDisconnected: () => {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        localStorage.removeItem("userId");
+
+        set({
+          accessToken: null,
+          isAuthenticated: false,
+          user: null,
+        });
+      },
     }),
     {
       name: "auth-storage",
@@ -184,8 +196,8 @@ export const useAuthStore = create<IAuthState>()(
         isAuthenticated: state.isAuthenticated,
         user: state.user,
       }),
-    }
-  )
+    },
+  ),
 );
 
 export const useAuth = (): IUseAuthReturn => {

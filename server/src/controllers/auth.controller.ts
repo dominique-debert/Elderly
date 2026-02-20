@@ -5,11 +5,9 @@ import fs from "fs";
 import path from "path";
 import jwt from "jsonwebtoken";
 
-import { PrismaClient } from "@/prisma";
+import { prisma } from "@/config/database";
 import { generateToken } from "@/utils";
 import { signUpSchema, signInSchema } from "@/validators";
-
-const prisma = new PrismaClient();
 
 const accessTokenExpiry = process.env.JWT_EXPIRES_IN || "7d";
 const refreshTokenExpiryDays =

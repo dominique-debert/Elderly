@@ -226,7 +226,7 @@ export function ConnexionsTabContent() {
   const blockedContacts = mockContacts.slice(12, 15);
 
   return (
-    <Card className="mt-6">
+    <Card className="mt-2 bg-accent">
       <div className="flex justify-between items-center -mb-4">
         <div className="flex flex-col justify-center pt-4">
           <div className="text-xl ml-6 h-6">Mes Connexions</div>
@@ -254,7 +254,7 @@ export function ConnexionsTabContent() {
 
       <div className="border-0 grid grid-flow-col grid-rows-2 gap-5 pt-2 pl-6 pr-6">
         {/* Mes contacts */}
-        <Card className="row-span-2 w-full overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-none">
+        <Card className="row-span-2 overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-xl">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Mes contacts
             <span className="badge font-medium ml-4 rounded-full bg-secondary/10 text-secondary size-8">
@@ -267,8 +267,8 @@ export function ConnexionsTabContent() {
           ))}
         </Card>
 
-        {/* Contacts suggérés */}
-        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-none">
+        {/* Demandes de connexion */}
+        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-xl">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Demandes de connexion
             <span className="badge font-medium ml-4 rounded-full bg-secondary/10 text-secondary size-8">
@@ -282,14 +282,14 @@ export function ConnexionsTabContent() {
         </Card>
 
         {/* Contacts bloqués */}
-        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-none">
+        <Card className="overflow-y-auto gap-0 p-0 bg-white dark:bg-card shadow-xl">
           <span className="flex items-center text-xl m-6 mb-0 mt-4">
             Contacts bloqués
             <span className="badge font-medium ml-4 rounded-full bg-secondary/10 text-secondary size-8">
               {blockedContacts.length}
             </span>
           </span>
-          <div className="divider expert-blue m-4 mt-1 mb-4"></div>
+          <div className="divider expert-blue m-4 mt-1"></div>
           {blockedContacts.map((contact) => (
             <ContactCard key={contact.id} user={contact} blocked={true} />
           ))}

@@ -36,20 +36,62 @@ export const formatMonthYear = (date: string | Date): string => {
 /**
  * Formate une date au format français complet (ex: "12 novembre 2025").
  * @param date - Date ISO ou objet Date
+ * @param options - Options de formatage
+ * @param options.showWeekday - Afficher le jour de la semaine (défaut: false)
+ * @param options.showTime - Afficher l'heure (défaut: false)
+ * @param options.showSeconds - Afficher les secondes (défaut: false)
  * @param fallback - Valeur de repli si date invalide
  */
 export const formatLongDate = (
   date?: string | Date,
+  options: {
+    showWeekday?: boolean;
+    showTime?: boolean;
+    showSeconds?: boolean;
+  } = {},
   fallback = "Non disponible"
 ): string => {
   if (!date) return fallback;
 
+  const {
+    showWeekday = false,
+    showTime = false,
+    showSeconds = false,
+  } = options;
+
   try {
-    return new Date(date).toLocaleDateString("fr-FR", {
+    const dateObj = new Date(date);
+    const dateOptions: Intl.DateTimeFormatOptions = {
       day: "numeric",
       month: "long",
       year: "numeric",
-    });
+    };
+
+    if (showWeekday) {
+      dateOptions.weekday = "long";
+    }
+
+    let formatted = dateObj.toLocaleDateString("fr-FR", dateOptions);
+
+    if (showWeekday) {
+      formatted = capitalizeFirstLetter(formatted);
+    }
+
+    if (showTime) {
+      const timeOptions: Intl.DateTimeFormatOptions = {
+        hour: "2-digit",
+        minute: "2-digit",
+      };
+
+      if (showSeconds) {
+        timeOptions.second = "2-digit";
+      }
+
+      const timeFormatted = dateObj.toLocaleTimeString("fr-FR", timeOptions);
+      formatted += `. Il est ${timeFormatted}.`;
+    }
+
+    return formatted;
   } catch {
     return fallback;
   }

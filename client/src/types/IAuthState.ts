@@ -8,7 +8,7 @@ export interface IAuthState {
   login: (
     email: string,
     password: string,
-    navigate: ReturnType<typeof useNavigate>
+    navigate: ReturnType<typeof useNavigate>,
   ) => Promise<IUser>;
   signup: (
     userData: {
@@ -20,7 +20,8 @@ export interface IAuthState {
       birthDate: Date;
       isAdmin: boolean;
     },
-    navigate: ReturnType<typeof useNavigate>
+    navigate: ReturnType<typeof useNavigate>,
   ) => Promise<void>;
   logout: (navigate: ReturnType<typeof useNavigate>) => void;
+  setDisconnected: () => void;
 }

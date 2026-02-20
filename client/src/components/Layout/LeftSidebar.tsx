@@ -50,14 +50,18 @@ export function LeftSidebar() {
 
   return (
     <div
-      className={`fixed z-40 drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-3 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-hidden ${
+      className={`fixed invisible md:visible z-40 drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-4 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-hidden scrollbar-hide ${
         collapsed ? "w-20" : "w-60"
       }`}
     >
       <div
-        className={`drawer-content h-full flex flex-col items-start bg-white dark:bg-card rounded-2xl shadow-lg ${
+        className={`drawer-content h-full flex flex-col items-start bg-white dark:bg-transparent rounded-2xl shadow-lg ${
           collapsed ? "px-2" : "px-2 w-60"
         }`}
+        style={{
+          backdropFilter: "blur(2rem)",
+          WebkitBackdropFilter: "blur(2rem)",
+        }}
       >
         <button
           onClick={handleToggle}
@@ -77,123 +81,142 @@ export function LeftSidebar() {
           <div
             className={`flex flex-col gap-2 px-2 h-full w-full ${collapsed ? "items-center" : ""}`}
           >
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                `p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "w-full pl-3 justify-center gap-0" : "w-full"}`
-              }
-              title={collapsed ? "Tableau de Bord" : ""}
-            >
-              <LayoutDashboard className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span className="text-sm">Tableau de Bord</span>}
-            </NavLink>
-            <NavLink
-              to="/explore"
-              className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? "Explorer" : ""}
-            >
-              <Search className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span className="text-sm">Explorer</span>}
-            </NavLink>
+            <div className="hover-3d">
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) =>
+                  `p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "w-full pl-3 justify-center gap-0" : "w-full"}`
+                }
+                title={collapsed ? "Tableau de Bord" : ""}
+              >
+                <LayoutDashboard className="dark:text-accent text-primary size-4 shrink-0" />
+                {!collapsed && <span className="text-sm">Tableau de Bord</span>}
+              </NavLink>
+            </div>
+            <div className="hover-3d">
+              <NavLink
+                to="/explore"
+                className={({ isActive }) =>
+                  `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                }
+                title={collapsed ? "Explorer" : ""}
+              >
+                <Search className="dark:text-accent size-4 shrink-0" />
+                {!collapsed && <span className="text-sm">Explorer</span>}
+              </NavLink>
+            </div>
             {!collapsed && <div className="w-55 divider m-0"></div>}
-            <NavLink
-              to={"/activities"}
-              className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? "Mes Activités" : ""}
-            >
-              <Calendar className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span className="text-sm">Mes Activités</span>}
-            </NavLink>
-            <NavLink
-              to={"/wellness"}
-              className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? "Mon Bien-Être" : ""}
-            >
-              <HeartHandshake className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span className="text-sm">Mon Bien-Être</span>}
-            </NavLink>
-            <NavLink
-              to={"/exercises"}
-              className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? "Mes Exercices" : ""}
-            >
-              <Activity className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span className="text-sm">Mes Exercices</span>}
-            </NavLink>
-            <NavLink
-              to={"/objectives"}
-              className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? "Mes Objectifs" : ""}
-            >
-              <LayoutList className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span className="text-sm">Mes Objectifs</span>}
-            </NavLink>
-            <NavLink
-              to={"/projects"}
-              className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? "Mes Projets" : ""}
-            >
-              <FolderKanban className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span className="text-sm">Mes Projets</span>}
-            </NavLink>
-            <NavLink
-              to={"/medications"}
-              className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? "Mes Traitements" : ""}
-            >
-              <Pill className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span className="text-sm">Mes Traitements</span>}
-            </NavLink>
+            <div className="hover-3d">
+              <NavLink
+                to={"/activities"}
+                className={({ isActive }) =>
+                  `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                }
+                title={collapsed ? "Mes Activités" : ""}
+              >
+                <Calendar className="dark:text-accent text-primary size-4 shrink-0" />
+                {!collapsed && <span className="text-sm">Mes Activités</span>}
+              </NavLink>
+            </div>
+            <div className="hover-3d">
+              <NavLink
+                to={"/wellness"}
+                className={({ isActive }) =>
+                  `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                }
+                title={collapsed ? "Mon Bien-Être" : ""}
+              >
+                <HeartHandshake className="dark:text-accent text-primary size-4 shrink-0" />
+                {!collapsed && <span className="text-sm">Mon Bien-Être</span>}
+              </NavLink>
+            </div>
+            <div className="hover-3d">
+              <NavLink
+                to={"/exercises"}
+                className={({ isActive }) =>
+                  `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                }
+                title={collapsed ? "Mes Exercices" : ""}
+              >
+                <Activity className="dark:text-accent text-primary size-4 shrink-0" />
+                {!collapsed && <span className="text-sm">Mes Exercices</span>}
+              </NavLink>
+            </div>
+
+            <div className="hover-3d">
+              <NavLink
+                to={"/objectives"}
+                className={({ isActive }) =>
+                  `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                }
+                title={collapsed ? "Mes Objectifs" : ""}
+              >
+                <LayoutList className="dark:text-accent text-primary size-4 shrink-0" />
+                {!collapsed && <span className="text-sm">Mes Objectifs</span>}
+              </NavLink>
+            </div>
+            <div className="hover-3d">
+              <NavLink
+                to={"/projects"}
+                className={({ isActive }) =>
+                  `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                }
+                title={collapsed ? "Mes Projets" : ""}
+              >
+                <FolderKanban className="dark:text-accent text-primary size-4 shrink-0" />
+                {!collapsed && <span className="text-sm">Mes Projets</span>}
+              </NavLink>
+            </div>
+            <div className="hover-3d">
+              <NavLink
+                to={"/medications"}
+                className={({ isActive }) =>
+                  `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                }
+                title={collapsed ? "Mes Traitements" : ""}
+              >
+                <Pill className="dark:text-accent text-primary size-4 shrink-0" />
+                {!collapsed && <span className="text-sm">Mes Traitements</span>}
+              </NavLink>
+            </div>
             {!collapsed && <div className="w-55 divider expert-blue m-0"></div>}
-            <NavLink
-              to={"/messages"}
-              className={({ isActive }) =>
-                `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? "Messages" : ""}
-            >
-              <MessageCircle className="dark:text-accent text-primary size-4 shrink-0" />
-              {!collapsed && <span className="text-sm">Messages</span>}
-            </NavLink>
+            <div className="hover-3d">
+              <NavLink
+                to={"/messages"}
+                className={({ isActive }) =>
+                  `w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                }
+                title={collapsed ? "Messages" : ""}
+              >
+                <MessageCircle className="dark:text-accent text-primary size-4 shrink-0" />
+                {!collapsed && <span className="text-sm">Messages</span>}
+              </NavLink>
+            </div>
             <ul className="border-l-0 pl-0 w-full">
               <li className="w-full">
                 <button
                   type="button"
                   onClick={() => setForumOpen((s) => !s)}
                   aria-expanded={forumOpen}
-                  className={`w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                  className={`w-full p-3 pl-4 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                     forumOpen ? "bg-primary/10" : ""
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`}
                   title={collapsed ? "Forum" : ""}
@@ -214,97 +237,111 @@ export function LeftSidebar() {
                 {forumOpen && !collapsed && (
                   <ul className="ml-4 mt-2 space-y-1 w-full">
                     <li className="w-48">
-                      <NavLink
-                        to="/forum/home"
-                        className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
-                            isActive ? "bg-primary/10" : ""
-                          }`
-                        }
-                      >
-                        <Home className="size-4 text-orange-400" />
-                        <span className="text-sm">Accueil</span>
-                      </NavLink>
-                    </li>
-                    <li className="w-48">
-                      <NavLink
-                        to="/forum/discover"
-                        className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
-                            isActive ? "bg-primary/10" : ""
-                          }`
-                        }
-                      >
-                        <Telescope className="size-4 text-orange-400" />
-                        <span className="text-sm">Découvrir</span>
-                      </NavLink>
-                    </li>
-                    <li className="w-48">
-                      <NavLink
-                        to="/forum/discussions"
-                        className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
-                            isActive ? "bg-primary/10" : ""
-                          }`
-                        }
-                      >
-                        <Hash className="size-4 text-orange-400" />
-                        <span className="text-sm">Discussions</span>
-                      </NavLink>
-                    </li>
-                    <li className="w-48">
-                      <NavLink
-                        to="/forum/categories"
-                        className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
-                            isActive ? "bg-primary/10" : ""
-                          }`
-                        }
-                      >
-                        <ChartColumnStacked className="size-4 text-orange-400" />
-                        <span className="text-sm">Catégories</span>
-                      </NavLink>
-                    </li>
-                    <li className="w-48">
-                      <NavLink
-                        to="/forum/bookmarks"
-                        className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
-                            isActive ? "bg-primary/10" : ""
-                          }`
-                        }
-                      >
-                        <Bookmark className="size-4 text-orange-400" />
-                        <span className="text-sm">Mes Favoris</span>
-                      </NavLink>
-                    </li>
-                    <li className="w-48">
-                      <NavLink
-                        to="/forum/notifications"
-                        className={({ isActive }) =>
-                          `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
-                            isActive ? "bg-primary/10" : ""
-                          }`
-                        }
-                      >
-                        <Bell className="size-4 text-orange-400" />
-                        <span className="text-sm">Notifications</span>
-                      </NavLink>
-                    </li>
-
-                    {user?.isAdmin && (
-                      <li className="w-48">
+                      <div className="hover-3d w-full">
                         <NavLink
-                          to="/forum/moderation"
+                          to="/forum/home"
                           className={({ isActive }) =>
-                            `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 ${
+                            `w-full p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
                         >
-                          <Siren className="size-4 text-orange-400" />
-                          <span className="text-sm">Modération</span>
+                          <Home className="size-4 text-secondary" />
+                          <span className="text-sm">Accueil</span>
                         </NavLink>
+                      </div>
+                    </li>
+                    <li className="w-48">
+                      <div className="hover-3d w-full">
+                        <NavLink
+                          to="/forum/discover"
+                          className={({ isActive }) =>
+                            `p-3 pl-5 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
+                              isActive ? "bg-primary/10" : ""
+                            }`
+                          }
+                        >
+                          <Telescope className="size-4 text-secondary" />
+                          <span className="text-sm">Découvrir</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="w-48">
+                      <div className="hover-3d w-full">
+                        <NavLink
+                          to="/forum/discussions"
+                          className={({ isActive }) =>
+                            `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
+                              isActive ? "bg-primary/10" : ""
+                            }`
+                          }
+                        >
+                          <Hash className="size-4 text-secondary" />
+                          <span className="text-sm">Discussions</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="w-48">
+                      <div className="hover-3d w-full">
+                        <NavLink
+                          to="/forum/categories"
+                          className={({ isActive }) =>
+                            `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
+                              isActive ? "bg-primary/10" : ""
+                            }`
+                          }
+                        >
+                          <ChartColumnStacked className="size-4 text-secondary" />
+                          <span className="text-sm">Catégories</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="w-48">
+                      <div className="hover-3d w-full">
+                        <NavLink
+                          to="/forum/bookmarks"
+                          className={({ isActive }) =>
+                            `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
+                              isActive ? "bg-primary/10" : ""
+                            }`
+                          }
+                        >
+                          <Bookmark className="size-4 text-secondary" />
+                          <span className="text-sm">Mes Favoris</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="w-48">
+                      <div className="hover-3d w-full">
+                        <NavLink
+                          to="/forum/notifications"
+                          className={({ isActive }) =>
+                            `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
+                              isActive ? "bg-primary/10" : ""
+                            }`
+                          }
+                        >
+                          <Bell className="size-4 text-secondary" />
+                          <span className="text-sm">Notifications</span>
+                        </NavLink>
+                      </div>
+                    </li>
+
+                    {user?.isAdmin && (
+                      <li className="w-48">
+                        <div className="hover-3d w-full">
+                          <NavLink
+                            to="/forum/moderation"
+                            className={({ isActive }) =>
+                              `p-3 pl-5 flex gap-2 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 ${
+                                isActive ? "bg-primary/10" : ""
+                              }`
+                            }
+                          >
+                            <Siren className="size-4 text-secondary" />
+                            <span className="text-sm">Modération</span>
+                          </NavLink>
+                        </div>
                       </li>
                     )}
                   </ul>
@@ -317,49 +354,53 @@ export function LeftSidebar() {
             className={`flex flex-col h-full justify-end mb-2 ${collapsed ? "items-center" : ""}`}
           >
             {!collapsed && <div className="w-55 divider m-0"></div>}
-            <NavLink
-              to="/profile"
-              className={({ isActive }) =>
-                `p-3 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                  isActive ? "bg-primary/10" : ""
-                } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-              }
-              title={collapsed ? `${user?.firstName} ${user?.lastName}` : ""}
-            >
-              <div className="rounded-full border-2 border-slate-400 size-8 shrink-0 overflow-hidden">
-                <img
-                  alt="avatar"
-                  src={
-                    user?.avatarUrl ||
-                    `/images/${user?.avatarUrl || "default-avatar.svg"}`
-                  }
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {!collapsed && (
-                <span className="truncate text-sm">
-                  {user?.firstName} {user?.lastName}
-                </span>
-              )}
-            </NavLink>
+            <div className="hover-3d w-full">
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  `p-3 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                    isActive ? "bg-primary/10" : ""
+                  } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
+                }
+                title={collapsed ? `${user?.firstName} ${user?.lastName}` : ""}
+              >
+                <div className="rounded-full border-2 border-slate-400 size-8 shrink-0 overflow-hidden">
+                  <img
+                    alt="avatar"
+                    src={
+                      user?.avatarUrl ||
+                      `/images/${user?.avatarUrl || "default-avatar.svg"}`
+                    }
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {!collapsed && (
+                  <span className="truncate text-sm">
+                    {user?.firstName} {user?.lastName}
+                  </span>
+                )}
+              </NavLink>
+            </div>
             {user?.isAdmin && (
               <>
                 {!collapsed && <div className="w-55 divider m-0"></div>}
-                <NavLink
-                  to="/admin"
-                  className={({ isActive }) =>
-                    `p-3 flex gap-3 justify-start items-center rounded-3xl text-slate-600 dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
-                      isActive ? "bg-primary/10" : ""
-                    } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
-                  }
-                  title={collapsed ? "Administration" : ""}
-                  data-tip="Espace administration"
-                >
-                  <Settings className="dark:text-accent text-primary size-4 shrink-0" />
-                  {!collapsed && (
-                    <span className="text-sm">Administration</span>
-                  )}
-                </NavLink>
+                <div className="hover-3d w-full">
+                  <NavLink
+                    to="/admin"
+                    className={({ isActive }) =>
+                      `p-3 flex gap-4 pl-4 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
+                        isActive ? "bg-primary/10" : ""
+                      } ${collapsed ? "pl-5 justify-center gap-0 items-center" : ""}`
+                    }
+                    title={collapsed ? "Administration" : ""}
+                    data-tip="Espace administration"
+                  >
+                    <Settings className="dark:text-accent text-primary size-4 shrink-0" />
+                    {!collapsed && (
+                      <span className="text-sm">Administration</span>
+                    )}
+                  </NavLink>
+                </div>
               </>
             )}
           </div>

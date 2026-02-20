@@ -15,7 +15,7 @@ export function AdminPage() {
     <div className="flex flex-col">
       {user && user.isAdmin ? (
         <>
-          <div className="p-4 w-full dark:bg-transparent bg-(--root-bg)">
+          <div className="p-4 w-full dark:bg-transparent bg-base-100">
             <PageBreadcrumbs
               items={[
                 { label: "Accueil", path: "/" },
@@ -30,14 +30,11 @@ export function AdminPage() {
             <div className="flex mt-4 gap-4">
               <NavLink
                 to="/admin/categories"
-                className="btn btn-sm p-4 bg-primary/40 hover:bg-primary/70 font-normal"
+                className="btn btn-sm btn-primary"
               >
                 Gestion des catégories
               </NavLink>
-              <NavLink
-                to="/admin/users"
-                className="btn btn-sm p-4 bg-primary/40 hover:bg-primary/70 font-normal"
-              >
+              <NavLink to="/admin/users" className="btn btn-sm btn-primary">
                 Gestion des utilisateurs
               </NavLink>
             </div>

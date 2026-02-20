@@ -1,10 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 
-import { PrismaClient } from "@/prisma";
+import { prisma } from "@/config/database";
 import { IActivity } from "@/types";
-
-const prisma = new PrismaClient();
 
 export const createActivity = async (
   req: Request<{}, {}, IActivity>,

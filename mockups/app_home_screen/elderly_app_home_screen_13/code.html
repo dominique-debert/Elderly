@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elderly - Daily Briefing Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {--green-900: #0C381E;--green-800: #1A5433;
+            --green-700: #297049;
+            --green-600: #388C5F;
+            --green-500: #46A874;--gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;--gold-accent: #B8860B;--gold-light: #FFD700;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "var(--gold-accent)","background-light": "var(--gray-100)","background-dark": "var(--gray-900)","header-bg-light": "var(--gray-200)","header-bg-dark": "var(--gray-800)",
+                        "card-bg-light": "var(--gray-200)","card-bg-dark": "var(--gray-800)",
+                        "text-light": "var(--gray-900)","text-dark": "var(--gray-100)","text-secondary-light": "var(--gray-600)","text-secondary-dark": "var(--gray-400)",
+                        "news-bg": "var(--green-800)","weather-bg-gradient-from": "var(--green-700)","weather-bg-gradient-to": "var(--green-900)",
+                        "gold-accent": "var(--gold-accent)",
+                        "gold-light": "var(--gold-light)",
+                        "forest-green-dark": "var(--green-900)",
+                        "forest-green-mid": "var(--green-700)",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center p-4 sm:p-6 md:p-8">
+<div class="layout-content-container flex w-full max-w-7xl flex-1 flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 dark:border-gray-700 px-6 py-4 bg-header-bg-light dark:bg-header-bg-dark rounded-xl mb-6 shadow-md">
+<div class="flex items-center gap-4 text-gold-accent">
+<div class="h-8 w-8 text-gold-accent">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-text-light dark:text-text-dark text-2xl font-bold leading-tight tracking-[-0.015em]">Elderly</h1>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<button class="flex h-12 w-12 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-300 dark:bg-gray-700 text-text-light dark:text-text-dark hover:bg-gold-accent/20 transition-colors">
+<span class="material-symbols-outlined text-3xl">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfVoLIQT7YMggWuvhogBawzziPN1qCbwSpu0T-D82RpWe1MGx8P5Jd2fpcJcsax8ysj618ozCOALwQyJudpGm0DQQ02QIurFhT3lJF_VkjKHquU10f4ROhApvOvWtMKjUZyouDqxeK6nfJ91HCHpzrlKjuet6iHY7IK1x0DnywJ2kjskvw-GnLyYQlN3z6H6P2JqDJR2rD5yFS7MP6u76OV4A_Xn1K4VpI-Uo4npCH0eOqjNTVxXlP87unvYqSFw7VOhx2jIah590");'></div>
+</div>
+</header>
+<div class="flex flex-col gap-6 px-6 pt-0 pb-6">
+<div class="flex min-w-72 flex-col gap-2">
+<p class="text-text-light dark:text-text-dark text-5xl font-black leading-tight tracking-[-0.033em]">Good Morning, Anne</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-xl font-normal leading-normal">Tuesday, October 26, 10:30 AM</p>
+</div>
+</div>
+<main class="flex flex-col gap-8 px-6 pb-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="flex flex-col gap-6 rounded-xl bg-news-bg text-text-dark p-8 shadow-lg">
+<h2 class="text-4xl font-black leading-tight tracking-[-0.025em] text-gold-light">Today's Headlines</h2>
+<div class="flex flex-col gap-5">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-4xl text-gold-accent pt-1">newspaper</span>
+<div>
+<h3 class="font-bold text-xl text-text-dark">Community Center Opens New Art Exhibit</h3>
+<p class="text-gray-200">Local artists featured in a month-long show.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-4xl text-gold-accent pt-1">newspaper</span>
+<div>
+<h3 class="font-bold text-xl text-text-dark">Tips for Healthy Eating in Autumn</h3>
+<p class="text-gray-200">Nutritionists share advice on seasonal produce.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-4xl text-gold-accent pt-1">newspaper</span>
+<div>
+<h3 class="font-bold text-xl text-text-dark">Local Library Announces New Digital Archive</h3>
+<p class="text-gray-200">Access historical photos and documents online.</p>
+</div>
+</div>
+<button class="mt-4 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-16 px-6 bg-gold-accent/20 text-gold-light text-xl font-bold leading-normal tracking-[0.015em] hover:bg-gold-accent/40 transition-colors border-2 border-gold-accent">
+<span class="truncate">Read More News</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-6 rounded-xl bg-gradient-to-br from-weather-bg-gradient-from to-weather-bg-gradient-to text-text-dark p-8 shadow-lg">
+<h2 class="text-4xl font-black leading-tight tracking-[-0.025em] text-gold-light">Local Weather</h2>
+<div class="flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<p class="text-7xl font-black text-gold-light">68°F</p>
+<p class="text-2xl text-text-dark">Sunny</p>
+<p class="opacity-80 text-gray-200">New York, NY</p>
+</div>
+<div class="text-9xl">
+<span class="material-symbols-outlined !text-[120px] text-gold-light">sunny</span>
+</div>
+</div>
+<div class="flex justify-between mt-6 border-t border-gold-accent/30 pt-6">
+<div class="flex flex-col items-center">
+<p class="font-bold text-lg text-text-dark">Now</p>
+<span class="material-symbols-outlined text-4xl text-gold-light">sunny</span>
+<p class="font-bold text-lg text-text-dark">68°</p>
+</div>
+<div class="flex flex-col items-center opacity-90">
+<p class="font-bold text-lg text-text-dark">12 PM</p>
+<span class="material-symbols-outlined text-4xl text-gold-light">partly_cloudy_day</span>
+<p class="font-bold text-lg text-text-dark">70°</p>
+</div>
+<div class="flex flex-col items-center opacity-90">
+<p class="font-bold text-lg text-text-dark">3 PM</p>
+<span class="material-symbols-outlined text-4xl text-gold-light">partly_cloudy_day</span>
+<p class="font-bold text-lg text-text-dark">72°</p>
+</div>
+<div class="flex flex-col items-center opacity-90">
+<p class="font-bold text-lg text-text-dark">6 PM</p>
+<span class="material-symbols-outlined text-4xl text-gold-light">cloudy</span>
+<p class="font-bold text-lg text-text-dark">65°</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4 rounded-xl bg-card-bg-light dark:bg-card-bg-dark p-6 shadow-sm">
+<h2 class="text-text-light dark:text-text-dark text-2xl font-bold leading-tight tracking-[-0.015em]">Emergency Contacts</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<button class="flex h-20 w-full cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg bg-gold-accent/30 text-gold-accent text-xl font-bold leading-normal tracking-[0.015em] hover:bg-gold-accent/50 transition-colors">
+<span class="material-symbols-outlined text-4xl">sos</span>
+<span class="truncate">SOS Help</span>
+</button>
+<button class="flex h-20 w-full cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg bg-gray-300 dark:bg-gray-700 text-text-light dark:text-text-dark text-xl font-bold leading-normal tracking-[0.015em] hover:bg-gold-accent/20 dark:hover:bg-gray-600 transition-colors">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-10 w-10" data-alt="Family member photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6m7kz-wm5bWii6-AbCfcUCAwHn2dZVknJSe3S1UQY8M4t9uhJTZtMR4hQPAU2mPvu1ie_a1ZTJMZ69DIRWc0S7pD41378zE-uEx5LNyn9Wiw8JqXXMfaV_Ljk0j5iAdZguSUjrpevvfHUfh5lfnbcsjvs0m1I3N8dK5nXOQ3A-GKeIQbu4Azoeunrv3SUMMyqJqPF_1Ny-x3AW0G8Y5WZpWDtIGH223BLEr0qCDI7CEFiN-2uLXn5tFTD4HNHYHD5hyvnNP7J-q4");'></div>
+<span class="truncate">Call Family</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl bg-card-bg-light dark:bg-card-bg-dark p-6 shadow-sm">
+<h2 class="text-text-light dark:text-text-dark text-2xl font-bold leading-tight tracking-[-0.015em]">New Message</h2>
+<div class="flex items-center gap-4 rounded-lg bg-gray-300 dark:bg-gray-700 p-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-16 flex-shrink-0" data-alt="Sender's profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBj9KqZAwJpqfYZEFxv4OHoqQL1SNj7X0IgM4oCnzGH3zUqHevY69_f8eL29siWouY6k0BzGK5fgLwGXTE-a8qASmnjUoInOqv8WJRTI3UcgeOrbhgqfcw_kSyFBmWVVK-gWBD15rJd9JZ9cAOfFxZRkTaPRVFjkv7rWq47oqQTr_CJlhLJiSZxFalvtwKavKJWV5y7khZwJd0qZIn4f_K9fKyjY1GCHUeTu9vrNCDpfBJdH-SuIpXc2CLZAIgOeovDHYUK-bfm2VI");'></div>
+<div class="flex flex-col">
+<p class="text-lg font-bold text-text-light dark:text-text-dark">From: Sarah</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark">"Hi Mom! Just checking in. Are we still on for lunch tomorrow at 1?"</p>
+</div>
+</div>
+<button class="flex mt-2 min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-gold-accent/20 text-gold-accent text-lg font-bold leading-normal tracking-[0.015em] hover:bg-gold-accent/40 transition-colors">
+<span class="truncate">View All Messages</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 rounded-xl bg-card-bg-light dark:bg-card-bg-dark p-6 shadow-sm">
+<h2 class="text-text-light dark:text-text-dark text-2xl font-bold leading-tight tracking-[-0.015em]">Medication Reminders</h2>
+<ul class="space-y-4">
+<li class="flex items-center justify-between rounded-lg bg-forest-green-mid/20 dark:bg-forest-green-mid/10 p-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-gold-accent">schedule</span>
+<div>
+<p class="font-bold text-lg text-text-light dark:text-text-dark">Heart Medication</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark">1 pill, 11:00 AM</p>
+</div>
+</div>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-gold-accent text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-gold-light transition-colors">
+<span class="truncate">Take Now</span>
+</button>
+</li>
+<li class="flex items-center justify-between rounded-lg bg-gray-300 dark:bg-gray-700 p-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-forest-green-mid">check_circle</span>
+<div class="opacity-60">
+<p class="font-bold text-lg text-text-light dark:text-text-dark line-through">Vitamin D</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark">1 pill, 9:00 AM (Taken)</p>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="flex flex-col gap-4 rounded-xl bg-card-bg-light dark:bg-card-bg-dark p-6 shadow-sm xl:col-span-3">
+<h2 class="text-text-light dark:text-text-dark text-2xl font-bold leading-tight tracking-[-0.015em]">Today's Activities</h2>
+<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<li class="flex items-center gap-4 rounded-lg bg-gray-300 dark:bg-gray-700 p-4">
+<span class="material-symbols-outlined text-3xl text-gold-accent">directions_walk</span>
+<div>
+<p class="font-bold text-lg text-text-light dark:text-text-dark">Morning Walk</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark">9:30 AM - In the park</p>
+</div>
+</li>
+<li class="flex items-center gap-4 rounded-lg bg-gray-300 dark:bg-gray-700 p-4">
+<span class="material-symbols-outlined text-3xl text-gold-accent">menu_book</span>
+<div>
+<p class="font-bold text-lg text-text-light dark:text-text-dark">Read a Chapter</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark">Enjoy your favorite book</p>
+</div>
+</li>
+<li class="flex items-center gap-4 rounded-lg bg-gray-300 dark:bg-gray-700 p-4">
+<span class="material-symbols-outlined text-3xl text-gold-accent">local_hospital</span>
+<div>
+<p class="font-bold text-lg text-text-light dark:text-text-dark">Appointment with Dr. Smith</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark">2:00 PM - Clinic</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

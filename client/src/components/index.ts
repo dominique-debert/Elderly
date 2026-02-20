@@ -41,12 +41,12 @@ export * from "./Administration/Users/UsersTableRow.tsx";
 export * from "./Administration/Users/UsersTableView.tsx";
 
 // Dashboard Components
-export * from "./Dashboard/DashboardActivityCard";
-export * from "./Dashboard/DashboardForumCard";
-export * from "./Dashboard/DashboardHealthCard";
-export * from "./Dashboard/DashboardMedicationCard";
-export * from "./Dashboard/DashboardServiceCard";
-export * from "./Dashboard/DashboardUserCard";
+export * from "./Dashboard/DashboardActivityWidget.tsx";
+export * from "./Dashboard/DashboardForumWidget.tsx";
+export * from "./Dashboard/DashboardHealthWidget.tsx";
+export * from "./Dashboard/DashboardMedicationWidget.tsx";
+export * from "./Dashboard/DashboardServiceWidget.tsx";
+export * from "./Dashboard/DashboardUserWidget.tsx";
 
 // General Components
 export * from "./General/GeneralMetricsCard";

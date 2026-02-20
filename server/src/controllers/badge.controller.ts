@@ -1,8 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@/prisma";
+import { prisma } from "@/config/database";
 import createHttpError from "http-errors";
-
-const prisma = new PrismaClient();
 
 export const createBadge = async (
   req: Request,

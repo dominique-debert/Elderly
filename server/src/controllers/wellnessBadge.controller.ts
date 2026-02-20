@@ -1,9 +1,8 @@
-import { PrismaClient } from "@/prisma";
+import { prisma } from "@/config/database";
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import { IWellnessBadge } from "@/types";
 
-const prisma = new PrismaClient();
 
 /**
  * @swagger

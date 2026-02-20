@@ -13,7 +13,7 @@ export function AdminUsersPage() {
     <div className="flex flex-col">
       {user && user.isAdmin ? (
         <>
-          <div className="p-4 w-full dark:bg-transparent bg-(--root-bg)">
+          <div className="w-full p-3 bg-transparent">
             <PageBreadcrumbs
               items={[
                 { label: "Accueil", path: "/" },
@@ -21,7 +21,7 @@ export function AdminUsersPage() {
                 { label: "Gestion des utilisateurs" },
               ]}
             />
-            <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-300 -mb-4">
+            <h2 className="text-xl font-semibold text-primary dark:text-slate-300 -mb-4">
               Administration - Gestion des utilisateurs
             </h2>
             <div className="divider expert-blue mb-0"></div>
