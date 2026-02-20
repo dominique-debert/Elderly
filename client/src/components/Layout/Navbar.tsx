@@ -192,7 +192,7 @@ export function Navbar() {
         <div className="drawer-side bg-white dark:bg-card mt-16">
           <label
             htmlFor="my-drawer-2"
-            aria-label="close sidebar"
+            aria-label="Fermer le menu latéral"
             className="drawer-overlay"
           ></label>
           <ul className="menu bg-white dark:bg-card min-h-full w-80 z-30 top-16 p-4 gap-2 pb-10">
@@ -219,6 +219,7 @@ export function Navbar() {
                 } `
               }
               title="Explorer"
+              aria-label="Explorer"
             >
               <SearchIcon className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Explorer</span>
@@ -233,6 +234,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Activités"
+              aria-label="Mes Activités"
             >
               <Calendar className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Activités</span>
@@ -246,6 +248,7 @@ export function Navbar() {
                 }`
               }
               title="Mon Bien-Être"
+              aria-label="Mon Bien-Être"
             >
               <HeartHandshake className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mon Bien-Être</span>
@@ -259,6 +262,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Exercices"
+              aria-label="Mes Exercices"
             >
               <Activity className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Exercices</span>
@@ -272,6 +276,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Objectifs"
+              aria-label="Mes Objectifs"
             >
               <LayoutList className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Objectifs</span>
@@ -285,6 +290,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Projets"
+              aria-label="Mes Projets"
             >
               <FolderKanban className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Projets</span>
@@ -298,6 +304,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Traitements"
+              aria-label="Mes Traitements"
             >
               <Pill className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Traitements</span>
@@ -311,7 +318,8 @@ export function Navbar() {
                   isActive ? "bg-primary/10" : ""
                 }`
               }
-              title="Messages"
+              title="Mes Messages"
+              aria-label="Mes Messages"
             >
               <MessageCircle className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Messages</span>
@@ -327,6 +335,7 @@ export function Navbar() {
                     forumOpen ? "bg-primary/10" : ""
                   } `}
                   title="Forum"
+                  aria-label="Forum"
                 >
                   <MessagesSquare className="dark:text-accent text-primary size-4 shrink-0" />
                   <>
@@ -350,6 +359,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Accueil du forum"
                       >
                         <Home className="size-4 text-orange-400" />
                         <span className="text-sm">Accueil</span>
@@ -364,6 +374,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Découvrir le forum"
                       >
                         <Telescope className="size-4 text-orange-400" />
                         <span className="text-sm">Découvrir</span>
@@ -378,6 +389,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Discussions du forum"
                       >
                         <Hash className="size-4 text-orange-400" />
                         <span className="text-sm">Discussions</span>
@@ -392,6 +404,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Catégories du forum"
                       >
                         <ChartColumnStacked className="size-4 text-orange-400" />
                         <span className="text-sm">Catégories</span>
@@ -406,6 +419,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Mes Favoris"
                       >
                         <Bookmark className="size-4 text-orange-400" />
                         <span className="text-sm">Mes Favoris</span>
@@ -420,6 +434,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Notifications du forum"
                       >
                         <Bell className="size-4 text-orange-400" />
                         <span className="text-sm">Notifications</span>
@@ -436,6 +451,7 @@ export function Navbar() {
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
+                          aria-label="Modération du forum"
                         >
                           <Siren className="size-4 text-orange-400" />
                           <span className="text-sm">Modération</span>
@@ -458,6 +474,7 @@ export function Navbar() {
                 } }`
               }
               title={`${user?.firstName} ${user?.lastName}`}
+              aria-label="Mon Profil"
             >
               <div className="rounded-full border-2 border-slate-400 size-8 shrink-0 overflow-hidden">
                 <img
@@ -486,7 +503,7 @@ export function Navbar() {
                     } }`
                   }
                   title="Administration"
-                  data-tip="Espace administration"
+                  aria-label="Administration"
                 >
                   <Settings className="dark:text-accent text-primary size-4 shrink-0" />
                   <span className="text-sm">Administration</span>
