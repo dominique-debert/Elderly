@@ -50,12 +50,12 @@ export function LeftSidebar() {
 
   return (
     <div
-      className={`fixed invisible md:visible z-40 drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-4 rounded-2xl shadow-lg border border-base-200 overflow-y-auto overflow-hidden scrollbar-hide ${
+      className={`fixed invisible z-40 md:visible drawer drawer-open h-[calc(100vh-5.8rem)] top-20 left-4 rounded-2xl ${
         collapsed ? "w-20" : "w-60"
       }`}
     >
       <div
-        className={`drawer-content h-full flex flex-col items-start bg-white dark:bg-transparent rounded-2xl shadow-lg ${
+        className={`drawer-content h-full flex flex-col items-start bg-white dark:bg-transparent rounded-2xl shadow-lg border border-base-200 ${
           collapsed ? "px-2" : "px-2 w-60"
         }`}
         style={{
@@ -65,8 +65,9 @@ export function LeftSidebar() {
       >
         <button
           onClick={handleToggle}
-          className="p-3 m-2 hover:bg-primary/10 rounded-full transition-colors cursor-pointer"
-          title={collapsed ? "Expand" : "Collapse"}
+          className="p-3 m-2 hover:bg-primary/10 rounded-full transition-colors cursor-pointer tooltip tooltip-right tooltip-info"
+          title={collapsed ? "Développer" : "Réduire"}
+          data-tip={collapsed ? "Développer" : "Réduire"}
         >
           {collapsed ? (
             <ChevronRight className="size-4 text-primary dark:text-accent" />
@@ -81,7 +82,10 @@ export function LeftSidebar() {
           <div
             className={`flex flex-col gap-2 px-2 h-full w-full ${collapsed ? "items-center" : ""}`}
           >
-            <div className="hover-3d">
+            <div
+              className="hover-3d tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Tableau de Bord" : ""}
+            >
               <NavLink
                 to="/dashboard"
                 className={({ isActive }) =>
@@ -96,7 +100,10 @@ export function LeftSidebar() {
                 {!collapsed && <span className="text-sm">Tableau de Bord</span>}
               </NavLink>
             </div>
-            <div className="hover-3d">
+            <div
+              className="hover-3d tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Explorer" : ""}
+            >
               <NavLink
                 to="/explore"
                 className={({ isActive }) =>
@@ -112,7 +119,10 @@ export function LeftSidebar() {
               </NavLink>
             </div>
             {!collapsed && <div className="w-55 divider m-0"></div>}
-            <div className="hover-3d">
+            <div
+              className="hover-3d tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Mes Activités" : ""}
+            >
               <NavLink
                 to={"/activities"}
                 className={({ isActive }) =>
@@ -127,7 +137,10 @@ export function LeftSidebar() {
                 {!collapsed && <span className="text-sm">Mes Activités</span>}
               </NavLink>
             </div>
-            <div className="hover-3d">
+            <div
+              className="hover-3d tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Mon Bien-Être" : ""}
+            >
               <NavLink
                 to={"/wellness"}
                 className={({ isActive }) =>
@@ -142,7 +155,10 @@ export function LeftSidebar() {
                 {!collapsed && <span className="text-sm">Mon Bien-Être</span>}
               </NavLink>
             </div>
-            <div className="hover-3d">
+            <div
+              className="hover-3d tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Mes Exercices" : ""}
+            >
               <NavLink
                 to={"/exercises"}
                 className={({ isActive }) =>
@@ -158,7 +174,10 @@ export function LeftSidebar() {
               </NavLink>
             </div>
 
-            <div className="hover-3d">
+            <div
+              className="hover-3d tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Mes Objectifs" : ""}
+            >
               <NavLink
                 to={"/objectives"}
                 className={({ isActive }) =>
@@ -173,7 +192,10 @@ export function LeftSidebar() {
                 {!collapsed && <span className="text-sm">Mes Objectifs</span>}
               </NavLink>
             </div>
-            <div className="hover-3d">
+            <div
+              className="hover-3d tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Mes Projets" : ""}
+            >
               <NavLink
                 to={"/projects"}
                 className={({ isActive }) =>
@@ -188,7 +210,10 @@ export function LeftSidebar() {
                 {!collapsed && <span className="text-sm">Mes Projets</span>}
               </NavLink>
             </div>
-            <div className="hover-3d">
+            <div
+              className="hover-3d tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Mes Traitements" : ""}
+            >
               <NavLink
                 to={"/medications"}
                 className={({ isActive }) =>
@@ -204,7 +229,10 @@ export function LeftSidebar() {
               </NavLink>
             </div>
             {!collapsed && <div className="w-55 divider expert-blue m-0"></div>}
-            <div className="hover-3d">
+            <div
+              className="hover-3d tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Messages" : ""}
+            >
               <NavLink
                 to={"/messages"}
                 className={({ isActive }) =>
@@ -371,7 +399,10 @@ export function LeftSidebar() {
             className={`flex flex-col h-full justify-end mb-2 ${collapsed ? "items-center" : ""}`}
           >
             {!collapsed && <div className="w-55 divider m-0"></div>}
-            <div className="hover-3d w-full">
+            <div
+              className="hover-3d w-full tooltip tooltip-right tooltip-info"
+              data-tip={collapsed ? "Mon Profil" : ""}
+            >
               <NavLink
                 to="/profile"
                 role="button"
@@ -402,7 +433,10 @@ export function LeftSidebar() {
             {user?.isAdmin && (
               <>
                 {!collapsed && <div className="w-55 divider m-0"></div>}
-                <div className="hover-3d w-full">
+                <div
+                  className="hover-3d w-full tooltip tooltip-right tooltip-info"
+                  data-tip={collapsed ? "Administration" : ""}
+                >
                   <NavLink
                     to="/admin"
                     className={({ isActive }) =>
