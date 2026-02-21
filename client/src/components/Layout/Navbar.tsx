@@ -142,15 +142,18 @@ export function Navbar() {
                 <div className="flex items-center gap-6">
                   {/* Theme Toggle */}
 
-                  <label className="swap swap-rotate">
+                  <label
+                    className="swap swap-rotate tooltip tooltip-bottom tooltip-accent"
+                    data-tip="Changer de theme"
+                  >
                     <input
                       type="checkbox"
                       className="theme-controller appearance-none"
-                      value="m3e"
+                      value="light"
                       onChange={handleToggle}
-                      checked={theme === "m3e"}
+                      checked={theme === "light"}
                     />
-                    {theme === "m3e" ? (
+                    {theme === "light" ? (
                       <SunIcon className="size-6 text-yellow-400" />
                     ) : (
                       <MoonIcon className="size-6 text-accent/50" />

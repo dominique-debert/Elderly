@@ -374,12 +374,12 @@ export function LeftSidebar() {
             <div className="hover-3d w-full">
               <NavLink
                 to="/profile"
+                role="button"
                 className={({ isActive }) =>
                   `p-3 flex gap-3 justify-start items-center rounded-3xl text-primary dark:text-slate-300 hover:bg-primary/10 focus:bg-primary/10 ${
                     isActive ? "bg-primary/10" : ""
                   } ${collapsed ? "pl-3 justify-center gap-0" : ""}`
                 }
-                title={collapsed ? `${user?.firstName} ${user?.lastName}` : ""}
                 aria-label="Mon Profil"
               >
                 <div className="rounded-full border-2 border-slate-400 size-8 shrink-0 overflow-hidden">
