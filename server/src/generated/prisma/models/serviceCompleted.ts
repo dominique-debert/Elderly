@@ -1591,6 +1591,11 @@ export type serviceCompletedFindManyArgs<ExtArgs extends runtime.Types.Extension
    * Skip the first `n` serviceCompleteds.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of serviceCompleteds.
+   */
   distinct?: Prisma.ServiceCompletedScalarFieldEnum | Prisma.ServiceCompletedScalarFieldEnum[]
 }
 

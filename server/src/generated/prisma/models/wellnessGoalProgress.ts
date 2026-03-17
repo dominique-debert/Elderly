@@ -1236,6 +1236,11 @@ export type wellnessGoalProgressFindManyArgs<ExtArgs extends runtime.Types.Exten
    * Skip the first `n` wellnessGoalProgresses.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of wellnessGoalProgresses.
+   */
   distinct?: Prisma.WellnessGoalProgressScalarFieldEnum | Prisma.WellnessGoalProgressScalarFieldEnum[]
 }
 

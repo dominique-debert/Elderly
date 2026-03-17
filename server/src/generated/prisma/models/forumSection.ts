@@ -1311,6 +1311,11 @@ export type forumSectionFindManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * Skip the first `n` forumSections.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of forumSections.
+   */
   distinct?: Prisma.ForumSectionScalarFieldEnum | Prisma.ForumSectionScalarFieldEnum[]
 }
 

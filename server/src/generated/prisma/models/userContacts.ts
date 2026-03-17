@@ -1093,6 +1093,11 @@ export type userContactsFindManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * Skip the first `n` userContacts.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of userContacts.
+   */
   distinct?: Prisma.UserContactsScalarFieldEnum | Prisma.UserContactsScalarFieldEnum[]
 }
 

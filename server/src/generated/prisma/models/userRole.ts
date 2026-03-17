@@ -1056,6 +1056,11 @@ export type userRoleFindManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Skip the first `n` userRoles.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of userRoles.
+   */
   distinct?: Prisma.UserRoleScalarFieldEnum | Prisma.UserRoleScalarFieldEnum[]
 }
 

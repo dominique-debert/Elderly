@@ -1165,6 +1165,11 @@ export type categoryChapterFindManyArgs<ExtArgs extends runtime.Types.Extensions
    * Skip the first `n` categoryChapters.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of categoryChapters.
+   */
   distinct?: Prisma.CategoryChapterScalarFieldEnum | Prisma.CategoryChapterScalarFieldEnum[]
 }
 

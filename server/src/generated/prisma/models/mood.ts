@@ -1235,6 +1235,11 @@ export type moodFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    * Skip the first `n` moods.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of moods.
+   */
   distinct?: Prisma.MoodScalarFieldEnum | Prisma.MoodScalarFieldEnum[]
 }
 

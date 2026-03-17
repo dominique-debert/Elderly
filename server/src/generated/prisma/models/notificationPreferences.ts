@@ -1296,6 +1296,11 @@ export type notificationPreferencesFindManyArgs<ExtArgs extends runtime.Types.Ex
    * Skip the first `n` notificationPreferences.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of notificationPreferences.
+   */
   distinct?: Prisma.NotificationPreferencesScalarFieldEnum | Prisma.NotificationPreferencesScalarFieldEnum[]
 }
 

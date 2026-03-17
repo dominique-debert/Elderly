@@ -2285,6 +2285,11 @@ export type activityFindManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Skip the first `n` activities.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of activities.
+   */
   distinct?: Prisma.ActivityScalarFieldEnum | Prisma.ActivityScalarFieldEnum[]
 }
 
