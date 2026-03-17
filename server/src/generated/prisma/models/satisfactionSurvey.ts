@@ -1184,6 +1184,11 @@ export type satisfactionSurveyFindManyArgs<ExtArgs extends runtime.Types.Extensi
    * Skip the first `n` satisfactionSurveys.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of satisfactionSurveys.
+   */
   distinct?: Prisma.SatisfactionSurveyScalarFieldEnum | Prisma.SatisfactionSurveyScalarFieldEnum[]
 }
 

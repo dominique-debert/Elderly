@@ -8,7 +8,7 @@ import { useAuth } from "@/stores";
 import { getNotificationsByUserId } from "@/services";
 import { INotification } from "@/types";
 
-import { NotificationList, Search } from "@/components";
+import { NotificationList } from "@/components";
 import toast from "react-hot-toast";
 import {
   MoonIcon,
@@ -104,6 +104,7 @@ export function Navbar() {
   return (
     <header className="header-area">
       <div className="drawer">
+        {/* Drawer trigger */}
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <div
@@ -117,7 +118,7 @@ export function Navbar() {
               <label
                 htmlFor="my-drawer-2"
                 aria-label="open sidebar"
-                className="btn btn-square btn-ghost"
+                className="btn rounded-btn btn-ghost"
               >
                 <Menu />
               </label>
@@ -126,11 +127,11 @@ export function Navbar() {
             <div className="md:visible w-full bg-transparent">
               <div className="flex justify-between items-center bg-transparent">
                 <Link to="/dashboard">
-                  <div className="flex p-2 items-center gap-4 font-normal text-2xl text-primary">
+                  <div className="flex p-2 pl-4 items-center gap-3 font-normal text-2xl text-primary">
                     <img
                       src="/images/elderly.png"
                       alt="Logo"
-                      className="w-16 md:w-8 float-left"
+                      className="w-16 md:w-8 sm:w-7 float-left"
                     />
                     <span className="text-primary text-2xl invisible md:visible">
                       Elderly
@@ -138,27 +139,21 @@ export function Navbar() {
                   </div>
                 </Link>
 
-                <Search
-                  search={""}
-                  className="invisible md:visible"
-                  placeholder={"Rechercher..."}
-                  setSearch={function (): void {
-                    throw new Error("Function not implemented.");
-                  }}
-                />
-
                 <div className="flex items-center gap-6">
                   {/* Theme Toggle */}
 
-                  <label className="swap swap-rotate">
+                  <label
+                    className="swap swap-rotate tooltip tooltip-bottom tooltip-accent"
+                    data-tip="Changer de theme"
+                  >
                     <input
                       type="checkbox"
                       className="theme-controller appearance-none"
-                      value="m3e"
+                      value="light"
                       onChange={handleToggle}
-                      checked={theme === "m3e"}
+                      checked={theme === "light"}
                     />
-                    {theme === "m3e" ? (
+                    {theme === "light" ? (
                       <SunIcon className="size-6 text-yellow-400" />
                     ) : (
                       <MoonIcon className="size-6 text-accent/50" />
@@ -196,22 +191,14 @@ export function Navbar() {
             </div>
           </div>
         </div>
+        {/* Drawer content for mobile */}
         <div className="drawer-side bg-white dark:bg-card mt-16">
           <label
             htmlFor="my-drawer-2"
-            aria-label="close sidebar"
+            aria-label="Fermer le menu latéral"
             className="drawer-overlay"
           ></label>
           <ul className="menu bg-white dark:bg-card min-h-full w-80 z-30 top-16 p-4 gap-2 pb-10">
-            <Search
-              search={""}
-              placeholder={"Rechercher..."}
-              className="visible dark:border-slate-700"
-              setSearch={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-            />
-            <div className="divider expert-blue p-0 m-0"></div>
             <NavLink
               to="/dashboard"
               onClick={closeDrawer}
@@ -221,6 +208,7 @@ export function Navbar() {
                 }`
               }
               title="Tableau de Bord"
+              aria-label="Tableau de bord"
             >
               <LayoutDashboard className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Tableau de Bord</span>
@@ -234,6 +222,7 @@ export function Navbar() {
                 } `
               }
               title="Explorer"
+              aria-label="Explorer"
             >
               <SearchIcon className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Explorer</span>
@@ -248,6 +237,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Activités"
+              aria-label="Mes Activités"
             >
               <Calendar className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Activités</span>
@@ -261,6 +251,7 @@ export function Navbar() {
                 }`
               }
               title="Mon Bien-Être"
+              aria-label="Mon Bien-Être"
             >
               <HeartHandshake className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mon Bien-Être</span>
@@ -274,6 +265,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Exercices"
+              aria-label="Mes Exercices"
             >
               <Activity className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Exercices</span>
@@ -287,6 +279,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Objectifs"
+              aria-label="Mes Objectifs"
             >
               <LayoutList className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Objectifs</span>
@@ -300,6 +293,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Projets"
+              aria-label="Mes Projets"
             >
               <FolderKanban className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Projets</span>
@@ -313,6 +307,7 @@ export function Navbar() {
                 }`
               }
               title="Mes Traitements"
+              aria-label="Mes Traitements"
             >
               <Pill className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Mes Traitements</span>
@@ -326,7 +321,8 @@ export function Navbar() {
                   isActive ? "bg-primary/10" : ""
                 }`
               }
-              title="Messages"
+              title="Mes Messages"
+              aria-label="Mes Messages"
             >
               <MessageCircle className="dark:text-accent text-primary size-4 shrink-0" />
               <span className="text-sm">Messages</span>
@@ -342,6 +338,7 @@ export function Navbar() {
                     forumOpen ? "bg-primary/10" : ""
                   } `}
                   title="Forum"
+                  aria-label="Forum"
                 >
                   <MessagesSquare className="dark:text-accent text-primary size-4 shrink-0" />
                   <>
@@ -365,6 +362,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Accueil du forum"
                       >
                         <Home className="size-4 text-orange-400" />
                         <span className="text-sm">Accueil</span>
@@ -379,6 +377,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Découvrir le forum"
                       >
                         <Telescope className="size-4 text-orange-400" />
                         <span className="text-sm">Découvrir</span>
@@ -393,6 +392,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Discussions du forum"
                       >
                         <Hash className="size-4 text-orange-400" />
                         <span className="text-sm">Discussions</span>
@@ -407,6 +407,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Catégories du forum"
                       >
                         <ChartColumnStacked className="size-4 text-orange-400" />
                         <span className="text-sm">Catégories</span>
@@ -421,6 +422,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Mes Favoris"
                       >
                         <Bookmark className="size-4 text-orange-400" />
                         <span className="text-sm">Mes Favoris</span>
@@ -435,6 +437,7 @@ export function Navbar() {
                             isActive ? "bg-primary/10" : ""
                           }`
                         }
+                        aria-label="Notifications du forum"
                       >
                         <Bell className="size-4 text-orange-400" />
                         <span className="text-sm">Notifications</span>
@@ -451,6 +454,7 @@ export function Navbar() {
                               isActive ? "bg-primary/10" : ""
                             }`
                           }
+                          aria-label="Modération du forum"
                         >
                           <Siren className="size-4 text-orange-400" />
                           <span className="text-sm">Modération</span>
@@ -473,6 +477,7 @@ export function Navbar() {
                 } }`
               }
               title={`${user?.firstName} ${user?.lastName}`}
+              aria-label="Mon Profil"
             >
               <div className="rounded-full border-2 border-slate-400 size-8 shrink-0 overflow-hidden">
                 <img
@@ -501,7 +506,7 @@ export function Navbar() {
                     } }`
                   }
                   title="Administration"
-                  data-tip="Espace administration"
+                  aria-label="Administration"
                 >
                   <Settings className="dark:text-accent text-primary size-4 shrink-0" />
                   <span className="text-sm">Administration</span>

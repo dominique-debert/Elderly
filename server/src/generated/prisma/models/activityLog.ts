@@ -1227,6 +1227,11 @@ export type activityLogFindManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Skip the first `n` activityLogs.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of activityLogs.
+   */
   distinct?: Prisma.ActivityLogScalarFieldEnum | Prisma.ActivityLogScalarFieldEnum[]
 }
 

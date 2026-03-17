@@ -30,7 +30,7 @@ export const DashboardWeatherWidget = () => {
   return (
     <>
       <Card
-        className="bg-transparent! flex justify-center pb-0 md:pb-8 shadow-md"
+        className="bg-transparent dark:bg-card flex justify-center pb-0 md:pb-8 shadow-md"
         style={{
           backdropFilter: "blur(2rem)",
           WebkitBackdropFilter: "blur(2rem)",

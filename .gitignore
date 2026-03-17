@@ -1,9 +1,8 @@
-node_modules
+node_modules/
+dist/
+build/
 .DS_Store
-.git
-Icon?
-client/.env
-server/.env
-
-# ignore environment files everywhere
 **/.env
+**/.env.local
+.vscode/
+.idea/

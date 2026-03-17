@@ -1409,6 +1409,11 @@ export type serviceRatingFindManyArgs<ExtArgs extends runtime.Types.Extensions.I
    * Skip the first `n` serviceRatings.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of serviceRatings.
+   */
   distinct?: Prisma.ServiceRatingScalarFieldEnum | Prisma.ServiceRatingScalarFieldEnum[]
 }
 

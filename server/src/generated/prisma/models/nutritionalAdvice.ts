@@ -1271,6 +1271,11 @@ export type nutritionalAdviceFindManyArgs<ExtArgs extends runtime.Types.Extensio
    * Skip the first `n` nutritionalAdvices.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of nutritionalAdvices.
+   */
   distinct?: Prisma.NutritionalAdviceScalarFieldEnum | Prisma.NutritionalAdviceScalarFieldEnum[]
 }
 

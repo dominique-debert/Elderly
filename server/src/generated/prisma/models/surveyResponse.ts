@@ -1318,6 +1318,11 @@ export type surveyResponseFindManyArgs<ExtArgs extends runtime.Types.Extensions.
    * Skip the first `n` surveyResponses.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of surveyResponses.
+   */
   distinct?: Prisma.SurveyResponseScalarFieldEnum | Prisma.SurveyResponseScalarFieldEnum[]
 }
 

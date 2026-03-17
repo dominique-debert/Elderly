@@ -36,8 +36,7 @@
 @plugin "daisyui" {
   themes:
     light --default,
-    dark --prefersdark,
-    m3e;
+    dark --prefersdark;
 }
 
 @layer base {

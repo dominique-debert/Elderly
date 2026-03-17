@@ -1365,6 +1365,11 @@ export type helpOfferFindManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Skip the first `n` helpOffers.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of helpOffers.
+   */
   distinct?: Prisma.HelpOfferScalarFieldEnum | Prisma.HelpOfferScalarFieldEnum[]
 }
 

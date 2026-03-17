@@ -1450,6 +1450,11 @@ export type resourceFindManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Skip the first `n` resources.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of resources.
+   */
   distinct?: Prisma.ResourceScalarFieldEnum | Prisma.ResourceScalarFieldEnum[]
 }
 

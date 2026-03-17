@@ -1634,6 +1634,11 @@ export type badgeFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Skip the first `n` badges.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of badges.
+   */
   distinct?: Prisma.BadgeScalarFieldEnum | Prisma.BadgeScalarFieldEnum[]
 }
 

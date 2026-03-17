@@ -1447,6 +1447,11 @@ export type projectTaskFindManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Skip the first `n` projectTasks.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of projectTasks.
+   */
   distinct?: Prisma.ProjectTaskScalarFieldEnum | Prisma.ProjectTaskScalarFieldEnum[]
 }
 

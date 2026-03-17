@@ -6,7 +6,7 @@ import {
   ReactNode,
 } from "react";
 
-type Theme = "m3e" | "dark";
+type Theme = "light" | "dark";
 
 type ThemeContextType = {
   theme: Theme;
@@ -17,9 +17,9 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const getInitialTheme = (): Theme => {
-  if (typeof window === "undefined") return "m3e";
+  if (typeof window === "undefined") return "light";
   const saved = localStorage.getItem("theme");
-  return saved === "dark" ? "dark" : "m3e";
+  return saved === "dark" ? "dark" : "light";
 };
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -40,7 +40,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleTheme = () => {
-    setThemeState((prevTheme) => (prevTheme === "m3e" ? "dark" : "m3e"));
+    setThemeState((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (

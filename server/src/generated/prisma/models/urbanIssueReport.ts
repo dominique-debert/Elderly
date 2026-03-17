@@ -1532,6 +1532,11 @@ export type urbanIssueReportFindManyArgs<ExtArgs extends runtime.Types.Extension
    * Skip the first `n` urbanIssueReports.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of urbanIssueReports.
+   */
   distinct?: Prisma.UrbanIssueReportScalarFieldEnum | Prisma.UrbanIssueReportScalarFieldEnum[]
 }
 

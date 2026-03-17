@@ -1402,6 +1402,11 @@ export type trustedContactFindManyArgs<ExtArgs extends runtime.Types.Extensions.
    * Skip the first `n` trustedContacts.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of trustedContacts.
+   */
   distinct?: Prisma.TrustedContactScalarFieldEnum | Prisma.TrustedContactScalarFieldEnum[]
 }
 
