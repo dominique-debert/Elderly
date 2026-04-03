@@ -13,4 +13,3 @@ coverage/
 *.sln
 *.sw?
 .eslintcache
-public/
