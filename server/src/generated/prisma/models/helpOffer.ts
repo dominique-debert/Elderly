@@ -179,7 +179,7 @@ export type HelpOfferGroupByOutputType = {
   _max: HelpOfferMaxAggregateOutputType | null
 }
 
-type GetHelpOfferGroupByPayload<T extends helpOfferGroupByArgs> = Prisma.PrismaPromise<
+export type GetHelpOfferGroupByPayload<T extends helpOfferGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<HelpOfferGroupByOutputType, T['by']> &
       {

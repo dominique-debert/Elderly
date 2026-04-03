@@ -228,7 +228,7 @@ export type CognitiveExerciseGroupByOutputType = {
   _max: CognitiveExerciseMaxAggregateOutputType | null
 }
 
-type GetCognitiveExerciseGroupByPayload<T extends cognitiveExerciseGroupByArgs> = Prisma.PrismaPromise<
+export type GetCognitiveExerciseGroupByPayload<T extends cognitiveExerciseGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<CognitiveExerciseGroupByOutputType, T['by']> &
       {

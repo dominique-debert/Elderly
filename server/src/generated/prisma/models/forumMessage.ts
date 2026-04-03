@@ -172,7 +172,7 @@ export type ForumMessageGroupByOutputType = {
   _max: ForumMessageMaxAggregateOutputType | null
 }
 
-type GetForumMessageGroupByPayload<T extends forumMessageGroupByArgs> = Prisma.PrismaPromise<
+export type GetForumMessageGroupByPayload<T extends forumMessageGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<ForumMessageGroupByOutputType, T['by']> &
       {

@@ -165,7 +165,7 @@ export type BlockedContactGroupByOutputType = {
   _max: BlockedContactMaxAggregateOutputType | null
 }
 
-type GetBlockedContactGroupByPayload<T extends blockedContactGroupByArgs> = Prisma.PrismaPromise<
+export type GetBlockedContactGroupByPayload<T extends blockedContactGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<BlockedContactGroupByOutputType, T['by']> &
       {

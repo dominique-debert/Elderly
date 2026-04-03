@@ -250,7 +250,7 @@ export type HealthIndicatorGroupByOutputType = {
   _max: HealthIndicatorMaxAggregateOutputType | null
 }
 
-type GetHealthIndicatorGroupByPayload<T extends healthIndicatorGroupByArgs> = Prisma.PrismaPromise<
+export type GetHealthIndicatorGroupByPayload<T extends healthIndicatorGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<HealthIndicatorGroupByOutputType, T['by']> &
       {

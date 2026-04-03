@@ -251,7 +251,7 @@ export type UserStatisticsGroupByOutputType = {
   _max: UserStatisticsMaxAggregateOutputType | null
 }
 
-type GetUserStatisticsGroupByPayload<T extends userStatisticsGroupByArgs> = Prisma.PrismaPromise<
+export type GetUserStatisticsGroupByPayload<T extends userStatisticsGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<UserStatisticsGroupByOutputType, T['by']> &
       {

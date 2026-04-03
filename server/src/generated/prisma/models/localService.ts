@@ -241,7 +241,7 @@ export type LocalServiceGroupByOutputType = {
   _max: LocalServiceMaxAggregateOutputType | null
 }
 
-type GetLocalServiceGroupByPayload<T extends localServiceGroupByArgs> = Prisma.PrismaPromise<
+export type GetLocalServiceGroupByPayload<T extends localServiceGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<LocalServiceGroupByOutputType, T['by']> &
       {

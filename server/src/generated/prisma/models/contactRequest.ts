@@ -172,7 +172,7 @@ export type ContactRequestGroupByOutputType = {
   _max: ContactRequestMaxAggregateOutputType | null
 }
 
-type GetContactRequestGroupByPayload<T extends contactRequestGroupByArgs> = Prisma.PrismaPromise<
+export type GetContactRequestGroupByPayload<T extends contactRequestGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<ContactRequestGroupByOutputType, T['by']> &
       {

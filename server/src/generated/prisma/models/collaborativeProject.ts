@@ -220,7 +220,7 @@ export type CollaborativeProjectGroupByOutputType = {
   _max: CollaborativeProjectMaxAggregateOutputType | null
 }
 
-type GetCollaborativeProjectGroupByPayload<T extends collaborativeProjectGroupByArgs> = Prisma.PrismaPromise<
+export type GetCollaborativeProjectGroupByPayload<T extends collaborativeProjectGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<CollaborativeProjectGroupByOutputType, T['by']> &
       {

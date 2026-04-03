@@ -228,7 +228,7 @@ export type MedicationReminderGroupByOutputType = {
   _max: MedicationReminderMaxAggregateOutputType | null
 }
 
-type GetMedicationReminderGroupByPayload<T extends medicationReminderGroupByArgs> = Prisma.PrismaPromise<
+export type GetMedicationReminderGroupByPayload<T extends medicationReminderGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<MedicationReminderGroupByOutputType, T['by']> &
       {

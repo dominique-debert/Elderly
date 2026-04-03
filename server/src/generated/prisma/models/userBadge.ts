@@ -158,7 +158,7 @@ export type UserBadgeGroupByOutputType = {
   _max: UserBadgeMaxAggregateOutputType | null
 }
 
-type GetUserBadgeGroupByPayload<T extends userBadgeGroupByArgs> = Prisma.PrismaPromise<
+export type GetUserBadgeGroupByPayload<T extends userBadgeGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<UserBadgeGroupByOutputType, T['by']> &
       {

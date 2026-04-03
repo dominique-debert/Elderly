@@ -199,7 +199,7 @@ export type SkillGroupByOutputType = {
   _max: SkillMaxAggregateOutputType | null
 }
 
-type GetSkillGroupByPayload<T extends skillGroupByArgs> = Prisma.PrismaPromise<
+export type GetSkillGroupByPayload<T extends skillGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SkillGroupByOutputType, T['by']> &
       {
