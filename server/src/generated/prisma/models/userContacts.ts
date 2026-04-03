@@ -151,7 +151,7 @@ export type UserContactsGroupByOutputType = {
   _max: UserContactsMaxAggregateOutputType | null
 }
 
-type GetUserContactsGroupByPayload<T extends userContactsGroupByArgs> = Prisma.PrismaPromise<
+export type GetUserContactsGroupByPayload<T extends userContactsGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<UserContactsGroupByOutputType, T['by']> &
       {

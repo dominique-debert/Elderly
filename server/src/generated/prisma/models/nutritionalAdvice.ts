@@ -213,7 +213,7 @@ export type NutritionalAdviceGroupByOutputType = {
   _max: NutritionalAdviceMaxAggregateOutputType | null
 }
 
-type GetNutritionalAdviceGroupByPayload<T extends nutritionalAdviceGroupByArgs> = Prisma.PrismaPromise<
+export type GetNutritionalAdviceGroupByPayload<T extends nutritionalAdviceGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<NutritionalAdviceGroupByOutputType, T['by']> &
       {

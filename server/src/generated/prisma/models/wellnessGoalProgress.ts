@@ -206,7 +206,7 @@ export type WellnessGoalProgressGroupByOutputType = {
   _max: WellnessGoalProgressMaxAggregateOutputType | null
 }
 
-type GetWellnessGoalProgressGroupByPayload<T extends wellnessGoalProgressGroupByArgs> = Prisma.PrismaPromise<
+export type GetWellnessGoalProgressGroupByPayload<T extends wellnessGoalProgressGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<WellnessGoalProgressGroupByOutputType, T['by']> &
       {

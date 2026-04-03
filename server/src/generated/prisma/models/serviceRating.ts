@@ -213,7 +213,7 @@ export type ServiceRatingGroupByOutputType = {
   _max: ServiceRatingMaxAggregateOutputType | null
 }
 
-type GetServiceRatingGroupByPayload<T extends serviceRatingGroupByArgs> = Prisma.PrismaPromise<
+export type GetServiceRatingGroupByPayload<T extends serviceRatingGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<ServiceRatingGroupByOutputType, T['by']> &
       {

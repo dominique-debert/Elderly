@@ -234,7 +234,7 @@ export type UrbanIssueReportGroupByOutputType = {
   _max: UrbanIssueReportMaxAggregateOutputType | null
 }
 
-type GetUrbanIssueReportGroupByPayload<T extends urbanIssueReportGroupByArgs> = Prisma.PrismaPromise<
+export type GetUrbanIssueReportGroupByPayload<T extends urbanIssueReportGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<UrbanIssueReportGroupByOutputType, T['by']> &
       {

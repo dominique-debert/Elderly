@@ -214,7 +214,7 @@ export type TrustedContactGroupByOutputType = {
   _max: TrustedContactMaxAggregateOutputType | null
 }
 
-type GetTrustedContactGroupByPayload<T extends trustedContactGroupByArgs> = Prisma.PrismaPromise<
+export type GetTrustedContactGroupByPayload<T extends trustedContactGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<TrustedContactGroupByOutputType, T['by']> &
       {

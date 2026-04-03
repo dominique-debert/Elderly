@@ -217,7 +217,7 @@ export type MoodGroupByOutputType = {
   _max: MoodMaxAggregateOutputType | null
 }
 
-type GetMoodGroupByPayload<T extends moodGroupByArgs> = Prisma.PrismaPromise<
+export type GetMoodGroupByPayload<T extends moodGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<MoodGroupByOutputType, T['by']> &
       {

@@ -179,7 +179,7 @@ export type SatisfactionSurveyGroupByOutputType = {
   _max: SatisfactionSurveyMaxAggregateOutputType | null
 }
 
-type GetSatisfactionSurveyGroupByPayload<T extends satisfactionSurveyGroupByArgs> = Prisma.PrismaPromise<
+export type GetSatisfactionSurveyGroupByPayload<T extends satisfactionSurveyGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SatisfactionSurveyGroupByOutputType, T['by']> &
       {

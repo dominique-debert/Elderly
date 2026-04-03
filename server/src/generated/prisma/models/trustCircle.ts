@@ -172,7 +172,7 @@ export type TrustCircleGroupByOutputType = {
   _max: TrustCircleMaxAggregateOutputType | null
 }
 
-type GetTrustCircleGroupByPayload<T extends trustCircleGroupByArgs> = Prisma.PrismaPromise<
+export type GetTrustCircleGroupByPayload<T extends trustCircleGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<TrustCircleGroupByOutputType, T['by']> &
       {

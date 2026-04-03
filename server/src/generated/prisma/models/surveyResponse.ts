@@ -168,7 +168,7 @@ export type SurveyResponseGroupByOutputType = {
   _max: SurveyResponseMaxAggregateOutputType | null
 }
 
-type GetSurveyResponseGroupByPayload<T extends surveyResponseGroupByArgs> = Prisma.PrismaPromise<
+export type GetSurveyResponseGroupByPayload<T extends surveyResponseGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SurveyResponseGroupByOutputType, T['by']> &
       {

@@ -207,7 +207,7 @@ export type MunicipalEventGroupByOutputType = {
   _max: MunicipalEventMaxAggregateOutputType | null
 }
 
-type GetMunicipalEventGroupByPayload<T extends municipalEventGroupByArgs> = Prisma.PrismaPromise<
+export type GetMunicipalEventGroupByPayload<T extends municipalEventGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<MunicipalEventGroupByOutputType, T['by']> &
       {
